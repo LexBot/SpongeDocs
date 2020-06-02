@@ -19,17 +19,6 @@
 
         <link rel="index" title="索引"
               href="../../genindex.html"/>        <link rel="search" title="搜索" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 文档" href="../../index.html"/>        <link rel="up" title="经济 API" href="index.html"/>        <link rel="next" title="使用经济 API" href="using.html"/>        <link rel="prev" title="经济 API" href="index.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -182,7 +171,7 @@
 </ul>
 <div class="section" id="the-economyservice">
 <h2>经济服务<a class="headerlink" href="#the-economyservice" title="永久链接至标题">¶</a></h2>
-<p><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/economy/EconomyService.html">EconomyService</a> 是经济 API 的基础。它用于通过经济 API 进行交互、存储货币、并提供管理帐户的方法。</p>
+<p><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/economy/EconomyService.html">EconomyService</a> 是经济 API 的基础。它用于通过经济 API 进行交互、存储货币、并提供管理帐户的方法。</p>
 <div class="admonition warning">
 <p class="first admonition-title">警告</p>
 <p class="last">Sponge 没有提供 <code class="docutils literal notranslate"><span class="pre">EconomyService</span></code> 的默认实现。也就是说这完全依靠第三方插件来实现经济 API 。这意味着如果你想要使用经济 API ，你需要依赖另一个实现了经济 API 的插件，否则你需要自己实现它。</p>
@@ -190,11 +179,11 @@
 </div>
 <div class="section" id="currency">
 <h2>货币（Currency）<a class="headerlink" href="#currency" title="永久链接至标题">¶</a></h2>
-<p><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/economy/Currency.html">Currency</a> 对象表示一种货币。 <code class="docutils literal notranslate"><span class="pre">Currency</span></code> 存储了一个显示名称（单数或复数），一个货币符号（如￥或＄等），小数点的位数，以及它是否是默认的交易货币。如果经济插件支持，那么我们可以使用多种货币。</p>
+<p><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/economy/Currency.html">Currency</a> 对象表示一种货币。 <code class="docutils literal notranslate"><span class="pre">Currency</span></code> 存储了一个显示名称（单数或复数），一个货币符号（如￥或＄等），小数点的位数，以及它是否是默认的交易货币。如果经济插件支持，那么我们可以使用多种货币。</p>
 </div>
 <div class="section" id="accounts">
 <h2>账户（Account）<a class="headerlink" href="#accounts" title="永久链接至标题">¶</a></h2>
-<p><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/economy/account/Account.html">Account</a> 用于存储一个特定玩家或其他对象（如银行、企业、实体）等的经济数据。在 Sponge 的经济 API 系统中有两种账户类型：</p>
+<p><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/economy/account/Account.html">Account</a> 用于存储一个特定玩家或其他对象（如银行、企业、实体）等的经济数据。在 Sponge 的经济 API 系统中有两种账户类型：</p>
 <div class="section" id="virtual-accounts">
 <h3>虚拟帐户<a class="headerlink" href="#virtual-accounts" title="永久链接至标题">¶</a></h3>
 <p>虚拟账户绑定到一个特定标识符，这个标识符是一个字符串。虚拟帐户可以绑定到几乎任何东西，但通常用于诸如银行或非玩家的事情。要获取虚拟帐户的 ID ，请使用 <code class="docutils literal notranslate"><span class="pre">getIdentifier()</span></code> 方法。</p>
@@ -212,7 +201,7 @@
 <li>支出：代表帐户中货币数量的减少</li>
 <li>转让：代表帐户中的货币与另一个帐户的货币之间的流动</li>
 </ul>
-<p>当交易发生时，经济系统将触发 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/economy/EconomyTransactionEvent.html">EconomyTransactionEvent</a> 事件。这一事件提供了 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/economy/transaction/TransactionResult.html">TransactionResult</a> ，而 <code class="docutils literal notranslate"><span class="pre">TransactionResult</span></code> 储存了交易的相关数据，包括：</p>
+<p>当交易发生时，经济系统将触发 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/economy/EconomyTransactionEvent.html">EconomyTransactionEvent</a> 事件。这一事件提供了 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/economy/transaction/TransactionResult.html">TransactionResult</a> ，而 <code class="docutils literal notranslate"><span class="pre">TransactionResult</span></code> 储存了交易的相关数据，包括：</p>
 <ul class="simple">
 <li>涉及账户</li>
 <li>涉及币种</li>
@@ -220,7 +209,7 @@
 <li>交易类型</li>
 <li>交易结果</li>
 </ul>
-<p>你可以查看 JavaDoc 页面（ <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/economy/transaction/ResultType.html">ResultType</a> ）以了解所有可能的交易结果。</p>
+<p>你可以查看 JavaDoc 页面（ <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/economy/transaction/ResultType.html">ResultType</a> ）以了解所有可能的交易结果。</p>
 </div>
 </div>
 

@@ -19,17 +19,6 @@
 
         <link rel="index" title="Алфавитный указатель"
               href="../../genindex.html"/>        <link rel="search" title="Поиск" href="../../search.html"/>    <link rel="top" title="Документация Sponge 7.2.0" href="../../index.html"/>        <link rel="up" title="События" href="index.html"/>        <link rel="next" title="Причины Событий" href="causes.html"/>        <link rel="prev" title="События" href="index.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -173,7 +162,7 @@
            <div itemprop="articleBody">
   <div class="section" id="event-listeners">
 <h1>Слушатели событий<a class="headerlink" href="#event-listeners" title="Ссылка на этот заголовок">¶</a></h1>
-<p>Чтобы прослушать событие, слушатель события должен быть зарегистрирован. Это делается путем создания метода с любым именем, определяя первый параметр как желаемый тип события, а затем прикрепляя аннотацию <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/Listener.html">Listener</a> к методу, как показано ниже.</p>
+<p>Чтобы прослушать событие, слушатель события должен быть зарегистрирован. Это делается путем создания метода с любым именем, определяя первый параметр как желаемый тип события, а затем прикрепляя аннотацию <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/Listener.html">Listener</a> к методу, как показано ниже.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.event.Listener</span><span class="p">;</span>
 
 <span class="nd">@Listener</span>
@@ -185,15 +174,15 @@
 <p>Кроме того, класс, содержащий эти методы, должен быть зарегистрирован в менеджере событий:</p>
 <div class="admonition tip">
 <p class="first admonition-title">Совет</p>
-<p class="last">Для слушателей событий в вашем главном классе плагина (с аннотацией <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/plugin/Plugin.html">Plugin</a>) вам не нужно регистрировать слушатель событий, так как Sponge сделает это автоматически.</p>
+<p class="last">Для слушателей событий в вашем главном классе плагина (с аннотацией <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/plugin/Plugin.html">Plugin</a>) вам не нужно регистрировать слушатель событий, так как Sponge сделает это автоматически.</p>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Примечание</p>
-<p class="last">Шина событий <strong>поддерживает супертипы</strong>. Например, <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/block/ChangeBlockEvent.Break.html">ChangeBlockEvent.Break</a> наследует <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/block/ChangeBlockEvent.html">ChangeBlockEvent</a>. Поэтому плагин может прослушивать <code class="docutils literal notranslate"><span class="pre">ChangeBlockEvent</span></code> и все равно получать <code class="docutils literal notranslate"><span class="pre">ChangeBlockEvent.Break</span></code>. Однако плагин, который прослушивает только <code class="docutils literal notranslate"><span class="pre">ChangeBlockEvent.Break</span></code>, не будет уведомлен о других типах <code class="docutils literal notranslate"><span class="pre">ChangeBlockEvent</span></code>.</p>
+<p class="last">Шина событий <strong>поддерживает супертипы</strong>. Например, <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/block/ChangeBlockEvent.Break.html">ChangeBlockEvent.Break</a> наследует <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/block/ChangeBlockEvent.html">ChangeBlockEvent</a>. Поэтому плагин может прослушивать <code class="docutils literal notranslate"><span class="pre">ChangeBlockEvent</span></code> и все равно получать <code class="docutils literal notranslate"><span class="pre">ChangeBlockEvent.Break</span></code>. Однако плагин, который прослушивает только <code class="docutils literal notranslate"><span class="pre">ChangeBlockEvent.Break</span></code>, не будет уведомлен о других типах <code class="docutils literal notranslate"><span class="pre">ChangeBlockEvent</span></code>.</p>
 </div>
 <div class="section" id="registering-and-unregistering-event-listeners">
 <h2>Регистрация и отмена регистрации слушателей событий<a class="headerlink" href="#registering-and-unregistering-event-listeners" title="Ссылка на этот заголовок">¶</a></h2>
-<p>Для регистрации слушателей событий, с аннотацией <code class="docutils literal notranslate"><span class="pre">&#64;Listener</span></code>, которые не входят в основной класс плагина, вы можете использовать метод <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/EventManager.html#registerListeners-java.lang.Object-java.lang.Object-">EventManager#registerListeners(Object, Object)</a>, который принимает ссылку на плагин и экземпляр класса, содержащий слушателей событий.</p>
+<p>Для регистрации слушателей событий, с аннотацией <code class="docutils literal notranslate"><span class="pre">&#64;Listener</span></code>, которые не входят в основной класс плагина, вы можете использовать метод <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/EventManager.html#registerListeners-java.lang.Object-java.lang.Object-">EventManager#registerListeners(Object, Object)</a>, который принимает ссылку на плагин и экземпляр класса, содержащий слушателей событий.</p>
 <p><strong>Пример: Регистрация слушателей событий в других классах</strong></p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.Sponge</span><span class="p">;</span>
 
@@ -210,7 +199,7 @@
 </div>
 <div class="section" id="dynamically-registering-event-listeners">
 <h3>Динамическая регистрация слушателей событий<a class="headerlink" href="#dynamically-registering-event-listeners" title="Ссылка на этот заголовок">¶</a></h3>
-<p>Некоторые плагины (таких как скриптовые плагины) могут захотеть динамически регистрировать слушателя событий. В этом случае слушатель событий - это не метод с аннотацией <code class="docutils literal notranslate"><span class="pre">&#64;Listener</span></code>, а скорее класс, реализующий интерфейс <code class="docutils literal notranslate"><span class="pre">EventListener</span></code>. Этот слушатель событий может быть зарегистрирован путем вызова <code class="docutils literal notranslate"><span class="pre">EventManager#registerListener</span></code>, который принимает ссылку на плагин в качестве первого аргумента, <code class="docutils literal notranslate"><span class="pre">Class</span></code> события, как второй аргумент, а самого слушателя в качестве последнего аргумента. При желании вы можете указать <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/Order.html">Order</a> для запуска слушателя событий в качестве третьего аргумента или логическое значение в качестве четвертого аргумента (перед экземпляром слушателя), которое определяет, следует ли вызывать слушателя до других модификаций сервера.</p>
+<p>Некоторые плагины (таких как скриптовые плагины) могут захотеть динамически регистрировать слушателя событий. В этом случае слушатель событий - это не метод с аннотацией <code class="docutils literal notranslate"><span class="pre">&#64;Listener</span></code>, а скорее класс, реализующий интерфейс <code class="docutils literal notranslate"><span class="pre">EventListener</span></code>. Этот слушатель событий может быть зарегистрирован путем вызова <code class="docutils literal notranslate"><span class="pre">EventManager#registerListener</span></code>, который принимает ссылку на плагин в качестве первого аргумента, <code class="docutils literal notranslate"><span class="pre">Class</span></code> события, как второй аргумент, а самого слушателя в качестве последнего аргумента. При желании вы можете указать <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/Order.html">Order</a> для запуска слушателя событий в качестве третьего аргумента или логическое значение в качестве четвертого аргумента (перед экземпляром слушателя), которое определяет, следует ли вызывать слушателя до других модификаций сервера.</p>
 <p><strong>Пример: Реализация EventListener</strong></p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.event.EventListener</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.spongepowered.api.event.block.ChangeBlockEvent</span><span class="p">;</span>
@@ -236,12 +225,12 @@
 </div>
 <div class="section" id="unregistering-event-listeners">
 <h3>Отмена регистрации слушателей событий<a class="headerlink" href="#unregistering-event-listeners" title="Ссылка на этот заголовок">¶</a></h3>
-<p>Чтобы отменить регистрацию одного слушателя событий, вы можете использовать метод <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/EventManager.html#unregisterListeners-java.lang.Object-">EventManager#unregisterListeners(Object)</a>, который принимает экземпляр класса, содержащего слушателей событий.</p>
+<p>Чтобы отменить регистрацию одного слушателя событий, вы можете использовать метод <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/EventManager.html#unregisterListeners-java.lang.Object-">EventManager#unregisterListeners(Object)</a>, который принимает экземпляр класса, содержащего слушателей событий.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">EventListener</span> <span class="n">listener</span> <span class="o">=</span> <span class="p">...;</span>
 <span class="n">Sponge</span><span class="p">.</span><span class="na">getEventManager</span><span class="p">().</span><span class="na">unregisterListeners</span><span class="p">(</span><span class="n">listener</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>Кроме того, вы можете использовать <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/EventManager.html#unregisterPluginListeners-java.lang.Object-">EventManager#unregisterPluginListeners(Object)</a>, передавая ссылку на плагин, чтобы отменить регистрацию всех слушателей событий, связанных с этим плагином. Обратите внимание, что это удалит <em>все</em> слушатели событий плагина, включая те, которые зарегистрированы с аннотациями <code class="docutils literal notranslate"><span class="pre">&#64;Listener</span></code>.</p>
+<p>Кроме того, вы можете использовать <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/EventManager.html#unregisterPluginListeners-java.lang.Object-">EventManager#unregisterPluginListeners(Object)</a>, передавая ссылку на плагин, чтобы отменить регистрацию всех слушателей событий, связанных с этим плагином. Обратите внимание, что это удалит <em>все</em> слушатели событий плагина, включая те, которые зарегистрированы с аннотациями <code class="docutils literal notranslate"><span class="pre">&#64;Listener</span></code>.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">PluginContainer</span> <span class="n">plugin</span> <span class="o">=</span> <span class="p">...;</span>
 <span class="n">Sponge</span><span class="p">.</span><span class="na">getEventManager</span><span class="p">().</span><span class="na">unregisterPluginListeners</span><span class="p">(</span><span class="n">plugin</span><span class="p">);</span>
 </pre></div>
@@ -251,7 +240,7 @@
 <span id="id1"></span><h3>О &#64;Listener<a class="headerlink" href="#about-listener" title="Ссылка на этот заголовок">¶</a></h3>
 <p>У аннотации <code class="docutils literal notranslate"><span class="pre">&#64;Listener</span></code> имеется несколько настраиваемых полей:</p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">order</span></code> is the priority in which the event listener is to be run. See the <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/Order.html">Order</a> enum in SpongeAPI to
+<li><code class="docutils literal notranslate"><span class="pre">order</span></code> is the priority in which the event listener is to be run. See the <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/Order.html">Order</a> enum in SpongeAPI to
 see the available options.</li>
 <li><code class="docutils literal notranslate"><span class="pre">beforeModifications</span></code> указывает, должен ли слушатель событий вызываться перед другими модами сервера, такими как моды Forge. По умолчанию установлено значение false.</li>
 </ul>
@@ -261,7 +250,7 @@ see the available options.</li>
 <span id="game-reload"></span><h3>GameReloadEvent<a class="headerlink" href="#gamereloadevent" title="Ссылка на этот заголовок">¶</a></h3>
 <p>To prevent all plugins providing their own reload commands, Sponge provides a built-in callback for plugins to listen
 to, and when executed, perform any reloading actions. What constitutes as a „reloading action“ is purely up to the
-plugin to decide. The <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/GameReloadEvent.html">GameReloadEvent</a> will fire when a player executes the
+plugin to decide. The <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/game/GameReloadEvent.html">GameReloadEvent</a> will fire when a player executes the
 <code class="docutils literal notranslate"><span class="pre">/sponge</span> <span class="pre">plugins</span> <span class="pre">reload</span></code> command. The event is not necessarily limited to reloading configuration.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.event.game.GameReloadEvent</span><span class="p">;</span>
 
@@ -276,15 +265,15 @@ plugin to decide. The <a class="reference external" href="https://jd.spongepower
 </div>
 <div class="section" id="firing-events">
 <h2>Вызов событий<a class="headerlink" href="#firing-events" title="Ссылка на этот заголовок">¶</a></h2>
-<p>Чтобы отправить событие, вам нужен объект, который реализует интерфейс <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/Event.html">Event</a>.</p>
-<p>Вы можете „бросить“ события с использованием шины событий (<a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/EventManager.html">EventManager</a>):</p>
+<p>Чтобы отправить событие, вам нужен объект, который реализует интерфейс <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/Event.html">Event</a>.</p>
+<p>Вы можете „бросить“ события с использованием шины событий (<a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/EventManager.html">EventManager</a>):</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">boolean</span> <span class="n">cancelled</span> <span class="o">=</span> <span class="n">Sponge</span><span class="p">.</span><span class="na">getEventManager</span><span class="p">().</span><span class="na">post</span><span class="p">(</span><span class="n">theEventObject</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>Метод возвращает <code class="docutils literal notranslate"><span class="pre">true</span></code>, если событие было отменено, иначе возвращает <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
 <div class="section" id="firing-sponge-events">
 <h3>Вызов встроенных событий Sponge<a class="headerlink" href="#firing-sponge-events" title="Ссылка на этот заголовок">¶</a></h3>
-<p>Можно создавать экземпляры встроенных событий со статическим <code class="docutils literal notranslate"><span class="pre">SpongeEventFactory</span></code>. Этот класс автоматически генерируется, поэтому не имеет документации. Используйте автодополнение IDE для просмотра существующих методов. События, созданные <code class="docutils literal notranslate"><span class="pre">SpongeEventFactory</span></code>, затем передаются в <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/EventManager.html#post-org.spongepowered.api.event.Event-">EventManager#post(Event)</a>.</p>
+<p>Можно создавать экземпляры встроенных событий со статическим <code class="docutils literal notranslate"><span class="pre">SpongeEventFactory</span></code>. Этот класс автоматически генерируется, поэтому не имеет документации. Используйте автодополнение IDE для просмотра существующих методов. События, созданные <code class="docutils literal notranslate"><span class="pre">SpongeEventFactory</span></code>, затем передаются в <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/EventManager.html#post-org.spongepowered.api.event.Event-">EventManager#post(Event)</a>.</p>
 </div>
 <div class="section" id="example-firing-lightningevent">
 <h3>Пример: Вызов LightningEvent<a class="headerlink" href="#example-firing-lightningevent" title="Ссылка на этот заголовок">¶</a></h3>
@@ -303,7 +292,7 @@ plugin to decide. The <a class="reference external" href="https://jd.spongepower
 </div>
 <div class="admonition warning">
 <p class="first admonition-title">Предупреждение</p>
-<p class="last"><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/cause/Cause.html">Cause</a> никогда не может быть пустой. По крайней мере, она должена содержать ваш плагин-контейнер.</p>
+<p class="last"><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/cause/Cause.html">Cause</a> никогда не может быть пустой. По крайней мере, она должена содержать ваш плагин-контейнер.</p>
 </div>
 </div>
 </div>

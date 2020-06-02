@@ -19,17 +19,6 @@
 
         <link rel="index" title="索引"
               href="../../genindex.html"/>        <link rel="search" title="搜索" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 文档" href="../../index.html"/>        <link rel="up" title="文本 API" href="index.html"/>        <link rel="next" title="消息通道" href="messagechannels.html"/>        <link rel="prev" title="配置文件格式" href="representations/configurate.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -178,7 +167,7 @@
 <p class="first admonition-title">小技巧</p>
 <p class="last">为了保证你已对服务（Service）这一概念有了基本的了解，请先保证你已了解 <a class="reference internal" href="../services.html"><span class="doc">服务</span></a> 中的内容。</p>
 </div>
-<p><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/pagination/PaginationService.html">PaginationService</a> 用于把一段文本拆成离散的页面内容。这一服务提供了一个 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/pagination/PaginationList.Builder.html">PaginationList.Builder</a> 用于指定页面的标题、内容、页眉、填充等属性。</p>
+<p><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/pagination/PaginationService.html">PaginationService</a> 用于把一段文本拆成离散的页面内容。这一服务提供了一个 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/pagination/PaginationList.Builder.html">PaginationList.Builder</a> 用于指定页面的标题、内容、页眉、填充等属性。</p>
 <div class="section" id="pagination-list-builder">
 <h2>分页生成器<a class="headerlink" href="#pagination-list-builder" title="永久链接至标题">¶</a></h2>
 <p>首先我们先获取到一个 <code class="docutils literal notranslate"><span class="pre">PaginationList.Builder</span></code> 的实例：</p>
@@ -241,7 +230,7 @@
 <p class="first admonition-title">注解</p>
 <p class="last">除了内容，分页列表中的所有组件都是可选的。但是，标题是强烈建议添加的。</p>
 </div>
-<p>最后，如果想要把分页列表中的内容发送至 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/channel/MessageReceiver.html">MessageReceiver</a> ，我们可以使用 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/pagination/PaginationList.Builder.html#sendTo-org.spongepowered.api.text.channel.MessageReceiver-">PaginationList.Builder#sendTo(MessageReceiver)</a> 方法。</p>
+<p>最后，如果想要把分页列表中的内容发送至 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/text/channel/MessageReceiver.html">MessageReceiver</a> ，我们可以使用 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/pagination/PaginationList.Builder.html#sendTo-org.spongepowered.api.text.channel.MessageReceiver-">PaginationList.Builder#sendTo(MessageReceiver)</a> 方法。</p>
 <p>就是这样！ 回顾一下，可以使用以下代码生成功能完整的分页列表并发送到之前定义的 <code class="docutils literal notranslate"><span class="pre">msgReceiver</span></code> ：</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">PaginationList</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
     <span class="p">.</span><span class="na">title</span><span class="p">(</span><span class="n">Text</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;Title&quot;</span><span class="p">))</span>

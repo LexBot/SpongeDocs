@@ -19,17 +19,6 @@
 
         <link rel="index" title="索引"
               href="../../genindex.html"/>        <link rel="search" title="搜索" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 文档" href="../../index.html"/>        <link rel="up" title="插件命令" href="index.html"/>        <link rel="next" title="低级别命令 API" href="commandcallable.html"/>        <link rel="prev" title="子命令" href="childcommands.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -175,8 +164,8 @@
            <div itemprop="articleBody">
   <div class="section" id="the-command-manager">
 <h1>命令管理器<a class="headerlink" href="#the-command-manager" title="永久链接至标题">¶</a></h1>
-<p>命令管理器，即 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/CommandManager.html">CommandManager</a> 用于监视用户在聊天框中输入的命令，并将其重定向到正确的命令处理代码。你需要使用 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/CommandManager.html#register-java.lang.Object-org.spongepowered.api.command.CommandCallable-java.lang.String...-">CommandManager#register(Object, CommandCallable, String…)</a> 方法，并传入插件的实例、命令的实例、以及所有需要作为命令的别名的字符串，以注册你想要注册的命令。</p>
-<p>一般情况下你应在 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GameInitializationEvent.html">GameInitializationEvent</a> 发布时注册命令。</p>
+<p>命令管理器，即 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/CommandManager.html">CommandManager</a> 用于监视用户在聊天框中输入的命令，并将其重定向到正确的命令处理代码。你需要使用 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/CommandManager.html#register-java.lang.Object-org.spongepowered.api.command.CommandCallable-java.lang.String...-">CommandManager#register(Object, CommandCallable, String…)</a> 方法，并传入插件的实例、命令的实例、以及所有需要作为命令的别名的字符串，以注册你想要注册的命令。</p>
+<p>一般情况下你应在 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/game/state/GameInitializationEvent.html">GameInitializationEvent</a> 发布时注册命令。</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.Sponge</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.spongepowered.api.command.CommandManager</span><span class="p">;</span>
 

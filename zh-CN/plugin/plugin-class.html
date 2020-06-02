@@ -19,17 +19,6 @@
 
         <link rel="index" title="索引"
               href="../genindex.html"/>        <link rel="search" title="搜索" href="../search.html"/>    <link rel="top" title="Sponge 7.2.0 文档" href="../index.html"/>        <link rel="up" title="插件开发" href="index.html"/>        <link rel="next" title="插件的生命周期" href="lifecycle.html"/>        <link rel="prev" title="插件标识符" href="plugin-identifier.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -174,7 +163,7 @@
 <h2>新建你自己的类<a class="headerlink" href="#starting-your-class" title="永久链接至标题">¶</a></h2>
 <p>在添加一个 SpongeAPI 作为依赖后的下一步自然就是新建一个类。这个类可以按照你想要的方式去命名，而且可以使用<strong>除了</strong> <code class="docutils literal notranslate"><span class="pre">org.spongepowered</span></code> 外的任何一个包。按照惯例，一个类的名称应该首字母大写。</p>
 <p>Oracle <a class="reference external" href="https://docs.oracle.com/javase/tutorial/java/package/namingpkgs.html">推荐</a> 你去使用你自己的域名作为你的包名，如果你有这样的一个域名的话。然而，如果你没有拥有一个域名，一种常见的做法是使用一个电子邮件（如 <code class="docutils literal notranslate"><span class="pre">com.gmail.username.project</span></code>），或者一个开源仓库的地址（如 <code class="docutils literal notranslate"><span class="pre">io.github.username.project</span></code>）。</p>
-<p>当你创建好你的主类后，你的主类必须有 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/plugin/Plugin.html">Plugin</a> 这个注解（Annotation）。这个注解能够让 Sponge 在读取插件时找到你的主类。下面是一个详细解释 <a class="reference internal" href="plugin-meta.html"><span class="doc">插件的元数据</span></a> 用法的示例。</p>
+<p>当你创建好你的主类后，你的主类必须有 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/plugin/Plugin.html">Plugin</a> 这个注解（Annotation）。这个注解能够让 Sponge 在读取插件时找到你的主类。下面是一个详细解释 <a class="reference internal" href="plugin-meta.html"><span class="doc">插件的元数据</span></a> 用法的示例。</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">io.github.username.project</span><span class="p">;</span>
 
 <span class="kn">import</span> <span class="nn">org.spongepowered.api.plugin.Plugin</span><span class="p">;</span>
@@ -193,7 +182,7 @@
 <div class="section" id="initializing-your-plugin">
 <h2>初始化你的插件<a class="headerlink" href="#initializing-your-plugin" title="永久链接至标题">¶</a></h2>
 <p>插件会在游戏和世界加载前加载。所以对于插件的所有和游戏的交互操作，如注册命令或者事件，都有着明确的时间界线。</p>
-<p>你的插件可以监听特定的事件，我们称其为 <strong>状态事件（State event）</strong>，用于通知游戏阶段的变化。在下面的示例中，在 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GameStartedServerEvent.html">GameStartedServerEvent</a> 发生时， <code class="docutils literal notranslate"><span class="pre">onServerStart()</span></code> 方法会被调用，请注意在这一方法前添加的 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/Listener.html">Listener</a> 注解。</p>
+<p>你的插件可以监听特定的事件，我们称其为 <strong>状态事件（State event）</strong>，用于通知游戏阶段的变化。在下面的示例中，在 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/game/state/GameStartedServerEvent.html">GameStartedServerEvent</a> 发生时， <code class="docutils literal notranslate"><span class="pre">onServerStart()</span></code> 方法会被调用，请注意在这一方法前添加的 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/Listener.html">Listener</a> 注解。</p>
 <p>下列示例会在服务器启动时打印一条信息。如果你的插件正确加载了，你会在服务器的初始化输出中找到这条信息。</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.plugin.Plugin</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.spongepowered.api.event.Listener</span><span class="p">;</span>
@@ -226,19 +215,19 @@
 <p>一个插件很有可能会监听其他的状态事件，特别是 <code class="docutils literal notranslate"><span class="pre">GameStoppingServerEvent</span></code> 这一事件。对于状态事件来说有两种类别：</p>
 <ul class="simple">
 <li><strong>初始化</strong>：这些事件会在 Sponge 和插件加载时发生。<ul>
-<li><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GameConstructionEvent.html">GameConstructionEvent</a></li>
-<li><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GamePreInitializationEvent.html">GamePreInitializationEvent</a></li>
-<li><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GameInitializationEvent.html">GameInitializationEvent</a></li>
-<li><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GamePostInitializationEvent.html">GamePostInitializationEvent</a></li>
-<li><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GameLoadCompleteEvent.html">GameLoadCompleteEvent</a></li>
+<li><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/game/state/GameConstructionEvent.html">GameConstructionEvent</a></li>
+<li><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/game/state/GamePreInitializationEvent.html">GamePreInitializationEvent</a></li>
+<li><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/game/state/GameInitializationEvent.html">GameInitializationEvent</a></li>
+<li><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/game/state/GamePostInitializationEvent.html">GamePostInitializationEvent</a></li>
+<li><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/game/state/GameLoadCompleteEvent.html">GameLoadCompleteEvent</a></li>
 </ul>
 </li>
 <li><strong>运行</strong>：这些事件会在游戏和世界加载时发生。<ul>
-<li><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GameAboutToStartServerEvent.html">GameAboutToStartServerEvent</a></li>
-<li><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GameStartingServerEvent.html">GameStartingServerEvent</a></li>
-<li><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GameStartedServerEvent.html">GameStartedServerEvent</a></li>
-<li><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GameStoppingServerEvent.html">GameStoppingServerEvent</a></li>
-<li><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GameStoppedServerEvent.html">GameStoppedServerEvent</a></li>
+<li><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/game/state/GameAboutToStartServerEvent.html">GameAboutToStartServerEvent</a></li>
+<li><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/game/state/GameStartingServerEvent.html">GameStartingServerEvent</a></li>
+<li><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/game/state/GameStartedServerEvent.html">GameStartedServerEvent</a></li>
+<li><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/game/state/GameStoppingServerEvent.html">GameStoppingServerEvent</a></li>
+<li><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/game/state/GameStoppedServerEvent.html">GameStoppedServerEvent</a></li>
 </ul>
 </li>
 </ul>

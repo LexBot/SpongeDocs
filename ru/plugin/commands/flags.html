@@ -19,17 +19,6 @@
 
         <link rel="index" title="Алфавитный указатель"
               href="../../genindex.html"/>        <link rel="search" title="Поиск" href="../../search.html"/>    <link rel="top" title="Документация Sponge 7.2.0" href="../../index.html"/>        <link rel="up" title="Команды" href="index.html"/>        <link rel="next" title="Дочерние команды" href="childcommands.html"/>        <link rel="prev" title="Парсинг аргументов" href="arguments.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -176,7 +165,7 @@
   <div class="section" id="command-flags">
 <h1>Флаги команд<a class="headerlink" href="#command-flags" title="Ссылка на этот заголовок">¶</a></h1>
 <p>Флаги команд полезны для указания дополнительных параметров при выполнении команды, при этом они не будут являться аргументами команд.</p>
-<p>Для создания флага нам сначала нужен конструктор. Мы можем просто использовать метод <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/args/GenericArguments.html#flags--">GenericArguments#flags()</a>, класса <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/args/GenericArguments.html">GenericArguments</a>, чтобы получить его. Оттуда мы можем указать, какой тип флага мы хотели бы создать. Обратите внимание, что флаги указываются в качестве аргумента.</p>
+<p>Для создания флага нам сначала нужен конструктор. Мы можем просто использовать метод <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/args/GenericArguments.html#flags--">GenericArguments#flags()</a>, класса <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/args/GenericArguments.html">GenericArguments</a>, чтобы получить его. Оттуда мы можем указать, какой тип флага мы хотели бы создать. Обратите внимание, что флаги указываются в качестве аргумента.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.command.args.GenericArguments</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.spongepowered.api.command.spec.CommandSpec</span><span class="p">;</span>
 
@@ -186,8 +175,8 @@
     <span class="p">.</span><span class="na">build</span><span class="p">();</span>
 </pre></div>
 </div>
-<p>Это создаст флаг команды, поэтому, когда игрок выполнит <code class="docutils literal notranslate"><span class="pre">/our-command</span> <span class="pre">-s</span></code>, флаг <code class="docutils literal notranslate"><span class="pre">s</span></code> станет истинным. Обратите внимание, что конструктор с <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/args/GenericArguments.html#none--">GenericArguments#none()</a> не даст команде иметь какие-либо аргументы. Если вы хотите, чтобы команда имела и агрументы, и флаги, то вы должны указать свои аргументы в методе <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/args/CommandFlags.Builder.html#buildWith-org.spongepowered.api.command.args.CommandElement-">CommandFlags.Builder#buildWith(CommandElement)</a>.</p>
-<p>Теперь, когда мы указали, что команда может выполняться с флагом, мы можем получить его значение. Для простого логического флага, который мы указали выше, мы можем просто проверить, существует ли он. В примере ниже мы проверяем, имеет ли класс <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/args/CommandContext.html">CommandContext</a> нашей команды значение <code class="docutils literal notranslate"><span class="pre">s</span></code>.</p>
+<p>Это создаст флаг команды, поэтому, когда игрок выполнит <code class="docutils literal notranslate"><span class="pre">/our-command</span> <span class="pre">-s</span></code>, флаг <code class="docutils literal notranslate"><span class="pre">s</span></code> станет истинным. Обратите внимание, что конструктор с <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/args/GenericArguments.html#none--">GenericArguments#none()</a> не даст команде иметь какие-либо аргументы. Если вы хотите, чтобы команда имела и агрументы, и флаги, то вы должны указать свои аргументы в методе <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/args/CommandFlags.Builder.html#buildWith-org.spongepowered.api.command.args.CommandElement-">CommandFlags.Builder#buildWith(CommandElement)</a>.</p>
+<p>Теперь, когда мы указали, что команда может выполняться с флагом, мы можем получить его значение. Для простого логического флага, который мы указали выше, мы можем просто проверить, существует ли он. В примере ниже мы проверяем, имеет ли класс <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/args/CommandContext.html">CommandContext</a> нашей команды значение <code class="docutils literal notranslate"><span class="pre">s</span></code>.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.text.Text</span><span class="p">;</span>
 
 <span class="k">if</span> <span class="p">(</span><span class="n">args</span><span class="p">.</span><span class="na">hasAny</span><span class="p">(</span><span class="s">&quot;s&quot;</span><span class="p">))</span> <span class="p">{</span>
@@ -197,7 +186,7 @@
 </div>
 <div class="section" id="permission-flags">
 <h2>Флаги прав<a class="headerlink" href="#permission-flags" title="Ссылка на этот заголовок">¶</a></h2>
-<p>Пока что наши флаги великолепны, но что, если мы хотим, чтобы игроку требовалось разрешение на использование флага? Мы можем использовать метод <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/args/CommandFlags.Builder.html#permissionFlag-java.lang.String-java.lang.String...-">CommandFlags.Builder#permissionFlag(String, String…)</a> в нашем конструкторе команд. Это потребует у игрока наличия специального разрешения на выполнение команды с флагом. Пример этого ниже:</p>
+<p>Пока что наши флаги великолепны, но что, если мы хотим, чтобы игроку требовалось разрешение на использование флага? Мы можем использовать метод <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/args/CommandFlags.Builder.html#permissionFlag-java.lang.String-java.lang.String...-">CommandFlags.Builder#permissionFlag(String, String…)</a> в нашем конструкторе команд. Это потребует у игрока наличия специального разрешения на выполнение команды с флагом. Пример этого ниже:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">CommandSpec</span> <span class="n">myCommand</span> <span class="o">=</span> <span class="n">CommandSpec</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
         <span class="p">.</span><span class="na">executor</span><span class="p">(</span><span class="k">new</span> <span class="n">MyCommand</span><span class="p">())</span>
         <span class="p">.</span><span class="na">arguments</span><span class="p">(</span><span class="n">GenericArguments</span><span class="p">.</span><span class="na">flags</span><span class="p">().</span><span class="na">permissionFlag</span><span class="p">(</span><span class="s">&quot;myplugin.command.flag&quot;</span><span class="p">,</span>
@@ -210,7 +199,7 @@
 <div class="section" id="value-flags">
 <h2>Value Flags<a class="headerlink" href="#value-flags" title="Ссылка на этот заголовок">¶</a></h2>
 <p>Booleans can be great, but what if we wanted flags for things such as strings or integers? This is where value flags
-come into play. We simply need to use the <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/args/CommandFlags.Builder.html#valueFlag-org.spongepowered.api.command.args.CommandElement-java.lang.String...-">CommandFlags.Builder#valueFlag(CommandElement, String…)</a> method
+come into play. We simply need to use the <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/args/CommandFlags.Builder.html#valueFlag-org.spongepowered.api.command.args.CommandElement-java.lang.String...-">CommandFlags.Builder#valueFlag(CommandElement, String…)</a> method
 on our flag builder. Using the <code class="docutils literal notranslate"><span class="pre">valueFlag()</span></code> method, we can specify the type of flag we want to create, such as an
 integer or string. Creating an integer value flag can be done like so:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">CommandSpec</span> <span class="n">myCommand</span> <span class="o">=</span> <span class="n">CommandSpec</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -220,8 +209,8 @@ integer or string. Creating an integer value flag can be done like so:</p>
         <span class="p">.</span><span class="na">build</span><span class="p">();</span>
 </pre></div>
 </div>
-<p>You may replace <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/args/GenericArguments.html#integer-org.spongepowered.api.text.Text-">GenericArguments#integer(Text)</a> with any other flag type you would like to specify, such as
-<a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/args/GenericArguments.html#string-org.spongepowered.api.text.Text-">GenericArguments#string(Text)</a>.</p>
+<p>You may replace <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/args/GenericArguments.html#integer-org.spongepowered.api.text.Text-">GenericArguments#integer(Text)</a> with any other flag type you would like to specify, such as
+<a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/args/GenericArguments.html#string-org.spongepowered.api.text.Text-">GenericArguments#string(Text)</a>.</p>
 <p>Now to retrieve the flag value from our command, we can simply treat it like any other command argument. We simply need
 to check if it exists before retrieving it:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">java.util.Optional</span><span class="p">;</span>

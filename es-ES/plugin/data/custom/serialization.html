@@ -19,17 +19,6 @@
 
         <link rel="index" title="Índice"
               href="../../../genindex.html"/>        <link rel="search" title="Búsqueda" href="../../../search.html"/>    <link rel="top" title="documentación de Sponge - 7.2.0" href="../../../index.html"/>        <link rel="up" title="Datos Personalizados" href="index.html"/>        <link rel="next" title="Catalog Types" href="../catalog-types.html"/>        <link rel="prev" title="DataHolders Personalizados" href="dataholders.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -183,10 +172,10 @@
 <h1>Serializando Datos Personalizados<a class="headerlink" href="#serializing-custom-data" title="Enlazar permanentemente con este título">¶</a></h1>
 <p>Sin un método para serializar y deserializar, sus datos no se mantendrán durante los reinicios. Sponge tiene algunas formas diferentes de serializar/deserializar los datos según el tipo de datos:</p>
 <ul class="simple">
-<li><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/DataSerializable.html">DataSerializable</a>s implement an interface to perform serialization, and use <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/persistence/DataBuilder.html">DataBuilder</a> for
+<li><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/DataSerializable.html">DataSerializable</a>s implement an interface to perform serialization, and use <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/persistence/DataBuilder.html">DataBuilder</a> for
 deserialization and creation</li>
 <li><a class="reference internal" href="../datamanipulators.html"><span class="doc">DataManipulators</span></a> also implement <code class="docutils literal notranslate"><span class="pre">DataSerializable</span></code>, but instead use a
-<a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/manipulator/DataManipulatorBuilder.html">DataManipulatorBuilder</a> for deserialization and creation</li>
+<a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/manipulator/DataManipulatorBuilder.html">DataManipulatorBuilder</a> for deserialization and creation</li>
 <li>Los objetos que no implementan o no pueden implementar `` DataSerializable`` usan :javadoc: <cite>DataTranslator</cite> para la serialización y la deserialización</li>
 </ul>
 <p>Esto significa que prácticamente cualquier objeto en Java se puede guardar en el disco si ha sido registrado!</p>
@@ -275,7 +264,7 @@ the data is likely incomplete and you should return <code class="docutils litera
 <p>Un <code class="docutils literal notranslate"><span class="pre">DataManipualatorBuilder</span></code> es muy similar a <code class="docutils literal notranslate"><span class="pre">DataBuilder</span></code>, sin embargo, agrega algunos métodos directamente relacionados con los manipuladores de deserialización:</p>
 <ul class="simple">
 <li><code class="docutils literal notranslate"><span class="pre">create</span> <span class="pre">()</span></code> debería devolver un nuevo manipulador con valores predeterminados</li>
-<li><code class="docutils literal notranslate"><span class="pre">createFrom</span> <span class="pre">(DataHolder)</span></code> es similar al método de compilación, pero en su lugar los valores deben tomarse de <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/DataHolder.html">DataHolder</a>. Si no hay datos para tomar del titular, solo devuelva la salida de <code class="docutils literal notranslate"><span class="pre">create</span> <span class="pre">()</span></code>. Si los datos son incompatibles con el <code class="docutils literal notranslate"><span class="pre">DataHolder</span></code>, en su lugar debe devolver <code class="docutils literal notranslate"><span class="pre">Optional.empty</span> <span class="pre">()</span></code>.</li>
+<li><code class="docutils literal notranslate"><span class="pre">createFrom</span> <span class="pre">(DataHolder)</span></code> es similar al método de compilación, pero en su lugar los valores deben tomarse de <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/DataHolder.html">DataHolder</a>. Si no hay datos para tomar del titular, solo devuelva la salida de <code class="docutils literal notranslate"><span class="pre">create</span> <span class="pre">()</span></code>. Si los datos son incompatibles con el <code class="docutils literal notranslate"><span class="pre">DataHolder</span></code>, en su lugar debe devolver <code class="docutils literal notranslate"><span class="pre">Optional.empty</span> <span class="pre">()</span></code>.</li>
 </ul>
 <p>Al igual que <code class="docutils literal notranslate"><span class="pre">DataBuilder</span></code>, debe leer y devolver su manipulador en el método `` build`` aplicable.</p>
 <p><code class="docutils literal notranslate"><span class="pre">DataManipulatorBuilder</span></code> s puede también usar <a class="reference internal" href="#content-updaters"><span class="std std-ref">DataContentUpdaters</span></a>, siempre que implemente` <cite>AbstractDataBuilder`</cite>.</p>
@@ -287,7 +276,7 @@ the data is likely incomplete and you should return <code class="docutils litera
 </div>
 <div class="section" id="datatranslators">
 <h2>DataTranslators<a class="headerlink" href="#datatranslators" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>A menudo, los objetos que desea serializar no son objetos que implementan <code class="docutils literal notranslate"><span class="pre">DataSerializable</span></code>, como `` Vector3d`` o `` Date``. Para permitir a estos objetos ustedimplementa un <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/persistence/DataTranslator.html">DataTranslator</a> que maneje <em>ambos</em>, la serialización y deserialización del objeto.</p>
+<p>A menudo, los objetos que desea serializar no son objetos que implementan <code class="docutils literal notranslate"><span class="pre">DataSerializable</span></code>, como `` Vector3d`` o `` Date``. Para permitir a estos objetos ustedimplementa un <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/persistence/DataTranslator.html">DataTranslator</a> que maneje <em>ambos</em>, la serialización y deserialización del objeto.</p>
 <p>La implementación de <code class="docutils literal notranslate"><span class="pre">translate</span></code> es idéntica a <code class="docutils literal notranslate"><span class="pre">toContainer()</span></code> y <code class="docutils literal notranslate"><span class="pre">build(DataView)</span> <span class="pre">``</span> <span class="pre">para</span> <span class="pre">un</span> <span class="pre">``DataSerializable</span></code> como se muestra arriba, excepto que se lanza un <code class="docutils literal notranslate"><span class="pre">InvalidDataException</span></code> si faltan datos en lugar de devolver un <code class="docutils literal notranslate"><span class="pre">Optional</span></code>.</p>
 <p>As with other data, ensure that you register the translator during <code class="docutils literal notranslate"><span class="pre">GameRegistryEvent.Register&lt;DataTranslator&lt;?&gt;&gt;</span></code>.</p>
 </div>

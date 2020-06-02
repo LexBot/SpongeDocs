@@ -19,17 +19,6 @@
 
         <link rel="index" title="Index"
               href="../../genindex.html"/>        <link rel="search" title="Recherche" href="../../search.html"/>    <link rel="top" title="Documentation Sponge 7.2.0" href="../../index.html"/>        <link rel="up" title="Configuration des plugins" href="index.html"/>        <link rel="next" title="Configuration des Nodes" href="nodes.html"/>        <link rel="prev" title="Configuration des plugins" href="index.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -257,7 +246,7 @@
 <span class="n">rootNode</span> <span class="o">=</span> <span class="n">loader</span><span class="p">.</span><span class="na">load</span><span class="p">();</span>
 </pre></div>
 </div>
-<p>Dans cet exemple il est important de savoir que la méthode <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/asset/AssetManager.html#getAsset-java.lang.String-">AssetManager#getAsset(String)</a> prend un chemin relatif au dossier d’assets de votre plugin. Donc si l’ID du plugin est <code class="docutils literal notranslate"><span class="pre">myplugin</span></code>, le fichier <code class="docutils literal notranslate"><span class="pre">default.conf</span></code> ne doit pas se situer à la racine du jar, mais dans le dossier <code class="docutils literal notranslate"><span class="pre">assets/myplugin</span></code>. Cet exemple utilise aussi <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/asset/Asset.html#copyToFile-java.nio.file.Path-boolean-boolean-">Asset#copyToFile(Path, boolean, boolean)</a> qui permet également de remplacer le contenu du fichier si voulu.</p>
+<p>Dans cet exemple il est important de savoir que la méthode <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/asset/AssetManager.html#getAsset-java.lang.String-">AssetManager#getAsset(String)</a> prend un chemin relatif au dossier d’assets de votre plugin. Donc si l’ID du plugin est <code class="docutils literal notranslate"><span class="pre">myplugin</span></code>, le fichier <code class="docutils literal notranslate"><span class="pre">default.conf</span></code> ne doit pas se situer à la racine du jar, mais dans le dossier <code class="docutils literal notranslate"><span class="pre">assets/myplugin</span></code>. Cet exemple utilise aussi <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/asset/Asset.html#copyToFile-java.nio.file.Path-boolean-boolean-">Asset#copyToFile(Path, boolean, boolean)</a> qui permet également de remplacer le contenu du fichier si voulu.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">Si le fichier de configuration ne peut pas être trouvé à l’intérieur du jar de votre plugin, alors vous aurez une <code class="docutils literal notranslate"><span class="pre">NoSuchElementException</span></code> sur la méthode <code class="docutils literal notranslate"><span class="pre">Optional&lt;Asset&gt;.get()</span></code>. Assurez-vous que avez configuré votre <a class="reference internal" href="../buildsystem.html"><span class="doc">build system</span></a> pour l’inclure dans le jar.</p>

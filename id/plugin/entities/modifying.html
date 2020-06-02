@@ -19,17 +19,6 @@
 
         <link rel="index" title="Indeks"
               href="../../genindex.html"/>        <link rel="search" title="Pencarian" href="../../search.html"/>    <link rel="top" title="dokumentasi Sponge 7.2.0" href="../../index.html"/>        <link rel="up" title="Badan" href="index.html"/>        <link rel="next" title="Entity AI" href="ai.html"/>        <link rel="prev" title="Pemijahan suatu Kesatuan" href="spawning.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -173,7 +162,7 @@
            <div itemprop="articleBody">
   <div class="section" id="modifying-an-entity">
 <h1>Memodifikasi suatu Entitas<a class="headerlink" href="#modifying-an-entity" title="Link permanen untuk headline ini">¶</a></h1>
-<p>Tentu, pembuatan entitas lama bagus, tetapi apakah harus ada sesuatu yang lebih menarik dari itu? Inilah dimana <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/manipulator/DataManipulator.html">DataManipulator</a>s ikut bermain. Sebuah <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/Entity.html">Entity</a> merupakan sebuah <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/DataHolder.html">DataHolder</a>, yang berarti bahwa <code class="docutils literal notranslate"><span class="pre">Entity</span></code> kita dapat menampung data. Lebih lanjut tentang <code class="docutils literal notranslate"><span class="pre">DataHolder</span></code>s dapat ditemukan di dalam <a class="reference internal" href="../data/index.html"><span class="doc">data documentation</span></a>.</p>
+<p>Tentu, pembuatan entitas lama bagus, tetapi apakah harus ada sesuatu yang lebih menarik dari itu? Inilah dimana <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/manipulator/DataManipulator.html">DataManipulator</a>s ikut bermain. Sebuah <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/Entity.html">Entity</a> merupakan sebuah <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/DataHolder.html">DataHolder</a>, yang berarti bahwa <code class="docutils literal notranslate"><span class="pre">Entity</span></code> kita dapat menampung data. Lebih lanjut tentang <code class="docutils literal notranslate"><span class="pre">DataHolder</span></code>s dapat ditemukan di dalam <a class="reference internal" href="../data/index.html"><span class="doc">data documentation</span></a>.</p>
 <p><cite>DataManipulator`</cite> yang berlaku untuk` <cite>Entity`</cite> adalah hal-hal seperti : javadoc: ` FoodData` atau : javadoc: <cite>HealthData</cite>. Daftar &quot;DataManipulator` yang sesuai dapat ditemukan di : javadoc: ` org.spongepowered.api.data.manipulator.mutable` dan : javadoc: <cite>org.spongepowered.api.data.manipulator.mutable.entity</cite> . Perhatikan bahwa tidak semua <cite>DataManipulator`</cite> yang ditemukan mungkin berlaku untuk semua entitas.</p>
 <div class="section" id="entity-type">
 <h2>Tipe Entitas<a class="headerlink" href="#entity-type" title="Link permanen untuk headline ini">¶</a></h2>
@@ -191,7 +180,7 @@ an example of checking if our <code class="docutils literal notranslate"><span c
 </div>
 <div class="section" id="entity-data-manipulators">
 <h2>Badan Data Manipulator<a class="headerlink" href="#entity-data-manipulators" title="Link permanen untuk headline ini">¶</a></h2>
-<p>Sekarang bahwa kita yakin bahwa kita <cite>Entitas</cite> yang menjalar, kita dapat menerapkan menjalar tertentu <cite>DataManipulator</cite>s itu. Misalnya, <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/manipulator/mutable/entity/ExplosionRadiusData.html">ExplosionRadiusData</a> adalah <cite>DataManipulator</cite> yang merambat dapat memiliki, tapi tidak semua <cite>Entitas</cite>s. Contoh mengubah sebuah <cite>Entitas</cite>s ledak radius 50 dapat dilihat di bawah ini:</p>
+<p>Sekarang bahwa kita yakin bahwa kita <cite>Entitas</cite> yang menjalar, kita dapat menerapkan menjalar tertentu <cite>DataManipulator</cite>s itu. Misalnya, <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/manipulator/mutable/entity/ExplosionRadiusData.html">ExplosionRadiusData</a> adalah <cite>DataManipulator</cite> yang merambat dapat memiliki, tapi tidak semua <cite>Entitas</cite>s. Contoh mengubah sebuah <cite>Entitas</cite>s ledak radius 50 dapat dilihat di bawah ini:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.data.manipulator.mutable.entity.ExplosiveRadiusData</span><span class="p">;</span>
 
 <span class="kd">public</span> <span class="kt">void</span> <span class="nf">explosionRadius50</span><span class="p">(</span><span class="n">Entity</span> <span class="n">creeper</span><span class="p">)</span> <span class="p">{</span>
@@ -201,7 +190,7 @@ an example of checking if our <code class="docutils literal notranslate"><span c
 </pre></div>
 </div>
 <p>Ini akan mendapatkan <cite>ExplosiveRadiusData</cite> kami <cite>Entitas</cite> untuk kami gunakan. Kami kemudian menggunakan data tersebut untuk mengatur radius ledakan dari kami menjalar ke 50. Kita kemudian harus memberikan data kembali ke menjalar, karena data yang kami terima dari kami <cite>Entitas</cite> hanya salinan data hidup.</p>
-<p>Mungkin kita ingin memberikan <cite>Entitas</cite> nama untuk menyesuaikan sedikit! Ini akan dilakukan dengan menggunakan <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/manipulator/mutable/DisplayNameData.html">DisplayNameData</a>. Contoh dari hal ini dalam tindakan dapat dilihat di bawah ini:</p>
+<p>Mungkin kita ingin memberikan <cite>Entitas</cite> nama untuk menyesuaikan sedikit! Ini akan dilakukan dengan menggunakan <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/manipulator/mutable/DisplayNameData.html">DisplayNameData</a>. Contoh dari hal ini dalam tindakan dapat dilihat di bawah ini:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.data.manipulator.mutable.DisplayNameData</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.spongepowered.api.text.Text</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.spongepowered.api.text.format.TextColors</span><span class="p">;</span>

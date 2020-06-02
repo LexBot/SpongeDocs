@@ -19,17 +19,6 @@
 
         <link rel="index" title="Índice"
               href="../genindex.html"/>        <link rel="search" title="Búsqueda" href="../search.html"/>    <link rel="top" title="documentación de Sponge - 7.2.0" href="../index.html"/>        <link rel="up" title="Creando un Plugin" href="index.html"/>        <link rel="next" title="Inyección de Dependencia" href="injection.html"/>        <link rel="prev" title="Clase de Plug-in Principal" href="plugin-class.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -184,29 +173,29 @@
 <h2>Estados de Inicialización<a class="headerlink" href="#initialization-states" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Los estados de inicialización solo ocurren una vez durante una sola ejecución.</p>
 <p><strong>CONSTRUCCIÓN</strong></p>
-<p>El <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GameConstructionEvent.html">GameConstructionEvent</a> se activa. Durante este estado, se desencadena la instancia de clase <code class="docutils literal notranslate"><span class="pre">&#64;Plugin</span></code> para cada complemento.</p>
+<p>El <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/game/state/GameConstructionEvent.html">GameConstructionEvent</a> se activa. Durante este estado, se desencadena la instancia de clase <code class="docutils literal notranslate"><span class="pre">&#64;Plugin</span></code> para cada complemento.</p>
 <p><strong>PRE_INICIALIZACIÓN</strong></p>
-<p>El <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GamePreInitializationEvent.html">GamePreInitializationEvent</a> se activa. Durante este estado, el complemento se prepara para la inicialización. El acceso a una instancia del registrador predeterminado y el acceso a la información con respecto a las ubicaciones preferidas del archivo de configuración están disponibles.</p>
+<p>El <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/game/state/GamePreInitializationEvent.html">GamePreInitializationEvent</a> se activa. Durante este estado, el complemento se prepara para la inicialización. El acceso a una instancia del registrador predeterminado y el acceso a la información con respecto a las ubicaciones preferidas del archivo de configuración están disponibles.</p>
 <p><strong>INICIALIZACIÓN</strong></p>
-<p>El <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GameInitializationEvent.html">GameInitializationEvent</a> es desencadenado. Durante este estado, el complemento debe finalizar el trabajo necesario para poder ser funcional. Los controladores de eventos globales deben registrarse en esta etapa.</p>
+<p>El <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/game/state/GameInitializationEvent.html">GameInitializationEvent</a> es desencadenado. Durante este estado, el complemento debe finalizar el trabajo necesario para poder ser funcional. Los controladores de eventos globales deben registrarse en esta etapa.</p>
 <p><strong>POST_INICIALIZACIÓN</strong></p>
-<p>El <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GamePostInitializationEvent.html">GamePostInitializationEvent</a> se desencadena. En este estado, la comunicación entre complementos debería estar lista para ocurrir. Los complementos que proporcionan una API deberían estar listos para aceptar solicitudes básicas.</p>
+<p>El <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/game/state/GamePostInitializationEvent.html">GamePostInitializationEvent</a> se desencadena. En este estado, la comunicación entre complementos debería estar lista para ocurrir. Los complementos que proporcionan una API deberían estar listos para aceptar solicitudes básicas.</p>
 <p><strong>CARGA_COMPLETA</strong></p>
-<p>El <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GameLoadCompleteEvent.html">GameLoadCompleteEvent</a> se desencadena. En este estado, toda la inicialización del complemento debería completarse.</p>
+<p>El <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/game/state/GameLoadCompleteEvent.html">GameLoadCompleteEvent</a> se desencadena. En este estado, toda la inicialización del complemento debería completarse.</p>
 </div>
 <div class="section" id="running-states">
 <h2>Estados de ejecución<a class="headerlink" href="#running-states" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Los estados en ejecución pueden ocurrir varias veces durante una sola ejecución. <code class="docutils literal notranslate"><span class="pre">SERVER_ABOUT_TO_START</span></code> puede seguir a <code class="docutils literal notranslate"><span class="pre">SERVER_STOPPED</span></code>, y <code class="docutils literal notranslate"><span class="pre">SERVER_STOPPED</span></code> puede ocurrir en cualquier momento durante el proceso si hay un error.</p>
 <p><strong>SERVER_ABOUT_TO_START</strong></p>
-<p>El evento <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GameAboutToStartServerEvent.html">GameAboutToStartServerEvent</a> es desencadenado. La instancia del servidor existe, pero los mundos aún no están cargados.</p>
+<p>El evento <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/game/state/GameAboutToStartServerEvent.html">GameAboutToStartServerEvent</a> es desencadenado. La instancia del servidor existe, pero los mundos aún no están cargados.</p>
 <p><strong>SERVER_STARTING</strong></p>
-<p>El <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GameStartingServerEvent.html">GameStartingServerEvent</a> es desencadenado. La instancia del servidor existe, y los mundos están cargados. El registro de comando se maneja durante este estado.</p>
+<p>El <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/game/state/GameStartingServerEvent.html">GameStartingServerEvent</a> es desencadenado. La instancia del servidor existe, y los mundos están cargados. El registro de comando se maneja durante este estado.</p>
 <p><strong>SERVER_STARTED</strong></p>
-<p>El evento <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GameStartedServerEvent.html">GameStartedServerEvent</a> es desencadenado. La instancia del servidor existe, y los mundos están cargados.</p>
+<p>El evento <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/game/state/GameStartedServerEvent.html">GameStartedServerEvent</a> es desencadenado. La instancia del servidor existe, y los mundos están cargados.</p>
 <p><strong>SERVER_STOPPING</strong></p>
-<p>El <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GameStoppingServerEvent.html">GameStoppingServerEvent</a> es desencadenado. Este estado ocurre inmediatamente antes del último tic, antes de que los mundos sean guardados.</p>
+<p>El <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/game/state/GameStoppingServerEvent.html">GameStoppingServerEvent</a> es desencadenado. Este estado ocurre inmediatamente antes del último tic, antes de que los mundos sean guardados.</p>
 <p><strong>SERVER_STOPPED</strong></p>
-<p>El <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GameStoppedServerEvent.html">GameStoppedServerEvent</a> es desencadenado. Durante este estado, no hay jugadores conectados y no se guardan los cambios en los mundos.</p>
+<p>El <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/game/state/GameStoppedServerEvent.html">GameStoppedServerEvent</a> es desencadenado. Durante este estado, no hay jugadores conectados y no se guardan los cambios en los mundos.</p>
 </div>
 <div class="section" id="stopping-states">
 <h2>Stopping States<a class="headerlink" href="#stopping-states" title="Enlazar permanentemente con este título">¶</a></h2>
@@ -216,11 +205,11 @@
 <p class="last">No se garantiza que los estados de detención se ejecuten durante el apagado. <strong>No</strong> pueden disparar si el juego se detiene por la fuerza mediante Ctrl-C, o por el Administrador de Tareas, o un bloqueo de la computadora o situaciones similares.</p>
 </div>
 <p><strong>GAME_STOPPING</strong></p>
-<p>The <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GameStoppingEvent.html">GameStoppingEvent</a> is triggered.
+<p>The <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/game/state/GameStoppingEvent.html">GameStoppingEvent</a> is triggered.
 This state occurs immediately before <code class="docutils literal notranslate"><span class="pre">GAME_STOPPED</span></code>. Plugins providing an API should still be capable of accepting
 basic requests.</p>
 <p><strong>GAME_STOPPED</strong></p>
-<p>The <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GameStoppedEvent.html">GameStoppedEvent</a> is triggered.
+<p>The <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/game/state/GameStoppedEvent.html">GameStoppedEvent</a> is triggered.
 Once this event has finished executing, Minecraft will shut down. No further interaction with the game or other plugins
 should be attempted at this point.</p>
 </div>

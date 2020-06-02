@@ -19,17 +19,6 @@
 
         <link rel="index" title="Índice"
               href="../../genindex.html"/>        <link rel="search" title="Búsqueda" href="../../search.html"/>    <link rel="top" title="documentación de Sponge - 7.2.0" href="../../index.html"/>        <link rel="up" title="Bloques" href="index.html"/>        <link rel="next" title="Cambios de Bloque Virtuales" href="virtualblock.html"/>        <link rel="prev" title="Modificación de Bloques" href="modifying.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -177,7 +166,7 @@
 <p>Las entidades de baldosas son bloques capaces de operaciones adicionales como construcción automática(hornos y estaciones de alquimia) o aplicar efectos (como un faro o un block de notas). Tambien contienen datos adicionales como un inventario o texto (como cofres, señales o bloques de comando).</p>
 <div class="section" id="identifying-tile-entities-and-their-type">
 <h2>Identificando Entidades de Baldosa y sus Tipos<a class="headerlink" href="#identifying-tile-entities-and-their-type" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>De nuevo, todo comienza con un <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/Location.html">Location</a>. La función <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/Location.html#getTileEntity--">Location#getTileEntity()</a> retornará la entidad de baldosa correspondiente a el bloque o <a href="#id1"><span class="problematic" id="id2">``</span></a>Optional.empty()``si el bloque no es una entidad de baldosa.</p>
+<p>De nuevo, todo comienza con un <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/world/Location.html">Location</a>. La función <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/world/Location.html#getTileEntity--">Location#getTileEntity()</a> retornará la entidad de baldosa correspondiente a el bloque o <a href="#id1"><span class="problematic" id="id2">``</span></a>Optional.empty()``si el bloque no es una entidad de baldosa.</p>
 <blockquote>
 <div><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.world.Location</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.spongepowered.api.world.World</span><span class="p">;</span>
@@ -188,7 +177,7 @@
 </pre></div>
 </div>
 </div></blockquote>
-<p>El tipo de una entidad de baldosa puede, luego, conseguirse con la función <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/block/tileentity/TileEntity.html#getType--">TileEntity#getType()</a> la cual retorna un <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/block/tileentity/TileEntityType.html">TileEntityType</a>. El cual puede ser comparado similarmente con un <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/block/BlockType.html">BlockType</a>. Luego de realizar esta comprobación, la variable <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/block/tileentity/TileEntity.html">TileEntity</a> puede ser llamada con seguridad al subtipo acorde.</p>
+<p>El tipo de una entidad de baldosa puede, luego, conseguirse con la función <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/block/tileentity/TileEntity.html#getType--">TileEntity#getType()</a> la cual retorna un <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/block/tileentity/TileEntityType.html">TileEntityType</a>. El cual puede ser comparado similarmente con un <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/block/BlockType.html">BlockType</a>. Luego de realizar esta comprobación, la variable <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/block/tileentity/TileEntity.html">TileEntity</a> puede ser llamada con seguridad al subtipo acorde.</p>
 <blockquote>
 <div><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.block.tileentity.Jukebox</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.spongepowered.api.block.tileentity.TileEntity</span><span class="p">;</span>
@@ -207,11 +196,11 @@
 </pre></div>
 </div>
 </div></blockquote>
-<p>Después de realizar este lanzamiento, se puede acceder a los métodos proporcionados por la interfaz particular (en este ejemplo, el método <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/block/tileentity/Jukebox.html#ejectRecord--">Jukebox#ejectRecord()</a>). Para obtener información detallada sobre los subtipos <code class="docutils literal notranslate"><span class="pre">TileEntity</span></code> y sus respectivos métodos, consulte el paquete <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/block/tileentity/package-summary.html">org.spongepowered.api.block.tileentity</a> y sus subpaquetes en la API.</p>
+<p>Después de realizar este lanzamiento, se puede acceder a los métodos proporcionados por la interfaz particular (en este ejemplo, el método <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/block/tileentity/Jukebox.html#ejectRecord--">Jukebox#ejectRecord()</a>). Para obtener información detallada sobre los subtipos <code class="docutils literal notranslate"><span class="pre">TileEntity</span></code> y sus respectivos métodos, consulte el paquete <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/block/tileentity/package-summary.html">org.spongepowered.api.block.tileentity</a> y sus subpaquetes en la API.</p>
 </div>
 <div class="section" id="accessing-and-modifying-a-tile-entity-s-data">
 <h2>Accediendo y Modificando Datos de la Entidad Mosaico<a class="headerlink" href="#accessing-and-modifying-a-tile-entity-s-data" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>Similar a los estados de bloque,puede accederse a la información guardada en un bloque accesorio usando un <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/manipulator/DataManipulator.html">DataManipulator</a>. Ya que el tipo de información es descripta completamente por el “Manipulador de Información” usado, todo el manejo de la información puede hacerse con la interfaz “TileEntity” y no requiere otro desvío.</p>
+<p>Similar a los estados de bloque,puede accederse a la información guardada en un bloque accesorio usando un <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/manipulator/DataManipulator.html">DataManipulator</a>. Ya que el tipo de información es descripta completamente por el “Manipulador de Información” usado, todo el manejo de la información puede hacerse con la interfaz “TileEntity” y no requiere otro desvío.</p>
 <p>El siguiente ejemplo contiene dos métodos para alterar los datos de un signo. El primer método Lee (de ser posible) la primera línea; el segundo intenta configurarlo y regresa al valor boolean indicando su éxito.</p>
 <blockquote>
 <div><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.data.manipulator.mutable.tileentity.SignData</span><span class="p">;</span>
@@ -245,7 +234,7 @@
 <h2>Accediendo a inventarios<a class="headerlink" href="#accessing-inventories" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Quite a share of tile entities come with their own inventory, most notably chests and furnaces. That inventory cannot
 be accessed directly from the <code class="docutils literal notranslate"><span class="pre">TileEntity</span></code> interface. So a cast will be necessary. Since all tile entities containing
-an inventory extend the <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/block/tileentity/carrier/TileEntityCarrier.html">TileEntityCarrier</a> interface it suffices to cast to that interface as shown below.</p>
+an inventory extend the <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/block/tileentity/carrier/TileEntityCarrier.html">TileEntityCarrier</a> interface it suffices to cast to that interface as shown below.</p>
 <blockquote>
 <div><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.block.tileentity.carrier.TileEntityCarrier</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.spongepowered.api.item.inventory.Inventory</span><span class="p">;</span>

@@ -19,17 +19,6 @@
 
         <link rel="index" title="Stichwortverzeichnis"
               href="../../genindex.html"/>        <link rel="search" title="Suche" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 Dokumentation" href="../../index.html"/>        <link rel="up" title="Plugin Commands" href="index.html"/>        <link rel="next" title="Der Befehls-Manager" href="service.html"/>        <link rel="prev" title="Befehlsoptionen" href="flags.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -175,7 +164,7 @@
            <div itemprop="articleBody">
   <div class="section" id="child-commands">
 <h1>Untergeordnete Befehle<a class="headerlink" href="#child-commands" title="Link zu dieser Überschrift">¶</a></h1>
-<p>Der <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/spec/CommandSpec.html">CommandSpec</a>-Builder unterstützt folgende hierarchische Befehlsstrukturen:</p>
+<p>Der <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/spec/CommandSpec.html">CommandSpec</a>-Builder unterstützt folgende hierarchische Befehlsstrukturen:</p>
 <ul class="simple">
 <li><code class="docutils literal notranslate"><span class="pre">/mail</span></code> (übergeordneter Befehl)<ul>
 <li><code class="docutils literal notranslate"><span class="pre">/mail</span> <span class="pre">send</span></code> (untergeordneter Befehl)</li>
@@ -203,7 +192,7 @@
     <span class="p">.</span><span class="na">build</span><span class="p">();</span>
 </pre></div>
 </div>
-<p>Anstatt untergeordneten Befehle direkt beim Command-Service zu registrieren, wird dies bei ihrem jeweils übergeordnetem Befehl mit der <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/spec/CommandSpec.Builder.html#child-org.spongepowered.api.command.CommandCallable-java.lang.String...-">CommandSpec.Builder#child(CommandCallable, String…)</a> Methode getan. Sie werden mit einer Liste von Aliasen registriert. Der zuerst angegebene ist der primäre und wird in der Hilfenachricht zum Befehl angezeigt.</p>
+<p>Anstatt untergeordneten Befehle direkt beim Command-Service zu registrieren, wird dies bei ihrem jeweils übergeordnetem Befehl mit der <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/spec/CommandSpec.Builder.html#child-org.spongepowered.api.command.CommandCallable-java.lang.String...-">CommandSpec.Builder#child(CommandCallable, String…)</a> Methode getan. Sie werden mit einer Liste von Aliasen registriert. Der zuerst angegebene ist der primäre und wird in der Hilfenachricht zum Befehl angezeigt.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.Sponge</span><span class="p">;</span>
 
 <span class="n">PluginContainer</span> <span class="n">plugin</span> <span class="o">=</span> <span class="p">...;</span>
@@ -220,15 +209,15 @@
 </div>
 <div class="section" id="fallback-behavior">
 <h2>Fallback-Verhalten<a class="headerlink" href="#fallback-behavior" title="Link zu dieser Überschrift">¶</a></h2>
-<p>If a command has child commands, a <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/spec/CommandExecutor.html">CommandExecutor</a>, set through
-<a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/spec/CommandSpec.Builder.html#executor-org.spongepowered.api.command.spec.CommandExecutor-">CommandSpec.Builder#executor(CommandExecutor)</a> and their associated
-<a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/spec/CommandSpec.Builder.html#arguments-org.spongepowered.api.command.args.CommandElement-">CommandSpec.Builder#arguments(CommandElement)</a> are optional. The behavior of error in selection and
+<p>If a command has child commands, a <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/spec/CommandExecutor.html">CommandExecutor</a>, set through
+<a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/spec/CommandSpec.Builder.html#executor-org.spongepowered.api.command.spec.CommandExecutor-">CommandSpec.Builder#executor(CommandExecutor)</a> and their associated
+<a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/spec/CommandSpec.Builder.html#arguments-org.spongepowered.api.command.args.CommandElement-">CommandSpec.Builder#arguments(CommandElement)</a> are optional. The behavior of error in selection and
 argument parsing of child commands is dependent on whether this parent executor exists.</p>
-<p>Wenn der übergeordnete Executor nicht gesetzt wurde und das gesuchte Unter-Befehl nicht gefunden werden konnte oder dessen Argumente nicht geparsed werden können, dann wird eine <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/args/ArgumentParseException.html">ArgumentParseException</a> geworfen.</p>
-<p>Wenn ein übergeordnete Executor für den übergeordneten Befehl gesetzt wurde, dann wird es als Ersatz verwendet, wenn das erste Argument nicht einem der Aliase der Unterkommandos entspricht. Wenn ein Unterbefehl ausgewählt wurde, aber die Argumente nicht geparsed werden können, passiert eines der folgenden Dinge, basierend auf was <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/spec/CommandSpec.Builder.html#childArgumentParseExceptionFallback-boolean-">CommandSpec.Builder#childArgumentParseExceptionFallback(boolean)</a> gesetzt wurde:</p>
+<p>Wenn der übergeordnete Executor nicht gesetzt wurde und das gesuchte Unter-Befehl nicht gefunden werden konnte oder dessen Argumente nicht geparsed werden können, dann wird eine <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/args/ArgumentParseException.html">ArgumentParseException</a> geworfen.</p>
+<p>Wenn ein übergeordnete Executor für den übergeordneten Befehl gesetzt wurde, dann wird es als Ersatz verwendet, wenn das erste Argument nicht einem der Aliase der Unterkommandos entspricht. Wenn ein Unterbefehl ausgewählt wurde, aber die Argumente nicht geparsed werden können, passiert eines der folgenden Dinge, basierend auf was <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/spec/CommandSpec.Builder.html#childArgumentParseExceptionFallback-boolean-">CommandSpec.Builder#childArgumentParseExceptionFallback(boolean)</a> gesetzt wurde:</p>
 <ul class="simple">
-<li>Wenn <cite>true</cite> (der Standard), wird die <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/args/ArgumentParseException.html">ArgumentParseException</a> verworfen und die Argumente des übergeordneten Befehls werden geparsed. Wenn auch diese Fehlschlagen, wird dessen Fehlermeldung angezeigt. Dies ist das gleiche Verhalten wie frühere API Versionen, in denen Argument-Parsing-Fehler von Unterbefehlen auch nicht angezeigt wurden.</li>
-<li>Wenn <cite>false</cite>, wird der übergeordnete Executor nicht ausgeführt und die <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/args/ArgumentParseException.html">ArgumentParseException</a> des Unterbefehls wird geworfen. Allerdings verhindert dies einige Kombination von Befehlen, zum Beispiel, wenn das erste Argument des übergeordneten Befehls denen des Unterbefehls entspricht.</li>
+<li>Wenn <cite>true</cite> (der Standard), wird die <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/args/ArgumentParseException.html">ArgumentParseException</a> verworfen und die Argumente des übergeordneten Befehls werden geparsed. Wenn auch diese Fehlschlagen, wird dessen Fehlermeldung angezeigt. Dies ist das gleiche Verhalten wie frühere API Versionen, in denen Argument-Parsing-Fehler von Unterbefehlen auch nicht angezeigt wurden.</li>
+<li>Wenn <cite>false</cite>, wird der übergeordnete Executor nicht ausgeführt und die <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/args/ArgumentParseException.html">ArgumentParseException</a> des Unterbefehls wird geworfen. Allerdings verhindert dies einige Kombination von Befehlen, zum Beispiel, wenn das erste Argument des übergeordneten Befehls denen des Unterbefehls entspricht.</li>
 </ul>
 <p>In all cases, if the arguments parse successfully but the child executor throws an exception, the fallback
 executor (if any) is not executed and the error message from the child executor is displayed.</p>

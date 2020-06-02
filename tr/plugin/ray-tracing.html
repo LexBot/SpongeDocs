@@ -19,17 +19,6 @@
 
         <link rel="index" title="Dizin"
               href="../genindex.html"/>        <link rel="search" title="Ara" href="../search.html"/>    <link rel="top" title="Sponge 7.2.0 belgelendirme çalışması" href="../index.html"/>        <link rel="up" title="Bir eklenti oluşturma" href="index.html"/>        <link rel="next" title="Eklenti Hata Ayıklama" href="debugging.html"/>        <link rel="prev" title="Eklenti Metaverileri" href="plugin-meta.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -166,16 +155,16 @@
            <div itemprop="articleBody">
   <div class="section" id="ray-tracing">
 <h1>Işın izleme<a class="headerlink" href="#ray-tracing" title="Bu başlığın kalıcı bağlantısı">¶</a></h1>
-<p>Genel olarak ışın izleme koordine sistem yoluyla parçacık yolunu belirlemenin bir yöntemidir. SpongeAPI’de bu, alanda gelişigüzel bir sıra yolundaki engelleri keşfetmek için the <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/util/blockray/BlockRay.html">BlockRay</a> sınıfıyla uygulanır. Yaygın kullanım sorunu bir :javadoc:<a href="#id1"><span class="problematic" id="id2">`</span></a>Player`ın baktığı engeli bulmak olur.</p>
-<p>Işınımın kaynağını <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/Location.html">Location</a>, <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/extent/Extent.html">Extent</a> ve “Vector3d” ya da bir <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/Entity.html">Entity</a> teriminden geçirerek “BlockRay#from’’ yöntemini kullanarak belirtebilirsiniz. Yöntem, bir <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/util/blockray/BlockRay.BlockRayBuilder.html">BlockRay.BlockRayBuilder</a> döndürecektir.</p>
+<p>Genel olarak ışın izleme koordine sistem yoluyla parçacık yolunu belirlemenin bir yöntemidir. SpongeAPI’de bu, alanda gelişigüzel bir sıra yolundaki engelleri keşfetmek için the <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/util/blockray/BlockRay.html">BlockRay</a> sınıfıyla uygulanır. Yaygın kullanım sorunu bir :javadoc:<a href="#id1"><span class="problematic" id="id2">`</span></a>Player`ın baktığı engeli bulmak olur.</p>
+<p>Işınımın kaynağını <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/world/Location.html">Location</a>, <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/world/extent/Extent.html">Extent</a> ve “Vector3d” ya da bir <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/Entity.html">Entity</a> teriminden geçirerek “BlockRay#from’’ yöntemini kullanarak belirtebilirsiniz. Yöntem, bir <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/util/blockray/BlockRay.BlockRayBuilder.html">BlockRay.BlockRayBuilder</a> döndürecektir.</p>
 <div class="admonition tip">
 <p class="first admonition-title">Tüyo</p>
 <p class="last">Eğer <code class="docutils literal notranslate"><span class="pre">Entity</span></code> olacak ışının kaynağını belirtirseniz, varsayılan yönü <a href="#id1"><span class="problematic" id="id2">``</span></a>Entity``nin işaret ettiği yön olacaktır.</p>
 </div>
-<p>To specify the end point, you can use the <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/util/blockray/BlockRay.BlockRayBuilder.html#to-com.flowpowered.math.vector.Vector3d-">BlockRay.BlockRayBuilder#to(Vector3d)</a> method, which will set both
+<p>To specify the end point, you can use the <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/util/blockray/BlockRay.BlockRayBuilder.html#to-com.flowpowered.math.vector.Vector3d-">BlockRay.BlockRayBuilder#to(Vector3d)</a> method, which will set both
 the direction and ending location. Alternatively, you can specify a direction using
-<a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/util/blockray/BlockRay.BlockRayBuilder.html#direction-com.flowpowered.math.vector.Vector3d-">BlockRay.BlockRayBuilder#direction(Vector3d)</a> and also a distance limit using
-<a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/util/blockray/BlockRay.BlockRayBuilder.html#distanceLimit-double-">BlockRay.BlockRayBuilder#distanceLimit(double)</a>.</p>
+<a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/util/blockray/BlockRay.BlockRayBuilder.html#direction-com.flowpowered.math.vector.Vector3d-">BlockRay.BlockRayBuilder#direction(Vector3d)</a> and also a distance limit using
+<a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/util/blockray/BlockRay.BlockRayBuilder.html#distanceLimit-double-">BlockRay.BlockRayBuilder#distanceLimit(double)</a>.</p>
 <div class="admonition note">
 <p class="first admonition-title">Not</p>
 <p class="last">The default distance limit is 1000 blocks as a safeguard to prevent infinite iteration. To disable the distance
@@ -198,7 +187,7 @@ filter use cases:</p>
 </ul>
 </div></blockquote>
 <p>Tabi ki kendi <code class="docutils literal notranslate"><span class="pre">Predicate&lt;BlockRayHit&lt;E&gt;&gt;</span></code> filtrenizi de yazabilirsiniz.</p>
-<p>Son olarak <code class="docutils literal notranslate"><span class="pre">BlockRay</span></code> oluşturmayı bitirmek için <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/util/blockray/BlockRay.BlockRayBuilder.html#build--">BlockRay.BlockRayBuilder#build()</a> kullanın.Bir <code class="docutils literal notranslate"><span class="pre">Player``ın</span> <span class="pre">baktığı</span> <span class="pre">ilk</span> <span class="pre">havasız</span> <span class="pre">bloğu</span> <span class="pre">almak</span> <span class="pre">için</span> <span class="pre">örnek</span> <span class="pre">bir</span> <span class="pre">``BlockRayBuilder</span></code> kullanımı aşağıda sağlanmıştır.</p>
+<p>Son olarak <code class="docutils literal notranslate"><span class="pre">BlockRay</span></code> oluşturmayı bitirmek için <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/util/blockray/BlockRay.BlockRayBuilder.html#build--">BlockRay.BlockRayBuilder#build()</a> kullanın.Bir <code class="docutils literal notranslate"><span class="pre">Player``ın</span> <span class="pre">baktığı</span> <span class="pre">ilk</span> <span class="pre">havasız</span> <span class="pre">bloğu</span> <span class="pre">almak</span> <span class="pre">için</span> <span class="pre">örnek</span> <span class="pre">bir</span> <span class="pre">``BlockRayBuilder</span></code> kullanımı aşağıda sağlanmıştır.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.entity.living.player.Player</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.spongepowered.api.util.blockray.BlockRay</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.spongepowered.api.world.World</span><span class="p">;</span>
@@ -218,7 +207,7 @@ hits.</p>
 </div>
 <div class="section" id="using-blockray">
 <h2>BlockRay kullanma<a class="headerlink" href="#using-blockray" title="Bu başlığın kalıcı bağlantısı">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">BlockRay</span></code>, <code class="docutils literal notranslate"><span class="pre">Iterator</span></code> dahil ettiğinden beri, `` BlockRay`` tarafından üretilen <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/util/blockray/BlockRayHit.html">BlockRayHit</a>’leri yinelemek için` <cite>hasNext`</cite> ve <code class="docutils literal notranslate"><span class="pre">next</span></code> gibi yöntemleri (<code class="docutils literal notranslate"><span class="pre">remove</span></code> değil) kullanabilirsiniz. Buna ek olarak, yineleyiciyi başlangıç konumuna sıfırlamak için <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/util/blockray/BlockRay.html#reset--">BlockRay#reset()</a> yöntemini kullanabilirsiniz. <code class="docutils literal notranslate"><span class="pre">BlockRayHit</span></code> aracılığıyla tekrar yapmaktansa, <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/util/blockray/BlockRay.html#end--">BlockRay#end()</a> yöntemini kullanarak, filtrenin kabul ettiği son bloğu elde etmek için blok yolunu sonuna kadar izleyebilirsiniz(veya block limitine erişildiyse hiçbirini).</p>
+<p><code class="docutils literal notranslate"><span class="pre">BlockRay</span></code>, <code class="docutils literal notranslate"><span class="pre">Iterator</span></code> dahil ettiğinden beri, `` BlockRay`` tarafından üretilen <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/util/blockray/BlockRayHit.html">BlockRayHit</a>’leri yinelemek için` <cite>hasNext`</cite> ve <code class="docutils literal notranslate"><span class="pre">next</span></code> gibi yöntemleri (<code class="docutils literal notranslate"><span class="pre">remove</span></code> değil) kullanabilirsiniz. Buna ek olarak, yineleyiciyi başlangıç konumuna sıfırlamak için <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/util/blockray/BlockRay.html#reset--">BlockRay#reset()</a> yöntemini kullanabilirsiniz. <code class="docutils literal notranslate"><span class="pre">BlockRayHit</span></code> aracılığıyla tekrar yapmaktansa, <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/util/blockray/BlockRay.html#end--">BlockRay#end()</a> yöntemini kullanarak, filtrenin kabul ettiği son bloğu elde etmek için blok yolunu sonuna kadar izleyebilirsiniz(veya block limitine erişildiyse hiçbirini).</p>
 </div>
 <div class="section" id="using-blockrayhit">
 <h2>BlockRayHit kullanmak<a class="headerlink" href="#using-blockrayhit" title="Bu başlığın kalıcı bağlantısı">¶</a></h2>

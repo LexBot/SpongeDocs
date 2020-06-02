@@ -19,17 +19,6 @@
 
         <link rel="index" title="索引"
               href="../../genindex.html"/>        <link rel="search" title="搜索" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 文档" href="../../index.html"/>        <link rel="up" title="插件命令" href="index.html"/>        <link rel="next" title="命令标志" href="flags.html"/>        <link rel="prev" title="构建一个命令" href="creating.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -176,15 +165,15 @@
   <div class="section" id="argument-parsing">
 <h1>参数解析<a class="headerlink" href="#argument-parsing" title="永久链接至标题">¶</a></h1>
 <p>命令生成器（Command Builder）的 API 附带了一个非常强大的参数解析器。它把字符串输入转换为 Java 的基本类型（整数、布尔值、字符串）或游戏中的对象（玩家、世界、方块类型等）。这一解析器支持可选参数和标志，它同时也可以处理使用 TAB 的参数自动补全。</p>
-<p>解析过的参数存储在 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/args/CommandContext.html">CommandContext</a> 对象中。如果解析器返回了单个对象，可以通过 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/args/CommandContext.html#getOne-java.lang.String-">CommandContext#getOne(String)</a> 获取。可选参数和弱参数可能会返回 <code class="docutils literal notranslate"><span class="pre">Optional.empty()</span></code>。</p>
-<p>很多解析器可能会返回多个对象（例如匹配用户名的多个玩家）。在这种情况下，你必须使用 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/args/CommandContext.html#getAll-java.lang.String-">CommandContext#getAll(String)</a> 以获取所有可能的匹配项对应的 <code class="docutils literal notranslate"><span class="pre">Collection</span></code>，<strong>否则上下文对象会抛出异常</strong>！</p>
+<p>解析过的参数存储在 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/args/CommandContext.html">CommandContext</a> 对象中。如果解析器返回了单个对象，可以通过 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/args/CommandContext.html#getOne-java.lang.String-">CommandContext#getOne(String)</a> 获取。可选参数和弱参数可能会返回 <code class="docutils literal notranslate"><span class="pre">Optional.empty()</span></code>。</p>
+<p>很多解析器可能会返回多个对象（例如匹配用户名的多个玩家）。在这种情况下，你必须使用 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/args/CommandContext.html#getAll-java.lang.String-">CommandContext#getAll(String)</a> 以获取所有可能的匹配项对应的 <code class="docutils literal notranslate"><span class="pre">Collection</span></code>，<strong>否则上下文对象会抛出异常</strong>！</p>
 <p>当创建命令时，应考虑某个参数是否可以有多个返回值，比如原本应该有玩家参数的地方是否可以用选择器来支持多个玩家。若如此做，玩家在使用这个命令的时候就可以只输入一条命令，并且语法看起来也会很简洁，比如：<code class="docutils literal notranslate"><span class="pre">/tell</span> <span class="pre">&#64;a</span> <span class="pre">Who</span> <span class="pre">took</span> <span class="pre">the</span> <span class="pre">cookies?</span></code></p>
 <div class="admonition tip">
 <p class="first admonition-title">小技巧</p>
-<p class="last">你可以使用 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/args/GenericArguments.html#onlyOne-org.spongepowered.api.command.args.CommandElement-">GenericArguments#onlyOne(CommandElement)</a> 元素来限制参数的返回数量，这样你可以安全使用 <code class="docutils literal notranslate"><span class="pre">args.&lt;T&gt;getOne(String)</span></code>。但用户仍然会在尝试选择多个值的时候收到相应的提示。</p>
+<p class="last">你可以使用 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/args/GenericArguments.html#onlyOne-org.spongepowered.api.command.args.CommandElement-">GenericArguments#onlyOne(CommandElement)</a> 元素来限制参数的返回数量，这样你可以安全使用 <code class="docutils literal notranslate"><span class="pre">args.&lt;T&gt;getOne(String)</span></code>。但用户仍然会在尝试选择多个值的时候收到相应的提示。</p>
 </div>
-<p>若要创建一个新的 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/args/CommandElement.html">CommandElement</a> （参数），请使用 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/args/GenericArguments.html">GenericArguments</a> 这一工厂类（Factory Class）。许多 <code class="docutils literal notranslate"><span class="pre">CommandElement</span></code> 都需要一段短文本用于显示帮助或错误信息。</p>
-<p>使用 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/spec/CommandSpec.Builder.html#arguments-org.spongepowered.api.command.args.CommandElement...-">CommandSpec.Builder#arguments(CommandElement…)</a> 把 <code class="docutils literal notranslate"><span class="pre">CommandElement</span></code> 应用到命令生成器上。这一方法可以传入多个 <code class="docutils literal notranslate"><span class="pre">CommandElement</span></code> ，这样就可以解析多个参数（例如 <code class="docutils literal notranslate"><span class="pre">/msg</span> <span class="pre">&lt;player&gt;</span> <span class="pre">&lt;msg&gt;</span></code> ）。传入多个参数等价于使用 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/args/GenericArguments.html#seq-org.spongepowered.api.command.args.CommandElement...-">GenericArguments#seq(CommandElement…)</a> 把多个参数包装起来。</p>
+<p>若要创建一个新的 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/args/CommandElement.html">CommandElement</a> （参数），请使用 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/args/GenericArguments.html">GenericArguments</a> 这一工厂类（Factory Class）。许多 <code class="docutils literal notranslate"><span class="pre">CommandElement</span></code> 都需要一段短文本用于显示帮助或错误信息。</p>
+<p>使用 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/spec/CommandSpec.Builder.html#arguments-org.spongepowered.api.command.args.CommandElement...-">CommandSpec.Builder#arguments(CommandElement…)</a> 把 <code class="docutils literal notranslate"><span class="pre">CommandElement</span></code> 应用到命令生成器上。这一方法可以传入多个 <code class="docutils literal notranslate"><span class="pre">CommandElement</span></code> ，这样就可以解析多个参数（例如 <code class="docutils literal notranslate"><span class="pre">/msg</span> <span class="pre">&lt;player&gt;</span> <span class="pre">&lt;msg&gt;</span></code> ）。传入多个参数等价于使用 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/args/GenericArguments.html#seq-org.spongepowered.api.command.args.CommandElement...-">GenericArguments#seq(CommandElement…)</a> 把多个参数包装起来。</p>
 <div class="section" id="example-building-a-command-with-multiple-arguments">
 <h2>示例：使用命令生成器生成多个参数的命令<a class="headerlink" href="#example-building-a-command-with-multiple-arguments" title="永久链接至标题">¶</a></h2>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.Sponge</span><span class="p">;</span>
@@ -295,7 +284,7 @@
 <td>一个 <code class="docutils literal notranslate"><span class="pre">Vector3d</span></code></td>
 </tr>
 <tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">catalogedElement</span></code></td>
-<td>期望一个表示特定 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/CatalogType.html">CatalogType</a> 成员的参数。</td>
+<td>期望一个表示特定 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/CatalogType.html">CatalogType</a> 成员的参数。</td>
 <td>多个匹配特定索引类型（Catalog Type）的实例</td>
 </tr>
 <tr class="row-even"><td colspan="3"><strong>匹配器</strong></td>
@@ -366,7 +355,7 @@ command argument. Does not throw an error if the user does not have the permissi
 </table>
 <div class="admonition tip">
 <p class="first admonition-title">小技巧</p>
-<p class="last">详见 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/args/GenericArguments.html">GenericArguments</a> 以获取更详细的信息。</p>
+<p class="last">详见 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/args/GenericArguments.html">GenericArguments</a> 以获取更详细的信息。</p>
 </div>
 <div class="admonition warning">
 <p class="first admonition-title">警告</p>
@@ -376,8 +365,8 @@ command argument. Does not throw an error if the user does not have the permissi
 <div class="section" id="custom-command-elements">
 <h2>自定义命令元素<a class="headerlink" href="#custom-command-elements" title="永久链接至标题">¶</a></h2>
 <p>可以通过继承 <code class="docutils literal notranslate"><span class="pre">CommandElement</span></code> 类创建自定义命令元素（如解析 URL 或者一个 <code class="docutils literal notranslate"><span class="pre">Vector2i</span></code> 元素）。</p>
-<p><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/args/CommandElement.html#parseValue-org.spongepowered.api.command.CommandSource-org.spongepowered.api.command.args.CommandArgs-">CommandElement#parseValue(CommandSource, CommandArgs)</a> 方法需要通过 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/args/CommandArgs.html#next--">CommandArgs#next()</a> 方法获取没有处理过的字符串并将其转换为一个对象（Object），如果转换出错，应抛出一个 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/args/ArgumentParseException.html">ArgumentParseException</a> 异常。</p>
-<p><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/args/CommandElement.html#complete-org.spongepowered.api.command.CommandSource-org.spongepowered.api.command.args.CommandArgs-org.spongepowered.api.command.args.CommandContext-">CommandElement#complete(CommandSource, CommandArgs, CommandContext)</a> 方法应使用 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/args/CommandArgs.html#peek--">CommandArgs#peek()</a> 方法读取下一个未处理过的参数。其返回一个 TAB 自动补全的列表。</p>
+<p><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/args/CommandElement.html#parseValue-org.spongepowered.api.command.CommandSource-org.spongepowered.api.command.args.CommandArgs-">CommandElement#parseValue(CommandSource, CommandArgs)</a> 方法需要通过 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/args/CommandArgs.html#next--">CommandArgs#next()</a> 方法获取没有处理过的字符串并将其转换为一个对象（Object），如果转换出错，应抛出一个 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/args/ArgumentParseException.html">ArgumentParseException</a> 异常。</p>
+<p><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/args/CommandElement.html#complete-org.spongepowered.api.command.CommandSource-org.spongepowered.api.command.args.CommandArgs-org.spongepowered.api.command.args.CommandContext-">CommandElement#complete(CommandSource, CommandArgs, CommandContext)</a> 方法应使用 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/args/CommandArgs.html#peek--">CommandArgs#peek()</a> 方法读取下一个未处理过的参数。其返回一个 TAB 自动补全的列表。</p>
 <div class="section" id="example-vector2i-command-element-definition">
 <h3>示例： <code class="docutils literal notranslate"><span class="pre">Vector2i</span></code> 命令元素的定义<a class="headerlink" href="#example-vector2i-command-element-definition" title="永久链接至标题">¶</a></h3>
 <p>在这一示例中，解析器读取两个传入的参数并将其转换为一个 <code class="docutils literal notranslate"><span class="pre">Vector2i</span></code> 。</p>
@@ -449,9 +438,9 @@ command argument. Does not throw an error if the user does not have the permissi
 </div>
 <div class="section" id="using-selectors-in-custom-command-elements">
 <h3>在自定义命令元素中使用选择器<a class="headerlink" href="#using-selectors-in-custom-command-elements" title="永久链接至标题">¶</a></h3>
-<p>Sponge 提供了解析选择器的支持，所以你可以在自定义元素中使用选择器。使用选择器需要走两步：<strong>解析</strong>（从字符串中构建出 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/selector/Selector.html">Selector</a>）和<strong>解释</strong>（根据选择器获得一个包含所有被选中的 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/Entity.html">Entity</a> 的集合）。</p>
-<p><strong>解析</strong>选择器字符串需用到 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/selector/Selector.html#parse-java.lang.String-">Selector#parse(String)</a> 方法，为此需要传入整个选择器字符串（包含 <code class="docutils literal notranslate"><span class="pre">&#64;</span></code>）。该方法会返回可用于查询和解释的 <code class="docutils literal notranslate"><span class="pre">Selector</span></code> 对象。注意，如果传入的字符串不是合法的选择器字符串，该方法会抛出一个 <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html">IllegalArgumentException</a> 异常。</p>
-<p>请使用 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/selector/Selector.html#resolve-org.spongepowered.api.command.CommandSource-">Selector#resolve(CommandSource)</a> 来<strong>解释</strong>该选择器，它将返回一个包含有该选择器匹配中的所有 <code class="docutils literal notranslate"><span class="pre">Entity</span></code> 的集合。</p>
+<p>Sponge 提供了解析选择器的支持，所以你可以在自定义元素中使用选择器。使用选择器需要走两步：<strong>解析</strong>（从字符串中构建出 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/text/selector/Selector.html">Selector</a>）和<strong>解释</strong>（根据选择器获得一个包含所有被选中的 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/Entity.html">Entity</a> 的集合）。</p>
+<p><strong>解析</strong>选择器字符串需用到 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/text/selector/Selector.html#parse-java.lang.String-">Selector#parse(String)</a> 方法，为此需要传入整个选择器字符串（包含 <code class="docutils literal notranslate"><span class="pre">&#64;</span></code>）。该方法会返回可用于查询和解释的 <code class="docutils literal notranslate"><span class="pre">Selector</span></code> 对象。注意，如果传入的字符串不是合法的选择器字符串，该方法会抛出一个 <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html">IllegalArgumentException</a> 异常。</p>
+<p>请使用 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/text/selector/Selector.html#resolve-org.spongepowered.api.command.CommandSource-">Selector#resolve(CommandSource)</a> 来<strong>解释</strong>该选择器，它将返回一个包含有该选择器匹配中的所有 <code class="docutils literal notranslate"><span class="pre">Entity</span></code> 的集合。</p>
 <p>下面的 <code class="docutils literal notranslate"><span class="pre">CommandElement</span></code> 类的 <code class="docutils literal notranslate"><span class="pre">parseValue</span></code> 方法会尝试解析一个选择器，并根据 <code class="docutils literal notranslate"><span class="pre">CommandSource</span></code> 的位置返回一个实体的集合。若传入的字符串开头不是 <code class="docutils literal notranslate"><span class="pre">&#64;</span></code>，会抛出一个异常告知目标字符串不是选择器。</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Override</span>
 <span class="kd">protected</span> <span class="n">Object</span> <span class="nf">parseValue</span><span class="p">(</span><span class="n">CommandSource</span> <span class="n">source</span><span class="p">,</span> <span class="n">CommandArgs</span> <span class="n">args</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">ArgumentParseException</span> <span class="p">{</span>

@@ -19,17 +19,6 @@
 
         <link rel="index" title="索引"
               href="../genindex.html"/>        <link rel="search" title="搜索" href="../search.html"/>    <link rel="top" title="Sponge 7.2.0 文档" href="../index.html"/>        <link rel="up" title="插件开发" href="index.html"/>        <link rel="next" title="插件的元数据" href="plugin-meta.html"/>        <link rel="prev" title="离线玩家数据" href="offline-userplayer-data.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -167,7 +156,7 @@
   <div class="section" id="tab-lists">
 <h1>玩家列表<a class="headerlink" href="#tab-lists" title="永久链接至标题">¶</a></h1>
 <p>玩家列表是 Minecraft 中按下 Tab 显示的当前服务器上所有在线玩家的小窗口。SpongeAPI 允许分别对每个玩家进行玩家列表的操作。</p>
-<p>若要得到一个玩家的 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/living/player/tab/TabList.html">TabList</a> ，你只需要调用 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/living/player/Player.html#getTabList--">Player#getTabList()</a> 方法：</p>
+<p>若要得到一个玩家的 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/living/player/tab/TabList.html">TabList</a> ，你只需要调用 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/living/player/Player.html#getTabList--">Player#getTabList()</a> 方法：</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.entity.living.player.Player</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.spongepowered.api.entity.living.player.tab.TabList</span><span class="p">;</span>
 
@@ -182,13 +171,13 @@
 <span class="n">tablist</span><span class="p">.</span><span class="na">setFooter</span><span class="p">(</span><span class="n">Text</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">TextColors</span><span class="p">.</span><span class="na">RED</span><span class="p">,</span> <span class="s">&quot;The tab list footer&quot;</span><span class="p">));</span>
 </pre></div>
 </div>
-<p>如果我们想要同时改变它们俩，我们可以调用 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/living/player/tab/TabList.html#setHeaderAndFooter-org.spongepowered.api.text.Text-org.spongepowered.api.text.Text-">TabList#setHeaderAndFooter(Text, Text)</a> 方法：</p>
+<p>如果我们想要同时改变它们俩，我们可以调用 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/living/player/tab/TabList.html#setHeaderAndFooter-org.spongepowered.api.text.Text-org.spongepowered.api.text.Text-">TabList#setHeaderAndFooter(Text, Text)</a> 方法：</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">tablist</span><span class="p">.</span><span class="na">setHeaderAndFooter</span><span class="p">(</span><span class="n">Text</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;header&quot;</span><span class="p">),</span> <span class="n">Text</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;footer&quot;</span><span class="p">));</span>
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">注解</p>
-<p class="last">如果你想要自定义页眉和页脚，我们十分建议你直接调用 <code class="docutils literal notranslate"><span class="pre">setHeaderAndFooter()</span></code> 方法而不是分开调用 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/living/player/tab/TabList.html#setHeader-org.spongepowered.api.text.Text-">TabList#setHeader(Text)</a> 和 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/living/player/tab/TabList.html#setFooter-org.spongepowered.api.text.Text-">TabList#setFooter(Text)</a> 方法。因为后者需要发送两个数据包，而前者只需要发送一个。</p>
+<p class="last">如果你想要自定义页眉和页脚，我们十分建议你直接调用 <code class="docutils literal notranslate"><span class="pre">setHeaderAndFooter()</span></code> 方法而不是分开调用 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/living/player/tab/TabList.html#setHeader-org.spongepowered.api.text.Text-">TabList#setHeader(Text)</a> 和 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/living/player/tab/TabList.html#setFooter-org.spongepowered.api.text.Text-">TabList#setFooter(Text)</a> 方法。因为后者需要发送两个数据包，而前者只需要发送一个。</p>
 </div>
 <div class="section" id="tab-list-entries">
 <h2>玩家列表条目<a class="headerlink" href="#tab-list-entries" title="永久链接至标题">¶</a></h2>
@@ -205,7 +194,7 @@
 <span class="n">tablist</span><span class="p">.</span><span class="na">addEntry</span><span class="p">(</span><span class="n">entry</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>现在让我们分析一下。我们通过调用 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/living/player/tab/TabListEntry.Builder.html#list-org.spongepowered.api.entity.living.player.tab.TabList-">TabListEntry.Builder#list(TabList)</a> 方法把我们的 <code class="docutils literal notranslate"><span class="pre">TabList</span></code> 和 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/living/player/tab/TabListEntry.html">TabListEntry</a> 关联了起来。然后我们设置其游戏模式为 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/living/player/gamemode/GameModes.html#SURVIVAL">GameModes#SURVIVAL</a> 。这一设置将决定各种事物。在客户端，它用于确定玩家是创造模式还是可能是旁观者模式。如果其为旁观者模式，那么对应的名字将显示为灰色和斜体。然后我们需要设置相关联的 <code class="docutils literal notranslate"><span class="pre">GameProfile</span></code> 。 <code class="docutils literal notranslate"><span class="pre">GameProfile</span></code> 可以通过 <code class="docutils literal notranslate"><span class="pre">GameProfile#of()</span></code> 方法生成，当然你也可以获取一个真实的 <code class="docutils literal notranslate"><span class="pre">GameProfile</span></code> ，比如玩家。更多的信息可以参见 <a class="reference internal" href="game-profile-manager.html"><span class="doc">玩家资料管理器</span></a> 。然后如果我们想要把该玩家列表条目应用于玩家列表，我们只需要调用 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/living/player/tab/TabList.html#addEntry-org.spongepowered.api.entity.living.player.tab.TabListEntry-">TabList#addEntry(TabListEntry)</a> 方法。</p>
+<p>现在让我们分析一下。我们通过调用 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/living/player/tab/TabListEntry.Builder.html#list-org.spongepowered.api.entity.living.player.tab.TabList-">TabListEntry.Builder#list(TabList)</a> 方法把我们的 <code class="docutils literal notranslate"><span class="pre">TabList</span></code> 和 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/living/player/tab/TabListEntry.html">TabListEntry</a> 关联了起来。然后我们设置其游戏模式为 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/living/player/gamemode/GameModes.html#SURVIVAL">GameModes#SURVIVAL</a> 。这一设置将决定各种事物。在客户端，它用于确定玩家是创造模式还是可能是旁观者模式。如果其为旁观者模式，那么对应的名字将显示为灰色和斜体。然后我们需要设置相关联的 <code class="docutils literal notranslate"><span class="pre">GameProfile</span></code> 。 <code class="docutils literal notranslate"><span class="pre">GameProfile</span></code> 可以通过 <code class="docutils literal notranslate"><span class="pre">GameProfile#of()</span></code> 方法生成，当然你也可以获取一个真实的 <code class="docutils literal notranslate"><span class="pre">GameProfile</span></code> ，比如玩家。更多的信息可以参见 <a class="reference internal" href="game-profile-manager.html"><span class="doc">玩家资料管理器</span></a> 。然后如果我们想要把该玩家列表条目应用于玩家列表，我们只需要调用 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/living/player/tab/TabList.html#addEntry-org.spongepowered.api.entity.living.player.tab.TabListEntry-">TabList#addEntry(TabListEntry)</a> 方法。</p>
 <p>我们可以通过指定诸如显示名称或玩家列表条目的延迟（Latency）之类的东西来填充我们的基本示例：</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">TabListEntry</span> <span class="n">entry</span> <span class="o">=</span> <span class="n">TabListEntry</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
     <span class="p">.</span><span class="na">list</span><span class="p">(</span><span class="n">tablist</span><span class="p">)</span>
@@ -216,11 +205,11 @@
 <span class="n">tablist</span><span class="p">.</span><span class="na">addEntry</span><span class="p">(</span><span class="n">entry</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>在这里，我们使用 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/living/player/tab/TabListEntry.Builder.html#displayName-org.spongepowered.api.text.Text-">TabListEntry.Builder#displayName(Text)</a> 方法设置我们的玩家列表条目的显示名称为 <cite>Spongie</cite> 。然后我们将我们的 <code class="docutils literal notranslate"><span class="pre">TabListEntry</span></code> 的延迟设置为五个条（Bar）。参阅 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/living/player/tab/TabListEntry.html#setLatency-int-">TabListEntry#setLatency(int)</a> 方法以获取指定其他类型的条的更多信息。</p>
+<p>在这里，我们使用 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/living/player/tab/TabListEntry.Builder.html#displayName-org.spongepowered.api.text.Text-">TabListEntry.Builder#displayName(Text)</a> 方法设置我们的玩家列表条目的显示名称为 <cite>Spongie</cite> 。然后我们将我们的 <code class="docutils literal notranslate"><span class="pre">TabListEntry</span></code> 的延迟设置为五个条（Bar）。参阅 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/living/player/tab/TabListEntry.html#setLatency-int-">TabListEntry#setLatency(int)</a> 方法以获取指定其他类型的条的更多信息。</p>
 </div>
 <div class="section" id="modifying-current-entries">
 <h2>修改当前玩家列表条目<a class="headerlink" href="#modifying-current-entries" title="永久链接至标题">¶</a></h2>
-<p>通过使用 <code class="docutils literal notranslate"><span class="pre">TabList</span></code> ，我们可以获取并修改 <code class="docutils literal notranslate"><span class="pre">TabList</span></code> 中已经存在的玩家列表条目。若要获取特定条目，可以使用 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/living/player/tab/TabList.html#getEntry-java.util.UUID-">TabList#getEntry(UUID)</a> 方法。如果找不到指定的 UUID 的话，该方法将返回 <code class="docutils literal notranslate"><span class="pre">Optional.empty()</span></code> 。下面是一个示例：</p>
+<p>通过使用 <code class="docutils literal notranslate"><span class="pre">TabList</span></code> ，我们可以获取并修改 <code class="docutils literal notranslate"><span class="pre">TabList</span></code> 中已经存在的玩家列表条目。若要获取特定条目，可以使用 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/living/player/tab/TabList.html#getEntry-java.util.UUID-">TabList#getEntry(UUID)</a> 方法。如果找不到指定的 UUID 的话，该方法将返回 <code class="docutils literal notranslate"><span class="pre">Optional.empty()</span></code> 。下面是一个示例：</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">java.util.Optional</span><span class="p">;</span>
 
 <span class="n">Optional</span><span class="o">&lt;</span><span class="n">TabListEntry</span><span class="o">&gt;</span> <span class="n">optional</span> <span class="o">=</span> <span class="n">tablist</span><span class="p">.</span><span class="na">getEntry</span><span class="p">(</span><span class="n">uuid</span><span class="p">);</span>
@@ -235,8 +224,8 @@
 <span class="n">entry</span><span class="p">.</span><span class="na">setGameMode</span><span class="p">(</span><span class="n">GameModes</span><span class="p">.</span><span class="na">SPECTATOR</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>和获取条目相对应，我们还可以删除指定的条目。方法 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/living/player/tab/TabList.html#removeEntry-java.util.UUID-">TabList#removeEntry(UUID)</a> 就是用于根据指定的 <code class="docutils literal notranslate"><span class="pre">UUID</span></code> 删除的。与 <code class="docutils literal notranslate"><span class="pre">getEntry(UUID)</span></code> 方法类似，如果找不到指定的 UUID 的话，将返回 <code class="docutils literal notranslate"><span class="pre">Optional.empty()</span></code> 。</p>
-<p>如果我们没有一个特定的玩家列表条目，我们可以遍历 <code class="docutils literal notranslate"><span class="pre">TabList</span></code> 中所有的 <code class="docutils literal notranslate"><span class="pre">TabListEntry</span></code> 。我们只需要调用 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/living/player/tab/TabList.html#getEntries--">TabList#getEntries()</a> 方法以获取一个 <code class="docutils literal notranslate"><span class="pre">Collection&lt;TabListEntry&gt;</span></code> 就可以遍历了。</p>
+<p>和获取条目相对应，我们还可以删除指定的条目。方法 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/living/player/tab/TabList.html#removeEntry-java.util.UUID-">TabList#removeEntry(UUID)</a> 就是用于根据指定的 <code class="docutils literal notranslate"><span class="pre">UUID</span></code> 删除的。与 <code class="docutils literal notranslate"><span class="pre">getEntry(UUID)</span></code> 方法类似，如果找不到指定的 UUID 的话，将返回 <code class="docutils literal notranslate"><span class="pre">Optional.empty()</span></code> 。</p>
+<p>如果我们没有一个特定的玩家列表条目，我们可以遍历 <code class="docutils literal notranslate"><span class="pre">TabList</span></code> 中所有的 <code class="docutils literal notranslate"><span class="pre">TabListEntry</span></code> 。我们只需要调用 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/living/player/tab/TabList.html#getEntries--">TabList#getEntries()</a> 方法以获取一个 <code class="docutils literal notranslate"><span class="pre">Collection&lt;TabListEntry&gt;</span></code> 就可以遍历了。</p>
 </div>
 </div>
 

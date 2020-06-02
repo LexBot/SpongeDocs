@@ -19,17 +19,6 @@
 
         <link rel="index" title="索引"
               href="../genindex.html"/>        <link rel="search" title="搜尋" href="../search.html"/>    <link rel="top" title="Sponge 7.2.0 說明文件" href="../index.html"/>        <link rel="up" title="建立插件" href="index.html"/>        <link rel="next" title="Tab 清單" href="tab-lists.html"/>        <link rel="prev" title="遊戲設定檔管理器" href="game-profile-manager.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -166,8 +155,8 @@
            <div itemprop="articleBody">
   <div class="section" id="offline-player-data">
 <h1>離線玩家資料<a class="headerlink" href="#offline-player-data" title="本標題的永久連結">¶</a></h1>
-<p>即使玩家离线，插件也可能需要访问玩家的数据。 你可能认为 <code class="docutils literal notranslate"><span class="pre">Sponge.getServer().getPlayer()</span></code> 返回的 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/living/player/Player.html">Player</a> 可以解决这个问题。但事实并非如此。由于 <code class="docutils literal notranslate"><span class="pre">Player</span></code> 仅仅代表一个在线的玩家，因此我们需要寻求另外的解决方案。</p>
-<p>一些插件自己存储相关数据，并通过使用 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/profile/GameProfileManager.html">GameProfileManager</a> 来关联用户。但是实际上，我们不必为离线和在线用户编写不同的代码。 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/ServiceManager.html">ServiceManager</a> 本身提供一个名为 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/user/UserStorageService.html">UserStorageService</a> 的服务，它能够在 <code class="docutils literal notranslate"><span class="pre">Player</span></code> 离线时返回 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/living/player/User.html">User</a> 的实例。因为 <code class="docutils literal notranslate"><span class="pre">Player</span></code> 接口继承了 <code class="docutils literal notranslate"><span class="pre">User</span></code> ，所以大多数调用 <code class="docutils literal notranslate"><span class="pre">Player</span></code> 的方法都可以使用。</p>
+<p>即使玩家离线，插件也可能需要访问玩家的数据。 你可能认为 <code class="docutils literal notranslate"><span class="pre">Sponge.getServer().getPlayer()</span></code> 返回的 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/living/player/Player.html">Player</a> 可以解决这个问题。但事实并非如此。由于 <code class="docutils literal notranslate"><span class="pre">Player</span></code> 仅仅代表一个在线的玩家，因此我们需要寻求另外的解决方案。</p>
+<p>一些插件自己存储相关数据，并通过使用 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/profile/GameProfileManager.html">GameProfileManager</a> 来关联用户。但是实际上，我们不必为离线和在线用户编写不同的代码。 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/ServiceManager.html">ServiceManager</a> 本身提供一个名为 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/user/UserStorageService.html">UserStorageService</a> 的服务，它能够在 <code class="docutils literal notranslate"><span class="pre">Player</span></code> 离线时返回 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/living/player/User.html">User</a> 的实例。因为 <code class="docutils literal notranslate"><span class="pre">Player</span></code> 接口继承了 <code class="docutils literal notranslate"><span class="pre">User</span></code> ，所以大多数调用 <code class="docutils literal notranslate"><span class="pre">Player</span></code> 的方法都可以使用。</p>
 <p>例如：</p>
 <ul class="simple">
 <li>两个接口都支持 <code class="docutils literal notranslate"><span class="pre">#hasPermission(String</span> <span class="pre">permission)</span></code> 方法。</li>

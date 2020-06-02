@@ -19,17 +19,6 @@
 
         <link rel="index" title="索引"
               href="../../genindex.html"/>        <link rel="search" title="搜尋" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 說明文件" href="../../index.html"/>        <link rel="up" title="建立插件" href="../index.html"/>        <link rel="next" title="事件监听器" href="listeners.html"/>        <link rel="prev" title="低階指令 API" href="../commands/commandcallable.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -172,7 +161,7 @@
            <div itemprop="articleBody">
   <div class="section" id="events">
 <h1>事件<a class="headerlink" href="#events" title="本標題的永久連結">¶</a></h1>
-<p>是件被用於通知插件某些事情發生了。許多事件也可以被<em>取消</em> —— 也就是說，事件涉及的動作可被阻止發生。可取消的事件實作了 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/Cancellable.html">Cancellable</a> 介面。</p>
+<p>是件被用於通知插件某些事情發生了。許多事件也可以被<em>取消</em> —— 也就是說，事件涉及的動作可被阻止發生。可取消的事件實作了 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/Cancellable.html">Cancellable</a> 介面。</p>
 <p>Sponge 本身包含許多事件；然而，插件也可以建立自己的事件，供其他插件監聽。</p>
 <p>事件監聽器被分配了優先權，用以決定它在其他（如來自插件的）事件監聽器中的執行順序。例如，一個具有 <code class="docutils literal notranslate"><span class="pre">EARLY</span></code> 優先權的事件監聽器將在大多數其他事件監聽器之前回傳。請參閱 <a class="reference internal" href="listeners.html#about-listener"><span class="std std-ref">关于 &#64;Listener</span></a> 以取得更多資訊。</p>
 <p>事件無法發送給特定一組插件。監聽一個事件的所有插件都將收到該事件的通知。</p>

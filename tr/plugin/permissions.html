@@ -19,17 +19,6 @@
 
         <link rel="index" title="Dizin"
               href="../genindex.html"/>        <link rel="search" title="Ara" href="../search.html"/>    <link rel="top" title="Sponge 7.2.0 belgelendirme çalışması" href="../index.html"/>        <link rel="up" title="Bir eklenti oluşturma" href="index.html"/>        <link rel="next" title="Yasaklılar" href="bans.html"/>        <link rel="prev" title="Veritabanları" href="database.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -323,7 +312,7 @@ Owner: MyPlugin v1.2.3
 <div class="section" id="id1">
 <h3>Kalıtım<a class="headerlink" href="#id1" title="Bu başlığın kalıcı bağlantısı">¶</a></h3>
 <p>Eğer bir <code class="docutils literal notranslate"><span class="pre">Subject``e</span> <span class="pre">atanmış</span> <span class="pre">bir</span> <span class="pre">izin</span> <span class="pre">varsa,</span> <span class="pre">o</span> <span class="pre">değeri</span> <span class="pre">kullanacaktır.</span> <span class="pre">Aksi</span> <span class="pre">halde,</span> <span class="pre">herhangi</span> <span class="pre">bir</span> <span class="pre">kaynak</span> <span class="pre">``Subject</span></code>’ten devralınacaktır. Hangi tür kaynağın (örneğin, grup veya oyuncu) <code class="docutils literal notranslate"><span class="pre">Subject</span></code> olabileceği önemli değildir.</p>
-<p>Ne özne ne de ebeveynlerin herhangi biri, izin vermez veya reddederse, o zaman varsayılan olarak``Subject``alınacaktır. Her <code class="docutils literal notranslate"><span class="pre">SubjectCollection</span></code> kendi varsayılanına sahiptir. Küresel ve en zayıf varsayılan tema <code class="docutils literal notranslate"><span class="pre">PermissionService</span></code>’den alınabilir Her başlatma işlemi esnasında eklentiler <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/permission/SubjectData.html">SubjectData</a> ile kendi izinlerinin varsayılan öntanımlı olarak atayabilir. Sunucu sahiplerinin varsayılan olarak kalıcı <code class="docutils literal notranslate"><span class="pre">SubjectData</span></code> kullanarak ihtiyaçlarına göre eklentiler tarafından tanımlanan varsayılanların üzerine yazmalarını sağlar. Sunucu sahipleri için bir yapılandırma rehberi sunmak isterseniz bunun yerine <code class="docutils literal notranslate"><span class="pre">PermissionDescription</span></code>’ın rol şablonlarını kullanın.</p>
+<p>Ne özne ne de ebeveynlerin herhangi biri, izin vermez veya reddederse, o zaman varsayılan olarak``Subject``alınacaktır. Her <code class="docutils literal notranslate"><span class="pre">SubjectCollection</span></code> kendi varsayılanına sahiptir. Küresel ve en zayıf varsayılan tema <code class="docutils literal notranslate"><span class="pre">PermissionService</span></code>’den alınabilir Her başlatma işlemi esnasında eklentiler <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/permission/SubjectData.html">SubjectData</a> ile kendi izinlerinin varsayılan öntanımlı olarak atayabilir. Sunucu sahiplerinin varsayılan olarak kalıcı <code class="docutils literal notranslate"><span class="pre">SubjectData</span></code> kullanarak ihtiyaçlarına göre eklentiler tarafından tanımlanan varsayılanların üzerine yazmalarını sağlar. Sunucu sahipleri için bir yapılandırma rehberi sunmak isterseniz bunun yerine <code class="docutils literal notranslate"><span class="pre">PermissionDescription</span></code>’ın rol şablonlarını kullanın.</p>
 <div class="admonition warning">
 <p class="first admonition-title">Uyarı</p>
 <p class="last">You should think carefully before granting default permissions to users. By granting the permissions you are
@@ -470,10 +459,10 @@ for features that were changed by the plugin.</p>
 </div>
 <div class="section" id="contexts">
 <h2>Bağlamlar<a class="headerlink" href="#contexts" title="Bu başlığın kalıcı bağlantısı">¶</a></h2>
-<p>Eğer siz her izni ayrıcalık veya birşey yapabilme kabiliyeti olarak düşünürseniz, bir <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/context/Context.html">Context</a> bu ayrıcalıkların kullanılabilir olduğu koşullardır.</p>
+<p>Eğer siz her izni ayrıcalık veya birşey yapabilme kabiliyeti olarak düşünürseniz, bir <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/context/Context.html">Context</a> bu ayrıcalıkların kullanılabilir olduğu koşullardır.</p>
 <p>Bir şeyler yapmak için bir <code class="docutils literal notranslate"><span class="pre">Subject``izni</span> <span class="pre">vermek</span> <span class="pre">isteyebilirsiniz</span> <span class="pre">yalnız</span> <span class="pre">sadece</span> <span class="pre">``Subject</span></code> belli bir dünyada veya belli bir bölgede olduğunda yapabilirsiniz.</p>
 <p>İçerikler <code class="docutils literal notranslate"><span class="pre">Subject</span></code> tarafından biriktirilir ve sonra <code class="docutils literal notranslate"><span class="pre">Subject``in</span> <span class="pre">ayrıcalığı</span> <span class="pre">olup</span> <span class="pre">olmadığına</span> <span class="pre">karar</span> <span class="pre">vermek</span> <span class="pre">için</span> <span class="pre">``PermissionService</span></code> tarafından kullanılır.</p>
-<p>Sponge bir takım  varsayılan içerikler sağlar ama genel olarak <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/context/ContextCalculator.html">ContextCalculator</a> kanalıyla PermissionService’e ek içerikler sağlamak için diğer eklentilerin altındadır.</p>
+<p>Sponge bir takım  varsayılan içerikler sağlar ama genel olarak <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/context/ContextCalculator.html">ContextCalculator</a> kanalıyla PermissionService’e ek içerikler sağlamak için diğer eklentilerin altındadır.</p>
 <p>Eğer bu içerikler paylaşılmak isteniyorsa lütfen kendi eklentilerinizi oluştururken diğer eklentilerle çakışmasından kaçının (Örneğin eklenti kimliğinizle birlikte içerik anahtarını önüne ekleyerek.).</p>
 <div class="admonition note">
 <p class="first admonition-title">Not</p>

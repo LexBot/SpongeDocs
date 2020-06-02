@@ -19,17 +19,6 @@
 
         <link rel="index" title="색인"
               href="../../genindex.html"/>        <link rel="search" title="검색" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 documentation" href="../../index.html"/>        <link rel="up" title="이벤트" href="index.html"/>        <link rel="next" title="이벤트 원인" href="causes.html"/>        <link rel="prev" title="이벤트" href="index.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -173,7 +162,7 @@
            <div itemprop="articleBody">
   <div class="section" id="event-listeners">
 <h1>이벤트 리스너<a class="headerlink" href="#event-listeners" title="제목 주소">¶</a></h1>
-<p>이벤트를 호출받으려면 이벤트 리스너를 등록해야 합니다. 이벤트 리스너를 등록하려면 아무런 이름으로 메소드를 하나 정의하고, 메소드의 첫번째 매개 변수로 원하는 이벤트 종류를 대입하세요. 그 다음 이 메소드의 꼭대기에 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/Listener.html">Listener</a> 어노테이션을 아래 예제 코드처럼 붙이면 됩니다.</p>
+<p>이벤트를 호출받으려면 이벤트 리스너를 등록해야 합니다. 이벤트 리스너를 등록하려면 아무런 이름으로 메소드를 하나 정의하고, 메소드의 첫번째 매개 변수로 원하는 이벤트 종류를 대입하세요. 그 다음 이 메소드의 꼭대기에 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/Listener.html">Listener</a> 어노테이션을 아래 예제 코드처럼 붙이면 됩니다.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.event.Listener</span><span class="p">;</span>
 
 <span class="nd">@Listener</span>
@@ -185,15 +174,15 @@
 <p>참고로 이러한 메소드는 이벤트 매니저에 등록시켜야 비로소 동작합니다:</p>
 <div class="admonition tip">
 <p class="first admonition-title">참고</p>
-<p class="last">플러그인의 메인 클래스에서 정의한 (<a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/plugin/Plugin.html">Plugin</a> 어노테이션이 붙은) 이벤트 리스너들에 한해서는 Sponge가 자동으로 이벤트 매니저에 리스너를 등록시켜 줍니다.</p>
+<p class="last">플러그인의 메인 클래스에서 정의한 (<a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/plugin/Plugin.html">Plugin</a> 어노테이션이 붙은) 이벤트 리스너들에 한해서는 Sponge가 자동으로 이벤트 매니저에 리스너를 등록시켜 줍니다.</p>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">주석</p>
-<p class="last">이벤트 버스는 <strong>부모 타입을 지원</strong>합니다. 예를 들어, <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/block/ChangeBlockEvent.Break.html">ChangeBlockEvent.Break</a>는 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/block/ChangeBlockEvent.html">ChangeBlockEvent</a>를 상속합니다. 따라서 <code class="docutils literal notranslate"><span class="pre">ChangeBlockEvent</span></code> 이벤트 리스너를 등록하면 해당 이벤트뿐만 아니라 <code class="docutils literal notranslate"><span class="pre">ChangeBlockEvent.Break</span></code>도 호출받을 수 있습니다. 하지만 상속의 정의에 따라 반대의 경우는 성립하지 않습니다.</p>
+<p class="last">이벤트 버스는 <strong>부모 타입을 지원</strong>합니다. 예를 들어, <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/block/ChangeBlockEvent.Break.html">ChangeBlockEvent.Break</a>는 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/block/ChangeBlockEvent.html">ChangeBlockEvent</a>를 상속합니다. 따라서 <code class="docutils literal notranslate"><span class="pre">ChangeBlockEvent</span></code> 이벤트 리스너를 등록하면 해당 이벤트뿐만 아니라 <code class="docutils literal notranslate"><span class="pre">ChangeBlockEvent.Break</span></code>도 호출받을 수 있습니다. 하지만 상속의 정의에 따라 반대의 경우는 성립하지 않습니다.</p>
 </div>
 <div class="section" id="registering-and-unregistering-event-listeners">
 <h2>이벤트 리스너 등록과 등록 해지<a class="headerlink" href="#registering-and-unregistering-event-listeners" title="제목 주소">¶</a></h2>
-<p>플러그인의 메인 클래스가 아닌 곳에서 정의된 <code class="docutils literal notranslate"><span class="pre">&#64;Listener</span></code> 어노테이션이 붙은 이벤트 리스너를 활성화시키려면, <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/EventManager.html#registerListeners-java.lang.Object-java.lang.Object-">EventManager#registerListeners(Object, Object)</a> 를 사용하세요. 이 메소드는 첫번째 매개 변수로 플러그인, 두번째 매개 변수로 이벤트 리스너를 포함하는 클래스를 대입하면 해당 리스너가 Sponge 서버에 등록됩니다.</p>
+<p>플러그인의 메인 클래스가 아닌 곳에서 정의된 <code class="docutils literal notranslate"><span class="pre">&#64;Listener</span></code> 어노테이션이 붙은 이벤트 리스너를 활성화시키려면, <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/EventManager.html#registerListeners-java.lang.Object-java.lang.Object-">EventManager#registerListeners(Object, Object)</a> 를 사용하세요. 이 메소드는 첫번째 매개 변수로 플러그인, 두번째 매개 변수로 이벤트 리스너를 포함하는 클래스를 대입하면 해당 리스너가 Sponge 서버에 등록됩니다.</p>
 <p><strong>예제 코드: 외부 클래스에서 이벤트 리스너를 등록하기</strong></p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.Sponge</span><span class="p">;</span>
 
@@ -210,7 +199,7 @@
 </div>
 <div class="section" id="dynamically-registering-event-listeners">
 <h3>이벤트 리스너를 동적으로 등록하기<a class="headerlink" href="#dynamically-registering-event-listeners" title="제목 주소">¶</a></h3>
-<p>(스크립트 플러그인처럼) 이벤트 리스너를 동적으로 등록시켜야 할 경우도 있습니다. 이 경우엔 클래스가 <code class="docutils literal notranslate"><span class="pre">EventListener</span></code> 인터페이스를 구현하면 됩니다. 단, 리스너 메소드에는 <code class="docutils literal notranslate"><span class="pre">&#64;Listener</span></code> 어노테이션을 붙이지 마세요. 이제 <code class="docutils literal notranslate"><span class="pre">EventManager#registerListener</span></code> 메소드를 호출하여 첫번째 매개 변수로 플러그인을, 두번째로 이벤트 종류를 식별하는 이벤트 <code class="docutils literal notranslate"><span class="pre">클래스</span></code>를, 세 번째 매개 변수로 현재 클래스(리스너)를 대입하면 이벤트 리스너가 동적으로 등록됩니다. 부가적으로, 세 번째 매개 변수에 리스너의 우선순위를 결정할 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/Order.html">Order</a>를 대입할 수 있고, 네 번째 매개 변수(리스너 인스턴스 앞)에 boolean을 대입하여 서버가 수정되기 전에 리스너 호출을 받을 여부를 정의할 수도 있습니다. <strong>추신</strong>: 동적 이벤트 리스너란 한 마디로 하나의 이벤트를 하나의 클래스로 관리한다는 것으로 해석됩니다.</p>
+<p>(스크립트 플러그인처럼) 이벤트 리스너를 동적으로 등록시켜야 할 경우도 있습니다. 이 경우엔 클래스가 <code class="docutils literal notranslate"><span class="pre">EventListener</span></code> 인터페이스를 구현하면 됩니다. 단, 리스너 메소드에는 <code class="docutils literal notranslate"><span class="pre">&#64;Listener</span></code> 어노테이션을 붙이지 마세요. 이제 <code class="docutils literal notranslate"><span class="pre">EventManager#registerListener</span></code> 메소드를 호출하여 첫번째 매개 변수로 플러그인을, 두번째로 이벤트 종류를 식별하는 이벤트 <code class="docutils literal notranslate"><span class="pre">클래스</span></code>를, 세 번째 매개 변수로 현재 클래스(리스너)를 대입하면 이벤트 리스너가 동적으로 등록됩니다. 부가적으로, 세 번째 매개 변수에 리스너의 우선순위를 결정할 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/Order.html">Order</a>를 대입할 수 있고, 네 번째 매개 변수(리스너 인스턴스 앞)에 boolean을 대입하여 서버가 수정되기 전에 리스너 호출을 받을 여부를 정의할 수도 있습니다. <strong>추신</strong>: 동적 이벤트 리스너란 한 마디로 하나의 이벤트를 하나의 클래스로 관리한다는 것으로 해석됩니다.</p>
 <p><strong>예제: EventListener 클래스 구현하기</strong></p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.event.EventListener</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.spongepowered.api.event.block.ChangeBlockEvent</span><span class="p">;</span>
@@ -236,12 +225,12 @@
 </div>
 <div class="section" id="unregistering-event-listeners">
 <h3>이벤트 리스너 등록 해지하기<a class="headerlink" href="#unregistering-event-listeners" title="제목 주소">¶</a></h3>
-<p>매개 변수로 클래스의 객체를 받는 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/EventManager.html#unregisterListeners-java.lang.Object-">EventManager#unregisterListeners(Object)</a> 메소드를 사용하면, 해당 클래스에 등록된 이벤트 리스너들을 등록 해지할 수 있습니다.</p>
+<p>매개 변수로 클래스의 객체를 받는 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/EventManager.html#unregisterListeners-java.lang.Object-">EventManager#unregisterListeners(Object)</a> 메소드를 사용하면, 해당 클래스에 등록된 이벤트 리스너들을 등록 해지할 수 있습니다.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">EventListener</span> <span class="n">listener</span> <span class="o">=</span> <span class="p">...;</span>
 <span class="n">Sponge</span><span class="p">.</span><span class="na">getEventManager</span><span class="p">().</span><span class="na">unregisterListeners</span><span class="p">(</span><span class="n">listener</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>또는, <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/EventManager.html#unregisterPluginListeners-java.lang.Object-">EventManager#unregisterPluginListeners(Object)</a> 메소드에 플러그인을 매개 변수로 대입시켜 호출하면, 해당 플러그인에 등록된 모든 이벤트 리스너가 등록 해지됩니다. 이 메소드는 <code class="docutils literal notranslate"><span class="pre">&#64;Listener</span></code> 어노테이션이 붙은 것도 포함하여 <em>모든</em> 이벤트 리스너를 비활성화시킨다는 점을 명심하십시오.</p>
+<p>또는, <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/EventManager.html#unregisterPluginListeners-java.lang.Object-">EventManager#unregisterPluginListeners(Object)</a> 메소드에 플러그인을 매개 변수로 대입시켜 호출하면, 해당 플러그인에 등록된 모든 이벤트 리스너가 등록 해지됩니다. 이 메소드는 <code class="docutils literal notranslate"><span class="pre">&#64;Listener</span></code> 어노테이션이 붙은 것도 포함하여 <em>모든</em> 이벤트 리스너를 비활성화시킨다는 점을 명심하십시오.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">PluginContainer</span> <span class="n">plugin</span> <span class="o">=</span> <span class="p">...;</span>
 <span class="n">Sponge</span><span class="p">.</span><span class="na">getEventManager</span><span class="p">().</span><span class="na">unregisterPluginListeners</span><span class="p">(</span><span class="n">plugin</span><span class="p">);</span>
 </pre></div>
@@ -251,7 +240,7 @@
 <span id="id1"></span><h3>&#64;Listener 에 대하여<a class="headerlink" href="#about-listener" title="제목 주소">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">&#64;Listener</span></code> 어노테이션에는 몇 가지 필드 옵션이 있습니다:</p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">order</span></code> is the priority in which the event listener is to be run. See the <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/Order.html">Order</a> enum in SpongeAPI to
+<li><code class="docutils literal notranslate"><span class="pre">order</span></code> is the priority in which the event listener is to be run. See the <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/Order.html">Order</a> enum in SpongeAPI to
 see the available options.</li>
 <li><code class="docutils literal notranslate"><span class="pre">beforeModifications</span></code>는 Forge 모드와 같은 다른 서버 모드들 보다 우선적으로 이벤트를 호출받을지 여부를 결정합니다. 기본적으로 false 값을 갖습니다.</li>
 </ul>
@@ -261,7 +250,7 @@ see the available options.</li>
 <span id="game-reload"></span><h3>GameReloadEvent<a class="headerlink" href="#gamereloadevent" title="제목 주소">¶</a></h3>
 <p>To prevent all plugins providing their own reload commands, Sponge provides a built-in callback for plugins to listen
 to, and when executed, perform any reloading actions. What constitutes as a 〈reloading action〉 is purely up to the
-plugin to decide. The <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/GameReloadEvent.html">GameReloadEvent</a> will fire when a player executes the
+plugin to decide. The <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/game/GameReloadEvent.html">GameReloadEvent</a> will fire when a player executes the
 <code class="docutils literal notranslate"><span class="pre">/sponge</span> <span class="pre">plugins</span> <span class="pre">reload</span></code> command. The event is not necessarily limited to reloading configuration.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.event.game.GameReloadEvent</span><span class="p">;</span>
 
@@ -276,15 +265,15 @@ plugin to decide. The <a class="reference external" href="https://jd.spongepower
 </div>
 <div class="section" id="firing-events">
 <h2>이벤트 호출하기<a class="headerlink" href="#firing-events" title="제목 주소">¶</a></h2>
-<p>이벤트를 배포하여 이벤트 리스너들을 호출시키려면, <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/Event.html">Event</a> 인터페이스를 구현하는 객체가 필요합니다.</p>
-<p>이벤트 버스(<a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/EventManager.html">EventManager</a>) 를 통해 이벤트를 발생시킬 수 있습니다:</p>
+<p>이벤트를 배포하여 이벤트 리스너들을 호출시키려면, <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/Event.html">Event</a> 인터페이스를 구현하는 객체가 필요합니다.</p>
+<p>이벤트 버스(<a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/EventManager.html">EventManager</a>) 를 통해 이벤트를 발생시킬 수 있습니다:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">boolean</span> <span class="n">cancelled</span> <span class="o">=</span> <span class="n">Sponge</span><span class="p">.</span><span class="na">getEventManager</span><span class="p">().</span><span class="na">post</span><span class="p">(</span><span class="n">theEventObject</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>이 메소드는 이벤트 실행이 취소되면 <code class="docutils literal notranslate"><span class="pre">true</span></code>, 그렇지 않으면 <code class="docutils literal notranslate"><span class="pre">false</span></code> 값을 반환합니다.</p>
 <div class="section" id="firing-sponge-events">
 <h3>Sponge 이벤트 호출하기<a class="headerlink" href="#firing-sponge-events" title="제목 주소">¶</a></h3>
-<p>정적 클래스 <code class="docutils literal notranslate"><span class="pre">SpongeEventFactory</span></code> 를 통해 서버의 내장 이벤트의 인스턴스를 생성할 수 있습니다. 이 클래스는 자동으로 생성되므로 Javadoc이 없습니다. IDE의 자동완성 기능으로 클래스의 메소드 목록을 확인하세요. <code class="docutils literal notranslate"><span class="pre">SpongeEventFactory</span></code> 로 이벤트를 생성하면 인스턴스가 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/EventManager.html#post-org.spongepowered.api.event.Event-">EventManager#post(Event)</a> 로 넘어갑니다.</p>
+<p>정적 클래스 <code class="docutils literal notranslate"><span class="pre">SpongeEventFactory</span></code> 를 통해 서버의 내장 이벤트의 인스턴스를 생성할 수 있습니다. 이 클래스는 자동으로 생성되므로 Javadoc이 없습니다. IDE의 자동완성 기능으로 클래스의 메소드 목록을 확인하세요. <code class="docutils literal notranslate"><span class="pre">SpongeEventFactory</span></code> 로 이벤트를 생성하면 인스턴스가 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/EventManager.html#post-org.spongepowered.api.event.Event-">EventManager#post(Event)</a> 로 넘어갑니다.</p>
 </div>
 <div class="section" id="example-firing-lightningevent">
 <h3>예제: LightningEvent 호출하기<a class="headerlink" href="#example-firing-lightningevent" title="제목 주소">¶</a></h3>
@@ -303,7 +292,7 @@ plugin to decide. The <a class="reference external" href="https://jd.spongepower
 </div>
 <div class="admonition warning">
 <p class="first admonition-title">경고</p>
-<p class="last">매개 변수에 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/cause/Cause.html">Cause</a> 를 빈 값으로 대입할 수 없습니다. 최소한으로 플러그인 컨테이너는 포함시키세요.</p>
+<p class="last">매개 변수에 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/cause/Cause.html">Cause</a> 를 빈 값으로 대입할 수 없습니다. 최소한으로 플러그인 컨테이너는 포함시키세요.</p>
 </div>
 </div>
 </div>

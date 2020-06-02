@@ -19,17 +19,6 @@
 
         <link rel="index" title="Índice"
               href="../../genindex.html"/>        <link rel="search" title="Búsqueda" href="../../search.html"/>    <link rel="top" title="documentación de Sponge - 7.2.0" href="../../index.html"/>        <link rel="up" title="Plugin Commands" href="index.html"/>        <link rel="next" title="Banderas de Comando" href="flags.html"/>        <link rel="prev" title="Compilación de un Comando" href="creating.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -185,15 +174,15 @@ argument could support multiple players when using a selector. If you support mu
 only one command and can use an easier command syntax. Example: <code class="docutils literal notranslate"><span class="pre">/tell</span> <span class="pre">&#64;a</span> <span class="pre">Who</span> <span class="pre">took</span> <span class="pre">the</span> <span class="pre">cookies?</span></code></p>
 <div class="admonition tip">
 <p class="first admonition-title">Truco</p>
-<p class="last">You can use the <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/args/GenericArguments.html#onlyOne-org.spongepowered.api.command.args.CommandElement-">GenericArguments#onlyOne(CommandElement)</a> element to restrict the amount of returned values
+<p class="last">You can use the <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/args/GenericArguments.html#onlyOne-org.spongepowered.api.command.args.CommandElement-">GenericArguments#onlyOne(CommandElement)</a> element to restrict the amount of returned values
 to a single one, so you can safely use <code class="docutils literal notranslate"><span class="pre">args.&lt;T&gt;getOne(String)</span></code>. However the user will still get a message, if they
 try to select more than one value.</p>
 </div>
 <p>Para crear un nuevo :javadoc:´CommandElement´(argumento), utilice la clase de fábrica :javadoc: ´GenericArguments´. Muchos elementos de comando requieren una tecla de texto breve, la cual se muestra en los mensajes de error y de ayuda.</p>
-<p>Apply the <code class="docutils literal notranslate"><span class="pre">CommandElement</span></code> to the command builder with the <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/spec/CommandSpec.Builder.html#arguments-org.spongepowered.api.command.args.CommandElement...-">CommandSpec.Builder#arguments(CommandElement…)</a>
+<p>Apply the <code class="docutils literal notranslate"><span class="pre">CommandElement</span></code> to the command builder with the <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/spec/CommandSpec.Builder.html#arguments-org.spongepowered.api.command.args.CommandElement...-">CommandSpec.Builder#arguments(CommandElement…)</a>
 method. It is possible to pass more than one <code class="docutils literal notranslate"><span class="pre">CommandElement</span></code> to the method, thus chaining multiple arguments (e.g.
 <code class="docutils literal notranslate"><span class="pre">/msg</span> <span class="pre">&lt;player&gt;</span> <span class="pre">&lt;msg&gt;</span></code>). This has the same effect as wrapping the <code class="docutils literal notranslate"><span class="pre">CommandElement</span></code> objects in a
-<a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/args/GenericArguments.html#seq-org.spongepowered.api.command.args.CommandElement...-">GenericArguments#seq(CommandElement…)</a> element.</p>
+<a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/args/GenericArguments.html#seq-org.spongepowered.api.command.args.CommandElement...-">GenericArguments#seq(CommandElement…)</a> element.</p>
 <div class="section" id="example-building-a-command-with-multiple-arguments">
 <h2>Ejemplo: Construir un comando con múltiples argumentos<a class="headerlink" href="#example-building-a-command-with-multiple-arguments" title="Enlazar permanentemente con este título">¶</a></h2>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.Sponge</span><span class="p">;</span>
@@ -389,7 +378,7 @@ single value use <code class="docutils literal notranslate"><span class="pre">Ge
 <h2>Elementos de comando personalizados<a class="headerlink" href="#custom-command-elements" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Es posible crear elementos de comando personalizados (por ejemplo, un analizador de URL o un elemento `` Vector2i``) extendiendo la clase abstracta `` CommandElement``.</p>
 <p>El método: javadoc: <cite>CommandElement # parseValue (CommandSource, CommandArgs)</cite> debe buscar una cadena de argumento sin procesar con: javadoc: <cite>CommandArgs # next ()</cite> y convertirlo en un objeto. El método debería arrojar un: javadoc: <cite>ArgumentParseException</cite> si el análisis falla.</p>
-<p>El método <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/args/CommandElement.html#complete-org.spongepowered.api.command.CommandSource-org.spongepowered.api.command.args.CommandArgs-org.spongepowered.api.command.args.CommandContext-">CommandElement#complete(CommandSource, CommandArgs, CommandContext)</a> debe usar :javadoc: <cite>CommandArgs # peek ()</cite> para leer el siguiente argumento sin formato. Devuelve una lista de sugerencias para completar el TAB.</p>
+<p>El método <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/args/CommandElement.html#complete-org.spongepowered.api.command.CommandSource-org.spongepowered.api.command.args.CommandArgs-org.spongepowered.api.command.args.CommandContext-">CommandElement#complete(CommandSource, CommandArgs, CommandContext)</a> debe usar :javadoc: <cite>CommandArgs # peek ()</cite> para leer el siguiente argumento sin formato. Devuelve una lista de sugerencias para completar el TAB.</p>
 <div class="section" id="example-vector2i-command-element-definition">
 <h3>Ejemplo: definición de elemento de comando `` Vector2i``<a class="headerlink" href="#example-vector2i-command-element-definition" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>El analizador en este ejemplo lee dos argumentos de entrada y los convierte a un vector.</p>
@@ -462,12 +451,12 @@ single value use <code class="docutils literal notranslate"><span class="pre">Ge
 <div class="section" id="using-selectors-in-custom-command-elements">
 <h3>Using Selectors in Custom Command Elements<a class="headerlink" href="#using-selectors-in-custom-command-elements" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Sponge provides support for parsing selectors, meaning that you can make use of them in your custom elements. There
-are two steps in using selectors, <strong>parsing</strong> (getting a <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/selector/Selector.html">Selector</a> from the string) and <strong>resolving</strong>
-(getting a set of <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/Entity.html">Entity</a> objects selected by the selector).</p>
-<p>To <strong>parse</strong> a selector string, use the <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/selector/Selector.html#parse-java.lang.String-">Selector#parse(String)</a> method, passing the entire selector,
+are two steps in using selectors, <strong>parsing</strong> (getting a <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/text/selector/Selector.html">Selector</a> from the string) and <strong>resolving</strong>
+(getting a set of <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/Entity.html">Entity</a> objects selected by the selector).</p>
+<p>To <strong>parse</strong> a selector string, use the <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/text/selector/Selector.html#parse-java.lang.String-">Selector#parse(String)</a> method, passing the entire selector,
 including the <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> symbol. This will turn the string into a <code class="docutils literal notranslate"><span class="pre">Selector</span></code> object that can be queried or resolved.
 Note that if the string is not a valid selector, an <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html">IllegalArgumentException</a> will be thrown.</p>
-<p>To <strong>resolve</strong> this selector, use <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/selector/Selector.html#resolve-org.spongepowered.api.command.CommandSource-">Selector#resolve(CommandSource)</a>. This will return a set of <code class="docutils literal notranslate"><span class="pre">Entity</span></code>
+<p>To <strong>resolve</strong> this selector, use <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/text/selector/Selector.html#resolve-org.spongepowered.api.command.CommandSource-">Selector#resolve(CommandSource)</a>. This will return a set of <code class="docutils literal notranslate"><span class="pre">Entity</span></code>
 objects selected by the selector.</p>
 <p>The following <code class="docutils literal notranslate"><span class="pre">parseValue</span></code> method from the <code class="docutils literal notranslate"><span class="pre">CommandElement</span></code> class attempts to parse a selector and return a set of
 entities based on the location of the <code class="docutils literal notranslate"><span class="pre">CommandSource</span></code>. If the passed string does not start with <code class="docutils literal notranslate"><span class="pre">&#64;</span></code>, an exception

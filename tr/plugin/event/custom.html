@@ -19,17 +19,6 @@
 
         <link rel="index" title="Dizin"
               href="../../genindex.html"/>        <link rel="search" title="Ara" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 belgelendirme çalışması" href="../../index.html"/>        <link rel="up" title="Etkinlikler" href="index.html"/>        <link rel="next" title="Eklentileri yapılandırma" href="../configuration/index.html"/>        <link rel="prev" title="Etkinlik filtreleri" href="filters.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -176,7 +165,7 @@
 <p>Kendi etkinlik sınıflarınızı yazabilir ve yukarıda açıklanan yöntemi kullanarak bu etkinlikleri gönderebilirsiniz.Bir olay sınıfı: javadoc: <cite>AbstractEvent</cite> sınıfını genişletmelidir;böylece: javadoc: <cite>Event</cite> arayüzü uygulanır.Etkinliğin doğasına bağlı olarak,daha fazla arayüz uygulanmalıdır,örneğin: javadoc: gibi bir dinleyici veya aşağıdakiler gibi arayüzlerle iptal edilebilen etkinlikler için ‘İptal Edilebilir’: javadoc: <cite>TargetPlayerEvent</cite>, hangi nesnenin hangi etkinliğin tarafından etkilendiğini açıklığa kavuşturuyor.</p>
 <div class="section" id="example-custom-event-class">
 <h2>Örnek: Özel Olay Sınıfı<a class="headerlink" href="#example-custom-event-class" title="Bu başlığın kalıcı bağlantısı">¶</a></h2>
-<p>The following class describes an event indicating a <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/living/player/Player.html">Player</a> has come in contact with FLARD and is now about to
+<p>The following class describes an event indicating a <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/living/player/Player.html">Player</a> has come in contact with FLARD and is now about to
 mutate in a way specified by the event. Since the event targets a player and can be cancelled by listeners, it
 implements both the <code class="docutils literal notranslate"><span class="pre">TargetPlayerEvent</span></code> and <code class="docutils literal notranslate"><span class="pre">Cancellable</span></code> interfaces.</p>
 <p>Genellikle özel olayların diğer eklentiler tarafından dinlenmesi amaçlandığından,bunları uygun bir şekilde belgelemek sizin yararınızadır.Bu, tipik olarak: javadoc: <a href="#id1"><span class="problematic" id="id2">`</span></a>Cause`de bulunan nesnelerin listesini içerir. Aşağıdaki örnekte,muhtemelen ana sebebin hayali “FLARDSource” sınıfının bir nesnesi olduğu söylenebilir.</p>

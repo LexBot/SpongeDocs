@@ -19,17 +19,6 @@
 
         <link rel="index" title="索引"
               href="../../genindex.html"/>        <link rel="search" title="搜尋" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 說明文件" href="../../index.html"/>        <link rel="up" title="插件指令" href="index.html"/>        <link rel="next" title="指令管理器" href="service.html"/>        <link rel="prev" title="指令旗標" href="flags.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -175,7 +164,7 @@
            <div itemprop="articleBody">
   <div class="section" id="child-commands">
 <h1>子指令<a class="headerlink" href="#child-commands" title="本標題的永久連結">¶</a></h1>
-<p><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/spec/CommandSpec.html">CommandSpec</a> Builder 支援分層指令結構，就像這樣：</p>
+<p><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/spec/CommandSpec.html">CommandSpec</a> Builder 支援分層指令結構，就像這樣：</p>
 <ul class="simple">
 <li><code class="docutils literal notranslate"><span class="pre">/mail</span></code>（父指令）<ul>
 <li><code class="docutils literal notranslate"><span class="pre">/mail</span> <span class="pre">send</span></code>（子指令）</li>
@@ -203,7 +192,7 @@
     <span class="p">.</span><span class="na">build</span><span class="p">();</span>
 </pre></div>
 </div>
-<p>和正常的命令不同，子命令并不使用直接注册的方式，而是作为父命令的 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/spec/CommandSpec.html">CommandSpec</a> Builder 的 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/spec/CommandSpec.Builder.html#child-org.spongepowered.api.command.CommandCallable-java.lang.String...-">CommandSpec.Builder#child(CommandCallable, String…)</a> 的方法参数传入。当然，它们可以使用多个不同的别名，第一个别名将用于主名称，并且会在帮助中显示。</p>
+<p>和正常的命令不同，子命令并不使用直接注册的方式，而是作为父命令的 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/spec/CommandSpec.html">CommandSpec</a> Builder 的 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/spec/CommandSpec.Builder.html#child-org.spongepowered.api.command.CommandCallable-java.lang.String...-">CommandSpec.Builder#child(CommandCallable, String…)</a> 的方法参数传入。当然，它们可以使用多个不同的别名，第一个别名将用于主名称，并且会在帮助中显示。</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.Sponge</span><span class="p">;</span>
 
 <span class="n">PluginContainer</span> <span class="n">plugin</span> <span class="o">=</span> <span class="p">...;</span>
@@ -220,12 +209,12 @@
 </div>
 <div class="section" id="fallback-behavior">
 <h2>回退行为<a class="headerlink" href="#fallback-behavior" title="本標題的永久連結">¶</a></h2>
-<p>如果一个命令有子命令，那么相应的通过 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/spec/CommandSpec.Builder.html#executor-org.spongepowered.api.command.spec.CommandExecutor-">CommandSpec.Builder#executor(CommandExecutor)</a> 方法添加的 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/spec/CommandExecutor.html">CommandExecutor</a> 及与之相关的 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/spec/CommandSpec.Builder.html#arguments-org.spongepowered.api.command.args.CommandElement-">CommandSpec.Builder#arguments(CommandElement)</a> 都是可选的。父命令执行器存在与否，将决定选择子命令或者解析子命令参数出错时相应行为。</p>
-<p>如果构建命令时未指定父命令执行器，那么在相应的子命令未找到或相应的参数解析错误时，相关代码将抛出一个 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/args/ArgumentParseException.html">ArgumentParseException</a> 异常。</p>
-<p>如果父命令设置了相应的命令执行器，那么它将用于相关错误的回退行为，比如第一个参数不符合任何一个子命令的主名称或别名等。如果找到了子命令，但是无法解析相应参数，那么相应的回退行为将由 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/spec/CommandSpec.Builder.html#childArgumentParseExceptionFallback-boolean-">CommandSpec.Builder#childArgumentParseExceptionFallback(boolean)</a> 方法设置的参数决定：</p>
+<p>如果一个命令有子命令，那么相应的通过 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/spec/CommandSpec.Builder.html#executor-org.spongepowered.api.command.spec.CommandExecutor-">CommandSpec.Builder#executor(CommandExecutor)</a> 方法添加的 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/spec/CommandExecutor.html">CommandExecutor</a> 及与之相关的 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/spec/CommandSpec.Builder.html#arguments-org.spongepowered.api.command.args.CommandElement-">CommandSpec.Builder#arguments(CommandElement)</a> 都是可选的。父命令执行器存在与否，将决定选择子命令或者解析子命令参数出错时相应行为。</p>
+<p>如果构建命令时未指定父命令执行器，那么在相应的子命令未找到或相应的参数解析错误时，相关代码将抛出一个 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/args/ArgumentParseException.html">ArgumentParseException</a> 异常。</p>
+<p>如果父命令设置了相应的命令执行器，那么它将用于相关错误的回退行为，比如第一个参数不符合任何一个子命令的主名称或别名等。如果找到了子命令，但是无法解析相应参数，那么相应的回退行为将由 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/spec/CommandSpec.Builder.html#childArgumentParseExceptionFallback-boolean-">CommandSpec.Builder#childArgumentParseExceptionFallback(boolean)</a> 方法设置的参数决定：</p>
 <ul class="simple">
-<li>如果为真（默认值），那么相应的 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/args/ArgumentParseException.html">ArgumentParseException</a> 将被丢弃，同时将参数传给父命令执行器解析处理。如果父命令执行器解析错误，那么相关代码将针对父命令执行器抛出相应的异常。这和以前的 API 版本的行为是相同的，也就是说子命令的参数解析错误不会出现。</li>
-<li>如果为假，那么父命令执行器将不会试图解析参数，同时抛出子命令在参数解析错误时产生的 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/args/ArgumentParseException.html">ArgumentParseException</a> 异常，不过这种行为将阻止父命令执行器执行某些特定类型的命令参数组合（比如说第一个参数和某个子命令相同）。</li>
+<li>如果为真（默认值），那么相应的 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/args/ArgumentParseException.html">ArgumentParseException</a> 将被丢弃，同时将参数传给父命令执行器解析处理。如果父命令执行器解析错误，那么相关代码将针对父命令执行器抛出相应的异常。这和以前的 API 版本的行为是相同的，也就是说子命令的参数解析错误不会出现。</li>
+<li>如果为假，那么父命令执行器将不会试图解析参数，同时抛出子命令在参数解析错误时产生的 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/args/ArgumentParseException.html">ArgumentParseException</a> 异常，不过这种行为将阻止父命令执行器执行某些特定类型的命令参数组合（比如说第一个参数和某个子命令相同）。</li>
 </ul>
 <p>不管是何种回退行为，如果子命令在参数解析成功后执行的时候抛出异常，父命令执行器（如果有）都不会执行，子命令相关的错误信息也将会直接抛出并显示。</p>
 </div>

@@ -19,17 +19,6 @@
 
         <link rel="index" title="Indeks"
               href="../../genindex.html"/>        <link rel="search" title="Pencarian" href="../../search.html"/>    <link rel="top" title="dokumentasi Sponge 7.2.0" href="../../index.html"/>        <link rel="up" title="Blok" href="index.html"/>        <link rel="next" title="Genteng Badan" href="tileentities.html"/>        <link rel="prev" title="Mengakses Blokir" href="accessing.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -176,8 +165,8 @@
 <h1>Memodifikasi Blok<a class="headerlink" href="#modifying-blocks" title="Link permanen untuk headline ini">¶</a></h1>
 <div class="section" id="changing-a-block-s-type">
 <h2>Changing a Block's Type<a class="headerlink" href="#changing-a-block-s-type" title="Link permanen untuk headline ini">¶</a></h2>
-<p>Changing the Type of a Block is as simple as calling the <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/Location.html#setBlockType-org.spongepowered.api.block.BlockType-">Location#setBlockType(BlockType)</a> method with
-the new <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/block/BlockType.html">BlockType</a>. The following code turns the block at the given <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/Location.html">Location</a> into a
+<p>Changing the Type of a Block is as simple as calling the <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/world/Location.html#setBlockType-org.spongepowered.api.block.BlockType-">Location#setBlockType(BlockType)</a> method with
+the new <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/block/BlockType.html">BlockType</a>. The following code turns the block at the given <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/world/Location.html">Location</a> into a
 sponge:</p>
 <blockquote>
 <div><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.block.BlockTypes</span><span class="p">;</span>
@@ -190,11 +179,11 @@ sponge:</p>
 </pre></div>
 </div>
 </div></blockquote>
-<p>Hanya sesederhana itu. Jika anda hanya ingin 'menghapus' blok (yang dilakukan dengan menggantinya dengan udara), mungkin anda cukup menggunakan <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/Location.html#removeBlock--">Location#removeBlock()</a> metode yang disediakan oleh <code class="docutils literal notranslate"><span class="pre">Lokasi</span></code>.</p>
+<p>Hanya sesederhana itu. Jika anda hanya ingin 'menghapus' blok (yang dilakukan dengan menggantinya dengan udara), mungkin anda cukup menggunakan <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/world/Location.html#removeBlock--">Location#removeBlock()</a> metode yang disediakan oleh <code class="docutils literal notranslate"><span class="pre">Lokasi</span></code>.</p>
 </div>
 <div class="section" id="altering-block-states">
 <h2>Mengubah Blok Serikat<a class="headerlink" href="#altering-block-states" title="Link permanen untuk headline ini">¶</a></h2>
-<p>Mirip contoh diatas, <code class="docutils literal notranslate"><span class="pre">Location</span></code> kelas menyediakan <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/Location.html#setBlock-org.spongepowered.api.block.BlockState-">Location#setBlock(BlockState)</a> metode penerimaan yang baru <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/block/BlockState.html">BlockState</a>. Untuk memanfaatkannya, anda harus terlebih dahulu memperoleh <code class="docutils literal notranslate"><span class="pre">BlockState</span></code> anda dapat memodifikasi. Anda dapat melakukannya dengan mendapatkan keadaan blok saat ini melalui <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/Location.html#getBlock--">Location#getBlock()</a> metode atau dengan menggunakan <code class="docutils literal notranslate"><span class="pre">BlockType</span></code>'s keadaan bawaan. Yang terakhir ditunjukkan dibawah ini. Keadaan bawaan untuk blok Sponge diambil dan kemudian dimodifikasi untuk membuat secara langsung blok sponge basah:</p>
+<p>Mirip contoh diatas, <code class="docutils literal notranslate"><span class="pre">Location</span></code> kelas menyediakan <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/world/Location.html#setBlock-org.spongepowered.api.block.BlockState-">Location#setBlock(BlockState)</a> metode penerimaan yang baru <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/block/BlockState.html">BlockState</a>. Untuk memanfaatkannya, anda harus terlebih dahulu memperoleh <code class="docutils literal notranslate"><span class="pre">BlockState</span></code> anda dapat memodifikasi. Anda dapat melakukannya dengan mendapatkan keadaan blok saat ini melalui <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/world/Location.html#getBlock--">Location#getBlock()</a> metode atau dengan menggunakan <code class="docutils literal notranslate"><span class="pre">BlockType</span></code>'s keadaan bawaan. Yang terakhir ditunjukkan dibawah ini. Keadaan bawaan untuk blok Sponge diambil dan kemudian dimodifikasi untuk membuat secara langsung blok sponge basah:</p>
 <blockquote>
 <div><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.Sponge</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.spongepowered.api.block.BlockState</span><span class="p">;</span>
@@ -251,7 +240,7 @@ sponge:</p>
 </pre></div>
 </div>
 </div></blockquote>
-<p>Since the <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/manipulator/mutable/WetData.html">WetData</a> data manipulator represents boolean data, by removing it we set the wetness of the block
+<p>Since the <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/manipulator/mutable/WetData.html">WetData</a> data manipulator represents boolean data, by removing it we set the wetness of the block
 (if it has any) to false. The <code class="docutils literal notranslate"><span class="pre">dryState.isPresent()</span></code> check will fail on block states that cannot be wet since
 <code class="docutils literal notranslate"><span class="pre">dryState</span></code> will be <code class="docutils literal notranslate"><span class="pre">Optional.empty()</span></code> in that case.</p>
 </div>

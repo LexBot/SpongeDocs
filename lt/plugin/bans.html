@@ -19,17 +19,6 @@
 
         <link rel="index" title="Indeksas"
               href="../genindex.html"/>        <link rel="search" title="Paieška" href="../search.html"/>    <link rel="top" title="Sponge 7.2.0 documentation" href="../index.html"/>        <link rel="up" title="Creating a Plugin" href="index.html"/>        <link rel="next" title="Metrics Collection" href="metrics.html"/>        <link rel="prev" title="Permissions" href="permissions.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -166,9 +155,9 @@
            <div itemprop="articleBody">
   <div class="section" id="bans">
 <h1>Bans<a class="headerlink" href="#bans" title="Nuoroda į šią antraštę">¶</a></h1>
-<p>The <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/ban/BanService.html">BanService</a> is a service built into SpongeAPI that adds the functionality for you to ban or pardon
+<p>The <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/ban/BanService.html">BanService</a> is a service built into SpongeAPI that adds the functionality for you to ban or pardon
 users in your plugin. The <code class="docutils literal notranslate"><span class="pre">BanService</span></code> provides several methods to do things such as banning users, pardoning users,
-or even getting a <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/util/ban/Ban.html">Ban</a> and the information on the <code class="docutils literal notranslate"><span class="pre">Ban</span></code>.</p>
+or even getting a <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/util/ban/Ban.html">Ban</a> and the information on the <code class="docutils literal notranslate"><span class="pre">Ban</span></code>.</p>
 <div class="admonition tip">
 <p class="first admonition-title">Patarimas</p>
 <p class="last">For a basic understanding of services, make sure you read <a class="reference internal" href="services.html"><span class="doc">Services</span></a> first.</p>
@@ -184,8 +173,8 @@ other services in SpongeAPI:</p>
 </pre></div>
 </div>
 <p>Now with the <code class="docutils literal notranslate"><span class="pre">BanService</span></code>, we can perform additional operations. For example, if we want to check if a provided
-<a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/living/player/User.html">User</a> is already banned, we can use the <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/ban/BanService.html#isBanned-org.spongepowered.api.profile.GameProfile-">BanService#isBanned(GameProfile)</a> method. Or perhaps if we
-wanted to get information on a ban from a <code class="docutils literal notranslate"><span class="pre">User</span></code>, we can use the <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/ban/BanService.html#getBanFor-org.spongepowered.api.profile.GameProfile-">BanService#getBanFor(GameProfile)</a> method.
+<a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/living/player/User.html">User</a> is already banned, we can use the <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/ban/BanService.html#isBanned-org.spongepowered.api.profile.GameProfile-">BanService#isBanned(GameProfile)</a> method. Or perhaps if we
+wanted to get information on a ban from a <code class="docutils literal notranslate"><span class="pre">User</span></code>, we can use the <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/ban/BanService.html#getBanFor-org.spongepowered.api.profile.GameProfile-">BanService#getBanFor(GameProfile)</a> method.
 An example of this is shown below:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">java.util.Optional</span><span class="p">;</span>
 
@@ -209,8 +198,8 @@ An example of this is shown below:</p>
 <div class="section" id="creating-a-ban">
 <h2>Creating a Ban<a class="headerlink" href="#creating-a-ban" title="Nuoroda į šią antraštę">¶</a></h2>
 <p>So now we can obtain the <code class="docutils literal notranslate"><span class="pre">BanService</span></code> and the information on a <code class="docutils literal notranslate"><span class="pre">Ban</span></code>, but what if we wanted to create our own bans?
-We can use a <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/util/ban/Ban.Builder.html">Ban.Builder</a> to create our own <code class="docutils literal notranslate"><span class="pre">Ban</span></code>. To get a <code class="docutils literal notranslate"><span class="pre">Ban.Builder</span></code>, simply call the
-<a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/util/ban/Ban.html#builder--">Ban#builder()</a> method. Using our builder, we can specify things such as the type of the ban, the reason for
+We can use a <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/util/ban/Ban.Builder.html">Ban.Builder</a> to create our own <code class="docutils literal notranslate"><span class="pre">Ban</span></code>. To get a <code class="docutils literal notranslate"><span class="pre">Ban.Builder</span></code>, simply call the
+<a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/util/ban/Ban.html#builder--">Ban#builder()</a> method. Using our builder, we can specify things such as the type of the ban, the reason for
 the ban, or the <code class="docutils literal notranslate"><span class="pre">User</span></code> we wish to ban. An example of all of these things is shown below:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.util.ban.BanTypes</span><span class="p">;</span>
 
@@ -224,17 +213,17 @@ the ban, or the <code class="docutils literal notranslate"><span class="pre">Use
     <span class="p">.</span><span class="na">reason</span><span class="p">(</span><span class="n">Text</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;The Sponge Council has Spoken!&quot;</span><span class="p">)).</span><span class="na">build</span><span class="p">();</span>
 </pre></div>
 </div>
-<p>Note that if you wish to create a simple, indefinite ban on a <code class="docutils literal notranslate"><span class="pre">User</span></code>, you can use the <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/util/ban/Ban.html#of-org.spongepowered.api.profile.GameProfile-">Ban#of(GameProfile)</a>
-method or the <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/util/ban/Ban.html#of-org.spongepowered.api.profile.GameProfile-org.spongepowered.api.text.Text-">Ban#of(GameProfile, Text)</a> method to quickly construct a ban.</p>
+<p>Note that if you wish to create a simple, indefinite ban on a <code class="docutils literal notranslate"><span class="pre">User</span></code>, you can use the <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/util/ban/Ban.html#of-org.spongepowered.api.profile.GameProfile-">Ban#of(GameProfile)</a>
+method or the <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/util/ban/Ban.html#of-org.spongepowered.api.profile.GameProfile-org.spongepowered.api.text.Text-">Ban#of(GameProfile, Text)</a> method to quickly construct a ban.</p>
 <div class="section" id="adding-a-ban">
 <h3>Adding a Ban<a class="headerlink" href="#adding-a-ban" title="Nuoroda į šią antraštę">¶</a></h3>
 <p>Now that we have created our ban, we can now register it to be used in Sponge. Using our <code class="docutils literal notranslate"><span class="pre">BanService</span></code> from before, we
-can use the <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/ban/BanService.html#addBan-org.spongepowered.api.util.ban.Ban-">BanService#addBan(Ban)</a> method to accomplish this. Note that adding a ban will remove any
+can use the <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/ban/BanService.html#addBan-org.spongepowered.api.util.ban.Ban-">BanService#addBan(Ban)</a> method to accomplish this. Note that adding a ban will remove any
 previously existing ban.</p>
 </div>
 <div class="section" id="pardoning">
 <h3>Pardoning<a class="headerlink" href="#pardoning" title="Nuoroda į šią antraštę">¶</a></h3>
-<p>Now let’s say we wanted to remove a ban from a user. We can use the <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/ban/BanService.html#pardon-org.spongepowered.api.profile.GameProfile-">BanService#pardon(GameProfile)</a> method.
+<p>Now let’s say we wanted to remove a ban from a user. We can use the <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/ban/BanService.html#pardon-org.spongepowered.api.profile.GameProfile-">BanService#pardon(GameProfile)</a> method.
 This method returns a boolean, which specifies if the user had a ban in place previously.</p>
 </div>
 <div class="section" id="putting-it-all-together">

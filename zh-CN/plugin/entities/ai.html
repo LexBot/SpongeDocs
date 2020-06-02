@@ -19,17 +19,6 @@
 
         <link rel="index" title="索引"
               href="../../genindex.html"/>        <link rel="search" title="搜索" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 文档" href="../../index.html"/>        <link rel="up" title="实体" href="index.html"/>        <link rel="next" title="实现自定义 AITask" href="custom-ai.html"/>        <link rel="prev" title="修改一个实体" href="modifying.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -176,7 +165,7 @@
 <p>实体 AI （和现实中的 AI 不同）控制执行类实体（Agent）的行为。它包含目标（例如击败敌人）和更小的任务（例如靠近敌人和用武器攻击）。下面阐述实体 AI 中目标、任务和其他的部分，也会介绍如何改变实体的行为和如何写自定义 AI。</p>
 <div class="section" id="agents">
 <h2>执行类实体（Agent）<a class="headerlink" href="#agents" title="永久链接至标题">¶</a></h2>
-<p>一个执行类实体（<a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/living/Agent.html">Agent</a>）是一种有 AI 和生命的:javadoc:<cite>Entity</cite>，可以执行一般生物的行为。要检查一个``Entity``是否为``Agent``可以直接强转。</p>
+<p>一个执行类实体（<a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/living/Agent.html">Agent</a>）是一种有 AI 和生命的:javadoc:<cite>Entity</cite>，可以执行一般生物的行为。要检查一个``Entity``是否为``Agent``可以直接强转。</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.entity.living.Agent</span><span class="p">;</span>
 
 <span class="n">World</span> <span class="n">world</span> <span class="o">=</span> <span class="p">...;</span>
@@ -194,8 +183,8 @@
 <div class="section" id="goals">
 <h2>目标<a class="headerlink" href="#goals" title="永久链接至标题">¶</a></h2>
 <p>在原版 Minecraft 中有两 :javadoc:` GoalTypes {种}` :javadoc:` Goal {目标}`。</p>
-<p>第一个是默认的 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/ai/GoalTypes.html#NORMAL">NORMAL</a>。AI 的这一部分控制实体的行为。这个目标的任务有使用近战或远程武器攻击一个目标和在周围没有敌人时闲逛。如果我们想要覆盖或修改这类 AI, 我们通常会改动这个目标及其任务。</p>
-<p>第二个目标是 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/ai/GoalTypes.html#TARGET">TARGET</a>，适合敌对生物。 这个目标里面的任务让实体选择敌人，然后实体会使用正常目标攻击敌人。TARGET 目标包含诸如选择最近可攻击目标和选择攻击您的敌人以反击的任务。</p>
+<p>第一个是默认的 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/ai/GoalTypes.html#NORMAL">NORMAL</a>。AI 的这一部分控制实体的行为。这个目标的任务有使用近战或远程武器攻击一个目标和在周围没有敌人时闲逛。如果我们想要覆盖或修改这类 AI, 我们通常会改动这个目标及其任务。</p>
+<p>第二个目标是 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/ai/GoalTypes.html#TARGET">TARGET</a>，适合敌对生物。 这个目标里面的任务让实体选择敌人，然后实体会使用正常目标攻击敌人。TARGET 目标包含诸如选择最近可攻击目标和选择攻击您的敌人以反击的任务。</p>
 <p>下面的代码从实体获取 <code class="docutils literal notranslate"><span class="pre">NORMAL</span></code> 目标并清除其中任务。</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.entity.ai.Goal</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.spongepowered.api.entity.ai.GoalTypes</span><span class="p">;</span>
@@ -220,7 +209,7 @@
 </div>
 <div class="section" id="tasks">
 <h2>任务<a class="headerlink" href="#tasks" title="永久链接至标题">¶</a></h2>
-<p>很多不同种实体的行为其实是相近的。有鉴于此，实体 AI 被拆分成了大量零碎的 AI，每一个小部分都可以复用，这样一个小部分便是一个 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/ai/task/AITask.html">AITask</a>。每一个 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/ai/task/AITask.html">AITask</a> 都代表了实体的某一类行为，比如说 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/ai/task/AITaskTypes.html#WATCH_CLOSEST">WATCH_CLOSEST</a> 会令实体盯着最近的某一个匹配中的实体看，而 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/ai/task/AITaskTypes.html#AVOID_ENTITY">AVOID_ENTITY</a> 会令实体避开所有匹配中的实体。</p>
+<p>很多不同种实体的行为其实是相近的。有鉴于此，实体 AI 被拆分成了大量零碎的 AI，每一个小部分都可以复用，这样一个小部分便是一个 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/ai/task/AITask.html">AITask</a>。每一个 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/ai/task/AITask.html">AITask</a> 都代表了实体的某一类行为，比如说 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/ai/task/AITaskTypes.html#WATCH_CLOSEST">WATCH_CLOSEST</a> 会令实体盯着最近的某一个匹配中的实体看，而 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/ai/task/AITaskTypes.html#AVOID_ENTITY">AVOID_ENTITY</a> 会令实体避开所有匹配中的实体。</p>
 <div class="admonition note">
 <p class="first admonition-title">注解</p>
 <p class="last">原版 Minecraft 提供了大量 <code class="docutils literal notranslate"><span class="pre">AITask</span></code>，但绝大多数还无法通过 API 访问。</p>
@@ -241,7 +230,7 @@
 <span class="n">goal</span><span class="p">.</span><span class="na">addTask</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">watchClosestAiTask</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>在这个例子中，我们使用了对应的 builder 来创建 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/ai/task/builtin/WatchClosestAITask.html">WatchClosestAITask</a> 对象，其中我们定义触发该目标的概率是 100%。因此，这个实体会看着距离其 30 格内最近的 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/living/player/Player.html">Player</a>。我们为其赋予的优先级是 0，它代表最高优先级，因此它会先于所有其他 <code class="docutils literal notranslate"><span class="pre">AITask</span></code> 执行。</p>
+<p>在这个例子中，我们使用了对应的 builder 来创建 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/ai/task/builtin/WatchClosestAITask.html">WatchClosestAITask</a> 对象，其中我们定义触发该目标的概率是 100%。因此，这个实体会看着距离其 30 格内最近的 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/living/player/Player.html">Player</a>。我们为其赋予的优先级是 0，它代表最高优先级，因此它会先于所有其他 <code class="docutils literal notranslate"><span class="pre">AITask</span></code> 执行。</p>
 <div class="admonition note">
 <p class="first admonition-title">注解</p>
 <p class="last">Minecraft 的优先值里，小数值优先。默认情况下, Minecraft 使用从 0 到 10 的优先级。</p>
@@ -249,7 +238,7 @@
 </div>
 <div class="section" id="removing-certain-aitasks">
 <h3>移除 AI 任务<a class="headerlink" href="#removing-certain-aitasks" title="永久链接至标题">¶</a></h3>
-<p>移除``AITask``会比较困难，有模组实体和自定义 AI 时会雪上加霜。Sponge API 有一种方法让插件辨别 AI 任务。呼叫 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/ai/task/AITask.html#getType--">AITask#getType()</a> 会返回 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/ai/task/AITaskType.html">AITaskType</a>，能够让插件辨别 AI 任务种类。</p>
+<p>移除``AITask``会比较困难，有模组实体和自定义 AI 时会雪上加霜。Sponge API 有一种方法让插件辨别 AI 任务。呼叫 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/ai/task/AITask.html#getType--">AITask#getType()</a> 会返回 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/ai/task/AITaskType.html">AITaskType</a>，能够让插件辨别 AI 任务种类。</p>
 <p>我们先试试看没有其它插件或模组影响时进行移除：</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Goal</span><span class="o">&lt;</span><span class="n">Zombie</span><span class="o">&gt;</span> <span class="n">goal</span> <span class="o">=</span> <span class="p">...;</span>
 
@@ -266,12 +255,12 @@
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">goal</span><span class="p">.</span><span class="na">removeTasks</span><span class="p">(</span><span class="n">AITaskTypes</span><span class="p">.</span><span class="na">WANDER</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>在这个例子中，我们移除了所有类型是 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/ai/task/AITaskTypes.html#WANDER">WANDER</a> 的 <code class="docutils literal notranslate"><span class="pre">AITask</span></code>。</p>
+<p>在这个例子中，我们移除了所有类型是 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/ai/task/AITaskTypes.html#WANDER">WANDER</a> 的 <code class="docutils literal notranslate"><span class="pre">AITask</span></code>。</p>
 <div class="admonition note">
 <p class="first admonition-title">注解</p>
 <p class="last">有鉴于目前 <code class="docutils literal notranslate"><span class="pre">AITaskType</span></code> 的 API 支持还不完整，这个方法的局限非常大。</p>
 </div>
-<p>如果你想移除所有的 <code class="docutils literal notranslate"><span class="pre">AITask</span></code> 然后从零开始定义实体 AI，你可以调用 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/ai/Goal.html#clear--">Goal#clear()</a>。</p>
+<p>如果你想移除所有的 <code class="docutils literal notranslate"><span class="pre">AITask</span></code> 然后从零开始定义实体 AI，你可以调用 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/ai/Goal.html#clear--">Goal#clear()</a>。</p>
 </div>
 <div class="section" id="implement-your-own-aitask">
 <h3>编写自定义 AI 任务<a class="headerlink" href="#implement-your-own-aitask" title="永久链接至标题">¶</a></h3>
@@ -282,9 +271,9 @@
 <p>AI API 和 SpongeAPI 其他部分一样用到了事件。关于事件系统的详细描述可参考<a class="reference internal" href="../event/index.html"><span class="doc">这里</span></a>。</p>
 <p>AI API 是用来下列三个事件：</p>
 <ul class="simple">
-<li><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/entity/ai/AITaskEvent.Add.html">AITaskEvent.Add</a></li>
-<li><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/entity/ai/AITaskEvent.Remove.html">AITaskEvent.Remove</a></li>
-<li><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/entity/ai/SetAITargetEvent.html">SetAITargetEvent</a></li>
+<li><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/entity/ai/AITaskEvent.Add.html">AITaskEvent.Add</a></li>
+<li><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/entity/ai/AITaskEvent.Remove.html">AITaskEvent.Remove</a></li>
+<li><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/entity/ai/SetAITargetEvent.html">SetAITargetEvent</a></li>
 </ul>
 <p><code class="docutils literal notranslate"><span class="pre">AITaskEvent.Add</span></code> 事件会在新的 <code class="docutils literal notranslate"><span class="pre">AITask</span></code> 加入 <code class="docutils literal notranslate"><span class="pre">Goal</span></code> 时发布；相应的，<code class="docutils literal notranslate"><span class="pre">AITaskEvent.Remove</span></code> 事件会在某一 <code class="docutils literal notranslate"><span class="pre">AITask</span></code> 移除时发布。</p>
 <p><code class="docutils literal notranslate"><span class="pre">SetAITargetEvent</span></code> 在 <code class="docutils literal notranslate"><span class="pre">Agent</span></code> 每次选择新针对实体（一般是攻击目标）或者清除针对实体时触发。</p>

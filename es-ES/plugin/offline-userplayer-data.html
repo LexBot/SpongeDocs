@@ -19,17 +19,6 @@
 
         <link rel="index" title="Índice"
               href="../genindex.html"/>        <link rel="search" title="Búsqueda" href="../search.html"/>    <link rel="top" title="documentación de Sponge - 7.2.0" href="../index.html"/>        <link rel="up" title="Creando un Plugin" href="index.html"/>        <link rel="next" title="Listas de Tabulaciones" href="tab-lists.html"/>        <link rel="prev" title="Administrador de Perfiles del Juego" href="game-profile-manager.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -167,7 +156,7 @@
   <div class="section" id="offline-player-data">
 <h1>Datos del Jugador Fuera de Línea<a class="headerlink" href="#offline-player-data" title="Enlazar permanentemente con este título">¶</a></h1>
 <p>Puede ser necesario para los complementos acceder a los datos de jugador incluso cuando el jugador está fuera de línea. Podría pensar que <code class="docutils literal notranslate"><span class="pre">Sponge.getServer().getPlayer()</span></code> devuelve un <a href="#id1"><span class="problematic" id="id2">:javadoc:`Jugador`</span></a> que puede utilizarse para esto. Pero ya que los objetos <code class="docutils literal notranslate"><span class="pre">Jugador</span></code> solo existen para jugadores en línea, otra solución debe ser utilizada.</p>
-<p>Algunos complementos almacenan los datos relevantes ellos mismos y los asocian al usuario utilizando <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/profile/GameProfileManager.html">GameProfileManager</a>. Pero escribir diferentes códigos para usuarios en línea y fuera de línea no es necesario. El <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/ServiceManager.html">ServiceManager</a> nativamente proporciona un servicio conocido como <a href="#id1"><span class="problematic" id="id2">:javadoc:`UserStorageService`el cual es capaz de devolver instancias :javadoc:`Usuario`</span></a> para <code class="docutils literal notranslate"><span class="pre">Jugador</span></code>s que estén fuera de línea actualmente. Ya que la interfaz de <code class="docutils literal notranslate"><span class="pre">Jugador</span></code> se extiende a <code class="docutils literal notranslate"><span class="pre">Usuario</span></code> la mayoría de los métodos a los que llama para un <code class="docutils literal notranslate"><span class="pre">Jugador</span></code> también están disponibles.</p>
+<p>Algunos complementos almacenan los datos relevantes ellos mismos y los asocian al usuario utilizando <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/profile/GameProfileManager.html">GameProfileManager</a>. Pero escribir diferentes códigos para usuarios en línea y fuera de línea no es necesario. El <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/ServiceManager.html">ServiceManager</a> nativamente proporciona un servicio conocido como <a href="#id1"><span class="problematic" id="id2">:javadoc:`UserStorageService`el cual es capaz de devolver instancias :javadoc:`Usuario`</span></a> para <code class="docutils literal notranslate"><span class="pre">Jugador</span></code>s que estén fuera de línea actualmente. Ya que la interfaz de <code class="docutils literal notranslate"><span class="pre">Jugador</span></code> se extiende a <code class="docutils literal notranslate"><span class="pre">Usuario</span></code> la mayoría de los métodos a los que llama para un <code class="docutils literal notranslate"><span class="pre">Jugador</span></code> también están disponibles.</p>
 <p>Por ejemplo:</p>
 <ul class="simple">
 <li><code class="docutils literal notranslate"><span class="pre">#hasPermission(String</span> <span class="pre">permission)</span></code> está disponible para ambas instancias.</li>

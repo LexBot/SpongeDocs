@@ -19,17 +19,6 @@
 
         <link rel="index" title="Алфавитный указатель"
               href="../../genindex.html"/>        <link rel="search" title="Поиск" href="../../search.html"/>    <link rel="top" title="Документация Sponge 7.2.0" href="../../index.html"/>        <link rel="up" title="Создание плагина" href="../index.html"/>        <link rel="next" title="Custom Data" href="custom/index.html"/>        <link rel="prev" title="API ресурсов" href="../assets.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -178,7 +167,7 @@
 <p>Where other approaches define the available data using interfaces and inheritance (like a <code class="docutils literal notranslate"><span class="pre">LivingEntity</span></code>
 interface providing getter and setter functions for current and maximum health), in Sponge every entity, block
 etc. is completely oblivious to what data it holds. While this may appear less straightforward than direct
-accessor methods, it is foremost far more extensible. And thanks to the addition of <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/key/Key.html">Key</a>s, simply accessing
+accessor methods, it is foremost far more extensible. And thanks to the addition of <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/key/Key.html">Key</a>s, simply accessing
 specific values is no less straightforward.</p>
 <div class="admonition tip">
 <p class="first admonition-title">Совет</p>
@@ -192,7 +181,7 @@ in the <code class="docutils literal notranslate"><span class="pre">#dev</span><
 <div class="section" id="catalogtypes">
 <h3>CatalogTypes<a class="headerlink" href="#catalogtypes" title="Ссылка на этот заголовок">¶</a></h3>
 <p><a class="reference internal" href="catalog-types.html"><span class="doc">Catalog Types</span></a> are groups of values that can be used in certain context. Famous examples of these types are
-<a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/block/BlockType.html">BlockType</a>s, <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/EntityType.html">EntityType</a>s and <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/item/ItemType.html">ItemType</a>s.</p>
+<a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/block/BlockType.html">BlockType</a>s, <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/EntityType.html">EntityType</a>s and <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/item/ItemType.html">ItemType</a>s.</p>
 </div>
 <div class="section" id="dataholder">
 <h3>Хранитель данных<a class="headerlink" href="#dataholder" title="Ссылка на этот заголовок">¶</a></h3>
@@ -203,8 +192,8 @@ in the <code class="docutils literal notranslate"><span class="pre">#dev</span><
 <p>A property too is data, but not synchronized between server and clients. Therefore, it can only be
 changed by modifications present on both client and server. Since Sponge is not intended to require a
 client-side counterpart, properties are not modifiable.
-Examples of properties are the harvesting abilities on tools (represented as <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/property/item/HarvestingProperty.html">HarvestingProperty</a> or the damage
-absorption of an equipable armor item (represented as <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/property/item/DamageAbsorptionProperty.html">DamageAbsorptionProperty</a>).</p>
+Examples of properties are the harvesting abilities on tools (represented as <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/property/item/HarvestingProperty.html">HarvestingProperty</a> or the damage
+absorption of an equipable armor item (represented as <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/property/item/DamageAbsorptionProperty.html">DamageAbsorptionProperty</a>).</p>
 </div>
 <div class="section" id="datamanipulator">
 <h3>Манипулятор данными<a class="headerlink" href="#datamanipulator" title="Ссылка на этот заголовок">¶</a></h3>
@@ -212,7 +201,7 @@ absorption of an equipable armor item (represented as <a class="reference extern
 </div>
 <div class="section" id="key">
 <h3>Ключ<a class="headerlink" href="#key" title="Ссылка на этот заголовок">¶</a></h3>
-<p>„“ Ключ „“ — это уникальный идентификатор для одной точки данных и может использоваться чтобы напрямую считывать или устанавливать точку данных, не беспокоясь о данных манипуляторов. Он был разработан для предоставления удобного доступа к данным и похож на методы getter/setter. Все ключи, используемые в Sponge, перечислены как константы в классе <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/key/Keys.html">Keys</a>.</p>
+<p>„“ Ключ „“ — это уникальный идентификатор для одной точки данных и может использоваться чтобы напрямую считывать или устанавливать точку данных, не беспокоясь о данных манипуляторов. Он был разработан для предоставления удобного доступа к данным и похож на методы getter/setter. Все ключи, используемые в Sponge, перечислены как константы в классе <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/key/Keys.html">Keys</a>.</p>
 </div>
 <div class="section" id="value">
 <h3>Value<a class="headerlink" href="#value" title="Ссылка на этот заголовок">¶</a></h3>

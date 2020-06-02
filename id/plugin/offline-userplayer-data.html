@@ -19,17 +19,6 @@
 
         <link rel="index" title="Indeks"
               href="../genindex.html"/>        <link rel="search" title="Pencarian" href="../search.html"/>    <link rel="top" title="dokumentasi Sponge 7.2.0" href="../index.html"/>        <link rel="up" title="Membuat Plugin" href="index.html"/>        <link rel="next" title="Daftar tab" href="tab-lists.html"/>        <link rel="prev" title="Manajer profil game" href="game-profile-manager.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -167,7 +156,7 @@
   <div class="section" id="offline-player-data">
 <h1>Tidak hidup Data Pemain<a class="headerlink" href="#offline-player-data" title="Link permanen untuk headline ini">¶</a></h1>
 <p>Mungkin diperlukan untuk plugin untuk mengakses data pemain bahkan ketika pemain sedang offline. Anda mungkin berpikir bahwa <code class="docutils literal notranslate"><span class="pre">Sponge.getServer().getPlayer()</span></code> kembali <a href="#id1"><span class="problematic" id="id2">:javadoc:`Pemain`</span></a> dapat digunakan untuk ini. Tapi karena <code class="docutils literal notranslate"><span class="pre">Pemain</span></code> benda-benda yang ada hanya untuk pemain online, solusi lain harus digunakan.</p>
-<p>Beberapa plugin menyimpan data mereka sendiri yang relevan dan mengaitkan pengguna dengan menggunakan <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/profile/GameProfileManager.html">GameProfileManager</a>. Namun menulis kode yang berbeda untuk pengguna luring dan daring tidak diperlukan. <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/ServiceManager.html">ServiceManager</a> secara native menyediakan layanan yang dikenal sebagai <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/user/UserStorageService.html">UserStorageService</a> yang mampu mengembalikan <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/living/player/User.html">User</a> contoh untuk <code class="docutils literal notranslate"><span class="pre">Player</span></code>s yang sedang luring. Sejak <code class="docutils literal notranslate"><span class="pre">Player</span></code> antarmuka diperluas <code class="docutils literal notranslate"><span class="pre">User</span></code> sebagian besar metode yang anda panggil pada <code class="docutils literal notranslate"><span class="pre">Player</span></code> juga tersedia.</p>
+<p>Beberapa plugin menyimpan data mereka sendiri yang relevan dan mengaitkan pengguna dengan menggunakan <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/profile/GameProfileManager.html">GameProfileManager</a>. Namun menulis kode yang berbeda untuk pengguna luring dan daring tidak diperlukan. <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/ServiceManager.html">ServiceManager</a> secara native menyediakan layanan yang dikenal sebagai <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/user/UserStorageService.html">UserStorageService</a> yang mampu mengembalikan <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/living/player/User.html">User</a> contoh untuk <code class="docutils literal notranslate"><span class="pre">Player</span></code>s yang sedang luring. Sejak <code class="docutils literal notranslate"><span class="pre">Player</span></code> antarmuka diperluas <code class="docutils literal notranslate"><span class="pre">User</span></code> sebagian besar metode yang anda panggil pada <code class="docutils literal notranslate"><span class="pre">Player</span></code> juga tersedia.</p>
 <p>Sabagai contoh:</p>
 <ul class="simple">
 <li><code class="docutils literal notranslate"><span class="pre">#hasPermission(String</span> <span class="pre">permission)</span></code> tersedia dari kedua contoh.</li>

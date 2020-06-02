@@ -19,17 +19,6 @@
 
         <link rel="index" title="Dizin"
               href="../../genindex.html"/>        <link rel="search" title="Ara" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 belgelendirme çalışması" href="../../index.html"/>        <link rel="up" title="Plugin Commands" href="index.html"/>        <link rel="next" title="Ayrıştırma Argümanı" href="arguments.html"/>        <link rel="prev" title="Plugin Commands" href="index.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -278,7 +267,7 @@
 <div class="section" id="player-only-commands">
 <h2>Yalnızca Oynatıcılara Yönelik Komutlar<a class="headerlink" href="#player-only-commands" title="Bu başlığın kalıcı bağlantısı">¶</a></h2>
 <p>Sometimes it is necessary that only players can execute a command (e.g. a <code class="docutils literal notranslate"><span class="pre">/suicide</span></code> command).</p>
-<p>Perform an <code class="docutils literal notranslate"><span class="pre">instanceof</span></code> check to determine the type of the <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/CommandSource.html">CommandSource</a>:</p>
+<p>Perform an <code class="docutils literal notranslate"><span class="pre">instanceof</span></code> check to determine the type of the <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/CommandSource.html">CommandSource</a>:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.entity.living.player.Player</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.spongepowered.api.command.source.CommandBlockSource</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.spongepowered.api.command.source.ConsoleSource</span><span class="p">;</span>
@@ -319,9 +308,9 @@
 <p>Bu örnek, 42 varlıktan etkilenen ve başarılı olan bir komut için bir `` CommandResult` ‘oluşturmak için bir oluşturucu kullanır.</p>
 <div class="section" id="error-handling">
 <h3>Hata işleme<a class="headerlink" href="#error-handling" title="Bu başlığın kalıcı bağlantısı">¶</a></h3>
-<p>The <code class="docutils literal notranslate"><span class="pre">execute()</span></code> method may also throw a <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/CommandException.html">CommandException</a>, signaling that an error occurred while trying to
+<p>The <code class="docutils literal notranslate"><span class="pre">execute()</span></code> method may also throw a <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/CommandException.html">CommandException</a>, signaling that an error occurred while trying to
 execute the command. If such an Exception is thrown, its message will be displayed to the command source, formatted as
-an error. Also, the commands usage message will be displayed. An <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/args/ArgumentParseException.html">ArgumentParseException</a>, a subtype of
+an error. Also, the commands usage message will be displayed. An <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/args/ArgumentParseException.html">ArgumentParseException</a>, a subtype of
 <code class="docutils literal notranslate"><span class="pre">CommandException</span></code> is automatically thrown if the commands arguments could not be parsed.</p>
 </div>
 </div>

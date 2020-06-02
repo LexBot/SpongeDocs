@@ -19,17 +19,6 @@
 
         <link rel="index" title="Indeks"
               href="../../genindex.html"/>        <link rel="search" title="Pencarian" href="../../search.html"/>    <link rel="top" title="dokumentasi Sponge 7.2.0" href="../../index.html"/>        <link rel="up" title="Plugin Commands" href="index.html"/>        <link rel="next" title="Argumen Parsing" href="arguments.html"/>        <link rel="prev" title="Plugin Commands" href="index.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -304,7 +293,7 @@
 </div>
 <div class="section" id="command-results">
 <h3>Hasil perintah<a class="headerlink" href="#command-results" title="Link permanen untuk headline ini">¶</a></h3>
-<p>Metode <code class="docutils literal notranslate"><span class="pre">CommandExecutor#execute()</span></code> harus selalu mengembalikan pernyataan <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/CommandResult.html">CommandResult</a>. Dalam kebanyakan kasus ini cukup untuk mengembalikan pernyataan <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/CommandResult.html#success--">CommandResult#success()</a> jika perintah telah berhasil atau pernyataan <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/CommandResult.html#empty--">CommandResult#empty()</a> jika tidak berhasil. Dalam kasus dimana informasi yang lebih banyak harus dinyatakan, <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/CommandResult.html#builder--">CommandResult#builder()</a> harus digunakan. Pembangun menyediakan beberapa metode-metode yang menerima integer dan akan mengatur atribut dari nama yang sama. Semua atribut yang tidak diatur oleh pembangun akan kosong.</p>
+<p>Metode <code class="docutils literal notranslate"><span class="pre">CommandExecutor#execute()</span></code> harus selalu mengembalikan pernyataan <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/CommandResult.html">CommandResult</a>. Dalam kebanyakan kasus ini cukup untuk mengembalikan pernyataan <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/CommandResult.html#success--">CommandResult#success()</a> jika perintah telah berhasil atau pernyataan <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/CommandResult.html#empty--">CommandResult#empty()</a> jika tidak berhasil. Dalam kasus dimana informasi yang lebih banyak harus dinyatakan, <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/CommandResult.html#builder--">CommandResult#builder()</a> harus digunakan. Pembangun menyediakan beberapa metode-metode yang menerima integer dan akan mengatur atribut dari nama yang sama. Semua atribut yang tidak diatur oleh pembangun akan kosong.</p>
 <p>Blok perintah dapat menggunakan nilai tersebut untuk memodifikasi statistik papan skor, yang kemudian dapat digunakan untuk konstruksi yang rumit yang terdiri dari beberapa blok perintah. Tutorial bagaimana data diakses bisa ditemukan <a href="#id1"><span class="problematic" id="id2">`</span></a>disini &lt;<a class="reference external" href="https://minecraft.gamepedia.com/Tutorials/Command_stats">https://minecraft.gamepedia.com/Tutorials/Command_stats</a>&gt; <a href="#id3"><span class="problematic" id="id4">`</span></a>_.</p>
 </div>
 </div>
@@ -319,9 +308,9 @@
 <p>Contoh ini menggunakan pembangun untuk membuat sebuah <code class="docutils literal notranslate"><span class="pre">Hasil</span> <span class="pre">perintah</span></code> untuk sebuah perintah yang mempengaruhi 42 entitas dan berhasil.</p>
 <div class="section" id="error-handling">
 <h3>Penanganan Kesalahan<a class="headerlink" href="#error-handling" title="Link permanen untuk headline ini">¶</a></h3>
-<p>The <code class="docutils literal notranslate"><span class="pre">execute()</span></code> method may also throw a <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/CommandException.html">CommandException</a>, signaling that an error occurred while trying to
+<p>The <code class="docutils literal notranslate"><span class="pre">execute()</span></code> method may also throw a <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/CommandException.html">CommandException</a>, signaling that an error occurred while trying to
 execute the command. If such an Exception is thrown, its message will be displayed to the command source, formatted as
-an error. Also, the commands usage message will be displayed. An <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/args/ArgumentParseException.html">ArgumentParseException</a>, a subtype of
+an error. Also, the commands usage message will be displayed. An <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/args/ArgumentParseException.html">ArgumentParseException</a>, a subtype of
 <code class="docutils literal notranslate"><span class="pre">CommandException</span></code> is automatically thrown if the commands arguments could not be parsed.</p>
 </div>
 </div>

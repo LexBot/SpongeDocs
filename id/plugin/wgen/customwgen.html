@@ -19,17 +19,6 @@
 
         <link rel="index" title="Indeks"
               href="../../genindex.html"/>        <link rel="search" title="Pencarian" href="../../search.html"/>    <link rel="top" title="dokumentasi Sponge 7.2.0" href="../../index.html"/>        <link rel="up" title="Generasi dunia" href="index.html"/>        <link rel="next" title="Pengelola Pengaya" href="../manager.html"/>        <link rel="prev" title="WorldGeneratorModifiers" href="modifiers.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -182,7 +171,7 @@
 <h2>Mengubah Generasi Vanila<a class="headerlink" href="#modifying-vanilla-generation" title="Link permanen untuk headline ini">¶</a></h2>
 <div class="admonition note">
 <p class="first admonition-title">Catatan</p>
-<p class="last">Laman ini menduga anda akrab dengan pengaturan <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/gen/WorldGeneratorModifier.html">WorldGeneratorModifier</a> anda, jika tidak, maka tolong baca artikel tentang perubahan pengaturan anda di <a class="reference internal" href="modifiers.html"><span class="doc">WorldGeneratorModifiers</span></a>.</p>
+<p class="last">Laman ini menduga anda akrab dengan pengaturan <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/world/gen/WorldGeneratorModifier.html">WorldGeneratorModifier</a> anda, jika tidak, maka tolong baca artikel tentang perubahan pengaturan anda di <a class="reference internal" href="modifiers.html"><span class="doc">WorldGeneratorModifiers</span></a>.</p>
 </div>
 <p>Sponge membeberkan sebuah perjanjian yang baik dari generasi dunia vanilla, yang bisa diubah melalui berbagai penghubung. Saat ini, satu-satunya elemen dari proses pembangkitan yang <em>dengan mudah</em> dibongkar untuk penyalahgunaan adalah populators.</p>
 <p>For a quick example, let's look at how we would change the cacti that spawn in deserts to be taller.</p>
@@ -200,10 +189,10 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>Dimulai dengan memperoleh <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/biome/BiomeGenerationSettings.html">BiomeGenerationSettings</a> untuk desert biome. Obyek ini adalah sebuah penampung untuk semua pengaturan turunan terkait dengan biome tersebut. Selanjutnya, terus ulangi semua daftar <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/gen/populator/Cactus.html">Cactus</a> poplulators dan ubah tingginya menjadi 5, yang berarti hal itu hanya dapat menghasilkan cactii sepanjang 5 blok.</p>
+<p>Dimulai dengan memperoleh <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/world/biome/BiomeGenerationSettings.html">BiomeGenerationSettings</a> untuk desert biome. Obyek ini adalah sebuah penampung untuk semua pengaturan turunan terkait dengan biome tersebut. Selanjutnya, terus ulangi semua daftar <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/world/gen/populator/Cactus.html">Cactus</a> poplulators dan ubah tingginya menjadi 5, yang berarti hal itu hanya dapat menghasilkan cactii sepanjang 5 blok.</p>
 <div class="admonition note">
 <p class="first admonition-title">Catatan</p>
-<p class="last"><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/gen/populator/Cactus.html#setHeight-int-">Cactus#setHeight(int)</a>, dan banyak methods lain yang mirip di populators lain, juga memerlukan sebuah <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/util/weighted/VariableAmount.html">VariableAmount</a> yang dapat digunakan untuk menentukan tinggi jangkauannya atau nilai perubahan yang lain.</p>
+<p class="last"><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/world/gen/populator/Cactus.html#setHeight-int-">Cactus#setHeight(int)</a>, dan banyak methods lain yang mirip di populators lain, juga memerlukan sebuah <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/util/weighted/VariableAmount.html">VariableAmount</a> yang dapat digunakan untuk menentukan tinggi jangkauannya atau nilai perubahan yang lain.</p>
 </div>
 <p>Hal ini telah menjadi contoh mudah dari bagaimana mengubah sebuah populator yang ada. Mari lihat bagaimana kita menambahkan sebuah hal baru dari populator vanilla. Sekarang ini populator akan ditambahkan secara menyeluruh, yang artinya hal itu akan diterapkan ke semua bongkahan tanpa menghiraukan biome nya. Mari tambahkan sebuah populator Labu secara menyeluruh, yang menyebabkan labu berserakan dimana-mana diseluruh dunia.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.world.gen.populator.Pumpkin</span><span class="p">;</span>
@@ -227,7 +216,7 @@ as is usually a good idea with Forest populators, then you should add your popul
 </div>
 <div class="section" id="creating-custom-base-terrain">
 <h2>Menciptakan dasar Daerah buatan<a class="headerlink" href="#creating-custom-base-terrain" title="Link permanen untuk headline ini">¶</a></h2>
-<p>Mengubah dasar <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/gen/GenerationPopulator.html">GenerationPopulator</a> dari pembuat dunia memungkinkan anda untuk mengubah bentuk daerah buatan dari dunia itu. Sebuah pembuat populator kira-kira akan mengikuti tata cara menggunakan informasi benih dan biome untuk menanam dan mengubah rangkaian dari noise maps, dari mana daerah tersebut dibentuk. Daerah yang diciptakan didalam sebuah modifikasi pembuat dasar populator seharusnya hanya terdiri dari blok batu, yang mengizinkan biome untuk mengganti blok secara tepat meliputi tanah biome yang spesifik.</p>
+<p>Mengubah dasar <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/world/gen/GenerationPopulator.html">GenerationPopulator</a> dari pembuat dunia memungkinkan anda untuk mengubah bentuk daerah buatan dari dunia itu. Sebuah pembuat populator kira-kira akan mengikuti tata cara menggunakan informasi benih dan biome untuk menanam dan mengubah rangkaian dari noise maps, dari mana daerah tersebut dibentuk. Daerah yang diciptakan didalam sebuah modifikasi pembuat dasar populator seharusnya hanya terdiri dari blok batu, yang mengizinkan biome untuk mengganti blok secara tepat meliputi tanah biome yang spesifik.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">SinusoidalGenerator</span> <span class="kd">implements</span> <span class="n">GenerationPopulator</span> <span class="p">{</span>
 
     <span class="nd">@Override</span>
@@ -278,7 +267,7 @@ as is usually a good idea with Forest populators, then you should add your popul
 </div>
 <div class="section" id="creating-custom-biomes">
 <h2>Menciptakan Biomes buatan<a class="headerlink" href="#creating-custom-biomes" title="Link permanen untuk headline ini">¶</a></h2>
-<p>Selagi sedang tidak memungkinkan untuk menciptakan seluruh biome baru dari dalam sponge, anda dapat mengubah sistemnya dimana mereka disusun kedalam dunia yang menjalankan penghubung <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/gen/BiomeGenerator.html">BiomeGenerator</a> dan atur biome generator buatan anda kedalam sebuah Worldgenerator.</p>
+<p>Selagi sedang tidak memungkinkan untuk menciptakan seluruh biome baru dari dalam sponge, anda dapat mengubah sistemnya dimana mereka disusun kedalam dunia yang menjalankan penghubung <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/world/gen/BiomeGenerator.html">BiomeGenerator</a> dan atur biome generator buatan anda kedalam sebuah Worldgenerator.</p>
 <p>Berikut adalah contoh pembuat biome yang menciptakan satu pulau besar yang berpusat di sekitar (0, 0).</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">IslandBiomeGen</span> <span class="kd">implements</span> <span class="n">BiomeGenerator</span> <span class="p">{</span>
 

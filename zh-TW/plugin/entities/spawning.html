@@ -19,17 +19,6 @@
 
         <link rel="index" title="索引"
               href="../../genindex.html"/>        <link rel="search" title="搜尋" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 說明文件" href="../../index.html"/>        <link rel="up" title="實體" href="index.html"/>        <link rel="next" title="修改實體" href="modifying.html"/>        <link rel="prev" title="實體" href="index.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -173,7 +162,7 @@
            <div itemprop="articleBody">
   <div class="section" id="spawning-an-entity">
 <h1>生成實體<a class="headerlink" href="#spawning-an-entity" title="本標題的永久連結">¶</a></h1>
-<p>你將需要三個東西來生成一個 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/Entity.html">Entity</a>：一個 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/Location.html">Location</a>、一個 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/extent/Extent.html">Extent</a>、與一個 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/EntityType.html">EntityType</a>。取得這些東西的過程相當簡單，你只要從插件程式碼的某處抓住一個 <code class="docutils literal notranslate"><span class="pre">Location</span></code> 與選擇你希望生成的 <code class="docutils literal notranslate"><span class="pre">Entity</span></code> 類型。</p>
+<p>你將需要三個東西來生成一個 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/Entity.html">Entity</a>：一個 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/world/Location.html">Location</a>、一個 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/world/extent/Extent.html">Extent</a>、與一個 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/EntityType.html">EntityType</a>。取得這些東西的過程相當簡單，你只要從插件程式碼的某處抓住一個 <code class="docutils literal notranslate"><span class="pre">Location</span></code> 與選擇你希望生成的 <code class="docutils literal notranslate"><span class="pre">Entity</span></code> 類型。</p>
 <p>例如，讓我們試著生成一隻苦力怕：</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.entity.Entity</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.spongepowered.api.entity.EntityTypes</span><span class="p">;</span>
@@ -200,8 +189,8 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>這樣我們就從我們的 <code class="docutils literal notranslate"><span class="pre">Location</span></code> 抓到了世界，我們將需要將其用於實際生成。然後，它使用 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/extent/EntityUniverse.html#createEntity-org.spongepowered.api.entity.EntityType-com.flowpowered.math.vector.Vector3d-">EntityUniverse#createEntity(EntityType, Vector3d)</a> 來建立實體，但請注意，這不會將實體生成到世界中，這只是建立它。我們需要指定要生成的 <code class="docutils literal notranslate"><span class="pre">Entity</span></code> 的類型，與 <code class="docutils literal notranslate"><span class="pre">Location</span></code> 的座標。</p>
-<p>一旦我們建立了我們的 <code class="docutils literal notranslate"><span class="pre">Entity</span></code>，我們就可以使用世界來生成該 <code class="docutils literal notranslate"><span class="pre">Entity</span></code>。我們應該指定一個生成的 <code class="docutils literal notranslate"><span class="pre">Cause</span></code> 以確保其他插件能夠正確處理。對於生成 <code class="docutils literal notranslate"><span class="pre">Entity</span></code>，最好的方式是使用一個 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/cause/entity/spawn/SpawnType.html">SpawnType</a> 作為情境的一部份。在這個範例中，我們我們聲明我們的實體是從插件中生成的，然而我們可以指定任何事件原因/情境來以最好的方式描述為何我們要生成這個實體，例如生怪磚（參閱<a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/cause/entity/spawn/SpawnTypes.html#MOB_SPAWNER">SpawnTypes#MOB_SPAWNER</a>），或刷怪蛋（參閱<a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/cause/entity/spawn/SpawnTypes.html#SPAWN_EGG">SpawnTypes#SPAWN_EGG</a>）。</p>
+<p>這樣我們就從我們的 <code class="docutils literal notranslate"><span class="pre">Location</span></code> 抓到了世界，我們將需要將其用於實際生成。然後，它使用 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/world/extent/EntityUniverse.html#createEntity-org.spongepowered.api.entity.EntityType-com.flowpowered.math.vector.Vector3d-">EntityUniverse#createEntity(EntityType, Vector3d)</a> 來建立實體，但請注意，這不會將實體生成到世界中，這只是建立它。我們需要指定要生成的 <code class="docutils literal notranslate"><span class="pre">Entity</span></code> 的類型，與 <code class="docutils literal notranslate"><span class="pre">Location</span></code> 的座標。</p>
+<p>一旦我們建立了我們的 <code class="docutils literal notranslate"><span class="pre">Entity</span></code>，我們就可以使用世界來生成該 <code class="docutils literal notranslate"><span class="pre">Entity</span></code>。我們應該指定一個生成的 <code class="docutils literal notranslate"><span class="pre">Cause</span></code> 以確保其他插件能夠正確處理。對於生成 <code class="docutils literal notranslate"><span class="pre">Entity</span></code>，最好的方式是使用一個 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/cause/entity/spawn/SpawnType.html">SpawnType</a> 作為情境的一部份。在這個範例中，我們我們聲明我們的實體是從插件中生成的，然而我們可以指定任何事件原因/情境來以最好的方式描述為何我們要生成這個實體，例如生怪磚（參閱<a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/cause/entity/spawn/SpawnTypes.html#MOB_SPAWNER">SpawnTypes#MOB_SPAWNER</a>），或刷怪蛋（參閱<a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/cause/entity/spawn/SpawnTypes.html#SPAWN_EGG">SpawnTypes#SPAWN_EGG</a>）。</p>
 </div>
 
            </div>

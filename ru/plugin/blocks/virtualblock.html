@@ -19,17 +19,6 @@
 
         <link rel="index" title="Алфавитный указатель"
               href="../../genindex.html"/>        <link rel="search" title="Поиск" href="../../search.html"/>    <link rel="top" title="Документация Sponge 7.2.0" href="../../index.html"/>        <link rel="up" title="Блоки" href="index.html"/>        <link rel="next" title="Сущности" href="../entities/index.html"/>        <link rel="prev" title="Tile Entities" href="tileentities.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -175,7 +164,7 @@
   <div class="section" id="virtual-block-changes">
 <h1>Виртуальные изменения блока<a class="headerlink" href="#virtual-block-changes" title="Ссылка на этот заголовок">¶</a></h1>
 <p>Виртуальное изменение блоков позволяет вам сделать так, чтобы казалось, что блок изменён клиентом, не меняя в действительности физические блоки в мире.</p>
-<p>Отправка виртуального изменения блока клиенту так же проста, как обращение к методу <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/effect/Viewer.html#sendBlockChange-int-int-int-org.spongepowered.api.block.BlockState-">Viewer#sendBlockChange(int, int, int, BlockState)</a>. Вам надо указать координаты блока, который вы хотите изменить, так же как и нового <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/block/BlockState.html">BlockState</a>. Пример показан ниже:</p>
+<p>Отправка виртуального изменения блока клиенту так же проста, как обращение к методу <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/effect/Viewer.html#sendBlockChange-int-int-int-org.spongepowered.api.block.BlockState-">Viewer#sendBlockChange(int, int, int, BlockState)</a>. Вам надо указать координаты блока, который вы хотите изменить, так же как и нового <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/block/BlockState.html">BlockState</a>. Пример показан ниже:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.block.BlockTypes</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.spongepowered.api.effect.Viewer</span><span class="p">;</span>
 
@@ -185,7 +174,7 @@
 <p>This will make it seem as if the block at the co-ordinates <code class="docutils literal notranslate"><span class="pre">0,</span> <span class="pre">65,</span> <span class="pre">0</span></code> has changed to a command block. Of course, you
 are not restricted to the default state of a block. Any <code class="docutils literal notranslate"><span class="pre">BlockState</span></code> is accepted by the <code class="docutils literal notranslate"><span class="pre">sendBlockChange()</span></code> method.</p>
 <p>Besides specifying three integers for the co-ordinates, you may also specify a <code class="docutils literal notranslate"><span class="pre">Vector3i</span></code>. An example of using the
-<a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/effect/Viewer.html#sendBlockChange-com.flowpowered.math.vector.Vector3i-org.spongepowered.api.block.BlockState-">Viewer#sendBlockChange(Vector3i, BlockState)</a> method is shown below:</p>
+<a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/effect/Viewer.html#sendBlockChange-com.flowpowered.math.vector.Vector3i-org.spongepowered.api.block.BlockState-">Viewer#sendBlockChange(Vector3i, BlockState)</a> method is shown below:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">com.flowpowered.math.vector.Vector3i</span><span class="p">;</span>
 
 <span class="n">Vector3i</span> <span class="n">vector</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Vector3i</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">65</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
@@ -195,7 +184,7 @@ are not restricted to the default state of a block. Any <code class="docutils li
 <div class="section" id="resetting-changes">
 <h2>Resetting Changes<a class="headerlink" href="#resetting-changes" title="Ссылка на этот заголовок">¶</a></h2>
 <p>To reset any changes you’ve made to the client at a specific location, you can call the
-<a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/effect/Viewer.html#resetBlockChange-int-int-int-">Viewer#resetBlockChange(int, int, int)</a> method. For example, to undo our damage from the previous example, we
+<a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/effect/Viewer.html#resetBlockChange-int-int-int-">Viewer#resetBlockChange(int, int, int)</a> method. For example, to undo our damage from the previous example, we
 can call the <code class="docutils literal notranslate"><span class="pre">resetBlockChange()</span></code> method specifying the co-ordinates from before:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">viewer</span><span class="p">.</span><span class="na">resetBlockChange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">65</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
 </pre></div>

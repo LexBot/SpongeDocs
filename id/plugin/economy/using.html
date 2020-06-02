@@ -19,17 +19,6 @@
 
         <link rel="index" title="Indeks"
               href="../../genindex.html"/>        <link rel="search" title="Pencarian" href="../../search.html"/>    <link rel="top" title="dokumentasi Sponge 7.2.0" href="../../index.html"/>        <link rel="up" title="Ekonomi" href="index.html"/>        <link rel="next" title="Prakter Terbaik API Ekonomi" href="practices.html"/>        <link rel="prev" title="Konsep Awal" href="basics.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -176,7 +165,7 @@
 <p>API Ekonomi menyatukan seluruh plugin ekonomu dibawah satu API. Ini artinya plugin manapun yang menggunakan API ekonomi akan cocok dengan seluruh plugin ekonomi yang menjalankan API tersebut. Laman ini menuntun anda melewati tata cara penggunaan API Ekonomi di plugin anda sendiri.</p>
 <div class="section" id="loading-the-economyservice">
 <h2>Memuat EconomyService<a class="headerlink" href="#loading-the-economyservice" title="Link permanen untuk headline ini">¶</a></h2>
-<p>Dalam rangka memanfaatkan API Ekonomi, pertama anda harus memuat <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/economy/EconomyService.html">EconomyService</a> class menggunakan <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/ServiceManager.html">ServiceManager</a>.</p>
+<p>Dalam rangka memanfaatkan API Ekonomi, pertama anda harus memuat <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/economy/EconomyService.html">EconomyService</a> class menggunakan <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/ServiceManager.html">ServiceManager</a>.</p>
 <div class="admonition warning">
 <p class="first admonition-title">Peringatan</p>
 <p class="last">Harap dicatat bahwa anda perlu memperhatikan <code class="docutils literal notranslate"><span class="pre">game</span> <span class="pre">states</span></code> yang berbeda ketika server sedang dimulai, memberhentikan atau menjalankan ketika penggunaan layanan seperti API ekonomi. Lihatlah pada halaman <a class="reference internal" href="../services.html"><span class="doc">Layanan</span></a> untuk informasi lebih lanjut.</p>
@@ -195,11 +184,11 @@
 </div>
 <div class="admonition warning">
 <p class="first admonition-title">Peringatan</p>
-<p class="last">Simpan layanan ini didalam sebuah local variable daripada sebuah member variable, karena penyedia (pelaksana) dapat mengubah poin manapun. Jika anda harus meletakkannya di sebuah member variable, untuk alasan apapun, gunakan <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/service/ChangeServiceProviderEvent.html">ChangeServiceProviderEvent</a> untuk menyimpan pembaruan pelaksanaan.</p>
+<p class="last">Simpan layanan ini didalam sebuah local variable daripada sebuah member variable, karena penyedia (pelaksana) dapat mengubah poin manapun. Jika anda harus meletakkannya di sebuah member variable, untuk alasan apapun, gunakan <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/service/ChangeServiceProviderEvent.html">ChangeServiceProviderEvent</a> untuk menyimpan pembaruan pelaksanaan.</p>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Catatan</p>
-<p class="last">Tidak seperti layanan lain, anda harus mencoba untuk menggunakan <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/ServiceManager.html#provide-java.lang.Class-">ServiceManager#provide(Class)</a> daripada <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/ServiceManager.html#provideUnchecked-java.lang.Class-">ServiceManager#provideUnchecked(Class)</a> karena Sponge tidak menyediakan pelaksanaan dasar dari <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/economy/EconomyService.html">EconomyService</a>,dan oleh akrena itu hal tersebut tidak dijamin untuk ada.</p>
+<p class="last">Tidak seperti layanan lain, anda harus mencoba untuk menggunakan <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/ServiceManager.html#provide-java.lang.Class-">ServiceManager#provide(Class)</a> daripada <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/ServiceManager.html#provideUnchecked-java.lang.Class-">ServiceManager#provideUnchecked(Class)</a> karena Sponge tidak menyediakan pelaksanaan dasar dari <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/economy/EconomyService.html">EconomyService</a>,dan oleh akrena itu hal tersebut tidak dijamin untuk ada.</p>
 </div>
 </div>
 </div>
@@ -229,7 +218,7 @@
 </ul>
 <p>Ini adalah untuk penggunaan yg lebih lanjut, tapi masih harus diisi. Di bawah ini adalah daftar dari nilai dasar yang diterima:</p>
 <ul class="simple">
-<li>Mata uang <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/economy/EconomyService.html#getDefaultCurrency--">EconomyService#getDefaultCurrency()</a></li>
+<li>Mata uang <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/economy/EconomyService.html#getDefaultCurrency--">EconomyService#getDefaultCurrency()</a></li>
 <li>Cause: <code class="docutils literal notranslate"><span class="pre">Cause.of(EventContext.builder().add(EventContextKeys.PLUGIN,</span> <span class="pre">plugin).build(),</span> <span class="pre">plugin)</span></code></li>
 <li>Context: <code class="docutils literal notranslate"><span class="pre">new</span> <span class="pre">HashSet&lt;Context&gt;()</span></code></li>
 </ul>

@@ -19,17 +19,6 @@
 
         <link rel="index" title="Indeks"
               href="../../genindex.html"/>        <link rel="search" title="Pencarian" href="../../search.html"/>    <link rel="top" title="dokumentasi Sponge 7.2.0" href="../../index.html"/>        <link rel="up" title="Membuat Plugin" href="../index.html"/>        <link rel="next" title="Konfigurasi Loader" href="loaders.html"/>        <link rel="prev" title="Acara Khusus" href="../event/custom.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -201,7 +190,7 @@ to store data, and they allow server administrators to customize plugin options 
 </div>
 <div class="section" id="getting-your-default-plugin-configuration">
 <span id="getting-default-config"></span><h3>Memperoleh Konfigurasi Plugin Default anda<a class="headerlink" href="#getting-your-default-plugin-configuration" title="Link permanen untuk headline ini">¶</a></h3>
-<p>SpongeAPI offers the use of the <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/config/DefaultConfig.html">DefaultConfig</a> annotation on a field or setter method with the type
+<p>SpongeAPI offers the use of the <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/config/DefaultConfig.html">DefaultConfig</a> annotation on a field or setter method with the type
 <code class="docutils literal notranslate"><span class="pre">Path</span></code> to get the default configuration file for your plugin.</p>
 <p>If you place the <code class="docutils literal notranslate"><span class="pre">&#64;DefaultConfig</span></code> annotation on a field with the type
 <code class="docutils literal notranslate"><span class="pre">ConfigurationLoader&lt;CommentedConfigurationNode&gt;</span></code> then you can use it to load and save the default config file in
@@ -218,7 +207,7 @@ that you might ship with your jar, unless you explicitly load it.</p>
 <li>Jika anda berencana untuk mendapatkan beberapa file konfigurasi (plugin kompleks) di masa mendatang, tetapkan nilainya ke``false``.</li>
 <li>Jika anda merencanakan untuk memiliki sebuah file konfigurasi tunggal (plugin kurang-kompleks), mengatur nilainya untuk <code class="docutils literal notranslate"><span class="pre">true</span></code>.</li>
 </ul>
-<p>Anda juga bisa memperoleh sebuah <code class="docutils literal notranslate"><span class="pre">Path</span></code> contoh petunjuk untuk direktori konfigurasi pengganti dari file khusus. Hanya saja itu disuntik dengan menggunakan <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/config/ConfigDir.html">ConfigDir</a> anotasi, salah satu dengan <code class="docutils literal notranslate"><span class="pre">sharedRoot</span></code> atur ke <code class="docutils literal notranslate"><span class="pre">false</span></code> untuk sebuah plugin direktori tertentu atau ke <code class="docutils literal notranslate"><span class="pre">true</span></code> untuk mendapatkan direktori konfigurasi bersama.</p>
+<p>Anda juga bisa memperoleh sebuah <code class="docutils literal notranslate"><span class="pre">Path</span></code> contoh petunjuk untuk direktori konfigurasi pengganti dari file khusus. Hanya saja itu disuntik dengan menggunakan <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/config/ConfigDir.html">ConfigDir</a> anotasi, salah satu dengan <code class="docutils literal notranslate"><span class="pre">sharedRoot</span></code> atur ke <code class="docutils literal notranslate"><span class="pre">false</span></code> untuk sebuah plugin direktori tertentu atau ke <code class="docutils literal notranslate"><span class="pre">true</span></code> untuk mendapatkan direktori konfigurasi bersama.</p>
 <div class="admonition note">
 <p class="first admonition-title">Catatan</p>
 <p class="last">Meskipun itu memungkinkan untuk mendapatkan sebuah <code class="docutils literal notranslate"><span class="pre">File</span></code> sebagai gantinya dari sebuah <code class="docutils literal notranslate"><span class="pre">Path</span></code>, Konfigurasi (dan Sponge) menyarankan menggunakan <code class="docutils literal notranslate"><span class="pre">Path</span></code>.</p>

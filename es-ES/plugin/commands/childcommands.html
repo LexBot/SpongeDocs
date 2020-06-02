@@ -19,17 +19,6 @@
 
         <link rel="index" title="Índice"
               href="../../genindex.html"/>        <link rel="search" title="Búsqueda" href="../../search.html"/>    <link rel="top" title="documentación de Sponge - 7.2.0" href="../../index.html"/>        <link rel="up" title="Plugin Commands" href="index.html"/>        <link rel="next" title="El Gerente de Comando" href="service.html"/>        <link rel="prev" title="Banderas de Comando" href="flags.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -175,7 +164,7 @@
            <div itemprop="articleBody">
   <div class="section" id="child-commands">
 <h1>Comandos Hijos<a class="headerlink" href="#child-commands" title="Enlazar permanentemente con este título">¶</a></h1>
-<p>El constructor <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/spec/CommandSpec.html">CommandSpec</a> soporta estructuras de comando jerárquicas como esta:</p>
+<p>El constructor <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/spec/CommandSpec.html">CommandSpec</a> soporta estructuras de comando jerárquicas como esta:</p>
 <ul class="simple">
 <li><code class="docutils literal notranslate"><span class="pre">/mail</span></code> (parent command)<ul>
 <li><code class="docutils literal notranslate"><span class="pre">/mail</span> <span class="pre">send</span></code> (child command)</li>
@@ -203,7 +192,7 @@
     <span class="p">.</span><span class="na">build</span><span class="p">();</span>
 </pre></div>
 </div>
-<p>En lugar de registrarlos en el servicio de comando, los comandos secundarios se registran en su comando principal utilizando el método <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/spec/CommandSpec.Builder.html#child-org.spongepowered.api.command.CommandCallable-java.lang.String...-">CommandSpec.Builder#child(CommandCallable, String…)</a>. Están registrados con una lista de alias. El primer alias proporcionado es el principal y aparecerá en el mensaje de uso.</p>
+<p>En lugar de registrarlos en el servicio de comando, los comandos secundarios se registran en su comando principal utilizando el método <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/spec/CommandSpec.Builder.html#child-org.spongepowered.api.command.CommandCallable-java.lang.String...-">CommandSpec.Builder#child(CommandCallable, String…)</a>. Están registrados con una lista de alias. El primer alias proporcionado es el principal y aparecerá en el mensaje de uso.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.Sponge</span><span class="p">;</span>
 
 <span class="n">PluginContainer</span> <span class="n">plugin</span> <span class="o">=</span> <span class="p">...;</span>
@@ -220,12 +209,12 @@
 </div>
 <div class="section" id="fallback-behavior">
 <h2>Fallback Behavior<a class="headerlink" href="#fallback-behavior" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>Si un comando tiene comandos secundarios, un <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/spec/CommandExecutor.html">CommandExecutor</a>, establecido a través de <a href="#id1"><span class="problematic" id="id2">:javadoc:`CommandSpec.Builder#executor(CommandExecutor)`y sus asociados :javadoc:`CommandSpec.Builder#arguments(CommandElement)``</span></a> son opcionales. El comportamiento de error en la selección y el análisis de argumentos de los comandos secundarios depende de si este ejecutor padre existe.</p>
-<p>Si no se ha establecido un ejecutor padre, entonces si el comando hijo solicitado no se pudo encontrar o los argumentos no se pueden analizar, se lanzará un <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/args/ArgumentParseException.html">ArgumentParseException</a>.</p>
-<p>Si se ha establecido un ejecutor padre para el comando padre, es usado como alternativa si el primer argumento no coincide con uno de los alias del comando hijo. Si se selecciona un comando secundario pero los argumentos no se analizan, sucederá uno de los siguientes casos en función de qué <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/spec/CommandSpec.Builder.html#childArgumentParseExceptionFallback-boolean-">CommandSpec.Builder#childArgumentParseExceptionFallback(boolean)</a> es establecido:</p>
+<p>Si un comando tiene comandos secundarios, un <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/spec/CommandExecutor.html">CommandExecutor</a>, establecido a través de <a href="#id1"><span class="problematic" id="id2">:javadoc:`CommandSpec.Builder#executor(CommandExecutor)`y sus asociados :javadoc:`CommandSpec.Builder#arguments(CommandElement)``</span></a> son opcionales. El comportamiento de error en la selección y el análisis de argumentos de los comandos secundarios depende de si este ejecutor padre existe.</p>
+<p>Si no se ha establecido un ejecutor padre, entonces si el comando hijo solicitado no se pudo encontrar o los argumentos no se pueden analizar, se lanzará un <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/args/ArgumentParseException.html">ArgumentParseException</a>.</p>
+<p>Si se ha establecido un ejecutor padre para el comando padre, es usado como alternativa si el primer argumento no coincide con uno de los alias del comando hijo. Si se selecciona un comando secundario pero los argumentos no se analizan, sucederá uno de los siguientes casos en función de qué <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/spec/CommandSpec.Builder.html#childArgumentParseExceptionFallback-boolean-">CommandSpec.Builder#childArgumentParseExceptionFallback(boolean)</a> es establecido:</p>
 <ul class="simple">
-<li>Si es <cite>true</cite> (por defecto), el <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/args/ArgumentParseException.html">ArgumentParseException</a> es descartado y se analizan los argumentos de los comandos principales. Si fallan, se mostrará la excepción para el comando principal. Este es el mismo comportamiento que las revisiones previas de API, donde no se mostrarán las excepciones de análisis de argumentos del comando hijo.</li>
-<li>Si es “falso”, el ejecutor principal no es ejecutado y el <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/args/ArgumentParseException.html">ArgumentParseException</a> es arrojado, regresando la excepción del conflicto del comando secundario que ha fallado en el parafraseo, pero puede prevenir que sea ejecutada alguna combinación de comandos principales y conflictos (si el primer argumento de respaldo pudiera ser el mismo que el comando secundario).</li>
+<li>Si es <cite>true</cite> (por defecto), el <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/args/ArgumentParseException.html">ArgumentParseException</a> es descartado y se analizan los argumentos de los comandos principales. Si fallan, se mostrará la excepción para el comando principal. Este es el mismo comportamiento que las revisiones previas de API, donde no se mostrarán las excepciones de análisis de argumentos del comando hijo.</li>
+<li>Si es “falso”, el ejecutor principal no es ejecutado y el <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/args/ArgumentParseException.html">ArgumentParseException</a> es arrojado, regresando la excepción del conflicto del comando secundario que ha fallado en el parafraseo, pero puede prevenir que sea ejecutada alguna combinación de comandos principales y conflictos (si el primer argumento de respaldo pudiera ser el mismo que el comando secundario).</li>
 </ul>
 <p>In all cases, if the arguments parse successfully but the child executor throws an exception, the fallback
 executor (if any) is not executed and the error message from the child executor is displayed.</p>

@@ -19,17 +19,6 @@
 
         <link rel="index" title="Dizin"
               href="../../genindex.html"/>        <link rel="search" title="Ara" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 belgelendirme çalışması" href="../../index.html"/>        <link rel="up" title="Etkinlikler" href="index.html"/>        <link rel="next" title="Özel olaylar" href="custom.html"/>        <link rel="prev" title="Etkinlik Nedenleri" href="causes.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -175,11 +164,11 @@
 <h1>Etkinlik filtreleri<a class="headerlink" href="#event-filters" title="Bu başlığın kalıcı bağlantısı">¶</a></h1>
 <p>Etkinliklerle çalışmak için biraz zaman harcadıysanız, muhtemelen bir olay dinleyicisi yazarken çok sık kontrol ettiğiniz bazı ön koşulların olduğunu fark ettiniz. Etkinlik filtreleri, olayın otomatik olarak geçerliliğini doğrulamanıza izin verilerek size yardımcı olan ek açıklamalar grubudur ve doğrulama başarısız olursa dinleyiciniz çağrılamaz. Bu, dinleyicinizin koşulları yerine işlemeçinizin mantığına ayrılmış olmasını ve daha temiz bir kod üretilmesini sağlar.</p>
 <p>Etkinlik filtreleri, etkinlik türü filtreleri ve parametre filtreleri olmak üzere iki çeşittir.</p>
-<p>Olay türü filtreleri, dinleyicinize, <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/Listener.html">Listener</a> ek açıklamasıyla birlikte uygulanan yöntem ek açıklamalarıdır ve olayın türüne veya durumuna dayalı çeşitli filtreler sağlar.</p>
+<p>Olay türü filtreleri, dinleyicinize, <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/Listener.html">Listener</a> ek açıklamasıyla birlikte uygulanan yöntem ek açıklamalarıdır ve olayın türüne veya durumuna dayalı çeşitli filtreler sağlar.</p>
 <p>Parametre filtreleri, olay gibi, olay nedeni gibi nesneleri doğrulamaktadır. Ayrıca iki çeşit parametre kaynağı ve parametre filtresi bulunur. Her ek parametrenin bir kaynak açıklamasına sahip olması ve isteğe bağlı olarak herhangi bir sayıda filtre açıklaması içerebilmesi gerekir.</p>
 <div class="section" id="event-type-filters">
 <h2>Etkinlik türü filtreleri<a class="headerlink" href="#event-type-filters" title="Bu başlığın kalıcı bağlantısı">¶</a></h2>
-<p><strong>&#64;Include/&#64;Exclude</strong> Bu iki parametre, aldığınız olayları daraltarak dinlediğiniz olayın genişleyen olayların bir alt kümesi gibi <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/entity/AffectEntityEvent.html">AffectEntityEvent</a> gibi üst öğe türü etkinlikleri dinlemek için birlikte kullanılır.</p>
+<p><strong>&#64;Include/&#64;Exclude</strong> Bu iki parametre, aldığınız olayları daraltarak dinlediğiniz olayın genişleyen olayların bir alt kümesi gibi <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/entity/AffectEntityEvent.html">AffectEntityEvent</a> gibi üst öğe türü etkinlikleri dinlemek için birlikte kullanılır.</p>
 <p>Örneğin:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Listener</span>
 <span class="nd">@Exclude</span><span class="p">(</span><span class="n">InteractBlockEvent</span><span class="p">.</span><span class="na">Primary</span><span class="p">.</span><span class="na">class</span><span class="p">)</span>
@@ -188,8 +177,8 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>Bu dinleyici, normalde InteractBlockEvent uzanan tüm olaylar için çağrılır. Bununla birlikte <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/filter/type/Exclude.html">Exclude</a> notu dinleyicinizin <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/block/InteractBlockEvent.Primary.html">InteractBlockEvent.Primary</a> olayı için çağrılmasını engeller (yalnızca <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/block/InteractBlockEvent.Secondary.html">InteractBlockEvent.Secondary</a> olayı bırakılıyor).</p>
-<p>Bir örnek <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/filter/type/Include.html">Include</a> şu şekilde olabilir:</p>
+<p>Bu dinleyici, normalde InteractBlockEvent uzanan tüm olaylar için çağrılır. Bununla birlikte <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/filter/type/Exclude.html">Exclude</a> notu dinleyicinizin <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/block/InteractBlockEvent.Primary.html">InteractBlockEvent.Primary</a> olayı için çağrılmasını engeller (yalnızca <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/block/InteractBlockEvent.Secondary.html">InteractBlockEvent.Secondary</a> olayı bırakılıyor).</p>
+<p>Bir örnek <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/filter/type/Include.html">Include</a> şu şekilde olabilir:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Listener</span>
 <span class="nd">@Include</span><span class="p">({</span><span class="n">DamageEntityEvent</span><span class="p">.</span><span class="na">class</span><span class="p">,</span> <span class="n">DestructEntityEvent</span><span class="p">.</span><span class="na">class</span><span class="p">})</span>
 <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onEvent</span><span class="p">(</span><span class="n">TargetEntityEvent</span> <span class="n">event</span><span class="p">)</span> <span class="p">{</span>
@@ -197,12 +186,12 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>Bu dinleyici normalde tüm EntityEvents için çağrılır, ancak <code class="docutils literal notranslate"><span class="pre">Include</span></code> açıklaması sadece onu almayı daraltır <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/entity/DamageEntityEvent.html">DamageEntityEvent</a> ve <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/entity/DestructEntityEvent.html">DestructEntityEvent</a>.</p>
+<p>Bu dinleyici normalde tüm EntityEvents için çağrılır, ancak <code class="docutils literal notranslate"><span class="pre">Include</span></code> açıklaması sadece onu almayı daraltır <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/entity/DamageEntityEvent.html">DamageEntityEvent</a> ve <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/entity/DestructEntityEvent.html">DestructEntityEvent</a>.</p>
 <p><strong>&#64;IsCancelled</strong>
 This annotation allows filtering events by their cancellation state at the time that your event listener would normally be
 called. By default, your event listener will not be called if the event has been cancelled by a previous event listener.
-However you can change this behavior to one of three states depending on the <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/util/Tristate.html">Tristate</a> value in the
-<a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/filter/IsCancelled.html">IsCancelled</a> annotation.</p>
+However you can change this behavior to one of three states depending on the <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/util/Tristate.html">Tristate</a> value in the
+<a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/filter/IsCancelled.html">IsCancelled</a> annotation.</p>
 <blockquote>
 <div><ul class="simple">
 <li><code class="docutils literal notranslate"><span class="pre">IsCancelled</span></code> notu mevcut değilse, <code class="docutils literal notranslate"><span class="pre">Tristate.FALSE</span></code> varsayılan davranış ve olayı iptal edildiğinde dinleyiciyi aramayacaktır.</li>
@@ -217,7 +206,7 @@ However you can change this behavior to one of three states depending on the <a 
 <div class="section" id="parameter-source-annotations">
 <h3>Parametre Kaynağı Ek Açıklamaları<a class="headerlink" href="#parameter-source-annotations" title="Bu başlığın kalıcı bağlantısı">¶</a></h3>
 <p>Parametre kaynak notları, olay sistemine bu parametrenin değerini nereden bulması gerektiğini bildirir. Bu, olay nesnesinin kendisinin bir üyesindeki veya üyelerindeki olaylarda olabilir.</p>
-<p><strong>&#64;First</strong> Bu parametre kaynağı açıklaması, olay sistemine, olayın nedeninde parametrenizin türüne uyan ilk nesneyi bulmasını söyler (Bu, aşağıdakine denktir <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/cause/Cause.html#first-java.lang.Class-">Cause#first(Class)</a>). Bu parametre ile eşleşen herhangi bir nesne bulunamazsa, dinleyiciniz çağırılmaz.</p>
+<p><strong>&#64;First</strong> Bu parametre kaynağı açıklaması, olay sistemine, olayın nedeninde parametrenizin türüne uyan ilk nesneyi bulmasını söyler (Bu, aşağıdakine denktir <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/cause/Cause.html#first-java.lang.Class-">Cause#first(Class)</a>). Bu parametre ile eşleşen herhangi bir nesne bulunamazsa, dinleyiciniz çağırılmaz.</p>
 <p>** Bu örnekte, dinleyiciniz yalnızca olayın içinde bir oyuncu varsa çağrılır ve ** <code class="docutils literal notranslate"><span class="pre">player</span></code> ** parametresi ilk oyuncuya davayı açar. **</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Listener</span>
 <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onInteract</span><span class="p">(</span><span class="n">InteractBlockEvent</span><span class="p">.</span><span class="na">Secondary</span> <span class="n">event</span><span class="p">,</span> <span class="nd">@First</span> <span class="n">Player</span> <span class="n">player</span><span class="p">)</span> <span class="p">{</span>
@@ -240,9 +229,9 @@ However you can change this behavior to one of three states depending on the <a 
 <span class="p">}</span>
 </pre></div>
 </div>
-<p><strong>&#64;After</strong> Bu, <code class="docutils literal notranslate"><span class="pre">&#64;Before</span></code> benzer, fakat bunun yerine <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/cause/Cause.html#after-java.lang.Class-">Cause#after(Class)</a>.</p>
+<p><strong>&#64;After</strong> Bu, <code class="docutils literal notranslate"><span class="pre">&#64;Before</span></code> benzer, fakat bunun yerine <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/cause/Cause.html#after-java.lang.Class-">Cause#after(Class)</a>.</p>
 <p><strong>&#64;All</strong> This parameter source annotation requires that the annotated parameter be an array type. The returned array
-will be equivalent to the contents of calling <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/cause/Cause.html#allOf-java.lang.Class-">Cause#allOf(Class)</a>. By default, if the returned array would be
+will be equivalent to the contents of calling <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/cause/Cause.html#allOf-java.lang.Class-">Cause#allOf(Class)</a>. By default, if the returned array would be
 empty then the validation fails however this can be disabled by setting <code class="docutils literal notranslate"><span class="pre">ignoreEmpty=false</span></code>.</p>
 <p><strong>Bu örnekte, dinleyiciniz her zaman çağrılır; ancak olayın nedeni hiçbir oyuncu içermiyorsa, players dizisi boş olabilir.</strong></p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Listener</span>
@@ -251,7 +240,7 @@ empty then the validation fails however this can be disabled by setting <code cl
 <span class="p">}</span>
 </pre></div>
 </div>
-<p><strong>&#64;Root</strong> Bu parametre kaynağı açıklaması sebebin kök objesini alacaktır, buna eşdeğerdir <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/cause/Cause.html#root--">Cause#root()</a>. Ayrıca, kök nesnesinin türünün sizin parametrenizin türüne uyduğuna dair ek bir kontrol gerçekleştirir.</p>
+<p><strong>&#64;Root</strong> Bu parametre kaynağı açıklaması sebebin kök objesini alacaktır, buna eşdeğerdir <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/cause/Cause.html#root--">Cause#root()</a>. Ayrıca, kök nesnesinin türünün sizin parametrenizin türüne uyduğuna dair ek bir kontrol gerçekleştirir.</p>
 <p><strong>&#64;Getter</strong> Bu parametre kaynağı açıklaması, etkinlik üzerinde belirtilen adla bir alıcı getirecektir. Belirtilen alıcı bir <code class="docutils literal notranslate"><span class="pre">Optional``döndürürse,</span> <span class="pre">``&#64;Getter</span></code> otomatik olarak <code class="docutils literal notranslate"><span class="pre">Optional</span></code>’ı açar.</p>
 <p><strong>Bu örnekte</strong> <code class="docutils literal notranslate"><span class="pre">getUseItemResult</span></code> ** değerini ** <code class="docutils literal notranslate"><span class="pre">&#64;Getter</span></code> ** açıklama özelliğini kullanarak almaya çalışıyoruz. **</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Listener</span>
@@ -264,7 +253,7 @@ empty then the validation fails however this can be disabled by setting <code cl
 <div class="section" id="parameter-filter-annotations">
 <h3>Parametre Filtresi Ek Açıklamaları<a class="headerlink" href="#parameter-filter-annotations" title="Bu başlığın kalıcı bağlantısı">¶</a></h3>
 <p>Parametre filtre ek açıklamaları, parametre kaynağı ek açıklamalardan döndürülen nesnelere ek doğrulama ekler. Tüm etkinlik filtrelerinde olduğu gibi, bu doğrulamalardan herhangi biri başarısız olursa dinleyiciniz çağrılamaz.</p>
-<p><strong>&#64;Supports</strong> Bu parametre filtresi <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/DataHolder.html">DataHolder</a> olan herhangi bir parametre türüne uygulanabilir. Bir sınıfı genişletir <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/manipulator/DataManipulator.html">DataManipulator</a> parametresi olarak ve açıklanan <code class="docutils literal notranslate"><span class="pre">DataHolder</span></code>’ın verili Manipülatörü desteklediğini doğrular. Bu doğrulama eşdeğerdir <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/value/mutable/CompositeValueStore.html#supports-java.lang.Class-">CompositeValueStore#supports(Class&lt;? extends H&gt;)</a>.</p>
+<p><strong>&#64;Supports</strong> Bu parametre filtresi <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/DataHolder.html">DataHolder</a> olan herhangi bir parametre türüne uygulanabilir. Bir sınıfı genişletir <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/manipulator/DataManipulator.html">DataManipulator</a> parametresi olarak ve açıklanan <code class="docutils literal notranslate"><span class="pre">DataHolder</span></code>’ın verili Manipülatörü desteklediğini doğrular. Bu doğrulama eşdeğerdir <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/value/mutable/CompositeValueStore.html#supports-java.lang.Class-">CompositeValueStore#supports(Class&lt;? extends H&gt;)</a>.</p>
 <p><a href="#id1"><span class="problematic" id="id2">**</span></a>Bu örnekte, dinleyicinin adı yalnızca olayın içinde bir varlık varsa ve o varlık ** :javadoc:’FlyingData’ veri manuel aracısını destekliyorsa çağrılır.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Listener</span>
 <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onInteract</span><span class="p">(</span><span class="n">InteractBlockEvent</span><span class="p">.</span><span class="na">Secondary</span> <span class="n">event</span><span class="p">,</span> <span class="nd">@First</span> <span class="nd">@Supports</span><span class="p">(</span><span class="n">FlyingData</span><span class="p">.</span><span class="na">class</span><span class="p">)</span> <span class="n">Entity</span> <span class="n">entity</span><span class="p">)</span> <span class="p">{</span>

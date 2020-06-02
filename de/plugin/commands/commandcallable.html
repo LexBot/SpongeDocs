@@ -19,17 +19,6 @@
 
         <link rel="index" title="Stichwortverzeichnis"
               href="../../genindex.html"/>        <link rel="search" title="Suche" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 Dokumentation" href="../../index.html"/>        <link rel="up" title="Plugin Commands" href="index.html"/>        <link rel="next" title="Events" href="../event/index.html"/>        <link rel="prev" title="Der Befehls-Manager" href="service.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -175,7 +164,7 @@
            <div itemprop="articleBody">
   <div class="section" id="low-level-command-api">
 <h1>Unterste Ebene der Command API<a class="headerlink" href="#low-level-command-api" title="Link zu dieser Überschrift">¶</a></h1>
-<p>Das <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/CommandCallable.html">CommandCallable</a>- und <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/dispatcher/Dispatcher.html">Dispatcher</a>-Interface kann benutzt werden, um Befehle zu erstellen. Auch können die Interfaces als Grundlage selbsterstellter Command-APIs dienen.</p>
+<p>Das <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/CommandCallable.html">CommandCallable</a>- und <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/dispatcher/Dispatcher.html">Dispatcher</a>-Interface kann benutzt werden, um Befehle zu erstellen. Auch können die Interfaces als Grundlage selbsterstellter Command-APIs dienen.</p>
 <p>Es wird empfohlen, die <a class="reference internal" href="creating.html"><span class="doc">Command Builder API</span></a> für einfache Befehlsdefinitionen zu benutzen.</p>
 <div class="section" id="writing-a-command">
 <h2>Befehle schreiben<a class="headerlink" href="#writing-a-command" title="Link zu dieser Überschrift">¶</a></h2>
@@ -226,12 +215,12 @@
 </div>
 <div class="admonition tip">
 <p class="first admonition-title">Tipp</p>
-<p class="last">Schau dir die Dokumentation des Interfaces <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/CommandCallable.html">CommandCallable</a> an, um einen Eindruck zu bekommen, wann welche Methode aufgerufen wird.</p>
+<p class="last">Schau dir die Dokumentation des Interfaces <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/CommandCallable.html">CommandCallable</a> an, um einen Eindruck zu bekommen, wann welche Methode aufgerufen wird.</p>
 </div>
 </div>
 <div class="section" id="registering-the-command">
 <h2>Befehle registrieren<a class="headerlink" href="#registering-the-command" title="Link zu dieser Überschrift">¶</a></h2>
-<p>Nun können wir die Klasse in dem <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/CommandManager.html">CommandManager</a> registrieren. Der <code class="docutils literal notranslate"><span class="pre">CommandService</span></code> dient als Manager. Dieser Manager achtet darauf, wann welcher Befehl in den Chat geschrieben wird, um ihn an den richtigen <code class="docutils literal notranslate"><span class="pre">CommandHandler</span></code> weiterzuleiten. Um deinen Befehl zu registrieren musst du die <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/CommandManager.html#register-java.lang.Object-org.spongepowered.api.command.CommandCallable-java.lang.String...-">CommandManager#register(Object, CommandCallable, String…)</a> Methode benutzen. Diese Methode erwartet eine Instanz von deinem Plugin und eine Instanz von der Command Klasse und jeden Alias (bzw. Synonym) als weiteren Parameter.</p>
+<p>Nun können wir die Klasse in dem <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/CommandManager.html">CommandManager</a> registrieren. Der <code class="docutils literal notranslate"><span class="pre">CommandService</span></code> dient als Manager. Dieser Manager achtet darauf, wann welcher Befehl in den Chat geschrieben wird, um ihn an den richtigen <code class="docutils literal notranslate"><span class="pre">CommandHandler</span></code> weiterzuleiten. Um deinen Befehl zu registrieren musst du die <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/CommandManager.html#register-java.lang.Object-org.spongepowered.api.command.CommandCallable-java.lang.String...-">CommandManager#register(Object, CommandCallable, String…)</a> Methode benutzen. Diese Methode erwartet eine Instanz von deinem Plugin und eine Instanz von der Command Klasse und jeden Alias (bzw. Synonym) als weiteren Parameter.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.command.CommandManager</span><span class="p">;</span>
 
 <span class="n">CommandManager</span> <span class="n">cmdService</span> <span class="o">=</span> <span class="n">Sponge</span><span class="p">.</span><span class="na">getCommandManager</span><span class="p">();</span>
@@ -247,7 +236,7 @@
 <div class="section" id="command-dispatchers">
 <h2>Command Dispatcher (Zuteiler)<a class="headerlink" href="#command-dispatchers" title="Link zu dieser Überschrift">¶</a></h2>
 <p>Command-Dispatcher können zu Hilfe genommen werden, um eine hierarchische Struktur von Unterbefehlen aufzubauen.</p>
-<p>Die Standardimplementierung des <code class="docutils literal notranslate"><span class="pre">Dispatcher</span></code>-Interfaces ist der <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/dispatcher/SimpleDispatcher.html">SimpleDispatcher</a>.</p>
+<p>Die Standardimplementierung des <code class="docutils literal notranslate"><span class="pre">Dispatcher</span></code>-Interfaces ist der <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/dispatcher/SimpleDispatcher.html">SimpleDispatcher</a>.</p>
 <p>Ein <code class="docutils literal notranslate"><span class="pre">Dispatcher</span></code> ist gleichzeitig auch eine <code class="docutils literal notranslate"><span class="pre">CommandCallable</span></code>. Deswegen kann es auch als Befehl, wie jeder andere, registriert werden.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.command.dispatcher.SimpleDispatcher</span><span class="p">;</span>
 

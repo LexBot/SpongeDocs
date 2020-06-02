@@ -19,17 +19,6 @@
 
         <link rel="index" title="Indeks"
               href="../../genindex.html"/>        <link rel="search" title="Pencarian" href="../../search.html"/>    <link rel="top" title="dokumentasi Sponge 7.2.0" href="../../index.html"/>        <link rel="up" title="Blok" href="index.html"/>        <link rel="next" title="Badan" href="../entities/index.html"/>        <link rel="prev" title="Genteng Badan" href="tileentities.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -175,7 +164,7 @@
   <div class="section" id="virtual-block-changes">
 <h1>Virtual Blok Perubahan<a class="headerlink" href="#virtual-block-changes" title="Link permanen untuk headline ini">¶</a></h1>
 <p>Virtual blok perubahan memungkinkan anda untuk membuatnya tampak seolah-olah blok telah berubah pada klien tanpa benar-benar mengubah setiap blok fisik di dunia.</p>
-<p>Mengirimkan perubahan blok virtual ke klien itu semudah memanggil metode <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/effect/Viewer.html#sendBlockChange-int-int-int-org.spongepowered.api.block.BlockState-">Viewer#sendBlockChange(int, int, int, BlockState)</a>. Anda perlu menetapkan koordinat blok yang ingin anda ubah, juga yang baru <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/block/BlockState.html">BlockState</a>. Contoh ditunjukkan di bawah ini:</p>
+<p>Mengirimkan perubahan blok virtual ke klien itu semudah memanggil metode <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/effect/Viewer.html#sendBlockChange-int-int-int-org.spongepowered.api.block.BlockState-">Viewer#sendBlockChange(int, int, int, BlockState)</a>. Anda perlu menetapkan koordinat blok yang ingin anda ubah, juga yang baru <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/block/BlockState.html">BlockState</a>. Contoh ditunjukkan di bawah ini:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.block.BlockTypes</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.spongepowered.api.effect.Viewer</span><span class="p">;</span>
 
@@ -192,7 +181,7 @@
 </div>
 <div class="section" id="resetting-changes">
 <h2>Ulang Perubahan<a class="headerlink" href="#resetting-changes" title="Link permanen untuk headline ini">¶</a></h2>
-<p>Untuk mengubah suatu perubahan yang tekah kamu buat kepada klien pada lokasi tertentu. kamu bisa memanggil metode <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/effect/Viewer.html#resetBlockChange-int-int-int-">Viewer#resetBlockChange(int, int, int)</a>. sebagai contoh, untuk mengembalikan kerusakan dari contoh sebelumnya, kita bisa memanggil metode <code class="docutils literal notranslate"><span class="pre">resetBlockChange()</span></code> metode untuk melakukan spesifikasi koordinat dari sebelumnya:</p>
+<p>Untuk mengubah suatu perubahan yang tekah kamu buat kepada klien pada lokasi tertentu. kamu bisa memanggil metode <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/effect/Viewer.html#resetBlockChange-int-int-int-">Viewer#resetBlockChange(int, int, int)</a>. sebagai contoh, untuk mengembalikan kerusakan dari contoh sebelumnya, kita bisa memanggil metode <code class="docutils literal notranslate"><span class="pre">resetBlockChange()</span></code> metode untuk melakukan spesifikasi koordinat dari sebelumnya:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">viewer</span><span class="p">.</span><span class="na">resetBlockChange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">65</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
 </pre></div>
 </div>

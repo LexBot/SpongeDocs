@@ -19,17 +19,6 @@
 
         <link rel="index" title="Index"
               href="../../genindex.html"/>        <link rel="search" title="Recherche" href="../../search.html"/>    <link rel="top" title="Documentation Sponge 7.2.0" href="../../index.html"/>        <link rel="up" title="Entités" href="index.html"/>        <link rel="next" title="Implémenter Vos Propres AITasks" href="custom-ai.html"/>        <link rel="prev" title="Modification d’une entité" href="modifying.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -176,7 +165,7 @@
 <p>L’IA d’Entité (à ne pas confondre avec l’IA actuelle) est la logique qui contrôle les agents. Elle est structurée à l’aide d’objectifs (ex : vaincs les ennemis) qu’une entité essaie de réaliser avec des tâches plus petites (ex : va vers un ennemi et le frapper avec ton arme). Les sections suivantes décrivent ce que les objectifs, les tâches et les autres composants de l’API d’IA d’Entité sont, comment vous pouvez changer le comportement des entités, et décrivent comment vous pouvez écrire vos propres objectifs d’IA.</p>
 <div class="section" id="agents">
 <h2>Les Agents<a class="headerlink" href="#agents" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Un <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/living/Agent.html">Agent</a> est un type d”<a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/Entity.html">Entity</a> vivante qui supporte l’IA et donc simule le comportement typique des mobs. Vous pouvez vérifier si une <code class="docutils literal notranslate"><span class="pre">Entity</span></code> est également un <code class="docutils literal notranslate"><span class="pre">Agent</span></code> en essayant simplement de le cast.</p>
+<p>Un <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/living/Agent.html">Agent</a> est un type d”<a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/Entity.html">Entity</a> vivante qui supporte l’IA et donc simule le comportement typique des mobs. Vous pouvez vérifier si une <code class="docutils literal notranslate"><span class="pre">Entity</span></code> est également un <code class="docutils literal notranslate"><span class="pre">Agent</span></code> en essayant simplement de le cast.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.entity.living.Agent</span><span class="p">;</span>
 
 <span class="n">World</span> <span class="n">world</span> <span class="o">=</span> <span class="p">...;</span>
@@ -193,9 +182,9 @@
 </div>
 <div class="section" id="goals">
 <h2>Objectifs<a class="headerlink" href="#goals" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Dans Minecraft vanilla il y a deux <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/ai/GoalTypes.html">types</a> de <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/ai/Goal.html">Goal</a>s.</p>
-<p>Le premier est celui par défaut : <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/ai/GoalTypes.html#NORMAL">NORMAL</a>. Cette partie de l’IA contrôle le comportement de l’entité. Cet objectif contient les tâches comme attaquer une cible en utiliser une arme de mêlée ou à distance et regarder dans la zone si il n’y a pas d’ennemi proche. Si nous voulons réécrire ou modifier l’IA nous changerons habituellement cet objectif et ses tâches.</p>
-<p>Le deuxième objectif est plus pour les mobs hostiles <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/ai/GoalTypes.html#TARGET">TARGET</a>. Cet objectif contient des tâches qui aident l’entité à identifier quelle cible elle doit sélectionner puis attaquer à l’aide de l’objectif normal. L’objectif target contient des tâches comme sélectionner la cible attaquable la plus proche et sélectionner l’ennemi qui vous a attaqué en premier.</p>
+<p>Dans Minecraft vanilla il y a deux <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/ai/GoalTypes.html">types</a> de <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/ai/Goal.html">Goal</a>s.</p>
+<p>Le premier est celui par défaut : <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/ai/GoalTypes.html#NORMAL">NORMAL</a>. Cette partie de l’IA contrôle le comportement de l’entité. Cet objectif contient les tâches comme attaquer une cible en utiliser une arme de mêlée ou à distance et regarder dans la zone si il n’y a pas d’ennemi proche. Si nous voulons réécrire ou modifier l’IA nous changerons habituellement cet objectif et ses tâches.</p>
+<p>Le deuxième objectif est plus pour les mobs hostiles <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/ai/GoalTypes.html#TARGET">TARGET</a>. Cet objectif contient des tâches qui aident l’entité à identifier quelle cible elle doit sélectionner puis attaquer à l’aide de l’objectif normal. L’objectif target contient des tâches comme sélectionner la cible attaquable la plus proche et sélectionner l’ennemi qui vous a attaqué en premier.</p>
 <p>Le code suivant récupère l’objectif <code class="docutils literal notranslate"><span class="pre">NORMAL</span></code> de l’entité et le vide.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.entity.ai.Goal</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.spongepowered.api.entity.ai.GoalTypes</span><span class="p">;</span>
@@ -220,7 +209,7 @@
 </div>
 <div class="section" id="tasks">
 <h2>Tâches<a class="headerlink" href="#tasks" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Le comportement de nombreux types d’entités sont similaires entre eux. Pour cette raison, l’IA d’entité se divise en plusieurs parties plus petites et réutilisables appelées <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/ai/task/AITask.html">AITask</a>s. Chacune des <code class="docutils literal notranslate"><span class="pre">AITask</span></code>s représente un seul trait de comportement d’une entité, comme <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/ai/task/AITaskTypes.html#WATCH_CLOSEST">WATCH_CLOSEST</a>, qui fait regarder l’entité vers l’entité correspondante la plus proche, ou <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/ai/task/AITaskTypes.html#AVOID_ENTITY">AVOID_ENTITY</a>, qui fait fuir l’entité de certaines entités correspondantes.</p>
+<p>Le comportement de nombreux types d’entités sont similaires entre eux. Pour cette raison, l’IA d’entité se divise en plusieurs parties plus petites et réutilisables appelées <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/ai/task/AITask.html">AITask</a>s. Chacune des <code class="docutils literal notranslate"><span class="pre">AITask</span></code>s représente un seul trait de comportement d’une entité, comme <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/ai/task/AITaskTypes.html#WATCH_CLOSEST">WATCH_CLOSEST</a>, qui fait regarder l’entité vers l’entité correspondante la plus proche, ou <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/ai/task/AITaskTypes.html#AVOID_ENTITY">AVOID_ENTITY</a>, qui fait fuir l’entité de certaines entités correspondantes.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">Minecraft vanilla fournit lui-même en énorme variété de <code class="docutils literal notranslate"><span class="pre">AITask</span></code>ss, cependant la plupart d’entre eux ne sont pas encore accessibles via l’API.</p>
@@ -241,7 +230,7 @@
 <span class="n">goal</span><span class="p">.</span><span class="na">addTask</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">watchClosestAiTask</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>Dans cet exemple, nous créons une <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/ai/task/builtin/WatchClosestAITask.html">WatchClosestAITask</a> à l’aide du builder associé. En utilisant le build nous définissons les chances de déclenchement de cet objectif à 100%. Ainsi, l’entité va garder au <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/living/player/Player.html">Player</a> le plus proche dans un rayon de 30 blocs. Nous assignons zéro en priorité, ce qui représente une priorité élevée, ainsi cet objectif est prioritaire par rapport aux autres tâches.</p>
+<p>Dans cet exemple, nous créons une <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/ai/task/builtin/WatchClosestAITask.html">WatchClosestAITask</a> à l’aide du builder associé. En utilisant le build nous définissons les chances de déclenchement de cet objectif à 100%. Ainsi, l’entité va garder au <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/living/player/Player.html">Player</a> le plus proche dans un rayon de 30 blocs. Nous assignons zéro en priorité, ce qui représente une priorité élevée, ainsi cet objectif est prioritaire par rapport aux autres tâches.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">Minecraft utilise des valeurs faibles comme priorité élevée et des valeurs élevées comme priorité faible. Par défaut, Minecraft utilise des valeurs de priorité de zéro à environ dix.</p>
@@ -249,7 +238,7 @@
 </div>
 <div class="section" id="removing-certain-aitasks">
 <h3>Suppression de Certaines AITasks<a class="headerlink" href="#removing-certain-aitasks" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Supprimer les <code class="docutils literal notranslate"><span class="pre">AITask</span></code>s correctes peut être un peu délicat, surtout si des entités moddées ou de l’IA personnalisée entrent en jeu. l’API Sponge essaie de fournir un moyen de lever l’ambiguïté. Appeler <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/ai/task/AITask.html#getType--">AITask#getType()</a> retourne un <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/ai/task/AITaskType.html">AITaskType</a> qui peut être utilisé pour distinguer les types de tâches existants.</p>
+<p>Supprimer les <code class="docutils literal notranslate"><span class="pre">AITask</span></code>s correctes peut être un peu délicat, surtout si des entités moddées ou de l’IA personnalisée entrent en jeu. l’API Sponge essaie de fournir un moyen de lever l’ambiguïté. Appeler <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/ai/task/AITask.html#getType--">AITask#getType()</a> retourne un <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/ai/task/AITaskType.html">AITaskType</a> qui peut être utilisé pour distinguer les types de tâches existants.</p>
 <p>Tout d’abord nous essayons la version simple qui va seulement fonctionner si il n’y a pas de mod modifiant l’IA de présent :</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Goal</span><span class="o">&lt;</span><span class="n">Zombie</span><span class="o">&gt;</span> <span class="n">goal</span> <span class="o">=</span> <span class="p">...;</span>
 
@@ -260,18 +249,18 @@
 <p>Dans ce cas nous comptons aveuglément sur le fait que dans Minecraft vanilla 1.2.2, les <code class="docutils literal notranslate"><span class="pre">Zombie</span></code>s auront la tâche <code class="docutils literal notranslate"><span class="pre">EntityAIZombieAttack</span></code> en deuxième tâche. Après ça vous n’aurez plus à craindre des attaques de ce zombie. Comme vous pouvez l’imaginer, cette stratégie à des défauts, car elle nécessite des connaissances explicites sur l’ordre des tâches d’IA dans l’entité donnée.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Il n’est pas possible de supprimer de <code class="docutils literal notranslate"><span class="pre">AITask</span></code>s directement à partir de la liste retournée par <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/ai/Goal.html#getTasks--">Goal#getTasks()</a> car elle est immuable.</p>
+<p class="last">Il n’est pas possible de supprimer de <code class="docutils literal notranslate"><span class="pre">AITask</span></code>s directement à partir de la liste retournée par <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/ai/Goal.html#getTasks--">Goal#getTasks()</a> car elle est immuable.</p>
 </div>
 <p>Une façon beaucoup plus simple mais également moins puissante de supprimer des tâches est de les supprimer par leur type. C’est l’approche que vous devez suivre, si vous n’avez pas besoin des intérieurs de la tâche pour identifier quelle tâche doit être supprimée.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">goal</span><span class="p">.</span><span class="na">removeTasks</span><span class="p">(</span><span class="n">AITaskTypes</span><span class="p">.</span><span class="na">WANDER</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>Dans ce cas, nous supprimons toutes les AITasks qui ont le <code class="docutils literal notranslate"><span class="pre">AITaskType</span></code> <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/ai/task/AITaskTypes.html#WANDER">WANDER</a>.</p>
+<p>Dans ce cas, nous supprimons toutes les AITasks qui ont le <code class="docutils literal notranslate"><span class="pre">AITaskType</span></code> <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/ai/task/AITaskTypes.html#WANDER">WANDER</a>.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">Actuellement cette façon est sérieusement limitée en matière d’exploitibilité à cause du support incomplet de <code class="docutils literal notranslate"><span class="pre">AITaskType</span></code> dans l’API.</p>
 </div>
-<p>Si vous souhaitez supprimer toutes les AITasks, parce que vous voulez configurer l’IA de l’entité à partir de zéro, vous pouvez également utiliser <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/ai/Goal.html#clear--">Goal#clear()</a>.</p>
+<p>Si vous souhaitez supprimer toutes les AITasks, parce que vous voulez configurer l’IA de l’entité à partir de zéro, vous pouvez également utiliser <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/ai/Goal.html#clear--">Goal#clear()</a>.</p>
 </div>
 <div class="section" id="implement-your-own-aitask">
 <h3>Implémenter Votre Propre AITask<a class="headerlink" href="#implement-your-own-aitask" title="Lien permanent vers ce titre">¶</a></h3>
@@ -282,9 +271,9 @@
 <p>L’API d’AI ainsi que la plupart de autres parts de la SpongeAPI utilisent les événements. Vous pouvez en savoir plus sur les événements <a class="reference internal" href="../event/index.html"><span class="doc">ici</span></a>.</p>
 <p>L’API d’AI elle-même utilise les 3 événements suivants :</p>
 <ul class="simple">
-<li><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/entity/ai/AITaskEvent.Add.html">AITaskEvent.Add</a></li>
-<li><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/entity/ai/AITaskEvent.Remove.html">AITaskEvent.Remove</a></li>
-<li><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/entity/ai/SetAITargetEvent.html">SetAITargetEvent</a></li>
+<li><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/entity/ai/AITaskEvent.Add.html">AITaskEvent.Add</a></li>
+<li><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/entity/ai/AITaskEvent.Remove.html">AITaskEvent.Remove</a></li>
+<li><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/entity/ai/SetAITargetEvent.html">SetAITargetEvent</a></li>
 </ul>
 <p>L’événement <code class="docutils literal notranslate"><span class="pre">AITaskEvent.Add</span></code> est publié chaque fois qu’un nouvel <code class="docutils literal notranslate"><span class="pre">AITask</span></code> a été ajouté à un <code class="docutils literal notranslate"><span class="pre">Goal</span></code>, de même, l’événement <code class="docutils literal notranslate"><span class="pre">AITaskEvent.Remove</span></code> est publié si un <code class="docutils literal notranslate"><span class="pre">AITask</span></code> a été supprimé.</p>
 <p>Le <code class="docutils literal notranslate"><span class="pre">SetAITargetEvent</span></code> est publié à chaque fois qu’un <code class="docutils literal notranslate"><span class="pre">Agent</span></code> sélectionne une nouvelle cible (généralement pour attaquer) ou lâche une cible.</p>

@@ -1,1 +1,1 @@
-$.extend(Documentation.TRANSLATIONS, {});
+$.extend(Documentation.TRANSLATIONS, {});$.extend(Documentation.TRANSLATIONS, {});

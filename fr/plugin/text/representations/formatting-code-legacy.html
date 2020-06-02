@@ -19,17 +19,6 @@
 
         <link rel="index" title="Index"
               href="../../../genindex.html"/>        <link rel="search" title="Recherche" href="../../../search.html"/>    <link rel="top" title="Documentation Sponge 7.2.0" href="../../../index.html"/>        <link rel="up" title="Sérialiseurs de Texte" href="index.html"/>        <link rel="next" title="Format JSON" href="json.html"/>        <link rel="prev" title="Sérialiseurs de Texte" href="index.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -184,12 +173,12 @@
 <p>Ces deux mécanismes de formatage utilisent les codes trouvés sur le <a class="reference external" href="https://minecraft.gamepedia.com/Formatting_codes">Wiki Minecraft</a>. Il est important de relever que le Wiki Minecraft affiche seulement l’utilisation avec le caractère de section (§), mais les mêmes codes fonctionnent avec l’esperluette (&amp;) également.</p>
 <div class="admonition warning">
 <p class="first admonition-title">Avertissement</p>
-<p class="last">La sérialisation de Text à l’aide de tout type de code de formatage est limitée à ce qui représente seulement quelques-unes des fonctionnalités d’un <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/Text.html">Text</a>, à savoir la mise en forme. Il ne peut pas représenter quelconque type d’actions de clic ou de survol. Si la brièveté n’est pas un problème (comme dans le chat de Minecraft), il est recommandé d’utiliser le <a class="reference internal" href="json.html"><span class="doc">Format JSON</span></a>.</p>
+<p class="last">La sérialisation de Text à l’aide de tout type de code de formatage est limitée à ce qui représente seulement quelques-unes des fonctionnalités d’un <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/text/Text.html">Text</a>, à savoir la mise en forme. Il ne peut pas représenter quelconque type d’actions de clic ou de survol. Si la brièveté n’est pas un problème (comme dans le chat de Minecraft), il est recommandé d’utiliser le <a class="reference internal" href="json.html"><span class="doc">Format JSON</span></a>.</p>
 </div>
 <div class="section" id="ampersand-formatting">
 <h2>Mise en Forme avec l’Esperluette<a class="headerlink" href="#ampersand-formatting" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Par défaut, Sponge supporte le caractère de formatage <cite>&amp;</cite> (esperluette). Utiliser le format de l’esperluette autorise une entrée utilisateur du formatage du texte plus simple et est utile dans les cas où la brièveté n’est pas nécessaire, comme dans la console de chat de Minecraft.</p>
-<p>Pour utiliser ce formatage, vous pouvez accéder à son <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/serializer/TextSerializer.html">TextSerializer</a> correspondant avec <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/serializer/TextSerializers.html#FORMATTING_CODE">TextSerializers#FORMATTING_CODE</a>. Depuis là, vous pouvez utiliser les méthodes <code class="docutils literal notranslate"><span class="pre">serialize</span></code> ou <code class="docutils literal notranslate"><span class="pre">deserialize</span></code> comme d’habitude :</p>
+<p>Pour utiliser ce formatage, vous pouvez accéder à son <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/text/serializer/TextSerializer.html">TextSerializer</a> correspondant avec <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/text/serializer/TextSerializers.html#FORMATTING_CODE">TextSerializers#FORMATTING_CODE</a>. Depuis là, vous pouvez utiliser les méthodes <code class="docutils literal notranslate"><span class="pre">serialize</span></code> ou <code class="docutils literal notranslate"><span class="pre">deserialize</span></code> comme d’habitude :</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.text.Text</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.spongepowered.api.text.format.TextColors</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.spongepowered.api.text.format.TextStyles</span><span class="p">;</span>
@@ -204,7 +193,7 @@
 <div class="section" id="legacy-formatting">
 <h2>Ancienne Mise en Forme<a class="headerlink" href="#legacy-formatting" title="Lien permanent vers ce titre">¶</a></h2>
 <p>L’ancienne représentation du texte est le format largement utilisé dans les anciennes versions de Minecraft, représentée par le caractère de section (§). Sponge fournit la sérialisation et la désérialisation en utilisant l’ancien format <strong>seulement pour la compatibilité</strong>. Il ne doit pas être utilisé sauf si c’est absolument nécessaire. Plutôt, il est recommandé d’utiliser le formatage avec l’esperluette, comme détaillé ci-dessus. L’ancienne mise en forme possède quelques limitations que la mise en forme avec l’esperluette n’a pas, la plus évidente parmi elles est que les utilisateurs ne peuvent pas facilement taper le caractère de section dans le chat.</p>
-<p>Pour utiliser ce formatage, vous pouvez accéder à son <code class="docutils literal notranslate"><span class="pre">TextSerializer</span></code> correspondant avec <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/serializer/TextSerializers.html#LEGACY_FORMATTING_CODE">TextSerializers#LEGACY_FORMATTING_CODE</a>. Depuis là, vous pouvez utiliser les méthodes <code class="docutils literal notranslate"><span class="pre">serialize</span></code> ou <code class="docutils literal notranslate"><span class="pre">deserialize</span></code> comme d’habitude :</p>
+<p>Pour utiliser ce formatage, vous pouvez accéder à son <code class="docutils literal notranslate"><span class="pre">TextSerializer</span></code> correspondant avec <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/text/serializer/TextSerializers.html#LEGACY_FORMATTING_CODE">TextSerializers#LEGACY_FORMATTING_CODE</a>. Depuis là, vous pouvez utiliser les méthodes <code class="docutils literal notranslate"><span class="pre">serialize</span></code> ou <code class="docutils literal notranslate"><span class="pre">deserialize</span></code> comme d’habitude :</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Text</span> <span class="n">text</span> <span class="o">=</span> <span class="n">Text</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">TextColors</span><span class="p">.</span><span class="na">RED</span><span class="p">,</span> <span class="n">TextStyles</span><span class="p">.</span><span class="na">UNDERLINE</span><span class="p">,</span> <span class="s">&quot;Hello World!&quot;</span><span class="p">);</span>
 <span class="n">String</span> <span class="n">legacyText</span> <span class="o">=</span> <span class="n">TextSerializers</span><span class="p">.</span><span class="na">LEGACY_FORMATTING_CODE</span><span class="p">.</span><span class="na">serialize</span><span class="p">(</span><span class="n">text</span><span class="p">);</span>
 </pre></div>
@@ -212,7 +201,7 @@
 <p>Par exemple, le texte «&nbsp;Hello World!&nbsp;», formaté avec la couleur rouge et en souligné aurait la représentation suivante avec l’ancienne mise en forme : <cite>§c§nHello World!</cite></p>
 <div class="admonition tip">
 <p class="first admonition-title">Astuce</p>
-<p class="last">Bien que son utilisation n’est pas recommandée, vous pouvez récupérer un <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/serializer/FormattingCodeTextSerializer.html">FormattingCodeTextSerializer</a> en utilisant n’importe quel caractère de mise en forme dont vous avez besoin en appelant <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/serializer/TextSerializers.html#formattingCode-char-">TextSerializers#formattingCode(char)</a>, en passant un <code class="docutils literal notranslate"><span class="pre">char</span></code> comme le seul argument.</p>
+<p class="last">Bien que son utilisation n’est pas recommandée, vous pouvez récupérer un <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/text/serializer/FormattingCodeTextSerializer.html">FormattingCodeTextSerializer</a> en utilisant n’importe quel caractère de mise en forme dont vous avez besoin en appelant <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/text/serializer/TextSerializers.html#formattingCode-char-">TextSerializers#formattingCode(char)</a>, en passant un <code class="docutils literal notranslate"><span class="pre">char</span></code> comme le seul argument.</p>
 </div>
 </div>
 </div>

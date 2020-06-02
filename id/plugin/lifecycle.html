@@ -19,17 +19,6 @@
 
         <link rel="index" title="Indeks"
               href="../genindex.html"/>        <link rel="search" title="Pencarian" href="../search.html"/>    <link rel="top" title="dokumentasi Sponge 7.2.0" href="../index.html"/>        <link rel="up" title="Membuat Plugin" href="index.html"/>        <link rel="next" title="Ketergantungan Injeksi" href="injection.html"/>        <link rel="prev" title="Class Plugin utama" href="plugin-class.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -184,7 +173,7 @@
 <h2>Inisialisasi Serikat<a class="headerlink" href="#initialization-states" title="Link permanen untuk headline ini">¶</a></h2>
 <p>Inisialisasi serikat hanya terjadi sekali selama menjalankan tunggal.</p>
 <p><strong>KONSTRUKSI</strong></p>
-<p><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GameConstructionEvent.html">GameConstructionEvent</a> sedang dipicu. Selama keadaan ini, class <code class="docutils literal notranslate"><span class="pre">&#64;Plugin</span></code> yang terjadi pada setiap plugin juga dipicu.</p>
+<p><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/game/state/GameConstructionEvent.html">GameConstructionEvent</a> sedang dipicu. Selama keadaan ini, class <code class="docutils literal notranslate"><span class="pre">&#64;Plugin</span></code> yang terjadi pada setiap plugin juga dipicu.</p>
 <p><strong>PRE_INITIALIZATION</strong></p>
 <p>Itu <a href="#id1"><span class="problematic" id="id2">:javadoc:`AcaraInisiasiGamePre`</span></a> dipicu. Selama keadaan ini, plugin bersiap untuk inisialisasi. Akses ke contoh logger default dan akses ke informasi mengenai lokasi file konfigurasi pilihan tersedia.</p>
 <p><strong>INITIALISASI</strong></p>
@@ -204,7 +193,7 @@
 <p>** SERVER_STARTED **</p>
 <p>Acara : javadoc: <cite>GameStartedServerEvent</cite> dipicu. Contoh server ada, dan dunia dimuat.</p>
 <p><strong>SERVER_STOPPING</strong></p>
-<p>The <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GameStoppingServerEvent.html">GameStoppingServerEvent</a> is triggered.
+<p>The <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/game/state/GameStoppingServerEvent.html">GameStoppingServerEvent</a> is triggered.
 This state occurs immediately before the final tick, before the worlds are saved.</p>
 <p><strong>SERVER_STOPPED</strong></p>
 <p>Itu <a href="#id1"><span class="problematic" id="id2">:javadoc:`GameMenghentikanAcaraServer`</span></a> dipicu. Selama keadaan ini, tidak ada pemain yang terhubung dan tidak ada perubahan pada dunia yang diselamatkan.</p>
@@ -217,11 +206,11 @@ This state occurs immediately before the final tick, before the worlds are saved
 <p class="last">Menghentikan negara tidak dijamin akan dijalankan saat shutdown. Mereka mungkin ** tidak ** api jika permainan dihentikan dengan paksa via Ctrl-C, Task Manager, kecelakaan komputer, atau situasi serupa.</p>
 </div>
 <p><strong>GAME_STOPPING</strong></p>
-<p>The <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GameStoppingEvent.html">GameStoppingEvent</a> is triggered.
+<p>The <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/game/state/GameStoppingEvent.html">GameStoppingEvent</a> is triggered.
 This state occurs immediately before <code class="docutils literal notranslate"><span class="pre">GAME_STOPPED</span></code>. Plugins providing an API should still be capable of accepting
 basic requests.</p>
 <p><strong>GAME_STOPPED</strong></p>
-<p>The <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GameStoppedEvent.html">GameStoppedEvent</a> is triggered.
+<p>The <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/game/state/GameStoppedEvent.html">GameStoppedEvent</a> is triggered.
 Once this event has finished executing, Minecraft will shut down. No further interaction with the game or other plugins
 should be attempted at this point.</p>
 </div>

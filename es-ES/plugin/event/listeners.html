@@ -19,17 +19,6 @@
 
         <link rel="index" title="Índice"
               href="../../genindex.html"/>        <link rel="search" title="Búsqueda" href="../../search.html"/>    <link rel="top" title="documentación de Sponge - 7.2.0" href="../../index.html"/>        <link rel="up" title="Eventos" href="index.html"/>        <link rel="next" title="Causas del Evento" href="causes.html"/>        <link rel="prev" title="Eventos" href="index.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -185,15 +174,15 @@
 <p>Adicionalmente, la clase que contiene estos métodos debe ser registrada con el administrador de evento:</p>
 <div class="admonition tip">
 <p class="first admonition-title">Truco</p>
-<p class="last">Para detectores de eventos en su clase de complemento principal (anotada por <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/plugin/Plugin.html">Plugin</a>), no necesita registrar el objeto para eventos ya que Sponge lo hará automáticamente.</p>
+<p class="last">Para detectores de eventos en su clase de complemento principal (anotada por <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/plugin/Plugin.html">Plugin</a>), no necesita registrar el objeto para eventos ya que Sponge lo hará automáticamente.</p>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Nota</p>
-<p class="last">El bus de evento <strong>admite supertipos</strong>. Por ejemplo, <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/block/ChangeBlockEvent.Break.html">ChangeBlockEvent.Break</a> se extiende de <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/block/ChangeBlockEvent.html">ChangeBlockEvent</a>. Por lo tanto, un complemento podría detectar <code class="docutils literal notranslate"><span class="pre">ChangeBlockEvent</span></code> y todavía recibir <code class="docutils literal notranslate"><span class="pre">ChangeBlockEvent.Break</span></code>s. Sin embargo, un plugin que solo detecta <code class="docutils literal notranslate"><span class="pre">ChangeBlockEvent.Break</span></code> no sería notificado de otros tipos de <code class="docutils literal notranslate"><span class="pre">ChangeBlockEvent</span></code>.</p>
+<p class="last">El bus de evento <strong>admite supertipos</strong>. Por ejemplo, <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/block/ChangeBlockEvent.Break.html">ChangeBlockEvent.Break</a> se extiende de <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/block/ChangeBlockEvent.html">ChangeBlockEvent</a>. Por lo tanto, un complemento podría detectar <code class="docutils literal notranslate"><span class="pre">ChangeBlockEvent</span></code> y todavía recibir <code class="docutils literal notranslate"><span class="pre">ChangeBlockEvent.Break</span></code>s. Sin embargo, un plugin que solo detecta <code class="docutils literal notranslate"><span class="pre">ChangeBlockEvent.Break</span></code> no sería notificado de otros tipos de <code class="docutils literal notranslate"><span class="pre">ChangeBlockEvent</span></code>.</p>
 </div>
 <div class="section" id="registering-and-unregistering-event-listeners">
 <h2>Registro y Anulación de Registro de Detectores de Evento<a class="headerlink" href="#registering-and-unregistering-event-listeners" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>Para registrar detectores de evento anotados por <code class="docutils literal notranslate"><span class="pre">&#64;Listener</span></code> que no están en la clase de complemento principal, puede utilizar <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/EventManager.html#registerListeners-java.lang.Object-java.lang.Object-">EventManager#registerListeners(Object, Object)</a>, que acepta una referencia al complemento y una instancia de la clase que contiene los detectores de eventos.</p>
+<p>Para registrar detectores de evento anotados por <code class="docutils literal notranslate"><span class="pre">&#64;Listener</span></code> que no están en la clase de complemento principal, puede utilizar <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/EventManager.html#registerListeners-java.lang.Object-java.lang.Object-">EventManager#registerListeners(Object, Object)</a>, que acepta una referencia al complemento y una instancia de la clase que contiene los detectores de eventos.</p>
 <p><strong>Ejemplo: Registro de Detectores de Eventos en Otras Clases</strong></p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.Sponge</span><span class="p">;</span>
 
@@ -236,12 +225,12 @@
 </div>
 <div class="section" id="unregistering-event-listeners">
 <h3>Anulación de Registro de Detectores de Eventos<a class="headerlink" href="#unregistering-event-listeners" title="Enlazar permanentemente con este título">¶</a></h3>
-<p>Para anular el registro de un único detector de eventos, puede utilizar el método <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/EventManager.html#unregisterListeners-java.lang.Object-">EventManager#unregisterListeners(Object)</a>, que acepta una instancia de la clase que contiene los detectores de eventos.</p>
+<p>Para anular el registro de un único detector de eventos, puede utilizar el método <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/EventManager.html#unregisterListeners-java.lang.Object-">EventManager#unregisterListeners(Object)</a>, que acepta una instancia de la clase que contiene los detectores de eventos.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">EventListener</span> <span class="n">listener</span> <span class="o">=</span> <span class="p">...;</span>
 <span class="n">Sponge</span><span class="p">.</span><span class="na">getEventManager</span><span class="p">().</span><span class="na">unregisterListeners</span><span class="p">(</span><span class="n">listener</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>Alternativamente, puede utilizar <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/EventManager.html#unregisterPluginListeners-java.lang.Object-">EventManager#unregisterPluginListeners(Object)</a>, pasando una referencia al complemento, para anular el registro todos los detectores de eventos asociados con ese complemento. Tenga en cuenta que esto eliminará <em>todos</em> los detectores de eventos de plugin, incluyendo esos registros con anotaciones <code class="docutils literal notranslate"><span class="pre">&#64;Listener</span></code>.</p>
+<p>Alternativamente, puede utilizar <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/EventManager.html#unregisterPluginListeners-java.lang.Object-">EventManager#unregisterPluginListeners(Object)</a>, pasando una referencia al complemento, para anular el registro todos los detectores de eventos asociados con ese complemento. Tenga en cuenta que esto eliminará <em>todos</em> los detectores de eventos de plugin, incluyendo esos registros con anotaciones <code class="docutils literal notranslate"><span class="pre">&#64;Listener</span></code>.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">PluginContainer</span> <span class="n">plugin</span> <span class="o">=</span> <span class="p">...;</span>
 <span class="n">Sponge</span><span class="p">.</span><span class="na">getEventManager</span><span class="p">().</span><span class="na">unregisterPluginListeners</span><span class="p">(</span><span class="n">plugin</span><span class="p">);</span>
 </pre></div>
@@ -251,7 +240,7 @@
 <span id="id1"></span><h3>Acerca de &#64;Listener<a class="headerlink" href="#about-listener" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>La anotación <code class="docutils literal notranslate"><span class="pre">&#64;Listener</span></code> tiene unos pocos campos configurables:</p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">order</span></code> is the priority in which the event listener is to be run. See the <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/Order.html">Order</a> enum in SpongeAPI to
+<li><code class="docutils literal notranslate"><span class="pre">order</span></code> is the priority in which the event listener is to be run. See the <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/Order.html">Order</a> enum in SpongeAPI to
 see the available options.</li>
 <li><code class="docutils literal notranslate"><span class="pre">beforeModifications</span></code> especifica si el detector de evento debería ser llamado antes de otras modificaciones del servidor, como modificaciones de Forge. Por defecto, esto es establecido como falso.</li>
 </ul>
@@ -261,7 +250,7 @@ see the available options.</li>
 <span id="game-reload"></span><h3>GameReloadEvent<a class="headerlink" href="#gamereloadevent" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>To prevent all plugins providing their own reload commands, Sponge provides a built-in callback for plugins to listen
 to, and when executed, perform any reloading actions. What constitutes as a “reloading action” is purely up to the
-plugin to decide. The <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/GameReloadEvent.html">GameReloadEvent</a> will fire when a player executes the
+plugin to decide. The <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/game/GameReloadEvent.html">GameReloadEvent</a> will fire when a player executes the
 <code class="docutils literal notranslate"><span class="pre">/sponge</span> <span class="pre">plugins</span> <span class="pre">reload</span></code> command. The event is not necessarily limited to reloading configuration.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.event.game.GameReloadEvent</span><span class="p">;</span>
 
@@ -277,14 +266,14 @@ plugin to decide. The <a class="reference external" href="https://jd.spongepower
 <div class="section" id="firing-events">
 <h2>Disparar Eventos<a class="headerlink" href="#firing-events" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Para enviar un evento, necesita un objeto que implemente la interfaz <a href="#id1"><span class="problematic" id="id2">:javadoc:`Evento`</span></a>.</p>
-<p>Puede disparar eventos utilizando el bus de evento (<a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/EventManager.html">EventManager</a>):</p>
+<p>Puede disparar eventos utilizando el bus de evento (<a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/EventManager.html">EventManager</a>):</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">boolean</span> <span class="n">cancelled</span> <span class="o">=</span> <span class="n">Sponge</span><span class="p">.</span><span class="na">getEventManager</span><span class="p">().</span><span class="na">post</span><span class="p">(</span><span class="n">theEventObject</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>El método devuelve <code class="docutils literal notranslate"><span class="pre">verdadero</span></code> si el evento fue cancelado, <code class="docutils literal notranslate"><span class="pre">falso</span></code> si no es así.</p>
 <div class="section" id="firing-sponge-events">
 <h3>Disparar Eventos de Sponge<a class="headerlink" href="#firing-sponge-events" title="Enlazar permanentemente con este título">¶</a></h3>
-<p>Es posible generar instancias de eventos incorporados con la <code class="docutils literal notranslate"><span class="pre">SpongeEventFactory</span></code> estática. Esta clase es generada automáticamente por lo que no hay Javadocs. Utilice la autocompletación de su IDE para listar los métodos existentes. Los eventos creados por la <code class="docutils literal notranslate"><span class="pre">SpongeEventFactory</span></code> son pasados luego al <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/EventManager.html#post-org.spongepowered.api.event.Event-">EventManager#post(Event)</a>.</p>
+<p>Es posible generar instancias de eventos incorporados con la <code class="docutils literal notranslate"><span class="pre">SpongeEventFactory</span></code> estática. Esta clase es generada automáticamente por lo que no hay Javadocs. Utilice la autocompletación de su IDE para listar los métodos existentes. Los eventos creados por la <code class="docutils literal notranslate"><span class="pre">SpongeEventFactory</span></code> son pasados luego al <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/EventManager.html#post-org.spongepowered.api.event.Event-">EventManager#post(Event)</a>.</p>
 </div>
 <div class="section" id="example-firing-lightningevent">
 <h3>Ejemplo: Disparar el LightningEvent<a class="headerlink" href="#example-firing-lightningevent" title="Enlazar permanentemente con este título">¶</a></h3>

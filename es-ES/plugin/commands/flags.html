@@ -19,17 +19,6 @@
 
         <link rel="index" title="Índice"
               href="../../genindex.html"/>        <link rel="search" title="Búsqueda" href="../../search.html"/>    <link rel="top" title="documentación de Sponge - 7.2.0" href="../../index.html"/>        <link rel="up" title="Plugin Commands" href="index.html"/>        <link rel="next" title="Comandos Hijos" href="childcommands.html"/>        <link rel="prev" title="Análisis de argumentos" href="arguments.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -176,7 +165,7 @@
   <div class="section" id="command-flags">
 <h1>Banderas de Comando<a class="headerlink" href="#command-flags" title="Enlazar permanentemente con este título">¶</a></h1>
 <p>Las banderas de comando son útiles para especificar parámetros extra para ser utilizados para el procesamiento de un comando que no pertenece a un argumento de comando.</p>
-<p>Para crear una bandera, primero necesitamos un compilador de banderas. Podemos simplemente utilizar el método <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/args/GenericArguments.html#flags--">GenericArguments#flags()</a> proporcionado por <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/args/GenericArguments.html">GenericArguments</a> para obtener el compilador que necesitamos. Desde ahí, podemos especificar que tipo de bandera nos gustaría crear. Tenga en cuenta, que las banderas son especificadas como un argumento.</p>
+<p>Para crear una bandera, primero necesitamos un compilador de banderas. Podemos simplemente utilizar el método <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/args/GenericArguments.html#flags--">GenericArguments#flags()</a> proporcionado por <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/args/GenericArguments.html">GenericArguments</a> para obtener el compilador que necesitamos. Desde ahí, podemos especificar que tipo de bandera nos gustaría crear. Tenga en cuenta, que las banderas son especificadas como un argumento.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.command.args.GenericArguments</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.spongepowered.api.command.spec.CommandSpec</span><span class="p">;</span>
 
@@ -186,8 +175,8 @@
     <span class="p">.</span><span class="na">build</span><span class="p">();</span>
 </pre></div>
 </div>
-<p>Esto creará una bandera de comando, así que cuando el jugador ejecute <code class="docutils literal notranslate"><span class="pre">/our-command</span> <span class="pre">-s</span></code>, la bandera para <code class="docutils literal notranslate"><span class="pre">s</span></code> será verdadera. Tenga en cuenta que compilando con <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/args/GenericArguments.html#none--">GenericArguments#none()</a> evitará que el comando tenga cualquier argumento. Si desea que el comando tenga argumentos y banderas, necesitará especificar sus argumentos dentro del método <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/args/CommandFlags.Builder.html#buildWith-org.spongepowered.api.command.args.CommandElement-">CommandFlags.Builder#buildWith(CommandElement)</a>.</p>
-<p>Ahora que tenemos especificado que nuestro comando puede ser ejecutado con la bandera, podemos obtener luego el valor de la bandera. Para una bandera boolean simple igual a la que especificamos anteriormente, simplemente podemos solo verificar si existe. En el ejemplo siguiente, verificaremos si el <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/args/CommandContext.html">CommandContext</a> para el comando tiene un valor para <code class="docutils literal notranslate"><span class="pre">s</span></code>.</p>
+<p>Esto creará una bandera de comando, así que cuando el jugador ejecute <code class="docutils literal notranslate"><span class="pre">/our-command</span> <span class="pre">-s</span></code>, la bandera para <code class="docutils literal notranslate"><span class="pre">s</span></code> será verdadera. Tenga en cuenta que compilando con <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/args/GenericArguments.html#none--">GenericArguments#none()</a> evitará que el comando tenga cualquier argumento. Si desea que el comando tenga argumentos y banderas, necesitará especificar sus argumentos dentro del método <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/args/CommandFlags.Builder.html#buildWith-org.spongepowered.api.command.args.CommandElement-">CommandFlags.Builder#buildWith(CommandElement)</a>.</p>
+<p>Ahora que tenemos especificado que nuestro comando puede ser ejecutado con la bandera, podemos obtener luego el valor de la bandera. Para una bandera boolean simple igual a la que especificamos anteriormente, simplemente podemos solo verificar si existe. En el ejemplo siguiente, verificaremos si el <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/args/CommandContext.html">CommandContext</a> para el comando tiene un valor para <code class="docutils literal notranslate"><span class="pre">s</span></code>.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.text.Text</span><span class="p">;</span>
 
 <span class="k">if</span> <span class="p">(</span><span class="n">args</span><span class="p">.</span><span class="na">hasAny</span><span class="p">(</span><span class="s">&quot;s&quot;</span><span class="p">))</span> <span class="p">{</span>
@@ -197,7 +186,7 @@
 </div>
 <div class="section" id="permission-flags">
 <h2>Banderas de Permiso<a class="headerlink" href="#permission-flags" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>Nuestras banderas hasta aquí son grandes, pero ¿y si queremos tenerlo para que un jugador necesite un permiso para utilizar una bandera? Podemos en cambio utilizar el método <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/args/CommandFlags.Builder.html#permissionFlag-java.lang.String-java.lang.String...-">CommandFlags.Builder#permissionFlag(String, String…)</a> sobre nuestro compilador de bandera. Esto requerirá que el jugador tenga un permiso específico para ejecutar el comando con la bandera. Un ejemplo de esto está a continuación:</p>
+<p>Nuestras banderas hasta aquí son grandes, pero ¿y si queremos tenerlo para que un jugador necesite un permiso para utilizar una bandera? Podemos en cambio utilizar el método <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/args/CommandFlags.Builder.html#permissionFlag-java.lang.String-java.lang.String...-">CommandFlags.Builder#permissionFlag(String, String…)</a> sobre nuestro compilador de bandera. Esto requerirá que el jugador tenga un permiso específico para ejecutar el comando con la bandera. Un ejemplo de esto está a continuación:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">CommandSpec</span> <span class="n">myCommand</span> <span class="o">=</span> <span class="n">CommandSpec</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
         <span class="p">.</span><span class="na">executor</span><span class="p">(</span><span class="k">new</span> <span class="n">MyCommand</span><span class="p">())</span>
         <span class="p">.</span><span class="na">arguments</span><span class="p">(</span><span class="n">GenericArguments</span><span class="p">.</span><span class="na">flags</span><span class="p">().</span><span class="na">permissionFlag</span><span class="p">(</span><span class="s">&quot;myplugin.command.flag&quot;</span><span class="p">,</span>
@@ -209,7 +198,7 @@
 </div>
 <div class="section" id="value-flags">
 <h2>Banderas de Valor<a class="headerlink" href="#value-flags" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>Los booleans pueden ser grandes, pero ¿y si queremos banderas para cosas como cadenas o enteros? Esto es cuando las banderas de valor vienen dentro del juego. Simplemente necesitamos utilizar el método <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/args/CommandFlags.Builder.html#valueFlag-org.spongepowered.api.command.args.CommandElement-java.lang.String...-">CommandFlags.Builder#valueFlag(CommandElement, String…)</a> en nuestro compilador de bandera. Utilizando el método <code class="docutils literal notranslate"><span class="pre">valueFlag()</span></code>, podemos especificar el tipo de bandera que queremos crear, como un entero o cadena. La creación de una bandera de valor entero puede ser hecha así:</p>
+<p>Los booleans pueden ser grandes, pero ¿y si queremos banderas para cosas como cadenas o enteros? Esto es cuando las banderas de valor vienen dentro del juego. Simplemente necesitamos utilizar el método <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/args/CommandFlags.Builder.html#valueFlag-org.spongepowered.api.command.args.CommandElement-java.lang.String...-">CommandFlags.Builder#valueFlag(CommandElement, String…)</a> en nuestro compilador de bandera. Utilizando el método <code class="docutils literal notranslate"><span class="pre">valueFlag()</span></code>, podemos especificar el tipo de bandera que queremos crear, como un entero o cadena. La creación de una bandera de valor entero puede ser hecha así:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">CommandSpec</span> <span class="n">myCommand</span> <span class="o">=</span> <span class="n">CommandSpec</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
         <span class="p">.</span><span class="na">executor</span><span class="p">(</span><span class="k">new</span> <span class="n">MyCommand</span><span class="p">())</span>
         <span class="p">.</span><span class="na">arguments</span><span class="p">(</span><span class="n">GenericArguments</span><span class="p">.</span><span class="na">flags</span><span class="p">().</span><span class="na">valueFlag</span><span class="p">(</span><span class="n">GenericArguments</span>
@@ -217,7 +206,7 @@
         <span class="p">.</span><span class="na">build</span><span class="p">();</span>
 </pre></div>
 </div>
-<p>Puede reemplazar <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/args/GenericArguments.html#integer-org.spongepowered.api.text.Text-">GenericArguments#integer(Text)</a> con cualquier otro tipo de bandera que le gustaría especificar, como <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/args/GenericArguments.html#string-org.spongepowered.api.text.Text-">GenericArguments#string(Text)</a>.</p>
+<p>Puede reemplazar <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/args/GenericArguments.html#integer-org.spongepowered.api.text.Text-">GenericArguments#integer(Text)</a> con cualquier otro tipo de bandera que le gustaría especificar, como <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/args/GenericArguments.html#string-org.spongepowered.api.text.Text-">GenericArguments#string(Text)</a>.</p>
 <p>Ahora para recuperar el valor de bandera de nuestro comando, podemos simplemente tratarlo como cualquier otro argumento de comando. Simplemente necesitamos verificar si existe antes de recuperarlo:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">java.util.Optional</span><span class="p">;</span>
 

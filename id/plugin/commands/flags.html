@@ -19,17 +19,6 @@
 
         <link rel="index" title="Indeks"
               href="../../genindex.html"/>        <link rel="search" title="Pencarian" href="../../search.html"/>    <link rel="top" title="dokumentasi Sponge 7.2.0" href="../../index.html"/>        <link rel="up" title="Plugin Commands" href="index.html"/>        <link rel="next" title="Perintah Anak" href="childcommands.html"/>        <link rel="prev" title="Argumen Parsing" href="arguments.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -176,7 +165,7 @@
   <div class="section" id="command-flags">
 <h1>Bendera perintah<a class="headerlink" href="#command-flags" title="Link permanen untuk headline ini">¶</a></h1>
 <p>Bendera perintah berguna untuk menentukan parameter tambahan yang akan digunakan untuk memproses perintah yang tidak termasuk dalam argumen perintah.</p>
-<p>Untuk membuat bendera, pertama-tama kita perlu builder untuk bendera. Kita hanya dapat menggunakan <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/args/GenericArguments.html#bendera--">GenericArguments#bendera()</a> metode ditawarkan oleh <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/args/GenericArguments.html">GenericArguments</a> untuk mendapatkan builder yang kita butuhkan. Dari sana, kita dapat menentukan apa jenis bendera yang kita inginkan untuk membuat. Perhatikan bahwa bendera yang ditentukan sebagai argumen.</p>
+<p>Untuk membuat bendera, pertama-tama kita perlu builder untuk bendera. Kita hanya dapat menggunakan <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/args/GenericArguments.html#bendera--">GenericArguments#bendera()</a> metode ditawarkan oleh <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/args/GenericArguments.html">GenericArguments</a> untuk mendapatkan builder yang kita butuhkan. Dari sana, kita dapat menentukan apa jenis bendera yang kita inginkan untuk membuat. Perhatikan bahwa bendera yang ditentukan sebagai argumen.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.command.args.GenericArguments</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.spongepowered.api.command.spec.CommandSpec</span><span class="p">;</span>
 
@@ -186,8 +175,8 @@
     <span class="p">.</span><span class="na">build</span><span class="p">();</span>
 </pre></div>
 </div>
-<p>Ini akan membuat perintah bendera, sehingga ketika pemain melakukan <cite>/kita-perintah -s</cite>, bendera <cite>s</cite> akan menjadi kenyataan. Perhatikan bahwa bangunan <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/args/GenericArguments.html#tidakada--">GenericArguments#tidakada()</a> akan mencegah perintah dari memiliki argumen. Jika anda berharap untuk perintah untuk memiliki argumen dan bendera, anda akan perlu untuk menentukan argumen anda dalam <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/args/CommandFlags.Builder.html#buildWith-org.spongepowered.api.command.args.CommandElement-">CommandFlags.Builder#buildWith(CommandElement)</a> metode.</p>
-<p>Sekarang bahwa kita telah menetapkan bahwa perintah ini dapat dijalankan dengan bendera, sekarang kita bisa mendapatkan nilai flag. Untuk yang sederhana boolean flag seperti yang kita telah disebutkan di atas, kita dapat hanya memeriksa jika ada. Dalam contoh di bawah ini, kami akan memeriksa jika <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/args/CommandContext.html">CommandContext</a> untuk perintah memiliki nilai <cite>s</cite>.</p>
+<p>Ini akan membuat perintah bendera, sehingga ketika pemain melakukan <cite>/kita-perintah -s</cite>, bendera <cite>s</cite> akan menjadi kenyataan. Perhatikan bahwa bangunan <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/args/GenericArguments.html#tidakada--">GenericArguments#tidakada()</a> akan mencegah perintah dari memiliki argumen. Jika anda berharap untuk perintah untuk memiliki argumen dan bendera, anda akan perlu untuk menentukan argumen anda dalam <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/args/CommandFlags.Builder.html#buildWith-org.spongepowered.api.command.args.CommandElement-">CommandFlags.Builder#buildWith(CommandElement)</a> metode.</p>
+<p>Sekarang bahwa kita telah menetapkan bahwa perintah ini dapat dijalankan dengan bendera, sekarang kita bisa mendapatkan nilai flag. Untuk yang sederhana boolean flag seperti yang kita telah disebutkan di atas, kita dapat hanya memeriksa jika ada. Dalam contoh di bawah ini, kami akan memeriksa jika <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/args/CommandContext.html">CommandContext</a> untuk perintah memiliki nilai <cite>s</cite>.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.text.Text</span><span class="p">;</span>
 
 <span class="k">if</span> <span class="p">(</span><span class="n">args</span><span class="p">.</span><span class="na">hasAny</span><span class="p">(</span><span class="s">&quot;s&quot;</span><span class="p">))</span> <span class="p">{</span>
@@ -197,7 +186,7 @@
 </div>
 <div class="section" id="permission-flags">
 <h2>Izin Bendera<a class="headerlink" href="#permission-flags" title="Link permanen untuk headline ini">¶</a></h2>
-<p>Kami bendera sejauh ini adalah luar biasa, tapi bagaimana jika kita ingin memilikinya sehingga pemain perlu izin untuk menggunakan bendera? Kita dapat menggunakan <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/args/CommandFlags.Builder.html#permissionFlag-java.lang.String-java.lang.String...-">CommandFlags.Builder#permissionFlag(String, String...)</a> metode pada bendera kita builder. Hal ini akan membutuhkan pemain untuk memiliki izin khusus untuk menjalankan perintah dengan bendera. Contoh dari hal ini adalah di bawah ini:</p>
+<p>Kami bendera sejauh ini adalah luar biasa, tapi bagaimana jika kita ingin memilikinya sehingga pemain perlu izin untuk menggunakan bendera? Kita dapat menggunakan <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/args/CommandFlags.Builder.html#permissionFlag-java.lang.String-java.lang.String...-">CommandFlags.Builder#permissionFlag(String, String...)</a> metode pada bendera kita builder. Hal ini akan membutuhkan pemain untuk memiliki izin khusus untuk menjalankan perintah dengan bendera. Contoh dari hal ini adalah di bawah ini:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">CommandSpec</span> <span class="n">myCommand</span> <span class="o">=</span> <span class="n">CommandSpec</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
         <span class="p">.</span><span class="na">executor</span><span class="p">(</span><span class="k">new</span> <span class="n">MyCommand</span><span class="p">())</span>
         <span class="p">.</span><span class="na">arguments</span><span class="p">(</span><span class="n">GenericArguments</span><span class="p">.</span><span class="na">flags</span><span class="p">().</span><span class="na">permissionFlag</span><span class="p">(</span><span class="s">&quot;myplugin.command.flag&quot;</span><span class="p">,</span>
@@ -209,7 +198,7 @@
 </div>
 <div class="section" id="value-flags">
 <h2>Nilai Bendera<a class="headerlink" href="#value-flags" title="Link permanen untuk headline ini">¶</a></h2>
-<p>Boolean dapat menjadi besar, tetapi bagaimana jika kita ingin bendera untuk hal-hal seperti string atau integer? Ini adalah di mana nilai flags datang ke dalam bermain. Kita hanya perlu menggunakan <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/args/CommandFlags.Builder.html#valueFlag-org.spongepowered.api.command.args.CommandElement-java.lang.String...-">CommandFlags.Builder#valueFlag(CommandElement, String...)</a> metode pada bendera kita builder. Menggunakan <cite>valueFlag()</cite> metode, kita dapat menentukan jenis bendera yang ingin kita buat, seperti integer atau string. Menciptakan nilai integer bendera dapat dilakukan seperti:</p>
+<p>Boolean dapat menjadi besar, tetapi bagaimana jika kita ingin bendera untuk hal-hal seperti string atau integer? Ini adalah di mana nilai flags datang ke dalam bermain. Kita hanya perlu menggunakan <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/args/CommandFlags.Builder.html#valueFlag-org.spongepowered.api.command.args.CommandElement-java.lang.String...-">CommandFlags.Builder#valueFlag(CommandElement, String...)</a> metode pada bendera kita builder. Menggunakan <cite>valueFlag()</cite> metode, kita dapat menentukan jenis bendera yang ingin kita buat, seperti integer atau string. Menciptakan nilai integer bendera dapat dilakukan seperti:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">CommandSpec</span> <span class="n">myCommand</span> <span class="o">=</span> <span class="n">CommandSpec</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
         <span class="p">.</span><span class="na">executor</span><span class="p">(</span><span class="k">new</span> <span class="n">MyCommand</span><span class="p">())</span>
         <span class="p">.</span><span class="na">arguments</span><span class="p">(</span><span class="n">GenericArguments</span><span class="p">.</span><span class="na">flags</span><span class="p">().</span><span class="na">valueFlag</span><span class="p">(</span><span class="n">GenericArguments</span>
@@ -217,7 +206,7 @@
         <span class="p">.</span><span class="na">build</span><span class="p">();</span>
 </pre></div>
 </div>
-<p>Anda dapat mengganti <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/args/GenericArguments.html#integer-Teks-">GenericArguments#integer(Teks)</a> dengan bendera lainnya jenis yang ingin anda tentukan, seperti <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/args/GenericArguments.html#string-Teks-">GenericArguments#string(Teks)</a>.</p>
+<p>Anda dapat mengganti <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/args/GenericArguments.html#integer-Teks-">GenericArguments#integer(Teks)</a> dengan bendera lainnya jenis yang ingin anda tentukan, seperti <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/args/GenericArguments.html#string-Teks-">GenericArguments#string(Teks)</a>.</p>
 <p>Sekarang untuk mengambil kembali nilai bendera dari perintah kami, kami bisa memperlakukannya seperti pada argumen perintah lainnya. Kami hanya butuh memeriksa apakah itu ada sebelum mengambilnya kembali:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">java.util.Optional</span><span class="p">;</span>
 

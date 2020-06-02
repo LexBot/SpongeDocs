@@ -19,17 +19,6 @@
 
         <link rel="index" title="Index"
               href="../genindex.html"/>        <link rel="search" title="Recherche" href="../search.html"/>    <link rel="top" title="Documentation Sponge 7.2.0" href="../index.html"/>        <link rel="up" title="Création d’un Plugin" href="index.html"/>        <link rel="next" title="La Data API" href="data/index.html"/>        <link rel="prev" title="Sérialisation d’objets" href="configuration/serialization.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -166,7 +155,7 @@
            <div itemprop="articleBody">
   <div class="section" id="the-asset-api">
 <h1>L’API des Ressources<a class="headerlink" href="#the-asset-api" title="Lien permanent vers ce titre">¶</a></h1>
-<p>Le <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/asset/AssetManager.html">AssetManager</a> permet aux développeurs d’extraire des ressources du JAR d’un plugin.</p>
+<p>Le <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/asset/AssetManager.html">AssetManager</a> permet aux développeurs d’extraire des ressources du JAR d’un plugin.</p>
 <p>Les ressources d’un plugin se trouvent dans un dossier nommé <code class="docutils literal notranslate"><span class="pre">assets/myplugin/</span></code> ou <code class="docutils literal notranslate"><span class="pre">myplugin</span></code> est l’ID du plugin.</p>
 <p>Une fois proprement configuré, vous pouvez retrouver une ressource pour vous ou n’importe quel plugin en utilisant le code suivant:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.asset.Asset</span><span class="p">;</span>
@@ -188,11 +177,11 @@
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Les exemples ci-dessus supposent que <code class="docutils literal notranslate"><span class="pre">myfile.txt</span></code> existe comme un <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/asset/Asset.html">Asset</a>. Si ce n’est pas le cas, alors <code class="docutils literal notranslate"><span class="pre">getAsset()</span></code> retourne <code class="docutils literal notranslate"><span class="pre">Optional#empty()</span></code>.</p>
+<p class="last">Les exemples ci-dessus supposent que <code class="docutils literal notranslate"><span class="pre">myfile.txt</span></code> existe comme un <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/asset/Asset.html">Asset</a>. Si ce n’est pas le cas, alors <code class="docutils literal notranslate"><span class="pre">getAsset()</span></code> retourne <code class="docutils literal notranslate"><span class="pre">Optional#empty()</span></code>.</p>
 </div>
 <div class="section" id="working-with-assets">
 <h2>Travailler avec les Ressources<a class="headerlink" href="#working-with-assets" title="Lien permanent vers ce titre">¶</a></h2>
-<p>La classe <code class="docutils literal notranslate"><span class="pre">Asset</span></code> est essentiellement un emballage autour de <code class="docutils literal notranslate"><span class="pre">URL</span></code> avec quelques communes opérations I/O dedans. Les utilisations de <code class="docutils literal notranslate"><span class="pre">Assets</span></code>s sont quasi-illimités mais une utilisation commune est de généré un fichier de configuration par défaut si votre celui de votre plugin n’est pas trouvé. Vous pouvez effectuer ceci en utilisant un <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/plugin/PluginContainer.html">PluginContainer</a> avec le code suivant :</p>
+<p>La classe <code class="docutils literal notranslate"><span class="pre">Asset</span></code> est essentiellement un emballage autour de <code class="docutils literal notranslate"><span class="pre">URL</span></code> avec quelques communes opérations I/O dedans. Les utilisations de <code class="docutils literal notranslate"><span class="pre">Assets</span></code>s sont quasi-illimités mais une utilisation commune est de généré un fichier de configuration par défaut si votre celui de votre plugin n’est pas trouvé. Vous pouvez effectuer ceci en utilisant un <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/plugin/PluginContainer.html">PluginContainer</a> avec le code suivant :</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">java.nio.file.Files</span><span class="p">;</span>
 
 <span class="k">if</span> <span class="p">(</span><span class="n">Files</span><span class="p">.</span><span class="na">notExists</span><span class="p">(</span><span class="n">configPath</span><span class="p">))</span> <span class="p">{</span>

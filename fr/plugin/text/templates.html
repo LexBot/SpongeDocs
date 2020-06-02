@@ -19,17 +19,6 @@
 
         <link rel="index" title="Index"
               href="../../genindex.html"/>        <link rel="search" title="Recherche" href="../../search.html"/>    <link rel="top" title="Documentation Sponge 7.2.0" href="../../index.html"/>        <link rel="up" title="Text" href="index.html"/>        <link rel="next" title="Commandes de Plugin" href="../commands/index.html"/>        <link rel="prev" title="Message Channels" href="messagechannels.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -174,7 +163,7 @@
            <div itemprop="articleBody">
   <div class="section" id="texttemplates">
 <h1>TextTemplates<a class="headerlink" href="#texttemplates" title="Lien permanent vers ce titre">¶</a></h1>
-<p>Les <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/TextTemplate.html">TextTemplate</a>s sont une façon facile et pratique de stocker les messages avec des éléments variables. Par exemple, vous pouvez vous trouver vous-même désireux de créer un message configurable pour les joueurs qui rejoignent le serveur pour la première fois. Cela est facilement réalisable avec les <code class="docutils literal notranslate"><span class="pre">TextTemplate</span></code>s en utilisant la stratégie suivante :</p>
+<p>Les <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/text/TextTemplate.html">TextTemplate</a>s sont une façon facile et pratique de stocker les messages avec des éléments variables. Par exemple, vous pouvez vous trouver vous-même désireux de créer un message configurable pour les joueurs qui rejoignent le serveur pour la première fois. Cela est facilement réalisable avec les <code class="docutils literal notranslate"><span class="pre">TextTemplate</span></code>s en utilisant la stratégie suivante :</p>
 <p>Disons que nous voulons créer un message de connexion où le texte est tout jaune et en italique sauf le nom du joueur, qui sera en gras et en couleur aqua, et le nom du serveur qui sera en gras et rouge. Nous pouvons créer un template de cette description en utilisant le code suivant :</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import static</span> <span class="nn">org.spongepowered.api.text.TextTemplate.*</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.spongepowered.api.text.TextTemplate</span><span class="p">;</span>
@@ -188,16 +177,16 @@
 <span class="p">);</span>
 </pre></div>
 </div>
-<p>Vous pouvez obtenir le résultat de ce text template avec la méthoe <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/TextTemplate.html#apply--">TextTemplate#apply()</a>. La méthode <code class="docutils literal notranslate"><span class="pre">apply()</span></code> accepte une <code class="docutils literal notranslate"><span class="pre">Map&lt;String,</span> <span class="pre">TextElement&gt;</span></code> de paramètres, où les clés sont les noms des arguments et les valeurs sont les <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/TextElement.html">TextElement</a> par lesquels vous souhaitez remplacer les arguments.</p>
+<p>Vous pouvez obtenir le résultat de ce text template avec la méthoe <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/text/TextTemplate.html#apply--">TextTemplate#apply()</a>. La méthode <code class="docutils literal notranslate"><span class="pre">apply()</span></code> accepte une <code class="docutils literal notranslate"><span class="pre">Map&lt;String,</span> <span class="pre">TextElement&gt;</span></code> de paramètres, où les clés sont les noms des arguments et les valeurs sont les <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/text/TextElement.html">TextElement</a> par lesquels vous souhaitez remplacer les arguments.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Sauf si un argument est spécifié comme «&nbsp;optionnel&nbsp;» via <code class="docutils literal notranslate"><span class="pre">Arg.optional()</span></code>, quand il est créé, les paramètres manquants fournis à la méthode <code class="docutils literal notranslate"><span class="pre">apply()</span></code> vont lever une <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/TextTemplateArgumentException.html">TextTemplateArgumentException</a>. Les arguments peuvent également spécifier une valeur par défaut lors de leur création avec <code class="docutils literal notranslate"><span class="pre">Arg.defaultValue()</span></code></p>
+<p class="last">Sauf si un argument est spécifié comme «&nbsp;optionnel&nbsp;» via <code class="docutils literal notranslate"><span class="pre">Arg.optional()</span></code>, quand il est créé, les paramètres manquants fournis à la méthode <code class="docutils literal notranslate"><span class="pre">apply()</span></code> vont lever une <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/text/TextTemplateArgumentException.html">TextTemplateArgumentException</a>. Les arguments peuvent également spécifier une valeur par défaut lors de leur création avec <code class="docutils literal notranslate"><span class="pre">Arg.defaultValue()</span></code></p>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">Bien que les arguments peuvent avoir du formatage de texte qui leur sont associés, il peut être remplacé en fournissant un objet Text avec un formatage personnalisé à la map de paramètres via la méthode <code class="docutils literal notranslate"><span class="pre">apply()</span></code>.</p>
 </div>
-<p>Les <code class="docutils literal notranslate"><span class="pre">TextTemplate</span></code>s, comme les objets <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/Text.html">Text</a> eux-mêmes, sont sérialisables à Configurate. Pour sauvegarder un <code class="docutils literal notranslate"><span class="pre">TextTemplate</span></code> dans un fichier de configuration, utilisez le code suivant. Nous allons également ajouter un paramètre ici pour que l’utilisateur puisse définir le nom de son serveur.</p>
+<p>Les <code class="docutils literal notranslate"><span class="pre">TextTemplate</span></code>s, comme les objets <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/text/Text.html">Text</a> eux-mêmes, sont sérialisables à Configurate. Pour sauvegarder un <code class="docutils literal notranslate"><span class="pre">TextTemplate</span></code> dans un fichier de configuration, utilisez le code suivant. Nous allons également ajouter un paramètre ici pour que l’utilisateur puisse définir le nom de son serveur.</p>
 <div class="admonition tip">
 <p class="first admonition-title">Astuce</p>
 <p class="last">Pour en savoir plus sur comment utiliser Configurate pour créer des fichiers de configuration pour vos plugins, veuillez vous reporter à <a class="reference internal" href="../configuration/index.html"><span class="doc">Configuration des plugins</span></a>.</p>

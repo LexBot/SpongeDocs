@@ -19,17 +19,6 @@
 
         <link rel="index" title="Index"
               href="../../genindex.html"/>        <link rel="search" title="Recherche" href="../../search.html"/>    <link rel="top" title="Documentation Sponge 7.2.0" href="../../index.html"/>        <link rel="up" title="La Data API" href="index.html"/>        <link rel="next" title="Sérialisation de données" href="serialization.html"/>        <link rel="prev" title="Manipulateurs de données" href="datamanipulators.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -177,10 +166,10 @@
 <h1>Transactions<a class="headerlink" href="#transactions" title="Lien permanent vers ce titre">¶</a></h1>
 <div class="section" id="reading-the-result">
 <h2>Lire les résultats<a class="headerlink" href="#reading-the-result" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Pour tout ce que vous <code class="docutils literal notranslate"><span class="pre">offrez</span></code> à un data holder, la méthode <code class="docutils literal notranslate"><span class="pre">offer</span></code> donnera un <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/DataTransactionResult.html">DataTransactionResult</a>. Cet objet contiendra ce qui suit:</p>
+<p>Pour tout ce que vous <code class="docutils literal notranslate"><span class="pre">offrez</span></code> à un data holder, la méthode <code class="docutils literal notranslate"><span class="pre">offer</span></code> donnera un <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/DataTransactionResult.html">DataTransactionResult</a>. Cet objet contiendra ce qui suit:</p>
 <div class="section" id="type">
 <h3>Type<a class="headerlink" href="#type" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Le <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/DataTransactionResult.Type.html">DataTransactionResult.Type</a> indique si la transaction s’est faite avec succès ou si elle a échoué.</p>
+<p>Le <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/DataTransactionResult.Type.html">DataTransactionResult.Type</a> indique si la transaction s’est faite avec succès ou si elle a échoué.</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="16%" />
@@ -238,11 +227,11 @@
 <li><code class="docutils literal notranslate"><span class="pre">getReplacedData()</span></code> devrait retourner un conteneur de valeur pour <code class="docutils literal notranslate"><span class="pre">Keys.HEALTH</span></code> avec une valeur de 1.0</li>
 <li><code class="docutils literal notranslate"><span class="pre">getSuccessfulData()</span></code> devrait contenir un conteneur de valeur pour <code class="docutils literal notranslate"><span class="pre">Keys.HEALTH</span></code> avec une valeur de 20.0</li>
 </ul>
-<p>Maintenant qu’est-ce qui serait différent si nous utilisions l’exemple de healing de la page <a class="reference internal" href="datamanipulators.html"><span class="doc">Manipulateurs de données</span></a> à la place ? Puisque que le manipulateur de données <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/manipulator/mutable/entity/HealthData.html">HealthData</a> contient des valeurs pour le niveau de vie actuel et la vie maximale, en plus du résultat ci-dessus, la liste <code class="docutils literal notranslate"><span class="pre">getReplacedData()</span></code> et la liste <code class="docutils literal notranslate"><span class="pre">getSuccessfulData()</span></code> devraient contenir un élément de plus: Un conteneur de valeurs pour <code class="docutils literal notranslate"><span class="pre">Keys.MAX_HEALTH</span></code> avec une valeur de 20.0.</p>
+<p>Maintenant qu’est-ce qui serait différent si nous utilisions l’exemple de healing de la page <a class="reference internal" href="datamanipulators.html"><span class="doc">Manipulateurs de données</span></a> à la place ? Puisque que le manipulateur de données <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/manipulator/mutable/entity/HealthData.html">HealthData</a> contient des valeurs pour le niveau de vie actuel et la vie maximale, en plus du résultat ci-dessus, la liste <code class="docutils literal notranslate"><span class="pre">getReplacedData()</span></code> et la liste <code class="docutils literal notranslate"><span class="pre">getSuccessfulData()</span></code> devraient contenir un élément de plus: Un conteneur de valeurs pour <code class="docutils literal notranslate"><span class="pre">Keys.MAX_HEALTH</span></code> avec une valeur de 20.0.</p>
 </div>
 <div class="section" id="offering-healthdata-to-a-block-of-stone">
 <h3>Donner un HealthData à un block de stone<a class="headerlink" href="#offering-healthdata-to-a-block-of-stone" title="Lien permanent vers ce titre">¶</a></h3>
-<p>Maintenant nos exemples mentionnés ci-dessus sont codés de telle manière qu’ils vont échouer silencieusement plutôt que d’essayer d’offrir les données incompatibles. Mais imaginez que nous prenons la <code class="docutils literal notranslate"><span class="pre">HealthData</span></code> d’un joueur (guéri complètement) et essayons de l’offrir à la <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/Location.html">Location</a> du bloc de pierre sur lequel il se trouve actuellement. Nous pouvons faire ceci, puisque <code class="docutils literal notranslate"><span class="pre">Location</span></code> est aussi un data holder. Et si nous le faisons, il nous récompenserait avec un <code class="docutils literal notranslate"><span class="pre">DataTransactionResult</span></code> comme ceci :</p>
+<p>Maintenant nos exemples mentionnés ci-dessus sont codés de telle manière qu’ils vont échouer silencieusement plutôt que d’essayer d’offrir les données incompatibles. Mais imaginez que nous prenons la <code class="docutils literal notranslate"><span class="pre">HealthData</span></code> d’un joueur (guéri complètement) et essayons de l’offrir à la <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/world/Location.html">Location</a> du bloc de pierre sur lequel il se trouve actuellement. Nous pouvons faire ceci, puisque <code class="docutils literal notranslate"><span class="pre">Location</span></code> est aussi un data holder. Et si nous le faisons, il nous récompenserait avec un <code class="docutils literal notranslate"><span class="pre">DataTransactionResult</span></code> comme ceci :</p>
 <ul class="simple">
 <li><code class="docutils literal notranslate"><span class="pre">getType()</span></code> retournerait <code class="docutils literal notranslate"><span class="pre">FAILURE</span></code></li>
 <li><code class="docutils literal notranslate"><span class="pre">getRejectedData()</span></code> retournerait deux conteneurs de valeurs pour les clés <code class="docutils literal notranslate"><span class="pre">HEALTH</span></code> et <code class="docutils literal notranslate"><span class="pre">MAX_HEALTH</span></code>, avec chacune une valeur de 20.0</li>

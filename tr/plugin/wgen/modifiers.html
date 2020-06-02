@@ -19,17 +19,6 @@
 
         <link rel="index" title="Dizin"
               href="../../genindex.html"/>        <link rel="search" title="Ara" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 belgelendirme çalışması" href="../../index.html"/>        <link rel="up" title="Dünya oluşturma" href="index.html"/>        <link rel="next" title="Dünya Üretimini Değiştirme" href="customwgen.html"/>        <link rel="prev" title="Dünya oluşturma" href="index.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -172,7 +161,7 @@
   <div class="section" id="worldgeneratormodifiers">
 <h1>WorldGeneratorModifiers<a class="headerlink" href="#worldgeneratormodifiers" title="Bu başlığın kalıcı bağlantısı">¶</a></h1>
 <p>Sponge’da Dünya Nesilleri sürecine kısa bir bakış için, lütfen şunu okuyun <a class="reference internal" href="index.html"><span class="doc">Dünya oluşturma</span></a>. Şimdi, dünya nesillerinde nasıl iz bırakmaya başlayabileceğinizi gösterelim.</p>
-<p>Bir dünya jeneratöründe değişiklik yapmak isteyen tüm eklentiler bir <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/gen/WorldGeneratorModifier.html">WorldGeneratorModifier</a> a kaydolmak zorundadır. Bu değiştiriciler küresel olarak benzersiz bir kimlik ile kaydedilir, bu, bir sunucunun yöneticisi tarafından bir dünyanın yapılandırmasına eklenmelidir. Dünya konfigürasyonunda belirtilen kimlik ile, o dünya için jeneratör kurulduğunda <code class="docutils literal notranslate"><span class="pre">WorldGeneratorModifier</span></code> otomatik olarak çağrılır ve jeneratörde değişiklikler yapılmasına izin verilir.</p>
+<p>Bir dünya jeneratöründe değişiklik yapmak isteyen tüm eklentiler bir <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/world/gen/WorldGeneratorModifier.html">WorldGeneratorModifier</a> a kaydolmak zorundadır. Bu değiştiriciler küresel olarak benzersiz bir kimlik ile kaydedilir, bu, bir sunucunun yöneticisi tarafından bir dünyanın yapılandırmasına eklenmelidir. Dünya konfigürasyonunda belirtilen kimlik ile, o dünya için jeneratör kurulduğunda <code class="docutils literal notranslate"><span class="pre">WorldGeneratorModifier</span></code> otomatik olarak çağrılır ve jeneratörde değişiklikler yapılmasına izin verilir.</p>
 <div class="section" id="creating-a-worldgeneratormodifier">
 <h2>Bir WorldGeneratorModifier yaratma<a class="headerlink" href="#creating-a-worldgeneratormodifier" title="Bu başlığın kalıcı bağlantısı">¶</a></h2>
 <p>Bir dosya biçimi olan <code class="docutils literal notranslate"><span class="pre">WorldGeneratorModifier</span></code> ile başlayalım. İlk önce, `` WorldGeneratorModifier`` arayüzünü sağlayan bir sınıfa ihtiyacınız var:</p>
@@ -198,18 +187,18 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>As you can see, <code class="docutils literal notranslate"><span class="pre">WorldGeneratorModifier</span></code> has three methods which we override. <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/CatalogType.html#getId--">CatalogType#getId()</a> must be
+<p>As you can see, <code class="docutils literal notranslate"><span class="pre">WorldGeneratorModifier</span></code> has three methods which we override. <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/CatalogType.html#getId--">CatalogType#getId()</a> must be
 overridden to return a constant and unique identifier for your <code class="docutils literal notranslate"><span class="pre">WorldGeneratorModifier</span></code>, this is the identifier which
 will be used in the world configuration to specify which worlds your modifier should be applied to.
-<a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/CatalogType.html#getName--">CatalogType#getName()</a> must be overridden with a constant and simple human-readable name for your modifier.</p>
+<a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/CatalogType.html#getName--">CatalogType#getName()</a> must be overridden with a constant and simple human-readable name for your modifier.</p>
 <p>Geçersiz kılınmış olan üçüncü yöntem, dünya jeneratöründe yaptığınız değişikliklerdir. Bu yöntem, <code class="docutils literal notranslate"><span class="pre">WorldGeneratorModifier</span></code> uygulanması gerektiğini belirttiği bir dünya için dünya jeneratörü oluştururken, uygulama tarafından çağrılır.</p>
-<p>Değişikliklerinize bağlam vermek için, dünya için ek özelliklerin bulunduğu <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/storage/WorldProperties.html">WorldProperties</a> ve bir <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/DataContainer.html">DataContainer</a> bu yöntemle geçirilir. Örneğin, `` WorldProperties`` i sadece jeneratörlerdeki değişiklikleri uygulamak için nether dünyalarını kullanabilirsiniz.</p>
+<p>Değişikliklerinize bağlam vermek için, dünya için ek özelliklerin bulunduğu <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/world/storage/WorldProperties.html">WorldProperties</a> ve bir <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/DataContainer.html">DataContainer</a> bu yöntemle geçirilir. Örneğin, `` WorldProperties`` i sadece jeneratörlerdeki değişiklikleri uygulamak için nether dünyalarını kullanabilirsiniz.</p>
 </div>
 <div class="section" id="registering-a-worldgeneratormodifier">
 <h2>Bir WorldGeneratorModifier kaydolmak<a class="headerlink" href="#registering-a-worldgeneratormodifier" title="Bu başlığın kalıcı bağlantısı">¶</a></h2>
-<p>Now that you have created the modifier, all you have to do is register it in the <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/GameRegistry.html">GameRegistry</a>. To do this
+<p>Now that you have created the modifier, all you have to do is register it in the <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/GameRegistry.html">GameRegistry</a>. To do this
 you need to create a <a class="reference internal" href="../event/listeners.html"><span class="doc">listener</span></a> for the
-<a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/GameRegistryEvent.Register.html">GameRegistryEvent.Register&lt;WorldGeneratorModifier&gt;</a> event and register your instance there, as shown in the
+<a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/game/GameRegistryEvent.Register.html">GameRegistryEvent.Register&lt;WorldGeneratorModifier&gt;</a> event and register your instance there, as shown in the
 following example:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Listener</span>
 <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onWorldGeneratorModifierRegistration</span><span class="p">(</span><span class="n">GameRegistryEvent</span><span class="p">.</span><span class="na">Register</span><span class="o">&lt;</span><span class="n">WorldGeneratorModifier</span><span class="o">&gt;</span> <span class="n">event</span><span class="p">)</span> <span class="p">{</span>

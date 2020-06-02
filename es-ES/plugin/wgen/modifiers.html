@@ -19,17 +19,6 @@
 
         <link rel="index" title="Índice"
               href="../../genindex.html"/>        <link rel="search" title="Búsqueda" href="../../search.html"/>    <link rel="top" title="documentación de Sponge - 7.2.0" href="../../index.html"/>        <link rel="up" title="Generación de Mundo" href="index.html"/>        <link rel="next" title="Modificando la Generación Mundial" href="customwgen.html"/>        <link rel="prev" title="Generación de Mundo" href="index.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -172,7 +161,7 @@
   <div class="section" id="worldgeneratormodifiers">
 <h1>WorldGeneratorModifiers<a class="headerlink" href="#worldgeneratormodifiers" title="Enlazar permanentemente con este título">¶</a></h1>
 <p>Para una breve descripción del proceso de Generación de Mundo en Sponge, por favor lea <a class="reference internal" href="index.html"><span class="doc">Generación de Mundo</span></a>. Ahora, vamos a mostrar como puede comenzar a dejar huella en la generación de mundo.</p>
-<p>Todos los complementos que deseen realizar cambios en un generador de mundos deben registrar un <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/gen/WorldGeneratorModifier.html">WorldGeneratorModifier</a>. Estas modificaciones son globalmente registradas con una única identificación, la cual debe agregarse a la configuración de un mundo por un administrador del servidor. Con la identificación especificada en el la configuración de mundo, un <code class="docutils literal notranslate"><span class="pre">WorldGeneratorModifier</span></code> será automáticamente llamado cuando el generador para ese mundo esté configurado, permitiendo realizar cambios en el generador.</p>
+<p>Todos los complementos que deseen realizar cambios en un generador de mundos deben registrar un <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/world/gen/WorldGeneratorModifier.html">WorldGeneratorModifier</a>. Estas modificaciones son globalmente registradas con una única identificación, la cual debe agregarse a la configuración de un mundo por un administrador del servidor. Con la identificación especificada en el la configuración de mundo, un <code class="docutils literal notranslate"><span class="pre">WorldGeneratorModifier</span></code> será automáticamente llamado cuando el generador para ese mundo esté configurado, permitiendo realizar cambios en el generador.</p>
 <div class="section" id="creating-a-worldgeneratormodifier">
 <h2>Creación de un WorldGeneratorModifier<a class="headerlink" href="#creating-a-worldgeneratormodifier" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Comencemos con el formato de un <code class="docutils literal notranslate"><span class="pre">WorldGeneratorModifier</span></code>. En primer lugar, necesita una clase que implemente la interfaz <code class="docutils literal notranslate"><span class="pre">WorldGeneratorModifier</span></code>:</p>
@@ -198,18 +187,18 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>As you can see, <code class="docutils literal notranslate"><span class="pre">WorldGeneratorModifier</span></code> has three methods which we override. <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/CatalogType.html#getId--">CatalogType#getId()</a> must be
+<p>As you can see, <code class="docutils literal notranslate"><span class="pre">WorldGeneratorModifier</span></code> has three methods which we override. <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/CatalogType.html#getId--">CatalogType#getId()</a> must be
 overridden to return a constant and unique identifier for your <code class="docutils literal notranslate"><span class="pre">WorldGeneratorModifier</span></code>, this is the identifier which
 will be used in the world configuration to specify which worlds your modifier should be applied to.
-<a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/CatalogType.html#getName--">CatalogType#getName()</a> must be overridden with a constant and simple human-readable name for your modifier.</p>
+<a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/CatalogType.html#getName--">CatalogType#getName()</a> must be overridden with a constant and simple human-readable name for your modifier.</p>
 <p>El tercer método remplazado es donde realiza sus cambios para el generador de mundo. Este método es llamado para la implementación cuando se está creando el generador de mundo para un mundo que ha especificado que debe aplicar su <code class="docutils literal notranslate"><span class="pre">WorldGeneratorModifier</span></code>.</p>
-<p>Las <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/storage/WorldProperties.html">WorldProperties</a> y un <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/DataContainer.html">DataContainer</a> de propiedades adicionales para el mundo son pasadas para este método en orden para dar contexto a sus cambios. Por ejemplo, puede utilizar el <code class="docutils literal notranslate"><span class="pre">WorldProperties</span></code> solo para aplicar sus cambios del generador a mundos inferiores.</p>
+<p>Las <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/world/storage/WorldProperties.html">WorldProperties</a> y un <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/DataContainer.html">DataContainer</a> de propiedades adicionales para el mundo son pasadas para este método en orden para dar contexto a sus cambios. Por ejemplo, puede utilizar el <code class="docutils literal notranslate"><span class="pre">WorldProperties</span></code> solo para aplicar sus cambios del generador a mundos inferiores.</p>
 </div>
 <div class="section" id="registering-a-worldgeneratormodifier">
 <h2>Registro de un WorldGeneratorModifier<a class="headerlink" href="#registering-a-worldgeneratormodifier" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>Now that you have created the modifier, all you have to do is register it in the <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/GameRegistry.html">GameRegistry</a>. To do this
+<p>Now that you have created the modifier, all you have to do is register it in the <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/GameRegistry.html">GameRegistry</a>. To do this
 you need to create a <a class="reference internal" href="../event/listeners.html"><span class="doc">listener</span></a> for the
-<a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/GameRegistryEvent.Register.html">GameRegistryEvent.Register&lt;WorldGeneratorModifier&gt;</a> event and register your instance there, as shown in the
+<a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/game/GameRegistryEvent.Register.html">GameRegistryEvent.Register&lt;WorldGeneratorModifier&gt;</a> event and register your instance there, as shown in the
 following example:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Listener</span>
 <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onWorldGeneratorModifierRegistration</span><span class="p">(</span><span class="n">GameRegistryEvent</span><span class="p">.</span><span class="na">Register</span><span class="o">&lt;</span><span class="n">WorldGeneratorModifier</span><span class="o">&gt;</span> <span class="n">event</span><span class="p">)</span> <span class="p">{</span>

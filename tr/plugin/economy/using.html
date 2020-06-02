@@ -19,17 +19,6 @@
 
         <link rel="index" title="Dizin"
               href="../../genindex.html"/>        <link rel="search" title="Ara" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 belgelendirme çalışması" href="../../index.html"/>        <link rel="up" title="Ekonomi" href="index.html"/>        <link rel="next" title="Ekonomi API en iyi pratik yöntemleri" href="practices.html"/>        <link rel="prev" title="Temel konseptler" href="basics.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -176,7 +165,7 @@
 <p>Ekonomi API’si tüm ekonomi eklentilerini bir API altında birleştirir. Bu, Ekonomi API’sini kullanan herhangi bir eklenti, sözü geçen API’yi uygulayan tüm ekonomi eklentileri ile uyumlu olacak demektir. Bu sayfa, Ekonomi API’sini kendi eklentinizde kullanma adımlarıyla ilgili size yol gösterir.</p>
 <div class="section" id="loading-the-economyservice">
 <h2>EconomyService’i yüklemek<a class="headerlink" href="#loading-the-economyservice" title="Bu başlığın kalıcı bağlantısı">¶</a></h2>
-<p>Economy API’sini kullanmak için önce <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/ServiceManager.html">ServiceManager</a> kullanarak <a href="#id1"><span class="problematic" id="id2">:javadoc:`EkonomyService`</span></a> sınıfını yüklemelisiniz.</p>
+<p>Economy API’sini kullanmak için önce <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/ServiceManager.html">ServiceManager</a> kullanarak <a href="#id1"><span class="problematic" id="id2">:javadoc:`EkonomyService`</span></a> sınıfını yüklemelisiniz.</p>
 <div class="admonition warning">
 <p class="first admonition-title">Uyarı</p>
 <p class="last">Lütfen, sunucunun başlatılması, durdurulması veya Ekonomi API’si gibi hizmetleri kullanırken farklı <code class="docutils literal notranslate"><span class="pre">oyun</span> <span class="pre">durumlarına</span></code> dikkat etmeniz gerektiğini unutmayın. Daha fazla bilgi için <a class="reference internal" href="../services.html"><span class="doc">Servisler</span></a> sayfasına göz atın.</p>
@@ -195,11 +184,11 @@
 </div>
 <div class="admonition warning">
 <p class="first admonition-title">Uyarı</p>
-<p class="last">Sağlayıcı (uygulama) herhangi bir noktada değişebileceğinden, bu hizmeti üye değişken yerine yerel bir değişkende tutun. Bir üye değişkene yerleştirmeniz gerekiyorsa, ne sebeple olursa olsun, uygulamanın güncellenmesini sağlamak için <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/service/ChangeServiceProviderEvent.html">ChangeServiceProviderEvent</a> kullanın.</p>
+<p class="last">Sağlayıcı (uygulama) herhangi bir noktada değişebileceğinden, bu hizmeti üye değişken yerine yerel bir değişkende tutun. Bir üye değişkene yerleştirmeniz gerekiyorsa, ne sebeple olursa olsun, uygulamanın güncellenmesini sağlamak için <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/service/ChangeServiceProviderEvent.html">ChangeServiceProviderEvent</a> kullanın.</p>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Not</p>
-<p class="last">Diğer servislerin aksine, javadoc:<cite>ServiceManager#provideUnchecked (java.lang.Class) ‘yerine :javadoc:</cite> ServiceManager#provide (java.lang.Class)`denemeniz gerekir. Çünkü Sponge varsayılan bir uygulama sağlamamaktadır. <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/economy/EconomyService.html">EconomyService</a>, ve dolayısıyla varlığının garantisi yoktur.</p>
+<p class="last">Diğer servislerin aksine, javadoc:<cite>ServiceManager#provideUnchecked (java.lang.Class) ‘yerine :javadoc:</cite> ServiceManager#provide (java.lang.Class)`denemeniz gerekir. Çünkü Sponge varsayılan bir uygulama sağlamamaktadır. <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/economy/EconomyService.html">EconomyService</a>, ve dolayısıyla varlığının garantisi yoktur.</p>
 </div>
 </div>
 </div>
@@ -221,7 +210,7 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>Bazı <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/economy/account/Account.html">Account</a> yöntemleri aşağıdaki gibi değişkenleri gerektirir:</p>
+<p>Bazı <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/economy/account/Account.html">Account</a> yöntemleri aşağıdaki gibi değişkenleri gerektirir:</p>
 <ul class="simple">
 <li>Para Birimi: Döviz alım satımına dahil olan para</li>
 <li>Neden: Hesabın değiştirilmesine sebep olan neden</li>
@@ -229,7 +218,7 @@
 </ul>
 <p>Bunlar daha gelişmiş kullanım içindir, ancak yine de doldurulmalıdır. Aşağıda, kabul edilebilir varsayılan değerlerin bir listesi verilmektedir:</p>
 <ul class="simple">
-<li>Para birimi: <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/economy/EconomyService.html#getDefaultCurrency--">EconomyService#getDefaultCurrency()</a></li>
+<li>Para birimi: <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/economy/EconomyService.html#getDefaultCurrency--">EconomyService#getDefaultCurrency()</a></li>
 <li>Cause: <code class="docutils literal notranslate"><span class="pre">Cause.of(EventContext.builder().add(EventContextKeys.PLUGIN,</span> <span class="pre">plugin).build(),</span> <span class="pre">plugin)</span></code></li>
 <li>Durum: <code class="docutils literal notranslate"><span class="pre">new</span> <span class="pre">HashSet&lt;Context&gt;()</span></code></li>
 </ul>

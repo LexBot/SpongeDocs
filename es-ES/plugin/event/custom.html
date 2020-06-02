@@ -19,17 +19,6 @@
 
         <link rel="index" title="Índice"
               href="../../genindex.html"/>        <link rel="search" title="Búsqueda" href="../../search.html"/>    <link rel="top" title="documentación de Sponge - 7.2.0" href="../../index.html"/>        <link rel="up" title="Eventos" href="index.html"/>        <link rel="next" title="Configurando Extensiones" href="../configuration/index.html"/>        <link rel="prev" title="Filtros de eventos" href="filters.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -173,13 +162,13 @@
            <div itemprop="articleBody">
   <div class="section" id="custom-events">
 <h1>Eventos Personalizados<a class="headerlink" href="#custom-events" title="Enlazar permanentemente con este título">¶</a></h1>
-<p>Puede escribir sus propias clases de evento y enviar esos eventos utilizando el método descrito arriba. Una clase de evento debe extender la clase <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/impl/AbstractEvent.html">AbstractEvent</a>, de esta manera implementando el interfaz de <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/Event.html">Event</a>. Dependiendo de la naturaleza exacta del evento, más interfaces deberian ser implementadas, como <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/Cancellable.html">Cancellable</a> para eventro que puedan ser cancelado por un escucha o interfaces como <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/entity/living/humanoid/player/TargetPlayerEvent.html">TargetPlayerEvent</a> aclarando que tipo de objeto se ve afectado por su evento.</p>
+<p>Puede escribir sus propias clases de evento y enviar esos eventos utilizando el método descrito arriba. Una clase de evento debe extender la clase <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/impl/AbstractEvent.html">AbstractEvent</a>, de esta manera implementando el interfaz de <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/Event.html">Event</a>. Dependiendo de la naturaleza exacta del evento, más interfaces deberian ser implementadas, como <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/Cancellable.html">Cancellable</a> para eventro que puedan ser cancelado por un escucha o interfaces como <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/entity/living/humanoid/player/TargetPlayerEvent.html">TargetPlayerEvent</a> aclarando que tipo de objeto se ve afectado por su evento.</p>
 <div class="section" id="example-custom-event-class">
 <h2>Ejemplo: Clase de Evento Personalizada<a class="headerlink" href="#example-custom-event-class" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>The following class describes an event indicating a <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/living/player/Player.html">Player</a> has come in contact with FLARD and is now about to
+<p>The following class describes an event indicating a <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/living/player/Player.html">Player</a> has come in contact with FLARD and is now about to
 mutate in a way specified by the event. Since the event targets a player and can be cancelled by listeners, it
 implements both the <code class="docutils literal notranslate"><span class="pre">TargetPlayerEvent</span></code> and <code class="docutils literal notranslate"><span class="pre">Cancellable</span></code> interfaces.</p>
-<p>Debido a que generalmente los eventos personalizados están hechos para ser escuchados por otros plug-ins, documentarlos apropiadamente es su mejor apuesta. Esto incluye una lista de objetos típicamente encontrados en <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/cause/Cause.html">Cause</a>. En el ejemplo posterior, probablemente sea mencionado que la causa raíz es generalmente un objeto de la clase ficticia <code class="docutils literal notranslate"><span class="pre">FLARDSource</span></code>.</p>
+<p>Debido a que generalmente los eventos personalizados están hechos para ser escuchados por otros plug-ins, documentarlos apropiadamente es su mejor apuesta. Esto incluye una lista de objetos típicamente encontrados en <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/cause/Cause.html">Cause</a>. En el ejemplo posterior, probablemente sea mencionado que la causa raíz es generalmente un objeto de la clase ficticia <code class="docutils literal notranslate"><span class="pre">FLARDSource</span></code>.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.entity.living.player.Player</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.spongepowered.api.event.Cancellable</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.spongepowered.api.event.cause.Cause</span><span class="p">;</span>

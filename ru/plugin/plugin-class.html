@@ -19,17 +19,6 @@
 
         <link rel="index" title="Алфавитный указатель"
               href="../genindex.html"/>        <link rel="search" title="Поиск" href="../search.html"/>    <link rel="top" title="Документация Sponge 7.2.0" href="../index.html"/>        <link rel="up" title="Создание плагина" href="index.html"/>        <link rel="next" title="Жизненный цикл плагина" href="lifecycle.html"/>        <link rel="prev" title="Идентификаторы плагина" href="plugin-identifier.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -179,7 +168,7 @@ experience with Java.</p>
 like, and can be in any package that does <strong>not</strong> begin with <code class="docutils literal notranslate"><span class="pre">org.spongepowered</span></code>. By convention, class names should be
 in title case.</p>
 <p>Oracle <a class="reference external" href="https://docs.oracle.com/javase/tutorial/java/package/namingpkgs.html">рекомендует</a> использовать ваш домен как имя пакета, если у вас есть домен. В противном случае, часто используется email адрес (например <code class="docutils literal notranslate"><span class="pre">com.gmail.username.project</span></code>) или репозиторий с открытым исходным кодом (например <code class="docutils literal notranslate"><span class="pre">io.github.username.project</span></code>).</p>
-<p>После создания главного класса, необходимо добавить к нему аннотацию <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/plugin/Plugin.html">Plugin</a>. Эта аннотация позволяет Sponge легко находить главный класс вашего плагина при загрузке. Пример использования показан ниже, более подробное использование объясняется на <a class="reference internal" href="plugin-meta.html"><span class="doc">Метаданные плагина</span></a>.</p>
+<p>После создания главного класса, необходимо добавить к нему аннотацию <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/plugin/Plugin.html">Plugin</a>. Эта аннотация позволяет Sponge легко находить главный класс вашего плагина при загрузке. Пример использования показан ниже, более подробное использование объясняется на <a class="reference internal" href="plugin-meta.html"><span class="doc">Метаданные плагина</span></a>.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">io.github.username.project</span><span class="p">;</span>
 
 <span class="kn">import</span> <span class="nn">org.spongepowered.api.plugin.Plugin</span><span class="p">;</span>
@@ -198,7 +187,7 @@ in title case.</p>
 <div class="section" id="initializing-your-plugin">
 <h2>Инициализация плагина<a class="headerlink" href="#initializing-your-plugin" title="Ссылка на этот заголовок">¶</a></h2>
 <p>Плагины загружаются до загрузки самой игры и игровых миров. При этом существует промежуток времени, в который плагин может начать взаимодействовать с игрой, например зарегистрировать команды или события.</p>
-<p>Плагин может слушать определенные события, называемые <strong>эвенты</strong>, чтобы получать уведомления об изменениях состояния игры. В примере ниже метод <code class="docutils literal notranslate"><span class="pre">onServerStart()</span></code> вызывается когда возникает событие <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GameStartedServerEvent.html">GameStartedServerEvent</a>; обратите внимание на аннотацию <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/Listener.html">Listener</a> перед методом.</p>
+<p>Плагин может слушать определенные события, называемые <strong>эвенты</strong>, чтобы получать уведомления об изменениях состояния игры. В примере ниже метод <code class="docutils literal notranslate"><span class="pre">onServerStart()</span></code> вызывается когда возникает событие <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/game/state/GameStartedServerEvent.html">GameStartedServerEvent</a>; обратите внимание на аннотацию <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/Listener.html">Listener</a> перед методом.</p>
 <p>The example below will log a message upon starting the server. If your plugin is correctly loaded,
 you should see this message as part of the server’s initialization output.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.plugin.Plugin</span><span class="p">;</span>
@@ -232,19 +221,19 @@ you should see this message as part of the server’s initialization output.</p>
 <p>Также, может быть полезно слушать другие события жизни сервера, особенно <code class="docutils literal notranslate"><span class="pre">GameStoppingServerEvent</span></code>. Существует две категории события жизни сервера:</p>
 <ul class="simple">
 <li><strong>Инициализация</strong>: эти события происходят при загрузке Sponge и плагинов.<ul>
-<li><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GameConstructionEvent.html">GameConstructionEvent</a></li>
-<li><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GamePreInitializationEvent.html">GamePreInitializationEvent</a></li>
-<li><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GameInitializationEvent.html">GameInitializationEvent</a></li>
-<li><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GamePostInitializationEvent.html">GamePostInitializationEvent</a></li>
-<li><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GameLoadCompleteEvent.html">GameLoadCompleteEvent</a></li>
+<li><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/game/state/GameConstructionEvent.html">GameConstructionEvent</a></li>
+<li><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/game/state/GamePreInitializationEvent.html">GamePreInitializationEvent</a></li>
+<li><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/game/state/GameInitializationEvent.html">GameInitializationEvent</a></li>
+<li><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/game/state/GamePostInitializationEvent.html">GamePostInitializationEvent</a></li>
+<li><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/game/state/GameLoadCompleteEvent.html">GameLoadCompleteEvent</a></li>
 </ul>
 </li>
 <li><strong>Запуск</strong>: эти события происходят при загрузке игры и игрового мира.<ul>
-<li><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GameAboutToStartServerEvent.html">GameAboutToStartServerEvent</a></li>
-<li><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GameStartingServerEvent.html">GameStartingServerEvent</a></li>
-<li><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GameStartedServerEvent.html">GameStartedServerEvent</a></li>
-<li><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GameStoppingServerEvent.html">GameStoppingServerEvent</a></li>
-<li><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GameStoppedServerEvent.html">GameStoppedServerEvent</a></li>
+<li><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/game/state/GameAboutToStartServerEvent.html">GameAboutToStartServerEvent</a></li>
+<li><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/game/state/GameStartingServerEvent.html">GameStartingServerEvent</a></li>
+<li><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/game/state/GameStartedServerEvent.html">GameStartedServerEvent</a></li>
+<li><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/game/state/GameStoppingServerEvent.html">GameStoppingServerEvent</a></li>
+<li><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/game/state/GameStoppedServerEvent.html">GameStoppedServerEvent</a></li>
 </ul>
 </li>
 </ul>

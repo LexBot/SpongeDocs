@@ -19,17 +19,6 @@
 
         <link rel="index" title="索引"
               href="../../../genindex.html"/>        <link rel="search" title="搜尋" href="../../../search.html"/>    <link rel="top" title="Sponge 7.2.0 說明文件" href="../../../index.html"/>        <link rel="up" title="文本" href="../index.html"/>        <link rel="next" title="格式化与原生字符串" href="formatting-code-legacy.html"/>        <link rel="prev" title="创建文本" href="../text.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -179,7 +168,7 @@
            <div itemprop="articleBody">
   <div class="section" id="text-serializers">
 <h1>文本序列化器（Text Serializer）<a class="headerlink" href="#text-serializers" title="本標題的永久連結">¶</a></h1>
-<p><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/serializer/TextSerializer.html">TextSerializer</a> 提供了一個方便的方法來將 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/Text.html">Text</a> 實例序列化與反序列化。有三種適用格式：</p>
+<p><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/text/serializer/TextSerializer.html">TextSerializer</a> 提供了一個方便的方法來將 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/text/Text.html">Text</a> 實例序列化與反序列化。有三種適用格式：</p>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="formatting-code-legacy.html">格式化与原生字符串</a></li>
@@ -187,7 +176,7 @@
 <li class="toctree-l1"><a class="reference internal" href="configurate.html">配置文件格式</a></li>
 </ul>
 </div>
-<p><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/serializer/TextSerializers.html">TextSerializers</a> 類別提供三種 <code class="docutils literal notranslate"><span class="pre">TextSerializer</span></code> 來序列化為典型 <code class="docutils literal notranslate"><span class="pre">String</span></code> 或反序列化為 <code class="docutils literal notranslate"><span class="pre">Text</span></code> 實例：</p>
+<p><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/text/serializer/TextSerializers.html">TextSerializers</a> 類別提供三種 <code class="docutils literal notranslate"><span class="pre">TextSerializer</span></code> 來序列化為典型 <code class="docutils literal notranslate"><span class="pre">String</span></code> 或反序列化為 <code class="docutils literal notranslate"><span class="pre">Text</span></code> 實例：</p>
 <ul class="simple">
 <li><code class="docutils literal notranslate"><span class="pre">LEGACY_FORMATTING_CODE</span></code></li>
 <li><code class="docutils literal notranslate"><span class="pre">FORMATTING_CODE</span></code></li>
@@ -195,11 +184,11 @@
 </ul>
 <div class="section" id="serializing-text">
 <h2>序列化文本<a class="headerlink" href="#serializing-text" title="本標題的永久連結">¶</a></h2>
-<p>如果想序列化一個 <code class="docutils literal notranslate"><span class="pre">Text</span></code> 物件，我們只需要使用 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/serializer/TextSerializer.html#serialize-org.spongepowered.api.text.Text-">TextSerializer#serialize(Text)</a> 方法，指定適當的 <code class="docutils literal notranslate"><span class="pre">Text</span></code> 物件作為唯一引數。該方法會回傳一個代表該 <code class="docutils literal notranslate"><span class="pre">Text</span></code> 物件的 <code class="docutils literal notranslate"><span class="pre">String</span></code>。</p>
+<p>如果想序列化一個 <code class="docutils literal notranslate"><span class="pre">Text</span></code> 物件，我們只需要使用 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/text/serializer/TextSerializer.html#serialize-org.spongepowered.api.text.Text-">TextSerializer#serialize(Text)</a> 方法，指定適當的 <code class="docutils literal notranslate"><span class="pre">Text</span></code> 物件作為唯一引數。該方法會回傳一個代表該 <code class="docutils literal notranslate"><span class="pre">Text</span></code> 物件的 <code class="docutils literal notranslate"><span class="pre">String</span></code>。</p>
 </div>
 <div class="section" id="deserializing-to-text">
 <h2>反序列化文本<a class="headerlink" href="#deserializing-to-text" title="本標題的永久連結">¶</a></h2>
-<p>如果想反序列化一個 <code class="docutils literal notranslate"><span class="pre">String</span></code> 為它對應的 <code class="docutils literal notranslate"><span class="pre">Text</span></code> 物件，我們只需要使用 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/serializer/TextSerializer.html#deserialize-java.lang.String-">TextSerializer#deserialize(String)</a> 方法，指定輸入 <code class="docutils literal notranslate"><span class="pre">String</span></code> 作為唯一引數。如果輸入的格式不正確，一個 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/serializer/TextParseException.html">TextParseException</a> 將被拋出。另外，使用 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/serializer/TextSerializer.html#deserializeUnchecked-java.lang.String-">TextSerializer#deserializeUnchecked(String)</a> 方法來以不會有任何例外的方式反序列化，如果有錯誤，原始輸入將以 <code class="docutils literal notranslate"><span class="pre">Text</span></code> 物件的形式回傳。</p>
+<p>如果想反序列化一個 <code class="docutils literal notranslate"><span class="pre">String</span></code> 為它對應的 <code class="docutils literal notranslate"><span class="pre">Text</span></code> 物件，我們只需要使用 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/text/serializer/TextSerializer.html#deserialize-java.lang.String-">TextSerializer#deserialize(String)</a> 方法，指定輸入 <code class="docutils literal notranslate"><span class="pre">String</span></code> 作為唯一引數。如果輸入的格式不正確，一個 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/text/serializer/TextParseException.html">TextParseException</a> 將被拋出。另外，使用 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/text/serializer/TextSerializer.html#deserializeUnchecked-java.lang.String-">TextSerializer#deserializeUnchecked(String)</a> 方法來以不會有任何例外的方式反序列化，如果有錯誤，原始輸入將以 <code class="docutils literal notranslate"><span class="pre">Text</span></code> 物件的形式回傳。</p>
 </div>
 </div>
 

@@ -19,17 +19,6 @@
 
         <link rel="index" title="索引"
               href="../../genindex.html"/>        <link rel="search" title="搜索" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 文档" href="../../index.html"/>        <link rel="up" title="经济 API" href="index.html"/>        <link rel="next" title="注意事项" href="practices.html"/>        <link rel="prev" title="基本概念" href="basics.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -176,7 +165,7 @@
 <p>经济 API 可以让所有的经济插件互相兼容，这意味着你可以不用担心不同插件之间的各种问题。接下来我们要教你如何使用经济 API 。</p>
 <div class="section" id="loading-the-economyservice">
 <h2>获取 EconomyService<a class="headerlink" href="#loading-the-economyservice" title="永久链接至标题">¶</a></h2>
-<p>为了使用经济 API ，你必须首先通过 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/ServiceManager.html">ServiceManager</a> 获取到一个 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/economy/EconomyService.html">EconomyService</a> 。</p>
+<p>为了使用经济 API ，你必须首先通过 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/ServiceManager.html">ServiceManager</a> 获取到一个 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/economy/EconomyService.html">EconomyService</a> 。</p>
 <div class="admonition warning">
 <p class="first admonition-title">警告</p>
 <p class="last">请注意你需要在使用经济 API 时注意不同的游戏状态，这些状态包括服务端启动、停止和运行。参见 <a class="reference internal" href="../services.html"><span class="doc">服务</span></a> 以获取更多的信息。</p>
@@ -195,11 +184,11 @@
 </div>
 <div class="admonition warning">
 <p class="first admonition-title">警告</p>
-<p class="last"><code class="docutils literal notranslate"><span class="pre">EconomyService</span></code> 应当使用临时变量而不是字段的方式访问，因为相应的实现对象引用可能随时都会变化。如果你不得不要以字段的形式存储，那么你无论如何都应该监听 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/service/ChangeServiceProviderEvent.html">ChangeServiceProviderEvent</a> 以保证相应的实现对象引用能够得到更新。</p>
+<p class="last"><code class="docutils literal notranslate"><span class="pre">EconomyService</span></code> 应当使用临时变量而不是字段的方式访问，因为相应的实现对象引用可能随时都会变化。如果你不得不要以字段的形式存储，那么你无论如何都应该监听 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/service/ChangeServiceProviderEvent.html">ChangeServiceProviderEvent</a> 以保证相应的实现对象引用能够得到更新。</p>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">注解</p>
-<p class="last">和其他的服务不太一样，你需要首先尝试着使用 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/ServiceManager.html#provide-java.lang.Class-">ServiceManager#provide(Class)</a> 而不是 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/ServiceManager.html#provideUnchecked-java.lang.Class-">ServiceManager#provideUnchecked(Class)</a> 获取相应的实现，因为 Sponge 并没有为 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/economy/EconomyService.html">EconomyService</a> 提供一个默认的实现，因此相应的实现也不一定存在。</p>
+<p class="last">和其他的服务不太一样，你需要首先尝试着使用 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/ServiceManager.html#provide-java.lang.Class-">ServiceManager#provide(Class)</a> 而不是 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/ServiceManager.html#provideUnchecked-java.lang.Class-">ServiceManager#provideUnchecked(Class)</a> 获取相应的实现，因为 Sponge 并没有为 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/economy/EconomyService.html">EconomyService</a> 提供一个默认的实现，因此相应的实现也不一定存在。</p>
 </div>
 </div>
 </div>
@@ -221,7 +210,7 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>一些 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/economy/account/Account.html">Account</a> 的方法需要传入以下变量：</p>
+<p>一些 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/economy/account/Account.html">Account</a> 的方法需要传入以下变量：</p>
 <ul class="simple">
 <li>货币：参与交易的货币</li>
 <li>事件原因：是什么导致了帐户的变动</li>
@@ -229,7 +218,7 @@
 </ul>
 <p>这些参数都是为了更高级的使用而设计的，然而我们仍然必须填写它们。下面是一串可接受的值：</p>
 <ul class="simple">
-<li>货币： <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/economy/EconomyService.html#getDefaultCurrency--">EconomyService#getDefaultCurrency()</a></li>
+<li>货币： <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/economy/EconomyService.html#getDefaultCurrency--">EconomyService#getDefaultCurrency()</a></li>
 <li>事件原因：<code class="docutils literal notranslate"><span class="pre">Cause.of(EventContext.builder().add(EventContextKeys.PLUGIN,</span> <span class="pre">plugin).build(),</span> <span class="pre">plugin)</span></code></li>
 <li>上下文： <code class="docutils literal notranslate"><span class="pre">new</span> <span class="pre">HashSet&lt;Context&gt;()</span></code></li>
 </ul>

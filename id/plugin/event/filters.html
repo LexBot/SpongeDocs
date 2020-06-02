@@ -19,17 +19,6 @@
 
         <link rel="index" title="Indeks"
               href="../../genindex.html"/>        <link rel="search" title="Pencarian" href="../../search.html"/>    <link rel="top" title="dokumentasi Sponge 7.2.0" href="../../index.html"/>        <link rel="up" title="Acara" href="index.html"/>        <link rel="next" title="Acara Khusus" href="custom.html"/>        <link rel="prev" title="Penyebab acara" href="causes.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -175,7 +164,7 @@
 <h1>Acara Filter<a class="headerlink" href="#event-filters" title="Link permanen untuk headline ini">¶</a></h1>
 <p>Sekarang setelah Anda menghabiskan sedikit waktu untuk bekerja dengan acara, Anda mungkin telah memperhatikan bahwa ada beberapa prasyarat yang biasanya Anda periksa saat menulis pendengar acara. Filter acara adalah sekelompok anotasi yang membantu Anda dengan mengizinkan Anda untuk secara otomatis memvalidasi aspek acara, dan jika validasi gagal, pendengar Anda tidak akan dipanggil. Hal ini memungkinkan pendengar Anda didedikasikan untuk logika pawang Anda, bukan prasyarat, sehingga menghasilkan kode yang lebih bersih.</p>
 <p>Acara filter datang dalam dua acara varietas, jenis filter dan parameter filter.</p>
-<p>Filter jenis acara adalah anotasi metode yang diterapkan pada metode pendengar Anda beserta anotasi <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/Listener.html">Listener</a> dan berikan beberapa filter berdasarkan jenis atau keadaan acara.</p>
+<p>Filter jenis acara adalah anotasi metode yang diterapkan pada metode pendengar Anda beserta anotasi <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/Listener.html">Listener</a> dan berikan beberapa filter berdasarkan jenis atau keadaan acara.</p>
 <p>Parameter filter memvalidasi objek yang terkandung dalam acara seperti penyebabnya. Mereka datang di sebuah lanjut dua varietas parameter sumber dan parameter filter. Setiap tambahan parameter harus memiliki salah satu sumber annotation, dan optionally mungkin termasuk sejumlah menyaring annotations.</p>
 <div class="section" id="event-type-filters">
 <h2>Acara Tipe Filters<a class="headerlink" href="#event-type-filters" title="Link permanen untuk headline ini">¶</a></h2>
@@ -201,8 +190,8 @@
 <p><strong>&#64;IsCancelled</strong>
 This annotation allows filtering events by their cancellation state at the time that your event listener would normally be
 called. By default, your event listener will not be called if the event has been cancelled by a previous event listener.
-However you can change this behavior to one of three states depending on the <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/util/Tristate.html">Tristate</a> value in the
-<a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/filter/IsCancelled.html">IsCancelled</a> annotation.</p>
+However you can change this behavior to one of three states depending on the <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/util/Tristate.html">Tristate</a> value in the
+<a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/filter/IsCancelled.html">IsCancelled</a> annotation.</p>
 <blockquote>
 <div><ul class="simple">
 <li>` <cite>Tristate.False</cite> ` adalah perilaku default jika <cite>IsCancelled</cite> penjelasan tidak hadir, dan tidak akan menelepon pendengarmu jika acara ini telah dibatalkan.</li>
@@ -242,7 +231,7 @@ However you can change this behavior to one of three states depending on the <a 
 </div>
 <p><strong>&#64;Sesudah</strong> Hal ini mirip dengan &quot;&#64;Sebelum&quot;, tapi itu bukan menggunakan :javadoc: 'Penyebab#sesudah(Kelas)'.</p>
 <p><strong>&#64;All</strong> This parameter source annotation requires that the annotated parameter be an array type. The returned array
-will be equivalent to the contents of calling <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/cause/Cause.html#allOf-java.lang.Class-">Cause#allOf(Class)</a>. By default, if the returned array would be
+will be equivalent to the contents of calling <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/cause/Cause.html#allOf-java.lang.Class-">Cause#allOf(Class)</a>. By default, if the returned array would be
 empty then the validation fails however this can be disabled by setting <code class="docutils literal notranslate"><span class="pre">ignoreEmpty=false</span></code>.</p>
 <p><strong>Dalam contoh ini pendengar anda akan selalu dapat disebut, meskipun para pemain mungkin akan kosong jika hal ini menyebabkan tidak ada pemain yang terisi.</strong></p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Listener</span>

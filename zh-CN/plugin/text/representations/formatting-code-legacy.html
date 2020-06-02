@@ -19,17 +19,6 @@
 
         <link rel="index" title="索引"
               href="../../../genindex.html"/>        <link rel="search" title="搜索" href="../../../search.html"/>    <link rel="top" title="Sponge 7.2.0 文档" href="../../../index.html"/>        <link rel="up" title="序列化文本" href="index.html"/>        <link rel="next" title="JSON 格式" href="json.html"/>        <link rel="prev" title="序列化文本" href="index.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -184,12 +173,12 @@
 <p>可以在 <a class="reference external" href="https://minecraft.gamepedia.com/Formatting_codes">Minecraft Wiki</a> 中找到这两种字符对应的特殊格式。有一点需要注意， Minecraft Wiki 只描述了 § 字符的使用，这和使用 &amp; 字符表示的特殊格式实际上完全一样。</p>
 <div class="admonition warning">
 <p class="first admonition-title">警告</p>
-<p class="last">如果你使用这种方式格式化文本字符串，那么你只能利用 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/Text.html">Text</a> 的文本样式等十分有限的特性。你无法使用这种形式保留鼠标点击和鼠标悬停等特性。如有需要（如在聊天界面中），我们建议使用 <a class="reference internal" href="json.html"><span class="doc">JSON 格式</span></a>。</p>
+<p class="last">如果你使用这种方式格式化文本字符串，那么你只能利用 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/text/Text.html">Text</a> 的文本样式等十分有限的特性。你无法使用这种形式保留鼠标点击和鼠标悬停等特性。如有需要（如在聊天界面中），我们建议使用 <a class="reference internal" href="json.html"><span class="doc">JSON 格式</span></a>。</p>
 </div>
 <div class="section" id="ampersand-formatting">
 <h2>使用 &amp; 符号格式化<a class="headerlink" href="#ampersand-formatting" title="永久链接至标题">¶</a></h2>
 <p>默认情况下， Sponge 支持使用 <cite>&amp;</cite> 符号格式化。使用 &amp; 符号可以允许用户更容易地输入格式化的文本，因为在一些诸如 Minecraft 游戏控制台等情况下，有必要提供简洁的方式输入格式化的文本。</p>
-<p>如果想要得到以这种方式格式化的字符串，你可以通过获取相应的 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/serializer/TextSerializer.html">TextSerializer</a> ，也就是 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/serializer/TextSerializers.html#FORMATTING_CODE">TextSerializers#FORMATTING_CODE</a> ，并分别通过调用其名为 <code class="docutils literal notranslate"><span class="pre">serialize</span></code> 或者 <code class="docutils literal notranslate"><span class="pre">deserialize</span></code> 方法来实现格式化的字符串和 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/Text.html">Text</a> 的转换。</p>
+<p>如果想要得到以这种方式格式化的字符串，你可以通过获取相应的 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/text/serializer/TextSerializer.html">TextSerializer</a> ，也就是 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/text/serializer/TextSerializers.html#FORMATTING_CODE">TextSerializers#FORMATTING_CODE</a> ，并分别通过调用其名为 <code class="docutils literal notranslate"><span class="pre">serialize</span></code> 或者 <code class="docutils literal notranslate"><span class="pre">deserialize</span></code> 方法来实现格式化的字符串和 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/text/Text.html">Text</a> 的转换。</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.text.Text</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.spongepowered.api.text.format.TextColors</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.spongepowered.api.text.format.TextStyles</span><span class="p">;</span>
@@ -204,7 +193,7 @@
 <div class="section" id="legacy-formatting">
 <h2>原生字符串<a class="headerlink" href="#legacy-formatting" title="永久链接至标题">¶</a></h2>
 <p>原生字符串是广泛用于旧版本的 Minecraft 中的格式化字符串表现形式，其对应的特殊字符是 <cite>§</cite> 。 <strong>仅仅是为了向前兼容</strong> ， Sponge 提供了对原生字符串的序列化和反序列化方式，换句话说，不到万不得已就不应使用它。相反，我们强烈建议使用上面提到的 <cite>&amp;</cite> 字符。和使用 <cite>&amp;</cite> 字符的字符串不同，原生字符串有着一些限制，最明显的限制就是用户不能在聊天命令行中输入 § 这一字符。</p>
-<p>如果想要得到以这种方式格式化的字符串，你可以通过获取相应的 <code class="docutils literal notranslate"><span class="pre">TextSerializer</span></code> ，也就是 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/serializer/TextSerializers.html#LEGACY_FORMATTING_CODE">TextSerializers#LEGACY_FORMATTING_CODE</a> ，并分别通过调用其名为 <code class="docutils literal notranslate"><span class="pre">serialize</span></code> 或者 <code class="docutils literal notranslate"><span class="pre">deserialize</span></code> 方法来实现原生字符串和 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/Text.html">Text</a> 的转换。</p>
+<p>如果想要得到以这种方式格式化的字符串，你可以通过获取相应的 <code class="docutils literal notranslate"><span class="pre">TextSerializer</span></code> ，也就是 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/text/serializer/TextSerializers.html#LEGACY_FORMATTING_CODE">TextSerializers#LEGACY_FORMATTING_CODE</a> ，并分别通过调用其名为 <code class="docutils literal notranslate"><span class="pre">serialize</span></code> 或者 <code class="docutils literal notranslate"><span class="pre">deserialize</span></code> 方法来实现原生字符串和 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/text/Text.html">Text</a> 的转换。</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Text</span> <span class="n">text</span> <span class="o">=</span> <span class="n">Text</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">TextColors</span><span class="p">.</span><span class="na">RED</span><span class="p">,</span> <span class="n">TextStyles</span><span class="p">.</span><span class="na">UNDERLINE</span><span class="p">,</span> <span class="s">&quot;Hello World!&quot;</span><span class="p">);</span>
 <span class="n">String</span> <span class="n">legacyText</span> <span class="o">=</span> <span class="n">TextSerializers</span><span class="p">.</span><span class="na">LEGACY_FORMATTING_CODE</span><span class="p">.</span><span class="na">serialize</span><span class="p">(</span><span class="n">text</span><span class="p">);</span>
 </pre></div>
@@ -212,7 +201,7 @@
 <p>作为示例，文本 “Hello World!” 被附加上了红色和下划线的格式，那么将有如下形式的原生字符串代表它： <cite>§c§nHello World!</cite> 。</p>
 <div class="admonition tip">
 <p class="first admonition-title">小技巧</p>
-<p class="last">你可以通过调用 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/serializer/TextSerializers.html#formattingCode-char-">TextSerializers#formattingCode(char)</a> 方法，传入一个字符以获取一个 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/serializer/FormattingCodeTextSerializer.html">FormattingCodeTextSerializer</a> 用于自定义特殊字符使用什么，虽然我们不建议你使用这一方法。</p>
+<p class="last">你可以通过调用 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/text/serializer/TextSerializers.html#formattingCode-char-">TextSerializers#formattingCode(char)</a> 方法，传入一个字符以获取一个 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/text/serializer/FormattingCodeTextSerializer.html">FormattingCodeTextSerializer</a> 用于自定义特殊字符使用什么，虽然我们不建议你使用这一方法。</p>
 </div>
 </div>
 </div>

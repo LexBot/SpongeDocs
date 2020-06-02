@@ -19,17 +19,6 @@
 
         <link rel="index" title="索引"
               href="../../genindex.html"/>        <link rel="search" title="搜尋" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 說明文件" href="../../index.html"/>        <link rel="up" title="插件指令" href="index.html"/>        <link rel="next" title="低階指令 API" href="commandcallable.html"/>        <link rel="prev" title="子指令" href="childcommands.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -175,7 +164,7 @@
            <div itemprop="articleBody">
   <div class="section" id="the-command-manager">
 <h1>指令管理器<a class="headerlink" href="#the-command-manager" title="本標題的永久連結">¶</a></h1>
-<p><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/CommandManager.html">CommandManager</a> 作為管理器，用於監視被輸入到聊天室的指令，以及將他們重新導向至正確的指令處理器。為了註冊你的指令，使用 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/CommandManager.html#register-java.lang.Object-org.spongepowered.api.command.CommandCallable-java.lang.String...-">CommandManager#register(Object, CommandCallable, String…)</a> 方法，以參數傳入你的插件、指令實例，以及所有需要的別名。</p>
+<p><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/CommandManager.html">CommandManager</a> 作為管理器，用於監視被輸入到聊天室的指令，以及將他們重新導向至正確的指令處理器。為了註冊你的指令，使用 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/CommandManager.html#register-java.lang.Object-org.spongepowered.api.command.CommandCallable-java.lang.String...-">CommandManager#register(Object, CommandCallable, String…)</a> 方法，以參數傳入你的插件、指令實例，以及所有需要的別名。</p>
 <p>通常當呼叫:javadoc:<a href="#id1"><span class="problematic" id="id2">`</span></a>GameInitializationEvent`時，你會想註冊你的指令。</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.Sponge</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.spongepowered.api.command.CommandManager</span><span class="p">;</span>

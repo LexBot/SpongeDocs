@@ -19,17 +19,6 @@
 
         <link rel="index" title="索引"
               href="../../genindex.html"/>        <link rel="search" title="搜索" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 文档" href="../../index.html"/>        <link rel="up" title="数据 API" href="index.html"/>        <link rel="next" title="使用数据键" href="keys.html"/>        <link rel="prev" title="序列化自定义数据" href="custom/serialization.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -180,13 +169,13 @@
 <li>这些数据如何存储，如何重新加载？</li>
 <li>到底有哪些算得上数据？</li>
 </ol>
-<p>Sponge 使用了一种基于索引类型（ <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/CatalogType.html">CatalogType</a> ）的机制以尝试解决这些问题。</p>
+<p>Sponge 使用了一种基于索引类型（ <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/CatalogType.html">CatalogType</a> ）的机制以尝试解决这些问题。</p>
 <p><code class="docutils literal notranslate"><span class="pre">CatalogType</span></code> 引入了两个天才般的设计。</p>
-<p>Sponge 首先为其设计了 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/CatalogType.html#getId--">CatalogType#getId()</a> 方法，以方便开发者获取（与之相对应的）唯一标识符，从而将其存储到配置文件中，也可通过 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/GameRegistry.html#getType-java.lang.Class-java.lang.String-">GameRegistry#getType(Class, String)</a> 方法还原。实际上你通常不需要亲力亲为，因为你大可让 Sponge 帮你完成 <a class="reference internal" href="../configuration/serialization.html"><span class="doc">序列化对象</span></a> 的相关操作。</p>
-<p>唯一标识符有时可读性不佳，因此 Sponge 为 <code class="docutils literal notranslate"><span class="pre">CatalogType</span></code> 设计了另一个方法用于获取可读性较强的名称。你甚至可以检查你的索引类型是否同时是 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/translation/Translatable.html">Translatable</a> 接口的子类型，从而为使用不同语言的玩家提供针对性的名称。</p>
+<p>Sponge 首先为其设计了 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/CatalogType.html#getId--">CatalogType#getId()</a> 方法，以方便开发者获取（与之相对应的）唯一标识符，从而将其存储到配置文件中，也可通过 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/GameRegistry.html#getType-java.lang.Class-java.lang.String-">GameRegistry#getType(Class, String)</a> 方法还原。实际上你通常不需要亲力亲为，因为你大可让 Sponge 帮你完成 <a class="reference internal" href="../configuration/serialization.html"><span class="doc">序列化对象</span></a> 的相关操作。</p>
+<p>唯一标识符有时可读性不佳，因此 Sponge 为 <code class="docutils literal notranslate"><span class="pre">CatalogType</span></code> 设计了另一个方法用于获取可读性较强的名称。你甚至可以检查你的索引类型是否同时是 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/text/translation/Translatable.html">Translatable</a> 接口的子类型，从而为使用不同语言的玩家提供针对性的名称。</p>
 <div class="section" id="gameregistry">
 <h2>获取索引类型的实例<a class="headerlink" href="#gameregistry" title="永久链接至标题">¶</a></h2>
-<p>通过 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/GameRegistry.html">GameRegistry</a> 类的 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/GameRegistry.html#getAllOf-java.lang.Class-">GameRegistry#getAllOf(Class)</a> 方法，你可以获取同一索引类型下的所有 <code class="docutils literal notranslate"><span class="pre">CatalogType</span></code> 类型的实例。这个类同时还提供了一些和 <code class="docutils literal notranslate"><span class="pre">CatalogType</span></code> 有关的其他方法，甚至还提供了若干方法，用于获取包括但不限于和数据 API 有关的绝大部分类型的生成器。你还可以通过这个类获取其他相关的东西，比如说 <code class="docutils literal notranslate"><span class="pre">VillagerRegistry</span></code> 和配方等。</p>
+<p>通过 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/GameRegistry.html">GameRegistry</a> 类的 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/GameRegistry.html#getAllOf-java.lang.Class-">GameRegistry#getAllOf(Class)</a> 方法，你可以获取同一索引类型下的所有 <code class="docutils literal notranslate"><span class="pre">CatalogType</span></code> 类型的实例。这个类同时还提供了一些和 <code class="docutils literal notranslate"><span class="pre">CatalogType</span></code> 有关的其他方法，甚至还提供了若干方法，用于获取包括但不限于和数据 API 有关的绝大部分类型的生成器。你还可以通过这个类获取其他相关的东西，比如说 <code class="docutils literal notranslate"><span class="pre">VillagerRegistry</span></code> 和配方等。</p>
 </div>
 <div class="section" id="usage-in-commands">
 <h2>在命令中使用索引类型<a class="headerlink" href="#usage-in-commands" title="永久链接至标题">¶</a></h2>
@@ -194,7 +183,7 @@
 </div>
 <div class="section" id="catalog-classes">
 <h2>直接获取索引类型的实例<a class="headerlink" href="#catalog-classes" title="永久链接至标题">¶</a></h2>
-<p>如果开发者不想通过字符串等方式间接获得 <code class="docutils literal notranslate"><span class="pre">CatalogType</span></code> 的话，比如说在使用默认值等场合，开发者实际上还可以直接引用特定值。不管是 Minecraft 本身还是 Sponge，其代码都提供了直接引用静态字段这一方式。你通常可以在相应的索引类型上找到 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/util/annotation/CatalogedBy.html">CatalogedBy</a> 注解，从而根据其参数值找到相应的静态字段。如果没有找到的话，请检查其父类型及子类型。不过，如果一个索引类型本身包含有太多实例，或者实例本身可以动态增减，那么相应的类可能不会存在。所有可用的索引类型可以在 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/CatalogTypes.html">CatalogTypes</a> 类找到。</p>
+<p>如果开发者不想通过字符串等方式间接获得 <code class="docutils literal notranslate"><span class="pre">CatalogType</span></code> 的话，比如说在使用默认值等场合，开发者实际上还可以直接引用特定值。不管是 Minecraft 本身还是 Sponge，其代码都提供了直接引用静态字段这一方式。你通常可以在相应的索引类型上找到 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/util/annotation/CatalogedBy.html">CatalogedBy</a> 注解，从而根据其参数值找到相应的静态字段。如果没有找到的话，请检查其父类型及子类型。不过，如果一个索引类型本身包含有太多实例，或者实例本身可以动态增减，那么相应的类可能不会存在。所有可用的索引类型可以在 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/CatalogTypes.html">CatalogTypes</a> 类找到。</p>
 <div class="admonition warning">
 <p class="first admonition-title">警告</p>
 <p class="last">不要在自己的代码中使用静态字段直接引用它们，因为这些存储索引类型实例的静态字段往往会在游戏启动时初始化，因此在初始化前往往还只是某个不可用的值。使用这种不可用的值往往会导致代码抛出异常，从而增大修复代码错误的难度。</p>

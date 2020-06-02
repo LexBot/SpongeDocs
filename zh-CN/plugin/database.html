@@ -19,17 +19,6 @@
 
         <link rel="index" title="索引"
               href="../genindex.html"/>        <link rel="search" title="搜索" href="../search.html"/>    <link rel="top" title="Sponge 7.2.0 文档" href="../index.html"/>        <link rel="up" title="插件开发" href="index.html"/>        <link rel="next" title="权限" href="permissions.html"/>        <link rel="prev" title="服务" href="services.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -217,7 +206,7 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>要想得到 JDBC URL，你应该调用 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/sql/SqlService.html#getConnectionUrlFromAlias-java.lang.String-">SqlService#getConnectionUrlFromAlias(String)</a> 方法，并传入一个对应特定 JDBC URL 的别名，相应别名的映射表存储在 Sponge 的全局配置文件（ <code class="docutils literal notranslate"><span class="pre">config/sponge/global.conf</span></code> ）中，并位于 <code class="docutils literal notranslate"><span class="pre">sponge.sql.aliases</span></code> 下。</p>
+<p>要想得到 JDBC URL，你应该调用 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/sql/SqlService.html#getConnectionUrlFromAlias-java.lang.String-">SqlService#getConnectionUrlFromAlias(String)</a> 方法，并传入一个对应特定 JDBC URL 的别名，相应别名的映射表存储在 Sponge 的全局配置文件（ <code class="docutils literal notranslate"><span class="pre">config/sponge/global.conf</span></code> ）中，并位于 <code class="docutils literal notranslate"><span class="pre">sponge.sql.aliases</span></code> 下。</p>
 <p>SQL 服务提供池连接，因此从返回的 <code class="docutils literal notranslate"><span class="pre">DataSource</span></code> 中获取连接不需要付出多大代价。因此，我们建议不要保持连接，而像上面的示例那样做，也就是使用完就关闭它们。所有的 <code class="docutils literal notranslate"><span class="pre">PreparedStatement</span></code> 和 <code class="docutils literal notranslate"><span class="pre">ResultSet</span></code> 也应该在使用完后关闭，你可以使用 <code class="docutils literal notranslate"><span class="pre">object.close()</span></code> ，也可以使用一个 Try With Resources 块，事实上我们更建议后者。</p>
 </div>
 </div>

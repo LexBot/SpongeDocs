@@ -19,17 +19,6 @@
 
         <link rel="index" title="Алфавитный указатель"
               href="../genindex.html"/>        <link rel="search" title="Поиск" href="../search.html"/>    <link rel="top" title="Документация Sponge 7.2.0" href="../index.html"/>        <link rel="up" title="Создание плагина" href="index.html"/>        <link rel="next" title="Внедрение зависимостей" href="injection.html"/>        <link rel="prev" title="Основной класс плагина" href="plugin-class.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -184,29 +173,29 @@
 <h2>Инициализация<a class="headerlink" href="#initialization-states" title="Ссылка на этот заголовок">¶</a></h2>
 <p>Состояния инициализации возникают единожды за один запуск.</p>
 <p><strong>CONSTRUCTION</strong></p>
-<p>Вызывается <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GameConstructionEvent.html">GameConstructionEvent</a>. В этом состоянии для каждого экземпляра плагина определяются параметры аннотации <code class="docutils literal notranslate"><span class="pre">&#64;Plugin</span></code>.</p>
+<p>Вызывается <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/game/state/GameConstructionEvent.html">GameConstructionEvent</a>. В этом состоянии для каждого экземпляра плагина определяются параметры аннотации <code class="docutils literal notranslate"><span class="pre">&#64;Plugin</span></code>.</p>
 <p><strong>PRE_INITIALIZATION</strong></p>
-<p>Вызывается <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GamePreInitializationEvent.html">GamePreInitializationEvent</a>. В этом состоянии плагин подготавливается к инициализации. Становятся доступны экземпляр logger’а по умолчанию и информация о предпочтительной конфигурации расположения файлов.</p>
+<p>Вызывается <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/game/state/GamePreInitializationEvent.html">GamePreInitializationEvent</a>. В этом состоянии плагин подготавливается к инициализации. Становятся доступны экземпляр logger’а по умолчанию и информация о предпочтительной конфигурации расположения файлов.</p>
 <p><strong>INITIALIZATION</strong></p>
-<p>Вызывается <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GameInitializationEvent.html">GameInitializationEvent</a>. В этом состоянии плагин должен закончить любые действия, необходимые для того, чтобы он функционировал. В этом состоянии должны быть зарегистрированы глобальные обработчики событий.</p>
+<p>Вызывается <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/game/state/GameInitializationEvent.html">GameInitializationEvent</a>. В этом состоянии плагин должен закончить любые действия, необходимые для того, чтобы он функционировал. В этом состоянии должны быть зарегистрированы глобальные обработчики событий.</p>
 <p><strong>POST_INITIALIZATION</strong></p>
-<p>Вызывается <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GamePostInitializationEvent.html">GamePostInitializationEvent</a>. В этом состоянии встроенный плагин коммуникации должен быть готов к работе. Плагины, предоставляющие интерфейс API, должны быть готовы чтобы принять основные запросы.</p>
+<p>Вызывается <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/game/state/GamePostInitializationEvent.html">GamePostInitializationEvent</a>. В этом состоянии встроенный плагин коммуникации должен быть готов к работе. Плагины, предоставляющие интерфейс API, должны быть готовы чтобы принять основные запросы.</p>
 <p><strong>LOAD_COMPLETE</strong></p>
-<p>Вызывается <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GameLoadCompleteEvent.html">GameLoadCompleteEvent</a>. В этом состоянии плагин должен быть полностью инициализирован (готов к работе).</p>
+<p>Вызывается <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/game/state/GameLoadCompleteEvent.html">GameLoadCompleteEvent</a>. В этом состоянии плагин должен быть полностью инициализирован (готов к работе).</p>
 </div>
 <div class="section" id="running-states">
 <h2>Исполнение<a class="headerlink" href="#running-states" title="Ссылка на этот заголовок">¶</a></h2>
 <p>Состояния исполнения могут возникать несколько раз в течение одного запуска. <code class="docutils literal notranslate"><span class="pre">SERVER_ABOUT_TO_START</span></code> может следовать за <code class="docutils literal notranslate"><span class="pre">SERVER_STOPPED</span></code>, а <code class="docutils literal notranslate"><span class="pre">SERVER_STOPPED</span></code> может возникнуть в любой момент исполнения, если произойдет ошибка.</p>
 <p><strong>SERVER_ABOUT_TO_START</strong></p>
-<p>Вызывается <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GameAboutToStartServerEvent.html">GameAboutToStartServerEvent</a>. Объект сервера уже существует, но миры еще не загружены.</p>
+<p>Вызывается <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/game/state/GameAboutToStartServerEvent.html">GameAboutToStartServerEvent</a>. Объект сервера уже существует, но миры еще не загружены.</p>
 <p><strong>SERVER_STARTING</strong></p>
-<p>Вызывается <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GameStartingServerEvent.html">GameStartingServerEvent</a>. Экземпляр класса Server уже существует, и миры загружены. Во время этого состояния обрабатывается регистрация команд.</p>
+<p>Вызывается <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/game/state/GameStartingServerEvent.html">GameStartingServerEvent</a>. Экземпляр класса Server уже существует, и миры загружены. Во время этого состояния обрабатывается регистрация команд.</p>
 <p><strong>SERVER_STARTED</strong></p>
-<p>Вызывается <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GameStartedServerEvent.html">GameStartedServerEvent</a>. Объект сервера уже существует, и миры уже загружены.</p>
+<p>Вызывается <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/game/state/GameStartedServerEvent.html">GameStartedServerEvent</a>. Объект сервера уже существует, и миры уже загружены.</p>
 <p><strong>SERVER_STOPPING</strong></p>
-<p>Вызывается <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GameStoppingServerEvent.html">GameStoppingServerEvent</a>. Это состояние вызывается непосредственно перед последним тактом, в котором происходит сохранение миров.</p>
+<p>Вызывается <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/game/state/GameStoppingServerEvent.html">GameStoppingServerEvent</a>. Это состояние вызывается непосредственно перед последним тактом, в котором происходит сохранение миров.</p>
 <p><strong>SERVER_STOPPED</strong></p>
-<p>Вызывается <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GameStoppedServerEvent.html">GameStoppedServerEvent</a>. Во время этого состояния все игроки отключены от сервера, и никакие изменения в мирах не сохраняется.</p>
+<p>Вызывается <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/game/state/GameStoppedServerEvent.html">GameStoppedServerEvent</a>. Во время этого состояния все игроки отключены от сервера, и никакие изменения в мирах не сохраняется.</p>
 </div>
 <div class="section" id="stopping-states">
 <h2>Завершение<a class="headerlink" href="#stopping-states" title="Ссылка на этот заголовок">¶</a></h2>
@@ -216,11 +205,11 @@
 <p class="last">Состояния завершения могут не возникать при закрытии сервера. Они могут <strong>не</strong> возникнуть, если игра насильно остановлена через Ctrl+C, Диспетчер задач, сбой в компьютере, или похожие ситуации.</p>
 </div>
 <p><strong>GAME_STOPPING</strong></p>
-<p>The <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GameStoppingEvent.html">GameStoppingEvent</a> is triggered.
+<p>The <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/game/state/GameStoppingEvent.html">GameStoppingEvent</a> is triggered.
 This state occurs immediately before <code class="docutils literal notranslate"><span class="pre">GAME_STOPPED</span></code>. Plugins providing an API should still be capable of accepting
 basic requests.</p>
 <p><strong>GAME_STOPPED</strong></p>
-<p>The <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GameStoppedEvent.html">GameStoppedEvent</a> is triggered.
+<p>The <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/game/state/GameStoppedEvent.html">GameStoppedEvent</a> is triggered.
 Once this event has finished executing, Minecraft will shut down. No further interaction with the game or other plugins
 should be attempted at this point.</p>
 </div>

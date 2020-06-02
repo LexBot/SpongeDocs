@@ -19,17 +19,6 @@
 
         <link rel="index" title="Stichwortverzeichnis"
               href="../../genindex.html"/>        <link rel="search" title="Suche" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 Dokumentation" href="../../index.html"/>        <link rel="up" title="Wirtschaft" href="index.html"/>        <link rel="next" title="Implementierung der Economy API" href="implementing.html"/>        <link rel="prev" title="Verwenden der Economy API" href="using.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -207,9 +196,9 @@ certain permission. By performing the check yourself, you take this power away f
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>Instead of this, the best thing to do is simply withdraw the amount you need, and check the <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/economy/transaction/ResultType.html">ResultType</a> of
-the returned <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/economy/transaction/TransactionResult.html">TransactionResult</a>. An economy plugin which doesn’t want to allow negative balances will simply
-return <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/economy/transaction/ResultType.html#ACCOUNT_NO_FUNDS">ResultType#ACCOUNT_NO_FUNDS</a>, or <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/economy/transaction/ResultType.html#FAILED">ResultType#FAILED</a> in this case.</p>
+<p>Instead of this, the best thing to do is simply withdraw the amount you need, and check the <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/economy/transaction/ResultType.html">ResultType</a> of
+the returned <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/economy/transaction/TransactionResult.html">TransactionResult</a>. An economy plugin which doesn’t want to allow negative balances will simply
+return <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/economy/transaction/ResultType.html#ACCOUNT_NO_FUNDS">ResultType#ACCOUNT_NO_FUNDS</a>, or <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/economy/transaction/ResultType.html#FAILED">ResultType#FAILED</a> in this case.</p>
 <p>Here’s how you <strong>should</strong> withdraw money:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.event.cause.Cause</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.spongepowered.api.event.cause.EventContext</span><span class="p">;</span>

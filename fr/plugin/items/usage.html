@@ -19,17 +19,6 @@
 
         <link rel="index" title="Index"
               href="../../genindex.html"/>        <link rel="search" title="Recherche" href="../../search.html"/>    <link rel="top" title="Documentation Sponge 7.2.0" href="../../index.html"/>        <link rel="up" title="Items" href="index.html"/>        <link rel="next" title="Création d’un ItemStack" href="creating.html"/>        <link rel="prev" title="Items" href="index.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -171,10 +160,10 @@
            <div itemprop="articleBody">
   <div class="section" id="basic-item-usage">
 <h1>Utilisation Basique des Items<a class="headerlink" href="#basic-item-usage" title="Lien permanent vers ce titre">¶</a></h1>
-<p>Les Items sont représentés à travers un <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/item/inventory/ItemStack.html">ItemStack</a>. Un <code class="docutils literal notranslate"><span class="pre">ItemStack</span></code> est un item d’inventaire avec des informations comme le nombre d’items dans le stack, le type de l’item, et des données additionnelles comme la durabilité. Un <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/Item.html">Item</a> est la représentation graphique d’un <code class="docutils literal notranslate"><span class="pre">ItemStack</span></code> en tant qu’entité. Soyez conscients que vous obtiendrez toujours une copie et <em>non</em> l”<code class="docutils literal notranslate"><span class="pre">ItemStack</span></code> actuel et donc, vous devrez le définir à nouveau dans l’inventaire si désiré.</p>
+<p>Les Items sont représentés à travers un <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/item/inventory/ItemStack.html">ItemStack</a>. Un <code class="docutils literal notranslate"><span class="pre">ItemStack</span></code> est un item d’inventaire avec des informations comme le nombre d’items dans le stack, le type de l’item, et des données additionnelles comme la durabilité. Un <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/Item.html">Item</a> est la représentation graphique d’un <code class="docutils literal notranslate"><span class="pre">ItemStack</span></code> en tant qu’entité. Soyez conscients que vous obtiendrez toujours une copie et <em>non</em> l”<code class="docutils literal notranslate"><span class="pre">ItemStack</span></code> actuel et donc, vous devrez le définir à nouveau dans l’inventaire si désiré.</p>
 <div class="section" id="checking-an-item-s-type">
 <h2>Vérifier le type d’un objet<a class="headerlink" href="#checking-an-item-s-type" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Vérifier le type d’un item est très simple. Vous devez simplement appeler la méthode <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/item/inventory/ItemStack.html#getType--">ItemStack#getType()</a>.</p>
+<p>Vérifier le type d’un item est très simple. Vous devez simplement appeler la méthode <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/item/inventory/ItemStack.html#getType--">ItemStack#getType()</a>.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.item.ItemType</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.spongepowered.api.item.ItemTypes</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.spongepowered.api.item.inventory.ItemStack</span><span class="p">;</span>
@@ -186,7 +175,7 @@
 </pre></div>
 </div>
 <p>Vous voyez à quel point c’est simple ? Parce que les bâtons peuvent s’empiler, nous pouvons aussi savoir combien il y en a.</p>
-<p>Obtenir la quantité d’objets dans un <code class="docutils literal notranslate"><span class="pre">ItemStack</span></code> est relativement facile. La méthode <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/item/inventory/ItemStack.html#getQuantity--">ItemStack#getQuantity()</a> fournie par l”<code class="docutils literal notranslate"><span class="pre">ItemStack</span></code> le fera pour nous.</p>
+<p>Obtenir la quantité d’objets dans un <code class="docutils literal notranslate"><span class="pre">ItemStack</span></code> est relativement facile. La méthode <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/item/inventory/ItemStack.html#getQuantity--">ItemStack#getQuantity()</a> fournie par l”<code class="docutils literal notranslate"><span class="pre">ItemStack</span></code> le fera pour nous.</p>
 </div>
 <div class="section" id="modifying-itemstack-data">
 <h2>Modifier les données d’un ItemStack<a class="headerlink" href="#modifying-itemstack-data" title="Lien permanent vers ce titre">¶</a></h2>
@@ -198,8 +187,8 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>Dans cet exemple, nous avons spécifié que la clé <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/key/Keys.html#UNBREAKABLE">Keys#UNBREAKABLE</a> est la clé que nous voulions changer. nous avons ensuite défini la valeur à <code class="docutils literal notranslate"><span class="pre">true</span></code> pour signifier que l’objet ne se cassera jamais. Tout ceci est passé en paramètre à la méthode <code class="docutils literal notranslate"><span class="pre">offer()</span></code> de l”<code class="docutils literal notranslate"><span class="pre">ItemStack</span></code> pour modifier à son tour l”<code class="docutils literal notranslate"><span class="pre">ItemStack</span></code>.</p>
-<p>Différentes clés requerront différentes valeurs basées sur leur emploi. Par exemple, pour changer la connaissance d’un objet, on aurait besoin de spécifier une <code class="docutils literal notranslate"><span class="pre">List</span></code> de <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/Text.html">Text</a> plutôt qu’un booléen ou une autre valeur. Il est également important d’effectuer des vérifications pour voir si une clé peut effectivement être utilisée sur un objet. Par exemple, certains objet pourraient ne pas avoir de durabilité, ou pourraient déjà avoir une connaissance associée à l’objet.</p>
+<p>Dans cet exemple, nous avons spécifié que la clé <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/key/Keys.html#UNBREAKABLE">Keys#UNBREAKABLE</a> est la clé que nous voulions changer. nous avons ensuite défini la valeur à <code class="docutils literal notranslate"><span class="pre">true</span></code> pour signifier que l’objet ne se cassera jamais. Tout ceci est passé en paramètre à la méthode <code class="docutils literal notranslate"><span class="pre">offer()</span></code> de l”<code class="docutils literal notranslate"><span class="pre">ItemStack</span></code> pour modifier à son tour l”<code class="docutils literal notranslate"><span class="pre">ItemStack</span></code>.</p>
+<p>Différentes clés requerront différentes valeurs basées sur leur emploi. Par exemple, pour changer la connaissance d’un objet, on aurait besoin de spécifier une <code class="docutils literal notranslate"><span class="pre">List</span></code> de <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/text/Text.html">Text</a> plutôt qu’un booléen ou une autre valeur. Il est également important d’effectuer des vérifications pour voir si une clé peut effectivement être utilisée sur un objet. Par exemple, certains objet pourraient ne pas avoir de durabilité, ou pourraient déjà avoir une connaissance associée à l’objet.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.text.Text</span><span class="p">;</span>
 
 <span class="kn">import</span> <span class="nn">java.util.List</span><span class="p">;</span>
@@ -218,7 +207,7 @@
 </div>
 <div class="section" id="item-properties">
 <h2>Propriétés d’un objet<a class="headerlink" href="#item-properties" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Certains items peuvent contenir des propriétés spécifiques. Par exemple, certains items peuvent miner des blocs spécifiques, comme les pioches en diamant avec l’obsidienne. Les propriétés sont utilisées pour déterminer si un item peut effectuer une action sans réellement vérifier le type de l’item. Nous pouvons vérifier si un item peut miner de l’obsidienne en utilisant la <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/property/item/HarvestingProperty.html">HarvestingProperty</a> de cet item.</p>
+<p>Certains items peuvent contenir des propriétés spécifiques. Par exemple, certains items peuvent miner des blocs spécifiques, comme les pioches en diamant avec l’obsidienne. Les propriétés sont utilisées pour déterminer si un item peut effectuer une action sans réellement vérifier le type de l’item. Nous pouvons vérifier si un item peut miner de l’obsidienne en utilisant la <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/property/item/HarvestingProperty.html">HarvestingProperty</a> de cet item.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.block.BlockTypes</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.spongepowered.api.data.property.item.HarvestingProperty</span><span class="p">;</span>
 
@@ -240,7 +229,7 @@
 </div>
 <div class="section" id="comparing-itemstacks">
 <h2>Comparer des ItemStacks<a class="headerlink" href="#comparing-itemstacks" title="Lien permanent vers ce titre">¶</a></h2>
-<p>La classe <code class="docutils literal notranslate"><span class="pre">ItemStack</span></code> contient une méthode propre pour comparer deux <code class="docutils literal notranslate"><span class="pre">ItemStack</span></code>s. En utilisant la méthode <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/item/inventory/ItemStack.html#equalTo-org.spongepowered.api.item.inventory.ItemStack-">ItemStack#equalTo(ItemStack)</a> avec un <code class="docutils literal notranslate"><span class="pre">ItemStack</span></code> déjà existant, nous pouvons vérifier si les deux <code class="docutils literal notranslate"><span class="pre">ItemStack</span></code>s sont “égaux”. Pour cela, ils doivent partager la même taille de stack, le même <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/item/ItemType.html">ItemType</a>, et les mêmes données. Un exemple est illustré ci-dessous :</p>
+<p>La classe <code class="docutils literal notranslate"><span class="pre">ItemStack</span></code> contient une méthode propre pour comparer deux <code class="docutils literal notranslate"><span class="pre">ItemStack</span></code>s. En utilisant la méthode <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/item/inventory/ItemStack.html#equalTo-org.spongepowered.api.item.inventory.ItemStack-">ItemStack#equalTo(ItemStack)</a> avec un <code class="docutils literal notranslate"><span class="pre">ItemStack</span></code> déjà existant, nous pouvons vérifier si les deux <code class="docutils literal notranslate"><span class="pre">ItemStack</span></code>s sont “égaux”. Pour cela, ils doivent partager la même taille de stack, le même <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/item/ItemType.html">ItemType</a>, et les mêmes données. Un exemple est illustré ci-dessous :</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isEqual</span><span class="p">(</span><span class="n">ItemStack</span> <span class="n">stack1</span><span class="p">,</span> <span class="n">ItemStack</span> <span class="n">stack2</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">return</span> <span class="n">stack1</span><span class="p">.</span><span class="na">equalTo</span><span class="p">(</span><span class="n">stack2</span><span class="p">);</span>
 <span class="p">}</span>

@@ -19,17 +19,6 @@
 
         <link rel="index" title="索引"
               href="../../genindex.html"/>        <link rel="search" title="搜尋" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 說明文件" href="../../index.html"/>        <link rel="up" title="經濟" href="index.html"/>        <link rel="next" title="使用經濟 API" href="using.html"/>        <link rel="prev" title="經濟" href="index.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -182,7 +171,7 @@
 </ul>
 <div class="section" id="the-economyservice">
 <h2>經濟服務（EconomyService）<a class="headerlink" href="#the-economyservice" title="本標題的永久連結">¶</a></h2>
-<p><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/economy/EconomyService.html">EconomyService</a> 是經濟 API 的基礎。它用於通過經濟 API 交互、儲存經濟貨幣與提供管理帳戶的方法。</p>
+<p><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/economy/EconomyService.html">EconomyService</a> 是經濟 API 的基礎。它用於通過經濟 API 交互、儲存經濟貨幣與提供管理帳戶的方法。</p>
 <div class="admonition warning">
 <p class="first admonition-title">警告</p>
 <p class="last">Sponge 沒有提供 <code class="docutils literal notranslate"><span class="pre">EconomyService</span></code> 的預設實作。這完全取決於實作經濟 API 的插件，這意味著，若你想要使用經濟 API，你需要依賴另一個實作該服務的插件，否則你需要自己實作它。</p>
@@ -190,11 +179,11 @@
 </div>
 <div class="section" id="currency">
 <h2>貨幣（Currency）<a class="headerlink" href="#currency" title="本標題的永久連結">¶</a></h2>
-<p><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/economy/Currency.html">Currency</a> 物件表是一種貨幣。<code class="docutils literal notranslate"><span class="pre">Currency</span></code> 儲存了一個顯示名稱（單數與複數）、一個符號、小數點的位數，以及它是否為預設的貨幣。如果經濟插件支援，可以使用多種貨幣。</p>
+<p><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/economy/Currency.html">Currency</a> 物件表是一種貨幣。<code class="docutils literal notranslate"><span class="pre">Currency</span></code> 儲存了一個顯示名稱（單數與複數）、一個符號、小數點的位數，以及它是否為預設的貨幣。如果經濟插件支援，可以使用多種貨幣。</p>
 </div>
 <div class="section" id="accounts">
 <h2>帳戶（Accounts）<a class="headerlink" href="#accounts" title="本標題的永久連結">¶</a></h2>
-<p><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/economy/account/Account.html">Account</a>用於儲存關於特定玩家或其他物件（如銀行、企業、實體）的經濟資訊。在 Sponge 經濟 API 中有兩種帳戶類型：</p>
+<p><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/economy/account/Account.html">Account</a>用於儲存關於特定玩家或其他物件（如銀行、企業、實體）的經濟資訊。在 Sponge 經濟 API 中有兩種帳戶類型：</p>
 <div class="section" id="virtual-accounts">
 <h3>虛擬帳戶<a class="headerlink" href="#virtual-accounts" title="本標題的永久連結">¶</a></h3>
 <p>虛擬帳戶綁定到一個識別碼，該識別碼以字串儲存。虛擬帳戶可以綁定到幾乎任何東西，但通常用於諸如銀行或飛玩家的事物。要取得虛擬帳戶的 ID，請使用 <code class="docutils literal notranslate"><span class="pre">getIdentifier()</span></code>。</p>
@@ -212,7 +201,7 @@
 <li>取款：帳戶被移除資金時發生</li>
 <li>轉移：帳戶與另一個帳戶交換資金時發生</li>
 </ul>
-<p>當交易發生時，<a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/economy/EconomyTransactionEvent.html">EconomyTransactionEvent</a> 將被觸發。使用該事件，你可以取得 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/economy/transaction/TransactionResult.html">TransactionResult</a>，而 <code class="docutils literal notranslate"><span class="pre">TransactionResult</span></code> 儲存了關於發生的交易的資料，包含：</p>
+<p>當交易發生時，<a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/economy/EconomyTransactionEvent.html">EconomyTransactionEvent</a> 將被觸發。使用該事件，你可以取得 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/economy/transaction/TransactionResult.html">TransactionResult</a>，而 <code class="docutils literal notranslate"><span class="pre">TransactionResult</span></code> 儲存了關於發生的交易的資料，包含：</p>
 <ul class="simple">
 <li>涉及帳戶</li>
 <li>涉及貨幣</li>
@@ -220,7 +209,7 @@
 <li>交易類型</li>
 <li>交易結果</li>
 </ul>
-<p>你可以查看 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/economy/transaction/ResultType.html">ResultType</a> 的 JavaDocs 頁面以了解所有可能的交易結果。</p>
+<p>你可以查看 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/economy/transaction/ResultType.html">ResultType</a> 的 JavaDocs 頁面以了解所有可能的交易結果。</p>
 </div>
 </div>
 

@@ -19,17 +19,6 @@
 
         <link rel="index" title="색인"
               href="../../genindex.html"/>        <link rel="search" title="검색" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 documentation" href="../../index.html"/>        <link rel="up" title="개체" href="index.html"/>        <link rel="next" title="개체 변경하기" href="modifying.html"/>        <link rel="prev" title="개체" href="index.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -173,8 +162,8 @@
            <div itemprop="articleBody">
   <div class="section" id="spawning-an-entity">
 <h1>개체 생성하기<a class="headerlink" href="#spawning-an-entity" title="제목 주소">¶</a></h1>
-<p>You will need three things for spawning an <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/Entity.html">Entity</a>: a <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/Location.html">Location</a>, an <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/extent/Extent.html">Extent</a>, and an
-<a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/EntityType.html">EntityType</a>. The process for getting these is quite simple, you just need to grab a <code class="docutils literal notranslate"><span class="pre">Location</span></code> from
+<p>You will need three things for spawning an <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/Entity.html">Entity</a>: a <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/world/Location.html">Location</a>, an <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/world/extent/Extent.html">Extent</a>, and an
+<a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/EntityType.html">EntityType</a>. The process for getting these is quite simple, you just need to grab a <code class="docutils literal notranslate"><span class="pre">Location</span></code> from
 somewhere in your plugin code and choose the type of <code class="docutils literal notranslate"><span class="pre">Entity</span></code> you wish to spawn.</p>
 <p>예를 들어, 크리퍼를 생성해 봅시다:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.entity.Entity</span><span class="p">;</span>
@@ -203,14 +192,14 @@ somewhere in your plugin code and choose the type of <code class="docutils liter
 </pre></div>
 </div>
 <p>This will grab the world from our <code class="docutils literal notranslate"><span class="pre">Location</span></code>, which we will need for the actual spawning. Next, it uses
-<a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/extent/EntityUniverse.html#createEntity-org.spongepowered.api.entity.EntityType-com.flowpowered.math.vector.Vector3d-">EntityUniverse#createEntity(EntityType, Vector3d)</a> to create the entity, but do note that this does not
+<a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/world/extent/EntityUniverse.html#createEntity-org.spongepowered.api.entity.EntityType-com.flowpowered.math.vector.Vector3d-">EntityUniverse#createEntity(EntityType, Vector3d)</a> to create the entity, but do note that this does not
 spawn the entity into the world, it just will create it. We will need to specify the type of <code class="docutils literal notranslate"><span class="pre">Entity</span></code> to spawn, and
 the co-ordinates from our <code class="docutils literal notranslate"><span class="pre">Location</span></code>.</p>
 <p>Once we have created our <code class="docutils literal notranslate"><span class="pre">Entity</span></code> we can then use the world for spawning the <code class="docutils literal notranslate"><span class="pre">Entity</span></code>. We should specify a
 <code class="docutils literal notranslate"><span class="pre">Cause</span></code> for the spawning so other plugins can handle it accordingly. For spawning <code class="docutils literal notranslate"><span class="pre">Entity</span></code>s, it is best to use a
-<a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/cause/entity/spawn/SpawnType.html">SpawnType</a> as part of the context. In this example, we stated that our entity was spawned from a plugin,
+<a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/cause/entity/spawn/SpawnType.html">SpawnType</a> as part of the context. In this example, we stated that our entity was spawned from a plugin,
 however we can make it any cause/context that best describes why we are spawning this in, such as a mob spawner
-(See <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/cause/entity/spawn/SpawnTypes.html#MOB_SPAWNER">SpawnTypes#MOB_SPAWNER</a>), or spawn egg (See <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/cause/entity/spawn/SpawnTypes.html#SPAWN_EGG">SpawnTypes#SPAWN_EGG</a>).</p>
+(See <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/cause/entity/spawn/SpawnTypes.html#MOB_SPAWNER">SpawnTypes#MOB_SPAWNER</a>), or spawn egg (See <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/cause/entity/spawn/SpawnTypes.html#SPAWN_EGG">SpawnTypes#SPAWN_EGG</a>).</p>
 </div>
 
            </div>

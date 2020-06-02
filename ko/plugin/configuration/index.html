@@ -19,17 +19,6 @@
 
         <link rel="index" title="색인"
               href="../../genindex.html"/>        <link rel="search" title="검색" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 documentation" href="../../index.html"/>        <link rel="up" title="플러그인 개발하기" href="../index.html"/>        <link rel="next" title="설정 로더" href="loaders.html"/>        <link rel="prev" title="사용자 지정 이벤트" href="../event/custom.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -201,7 +190,7 @@ to store data, and they allow server administrators to customize plugin options 
 </div>
 <div class="section" id="getting-your-default-plugin-configuration">
 <span id="getting-default-config"></span><h3>나만의 플러그인 설정 갖기<a class="headerlink" href="#getting-your-default-plugin-configuration" title="제목 주소">¶</a></h3>
-<p>SpongeAPI offers the use of the <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/config/DefaultConfig.html">DefaultConfig</a> annotation on a field or setter method with the type
+<p>SpongeAPI offers the use of the <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/config/DefaultConfig.html">DefaultConfig</a> annotation on a field or setter method with the type
 <code class="docutils literal notranslate"><span class="pre">Path</span></code> to get the default configuration file for your plugin.</p>
 <p>If you place the <code class="docutils literal notranslate"><span class="pre">&#64;DefaultConfig</span></code> annotation on a field with the type
 <code class="docutils literal notranslate"><span class="pre">ConfigurationLoader&lt;CommentedConfigurationNode&gt;</span></code> then you can use it to load and save the default config file in
@@ -220,7 +209,7 @@ directory specific to your plugin.</p>
 <li>(간단한 플러그인으로써) 한 개의 설정 파일만 가질 계획이라면, <code class="docutils literal notranslate"><span class="pre">true</span></code>가 적절합니다.</li>
 </ul>
 <p>You can also obtain a <code class="docutils literal notranslate"><span class="pre">Path</span></code> instance pointing to the config directory instead of a particular file. Just
-have it injected using the <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/config/ConfigDir.html">ConfigDir</a> annotation, either with <code class="docutils literal notranslate"><span class="pre">sharedRoot</span></code> set to <code class="docutils literal notranslate"><span class="pre">false</span></code> for a plugin
+have it injected using the <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/config/ConfigDir.html">ConfigDir</a> annotation, either with <code class="docutils literal notranslate"><span class="pre">sharedRoot</span></code> set to <code class="docutils literal notranslate"><span class="pre">false</span></code> for a plugin
 specific directory or to <code class="docutils literal notranslate"><span class="pre">true</span></code> to get the shared configuration directory.</p>
 <div class="admonition note">
 <p class="first admonition-title">주석</p>

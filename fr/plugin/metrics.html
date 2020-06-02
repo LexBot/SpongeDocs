@@ -19,17 +19,6 @@
 
         <link rel="index" title="Index"
               href="../genindex.html"/>        <link rel="search" title="Recherche" href="../search.html"/>    <link rel="top" title="Documentation Sponge 7.2.0" href="../index.html"/>        <link rel="up" title="Création d’un Plugin" href="index.html"/>        <link rel="next" title="Views d’un Livre" href="bookview.html"/>        <link rel="prev" title="Bans" href="bans.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -184,9 +173,9 @@
 </div>
 <div class="section" id="checking-for-consent">
 <h2>Vérification du Consentement<a class="headerlink" href="#checking-for-consent" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Le <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/util/metric/MetricsConfigManager.html">MetricsConfigManager</a> vous permet de déterminer si votre plugin a gagné le consentement pour envoyer les metrics. Il peut être soit injecté dans la classe de votre plugin, soit obtenu sur demande via l’objet <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/Sponge.html#getMetricsConfigManager--">Sponge#getMetricsConfigManager()</a>.</p>
+<p>Le <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/util/metric/MetricsConfigManager.html">MetricsConfigManager</a> vous permet de déterminer si votre plugin a gagné le consentement pour envoyer les metrics. Il peut être soit injecté dans la classe de votre plugin, soit obtenu sur demande via l’objet <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/Sponge.html#getMetricsConfigManager--">Sponge#getMetricsConfigManager()</a>.</p>
 <p><strong>Every time</strong> your plugin wishes to send metrics, you must check the
-<a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/util/metric/MetricsConfigManager.html#getCollectionState-org.spongepowered.api.plugin.PluginContainer-">MetricsConfigManager#getCollectionState(PluginContainer)</a>, supplying the <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/plugin/PluginContainer.html">PluginContainer</a> of
+<a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/util/metric/MetricsConfigManager.html#getCollectionState-org.spongepowered.api.plugin.PluginContainer-">MetricsConfigManager#getCollectionState(PluginContainer)</a>, supplying the <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/plugin/PluginContainer.html">PluginContainer</a> of
 your plugin. Metrics must only be sent if this returns <code class="docutils literal notranslate"><span class="pre">Tristate#TRUE</span></code> for your plugin.</p>
 <p>L’exemple suivant montre comment utiliser l’injection de champ pour obtenir le <code class="docutils literal notranslate"><span class="pre">MetricsConfigManager</span></code> et le <code class="docutils literal notranslate"><span class="pre">PluginContainer</span></code> pour votre plugin, et les utilise pour déterminer si le consentement pour envoyer les metrics a été obtenu.</p>
 <p><strong>Exemple</strong></p>

@@ -19,17 +19,6 @@
 
         <link rel="index" title="索引"
               href="../../genindex.html"/>        <link rel="search" title="搜尋" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 說明文件" href="../../index.html"/>        <link rel="up" title="世界生成" href="index.html"/>        <link rel="next" title="插件管理器" href="../manager.html"/>        <link rel="prev" title="世界生成修改器" href="modifiers.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -182,7 +171,7 @@
 <h2>改变原版世界生成<a class="headerlink" href="#modifying-vanilla-generation" title="本標題的永久連結">¶</a></h2>
 <div class="admonition note">
 <p class="first admonition-title">備註</p>
-<p class="last">该部分假设读者已经对 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/gen/WorldGeneratorModifier.html">WorldGeneratorModifier</a> 足够熟悉，如果并非如此，请先阅读 <a class="reference internal" href="modifiers.html"><span class="doc">世界生成修改器</span></a> 部分。</p>
+<p class="last">该部分假设读者已经对 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/world/gen/WorldGeneratorModifier.html">WorldGeneratorModifier</a> 足够熟悉，如果并非如此，请先阅读 <a class="reference internal" href="modifiers.html"><span class="doc">世界生成修改器</span></a> 部分。</p>
 </div>
 <p>Sponge 提供了大量的原版世界生成的接口用于进行各种操作。目前，世界生成过程中唯一 <em>易于</em> 操作的阶段是 Population 阶段。</p>
 <p>作为一个简单的示例，我们来看看我们如何修改沙漠中生成的仙人掌以使其高一些。</p>
@@ -200,10 +189,10 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>首先我们从获取沙漠生物群落对应的 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/biome/BiomeGenerationSettings.html">BiomeGenerationSettings</a> 开始。该对象保存了所有有关于该生物群落的世界生成的配置。然后我们需要找到用于仙人掌的世界生成，也就是所有的 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/gen/populator/Cactus.html">Cactus</a> ，并将其高度设置为五。换句话说，我们设置了所有世界生成中的仙人掌的高度为五。</p>
+<p>首先我们从获取沙漠生物群落对应的 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/world/biome/BiomeGenerationSettings.html">BiomeGenerationSettings</a> 开始。该对象保存了所有有关于该生物群落的世界生成的配置。然后我们需要找到用于仙人掌的世界生成，也就是所有的 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/world/gen/populator/Cactus.html">Cactus</a> ，并将其高度设置为五。换句话说，我们设置了所有世界生成中的仙人掌的高度为五。</p>
 <div class="admonition note">
 <p class="first admonition-title">備註</p>
-<p class="last"><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/gen/populator/Cactus.html#setHeight-int-">Cactus#setHeight(int)</a> 以及众多类似的方法同时可以接受一个 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/util/weighted/VariableAmount.html">VariableAmount</a> 作为参数以允许开发者自定义高度为一个范围或其他自定义值。</p>
+<p class="last"><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/world/gen/populator/Cactus.html#setHeight-int-">Cactus#setHeight(int)</a> 以及众多类似的方法同时可以接受一个 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/util/weighted/VariableAmount.html">VariableAmount</a> 作为参数以允许开发者自定义高度为一个范围或其他自定义值。</p>
 </div>
 <p>这是一个如何修改现有世界生成的简单示例。让我们来看看我们如何添加一个新的世界生成。这一次，我们将在所有的世界生成中添加，这意味着它将不考虑特定生物群落而应用于所有地方。让我们在所有的世界生成中添加南瓜的生成，使南瓜散布到世界各地。</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.world.gen.populator.Pumpkin</span><span class="p">;</span>
@@ -225,7 +214,7 @@
 </div>
 <div class="section" id="creating-custom-base-terrain">
 <h2>创建自定义地形<a class="headerlink" href="#creating-custom-base-terrain" title="本標題的永久連結">¶</a></h2>
-<p>通过修改世界的基础 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/gen/GenerationPopulator.html">GenerationPopulator</a> 你可以自定义世界的地形生成。一个 <code class="docutils literal notranslate"><span class="pre">GenerationPopulator</span></code> 将粗略地遵循使用种子和生物群落信息来生成一系列噪声图的过程，由此形成地形。在修改的 <code class="docutils literal notranslate"><span class="pre">GenerationPopulator</span></code> 中创建的地形应当仅由石块组成，以允许生物群落适当地替换用于特定生物群落的覆盖方块。</p>
+<p>通过修改世界的基础 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/world/gen/GenerationPopulator.html">GenerationPopulator</a> 你可以自定义世界的地形生成。一个 <code class="docutils literal notranslate"><span class="pre">GenerationPopulator</span></code> 将粗略地遵循使用种子和生物群落信息来生成一系列噪声图的过程，由此形成地形。在修改的 <code class="docutils literal notranslate"><span class="pre">GenerationPopulator</span></code> 中创建的地形应当仅由石块组成，以允许生物群落适当地替换用于特定生物群落的覆盖方块。</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">SinusoidalGenerator</span> <span class="kd">implements</span> <span class="n">GenerationPopulator</span> <span class="p">{</span>
 
     <span class="nd">@Override</span>
@@ -276,7 +265,7 @@
 </div>
 <div class="section" id="creating-custom-biomes">
 <h2>创建自定义生物群落<a class="headerlink" href="#creating-custom-biomes" title="本標題的永久連結">¶</a></h2>
-<p>虽然在 Sponge 中并不能新添加生物群落，不过你可以通过实现 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/gen/BiomeGenerator.html">BiomeGenerator</a> 接口来替代世界原有的生成系统同时将其设置成自己的。</p>
+<p>虽然在 Sponge 中并不能新添加生物群落，不过你可以通过实现 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/world/gen/BiomeGenerator.html">BiomeGenerator</a> 接口来替代世界原有的生成系统同时将其设置成自己的。</p>
 <p>下面是一个在 X 坐标和 Z 坐标均为零的地方生成一个大岛屿的示例。</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">IslandBiomeGen</span> <span class="kd">implements</span> <span class="n">BiomeGenerator</span> <span class="p">{</span>
 

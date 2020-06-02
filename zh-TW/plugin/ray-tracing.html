@@ -19,17 +19,6 @@
 
         <link rel="index" title="索引"
               href="../genindex.html"/>        <link rel="search" title="搜尋" href="../search.html"/>    <link rel="top" title="Sponge 7.2.0 說明文件" href="../index.html"/>        <link rel="up" title="建立插件" href="index.html"/>        <link rel="next" title="插件除錯" href="debugging.html"/>        <link rel="prev" title="插件元數據" href="plugin-meta.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -166,13 +155,13 @@
            <div itemprop="articleBody">
   <div class="section" id="ray-tracing">
 <h1>光線追蹤<a class="headerlink" href="#ray-tracing" title="本標題的永久連結">¶</a></h1>
-<p>通常说来，光线追踪的用处是确定粒子通过指定坐标系的路径。在 SpongeAPI 中，解决问题的是 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/util/blockray/BlockRay.html">BlockRay</a> 类，该类的作用就是发现空间中任意路径经历的方块。一个常见的用法可能是找到一个 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/living/player/Player.html">Player</a> 正在观察的方块。</p>
-<p>你可以通过使用 <code class="docutils literal notranslate"><span class="pre">BlockRay#from</span></code> 方法，并传入一个 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/Location.html">Location</a> 、一个 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/extent/Extent.html">Extent</a> 和一个 <code class="docutils literal notranslate"><span class="pre">Vector3d</span></code> ，或者只传入一个 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/Entity.html">Entity</a> ，来指定光线的起始点。该方法将返回一个 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/util/blockray/BlockRay.BlockRayBuilder.html">BlockRay.BlockRayBuilder</a> 。</p>
+<p>通常说来，光线追踪的用处是确定粒子通过指定坐标系的路径。在 SpongeAPI 中，解决问题的是 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/util/blockray/BlockRay.html">BlockRay</a> 类，该类的作用就是发现空间中任意路径经历的方块。一个常见的用法可能是找到一个 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/living/player/Player.html">Player</a> 正在观察的方块。</p>
+<p>你可以通过使用 <code class="docutils literal notranslate"><span class="pre">BlockRay#from</span></code> 方法，并传入一个 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/world/Location.html">Location</a> 、一个 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/world/extent/Extent.html">Extent</a> 和一个 <code class="docutils literal notranslate"><span class="pre">Vector3d</span></code> ，或者只传入一个 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/Entity.html">Entity</a> ，来指定光线的起始点。该方法将返回一个 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/util/blockray/BlockRay.BlockRayBuilder.html">BlockRay.BlockRayBuilder</a> 。</p>
 <div class="admonition tip">
 <p class="first admonition-title">小訣竅</p>
 <p class="last">如果你指定光线追踪的原点为 <code class="docutils literal notranslate"><span class="pre">Entity</span></code> ，那么默认方向将是 <code class="docutils literal notranslate"><span class="pre">Entity</span></code> 所指向的方向。</p>
 </div>
-<p>如果你想要指定终点，你可以通过使用 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/util/blockray/BlockRay.BlockRayBuilder.html#to-com.flowpowered.math.vector.Vector3d-">BlockRay.BlockRayBuilder#to(Vector3d)</a> 方法。该方法将同时设置方向和终点。此外，你也可以使用 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/util/blockray/BlockRay.BlockRayBuilder.html#direction-com.flowpowered.math.vector.Vector3d-">BlockRay.BlockRayBuilder#direction(Vector3d)</a> 方法指定一个方向，然后通过 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/util/blockray/BlockRay.BlockRayBuilder.html#distanceLimit-double-">BlockRay.BlockRayBuilder#distanceLimit(double)</a> 方法指定距离的限制。</p>
+<p>如果你想要指定终点，你可以通过使用 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/util/blockray/BlockRay.BlockRayBuilder.html#to-com.flowpowered.math.vector.Vector3d-">BlockRay.BlockRayBuilder#to(Vector3d)</a> 方法。该方法将同时设置方向和终点。此外，你也可以使用 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/util/blockray/BlockRay.BlockRayBuilder.html#direction-com.flowpowered.math.vector.Vector3d-">BlockRay.BlockRayBuilder#direction(Vector3d)</a> 方法指定一个方向，然后通过 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/util/blockray/BlockRay.BlockRayBuilder.html#distanceLimit-double-">BlockRay.BlockRayBuilder#distanceLimit(double)</a> 方法指定距离的限制。</p>
 <div class="admonition note">
 <p class="first admonition-title">備註</p>
 <p class="last">默认的距离限制为 1000 个方块，这个数字已经接近无穷了，它的存在意义只是作为防止无限迭代的保护措施。如要禁用数量方块限制，你可以将一个负数传入 <code class="docutils literal notranslate"><span class="pre">BlockRayBuilder#distanceLimit(double)</span></code> 方法。</p>
@@ -184,12 +173,12 @@
 <div><ul class="simple">
 <li><code class="docutils literal notranslate"><span class="pre">allFilter</span></code> ：所有方块都可以通过筛选</li>
 <li><code class="docutils literal notranslate"><span class="pre">onlyAirFilter</span></code> ：只有空气方块可以通过筛选</li>
-<li><code class="docutils literal notranslate"><span class="pre">blockTypeFilter(BlockType)</span></code> ：只有给定的 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/block/BlockType.html">BlockType</a> 可以通过筛选</li>
+<li><code class="docutils literal notranslate"><span class="pre">blockTypeFilter(BlockType)</span></code> ：只有给定的 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/block/BlockType.html">BlockType</a> 可以通过筛选</li>
 <li><code class="docutils literal notranslate"><span class="pre">continueAfterFilter(Predicate&lt;BlockRayHit&lt;E&gt;&gt;,</span> <span class="pre">int)</span></code> ：不仅通过指定筛选器的方块可以通过筛选，在第一个不满足指定筛选器的方块出现后的指定数量的所有方块都可以通过筛选。</li>
 </ul>
 </div></blockquote>
 <p>当然，你也可以写你自己的 <code class="docutils literal notranslate"><span class="pre">Predicate&lt;BlockRayHit&lt;E&gt;&gt;</span></code> 筛选器。</p>
-<p>最后，调用 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/util/blockray/BlockRay.BlockRayBuilder.html#build--">BlockRay.BlockRayBuilder#build()</a> 方法生成一个 <code class="docutils literal notranslate"><span class="pre">BlockRay</span></code> 。下面是一个使用 <code class="docutils literal notranslate"><span class="pre">BlockRayBuilder</span></code> 以试图追踪玩家查看的第一个非空气方块的示例：</p>
+<p>最后，调用 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/util/blockray/BlockRay.BlockRayBuilder.html#build--">BlockRay.BlockRayBuilder#build()</a> 方法生成一个 <code class="docutils literal notranslate"><span class="pre">BlockRay</span></code> 。下面是一个使用 <code class="docutils literal notranslate"><span class="pre">BlockRayBuilder</span></code> 以试图追踪玩家查看的第一个非空气方块的示例：</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.entity.living.player.Player</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.spongepowered.api.util.blockray.BlockRay</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.spongepowered.api.world.World</span><span class="p">;</span>

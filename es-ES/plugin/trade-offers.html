@@ -19,17 +19,6 @@
 
         <link rel="index" title="Índice"
               href="../genindex.html"/>        <link rel="search" title="Búsqueda" href="../search.html"/>    <link rel="top" title="documentación de Sponge - 7.2.0" href="../index.html"/>        <link rel="up" title="Creando un Plugin" href="index.html"/>        <link rel="next" title="Efectos" href="effects.html"/>        <link rel="prev" title="Creando un ItemStack" href="items/creating.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -166,24 +155,24 @@
            <div itemprop="articleBody">
   <div class="section" id="trade-offers">
 <h1>Ofertas de Intercambio<a class="headerlink" href="#trade-offers" title="Enlazar permanentemente con este título">¶</a></h1>
-<p>Este tema cubre el <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/item/merchant/TradeOffer.html">TradeOffer</a> dentro del juego ofrecido por <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/living/Villager.html">Villager</a>s/<a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/item/merchant/Merchant.html">Merchant</a>s.</p>
+<p>Este tema cubre el <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/item/merchant/TradeOffer.html">TradeOffer</a> dentro del juego ofrecido por <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/living/Villager.html">Villager</a>s/<a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/item/merchant/Merchant.html">Merchant</a>s.</p>
 <div class="section" id="merchant">
 <h2>Mercante<a class="headerlink" href="#merchant" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Un <code class="docutils literal notranslate"><span class="pre">Merchant</span></code> es un contenedor para <code class="docutils literal notranslate"><span class="pre">TradeOffers</span></code>. Su variable más común es el <code class="docutils literal notranslate"><span class="pre">Villager</span></code>. La interfaz del <code class="docutils literal notranslate"><span class="pre">Merchant</span></code> puede ser utilizada para abrir ventanas de intercambio.</p>
-<p>Los <code class="docutils literal notranslate"><span class="pre">TradeOffers</span></code> pueden ser añadidos a y removidos de los <code class="docutils literal notranslate"><span class="pre">Merchants</span></code> usando <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/manipulator/mutable/entity/TradeOfferData.html">TradeOfferData</a>.</p>
+<p>Los <code class="docutils literal notranslate"><span class="pre">TradeOffers</span></code> pueden ser añadidos a y removidos de los <code class="docutils literal notranslate"><span class="pre">Merchants</span></code> usando <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/manipulator/mutable/entity/TradeOfferData.html">TradeOfferData</a>.</p>
 </div>
 <div class="section" id="tradeoffer">
 <h2>Oferta de Intercambio<a class="headerlink" href="#tradeoffer" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Una oferta de intercambio consiste en</p>
 <ul class="simple">
-<li>a primary/first buying <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/item/inventory/ItemStackSnapshot.html">ItemStackSnapshot</a></li>
+<li>a primary/first buying <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/item/inventory/ItemStackSnapshot.html">ItemStackSnapshot</a></li>
 <li>una segunda compra opcional <code class="docutils literal notranslate"><span class="pre">ItemStackSnapshot</span></code></li>
 <li>una venta <code class="docutils literal notranslate"><span class="pre">ItemStackSnapshot</span></code></li>
 <li>already used uses</li>
 <li>usos maximos disponibles</li>
 <li>una bandera indica si las particulas de experiencia se generan al intercambiar</li>
 </ul>
-<p>El <code class="docutils literal notranslate"><span class="pre">TradeOffers</span></code> puede ser creado usando a un <code class="docutils literal notranslate"><span class="pre">Builder</span></code> o un <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/item/merchant/TradeOfferGenerator.html">TradeOfferGenerator</a>.</p>
+<p>El <code class="docutils literal notranslate"><span class="pre">TradeOffers</span></code> puede ser creado usando a un <code class="docutils literal notranslate"><span class="pre">Builder</span></code> o un <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/item/merchant/TradeOfferGenerator.html">TradeOfferGenerator</a>.</p>
 <div class="section" id="tradeofferbuilder">
 <h3>ConstructordeOfertasdeIntercambio<a class="headerlink" href="#tradeofferbuilder" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Los <code class="docutils literal notranslate"><span class="pre">TradeOfferBuilders``son</span> <span class="pre">usados</span> <span class="pre">principalmente</span> <span class="pre">si</span> <span class="pre">desea</span> <span class="pre">crear</span> <span class="pre">dinamicamente</span> <span class="pre">``TradeOffers</span></code> sobre la marcha.</p>
@@ -200,10 +189,10 @@
 </div>
 <div class="section" id="tradeofferlistmutator">
 <h3>MuteadorDeListaDeOfertasDeIntercambio<a class="headerlink" href="#tradeofferlistmutator" title="Enlazar permanentemente con este título">¶</a></h3>
-<p>A <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/item/merchant/TradeOfferListMutator.html">TradeOfferListMutator</a> is an interface that is invoked during <code class="docutils literal notranslate"><span class="pre">Villager</span></code> level ups.
+<p>A <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/item/merchant/TradeOfferListMutator.html">TradeOfferListMutator</a> is an interface that is invoked during <code class="docutils literal notranslate"><span class="pre">Villager</span></code> level ups.
 It can be used to replace existing <code class="docutils literal notranslate"><span class="pre">TradeOffers</span></code> (e.g. higher tier) and add new <code class="docutils literal notranslate"><span class="pre">TradeOffers</span></code>.
 Its simplest and only API provided variant is the <code class="docutils literal notranslate"><span class="pre">TradeOfferGenerator</span></code>.
-The different <code class="docutils literal notranslate"><span class="pre">TradeOfferListMutators</span></code> for each level and <code class="docutils literal notranslate"><span class="pre">Career</span></code> can be configured in the <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/item/merchant/VillagerRegistry.html">VillagerRegistry</a>.</p>
+The different <code class="docutils literal notranslate"><span class="pre">TradeOfferListMutators</span></code> for each level and <code class="docutils literal notranslate"><span class="pre">Career</span></code> can be configured in the <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/item/merchant/VillagerRegistry.html">VillagerRegistry</a>.</p>
 <div class="admonition note">
 <p class="first admonition-title">Nota</p>
 <p class="last">La lista de <code class="docutils literal notranslate"><span class="pre">TradeOffer</span></code> en <code class="docutils literal notranslate"><span class="pre">Villagers</span></code> podría generarse lentamente cuando se abre el inventario por primera vez.</p>
@@ -237,7 +226,7 @@ The different <code class="docutils literal notranslate"><span class="pre">Trade
 </div>
 <div class="section" id="villagerregistry">
 <h2>VillagerRegistry<a class="headerlink" href="#villagerregistry" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">VillagerRegistry</span></code> can be obtained from the <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/GameRegistry.html">GameRegistry</a>. It will be used to configure the
+<p>The <code class="docutils literal notranslate"><span class="pre">VillagerRegistry</span></code> can be obtained from the <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/GameRegistry.html">GameRegistry</a>. It will be used to configure the
 <code class="docutils literal notranslate"><span class="pre">TradeOfferListMutator</span></code> that will be applied on a <code class="docutils literal notranslate"><span class="pre">Villager</span></code>’s level-up.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">VillagerRegistry</span> <span class="n">villagerRegistry</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="na">game</span><span class="p">.</span><span class="na">getRegistry</span><span class="p">().</span><span class="na">getVillagerRegistry</span><span class="p">();</span>
 <span class="n">List</span><span class="o">&lt;</span><span class="n">TradeOfferListMutator</span><span class="o">&gt;</span> <span class="n">generators</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="n">villagerRegistry</span><span class="p">.</span><span class="na">getMutatorsForCareer</span><span class="p">(</span><span class="n">Careers</span><span class="p">.</span><span class="na">FARMER</span><span class="p">,</span> <span class="mi">1</span><span class="p">));</span>

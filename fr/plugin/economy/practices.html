@@ -19,17 +19,6 @@
 
         <link rel="index" title="Index"
               href="../../genindex.html"/>        <link rel="search" title="Recherche" href="../../search.html"/>    <link rel="top" title="Documentation Sponge 7.2.0" href="../../index.html"/>        <link rel="up" title="Économie" href="index.html"/>        <link rel="next" title="Implémentation de l’API Economy" href="implementing.html"/>        <link rel="prev" title="Utiliser l’API Economy" href="using.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -202,7 +191,7 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>Au lieu de cela, la meilleure chose à faire est de simplement retirer la somme d’argent dont vous avez besoin et de vérifier le <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/economy/transaction/ResultType.html">ResultType</a> du <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/economy/transaction/TransactionResult.html">TransactionResult</a>. Un plugin d’économie qui ne veut pas accepter de soldes négatifs doit simplement retourner <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/economy/transaction/ResultType.html#ACCOUNT_NO_FUNDS">ResultType#ACCOUNT_NO_FUNDS</a>, ou <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/economy/transaction/ResultType.html#FAILED">ResultType#FAILED</a> en ce cas.</p>
+<p>Au lieu de cela, la meilleure chose à faire est de simplement retirer la somme d’argent dont vous avez besoin et de vérifier le <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/economy/transaction/ResultType.html">ResultType</a> du <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/economy/transaction/TransactionResult.html">TransactionResult</a>. Un plugin d’économie qui ne veut pas accepter de soldes négatifs doit simplement retourner <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/economy/transaction/ResultType.html#ACCOUNT_NO_FUNDS">ResultType#ACCOUNT_NO_FUNDS</a>, ou <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/economy/transaction/ResultType.html#FAILED">ResultType#FAILED</a> en ce cas.</p>
 <p>Voici comment vous <strong>devez</strong> retirer de l’argent:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.event.cause.Cause</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.spongepowered.api.event.cause.EventContext</span><span class="p">;</span>

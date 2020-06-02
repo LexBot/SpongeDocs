@@ -19,17 +19,6 @@
 
         <link rel="index" title="索引"
               href="../genindex.html"/>        <link rel="search" title="搜索" href="../search.html"/>    <link rel="top" title="Sponge 7.2.0 文档" href="../index.html"/>        <link rel="up" title="插件开发" href="index.html"/>        <link rel="next" title="效果" href="effects.html"/>        <link rel="prev" title="物品的创建" href="items/creating.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -166,24 +155,24 @@
            <div itemprop="articleBody">
   <div class="section" id="trade-offers">
 <h1>村民交易<a class="headerlink" href="#trade-offers" title="永久链接至标题">¶</a></h1>
-<p>这里介绍了游戏中的 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/living/Villager.html">Villager</a> 或 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/item/merchant/Merchant.html">Merchant</a> （村民或商人）提供的 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/item/merchant/TradeOffer.html">TradeOffer</a> （交易）。</p>
+<p>这里介绍了游戏中的 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/living/Villager.html">Villager</a> 或 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/item/merchant/Merchant.html">Merchant</a> （村民或商人）提供的 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/item/merchant/TradeOffer.html">TradeOffer</a> （交易）。</p>
 <div class="section" id="merchant">
 <h2>商人<a class="headerlink" href="#merchant" title="永久链接至标题">¶</a></h2>
 <p>一个 <code class="docutils literal notranslate"><span class="pre">Merchant</span></code> 存储着若干 <code class="docutils literal notranslate"><span class="pre">TradeOffer</span></code> 。商人的最常见形式是 <code class="docutils literal notranslate"><span class="pre">Villager</span></code> ，而更一般的 <code class="docutils literal notranslate"><span class="pre">Merchant</span></code> 接口代表其可以打开一个交易界面。</p>
-<p>可以通过 <code class="docutils literal notranslate"><span class="pre">Merchant</span></code> 的 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/manipulator/mutable/entity/TradeOfferData.html">TradeOfferData</a> 来存储和移除 <code class="docutils literal notranslate"><span class="pre">TradeOffer</span></code> 。</p>
+<p>可以通过 <code class="docutils literal notranslate"><span class="pre">Merchant</span></code> 的 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/manipulator/mutable/entity/TradeOfferData.html">TradeOfferData</a> 来存储和移除 <code class="docutils literal notranslate"><span class="pre">TradeOffer</span></code> 。</p>
 </div>
 <div class="section" id="tradeoffer">
 <h2>交易<a class="headerlink" href="#tradeoffer" title="永久链接至标题">¶</a></h2>
 <p>一个交易包括</p>
 <ul class="simple">
-<li>商人希望购买的第一个（主） <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/item/inventory/ItemStackSnapshot.html">ItemStackSnapshot</a></li>
+<li>商人希望购买的第一个（主） <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/item/inventory/ItemStackSnapshot.html">ItemStackSnapshot</a></li>
 <li>商人希望购买的第二个（可选） <code class="docutils literal notranslate"><span class="pre">ItemStackSnapshot</span></code></li>
 <li>一个用于商人出售的 <code class="docutils literal notranslate"><span class="pre">ItemStackSnapshot</span></code></li>
 <li>已经产生的交易次数</li>
 <li>可用于交易的最大次数</li>
 <li>一个用于判定什么时候生成经验球的标志</li>
 </ul>
-<p>可以通过一个 <code class="docutils literal notranslate"><span class="pre">Builder</span></code> （交易生成器）或者 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/item/merchant/TradeOfferGenerator.html">TradeOfferGenerator</a> 创建 <code class="docutils literal notranslate"><span class="pre">TradeOffer</span></code> 。</p>
+<p>可以通过一个 <code class="docutils literal notranslate"><span class="pre">Builder</span></code> （交易生成器）或者 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/item/merchant/TradeOfferGenerator.html">TradeOfferGenerator</a> 创建 <code class="docutils literal notranslate"><span class="pre">TradeOffer</span></code> 。</p>
 <div class="section" id="tradeofferbuilder">
 <h3>交易生成器<a class="headerlink" href="#tradeofferbuilder" title="永久链接至标题">¶</a></h3>
 <p>交易生成器（ <code class="docutils literal notranslate"><span class="pre">TradeOfferBuilder</span></code> ）主要用于开发者随手创建的临时的交易。</p>
@@ -200,7 +189,7 @@
 </div>
 <div class="section" id="tradeofferlistmutator">
 <h3>交易列表修改器<a class="headerlink" href="#tradeofferlistmutator" title="永久链接至标题">¶</a></h3>
-<p>交易列表修改器（ <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/item/merchant/TradeOfferListMutator.html">TradeOfferListMutator</a> ）是一个会在 <code class="docutils literal notranslate"><span class="pre">Villager</span></code> 升级时调用的接口。它可以用于替换现有（或更高等级）的 <code class="docutils literal notranslate"><span class="pre">TradeOffer</span></code> 或添加新的 <code class="docutils literal notranslate"><span class="pre">TradeOffer</span></code> 。它的最简单的也是目前 API 唯一提供的变种是 <code class="docutils literal notranslate"><span class="pre">TradeOfferGenerator</span></code> 。不同的等级和不同的 <code class="docutils literal notranslate"><span class="pre">Career</span></code> 的 <code class="docutils literal notranslate"><span class="pre">TradeOfferListMutator</span></code> 可以在 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/item/merchant/VillagerRegistry.html">VillagerRegistry</a> 中配置。</p>
+<p>交易列表修改器（ <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/item/merchant/TradeOfferListMutator.html">TradeOfferListMutator</a> ）是一个会在 <code class="docutils literal notranslate"><span class="pre">Villager</span></code> 升级时调用的接口。它可以用于替换现有（或更高等级）的 <code class="docutils literal notranslate"><span class="pre">TradeOffer</span></code> 或添加新的 <code class="docutils literal notranslate"><span class="pre">TradeOffer</span></code> 。它的最简单的也是目前 API 唯一提供的变种是 <code class="docutils literal notranslate"><span class="pre">TradeOfferGenerator</span></code> 。不同的等级和不同的 <code class="docutils literal notranslate"><span class="pre">Career</span></code> 的 <code class="docutils literal notranslate"><span class="pre">TradeOfferListMutator</span></code> 可以在 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/item/merchant/VillagerRegistry.html">VillagerRegistry</a> 中配置。</p>
 <div class="admonition note">
 <p class="first admonition-title">注解</p>
 <p class="last"><code class="docutils literal notranslate"><span class="pre">Villager</span></code> 的 <code class="docutils literal notranslate"><span class="pre">TradeOffer</span></code> 列表可能只会在村民交易界面打开时惰性生成。</p>
@@ -234,7 +223,7 @@
 </div>
 <div class="section" id="villagerregistry">
 <h2>对村民的修改<a class="headerlink" href="#villagerregistry" title="永久链接至标题">¶</a></h2>
-<p>可以通过 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/GameRegistry.html">GameRegistry</a> 类获取到 <code class="docutils literal notranslate"><span class="pre">VillagerRegistry</span></code> 用于修改村民的相关交易。通过配置 <code class="docutils literal notranslate"><span class="pre">TradeOfferListMutator</span></code> 我们可以自定义 <code class="docutils literal notranslate"><span class="pre">Villager</span></code> 升级时会发生的行为。</p>
+<p>可以通过 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/GameRegistry.html">GameRegistry</a> 类获取到 <code class="docutils literal notranslate"><span class="pre">VillagerRegistry</span></code> 用于修改村民的相关交易。通过配置 <code class="docutils literal notranslate"><span class="pre">TradeOfferListMutator</span></code> 我们可以自定义 <code class="docutils literal notranslate"><span class="pre">Villager</span></code> 升级时会发生的行为。</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">VillagerRegistry</span> <span class="n">villagerRegistry</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="na">game</span><span class="p">.</span><span class="na">getRegistry</span><span class="p">().</span><span class="na">getVillagerRegistry</span><span class="p">();</span>
 <span class="n">List</span><span class="o">&lt;</span><span class="n">TradeOfferListMutator</span><span class="o">&gt;</span> <span class="n">generators</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="n">villagerRegistry</span><span class="p">.</span><span class="na">getMutatorsForCareer</span><span class="p">(</span><span class="n">Careers</span><span class="p">.</span><span class="na">FARMER</span><span class="p">,</span> <span class="mi">1</span><span class="p">));</span>
 <span class="n">generators</span><span class="p">.</span><span class="na">addAll</span><span class="p">(</span><span class="n">additionalFarmerLevel1TradeOffers</span><span class="p">());</span>

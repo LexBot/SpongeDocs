@@ -19,17 +19,6 @@
 
         <link rel="index" title="Indeks"
               href="../../genindex.html"/>        <link rel="search" title="Pencarian" href="../../search.html"/>    <link rel="top" title="dokumentasi Sponge 7.2.0" href="../../index.html"/>        <link rel="up" title="Blok" href="index.html"/>        <link rel="next" title="Memodifikasi Blok" href="modifying.html"/>        <link rel="prev" title="Konsep" href="concepts.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -210,8 +199,8 @@
 </div>
 <div class="section" id="block-data-manipulators">
 <h2>Blokir Manipulator Data<a class="headerlink" href="#block-data-manipulators" title="Link permanen untuk headline ini">¶</a></h2>
-<p>Data dari sebuah blok dipegang sebagai <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/manipulator/DataManipulator.html">DataManipulator</a>, mirip dengan bagian API lainnya. Ini adalah wadah yang menyimpan informasi tentang komponen blok kita seperti orientasi blok, tipe tertentu (batu vs. granit), dan sebagainya. Memeriksa nilai manipulator ini mudah dilakukan, Anda hanya perlu memeriksa arah blok
-<a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/manipulator/mutable/block/DirectionalData.html">DirectionalData</a>.</p>
+<p>Data dari sebuah blok dipegang sebagai <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/manipulator/DataManipulator.html">DataManipulator</a>, mirip dengan bagian API lainnya. Ini adalah wadah yang menyimpan informasi tentang komponen blok kita seperti orientasi blok, tipe tertentu (batu vs. granit), dan sebagainya. Memeriksa nilai manipulator ini mudah dilakukan, Anda hanya perlu memeriksa arah blok
+<a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/manipulator/mutable/block/DirectionalData.html">DirectionalData</a>.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.data.key.Keys</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.spongepowered.api.data.manipulator.mutable.block.DirectionalData</span><span class="p">;</span>
 
@@ -276,8 +265,8 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>This will get the blast resistance of our block and compare it to a new <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/property/DoubleProperty.html">DoubleProperty</a>, as
-<a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/property/block/BlastResistanceProperty.html">BlastResistanceProperty</a> inherits from <code class="docutils literal notranslate"><span class="pre">DoubleProperty</span></code>. The method will then return if the blast
+<p>This will get the blast resistance of our block and compare it to a new <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/property/DoubleProperty.html">DoubleProperty</a>, as
+<a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/property/block/BlastResistanceProperty.html">BlastResistanceProperty</a> inherits from <code class="docutils literal notranslate"><span class="pre">DoubleProperty</span></code>. The method will then return if the blast
 resistance of our block is greater than one, the value in placed <code class="docutils literal notranslate"><span class="pre">matches()</span></code>. If we wanted to see if it was less than
 two, we would replace the property operator in the <code class="docutils literal notranslate"><span class="pre">DoubleProperty</span></code> ctor  with <code class="docutils literal notranslate"><span class="pre">Property.Operator.LESS</span></code>.</p>
 <p>Jika kita membandingkan dua properti yang sudah ada sebelumnya, maka akan mengambil `` Operator`` dari nilai pertama kita, yang kita buat sebagai properti ganda. Jika `` Operator` `` <cite>DELEGATE`</cite>, yang merupakan operator none, maka akan mengambil` <cite>Operator`</cite> dari nilai kedua, yang di` <cite>cocok ()</cite> <cite>. Perbandingan akan kembali salah jika keduanya `</cite> DELEGATE``. Contoh membandingkan dua
@@ -303,11 +292,11 @@ two, we would replace the property operator in the <code class="docutils literal
 </pre></div>
 </div>
 <p>Cek kedua `` if`` memeriksa apakah salah satu propertinya benar. Jika benar dan keduanya sama, maka kedua nilai itu pasti benar. Karena itu, hilangkan kebutuhan untuk mengecek nilai kedua. Sekarang kita tahu bahwa kedua blok itu didukung.</p>
-<p>A list of possible block properties can be found in the <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/property/block/package-summary.html">org.spongepowered.api.data.property.block</a> package.</p>
+<p>A list of possible block properties can be found in the <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/property/block/package-summary.html">org.spongepowered.api.data.property.block</a> package.</p>
 </div>
 <div class="section" id="block-traits">
 <h2>Sifat blok<a class="headerlink" href="#block-traits" title="Link permanen untuk headline ini">¶</a></h2>
-<p>Sifat blok adalah nilai tertentu pada keadaan blok saat ini. Blok mungkin atau mungkin tidak mengandung sifat-sifat blok, tergantung pada jenis bloknya. Misalnya, tempat tidur memiliki <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/block/trait/BooleanTrait.html">BooleanTrait</a> bernama` <cite>BED_OCCUPIED`</cite>.Sebagai boolean hanya dapat memiliki dua nilai, benar dan salah, karakter `` BED_OCCUPIED`` hanya bisa benar atau salah. Memeriksa nilai ini sederhana, cukup hubungi metode <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/block/BlockState.html#getTraitValue-org.spongepowered.api.block.trait.BlockTrait-">BlockState#getTraitValue(BlockTrait)</a>. Contohnya dengan tempat tidur ditunjukkan di bawah ini:</p>
+<p>Sifat blok adalah nilai tertentu pada keadaan blok saat ini. Blok mungkin atau mungkin tidak mengandung sifat-sifat blok, tergantung pada jenis bloknya. Misalnya, tempat tidur memiliki <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/block/trait/BooleanTrait.html">BooleanTrait</a> bernama` <cite>BED_OCCUPIED`</cite>.Sebagai boolean hanya dapat memiliki dua nilai, benar dan salah, karakter `` BED_OCCUPIED`` hanya bisa benar atau salah. Memeriksa nilai ini sederhana, cukup hubungi metode <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/block/BlockState.html#getTraitValue-org.spongepowered.api.block.trait.BlockTrait-">BlockState#getTraitValue(BlockTrait)</a>. Contohnya dengan tempat tidur ditunjukkan di bawah ini:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.block.trait.BooleanTraits</span><span class="p">;</span>
 
 <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isBedOccupied</span><span class="p">(</span><span class="n">Location</span><span class="o">&lt;</span><span class="n">World</span><span class="o">&gt;</span> <span class="n">blockLoc</span><span class="p">)</span> <span class="p">{</span>

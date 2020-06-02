@@ -19,17 +19,6 @@
 
         <link rel="index" title="Indeks"
               href="../genindex.html"/>        <link rel="search" title="Pencarian" href="../search.html"/>    <link rel="top" title="dokumentasi Sponge 7.2.0" href="../index.html"/>        <link rel="up" title="Membuat Plugin" href="index.html"/>        <link rel="next" title="Hak akses" href="permissions.html"/>        <link rel="prev" title="Layanan" href="services.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -217,7 +206,7 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>URL JDBC seharusnya diperoleh dari <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/sql/SqlService.html#getConnectionUrlFromAlias-java.lang.String-">SqlService#getConnectionUrlFromAlias(String)</a>, dengan sebuah alias yang cocok dengan salah satu dari alias URL JDBC yang terdaftar dalam konfigurasi Sponge global (<code class="docutils literal notranslate"><span class="pre">config/sponge/global.conf</span></code>) di bawah kunci <code class="docutils literal notranslate"><span class="pre">sponge.sql.aliases</span></code>.</p>
+<p>URL JDBC seharusnya diperoleh dari <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/sql/SqlService.html#getConnectionUrlFromAlias-java.lang.String-">SqlService#getConnectionUrlFromAlias(String)</a>, dengan sebuah alias yang cocok dengan salah satu dari alias URL JDBC yang terdaftar dalam konfigurasi Sponge global (<code class="docutils literal notranslate"><span class="pre">config/sponge/global.conf</span></code>) di bawah kunci <code class="docutils literal notranslate"><span class="pre">sponge.sql.aliases</span></code>.</p>
 <p>Layanan SQL menyediakan koneksi yang terkumpul, sehingga mendapatkan koneksi dari <code class="docutils literal notranslate"><span class="pre">DataSource</span></code> yang dikembalikan nilainya tidaklah memakan banyak memori. Maka dari itu, kita merekomendasikan agar tidak menyimpan koneksi di sekitar, dan menutupnya segera setelah penggunaan yang telah ditunjukkan di atas. Setiap <code class="docutils literal notranslate"><span class="pre">PreparedStatement</span></code> dan <code class="docutils literal notranslate"><span class="pre">ResultSet</span></code> yang dibuat harus ditutup juga setelah digunakan, dengan <code class="docutils literal notranslate"><span class="pre">object.close()</span></code> atau, sebaiknya, melalui blok try-with-resources.</p>
 </div>
 </div>

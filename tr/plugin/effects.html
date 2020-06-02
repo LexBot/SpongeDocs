@@ -19,17 +19,6 @@
 
         <link rel="index" title="Dizin"
               href="../genindex.html"/>        <link rel="search" title="Ara" href="../search.html"/>    <link rel="top" title="Sponge 7.2.0 belgelendirme çalışması" href="../index.html"/>        <link rel="up" title="Bir eklenti oluşturma" href="index.html"/>        <link rel="next" title="Zamanlayıcı" href="scheduler.html"/>        <link rel="prev" title="Ticaret-Teklifleri" href="trade-offers.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -178,12 +167,12 @@
 <span class="n">viewer</span><span class="p">.</span><span class="na">playSound</span><span class="p">(</span><span class="n">SoundTypes</span><span class="p">.</span><span class="na">ENTITY_CREEPER_PRIMED</span><span class="p">,</span> <span class="k">new</span> <span class="n">Vector3d</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">65</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="mi">1</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>Now let’s break this down. First, the <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/effect/sound/SoundType.html">SoundType</a> specifies the sound that will be
+<p>Now let’s break this down. First, the <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/effect/sound/SoundType.html">SoundType</a> specifies the sound that will be
 played. Next, we have a <code class="docutils literal notranslate"><span class="pre">Vector3d</span></code> position. This position can be constructed, or it can be retrieved from a
-<code class="docutils literal notranslate"><span class="pre">Location</span></code> using the <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/Location.html#getPosition--">Location#getPosition()</a> method. In the example above, the sound will be played at the
+<code class="docutils literal notranslate"><span class="pre">Location</span></code> using the <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/world/Location.html#getPosition--">Location#getPosition()</a> method. In the example above, the sound will be played at the
 coordinates <code class="docutils literal notranslate"><span class="pre">1,</span> <span class="pre">65,</span> <span class="pre">1</span></code>. Lastly, we have the volume that the sound will be played at. The volume is a double that
 ranges from zero to two.</p>
-<p>Şimdi temel sesleri çalabiliyoruz, daha derinlemesine seslerimizle gidebiliriz.Diyelim ki, sesi belirli bir aralıkla çalmak istedik.Sahayı belirli bir nota modüle etmek için sınıf <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/effect/sound/SoundCategory.html">SoundCategory</a> kullanacağız.</p>
+<p>Şimdi temel sesleri çalabiliyoruz, daha derinlemesine seslerimizle gidebiliriz.Diyelim ki, sesi belirli bir aralıkla çalmak istedik.Sahayı belirli bir nota modüle etmek için sınıf <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/effect/sound/SoundCategory.html">SoundCategory</a> kullanacağız.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.effect.sound.PitchModulation</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.spongepowered.api.effect.sound.SoundCategories</span><span class="p">;</span>
 
@@ -191,7 +180,7 @@ ranges from zero to two.</p>
     <span class="k">new</span> <span class="n">Vector3d</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">65</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">PitchModulation</span><span class="p">.</span><span class="na">AFLAT0</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>Bir ses çalınırken `` SoundCategory`` belirtilmemişse, <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/effect/sound/SoundCategories.html#MASTER">SoundCategories#MASTER</a> kullanılacak.</p>
+<p>Bir ses çalınırken `` SoundCategory`` belirtilmemişse, <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/effect/sound/SoundCategories.html#MASTER">SoundCategories#MASTER</a> kullanılacak.</p>
 </div>
 <div class="section" id="spawning-particles">
 <h2>Yumurtlayan parçacıklar<a class="headerlink" href="#spawning-particles" title="Bu başlığın kalıcı bağlantısı">¶</a></h2>
@@ -208,8 +197,8 @@ ranges from zero to two.</p>
 </div>
 <p>:javadoc:<a href="#id1"><span class="problematic" id="id2">`</span></a>ParticleEffect.Builder`kullanın,biz yumurtlamak istediğiniz parçacığın türünü belirtebiliriz.Bununla birlikte, elli partikülün parçacık efektinde olacağını da belirttik.</p>
 <p>Now if we wanted to make a more specific particle, say the particle of a block, then we can use one of the several
-types found in the <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/effect/particle/ParticleTypes.html">ParticleTypes</a> class. For example, let’s say we wanted to spawn particles of a cracking
-block of sand, <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/effect/particle/ParticleTypes.html#BLOCK_CRACK">ParticleTypes#BLOCK_CRACK</a>. We would need to use the <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/effect/particle/ParticleOptions.html#BLOCK_STATE">ParticleOptions#BLOCK_STATE</a>
+types found in the <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/effect/particle/ParticleTypes.html">ParticleTypes</a> class. For example, let’s say we wanted to spawn particles of a cracking
+block of sand, <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/effect/particle/ParticleTypes.html#BLOCK_CRACK">ParticleTypes#BLOCK_CRACK</a>. We would need to use the <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/effect/particle/ParticleOptions.html#BLOCK_STATE">ParticleOptions#BLOCK_STATE</a>
 option and specify that we would like to use a sand block. This can be done like so:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.block.BlockTypes</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.spongepowered.api.effect.particle.ParticleOptions</span><span class="p">;</span>
@@ -235,7 +224,7 @@ option and specify that we would like to use a sand block. This can be done like
         <span class="p">.</span><span class="na">build</span><span class="p">();</span>
 </pre></div>
 </div>
-<p>Bunu kullanarak on işaretleme kadar sürecek ve beş kat güçlendiriciye sahip olacak <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/effect/potion/PotionEffect.html">PotionEffect</a> ivmesi oluşturabiliriz.Partiküller ve seslerin aksine iksirler <a href="#id1"><span class="problematic" id="id2">``</span></a>Viewer``a uygulanamaz. Bunun yerine bir oyuncu  gibi :javadoc:<a href="#id3"><span class="problematic" id="id4">`</span></a>PotionEffectData`kodunu destekleyen bir varlığa ihtiyacımız vardır.</p>
+<p>Bunu kullanarak on işaretleme kadar sürecek ve beş kat güçlendiriciye sahip olacak <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/effect/potion/PotionEffect.html">PotionEffect</a> ivmesi oluşturabiliriz.Partiküller ve seslerin aksine iksirler <a href="#id1"><span class="problematic" id="id2">``</span></a>Viewer``a uygulanamaz. Bunun yerine bir oyuncu  gibi :javadoc:<a href="#id3"><span class="problematic" id="id4">`</span></a>PotionEffectData`kodunu destekleyen bir varlığa ihtiyacımız vardır.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.data.manipulator.mutable.PotionEffectData</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.spongepowered.api.entity.living.player.Player</span><span class="p">;</span>
 

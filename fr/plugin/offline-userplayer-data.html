@@ -19,17 +19,6 @@
 
         <link rel="index" title="Index"
               href="../genindex.html"/>        <link rel="search" title="Recherche" href="../search.html"/>    <link rel="top" title="Documentation Sponge 7.2.0" href="../index.html"/>        <link rel="up" title="Création d’un Plugin" href="index.html"/>        <link rel="next" title="Tab Lists" href="tab-lists.html"/>        <link rel="prev" title="Gestionnaire de Profil de Jeu" href="game-profile-manager.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -166,8 +155,8 @@
            <div itemprop="articleBody">
   <div class="section" id="offline-player-data">
 <h1>Données du Joueur Hors-Ligne<a class="headerlink" href="#offline-player-data" title="Lien permanent vers ce titre">¶</a></h1>
-<p>Il peut être nécessaire pour les plugins d’accéder aux données du joueur même si le joueur est déconnecté. Vous pourriez penser que <code class="docutils literal notranslate"><span class="pre">Sponge.getServer().getPlayer()</span></code> qui retourne un <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/living/player/Player.html">Player</a> peut être utilisé pour ça. Mais puisque les objets <code class="docutils literal notranslate"><span class="pre">Player</span></code> n’existent que pour les joueurs en ligne, une autre solution doit être utilisée.</p>
-<p>Certains plugins stockent les données elles-mêmes et les associent aux utilisateurs en utilisant le <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/profile/GameProfileManager.html">GameProfileManager</a>. Mais écrire différents codes pour les joueurs connectés et déconnectés n’est pas nécessaire. Le <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/ServiceManager.html">ServiceManager</a> fournit nativement un service connu en tant que <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/user/UserStorageService.html">UserStorageService</a> qui est capable de retourner des instances de <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/living/player/User.html">User</a> pour des <code class="docutils literal notranslate"><span class="pre">Player</span></code>s qui sont actuellement déconnectés. Puisque l’interface <code class="docutils literal notranslate"><span class="pre">Player</span></code> hérite d”<code class="docutils literal notranslate"><span class="pre">User</span></code> la plupart des méthodes que vous appelez sur un <code class="docutils literal notranslate"><span class="pre">Player</span></code> sont disponibles.</p>
+<p>Il peut être nécessaire pour les plugins d’accéder aux données du joueur même si le joueur est déconnecté. Vous pourriez penser que <code class="docutils literal notranslate"><span class="pre">Sponge.getServer().getPlayer()</span></code> qui retourne un <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/living/player/Player.html">Player</a> peut être utilisé pour ça. Mais puisque les objets <code class="docutils literal notranslate"><span class="pre">Player</span></code> n’existent que pour les joueurs en ligne, une autre solution doit être utilisée.</p>
+<p>Certains plugins stockent les données elles-mêmes et les associent aux utilisateurs en utilisant le <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/profile/GameProfileManager.html">GameProfileManager</a>. Mais écrire différents codes pour les joueurs connectés et déconnectés n’est pas nécessaire. Le <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/ServiceManager.html">ServiceManager</a> fournit nativement un service connu en tant que <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/user/UserStorageService.html">UserStorageService</a> qui est capable de retourner des instances de <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/living/player/User.html">User</a> pour des <code class="docutils literal notranslate"><span class="pre">Player</span></code>s qui sont actuellement déconnectés. Puisque l’interface <code class="docutils literal notranslate"><span class="pre">Player</span></code> hérite d”<code class="docutils literal notranslate"><span class="pre">User</span></code> la plupart des méthodes que vous appelez sur un <code class="docutils literal notranslate"><span class="pre">Player</span></code> sont disponibles.</p>
 <p>Par exemple :</p>
 <ul class="simple">
 <li><code class="docutils literal notranslate"><span class="pre">#hasPermission(String</span> <span class="pre">permission)</span></code> est disponible depuis les deux instances.</li>

@@ -19,17 +19,6 @@
 
         <link rel="index" title="Indeks"
               href="../../genindex.html"/>        <link rel="search" title="Pencarian" href="../../search.html"/>    <link rel="top" title="dokumentasi Sponge 7.2.0" href="../../index.html"/>        <link rel="up" title="Teks" href="index.html"/>        <link rel="next" title="Plugin Commands" href="../commands/index.html"/>        <link rel="prev" title="Saluran Pesan" href="messagechannels.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -174,7 +163,7 @@
            <div itemprop="articleBody">
   <div class="section" id="texttemplates">
 <h1>TextTemplates<a class="headerlink" href="#texttemplates" title="Link permanen untuk headline ini">¶</a></h1>
-<p><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/TextTemplate.html">TextTemplate</a>s adalah cara yang mudah dan nyaman untuk menyimpan pesan dengan variabel elemen. Misalnya, anda mungkin menemukan diri anda ingin membuat pesan dikonfigurasi untuk pemain yang telah bergabung dengan server untuk pertama kalinya. Hal ini mudah dicapai dengan <code class="docutils literal notranslate"><span class="pre">TextTemplate</span></code>s menggunakan strategi berikut:</p>
+<p><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/text/TextTemplate.html">TextTemplate</a>s adalah cara yang mudah dan nyaman untuk menyimpan pesan dengan variabel elemen. Misalnya, anda mungkin menemukan diri anda ingin membuat pesan dikonfigurasi untuk pemain yang telah bergabung dengan server untuk pertama kalinya. Hal ini mudah dicapai dengan <code class="docutils literal notranslate"><span class="pre">TextTemplate</span></code>s menggunakan strategi berikut:</p>
 <p>Misalnya kita ingin membuat pesan bergabung dimana teks semuanya kuning dan miring kecuali nama pemain, yang mana akan cetak tebal dan aqua dan nama server yang mana akan dicetak tebal dan merah. kita bisa membuat template tentang deskripsi tersebut menggunakan kode berikut ini:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import static</span> <span class="nn">org.spongepowered.api.text.TextTemplate.*</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.spongepowered.api.text.TextTemplate</span><span class="p">;</span>
@@ -188,16 +177,16 @@
 <span class="p">);</span>
 </pre></div>
 </div>
-<p>Anda dapat memperoleh hasil teks template dengan <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/TextTemplate.html#berlaku--">TextTemplate#berlaku()</a> metode. <code class="docutils literal notranslate"><span class="pre">Berlaku()</span></code> metode menerima <code class="docutils literal notranslate"><span class="pre">Peta&lt;String,</span> <span class="pre">TextElement&gt;</span></code> dari parameter di mana kuncinya adalah nama-nama argumen dan nilai-nilai adalah <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/TextElement.html">TextElement</a> nilai-nilai yang anda inginkan untuk mengganti argumen dengan.</p>
+<p>Anda dapat memperoleh hasil teks template dengan <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/text/TextTemplate.html#berlaku--">TextTemplate#berlaku()</a> metode. <code class="docutils literal notranslate"><span class="pre">Berlaku()</span></code> metode menerima <code class="docutils literal notranslate"><span class="pre">Peta&lt;String,</span> <span class="pre">TextElement&gt;</span></code> dari parameter di mana kuncinya adalah nama-nama argumen dan nilai-nilai adalah <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/text/TextElement.html">TextElement</a> nilai-nilai yang anda inginkan untuk mengganti argumen dengan.</p>
 <div class="admonition note">
 <p class="first admonition-title">Catatan</p>
-<p class="last">Kecuali sebuah argumen ditentukan sebagai &quot;opsional&quot; melalui <code class="docutils literal notranslate"><span class="pre">Arg.opsional()</span></code> ketika itu dibuat, hilang parameter yang dipasok ke <code class="docutils literal notranslate"><span class="pre">terapkan()</span></code> metode akan membuang <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/TextTemplateArgumentException.html">TextTemplateArgumentException</a>. Argumen juga dapat menentukan nilai default selama penciptaan mereka dengan <code class="docutils literal notranslate"><span class="pre">Arg.defaultValue()</span></code></p>
+<p class="last">Kecuali sebuah argumen ditentukan sebagai &quot;opsional&quot; melalui <code class="docutils literal notranslate"><span class="pre">Arg.opsional()</span></code> ketika itu dibuat, hilang parameter yang dipasok ke <code class="docutils literal notranslate"><span class="pre">terapkan()</span></code> metode akan membuang <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/text/TextTemplateArgumentException.html">TextTemplateArgumentException</a>. Argumen juga dapat menentukan nilai default selama penciptaan mereka dengan <code class="docutils literal notranslate"><span class="pre">Arg.defaultValue()</span></code></p>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Catatan</p>
 <p class="last">Meskipun argumen dapat memiliki format teks yang terkait dengan mereka, ini dapat diganti dengan menyediakan obyek Teks dengan format kustom untuk parameter peta melalui <code class="docutils literal notranslate"><span class="pre">apply()</span></code> metode.</p>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">TextTemplate</span></code>s, seperti <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/Text.html">Text</a> objek sendiri adalah serializable untuk Configurate. Untuk menyimpan <code class="docutils literal notranslate"><span class="pre">TextTemplate</span></code> untuk file konfigurasi menggunakan kode berikut. Kami juga akan menambahkan pengaturan di sini sehingga pengguna dapat menentukan nama server mereka.</p>
+<p><code class="docutils literal notranslate"><span class="pre">TextTemplate</span></code>s, seperti <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/text/Text.html">Text</a> objek sendiri adalah serializable untuk Configurate. Untuk menyimpan <code class="docutils literal notranslate"><span class="pre">TextTemplate</span></code> untuk file konfigurasi menggunakan kode berikut. Kami juga akan menambahkan pengaturan di sini sehingga pengguna dapat menentukan nama server mereka.</p>
 <div class="admonition tip">
 <p class="first admonition-title">Tip</p>
 <p class="last">Untuk mempelajari lebih lanjut tentang cara menggunakan Configurate untuk membuat file konfigurasi untuk plugin anda silahkan merujuk ke <span class="xref std std-doc">/plugin/konfigurasi/index</span>.</p>

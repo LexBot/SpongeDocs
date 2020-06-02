@@ -19,17 +19,6 @@
 
         <link rel="index" title="Índice"
               href="../../genindex.html"/>        <link rel="search" title="Búsqueda" href="../../search.html"/>    <link rel="top" title="documentación de Sponge - 7.2.0" href="../../index.html"/>        <link rel="up" title="Economía" href="index.html"/>        <link rel="next" title="Usando el API de Economía" href="using.html"/>        <link rel="prev" title="Economía" href="index.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -182,7 +171,7 @@
 </ul>
 <div class="section" id="the-economyservice">
 <h2>El ServicioEconomico<a class="headerlink" href="#the-economyservice" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>El <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/economy/EconomyService.html">EconomyService</a> es la base de la API Economy. Es usada para interactuar a través de la API Economy, almacena las monedas de Economy y proporciona los métodos para el manejo de cuentas.</p>
+<p>El <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/economy/EconomyService.html">EconomyService</a> es la base de la API Economy. Es usada para interactuar a través de la API Economy, almacena las monedas de Economy y proporciona los métodos para el manejo de cuentas.</p>
 <div class="admonition warning">
 <p class="first admonition-title">Advertencia</p>
 <p class="last">Sponge no proporciona una implementación por defecto para el <code class="docutils literal notranslate"><span class="pre">EconomyService</span></code>.
@@ -191,13 +180,13 @@ La implementación de la API Economy depende completamente de los complementos. 
 </div>
 <div class="section" id="currency">
 <h2>Moneda<a class="headerlink" href="#currency" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>The <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/economy/Currency.html">Currency</a> object represents a form of Currency. <code class="docutils literal notranslate"><span class="pre">Currency</span></code> stores a display name (plural and singular),
+<p>The <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/economy/Currency.html">Currency</a> object represents a form of Currency. <code class="docutils literal notranslate"><span class="pre">Currency</span></code> stores a display name (plural and singular),
 a symbol, the number of fractional digits, and whether the currency is the default currency for the economy. If the
 economy plugin chooses, it can support multiple currencies.</p>
 </div>
 <div class="section" id="accounts">
 <h2>Cuentas<a class="headerlink" href="#accounts" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>Los <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/economy/account/Account.html">Account</a>s son usados para almacenar información económica sobre un jugador especifico u otro objeto (es decir, banco, negocio, entidad). Hay dos tipos de cuentas en la API Economy de Sponge:</p>
+<p>Los <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/economy/account/Account.html">Account</a>s son usados para almacenar información económica sobre un jugador especifico u otro objeto (es decir, banco, negocio, entidad). Hay dos tipos de cuentas en la API Economy de Sponge:</p>
 <div class="section" id="virtual-accounts">
 <h3>Cuentas virtuales<a class="headerlink" href="#virtual-accounts" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Las cuentas virtuales están vinculadas a un identificador, que se almacena como una cadena. Las cuentas virtuales se pueden vincular a casi cualquier cosa, pero se usan comúnmente para cosas como bancos o no jugadores. Para obtener el id de una cuenta virtual, usa `` getIdentifier () <a href="#id1"><span class="problematic" id="id2">``</span></a>.</p>
@@ -215,7 +204,7 @@ economy plugin chooses, it can support multiple currencies.</p>
 <li>Retiro: Ocurre cuando una cuenta tiene fondos retirados</li>
 <li>Transferencia: Ocurre cuando una cuenta intercambia fondos con otra cuenta</li>
 </ul>
-<p>Cuando ocurre una transferencia, se desencadena el <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/economy/EconomyTransactionEvent.html">EconomyTransactionEvent</a>. Usando este evento puedes obtener el <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/economy/transaction/TransactionResult.html">TransactionResult</a>. El <code class="docutils literal notranslate"><span class="pre">TransactionResult</span></code> almacena datos sobre la transacción que ocurrieron, incluyendo:</p>
+<p>Cuando ocurre una transferencia, se desencadena el <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/economy/EconomyTransactionEvent.html">EconomyTransactionEvent</a>. Usando este evento puedes obtener el <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/economy/transaction/TransactionResult.html">TransactionResult</a>. El <code class="docutils literal notranslate"><span class="pre">TransactionResult</span></code> almacena datos sobre la transacción que ocurrieron, incluyendo:</p>
 <ul class="simple">
 <li>Cuenta involucrada</li>
 <li>Moneda involucrada</li>
@@ -223,7 +212,7 @@ economy plugin chooses, it can support multiple currencies.</p>
 <li>Tipo de transacción</li>
 <li>Resultado de la transacción</li>
 </ul>
-<p>Puedes ver todos los resultados pusibles de la transaccion en la pagina <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/economy/transaction/ResultType.html">ResultType</a> JavaDocs.</p>
+<p>Puedes ver todos los resultados pusibles de la transaccion en la pagina <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/economy/transaction/ResultType.html">ResultType</a> JavaDocs.</p>
 </div>
 </div>
 

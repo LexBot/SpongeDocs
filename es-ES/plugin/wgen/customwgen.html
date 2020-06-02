@@ -19,17 +19,6 @@
 
         <link rel="index" title="Índice"
               href="../../genindex.html"/>        <link rel="search" title="Búsqueda" href="../../search.html"/>    <link rel="top" title="documentación de Sponge - 7.2.0" href="../../index.html"/>        <link rel="up" title="Generación de Mundo" href="index.html"/>        <link rel="next" title="Administrador de Complementos" href="../manager.html"/>        <link rel="prev" title="WorldGeneratorModifiers" href="modifiers.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -182,7 +171,7 @@
 <h2>Modificando la Generación Vainilla<a class="headerlink" href="#modifying-vanilla-generation" title="Enlazar permanentemente con este título">¶</a></h2>
 <div class="admonition note">
 <p class="first admonition-title">Nota</p>
-<p class="last">Esta página asume que está familiarizado con la configuración de su <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/gen/WorldGeneratorModifier.html">WorldGeneratorModifier</a>. De lo contrario, lea el artículo sobre cómo configurar su modificador en <a class="reference internal" href="modifiers.html"><span class="doc">WorldGeneratorModifiers</span></a>.</p>
+<p class="last">Esta página asume que está familiarizado con la configuración de su <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/world/gen/WorldGeneratorModifier.html">WorldGeneratorModifier</a>. De lo contrario, lea el artículo sobre cómo configurar su modificador en <a class="reference internal" href="modifiers.html"><span class="doc">WorldGeneratorModifiers</span></a>.</p>
 </div>
 <p>Sponge expone una gran cantidad de generación de mundo vainilla, que puede ser manipulada a través de las diversas interfaces. Actualmente, los únicos elementos del proceso de generación <em>fácilmente</em> expuestos a la manipulación son los pobladores.</p>
 <p>For a quick example, let’s look at how we would change the cacti that spawn in deserts to be taller.</p>
@@ -200,10 +189,10 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>Comience obteniendo el <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/biome/BiomeGenerationSettings.html">BiomeGenerationSettings</a> para el bioma del desierto. Este objeto es un contenedor para todas las configuraciones de generación relacionadas con ese bioma. A continuación, recorra la lista de todos los <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/gen/populator/Cactus.html">Cactus</a> populadores y establezca la altura en 5, lo que significa que solo puede generar cactus de 5 bloques de altura.</p>
+<p>Comience obteniendo el <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/world/biome/BiomeGenerationSettings.html">BiomeGenerationSettings</a> para el bioma del desierto. Este objeto es un contenedor para todas las configuraciones de generación relacionadas con ese bioma. A continuación, recorra la lista de todos los <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/world/gen/populator/Cactus.html">Cactus</a> populadores y establezca la altura en 5, lo que significa que solo puede generar cactus de 5 bloques de altura.</p>
 <div class="admonition note">
 <p class="first admonition-title">Nota</p>
-<p class="last">El <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/gen/populator/Cactus.html#setHeight-int-">Cactus#setHeight(int)</a>, y muchos otros métodos similares en otras poblaciones, también toma un <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/util/weighted/VariableAmount.html">VariableAmount</a> que se puede usar para especificar la altura como un rango u otro valor personalizado.</p>
+<p class="last">El <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/world/gen/populator/Cactus.html#setHeight-int-">Cactus#setHeight(int)</a>, y muchos otros métodos similares en otras poblaciones, también toma un <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/util/weighted/VariableAmount.html">VariableAmount</a> que se puede usar para especificar la altura como un rango u otro valor personalizado.</p>
 </div>
 <p>Este ha sido un ejemplo simple de cómo modificar un populador existente. Vamos a ver cómo podemos agregar una nueva instancia de un populador vainilla. Esta vez, el populador se agregará globalmente, lo que significa que se aplicará a todos los fragmentos, independientemente del bioma. Agreguemos un populador de Calabaza globalmente, lo que provoca que las calabazas se dispersen por todo el mundo.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.world.gen.populator.Pumpkin</span><span class="p">;</span>
@@ -227,7 +216,7 @@ as is usually a good idea with Forest populators, then you should add your popul
 </div>
 <div class="section" id="creating-custom-base-terrain">
 <h2>Creando Terreno de Base Personalizada<a class="headerlink" href="#creating-custom-base-terrain" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>Cambiar la base <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/gen/GenerationPopulator.html">GenerationPopulator</a> de un generador mundial le permite cambiar la forma de la generación del terreno base del mundo. Un populador generador seguirá aproximadamente el procedimiento de usar la información semilla y la información de la bioma para sembrar y modificar una serie de mapas, a partir de los cuales se forma el terreno. El terreno creado en un populador generador modificado debe consistir solo en bloques de piedra, para permitir que los biomas reemplacen adecuadamente los bloques para una cobertura del suelo específica del bioma.</p>
+<p>Cambiar la base <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/world/gen/GenerationPopulator.html">GenerationPopulator</a> de un generador mundial le permite cambiar la forma de la generación del terreno base del mundo. Un populador generador seguirá aproximadamente el procedimiento de usar la información semilla y la información de la bioma para sembrar y modificar una serie de mapas, a partir de los cuales se forma el terreno. El terreno creado en un populador generador modificado debe consistir solo en bloques de piedra, para permitir que los biomas reemplacen adecuadamente los bloques para una cobertura del suelo específica del bioma.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">SinusoidalGenerator</span> <span class="kd">implements</span> <span class="n">GenerationPopulator</span> <span class="p">{</span>
 
     <span class="nd">@Override</span>
@@ -278,7 +267,7 @@ as is usually a good idea with Forest populators, then you should add your popul
 </div>
 <div class="section" id="creating-custom-biomes">
 <h2>Creando Biomas Personalizados<a class="headerlink" href="#creating-custom-biomes" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>Si bien actualmente no es posible crear biomas completamente nuevos dentro de Sponge, puede reemplazar el sistema por el que están organizados en el mundo implementando la interfaz <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/gen/BiomeGenerator.html">BiomeGenerator</a> y configurando su generador de bioma personalizado en un WorldGenerator.</p>
+<p>Si bien actualmente no es posible crear biomas completamente nuevos dentro de Sponge, puede reemplazar el sistema por el que están organizados en el mundo implementando la interfaz <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/world/gen/BiomeGenerator.html">BiomeGenerator</a> y configurando su generador de bioma personalizado en un WorldGenerator.</p>
 <p>A continuación se muestra un ejemplo de un generador de bioma que crea una gran isla centrada alrededor de (0, 0).</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">IslandBiomeGen</span> <span class="kd">implements</span> <span class="n">BiomeGenerator</span> <span class="p">{</span>
 

@@ -19,17 +19,6 @@
 
         <link rel="index" title="索引"
               href="../../genindex.html"/>        <link rel="search" title="検索" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 ドキュメント" href="../../index.html"/>        <link rel="up" title="Economy" href="index.html"/>        <link rel="next" title="経済 API の実装" href="implementing.html"/>        <link rel="prev" title="経済 API の利用" href="using.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -202,7 +191,7 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>そのかわりに、必要な金額をただ引き出し、返される <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/economy/transaction/TransactionResult.html">TransactionResult</a> に含まれる <a href="#id1"><span class="problematic" id="id2">:javadoc:`ResultType`をチェックするのが最善です。マイナスの残高を認めない経済プラグインは :javadoc:`ResultType#ACCOUNT_NO_FUNDS`</span></a> または <a href="#id3"><span class="problematic" id="id4">:javadoc:`ResultTYPE#FAILED`</span></a> を返すでしょう。</p>
+<p>そのかわりに、必要な金額をただ引き出し、返される <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/economy/transaction/TransactionResult.html">TransactionResult</a> に含まれる <a href="#id1"><span class="problematic" id="id2">:javadoc:`ResultType`をチェックするのが最善です。マイナスの残高を認めない経済プラグインは :javadoc:`ResultType#ACCOUNT_NO_FUNDS`</span></a> または <a href="#id3"><span class="problematic" id="id4">:javadoc:`ResultTYPE#FAILED`</span></a> を返すでしょう。</p>
 <p>これが資金を引き出すのに <strong>従うべき</strong> 方法です:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.event.cause.Cause</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.spongepowered.api.event.cause.EventContext</span><span class="p">;</span>

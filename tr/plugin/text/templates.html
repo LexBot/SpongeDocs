@@ -19,17 +19,6 @@
 
         <link rel="index" title="Dizin"
               href="../../genindex.html"/>        <link rel="search" title="Ara" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 belgelendirme çalışması" href="../../index.html"/>        <link rel="up" title="Metin" href="index.html"/>        <link rel="next" title="Plugin Commands" href="../commands/index.html"/>        <link rel="prev" title="Mesaj Kanalları" href="messagechannels.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -174,7 +163,7 @@
            <div itemprop="articleBody">
   <div class="section" id="texttemplates">
 <h1>Metin şablonları<a class="headerlink" href="#texttemplates" title="Bu başlığın kalıcı bağlantısı">¶</a></h1>
-<p><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/TextTemplate.html">TextTemplate</a>’leri, mesajları değişken öğelerle depolamanın kolay ve rahat bir yoludur. Örneğin, sunucuya ilk kez katılan oyuncular için yapılandırılabilir bir mesaj oluşturmak isteyebilirsiniz. Bu, aşağıdaki stratejiyi kullanarak <code class="docutils literal notranslate"><span class="pre">TextTemplate</span></code> ile kolayca elde edilebilir:</p>
+<p><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/text/TextTemplate.html">TextTemplate</a>’leri, mesajları değişken öğelerle depolamanın kolay ve rahat bir yoludur. Örneğin, sunucuya ilk kez katılan oyuncular için yapılandırılabilir bir mesaj oluşturmak isteyebilirsiniz. Bu, aşağıdaki stratejiyi kullanarak <code class="docutils literal notranslate"><span class="pre">TextTemplate</span></code> ile kolayca elde edilebilir:</p>
 <p>Diyelim ki metnin tamamı sarı ve italikleştirilmiş bir katılma mesajı oluşturmak istiyoruz, bu kodun kalın ve aqua olacağı ve sunucunun adının kalın ve kırmızı olacağı söyleniyor. Aşağıdaki kodu kullanarak bu açıklamanın bir şablonu oluşturabiliriz:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import static</span> <span class="nn">org.spongepowered.api.text.TextTemplate.*</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.spongepowered.api.text.TextTemplate</span><span class="p">;</span>
@@ -188,16 +177,16 @@
 <span class="p">);</span>
 </pre></div>
 </div>
-<p>Bu metin şablonunun sonucunu <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/TextTemplate.html#apply--">TextTemplate#apply()</a> yöntemiyle edinebilirsiniz. <code class="docutils literal notranslate"><span class="pre">Apply</span> <span class="pre">()</span></code> yöntemi, anahtarların argümanlara ait olduğu ve değerlerin argümanları değiştirmek istediğiniz <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/TextElement.html">TextElement</a> değerleri olduğu bir <code class="docutils literal notranslate"><span class="pre">Map</span> <span class="pre">&lt;String,</span> <span class="pre">TextElement&gt;</span></code> parametresini kabul eder.</p>
+<p>Bu metin şablonunun sonucunu <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/text/TextTemplate.html#apply--">TextTemplate#apply()</a> yöntemiyle edinebilirsiniz. <code class="docutils literal notranslate"><span class="pre">Apply</span> <span class="pre">()</span></code> yöntemi, anahtarların argümanlara ait olduğu ve değerlerin argümanları değiştirmek istediğiniz <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/text/TextElement.html">TextElement</a> değerleri olduğu bir <code class="docutils literal notranslate"><span class="pre">Map</span> <span class="pre">&lt;String,</span> <span class="pre">TextElement&gt;</span></code> parametresini kabul eder.</p>
 <div class="admonition note">
 <p class="first admonition-title">Not</p>
-<p class="last">Bir argüman “isteğe bağlı” olarak <code class="docutils literal notranslate"><span class="pre">Arg.optional()`</span> <span class="pre">yoluyla</span> <span class="pre">oluşturulmadığı</span> <span class="pre">sürece,</span> <span class="pre">``apply()</span></code> yöntemine verilen eksik parametreler bir <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/TextTemplateArgumentException.html">TextTemplateArgumentException</a> atar. Bağımsız değişkenler için ayrıca, <code class="docutils literal notranslate"><span class="pre">Arg.defaultValue()</span></code></p>
+<p class="last">Bir argüman “isteğe bağlı” olarak <code class="docutils literal notranslate"><span class="pre">Arg.optional()`</span> <span class="pre">yoluyla</span> <span class="pre">oluşturulmadığı</span> <span class="pre">sürece,</span> <span class="pre">``apply()</span></code> yöntemine verilen eksik parametreler bir <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/text/TextTemplateArgumentException.html">TextTemplateArgumentException</a> atar. Bağımsız değişkenler için ayrıca, <code class="docutils literal notranslate"><span class="pre">Arg.defaultValue()</span></code></p>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Not</p>
 <p class="last">Bağımsız değişkenler onlarla ilişkili metin biçimlendirmesine sahip olabilmesine rağmen, parametre eşlemesine <code class="docutils literal notranslate"><span class="pre">apply()</span></code> yöntemiyle özel biçimlendirilmiş bir Metin nesnesi sağlayarak geçersiz kılınabilir.</p>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">TextTemplate</span></code> , gibi <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/Text.html">Text</a> nesneleri kendileri Configurate için seri hale getirilebilir. Bir yapılandırma dosyasına bir <code class="docutils literal notranslate"><span class="pre">TextTemplate</span></code> kaydetmek için aşağıdaki kodu kullanın. Ayrıca, kullanıcı sunucu adını tanımlayabilmesi için bir ayar ekleyeceğiz.</p>
+<p><code class="docutils literal notranslate"><span class="pre">TextTemplate</span></code> , gibi <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/text/Text.html">Text</a> nesneleri kendileri Configurate için seri hale getirilebilir. Bir yapılandırma dosyasına bir <code class="docutils literal notranslate"><span class="pre">TextTemplate</span></code> kaydetmek için aşağıdaki kodu kullanın. Ayrıca, kullanıcı sunucu adını tanımlayabilmesi için bir ayar ekleyeceğiz.</p>
 <div class="admonition tip">
 <p class="first admonition-title">Tüyo</p>
 <p class="last">Eklentinize yapılandırma dosyaları oluşturmak için Configurate’i nasıl kullanacağınız hakkında daha fazla bilgi edinmek için lütfen <a class="reference internal" href="../configuration/index.html"><span class="doc">Eklentileri yapılandırma</span></a> sayfasına bakın.</p>

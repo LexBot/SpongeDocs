@@ -19,17 +19,6 @@
 
         <link rel="index" title="索引"
               href="../genindex.html"/>        <link rel="search" title="搜索" href="../search.html"/>    <link rel="top" title="Sponge 7.2.0 文档" href="../index.html"/>        <link rel="up" title="插件开发" href="index.html"/>        <link rel="next" title="数据 API" href="data/index.html"/>        <link rel="prev" title="序列化对象" href="configuration/serialization.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -166,7 +155,7 @@
            <div itemprop="articleBody">
   <div class="section" id="the-asset-api">
 <h1>使用 Asset API<a class="headerlink" href="#the-asset-api" title="永久链接至标题">¶</a></h1>
-<p><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/asset/AssetManager.html">AssetManager</a> 允许开发者从插件的 JAR 中检索资源。</p>
+<p><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/asset/AssetManager.html">AssetManager</a> 允许开发者从插件的 JAR 中检索资源。</p>
 <p>一个插件的 Assets 往往储存于 <code class="docutils literal notranslate"><span class="pre">assets/myplugin/</span></code> 目录下，其中的 <code class="docutils literal notranslate"><span class="pre">myplugin</span></code> 是其插件 ID。</p>
 <p>您可以在配置完成后使用以下代码检索你的（或任何）插件的资源：</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.asset.Asset</span><span class="p">;</span>
@@ -188,11 +177,11 @@
 </div>
 <div class="admonition note">
 <p class="first admonition-title">注解</p>
-<p class="last">上面的例子假设 <code class="docutils literal notranslate"><span class="pre">myfile.txt</span></code> 以一个 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/asset/Asset.html">Asset</a> 的形式存在。当然，如果没有，那么 <code class="docutils literal notranslate"><span class="pre">getAsset()</span></code> 方法将返回 <code class="docutils literal notranslate"><span class="pre">Optional#empty()</span></code> 。</p>
+<p class="last">上面的例子假设 <code class="docutils literal notranslate"><span class="pre">myfile.txt</span></code> 以一个 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/asset/Asset.html">Asset</a> 的形式存在。当然，如果没有，那么 <code class="docutils literal notranslate"><span class="pre">getAsset()</span></code> 方法将返回 <code class="docutils literal notranslate"><span class="pre">Optional#empty()</span></code> 。</p>
 </div>
 <div class="section" id="working-with-assets">
 <h2>使用 Assets<a class="headerlink" href="#working-with-assets" title="永久链接至标题">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">Asset</span></code> 类本质上只是一个对于一个 <code class="docutils literal notranslate"><span class="pre">URL</span></code> 及其一些常见的内置 I/O 操作的包装。对 <code class="docutils literal notranslate"><span class="pre">Assets</span></code> 的使用本质上是不受限的，然而一种常见的用法是在插件没有找到配置文件的时候，生成一个默认的配置文件。你可以通过使用 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/plugin/PluginContainer.html">PluginContainer</a> 类来完成这件事，就像这样：</p>
+<p><code class="docutils literal notranslate"><span class="pre">Asset</span></code> 类本质上只是一个对于一个 <code class="docutils literal notranslate"><span class="pre">URL</span></code> 及其一些常见的内置 I/O 操作的包装。对 <code class="docutils literal notranslate"><span class="pre">Assets</span></code> 的使用本质上是不受限的，然而一种常见的用法是在插件没有找到配置文件的时候，生成一个默认的配置文件。你可以通过使用 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/plugin/PluginContainer.html">PluginContainer</a> 类来完成这件事，就像这样：</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">java.nio.file.Files</span><span class="p">;</span>
 
 <span class="k">if</span> <span class="p">(</span><span class="n">Files</span><span class="p">.</span><span class="na">notExists</span><span class="p">(</span><span class="n">configPath</span><span class="p">))</span> <span class="p">{</span>

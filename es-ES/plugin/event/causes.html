@@ -19,17 +19,6 @@
 
         <link rel="index" title="Índice"
               href="../../genindex.html"/>        <link rel="search" title="Búsqueda" href="../../search.html"/>    <link rel="top" title="documentación de Sponge - 7.2.0" href="../../index.html"/>        <link rel="up" title="Eventos" href="index.html"/>        <link rel="next" title="Filtros de eventos" href="filters.html"/>        <link rel="prev" title="Detectores de Eventos" href="listeners.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -174,11 +163,11 @@
   <div class="section" id="event-causes">
 <h1>Causas del Evento<a class="headerlink" href="#event-causes" title="Enlazar permanentemente con este título">¶</a></h1>
 <p>Los eventos son ideales para adjuntar lógica adicional a las acciones de juego, pero tienen la desventaja de proporcionar casi ningún contexto en cuanto a lo que ha <strong>causado</strong> que el evento ocurra. El objeto <a href="#id1"><span class="problematic" id="id2">:javadoc:`Causa`</span></a> permite proporcionar y recibir información contextual adicional sobre el evento. Esta información contextual puede entonces ser utilizada para modificar el comportamiento de su detector de eventos.</p>
-<p>Por ejemplo, un complemento de protección de mundo necesita información sobre que jugador ha causado un <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/block/ChangeBlockEvent.html">ChangeBlockEvent</a> para que ocurra antes de que puedan decidir si el evento debe ser cancelado o no. En lugar de ir con la ruta tradicional para crear una multitud de subeventos para las diferentes condiciones de fuente esta información en su lugar lo proporciona en la <code class="docutils literal notranslate"><span class="pre">Causa</span></code> del evento.</p>
-<p>Cada evento proporciona un objeto de <code class="docutils literal notranslate"><span class="pre">Causa</span></code> que puede ser interrogado para obtener la información referente a porqué el evento fue activado. El objeto de Causa puede ser recuperado de un evento simplemente llamando <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/Event.html#getCause--">Event#getCause()</a>.</p>
+<p>Por ejemplo, un complemento de protección de mundo necesita información sobre que jugador ha causado un <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/block/ChangeBlockEvent.html">ChangeBlockEvent</a> para que ocurra antes de que puedan decidir si el evento debe ser cancelado o no. En lugar de ir con la ruta tradicional para crear una multitud de subeventos para las diferentes condiciones de fuente esta información en su lugar lo proporciona en la <code class="docutils literal notranslate"><span class="pre">Causa</span></code> del evento.</p>
+<p>Cada evento proporciona un objeto de <code class="docutils literal notranslate"><span class="pre">Causa</span></code> que puede ser interrogado para obtener la información referente a porqué el evento fue activado. El objeto de Causa puede ser recuperado de un evento simplemente llamando <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/Event.html#getCause--">Event#getCause()</a>.</p>
 <div class="section" id="cause-and-context">
 <h2>Cause and Context<a class="headerlink" href="#cause-and-context" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">Cause</span></code> object contains two distinct sets of information, the cause stack and the <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/cause/EventContext.html">EventContext</a>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">Cause</span></code> object contains two distinct sets of information, the cause stack and the <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/cause/EventContext.html">EventContext</a>.</p>
 <ul class="simple">
 <li>The cause stack of the event are the direct causes captured in order of importance. There are no names attached
 to the objects in the cause stack.</li>
@@ -186,12 +175,12 @@ to the objects in the cause stack.</li>
 order, they are all equally important.</li>
 </ul>
 <p>As an example, if a sheep owned by a player eats some grass, the most direct cause of this is the sheep. The
-player would be in the <code class="docutils literal notranslate"><span class="pre">EventContext</span></code> as the <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/cause/EventContextKeys.html#OWNER">EventContextKeys#OWNER</a>, giving event consumers
+player would be in the <code class="docutils literal notranslate"><span class="pre">EventContext</span></code> as the <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/cause/EventContextKeys.html#OWNER">EventContextKeys#OWNER</a>, giving event consumers
 that additional information about how the event has come about, but would not necessarily be within the
 direct cause itself.</p>
 <p>Another example that you may need to watch out for is if you simulate a player. The simulated player may not be
 in the direct cause, as the player being simulated may not have been involved in the action, however, the player
-would be in the <code class="docutils literal notranslate"><span class="pre">EventContext</span></code> under the <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/cause/EventContextKeys.html#PLAYER_SIMULATED">EventContextKeys#PLAYER_SIMULATED</a></p>
+would be in the <code class="docutils literal notranslate"><span class="pre">EventContext</span></code> under the <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/cause/EventContextKeys.html#PLAYER_SIMULATED">EventContextKeys#PLAYER_SIMULATED</a></p>
 </div>
 <div class="section" id="retrieving-objects-from-the-direct-cause">
 <h2>Retrieving Objects from the Direct Cause<a class="headerlink" href="#retrieving-objects-from-the-direct-cause" title="Enlazar permanentemente con este título">¶</a></h2>
@@ -200,8 +189,8 @@ would be in the <code class="docutils literal notranslate"><span class="pre">Eve
 <p class="first admonition-title">Nota</p>
 <p class="last">Lo objetos dentro de una causa se ordenan de tal forma que el primer objeto será la causa más inmediata del evento y los siguientes objetos son de importancia decreciente y/o pueden solo proporcionar información contextual.</p>
 </div>
-<p><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/cause/Cause.html#root--">Cause#root()</a> devuelve el primer objeto dentro de la causa. Este objeto es la causa más inmediata o directa del evento. Ya que una <code class="docutils literal notranslate"><span class="pre">Causa</span></code> no puede estar vacía, está garantizado tener una <code class="docutils literal notranslate"><span class="pre">raíz</span></code>.</p>
-<p><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/cause/Cause.html#first-java.lang.Class-">Cause#first(Class)</a> returns the first object in the cause chain whose type is either the same as or is a
+<p><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/cause/Cause.html#root--">Cause#root()</a> devuelve el primer objeto dentro de la causa. Este objeto es la causa más inmediata o directa del evento. Ya que una <code class="docutils literal notranslate"><span class="pre">Causa</span></code> no puede estar vacía, está garantizado tener una <code class="docutils literal notranslate"><span class="pre">raíz</span></code>.</p>
+<p><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/cause/Cause.html#first-java.lang.Class-">Cause#first(Class)</a> returns the first object in the cause chain whose type is either the same as or is a
 subtype of the given class. For example, given a cause which contained a player followed by an entity
 <code class="docutils literal notranslate"><span class="pre">[Player,</span> <span class="pre">Entity,</span> <span class="pre">...]</span></code></p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Listener</span>
@@ -214,20 +203,20 @@ subtype of the given class. For example, given a cause which contained a player 
 </div>
 <p>Both optionals would contain the player object as its type directly matched request for a
 Player type and it matched the request for an Entity type as Player is a subtype of Entity.</p>
-<p><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/cause/Cause.html#last-java.lang.Class-">Cause#last(Class)</a> es similar a <code class="docutils literal notranslate"><span class="pre">Cause#first(Class)</span></code> excepto que devuelve el último valor en la cadena de causa que coincide con el tipo.</p>
+<p><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/cause/Cause.html#last-java.lang.Class-">Cause#last(Class)</a> es similar a <code class="docutils literal notranslate"><span class="pre">Cause#first(Class)</span></code> excepto que devuelve el último valor en la cadena de causa que coincide con el tipo.</p>
 <p>Continuando el ejemplo anterior, si en su lugar de cambiamos para llamar <code class="docutils literal notranslate"><span class="pre">Cause#last(Class)</span></code> la primera opción contendría todavía el objeto de jugador, pero la segundo opción contendría ahora la entidad que pasamos en la segunda posición de la causa.</p>
-<p><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/cause/Cause.html#containsType-java.lang.Class-">Cause#containsType(Class)</a> devuelve un valor boolean y puede ser utilizado para verificar si una cadena de causa contiene algún objeto que coincida con el tipo proporcionado.</p>
-<p><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/cause/Cause.html#all--">Cause#all()</a> simplemente devuelve todos los objetos dentro de la causa permitiendo un manejo más avanzado.</p>
+<p><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/cause/Cause.html#containsType-java.lang.Class-">Cause#containsType(Class)</a> devuelve un valor boolean y puede ser utilizado para verificar si una cadena de causa contiene algún objeto que coincida con el tipo proporcionado.</p>
+<p><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/cause/Cause.html#all--">Cause#all()</a> simplemente devuelve todos los objetos dentro de la causa permitiendo un manejo más avanzado.</p>
 </div>
 <div class="section" id="event-context">
 <h2>Event Context<a class="headerlink" href="#event-context" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Sometimes the ordering of objects within the cause isn’t enough to get the proper idea of what an object represents in
-relation to the event. This is where <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/cause/EventContext.html">EventContext</a> comes in. The event context allows objects to be
-associated with unique names, in the form of <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/cause/EventContextKeys.html">EventContextKeys</a>, allowing them to be easily identified and
-requested. Some examples of use cases for named causes is the <cite>Notifier</cite> of a <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/block/ChangeBlockEvent.Grow.html">ChangeBlockEvent.Grow</a> or the
-<code class="docutils literal notranslate"><span class="pre">Source</span></code> of a <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/entity/DamageEntityEvent.html">DamageEntityEvent</a>.</p>
+relation to the event. This is where <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/cause/EventContext.html">EventContext</a> comes in. The event context allows objects to be
+associated with unique names, in the form of <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/cause/EventContextKeys.html">EventContextKeys</a>, allowing them to be easily identified and
+requested. Some examples of use cases for named causes is the <cite>Notifier</cite> of a <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/block/ChangeBlockEvent.Grow.html">ChangeBlockEvent.Grow</a> or the
+<code class="docutils literal notranslate"><span class="pre">Source</span></code> of a <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/entity/DamageEntityEvent.html">DamageEntityEvent</a>.</p>
 <p>Unlike the cause stack, which makes no guarantees as to the objects contained witin it, an object associated with a
-<a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/cause/EventContextKey.html">EventContextKey</a> is guaranteed to be of the type specified by the key.</p>
+<a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/cause/EventContextKey.html">EventContextKey</a> is guaranteed to be of the type specified by the key.</p>
 <p><strong>Retrieving a entry from the context of a cause</strong></p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Listener</span>
 <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onGrow</span><span class="p">(</span><span class="n">ChangeBlockEvent</span><span class="p">.</span><span class="na">Grow</span> <span class="n">event</span><span class="p">)</span> <span class="p">{</span>
@@ -235,8 +224,8 @@ requested. Some examples of use cases for named causes is the <cite>Notifier</ci
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>This example makes use of <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/cause/EventContext.html#get-org.spongepowered.api.event.cause.EventContextKey-">EventContext#get(EventContextKey)</a> which can be used to retrieve the expected object
-associated with a name if it is present within the context. Additionally <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/cause/EventContext.html#asMap--">EventContext#asMap()</a> provides
+<p>This example makes use of <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/cause/EventContext.html#get-org.spongepowered.api.event.cause.EventContextKey-">EventContext#get(EventContextKey)</a> which can be used to retrieve the expected object
+associated with a name if it is present within the context. Additionally <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/cause/EventContext.html#asMap--">EventContext#asMap()</a> provides
 a <code class="docutils literal notranslate"><span class="pre">Map&lt;EventContextKey&lt;?&gt;,</span> <span class="pre">Object&gt;</span></code> which can be used to find all present <code class="docutils literal notranslate"><span class="pre">EventContextKey</span></code>s and their associated
 objects.</p>
 <div class="admonition note">
@@ -261,11 +250,11 @@ thread or async.</p>
 different thread, an <code class="docutils literal notranslate"><span class="pre">IllegalStateException</span></code> will be thrown. Ensure you are on the main
 server thread <strong>before</strong> calling methods on the <code class="docutils literal notranslate"><span class="pre">CauseStackManager</span></code>.</p>
 </div>
-<p>If you are creating your event on the main thread, then use the <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/CauseStackManager.html">CauseStackManager</a>, which can
-be found at <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/Sponge.html#getCauseStackManager--">Sponge#getCauseStackManager()</a>. The <code class="docutils literal notranslate"><span class="pre">CauseStackManager</span></code> tracks the potential
+<p>If you are creating your event on the main thread, then use the <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/CauseStackManager.html">CauseStackManager</a>, which can
+be found at <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/Sponge.html#getCauseStackManager--">Sponge#getCauseStackManager()</a>. The <code class="docutils literal notranslate"><span class="pre">CauseStackManager</span></code> tracks the potential
 causes of events as the game runs, allowing for easy retrieval of the current <code class="docutils literal notranslate"><span class="pre">Cause</span></code> without effort.
-To see the current cause, call <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/CauseStackManager.html#getCurrentCause--">CauseStackManager#getCurrentCause()</a>. You may notice that your
-plugin’s <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/plugin/PluginContainer.html">PluginContainer</a> is already in the returned <code class="docutils literal notranslate"><span class="pre">Cause</span></code>, as plugins are one of the
+To see the current cause, call <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/CauseStackManager.html#getCurrentCause--">CauseStackManager#getCurrentCause()</a>. You may notice that your
+plugin’s <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/plugin/PluginContainer.html">PluginContainer</a> is already in the returned <code class="docutils literal notranslate"><span class="pre">Cause</span></code>, as plugins are one of the
 objects tracked by the manager. Using the <code class="docutils literal notranslate"><span class="pre">CauseStackManager</span></code> for creating causes removes the
 need for boilerplate-like code where you supply objects like your plugin container, so that you can
 concentrate on adding your own causes.</p>
@@ -287,8 +276,8 @@ you may want to add the player you are acting as in the cause and the <code clas
 simulating in the context (as the simulated player is not directly responsible for the event being fired.)</p>
 <p><strong>Creating a custom Cause with the CauseStackManager</strong></p>
 <p>In this example, the variables would be populated, the cause would contain the <code class="docutils literal notranslate"><span class="pre">playerToSimulate</span></code> as
-the root cause, the <code class="docutils literal notranslate"><span class="pre">sourceRunningSudo</span></code> as the second object in the cause and the <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/profile/GameProfile.html">GameProfile</a>
-as the <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/cause/EventContextKeys.html#PLAYER_SIMULATED">EventContextKeys#PLAYER_SIMULATED</a> context, in addition to anything already in the
+the root cause, the <code class="docutils literal notranslate"><span class="pre">sourceRunningSudo</span></code> as the second object in the cause and the <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/profile/GameProfile.html">GameProfile</a>
+as the <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/cause/EventContextKeys.html#PLAYER_SIMULATED">EventContextKeys#PLAYER_SIMULATED</a> context, in addition to anything already in the
 <code class="docutils literal notranslate"><span class="pre">CauseStackManager</span></code>. Your event code would be at the bottom of the method.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">CommandSource</span> <span class="n">sourceRunningSudo</span> <span class="o">=</span> <span class="p">...;</span>
 <span class="n">Player</span> <span class="n">playerToSimulate</span> <span class="o">=</span> <span class="p">...;</span>
@@ -315,12 +304,12 @@ stacks are «last in, first out» (LIFO) structures.</p>
 <h3>Using the Cause Builder<a class="headerlink" href="#using-the-cause-builder" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>If you are creating an event that does not fire on the main thread, you cannot use the
 <code class="docutils literal notranslate"><span class="pre">CauseStackManager</span></code>. Instead, you will need to create a <code class="docutils literal notranslate"><span class="pre">Cause</span></code> object manually.</p>
-<p>Creating a cause object is easy using the <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/cause/Cause.Builder.html">Cause.Builder</a>. You can obtain a
+<p>Creating a cause object is easy using the <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/cause/Cause.Builder.html">Cause.Builder</a>. You can obtain a
 builder by calling <code class="docutils literal notranslate"><span class="pre">Cause.builder()</span></code>. To add a cause to the builder, use the
-<a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/cause/Cause.Builder.html#append-java.lang.Object-">Cause.Builder#append(Object)</a> method, but note that unlike the <code class="docutils literal notranslate"><span class="pre">CauseStackManager</span></code>,
+<a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/cause/Cause.Builder.html#append-java.lang.Object-">Cause.Builder#append(Object)</a> method, but note that unlike the <code class="docutils literal notranslate"><span class="pre">CauseStackManager</span></code>,
 the first element you add will be the root, not the last.</p>
 <p>If you wish to add contexts, there is a separate builder for those, the
-<a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/cause/EventContext.Builder.html">EventContext.Builder</a>, accessed by calling <code class="docutils literal notranslate"><span class="pre">EventContext#builder()</span></code>.
+<a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/cause/EventContext.Builder.html">EventContext.Builder</a>, accessed by calling <code class="docutils literal notranslate"><span class="pre">EventContext#builder()</span></code>.
 The <code class="docutils literal notranslate"><span class="pre">EventContext</span></code> can then be added using the <code class="docutils literal notranslate"><span class="pre">Cause.Builder#build(EventContext)</span></code> when
 you have finished building the <code class="docutils literal notranslate"><span class="pre">Cause</span></code> up.</p>
 <p>Taking the previous example, this is how we would build it using the cause builder.</p>

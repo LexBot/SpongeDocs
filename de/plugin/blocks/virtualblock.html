@@ -19,17 +19,6 @@
 
         <link rel="index" title="Stichwortverzeichnis"
               href="../../genindex.html"/>        <link rel="search" title="Suche" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 Dokumentation" href="../../index.html"/>        <link rel="up" title="Blöcke" href="index.html"/>        <link rel="next" title="Entities" href="../entities/index.html"/>        <link rel="prev" title="Tile Entities" href="tileentities.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -175,7 +164,7 @@
   <div class="section" id="virtual-block-changes">
 <h1>Virtuelle Block Änderungen<a class="headerlink" href="#virtual-block-changes" title="Link zu dieser Überschrift">¶</a></h1>
 <p>Virtuelle Block Änderungen erlauben es dir, es so aussehen zu lassen, als ob sich ein Block im Client geändert hat, ohne dass sich ein echter Block in der Welt geändert hat.</p>
-<p>Das Senden einer virtuellen Block-Änderung an den Client ist so einfach, wie das Aufrufen der Methode <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/effect/Viewer.html#sendBlockChange-int-int-int-org.spongepowered.api.block.BlockState-">Viewer#sendBlockChange(int, int, int, BlockState)</a>. Du musst die Koordinate, des Blocks angeben, den du ändern möchtest, sowie den neuen <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/block/BlockState.html">BlockState</a>, den du anzeigen möchtest. Ein Beispiel davon sähe wie folgt aus:</p>
+<p>Das Senden einer virtuellen Block-Änderung an den Client ist so einfach, wie das Aufrufen der Methode <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/effect/Viewer.html#sendBlockChange-int-int-int-org.spongepowered.api.block.BlockState-">Viewer#sendBlockChange(int, int, int, BlockState)</a>. Du musst die Koordinate, des Blocks angeben, den du ändern möchtest, sowie den neuen <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/block/BlockState.html">BlockState</a>, den du anzeigen möchtest. Ein Beispiel davon sähe wie folgt aus:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.block.BlockTypes</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.spongepowered.api.effect.Viewer</span><span class="p">;</span>
 
@@ -183,7 +172,7 @@
 </pre></div>
 </div>
 <p>Dies lässt es so aussehen, als ob sich der Block an der Koordinate <code class="docutils literal notranslate"><span class="pre">0,</span> <span class="pre">65,</span> <span class="pre">0</span></code> in einen Befehlsblock verwandelt hat. Natürlich bist du nicht auf den Standardzustand des Blockes begrenzt. Jegliche <code class="docutils literal notranslate"><span class="pre">BlockState</span></code>s werden von der <code class="docutils literal notranslate"><span class="pre">sendBlockChange()</span></code> Methode akzeptiert.</p>
-<p>Neben der Möglichkeit die Koordinate als drei Integers anzugeben, kannst du sie auch als <code class="docutils literal notranslate"><span class="pre">Vector3i</span></code> angeben. Ein Beispiel, wie die <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/effect/Viewer.html#sendBlockChange-com.flowpowered.math.vector.Vector3i-org.spongepowered.api.block.BlockState-">Viewer#sendBlockChange(Vector3i, BlockState)</a> Methode verwendet werden kann, siehst du hier:</p>
+<p>Neben der Möglichkeit die Koordinate als drei Integers anzugeben, kannst du sie auch als <code class="docutils literal notranslate"><span class="pre">Vector3i</span></code> angeben. Ein Beispiel, wie die <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/effect/Viewer.html#sendBlockChange-com.flowpowered.math.vector.Vector3i-org.spongepowered.api.block.BlockState-">Viewer#sendBlockChange(Vector3i, BlockState)</a> Methode verwendet werden kann, siehst du hier:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">com.flowpowered.math.vector.Vector3i</span><span class="p">;</span>
 
 <span class="n">Vector3i</span> <span class="n">vector</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Vector3i</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">65</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
@@ -192,7 +181,7 @@
 </div>
 <div class="section" id="resetting-changes">
 <h2>Zurücksetzen der Änderungen<a class="headerlink" href="#resetting-changes" title="Link zu dieser Überschrift">¶</a></h2>
-<p>Um jegliche Änderungen an der Position, die du zum Client gesendet hast, Rückgänging zu machen, kannst du die <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/effect/Viewer.html#resetBlockChange-int-int-int-">Viewer#resetBlockChange(int, int, int)</a> Methode aufrufen. Zum Beispiel, um die Schäden des vorherigen Beispiels rückgängig zu machen, können wir die <code class="docutils literal notranslate"><span class="pre">resetBlockChange()</span></code> Methode mit den gleichen Koordinaten aufrufen wie zuvor:</p>
+<p>Um jegliche Änderungen an der Position, die du zum Client gesendet hast, Rückgänging zu machen, kannst du die <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/effect/Viewer.html#resetBlockChange-int-int-int-">Viewer#resetBlockChange(int, int, int)</a> Methode aufrufen. Zum Beispiel, um die Schäden des vorherigen Beispiels rückgängig zu machen, können wir die <code class="docutils literal notranslate"><span class="pre">resetBlockChange()</span></code> Methode mit den gleichen Koordinaten aufrufen wie zuvor:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">viewer</span><span class="p">.</span><span class="na">resetBlockChange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">65</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
 </pre></div>
 </div>

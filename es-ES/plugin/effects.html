@@ -19,17 +19,6 @@
 
         <link rel="index" title="Índice"
               href="../genindex.html"/>        <link rel="search" title="Búsqueda" href="../search.html"/>    <link rel="top" title="documentación de Sponge - 7.2.0" href="../index.html"/>        <link rel="up" title="Creando un Plugin" href="index.html"/>        <link rel="next" title="Programador" href="scheduler.html"/>        <link rel="prev" title="Ofertas de Intercambio" href="trade-offers.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -166,7 +155,7 @@
            <div itemprop="articleBody">
   <div class="section" id="effects">
 <h1>Efectos<a class="headerlink" href="#effects" title="Enlazar permanentemente con este título">¶</a></h1>
-<p>Utilizando la API de efectos en Sponge, podemos crear efectos especiales para ser utilizados en un servidor. Utilizando un <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/effect/Viewer.html">Viewer</a>, podemos reproducir sonidos o generar partículas en el servidor.</p>
+<p>Utilizando la API de efectos en Sponge, podemos crear efectos especiales para ser utilizados en un servidor. Utilizando un <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/effect/Viewer.html">Viewer</a>, podemos reproducir sonidos o generar partículas en el servidor.</p>
 <div class="section" id="playing-sounds">
 <h2>Reproducción de Sonidos<a class="headerlink" href="#playing-sounds" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Con algún <code class="docutils literal notranslate"><span class="pre">Viewer</span></code> dado, podemos simplemente reproducir un sonido en una ubicación:</p>
@@ -178,12 +167,12 @@
 <span class="n">viewer</span><span class="p">.</span><span class="na">playSound</span><span class="p">(</span><span class="n">SoundTypes</span><span class="p">.</span><span class="na">ENTITY_CREEPER_PRIMED</span><span class="p">,</span> <span class="k">new</span> <span class="n">Vector3d</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">65</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="mi">1</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>Now let’s break this down. First, the <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/effect/sound/SoundType.html">SoundType</a> specifies the sound that will be
+<p>Now let’s break this down. First, the <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/effect/sound/SoundType.html">SoundType</a> specifies the sound that will be
 played. Next, we have a <code class="docutils literal notranslate"><span class="pre">Vector3d</span></code> position. This position can be constructed, or it can be retrieved from a
-<code class="docutils literal notranslate"><span class="pre">Location</span></code> using the <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/Location.html#getPosition--">Location#getPosition()</a> method. In the example above, the sound will be played at the
+<code class="docutils literal notranslate"><span class="pre">Location</span></code> using the <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/world/Location.html#getPosition--">Location#getPosition()</a> method. In the example above, the sound will be played at the
 coordinates <code class="docutils literal notranslate"><span class="pre">1,</span> <span class="pre">65,</span> <span class="pre">1</span></code>. Lastly, we have the volume that the sound will be played at. The volume is a double that
 ranges from zero to two.</p>
-<p>Ahora que podemos reproducir sonido básicos, podemos ir más profundo con nuestros sonidos. Digamos que queremos reproducir nuestro sonido en un tono específico. Podemos utilizar la clase <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/effect/sound/PitchModulation.html">PitchModulation</a> para modular el tono a una nota específica. También podemos utilizar una <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/effect/sound/SoundCategory.html">SoundCategory</a> para especificar que categoría de sonido estamos reproduciendo. Un ejemplo de estos se muestra a continuación:</p>
+<p>Ahora que podemos reproducir sonido básicos, podemos ir más profundo con nuestros sonidos. Digamos que queremos reproducir nuestro sonido en un tono específico. Podemos utilizar la clase <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/effect/sound/PitchModulation.html">PitchModulation</a> para modular el tono a una nota específica. También podemos utilizar una <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/effect/sound/SoundCategory.html">SoundCategory</a> para especificar que categoría de sonido estamos reproduciendo. Un ejemplo de estos se muestra a continuación:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.effect.sound.PitchModulation</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.spongepowered.api.effect.sound.SoundCategories</span><span class="p">;</span>
 
@@ -191,7 +180,7 @@ ranges from zero to two.</p>
     <span class="k">new</span> <span class="n">Vector3d</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">65</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">PitchModulation</span><span class="p">.</span><span class="na">AFLAT0</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>Si una <code class="docutils literal notranslate"><span class="pre">SoundCategory</span></code> no está especificada cuando se reproduce un sonido, se utilizará <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/effect/sound/SoundCategories.html#MASTER">SoundCategories#MASTER</a>.</p>
+<p>Si una <code class="docutils literal notranslate"><span class="pre">SoundCategory</span></code> no está especificada cuando se reproduce un sonido, se utilizará <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/effect/sound/SoundCategories.html#MASTER">SoundCategories#MASTER</a>.</p>
 </div>
 <div class="section" id="spawning-particles">
 <h2>Generación de Partículas<a class="headerlink" href="#spawning-particles" title="Enlazar permanentemente con este título">¶</a></h2>
@@ -206,10 +195,10 @@ ranges from zero to two.</p>
 <span class="n">viewer</span><span class="p">.</span><span class="na">spawnParticles</span><span class="p">(</span><span class="n">effect</span><span class="p">,</span> <span class="n">position</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>Utilizando un <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/effect/particle/ParticleEffect.Builder.html">ParticleEffect.Builder</a>, podemos especificar el tipo de partícula que nos gustaría generar. Con esto, también especificamos que cincuenta partículas estarán en el efecto de partículas.</p>
+<p>Utilizando un <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/effect/particle/ParticleEffect.Builder.html">ParticleEffect.Builder</a>, podemos especificar el tipo de partícula que nos gustaría generar. Con esto, también especificamos que cincuenta partículas estarán en el efecto de partículas.</p>
 <p>Now if we wanted to make a more specific particle, say the particle of a block, then we can use one of the several
-types found in the <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/effect/particle/ParticleTypes.html">ParticleTypes</a> class. For example, let’s say we wanted to spawn particles of a cracking
-block of sand, <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/effect/particle/ParticleTypes.html#BLOCK_CRACK">ParticleTypes#BLOCK_CRACK</a>. We would need to use the <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/effect/particle/ParticleOptions.html#BLOCK_STATE">ParticleOptions#BLOCK_STATE</a>
+types found in the <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/effect/particle/ParticleTypes.html">ParticleTypes</a> class. For example, let’s say we wanted to spawn particles of a cracking
+block of sand, <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/effect/particle/ParticleTypes.html#BLOCK_CRACK">ParticleTypes#BLOCK_CRACK</a>. We would need to use the <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/effect/particle/ParticleOptions.html#BLOCK_STATE">ParticleOptions#BLOCK_STATE</a>
 option and specify that we would like to use a sand block. This can be done like so:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.block.BlockTypes</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.spongepowered.api.effect.particle.ParticleOptions</span><span class="p">;</span>
@@ -235,7 +224,7 @@ option and specify that we would like to use a sand block. This can be done like
         <span class="p">.</span><span class="na">build</span><span class="p">();</span>
 </pre></div>
 </div>
-<p>Utilizando esto, podemos crear un <a href="#id1"><span class="problematic" id="id2">:javadoc:`PotionEffect`de precipitación que durará diez ticks y tendrá un amplificador de cinco. A diferencia de las partículas y los sonidos, las pociones no pueden ser aplicadas a un ``Viewer``</span></a>. En cambio, necesitamos una entidad que soporte <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/manipulator/mutable/PotionEffectData.html">PotionEffectData</a>, como un jugador.</p>
+<p>Utilizando esto, podemos crear un <a href="#id1"><span class="problematic" id="id2">:javadoc:`PotionEffect`de precipitación que durará diez ticks y tendrá un amplificador de cinco. A diferencia de las partículas y los sonidos, las pociones no pueden ser aplicadas a un ``Viewer``</span></a>. En cambio, necesitamos una entidad que soporte <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/manipulator/mutable/PotionEffectData.html">PotionEffectData</a>, como un jugador.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.data.manipulator.mutable.PotionEffectData</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.spongepowered.api.entity.living.player.Player</span><span class="p">;</span>
 

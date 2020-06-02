@@ -19,17 +19,6 @@
 
         <link rel="index" title="Dizin"
               href="../../../genindex.html"/>        <link rel="search" title="Ara" href="../../../search.html"/>    <link rel="top" title="Sponge 7.2.0 belgelendirme çalışması" href="../../../index.html"/>        <link rel="up" title="Metin" href="../index.html"/>        <link rel="next" title="Biçimlendirme Kodu ve Eski Biçimi" href="formatting-code-legacy.html"/>        <link rel="prev" title="Metin oluşturma" href="../text.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -179,7 +168,7 @@
            <div itemprop="articleBody">
   <div class="section" id="text-serializers">
 <h1>Metin Sıralandırıcı<a class="headerlink" href="#text-serializers" title="Bu başlığın kalıcı bağlantısı">¶</a></h1>
-<p><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/serializer/TextSerializer.html">TextSerializer</a>, <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/Text.html">Text</a> oluşumlarını sıralamak ve tersini yapmak için uygun bir yol sunar. Uygulanabilir olan üç format vardır:</p>
+<p><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/text/serializer/TextSerializer.html">TextSerializer</a>, <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/text/Text.html">Text</a> oluşumlarını sıralamak ve tersini yapmak için uygun bir yol sunar. Uygulanabilir olan üç format vardır:</p>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="formatting-code-legacy.html">Biçimlendirme Kodu ve Eski Biçimi</a></li>
@@ -187,7 +176,7 @@
 <li class="toctree-l1"><a class="reference internal" href="configurate.html">Yapılandırma biçimi</a></li>
 </ul>
 </div>
-<p><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/serializer/TextSerializers.html">TextSerializers</a> sınıfı, temsili <code class="docutils literal notranslate"><span class="pre">String</span></code>’e serileştirme için ya da bir <code class="docutils literal notranslate"><span class="pre">Metin</span></code> oluşumuna seriden paralele çevirmek için 3 tane``TextSerializer`` sunar:</p>
+<p><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/text/serializer/TextSerializers.html">TextSerializers</a> sınıfı, temsili <code class="docutils literal notranslate"><span class="pre">String</span></code>’e serileştirme için ya da bir <code class="docutils literal notranslate"><span class="pre">Metin</span></code> oluşumuna seriden paralele çevirmek için 3 tane``TextSerializer`` sunar:</p>
 <ul class="simple">
 <li><code class="docutils literal notranslate"><span class="pre">LEGACY_FORMATTING_CODE</span></code></li>
 <li><code class="docutils literal notranslate"><span class="pre">FORMATTING_CODE</span></code></li>
@@ -195,14 +184,14 @@
 </ul>
 <div class="section" id="serializing-text">
 <h2>Metni Seri Hale Getir<a class="headerlink" href="#serializing-text" title="Bu başlığın kalıcı bağlantısı">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">Metin</span></code> nesnesini seri hale getirmek için, uygun <code class="docutils literal notranslate"><span class="pre">Metin</span></code> nesnesini tek değişken olarak seçerek, <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/serializer/TextSerializer.html#serialize-org.spongepowered.api.text.Text-">TextSerializer#serialize(Text)</a> metodunu kullanın. Metot, <code class="docutils literal notranslate"><span class="pre">Metin</span></code> nesnesini temsil eden bir <code class="docutils literal notranslate"><span class="pre">String</span></code> döndürecektir.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Metin</span></code> nesnesini seri hale getirmek için, uygun <code class="docutils literal notranslate"><span class="pre">Metin</span></code> nesnesini tek değişken olarak seçerek, <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/text/serializer/TextSerializer.html#serialize-org.spongepowered.api.text.Text-">TextSerializer#serialize(Text)</a> metodunu kullanın. Metot, <code class="docutils literal notranslate"><span class="pre">Metin</span></code> nesnesini temsil eden bir <code class="docutils literal notranslate"><span class="pre">String</span></code> döndürecektir.</p>
 </div>
 <div class="section" id="deserializing-to-text">
 <h2>Metne Seriden Paralele Çevirme<a class="headerlink" href="#deserializing-to-text" title="Bu başlığın kalıcı bağlantısı">¶</a></h2>
 <p>To deserialize a <code class="docutils literal notranslate"><span class="pre">String</span></code> into its corresponding <code class="docutils literal notranslate"><span class="pre">Text</span></code> object, simply use the
-<a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/serializer/TextSerializer.html#deserialize-java.lang.String-">TextSerializer#deserialize(String)</a> method, specifying the input <code class="docutils literal notranslate"><span class="pre">String</span></code> as the only argument. If the
-input is incorrectly formatted, a <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/serializer/TextParseException.html">TextParseException</a> will be thrown. Alternatively, use the
-<a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/serializer/TextSerializer.html#deserializeUnchecked-java.lang.String-">TextSerializer#deserializeUnchecked(String)</a> method to deserialize without any exceptions. If there is an
+<a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/text/serializer/TextSerializer.html#deserialize-java.lang.String-">TextSerializer#deserialize(String)</a> method, specifying the input <code class="docutils literal notranslate"><span class="pre">String</span></code> as the only argument. If the
+input is incorrectly formatted, a <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/text/serializer/TextParseException.html">TextParseException</a> will be thrown. Alternatively, use the
+<a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/text/serializer/TextSerializer.html#deserializeUnchecked-java.lang.String-">TextSerializer#deserializeUnchecked(String)</a> method to deserialize without any exceptions. If there is an
 error, the raw input will be returned in the form of a <code class="docutils literal notranslate"><span class="pre">Text</span></code> object.</p>
 </div>
 </div>

@@ -19,17 +19,6 @@
 
         <link rel="index" title="Indeks"
               href="../genindex.html"/>        <link rel="search" title="Pencarian" href="../search.html"/>    <link rel="top" title="dokumentasi Sponge 7.2.0" href="../index.html"/>        <link rel="up" title="Membuat Plugin" href="index.html"/>        <link rel="next" title="Data API" href="data/index.html"/>        <link rel="prev" title="Serializing Benda" href="configuration/serialization.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -166,7 +155,7 @@
            <div itemprop="articleBody">
   <div class="section" id="the-asset-api">
 <h1>Aset API<a class="headerlink" href="#the-asset-api" title="Link permanen untuk headline ini">¶</a></h1>
-<p><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/asset/AssetManager.html">AssetManager</a> mengizinkan pengembang untuk mendapatkan resources dari plugin JAR.</p>
+<p><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/asset/AssetManager.html">AssetManager</a> mengizinkan pengembang untuk mendapatkan resources dari plugin JAR.</p>
 <p>A plugin's assets reside in a directory named <code class="docutils literal notranslate"><span class="pre">assets/myplugin/</span></code> where <code class="docutils literal notranslate"><span class="pre">myplugin</span></code> is the plugin ID.</p>
 <p>Saat sesudah dikonfigurasi dengan benar anda dapat mengambil sumber daya untuk plugin (atau apapun) anda menggunakan kode berikut:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.asset.Asset</span><span class="p">;</span>
@@ -188,11 +177,11 @@
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Catatan</p>
-<p class="last">Contoh di atas mengasumsikan bahwa <code class="docutils literal notranslate"><span class="pre">myfile.txt</span></code> ada sebagai <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/asset/Asset.html">Asset</a>. Jika tidak, maka <code class="docutils literal notranslate"><span class="pre">getAsset()</span></code> akan mengembalikan nilai <code class="docutils literal notranslate"><span class="pre">Optional#empty()</span></code>.</p>
+<p class="last">Contoh di atas mengasumsikan bahwa <code class="docutils literal notranslate"><span class="pre">myfile.txt</span></code> ada sebagai <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/asset/Asset.html">Asset</a>. Jika tidak, maka <code class="docutils literal notranslate"><span class="pre">getAsset()</span></code> akan mengembalikan nilai <code class="docutils literal notranslate"><span class="pre">Optional#empty()</span></code>.</p>
 </div>
 <div class="section" id="working-with-assets">
 <h2>Bekerja dengan aset<a class="headerlink" href="#working-with-assets" title="Link permanen untuk headline ini">¶</a></h2>
-<p>Kelas <code class="docutils literal notranslate"><span class="pre">Asset</span></code> pada dasarnya hanya pelupuk di sekitar <code class="docutils literal notranslate"><span class="pre">URL</span></code> dengan beberapa operasi I/O yang dibangun. use case dari <code class="docutils literal notranslate"><span class="pre">Assets</span></code>s pada dasarnya tak terbatas tetapi satu use case yang umum adalah untuk menghasilkan berkas konfigurasi bawaan jika konfigurasi plugin anda tidak ditemukan. Anda dapat menggapai ini dengan menggunakan <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/plugin/PluginContainer.html">PluginContainer</a> dengan kode berikut:</p>
+<p>Kelas <code class="docutils literal notranslate"><span class="pre">Asset</span></code> pada dasarnya hanya pelupuk di sekitar <code class="docutils literal notranslate"><span class="pre">URL</span></code> dengan beberapa operasi I/O yang dibangun. use case dari <code class="docutils literal notranslate"><span class="pre">Assets</span></code>s pada dasarnya tak terbatas tetapi satu use case yang umum adalah untuk menghasilkan berkas konfigurasi bawaan jika konfigurasi plugin anda tidak ditemukan. Anda dapat menggapai ini dengan menggunakan <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/plugin/PluginContainer.html">PluginContainer</a> dengan kode berikut:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">java.nio.file.Files</span><span class="p">;</span>
 
 <span class="k">if</span> <span class="p">(</span><span class="n">Files</span><span class="p">.</span><span class="na">notExists</span><span class="p">(</span><span class="n">configPath</span><span class="p">))</span> <span class="p">{</span>

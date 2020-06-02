@@ -19,17 +19,6 @@
 
         <link rel="index" title="Індекс"
               href="../genindex.html"/>        <link rel="search" title="Пошук" href="../search.html"/>    <link rel="top" title="Sponge 7.2.0 documentation" href="../index.html"/>        <link rel="up" title="Creating a Plugin" href="index.html"/>        <link rel="next" title="Dependency Injection" href="injection.html"/>        <link rel="prev" title="Main Plugin Class" href="plugin-class.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -190,22 +179,22 @@ only occur once.</li>
 <h2>Initialization States<a class="headerlink" href="#initialization-states" title="Постійне посилання на цей заголовок">¶</a></h2>
 <p>Initialization states only occur once during a single run.</p>
 <p><strong>CONSTRUCTION</strong></p>
-<p>The <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GameConstructionEvent.html">GameConstructionEvent</a> is triggered.
+<p>The <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/game/state/GameConstructionEvent.html">GameConstructionEvent</a> is triggered.
 During this state, the <code class="docutils literal notranslate"><span class="pre">&#64;Plugin</span></code> class instance for each plugin is triggered.</p>
 <p><strong>PRE_INITIALIZATION</strong></p>
-<p>The <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GamePreInitializationEvent.html">GamePreInitializationEvent</a> is triggered.
+<p>The <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/game/state/GamePreInitializationEvent.html">GamePreInitializationEvent</a> is triggered.
 During this state, the plugin gets ready for initialization. Access to a default logger instance and access to
 information regarding preferred configuration file locations is available.</p>
 <p><strong>INITIALIZATION</strong></p>
-<p>The <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GameInitializationEvent.html">GameInitializationEvent</a> is triggered.
+<p>The <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/game/state/GameInitializationEvent.html">GameInitializationEvent</a> is triggered.
 During this state, the plugin should finish any work needed in order to be functional. Global event handlers should get
 registered in this stage.</p>
 <p><strong>POST_INITIALIZATION</strong></p>
-<p>The <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GamePostInitializationEvent.html">GamePostInitializationEvent</a> is triggered.
+<p>The <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/game/state/GamePostInitializationEvent.html">GamePostInitializationEvent</a> is triggered.
 By this state, inter-plugin communication should be ready to occur. Plugins providing an API should be ready to accept
 basic requests.</p>
 <p><strong>LOAD_COMPLETE</strong></p>
-<p>The <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GameLoadCompleteEvent.html">GameLoadCompleteEvent</a> is triggered.
+<p>The <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/game/state/GameLoadCompleteEvent.html">GameLoadCompleteEvent</a> is triggered.
 By this state, all plugin initialization should be completed.</p>
 </div>
 <div class="section" id="running-states">
@@ -213,19 +202,19 @@ By this state, all plugin initialization should be completed.</p>
 <p>Running States can occur multiple times during a single run. <code class="docutils literal notranslate"><span class="pre">SERVER_ABOUT_TO_START</span></code> may follow <code class="docutils literal notranslate"><span class="pre">SERVER_STOPPED</span></code>,
 and <code class="docutils literal notranslate"><span class="pre">SERVER_STOPPED</span></code> may occur at any point during the process if there is an error.</p>
 <p><strong>SERVER_ABOUT_TO_START</strong></p>
-<p>The <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GameAboutToStartServerEvent.html">GameAboutToStartServerEvent</a> event is triggered.
+<p>The <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/game/state/GameAboutToStartServerEvent.html">GameAboutToStartServerEvent</a> event is triggered.
 The server instance exists, but worlds are not yet loaded.</p>
 <p><strong>SERVER_STARTING</strong></p>
-<p>The <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GameStartingServerEvent.html">GameStartingServerEvent</a> is triggered.
+<p>The <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/game/state/GameStartingServerEvent.html">GameStartingServerEvent</a> is triggered.
 The server instance exists, and worlds are loaded. Command registration is handled during this state.</p>
 <p><strong>SERVER_STARTED</strong></p>
-<p>The <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GameStartedServerEvent.html">GameStartedServerEvent</a> event is triggered.
+<p>The <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/game/state/GameStartedServerEvent.html">GameStartedServerEvent</a> event is triggered.
 The server instance exists, and worlds are loaded.</p>
 <p><strong>SERVER_STOPPING</strong></p>
-<p>The <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GameStoppingServerEvent.html">GameStoppingServerEvent</a> is triggered.
+<p>The <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/game/state/GameStoppingServerEvent.html">GameStoppingServerEvent</a> is triggered.
 This state occurs immediately before the final tick, before the worlds are saved.</p>
 <p><strong>SERVER_STOPPED</strong></p>
-<p>The <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GameStoppedServerEvent.html">GameStoppedServerEvent</a> is triggered.
+<p>The <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/game/state/GameStoppedServerEvent.html">GameStoppedServerEvent</a> is triggered.
 During this state, no players are connected and no changes to worlds are saved.</p>
 </div>
 <div class="section" id="stopping-states">
@@ -238,11 +227,11 @@ the <code class="docutils literal notranslate"><span class="pre">/stop</span></c
 Ctrl-C, Task Manager, a computer crash, or similar situations.</p>
 </div>
 <p><strong>GAME_STOPPING</strong></p>
-<p>The <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GameStoppingEvent.html">GameStoppingEvent</a> is triggered.
+<p>The <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/game/state/GameStoppingEvent.html">GameStoppingEvent</a> is triggered.
 This state occurs immediately before <code class="docutils literal notranslate"><span class="pre">GAME_STOPPED</span></code>. Plugins providing an API should still be capable of accepting
 basic requests.</p>
 <p><strong>GAME_STOPPED</strong></p>
-<p>The <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GameStoppedEvent.html">GameStoppedEvent</a> is triggered.
+<p>The <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/game/state/GameStoppedEvent.html">GameStoppedEvent</a> is triggered.
 Once this event has finished executing, Minecraft will shut down. No further interaction with the game or other plugins
 should be attempted at this point.</p>
 </div>

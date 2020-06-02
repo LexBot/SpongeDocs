@@ -19,17 +19,6 @@
 
         <link rel="index" title="Index"
               href="../../genindex.html"/>        <link rel="search" title="Search" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 documentation" href="../../index.html"/>        <link rel="up" title="Configuring Plugins" href="index.html"/>        <link rel="next" title="Serializing Objects" href="serialization.html"/>        <link rel="prev" title="Configuration Loaders" href="loaders.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -254,7 +243,7 @@ primitive data types, <code class="docutils literal notranslate"><span class="pr
 through deserialization first. In the <a class="reference external" href="https://configurate.aoeu.xyz/apidocs/ninja/leaping/configurate/ConfigurationOptions.html">ConfigurationOptions</a> used to create your root <code class="docutils literal notranslate"><span class="pre">ConfigurationNode</span></code>,
 there is a collection of <a class="reference external" href="https://configurate.aoeu.xyz/apidocs/ninja/leaping/configurate/objectmapping/serialize/TypeSerializer.html">TypeSerializer</a>s that Configurate uses to convert your objects to a
 <code class="docutils literal notranslate"><span class="pre">ConfigurationNode</span></code> and vice versa.</p>
-<p>In order to tell Configurate what type it is dealing with, we have to provide a guava <a class="reference external" href="https://google.github.io/guava/releases/17.0/api/docs/com/google/common/reflect/TypeToken.html">TypeToken</a>. Imagine we
+<p>In order to tell Configurate what type it is dealing with, we have to provide a guava <a class="reference external" href="https://guava.dev/releases/21.0/api/docs/com/google/common/reflect/TypeToken.html">TypeToken</a>. Imagine we
 want to read a player <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/util/UUID.html">UUID</a> from the config node <code class="docutils literal notranslate"><span class="pre">towns.aFLARDia.mayor</span></code>. To do so, we need to call the
 <a class="reference external" href="https://configurate.aoeu.xyz/apidocs/ninja/leaping/configurate/ConfigurationNode.html#getValue-com.google.common.reflect.TypeToken-">getValue(…)</a> method while providing a <code class="docutils literal notranslate"><span class="pre">TypeToken</span></code>
 representing the <code class="docutils literal notranslate"><span class="pre">UUID</span></code> class.</p>
@@ -277,9 +266,9 @@ method with a <code class="docutils literal notranslate"><span class="pre">TypeT
 <p class="last">Serializing a value will throw an <code class="docutils literal notranslate"><span class="pre">ObjectMappingException</span></code> if no <code class="docutils literal notranslate"><span class="pre">TypeSerializer</span></code> for the given <code class="docutils literal notranslate"><span class="pre">TypeToken</span></code>
 can be found.</p>
 </div>
-<p>For simple classes like <code class="docutils literal notranslate"><span class="pre">UUID</span></code>, you can just create a <code class="docutils literal notranslate"><span class="pre">TypeToken</span></code> using the static <a class="reference external" href="https://google.github.io/guava/releases/17.0/api/docs/com/google/common/reflect/TypeToken.html#of-java.lang.Class-">TypeToken#of(Class)</a>
+<p>For simple classes like <code class="docutils literal notranslate"><span class="pre">UUID</span></code>, you can just create a <code class="docutils literal notranslate"><span class="pre">TypeToken</span></code> using the static <a class="reference external" href="https://guava.dev/releases/21.0/api/docs/com/google/common/reflect/TypeToken.html#of-java.lang.Class-">TypeToken#of(Class)</a>
 method. However, <code class="docutils literal notranslate"><span class="pre">UUID</span></code>s and some other types already have a constant for it, such as
-<a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/util/TypeTokens.html#UUID_TOKEN">TypeTokens#UUID_TOKEN</a>, which you should use instead. If the class you want to use has type parameters (like
+<a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/util/TypeTokens.html#UUID_TOKEN">TypeTokens#UUID_TOKEN</a>, which you should use instead. If the class you want to use has type parameters (like
 <code class="docutils literal notranslate"><span class="pre">Map&lt;String,UUID&gt;</span></code>) and no constant yet exists for it, the syntax gets a bit more complicated. In most cases you will
 know exactly what the type parameters will be at compile time, so you can just create the <code class="docutils literal notranslate"><span class="pre">TypeToken</span></code> as an anonymous
 class: <code class="docutils literal notranslate"><span class="pre">new</span> <span class="pre">TypeToken&lt;Map&lt;String,UUID&gt;&gt;()</span> <span class="pre">{}</span></code>. That way, even generic types can conveniently be written and read.</p>
@@ -289,7 +278,7 @@ class: <code class="docutils literal notranslate"><span class="pre">new</span> <
 </div>
 <div class="admonition tip">
 <p class="first admonition-title">Tip</p>
-<p class="last">The SpongeAPI provides a <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/util/TypeTokens.html">class</a> with many pre-defined type tokens that you can use.
+<p class="last">The SpongeAPI provides a <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/util/TypeTokens.html">class</a> with many pre-defined type tokens that you can use.
 If plugin developers need many different or complex <code class="docutils literal notranslate"><span class="pre">TypeToken</span></code>s, or use them frequently, we recommend
 creating a similar class for themselves to improve code readability. (Beware, it is not guaranteed that all of
 those entries have registered <code class="docutils literal notranslate"><span class="pre">TypeSerializer</span></code>s).</p>

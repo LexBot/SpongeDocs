@@ -19,17 +19,6 @@
 
         <link rel="index" title="索引"
               href="../../genindex.html"/>        <link rel="search" title="検索" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 ドキュメント" href="../../index.html"/>        <link rel="up" title="Economy" href="index.html"/>        <link rel="next" title="経済 API の利用" href="using.html"/>        <link rel="prev" title="Economy" href="index.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -182,7 +171,7 @@
 </ul>
 <div class="section" id="the-economyservice">
 <h2>EconomyService<a class="headerlink" href="#the-economyservice" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/economy/EconomyService.html">EconomyService</a> は経済 API の基礎となります。これを用いて経済 API を使用したり、通貨や口座管理の手段を提供したりします。</p>
+<p><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/economy/EconomyService.html">EconomyService</a> は経済 API の基礎となります。これを用いて経済 API を使用したり、通貨や口座管理の手段を提供したりします。</p>
 <div class="admonition warning">
 <p class="first admonition-title">警告</p>
 <p class="last">Sponge does not provide a default implementation for the <code class="docutils literal notranslate"><span class="pre">EconomyService</span></code>. It’s completely up to plugins to
@@ -192,13 +181,13 @@ have to implement it yourself, if you want to make use of it.</p>
 </div>
 <div class="section" id="currency">
 <h2>通貨（Currency）<a class="headerlink" href="#currency" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>The <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/economy/Currency.html">Currency</a> object represents a form of Currency. <code class="docutils literal notranslate"><span class="pre">Currency</span></code> stores a display name (plural and singular),
+<p>The <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/economy/Currency.html">Currency</a> object represents a form of Currency. <code class="docutils literal notranslate"><span class="pre">Currency</span></code> stores a display name (plural and singular),
 a symbol, the number of fractional digits, and whether the currency is the default currency for the economy. If the
 economy plugin chooses, it can support multiple currencies.</p>
 </div>
 <div class="section" id="accounts">
 <h2>口座（Account）<a class="headerlink" href="#accounts" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/economy/account/Account.html">Account</a> は特定のプレイヤーや他のオブジェクト（銀行や会社、エンティティ）についての情報を保存するために使われます。 Sponge の経済 API では2種類の口座タイプがあります：</p>
+<p><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/economy/account/Account.html">Account</a> は特定のプレイヤーや他のオブジェクト（銀行や会社、エンティティ）についての情報を保存するために使われます。 Sponge の経済 API では2種類の口座タイプがあります：</p>
 <div class="section" id="virtual-accounts">
 <h3>バーチャルアカウント<a class="headerlink" href="#virtual-accounts" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>バーチャルアカウントは文字列として保存されている識別子と紐付けられます。バーチャルアカウントはだいたいすべてのものと紐付けることができますが、銀行もしくはプレイヤーでないものに広く使われます。<code class="docutils literal notranslate"><span class="pre">getIdentifier()</span></code> でバーチャルアカウントの識別子を取得できます。</p>
@@ -216,7 +205,7 @@ economy plugin chooses, it can support multiple currencies.</p>
 <li>引き出し: 口座から資金を取り出した場合に起こります</li>
 <li>送金: 口座が他の口座と資金を交換した場合に起こります</li>
 </ul>
-<p>トランザクションが発生したとき、 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/economy/EconomyTransactionEvent.html">EconomyTransactionEvent</a> が発火されます。このイベントを使って <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/economy/transaction/TransactionResult.html">TransactionResult</a> が取得できます。 <code class="docutils literal notranslate"><span class="pre">TransactionResult</span></code> は以下を含む発生したトランザクションの情報を持ちます:</p>
+<p>トランザクションが発生したとき、 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/economy/EconomyTransactionEvent.html">EconomyTransactionEvent</a> が発火されます。このイベントを使って <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/economy/transaction/TransactionResult.html">TransactionResult</a> が取得できます。 <code class="docutils literal notranslate"><span class="pre">TransactionResult</span></code> は以下を含む発生したトランザクションの情報を持ちます:</p>
 <ul class="simple">
 <li>Account involved</li>
 <li>Currency involved</li>
@@ -224,7 +213,7 @@ economy plugin chooses, it can support multiple currencies.</p>
 <li>Transaction type</li>
 <li>Result of the transaction</li>
 </ul>
-<p><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/economy/transaction/ResultType.html">ResultType</a> JavaDoc のページですべてのあり得るトランザクションの結果を見られます。</p>
+<p><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/economy/transaction/ResultType.html">ResultType</a> JavaDoc のページですべてのあり得るトランザクションの結果を見られます。</p>
 </div>
 </div>
 

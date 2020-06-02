@@ -19,17 +19,6 @@
 
         <link rel="index" title="Dizin"
               href="../genindex.html"/>        <link rel="search" title="Ara" href="../search.html"/>    <link rel="top" title="Sponge 7.2.0 belgelendirme çalışması" href="../index.html"/>        <link rel="up" title="Bir eklenti oluşturma" href="index.html"/>        <link rel="next" title="Ekonomi" href="economy/index.html"/>        <link rel="prev" title="Metrics Collection" href="metrics.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -166,7 +155,7 @@
            <div itemprop="articleBody">
   <div class="section" id="book-views">
 <h1>Kitap görünümleri<a class="headerlink" href="#book-views" title="Bu başlığın kalıcı bağlantısı">¶</a></h1>
-<p>A <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/BookView.html">BookView</a> Book GUI’sinin istemcideki temsilidir. <code class="docutils literal notranslate"><span class="pre">BookView</span></code> gerçek bir <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/item/inventory/ItemStack.html">ItemStack</a> ile ilişkilendirilmez ve yalnızca <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/Text.html">Text</a> dosyasını oynatıcıya kayıt yoluyla gösterir. İstemciye, imzasız bir kayıdı açmasını söylemek mümkün olmadığından, <a href="#id1"><span class="problematic" id="id2">``</span></a>BookView``in yalnızca okunur olduğunu unutmayın.</p>
+<p>A <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/text/BookView.html">BookView</a> Book GUI’sinin istemcideki temsilidir. <code class="docutils literal notranslate"><span class="pre">BookView</span></code> gerçek bir <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/item/inventory/ItemStack.html">ItemStack</a> ile ilişkilendirilmez ve yalnızca <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/text/Text.html">Text</a> dosyasını oynatıcıya kayıt yoluyla gösterir. İstemciye, imzasız bir kayıdı açmasını söylemek mümkün olmadığından, <a href="#id1"><span class="problematic" id="id2">``</span></a>BookView``in yalnızca okunur olduğunu unutmayın.</p>
 <p>Bir `` BookView`` oluşturmak için: javadoc: <cite>BookView # builder ()</cite> yöntemiyle sağlanan bir: javadoc: <cite>BookView.Builder</cite> elde etmeniz yeterlidir. Üreticiyi kullanarak, `` BookView`` unvanını, yazarını ve sayfalarını belirleyebiliriz. Sonra görünümü kullanmak için onu bir: javadoc: ‘Görüntüleyici’ ne göndermek zorundayız. Buna bir örnek aşağıda gösterilmiştir:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.effect.Viewer</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.spongepowered.api.text.BookView</span><span class="p">;</span>
@@ -180,9 +169,9 @@
 <span class="n">viewer</span><span class="p">.</span><span class="na">sendBookView</span><span class="p">(</span><span class="n">bookView</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>Bu <a href="#id1"><span class="problematic" id="id2">:javadoc:`BookView.Builder#addPage(Text) yönteminde belirtilen metni içeren tek sayfalı bir kitabı müşteriye görüntüleyecektir . Elbette eklemek istediğiniz her sayfa için ``addPage(Text)``</span></a> kodunu çağırmanıza gerek yoktur.``BookView.Builder``sınıfı çoklu <code class="docutils literal notranslate"><span class="pre">Text</span></code>leri kabul eden bir <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/BookView.Builder.html#addPages-java.util.Collection-">BookView.Builder#addPages(Collection&lt;Text&gt;)</a> sağlar.</p>
-<p><code class="docutils literal notranslate"><span class="pre">BookView.Builder</span></code> sınıfı ayrıca <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/BookView.Builder.html#insertPage-int-org.spongepowered.api.text.Text-">BookView.Builder#insertPage(int, Text)</a> ve verilen her dizinde araya sayfa ya da sayfalar eklemeye yönelik <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/BookView.Builder.html#insertPages-int-java.util.Collection-">BookView.Builder#insertPages(int, Collection&lt;Text&gt;)</a> ile uyumlu olan yöntemler de sağlar.</p>
-<p>Ayrıca sayfadan <a href="#id1"><span class="problematic" id="id2">``</span></a>Text``girerek veya silmek istediğiniz sayfanın dizinini belirterek <a href="#id3"><span class="problematic" id="id4">``</span></a>BookView``dan sayfalar silebilirsiniz. Basitce söylemek gerekirse <a href="#id5"><span class="problematic" id="id6">:javadoc:`BookView.Builder#removePage(Text)`ile uyumlu , :javadoc:`BookView.Builder#removePage(int)`</span></a>, veya <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/BookView.Builder.html#removePages-java.util.Collection-">BookView.Builder#removePages(Collection&lt;Text&gt;)</a> yöntemleri kullanmanız gerekmektedir.</p>
+<p>Bu <a href="#id1"><span class="problematic" id="id2">:javadoc:`BookView.Builder#addPage(Text) yönteminde belirtilen metni içeren tek sayfalı bir kitabı müşteriye görüntüleyecektir . Elbette eklemek istediğiniz her sayfa için ``addPage(Text)``</span></a> kodunu çağırmanıza gerek yoktur.``BookView.Builder``sınıfı çoklu <code class="docutils literal notranslate"><span class="pre">Text</span></code>leri kabul eden bir <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/text/BookView.Builder.html#addPages-java.util.Collection-">BookView.Builder#addPages(Collection&lt;Text&gt;)</a> sağlar.</p>
+<p><code class="docutils literal notranslate"><span class="pre">BookView.Builder</span></code> sınıfı ayrıca <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/text/BookView.Builder.html#insertPage-int-org.spongepowered.api.text.Text-">BookView.Builder#insertPage(int, Text)</a> ve verilen her dizinde araya sayfa ya da sayfalar eklemeye yönelik <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/text/BookView.Builder.html#insertPages-int-java.util.Collection-">BookView.Builder#insertPages(int, Collection&lt;Text&gt;)</a> ile uyumlu olan yöntemler de sağlar.</p>
+<p>Ayrıca sayfadan <a href="#id1"><span class="problematic" id="id2">``</span></a>Text``girerek veya silmek istediğiniz sayfanın dizinini belirterek <a href="#id3"><span class="problematic" id="id4">``</span></a>BookView``dan sayfalar silebilirsiniz. Basitce söylemek gerekirse <a href="#id5"><span class="problematic" id="id6">:javadoc:`BookView.Builder#removePage(Text)`ile uyumlu , :javadoc:`BookView.Builder#removePage(int)`</span></a>, veya <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/text/BookView.Builder.html#removePages-java.util.Collection-">BookView.Builder#removePages(Collection&lt;Text&gt;)</a> yöntemleri kullanmanız gerekmektedir.</p>
 </div>
 
            </div>

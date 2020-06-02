@@ -19,17 +19,6 @@
 
         <link rel="index" title="索引"
               href="../../genindex.html"/>        <link rel="search" title="搜尋" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 說明文件" href="../../index.html"/>        <link rel="up" title="物品" href="index.html"/>        <link rel="next" title="開設交易" href="../trade-offers.html"/>        <link rel="prev" title="基本用法" href="usage.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -172,7 +161,7 @@
   <div class="section" id="creating-an-itemstack">
 <h1>物品的创建<a class="headerlink" href="#creating-an-itemstack" title="本標題的永久連結">¶</a></h1>
 <p>如果你想制作一个自定义的物品，你需要经过若干步骤方能搞定。让我们从最基础的开始，然后制作一把附魔的钻石剑。</p>
-<p>创建一个 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/item/inventory/ItemStack.html">ItemStack</a> 对象需要 ItemStack 的构造器；这构造器可通过 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/item/inventory/ItemStack.html#builder--">ItemStack#builder()</a> 方法获得。这个构造器能让我们设定这个物品的类型及耐久。接下来，我们要制作一个带有自定义的名字的无限耐久附魔钻石剑。如果你想要一把普通的钻石剑，没有任何其他奇奇怪怪的数据，只需如此：</p>
+<p>创建一个 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/item/inventory/ItemStack.html">ItemStack</a> 对象需要 ItemStack 的构造器；这构造器可通过 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/item/inventory/ItemStack.html#builder--">ItemStack#builder()</a> 方法获得。这个构造器能让我们设定这个物品的类型及耐久。接下来，我们要制作一个带有自定义的名字的无限耐久附魔钻石剑。如果你想要一把普通的钻石剑，没有任何其他奇奇怪怪的数据，只需如此：</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.item.ItemTypes</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.spongepowered.api.item.inventory.ItemStack</span><span class="p">;</span>
 
@@ -183,7 +172,7 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>现在一把崭新的钻石剑就出来了。但这是把普通的钻石剑。如果我们想要加点有趣的属性呢？比如，改个名字？或者加个附魔？附魔可以借助 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/manipulator/mutable/item/EnchantmentData.html">EnchantmentData</a> 完成。下面我们将为钻石剑加附魔。你需要确保你在 <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">superMegaAwesomeSword;</span></code> 之前把这些附魔全部搞定。</p>
+<p>现在一把崭新的钻石剑就出来了。但这是把普通的钻石剑。如果我们想要加点有趣的属性呢？比如，改个名字？或者加个附魔？附魔可以借助 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/manipulator/mutable/item/EnchantmentData.html">EnchantmentData</a> 完成。下面我们将为钻石剑加附魔。你需要确保你在 <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">superMegaAwesomeSword;</span></code> 之前把这些附魔全部搞定。</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">java.util.List</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">java.util.stream.Collectors</span><span class="p">;</span>
 
@@ -223,7 +212,7 @@
 <p>完工！现在这把永不损坏的剑不仅有各种附魔，还有一个华丽的名字，拿去给服务器里的小伙伴们玩去吧。</p>
 <div class="section" id="spawning-the-item">
 <h2>生成物品<a class="headerlink" href="#spawning-the-item" title="本標題的永久連結">¶</a></h2>
-<p>当然我们可以直接把这把剑扔进玩家的背包中，但如果我们想让这把剑以掉落物的形式出现呢？是时候让<a class="reference internal" href="../entities/spawning.html"><span class="doc">“实体生成”</span></a>登场了。有鉴于在游戏中，<code class="docutils literal notranslate"><span class="pre">ItemStack</span></code> 表现出来的外观还是 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/Item.html">Item</a>，我们是可以用生成普通 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/Entity.html">Entity</a> 的方式来搞定这个事情的。此时，<a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/EntityType.html">EntityType</a> 将会是 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/EntityTypes.html#ITEM">EntityTypes#ITEM</a>，同时我们还需要指定 <code class="docutils literal notranslate"><span class="pre">Entity</span></code> 代表了我们的 <code class="docutils literal notranslate"><span class="pre">ItemStack</span></code> 实例。这个过程可以通过使用 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/key/Keys.html#REPRESENTED_ITEM">Keys#REPRESENTED_ITEM</a> 完成。下面是例子：</p>
+<p>当然我们可以直接把这把剑扔进玩家的背包中，但如果我们想让这把剑以掉落物的形式出现呢？是时候让<a class="reference internal" href="../entities/spawning.html"><span class="doc">“实体生成”</span></a>登场了。有鉴于在游戏中，<code class="docutils literal notranslate"><span class="pre">ItemStack</span></code> 表现出来的外观还是 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/Item.html">Item</a>，我们是可以用生成普通 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/Entity.html">Entity</a> 的方式来搞定这个事情的。此时，<a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/EntityType.html">EntityType</a> 将会是 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/EntityTypes.html#ITEM">EntityTypes#ITEM</a>，同时我们还需要指定 <code class="docutils literal notranslate"><span class="pre">Entity</span></code> 代表了我们的 <code class="docutils literal notranslate"><span class="pre">ItemStack</span></code> 实例。这个过程可以通过使用 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/key/Keys.html#REPRESENTED_ITEM">Keys#REPRESENTED_ITEM</a> 完成。下面是例子：</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.entity.Entity</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.spongepowered.api.entity.EntityTypes</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.spongepowered.api.event.CauseStackManager.StackFrame</span><span class="p">;</span>
@@ -248,7 +237,7 @@
 </div>
 <div class="section" id="creating-an-itemstack-from-a-block">
 <h2>用方块创建 ItemStack<a class="headerlink" href="#creating-an-itemstack-from-a-block" title="本標題的永久連結">¶</a></h2>
-<p>正常情况下，若需要方块对应的 <code class="docutils literal notranslate"><span class="pre">ItemStack</span></code>，可以用 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/item/inventory/ItemStack.Builder.html#itemType-org.spongepowered.api.item.ItemType-">ItemStack.Builder#itemType(ItemType)</a> 方法来获得方块对应的物品，但如果我们需要根据 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/block/BlockState.html">BlockState</a> 来创建 <code class="docutils literal notranslate"><span class="pre">ItemStack</span></code> 实例呢？只需要使用 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/item/inventory/ItemStack.Builder.html#fromBlockState-org.spongepowered.api.block.BlockState-">ItemStack.Builder#fromBlockState(BlockState)</a> 即可。下面是例子：</p>
+<p>正常情况下，若需要方块对应的 <code class="docutils literal notranslate"><span class="pre">ItemStack</span></code>，可以用 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/item/inventory/ItemStack.Builder.html#itemType-org.spongepowered.api.item.ItemType-">ItemStack.Builder#itemType(ItemType)</a> 方法来获得方块对应的物品，但如果我们需要根据 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/block/BlockState.html">BlockState</a> 来创建 <code class="docutils literal notranslate"><span class="pre">ItemStack</span></code> 实例呢？只需要使用 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/item/inventory/ItemStack.Builder.html#fromBlockState-org.spongepowered.api.block.BlockState-">ItemStack.Builder#fromBlockState(BlockState)</a> 即可。下面是例子：</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.block.BlockState</span><span class="p">;</span>
 
 <span class="kd">public</span> <span class="n">ItemStack</span> <span class="nf">createStack</span><span class="p">(</span><span class="n">BlockState</span> <span class="n">state</span><span class="p">)</span> <span class="p">{</span>

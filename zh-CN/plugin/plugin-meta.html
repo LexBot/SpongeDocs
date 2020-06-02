@@ -19,17 +19,6 @@
 
         <link rel="index" title="索引"
               href="../genindex.html"/>        <link rel="search" title="搜索" href="../search.html"/>    <link rel="top" title="Sponge 7.2.0 文档" href="../index.html"/>        <link rel="up" title="插件开发" href="index.html"/>        <link rel="next" title="光线追踪" href="ray-tracing.html"/>        <link rel="prev" title="玩家列表" href="tab-lists.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -187,7 +176,7 @@
     <span class="n">dependencies</span> <span class="o">=</span> <span class="p">{</span><span class="nd">@Dependency</span><span class="p">(</span><span class="n">id</span> <span class="o">=</span> <span class="s">&quot;otherplugin&quot;</span><span class="p">,</span> <span class="n">optional</span> <span class="o">=</span> <span class="kc">true</span><span class="p">)})</span>
 </pre></div>
 </div>
-<p>你指定的每一个 <code class="docutils literal notranslate"><span class="pre">&#64;Dependency</span></code> 都可以带有符合 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/plugin/Dependency.html#version--">Dependency#version()</a> 说明的指定适用版本范围 <code class="docutils literal notranslate"><span class="pre">version</span></code> 属性。此外，<code class="docutils literal notranslate"><span class="pre">optional</span></code> 属性代表插件在缺失此依赖项目时也能加载。默认，不明确指定为 <code class="docutils literal notranslate"><span class="pre">optional</span></code> 的依赖项目均为硬性依赖；缺失这些依赖会导致插件不能加载。</p>
+<p>你指定的每一个 <code class="docutils literal notranslate"><span class="pre">&#64;Dependency</span></code> 都可以带有符合 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/plugin/Dependency.html#version--">Dependency#version()</a> 说明的指定适用版本范围 <code class="docutils literal notranslate"><span class="pre">version</span></code> 属性。此外，<code class="docutils literal notranslate"><span class="pre">optional</span></code> 属性代表插件在缺失此依赖项目时也能加载。默认，不明确指定为 <code class="docutils literal notranslate"><span class="pre">optional</span></code> 的依赖项目均为硬性依赖；缺失这些依赖会导致插件不能加载。</p>
 <div class="admonition note">
 <p class="first admonition-title">注解</p>
 <p class="last">对于 <code class="docutils literal notranslate"><span class="pre">authors</span></code> 和 <code class="docutils literal notranslate"><span class="pre">dependencies</span></code> 两个属性来说，花括号可以在只有一个元素的情况下省略不写，比如上文示例中的 <code class="docutils literal notranslate"><span class="pre">dependencies</span> <span class="pre">=</span> <span class="pre">&#64;Dependency(id</span> <span class="pre">=</span> <span class="pre">&quot;otherplugin&quot;,</span> <span class="pre">optional</span> <span class="pre">=</span> <span class="pre">true)</span></code>。</p>

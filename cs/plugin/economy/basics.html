@@ -19,17 +19,6 @@
 
         <link rel="index" title="Rejstřík"
               href="../../genindex.html"/>        <link rel="search" title="Vyhledávání" href="../../search.html"/>    <link rel="top" title="Dokumentace pro Sponge 7.2.0" href="../../index.html"/>        <link rel="up" title="Economy" href="index.html"/>        <link rel="next" title="Using the Economy API" href="using.html"/>        <link rel="prev" title="Economy" href="index.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -182,7 +171,7 @@
 </ul>
 <div class="section" id="the-economyservice">
 <h2>The EconomyService<a class="headerlink" href="#the-economyservice" title="Trvalý odkaz na tento nadpis">¶</a></h2>
-<p>The <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/economy/EconomyService.html">EconomyService</a> is the basis of the Economy API. It is used to interact via the Economy API, stores an
+<p>The <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/economy/EconomyService.html">EconomyService</a> is the basis of the Economy API. It is used to interact via the Economy API, stores an
 economy’s currencies and provides methods for account management.</p>
 <div class="admonition warning">
 <p class="first admonition-title">Varování</p>
@@ -193,13 +182,13 @@ have to implement it yourself, if you want to make use of it.</p>
 </div>
 <div class="section" id="currency">
 <h2>Currency<a class="headerlink" href="#currency" title="Trvalý odkaz na tento nadpis">¶</a></h2>
-<p>The <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/economy/Currency.html">Currency</a> object represents a form of Currency. <code class="docutils literal notranslate"><span class="pre">Currency</span></code> stores a display name (plural and singular),
+<p>The <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/economy/Currency.html">Currency</a> object represents a form of Currency. <code class="docutils literal notranslate"><span class="pre">Currency</span></code> stores a display name (plural and singular),
 a symbol, the number of fractional digits, and whether the currency is the default currency for the economy. If the
 economy plugin chooses, it can support multiple currencies.</p>
 </div>
 <div class="section" id="accounts">
 <h2>Accounts<a class="headerlink" href="#accounts" title="Trvalý odkaz na tento nadpis">¶</a></h2>
-<p><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/economy/account/Account.html">Account</a>s are used to store economy information about a specific player or other object (i.e. bank,
+<p><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/economy/account/Account.html">Account</a>s are used to store economy information about a specific player or other object (i.e. bank,
 business, entity). There are two account types in the Sponge Economy API:</p>
 <div class="section" id="virtual-accounts">
 <h3>Virtual Accounts<a class="headerlink" href="#virtual-accounts" title="Trvalý odkaz na tento nadpis">¶</a></h3>
@@ -220,8 +209,8 @@ anything, but are commonly used for things such as banks, or non-players. To get
 <li>Withdraw: Occurs when an account has funds removed from it</li>
 <li>Transfer: Occurs when an account exchanges funds with another account</li>
 </ul>
-<p>When a transfer occurs, the <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/economy/EconomyTransactionEvent.html">EconomyTransactionEvent</a> is fired. Using this event, you can get the
-<a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/economy/transaction/TransactionResult.html">TransactionResult</a>. The <code class="docutils literal notranslate"><span class="pre">TransactionResult</span></code> stores data about the transaction that occurred, including:</p>
+<p>When a transfer occurs, the <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/economy/EconomyTransactionEvent.html">EconomyTransactionEvent</a> is fired. Using this event, you can get the
+<a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/economy/transaction/TransactionResult.html">TransactionResult</a>. The <code class="docutils literal notranslate"><span class="pre">TransactionResult</span></code> stores data about the transaction that occurred, including:</p>
 <ul class="simple">
 <li>Account involved</li>
 <li>Currency involved</li>
@@ -229,7 +218,7 @@ anything, but are commonly used for things such as banks, or non-players. To get
 <li>Transaction type</li>
 <li>Result of the transaction</li>
 </ul>
-<p>You can view all possible transaction results on the <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/economy/transaction/ResultType.html">ResultType</a> JavaDocs page.</p>
+<p>You can view all possible transaction results on the <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/economy/transaction/ResultType.html">ResultType</a> JavaDocs page.</p>
 </div>
 </div>
 

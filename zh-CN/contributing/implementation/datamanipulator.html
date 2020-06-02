@@ -19,17 +19,6 @@
 
         <link rel="index" title="索引"
               href="../../genindex.html"/>        <link rel="search" title="搜索" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 文档" href="../../index.html"/>        <link rel="up" title="参与到 Sponge 的开发工作来" href="index.html"/>        <link rel="next" title="开发文档" href="../spongedocs.html"/>        <link rel="prev" title="Mixin" href="mixins.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -142,16 +131,16 @@
   <div class="section" id="implementing-datamanipulators">
 <h1>实现数据操纵器<a class="headerlink" href="#implementing-datamanipulators" title="永久链接至标题">¶</a></h1>
 <p>这是一个创建数据操纵器（DataManipulator）的指南，贡献者可以通过本指南来学习如何帮助实现数据 API（Data API）。一个实现数据操纵器的更新目录可以在 <a class="reference external" href="https://github.com/SpongePowered/SpongeCommon/issues/8">SpongeCommon Issue #8</a> 被找到。</p>
-<p>若要完整实现一个 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/manipulator/DataManipulator.html">DataManipulator</a> 必须遵循这些步骤：</p>
+<p>若要完整实现一个 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/manipulator/DataManipulator.html">DataManipulator</a> 必须遵循这些步骤：</p>
 <ol class="arabic simple">
 <li>实现 <code class="docutils literal notranslate"><span class="pre">DataManipulator</span></code> 本身</li>
-<li>实现 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/manipulator/ImmutableDataManipulator.html">ImmutableDataManipulator</a></li>
+<li>实现 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/manipulator/ImmutableDataManipulator.html">ImmutableDataManipulator</a></li>
 </ol>
 <p>当这些步骤完成后，下列的这些事情也要完成：</p>
 <ol class="arabic simple" start="3">
-<li>在 <code class="docutils literal notranslate"><span class="pre">KeyRegistryModule</span></code> 中注册数据键（<a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/key/Key.html">Key</a>）</li>
+<li>在 <code class="docutils literal notranslate"><span class="pre">KeyRegistryModule</span></code> 中注册数据键（<a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/key/Key.html">Key</a>）</li>
 <li>实现数据处理器（ <code class="docutils literal notranslate"><span class="pre">DataProcessor</span></code> ）</li>
-<li>为每个表示 <code class="docutils literal notranslate"><span class="pre">DataManipulator</span></code> 的值（<a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/value/mutable/Value.html">Value</a>）实现数据值处理器（ <code class="docutils literal notranslate"><span class="pre">ValueProcessor</span></code> ）</li>
+<li>为每个表示 <code class="docutils literal notranslate"><span class="pre">DataManipulator</span></code> 的值（<a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/value/mutable/Value.html">Value</a>）实现数据值处理器（ <code class="docutils literal notranslate"><span class="pre">ValueProcessor</span></code> ）</li>
 </ol>
 <p>若数据是附加到方块上的，你还需要向方块中混入 (mix in to) 若干方法。</p>
 <div class="admonition note">
@@ -172,7 +161,7 @@
 </div>
 <div class="section" id="implement-the-datamanipulator">
 <h2>1. 实现数据操纵器（DataManipulator）<a class="headerlink" href="#implement-the-datamanipulator" title="永久链接至标题">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">DataManipulator</span></code> 的实现的约定是把它们加上 <code class="docutils literal notranslate"><span class="pre">Sponge</span></code> 的前缀。也就是说，为了实现 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/manipulator/mutable/entity/HealthData.html">HealthData</a> 接口，我们在合适的包创建了一个名为 <code class="docutils literal notranslate"><span class="pre">SpongeHealthData</span></code> 的类。为了实现 <code class="docutils literal notranslate"><span class="pre">DataManipulator</span></code> 的一部分内容，我们先在 <code class="docutils literal notranslate"><span class="pre">org.spongepowered.common.data.manipulator.mutable.common</span></code> 中新建了一个合适的抽象类。最常用的一般是 <code class="docutils literal notranslate"><span class="pre">AbstractData</span></code> ，不过我们还有一些抽象类可以大大减少不必要的代码，甚至我们为一些特殊情况，如只包含有一个数据的 <code class="docutils literal notranslate"><span class="pre">DataManipulator</span></code> 提供了抽象。</p>
+<p><code class="docutils literal notranslate"><span class="pre">DataManipulator</span></code> 的实现的约定是把它们加上 <code class="docutils literal notranslate"><span class="pre">Sponge</span></code> 的前缀。也就是说，为了实现 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/manipulator/mutable/entity/HealthData.html">HealthData</a> 接口，我们在合适的包创建了一个名为 <code class="docutils literal notranslate"><span class="pre">SpongeHealthData</span></code> 的类。为了实现 <code class="docutils literal notranslate"><span class="pre">DataManipulator</span></code> 的一部分内容，我们先在 <code class="docutils literal notranslate"><span class="pre">org.spongepowered.common.data.manipulator.mutable.common</span></code> 中新建了一个合适的抽象类。最常用的一般是 <code class="docutils literal notranslate"><span class="pre">AbstractData</span></code> ，不过我们还有一些抽象类可以大大减少不必要的代码，甚至我们为一些特殊情况，如只包含有一个数据的 <code class="docutils literal notranslate"><span class="pre">DataManipulator</span></code> 提供了抽象。</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">SpongeHealthData</span> <span class="kd">extends</span> <span class="n">AbstractData</span><span class="o">&lt;</span><span class="n">HealthData</span><span class="p">,</span> <span class="n">ImmutableHealthData</span><span class="o">&gt;</span> <span class="kd">implements</span> <span class="n">HealthData</span> <span class="p">{</span>
     <span class="o">[</span><span class="p">...</span><span class="o">]</span>
 <span class="p">}</span>
@@ -224,7 +213,7 @@
 </div>
 <div class="section" id="accessors-defined-by-the-interface">
 <h3>接口定义的访问器<a class="headerlink" href="#accessors-defined-by-the-interface" title="永久链接至标题">¶</a></h3>
-<p>我们实现的接口定义了若干个方法用于访问数据值（<a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/value/mutable/Value.html">Value</a>）对象。对于 <code class="docutils literal notranslate"><span class="pre">HealthData</span></code> 来说，我们有 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/manipulator/mutable/entity/HealthData.html#health--">HealthData#health()</a> 和 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/manipulator/mutable/entity/HealthData.html#maxHealth--">HealthData#maxHealth()</a> 两个方法。每一次对相关方法的调用都应该生成一份新的 <code class="docutils literal notranslate"><span class="pre">Value</span></code> 。</p>
+<p>我们实现的接口定义了若干个方法用于访问数据值（<a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/value/mutable/Value.html">Value</a>）对象。对于 <code class="docutils literal notranslate"><span class="pre">HealthData</span></code> 来说，我们有 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/manipulator/mutable/entity/HealthData.html#health--">HealthData#health()</a> 和 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/manipulator/mutable/entity/HealthData.html#maxHealth--">HealthData#maxHealth()</a> 两个方法。每一次对相关方法的调用都应该生成一份新的 <code class="docutils literal notranslate"><span class="pre">Value</span></code> 。</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="n">MutableBoundedValue</span><span class="o">&lt;</span><span class="n">Double</span><span class="o">&gt;</span> <span class="nf">health</span><span class="p">()</span> <span class="p">{</span>
     <span class="k">return</span> <span class="n">SpongeValueFactory</span><span class="p">.</span><span class="na">boundedBuilder</span><span class="p">(</span><span class="n">Keys</span><span class="p">.</span><span class="na">HEALTH</span><span class="p">)</span>
         <span class="p">.</span><span class="na">minimum</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
@@ -239,12 +228,12 @@
 <p class="first admonition-title">小技巧</p>
 <p class="last">因为 <code class="docutils literal notranslate"><span class="pre">Double</span></code> 实现了 <code class="docutils literal notranslate"><span class="pre">Comparable</span></code> ，所有我们并不需要显式指定一个 <code class="docutils literal notranslate"><span class="pre">Comparable</span></code> 类的实现。</p>
 </div>
-<p>如果当前值没有指定，那么调用 <code class="docutils literal notranslate"><span class="pre">Value</span></code> 类的 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/value/BaseValue.html#get--">BaseValue#get()</a> 将返回默认值。</p>
+<p>如果当前值没有指定，那么调用 <code class="docutils literal notranslate"><span class="pre">Value</span></code> 类的 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/value/BaseValue.html#get--">BaseValue#get()</a> 将返回默认值。</p>
 </div>
 <div class="section" id="copying-and-serialization">
 <h3>复制和序列化<a class="headerlink" href="#copying-and-serialization" title="永久链接至标题">¶</a></h3>
-<p>实现 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/manipulator/DataManipulator.html#copy--">DataManipulator#copy()</a> 和 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/manipulator/DataManipulator.html#asImmutable--">DataManipulator#asImmutable()</a> 两个方法并不需要做太多的工作，你只需要根据现有的数据，分别创建对应的可变的和不可变的数据操纵器副本就可以了。</p>
-<p><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/DataSerializable.html#toContainer--">DataSerializable#toContainer()</a> 方法用于序列化。请使用 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/DataContainer.html#createNew--">DataContainer#createNew()</a> 作为返回值并把相关的数据放进去。一个 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/DataContainer.html">DataContainer</a> 本身可以看做 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/DataQuery.html">DataQuery</a> 到对应值的映射。因为每个 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/key/Key.html">Key</a> 都有对应的 <code class="docutils literal notranslate"><span class="pre">DataQuery</span></code> ，所有只需要直接传入相应的 <code class="docutils literal notranslate"><span class="pre">Key</span></code> 就可以获得对应的值了。</p>
+<p>实现 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/manipulator/DataManipulator.html#copy--">DataManipulator#copy()</a> 和 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/manipulator/DataManipulator.html#asImmutable--">DataManipulator#asImmutable()</a> 两个方法并不需要做太多的工作，你只需要根据现有的数据，分别创建对应的可变的和不可变的数据操纵器副本就可以了。</p>
+<p><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/DataSerializable.html#toContainer--">DataSerializable#toContainer()</a> 方法用于序列化。请使用 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/DataContainer.html#createNew--">DataContainer#createNew()</a> 作为返回值并把相关的数据放进去。一个 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/DataContainer.html">DataContainer</a> 本身可以看做 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/DataQuery.html">DataQuery</a> 到对应值的映射。因为每个 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/key/Key.html">Key</a> 都有对应的 <code class="docutils literal notranslate"><span class="pre">DataQuery</span></code> ，所有只需要直接传入相应的 <code class="docutils literal notranslate"><span class="pre">Key</span></code> 就可以获得对应的值了。</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="n">DataContainer</span> <span class="nf">toContainer</span><span class="p">()</span> <span class="p">{</span>
     <span class="k">return</span> <span class="kd">super</span><span class="p">.</span><span class="na">toContainer</span><span class="p">()</span>
         <span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="n">Keys</span><span class="p">.</span><span class="na">HEALTH</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="na">health</span><span class="p">)</span>
@@ -291,7 +280,7 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>作为设置值的手段， <code class="docutils literal notranslate"><span class="pre">Consumer</span></code> 必须在试图设置值时进行一定的检查。尤其是当有些 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/DataHolder.html">DataHolder</a> 不接受负数值的时候。所以如果传入的值不合法，该 <code class="docutils literal notranslate"><span class="pre">Consumer</span></code> 应该直接抛出一个 <code class="docutils literal notranslate"><span class="pre">IllegalArgumentException</span></code> 。</p>
+<p>作为设置值的手段， <code class="docutils literal notranslate"><span class="pre">Consumer</span></code> 必须在试图设置值时进行一定的检查。尤其是当有些 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/DataHolder.html">DataHolder</a> 不接受负数值的时候。所以如果传入的值不合法，该 <code class="docutils literal notranslate"><span class="pre">Consumer</span></code> 应该直接抛出一个 <code class="docutils literal notranslate"><span class="pre">IllegalArgumentException</span></code> 。</p>
 <div class="admonition tip">
 <p class="first admonition-title">小技巧</p>
 <p class="last">对应的设置值时的要求标准应与其分别的 <code class="docutils literal notranslate"><span class="pre">Value</span></code> 对象相一致。所以你可以试着把 <code class="docutils literal notranslate"><span class="pre">this.health().set()</span></code> 方法传入的值检查部分隔离成另一个方法，然后直接执行 <code class="docutils literal notranslate"><span class="pre">this.health</span> <span class="pre">=</span> <span class="pre">value</span></code> ，如果之前的检查没有抛出异常的话。</p>
@@ -301,7 +290,7 @@
 </div>
 <div class="section" id="implement-the-immutabledatamanipulator">
 <h2>2. 实现不可变数据操纵器（ImmutableDataManipulator）<a class="headerlink" href="#implement-the-immutabledatamanipulator" title="永久链接至标题">¶</a></h2>
-<p>实现 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/manipulator/ImmutableDataManipulator.html">ImmutableDataManipulator</a> 的过程和实现可变的数据操纵器类似。</p>
+<p>实现 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/manipulator/ImmutableDataManipulator.html">ImmutableDataManipulator</a> 的过程和实现可变的数据操纵器类似。</p>
 <p>区别：</p>
 <ul class="simple">
 <li>对应的可变的 <code class="docutils literal notranslate"><span class="pre">DataManipulator</span></code> 的类名前缀变成了 <code class="docutils literal notranslate"><span class="pre">ImmutableSponge</span></code></li>
@@ -316,7 +305,7 @@
 </div>
 <div class="section" id="register-the-key-in-the-keyregistrymodule">
 <h2>3. 在 KeyRegistryModule 中注册数据键（Key）<a class="headerlink" href="#register-the-key-in-the-keyregistrymodule" title="永久链接至标题">¶</a></h2>
-<p>接下来你应该使用 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/key/Keys.html">Keys</a> 注册 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/key/Key.html">Key</a>。因此，请找到 <code class="docutils literal notranslate"><span class="pre">KeyRegistryModule</span></code> 类的 <code class="docutils literal notranslate"><span class="pre">registerDefaults()</span></code> 方法。然后，在该方法里添加一行用于（创建和）注册的新代码。</p>
+<p>接下来你应该使用 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/key/Keys.html">Keys</a> 注册 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/key/Key.html">Key</a>。因此，请找到 <code class="docutils literal notranslate"><span class="pre">KeyRegistryModule</span></code> 类的 <code class="docutils literal notranslate"><span class="pre">registerDefaults()</span></code> 方法。然后，在该方法里添加一行用于（创建和）注册的新代码。</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import static</span> <span class="nn">org.spongepowered.api.data.DataQuery.of</span><span class="p">;</span>
 
 <span class="k">this</span><span class="p">.</span><span class="na">register</span><span class="p">(</span><span class="s">&quot;health&quot;</span><span class="p">,</span> <span class="n">Key</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -333,7 +322,7 @@
         <span class="p">.</span><span class="na">build</span><span class="p">());</span>
 </pre></div>
 </div>
-<p>调用 <code class="docutils literal notranslate"><span class="pre">register(Key)</span></code> 方法，注册所有的 <code class="docutils literal notranslate"><span class="pre">Key</span></code> 以便后续之用。注册时使用的 ID 应为 <code class="docutils literal notranslate"><span class="pre">Keys</span></code> 类中相应字段的小写形式。你应使用 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/key/Key.html#builder--">Key#builder()</a> 的返回值，也就是 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/key/Key.Builder.html">Key.Builder</a> 构造一个对应的 <code class="docutils literal notranslate"><span class="pre">Key</span></code> 的实例。你需要分别设置相应的 <code class="docutils literal notranslate"><span class="pre">TypeToken</span></code>、<code class="docutils literal notranslate"><span class="pre">id</span></code>、有一定可读性的 <code class="docutils literal notranslate"><span class="pre">name</span></code>，和一个 <code class="docutils literal notranslate"><span class="pre">DataQuery</span></code>。<code class="docutils literal notranslate"><span class="pre">DataQuery</span></code> 用于序列化。你应使用 <code class="docutils literal notranslate"><span class="pre">DataQuery.of()</span></code> 方法并传入一个字符串获取相应的实例。传入的字符串值和字段名称类似，不过应去除下划线并使用大写驼峰式。</p>
+<p>调用 <code class="docutils literal notranslate"><span class="pre">register(Key)</span></code> 方法，注册所有的 <code class="docutils literal notranslate"><span class="pre">Key</span></code> 以便后续之用。注册时使用的 ID 应为 <code class="docutils literal notranslate"><span class="pre">Keys</span></code> 类中相应字段的小写形式。你应使用 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/key/Key.html#builder--">Key#builder()</a> 的返回值，也就是 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/key/Key.Builder.html">Key.Builder</a> 构造一个对应的 <code class="docutils literal notranslate"><span class="pre">Key</span></code> 的实例。你需要分别设置相应的 <code class="docutils literal notranslate"><span class="pre">TypeToken</span></code>、<code class="docutils literal notranslate"><span class="pre">id</span></code>、有一定可读性的 <code class="docutils literal notranslate"><span class="pre">name</span></code>，和一个 <code class="docutils literal notranslate"><span class="pre">DataQuery</span></code>。<code class="docutils literal notranslate"><span class="pre">DataQuery</span></code> 用于序列化。你应使用 <code class="docutils literal notranslate"><span class="pre">DataQuery.of()</span></code> 方法并传入一个字符串获取相应的实例。传入的字符串值和字段名称类似，不过应去除下划线并使用大写驼峰式。</p>
 </div>
 <div class="section" id="implement-the-dataprocessors">
 <h2>4. 实现数据处理器（DataProcessor）<a class="headerlink" href="#implement-the-dataprocessors" title="永久链接至标题">¶</a></h2>
@@ -386,18 +375,18 @@
 </div>
 <div class="admonition tip">
 <p class="first admonition-title">小技巧</p>
-<p class="last">要了解 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/DataTransactionResult.html">DataTransactionResult</a>，请点击 <a class="reference internal" href="../../plugin/data/transactions.html"><span class="doc">对应的文档页面</span></a>，以及参考 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/DataTransactionResult.Builder.html">DataTransactionResult.Builder</a> 的相关文档以了解如何创建。</p>
+<p class="last">要了解 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/DataTransactionResult.html">DataTransactionResult</a>，请点击 <a class="reference internal" href="../../plugin/data/transactions.html"><span class="doc">对应的文档页面</span></a>，以及参考 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/DataTransactionResult.Builder.html">DataTransactionResult.Builder</a> 的相关文档以了解如何创建。</p>
 </div>
 <div class="admonition warning">
 <p class="first admonition-title">警告</p>
-<p class="last">当你进行 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/item/inventory/ItemStack.html">ItemStack</a> 的相关操作时，你可能尤其需要处理有关于 <code class="docutils literal notranslate"><span class="pre">NBTTagCompound</span></code> 的数据。很多的 NBT 标签名称已经在 <code class="docutils literal notranslate"><span class="pre">NbtDataUtil</span></code> 类中给出定义了，如果你想要的名称不存在，你应该在其中添加上你想要的名称，以防止代码中出现硬编码的魔数。</p>
+<p class="last">当你进行 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/item/inventory/ItemStack.html">ItemStack</a> 的相关操作时，你可能尤其需要处理有关于 <code class="docutils literal notranslate"><span class="pre">NBTTagCompound</span></code> 的数据。很多的 NBT 标签名称已经在 <code class="docutils literal notranslate"><span class="pre">NbtDataUtil</span></code> 类中给出定义了，如果你想要的名称不存在，你应该在其中添加上你想要的名称，以防止代码中出现硬编码的魔数。</p>
 </div>
 </div>
 <div class="section" id="removal-method">
 <h3>移除方法<a class="headerlink" href="#removal-method" title="永久链接至标题">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">remove()</span></code> 方法用于把 <code class="docutils literal notranslate"><span class="pre">DataHolder</span></code> 中的对应数据移除并返回一个 <code class="docutils literal notranslate"><span class="pre">DataTransactionResult</span></code> 。</p>
 <p>我们的任何 <code class="docutils literal notranslate"><span class="pre">DataProcessor</span></code> 的抽象类实现都没有去实现移除方法，因为我们也不知道相应的 <code class="docutils literal notranslate"><span class="pre">DataHolder</span></code> （如 <code class="docutils literal notranslate"><span class="pre">WetData</span></code> 或 <code class="docutils literal notranslate"><span class="pre">HealthData</span></code> ）应该怎么移除数据，以及这个数据到底存在不存在（如 <code class="docutils literal notranslate"><span class="pre">LoreData</span></code> ）。如果数据本应总是存在，那么相应的 <code class="docutils literal notranslate"><span class="pre">remove()</span></code> 方法应该总是失败，如果它可能存在可能不存在，那么相应的 <code class="docutils literal notranslate"><span class="pre">remove()</span></code> 方法就应该移除它。</p>
-<p>因为实体生物一定有生命值，所以 <code class="docutils literal notranslate"><span class="pre">HealthData</span></code> 总是存在的，也不应该支持移除。因此我们只需要返回 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/DataTransactionResult.html#failNoData--">DataTransactionResult#failNoData()</a> 方法的返回值。</p>
+<p>因为实体生物一定有生命值，所以 <code class="docutils literal notranslate"><span class="pre">HealthData</span></code> 总是存在的，也不应该支持移除。因此我们只需要返回 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/DataTransactionResult.html#failNoData--">DataTransactionResult#failNoData()</a> 方法的返回值。</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Override</span>
 <span class="kd">public</span> <span class="n">DataTransactionResult</span> <span class="nf">remove</span><span class="p">(</span><span class="n">DataHolder</span> <span class="n">dataHolder</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">return</span> <span class="n">DataTransactionResult</span><span class="p">.</span><span class="na">failNoData</span><span class="p">();</span>

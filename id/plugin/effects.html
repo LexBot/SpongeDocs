@@ -19,17 +19,6 @@
 
         <link rel="index" title="Indeks"
               href="../genindex.html"/>        <link rel="search" title="Pencarian" href="../search.html"/>    <link rel="top" title="dokumentasi Sponge 7.2.0" href="../index.html"/>        <link rel="up" title="Membuat Plugin" href="index.html"/>        <link rel="next" title="Penjadwalan" href="scheduler.html"/>        <link rel="prev" title="Trade-Offers" href="trade-offers.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -166,7 +155,7 @@
            <div itemprop="articleBody">
   <div class="section" id="effects">
 <h1>Hasil<a class="headerlink" href="#effects" title="Link permanen untuk headline ini">¶</a></h1>
-<p>Dengan menggunakan API efek dalam Sponge, kita dapat membuat efek istimewa untuk digunakan pada sebuah server. Dengan menggunakan <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/effect/Viewer.html">Viewer</a>, kita dapat memutar suara atau menciptakan partikel pada server.</p>
+<p>Dengan menggunakan API efek dalam Sponge, kita dapat membuat efek istimewa untuk digunakan pada sebuah server. Dengan menggunakan <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/effect/Viewer.html">Viewer</a>, kita dapat memutar suara atau menciptakan partikel pada server.</p>
 <div class="section" id="playing-sounds">
 <h2>Memainkan Suara<a class="headerlink" href="#playing-sounds" title="Link permanen untuk headline ini">¶</a></h2>
 <p>Dengan diberikan <code class="docutils literal notranslate"><span class="pre">Viewer</span></code>, kita bisa memainkan suara yang sederhana di sebuah lokasi:</p>
@@ -178,12 +167,12 @@
 <span class="n">viewer</span><span class="p">.</span><span class="na">playSound</span><span class="p">(</span><span class="n">SoundTypes</span><span class="p">.</span><span class="na">ENTITY_CREEPER_PRIMED</span><span class="p">,</span> <span class="k">new</span> <span class="n">Vector3d</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">65</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="mi">1</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>Now let's break this down. First, the <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/effect/sound/SoundType.html">SoundType</a> specifies the sound that will be
+<p>Now let's break this down. First, the <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/effect/sound/SoundType.html">SoundType</a> specifies the sound that will be
 played. Next, we have a <code class="docutils literal notranslate"><span class="pre">Vector3d</span></code> position. This position can be constructed, or it can be retrieved from a
-<code class="docutils literal notranslate"><span class="pre">Location</span></code> using the <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/Location.html#getPosition--">Location#getPosition()</a> method. In the example above, the sound will be played at the
+<code class="docutils literal notranslate"><span class="pre">Location</span></code> using the <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/world/Location.html#getPosition--">Location#getPosition()</a> method. In the example above, the sound will be played at the
 coordinates <code class="docutils literal notranslate"><span class="pre">1,</span> <span class="pre">65,</span> <span class="pre">1</span></code>. Lastly, we have the volume that the sound will be played at. The volume is a double that
 ranges from zero to two.</p>
-<p>Sekarang kita dapat memutar suara dasar, kita dapat melangkah lebih jauh dengan suara kita. Katakanlah kita ingin memutar suara kita pada nada yang ditetapkan. Kita dapat menggunakan kelas <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/effect/sound/PitchModulation.html">PitchModulation</a> untuk memodulasi nada ke sebuah not tertentu. Kita dapat juga menggunakan <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/effect/sound/SoundCategory.html">SoundCategory</a> untuk menetapkan kategori suara apa yang sedang diputar. Contoh ini ditunjukkan di bawah ini:</p>
+<p>Sekarang kita dapat memutar suara dasar, kita dapat melangkah lebih jauh dengan suara kita. Katakanlah kita ingin memutar suara kita pada nada yang ditetapkan. Kita dapat menggunakan kelas <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/effect/sound/PitchModulation.html">PitchModulation</a> untuk memodulasi nada ke sebuah not tertentu. Kita dapat juga menggunakan <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/effect/sound/SoundCategory.html">SoundCategory</a> untuk menetapkan kategori suara apa yang sedang diputar. Contoh ini ditunjukkan di bawah ini:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.effect.sound.PitchModulation</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.spongepowered.api.effect.sound.SoundCategories</span><span class="p">;</span>
 
@@ -191,7 +180,7 @@ ranges from zero to two.</p>
     <span class="k">new</span> <span class="n">Vector3d</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">65</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">PitchModulation</span><span class="p">.</span><span class="na">AFLAT0</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>Jika <a href="#id1"><span class="problematic" id="id2">``</span></a>SoundCategory``tidak ditentukan ketika memainkan sebuah suara, <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/effect/sound/SoundCategories.html#MASTER">SoundCategories#MASTER</a> akan digunakan.</p>
+<p>Jika <a href="#id1"><span class="problematic" id="id2">``</span></a>SoundCategory``tidak ditentukan ketika memainkan sebuah suara, <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/effect/sound/SoundCategories.html#MASTER">SoundCategories#MASTER</a> akan digunakan.</p>
 </div>
 <div class="section" id="spawning-particles">
 <h2>Partikel pemijahan<a class="headerlink" href="#spawning-particles" title="Link permanen untuk headline ini">¶</a></h2>
@@ -206,10 +195,10 @@ ranges from zero to two.</p>
 <span class="n">viewer</span><span class="p">.</span><span class="na">spawnParticles</span><span class="p">(</span><span class="n">effect</span><span class="p">,</span> <span class="n">position</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>Menggunakan <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/effect/particle/ParticleEffect.Builder.html">ParticleEffect.Builder</a>, kita dapat menetapkan tipe partikel yang kita ingin hasilkan. Dengan begitu, kita juga menetapkan lima puluh partikel akan berada dalam efek partikel.</p>
+<p>Menggunakan <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/effect/particle/ParticleEffect.Builder.html">ParticleEffect.Builder</a>, kita dapat menetapkan tipe partikel yang kita ingin hasilkan. Dengan begitu, kita juga menetapkan lima puluh partikel akan berada dalam efek partikel.</p>
 <p>Now if we wanted to make a more specific particle, say the particle of a block, then we can use one of the several
-types found in the <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/effect/particle/ParticleTypes.html">ParticleTypes</a> class. For example, let's say we wanted to spawn particles of a cracking
-block of sand, <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/effect/particle/ParticleTypes.html#BLOCK_CRACK">ParticleTypes#BLOCK_CRACK</a>. We would need to use the <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/effect/particle/ParticleOptions.html#BLOCK_STATE">ParticleOptions#BLOCK_STATE</a>
+types found in the <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/effect/particle/ParticleTypes.html">ParticleTypes</a> class. For example, let's say we wanted to spawn particles of a cracking
+block of sand, <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/effect/particle/ParticleTypes.html#BLOCK_CRACK">ParticleTypes#BLOCK_CRACK</a>. We would need to use the <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/effect/particle/ParticleOptions.html#BLOCK_STATE">ParticleOptions#BLOCK_STATE</a>
 option and specify that we would like to use a sand block. This can be done like so:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.block.BlockTypes</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.spongepowered.api.effect.particle.ParticleOptions</span><span class="p">;</span>
@@ -235,7 +224,7 @@ option and specify that we would like to use a sand block. This can be done like
         <span class="p">.</span><span class="na">build</span><span class="p">();</span>
 </pre></div>
 </div>
-<p>Dengan menggunakan ini, kita dapat membuat <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/effect/potion/PotionEffect.html">PotionEffect</a> dengan cepat yang akan berlangsung selama sepuluh detik dan memiliki sebuah pengeras dari lima pengeras. Tidak seperti partikel dan suara, potion tidak dapat diterapkan pada sebuah <code class="docutils literal notranslate"><span class="pre">Viewer</span></code>. Sebagai gantinya, kita membutuhkan sebuah entitas yang mendukung <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/manipulator/mutable/PotionEffectData.html">PotionEffectData</a>, seperti sebuah pemutar.</p>
+<p>Dengan menggunakan ini, kita dapat membuat <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/effect/potion/PotionEffect.html">PotionEffect</a> dengan cepat yang akan berlangsung selama sepuluh detik dan memiliki sebuah pengeras dari lima pengeras. Tidak seperti partikel dan suara, potion tidak dapat diterapkan pada sebuah <code class="docutils literal notranslate"><span class="pre">Viewer</span></code>. Sebagai gantinya, kita membutuhkan sebuah entitas yang mendukung <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/manipulator/mutable/PotionEffectData.html">PotionEffectData</a>, seperti sebuah pemutar.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.data.manipulator.mutable.PotionEffectData</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.spongepowered.api.entity.living.player.Player</span><span class="p">;</span>
 

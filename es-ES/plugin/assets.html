@@ -19,17 +19,6 @@
 
         <link rel="index" title="Índice"
               href="../genindex.html"/>        <link rel="search" title="Búsqueda" href="../search.html"/>    <link rel="top" title="documentación de Sponge - 7.2.0" href="../index.html"/>        <link rel="up" title="Creando un Plugin" href="index.html"/>        <link rel="next" title="La API de Datos" href="data/index.html"/>        <link rel="prev" title="Serializando Objetos" href="configuration/serialization.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -166,7 +155,7 @@
            <div itemprop="articleBody">
   <div class="section" id="the-asset-api">
 <h1>La API de Activos<a class="headerlink" href="#the-asset-api" title="Enlazar permanentemente con este título">¶</a></h1>
-<p>El <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/asset/AssetManager.html">AssetManager</a> permite a los desarrolladores recuperar recursos de un complemento JAR.</p>
+<p>El <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/asset/AssetManager.html">AssetManager</a> permite a los desarrolladores recuperar recursos de un complemento JAR.</p>
 <p>A plugin’s assets reside in a directory named <code class="docutils literal notranslate"><span class="pre">assets/myplugin/</span></code> where <code class="docutils literal notranslate"><span class="pre">myplugin</span></code> is the plugin ID.</p>
 <p>Una vez configurado apropiadamente, puede recuperar un recurso para su (o cualquier) complemento utilizando el siguiente código:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.asset.Asset</span><span class="p">;</span>
@@ -192,7 +181,7 @@
 </div>
 <div class="section" id="working-with-assets">
 <h2>Trabajar con Activos<a class="headerlink" href="#working-with-assets" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>La clase <code class="docutils literal notranslate"><span class="pre">Activo</span></code> es esencialmente solo una envoltura alrededor de un <code class="docutils literal notranslate"><span class="pre">URL</span></code> con algunas operaciones comunes I/O integradas. Los casos de uso de <code class="docutils literal notranslate"><span class="pre">Activos</span></code>s son esencialmente ilimitado pero un caso de uso común es para generar un archivo de configuración predeterminado si su achivo de configuración de plugin no es encontrado. Puede conseguir esto utilizando <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/plugin/PluginContainer.html">PluginContainer</a> con el siguiente código:</p>
+<p>La clase <code class="docutils literal notranslate"><span class="pre">Activo</span></code> es esencialmente solo una envoltura alrededor de un <code class="docutils literal notranslate"><span class="pre">URL</span></code> con algunas operaciones comunes I/O integradas. Los casos de uso de <code class="docutils literal notranslate"><span class="pre">Activos</span></code>s son esencialmente ilimitado pero un caso de uso común es para generar un archivo de configuración predeterminado si su achivo de configuración de plugin no es encontrado. Puede conseguir esto utilizando <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/plugin/PluginContainer.html">PluginContainer</a> con el siguiente código:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">java.nio.file.Files</span><span class="p">;</span>
 
 <span class="k">if</span> <span class="p">(</span><span class="n">Files</span><span class="p">.</span><span class="na">notExists</span><span class="p">(</span><span class="n">configPath</span><span class="p">))</span> <span class="p">{</span>

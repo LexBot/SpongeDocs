@@ -19,17 +19,6 @@
 
         <link rel="index" title="索引"
               href="../../genindex.html"/>        <link rel="search" title="搜索" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 文档" href="../../index.html"/>        <link rel="up" title="实体" href="index.html"/>        <link rel="next" title="修改一个实体" href="modifying.html"/>        <link rel="prev" title="实体" href="index.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -173,7 +162,7 @@
            <div itemprop="articleBody">
   <div class="section" id="spawning-an-entity">
 <h1>生成一个实体<a class="headerlink" href="#spawning-an-entity" title="永久链接至标题">¶</a></h1>
-<p>你需要四样数据以指定如何在世界上生成实体：<a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/Entity.html">Entity</a> 、<a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/Location.html">Location</a> 、<a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/extent/Extent.html">Extent</a> 和 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/EntityType.html">EntityType</a>。获取这些东西其实相当简单，你需要关心的只有需要插件代码中指定的 <code class="docutils literal notranslate"><span class="pre">Location</span></code> 和你想要生成的 <code class="docutils literal notranslate"><span class="pre">Entity</span></code> 的类型。</p>
+<p>你需要四样数据以指定如何在世界上生成实体：<a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/Entity.html">Entity</a> 、<a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/world/Location.html">Location</a> 、<a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/world/extent/Extent.html">Extent</a> 和 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/EntityType.html">EntityType</a>。获取这些东西其实相当简单，你需要关心的只有需要插件代码中指定的 <code class="docutils literal notranslate"><span class="pre">Location</span></code> 和你想要生成的 <code class="docutils literal notranslate"><span class="pre">Entity</span></code> 的类型。</p>
 <p>例如，让我们试着去生成一个爬行者：</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.entity.Entity</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.spongepowered.api.entity.EntityTypes</span><span class="p">;</span>
@@ -200,8 +189,8 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>这样我们就指定了 <code class="docutils literal notranslate"><span class="pre">Location</span></code> 对应的世界，用于生成我们想要生成的实体。然后，我们通过 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/extent/EntityUniverse.html#createEntity-org.spongepowered.api.entity.EntityType-com.flowpowered.math.vector.Vector3d-">EntityUniverse#createEntity(EntityType, Vector3d)</a> 方法创建了一个实体，不过需要注意的是它只是创建了一个实体，还没有在世界上生成它。我们需要指定 <code class="docutils literal notranslate"><span class="pre">Entity</span></code> 的类型，和其具体的 <code class="docutils literal notranslate"><span class="pre">Location</span></code> 。</p>
-<p>一量我们创建了我们的 <code class="docutils literal notranslate"><span class="pre">Entity</span></code> 我们就可以通过世界生成实体于其上了。我们需要指定一个用于生成的 <code class="docutils literal notranslate"><span class="pre">Cause</span></code> 以保证其他插件能正确处理。对于生成实体而言，最好的方式是使用 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/cause/entity/spawn/SpawnType.html">SpawnType</a> 作为根事件上下文。在这个示例中，我们注意到我们的实体是插件生成的，不过，我们也可以指定一些事件原因或上下文用于描述我们为何要生成这个实体，比如由于一个刷怪笼（参见 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/cause/entity/spawn/SpawnTypes.html#MOB_SPAWNER">SpawnTypes#MOB_SPAWNER</a>）或者一个刷怪蛋（参见 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/cause/entity/spawn/SpawnTypes.html#SPAWN_EGG">SpawnTypes#SPAWN_EGG</a>）。</p>
+<p>这样我们就指定了 <code class="docutils literal notranslate"><span class="pre">Location</span></code> 对应的世界，用于生成我们想要生成的实体。然后，我们通过 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/world/extent/EntityUniverse.html#createEntity-org.spongepowered.api.entity.EntityType-com.flowpowered.math.vector.Vector3d-">EntityUniverse#createEntity(EntityType, Vector3d)</a> 方法创建了一个实体，不过需要注意的是它只是创建了一个实体，还没有在世界上生成它。我们需要指定 <code class="docutils literal notranslate"><span class="pre">Entity</span></code> 的类型，和其具体的 <code class="docutils literal notranslate"><span class="pre">Location</span></code> 。</p>
+<p>一量我们创建了我们的 <code class="docutils literal notranslate"><span class="pre">Entity</span></code> 我们就可以通过世界生成实体于其上了。我们需要指定一个用于生成的 <code class="docutils literal notranslate"><span class="pre">Cause</span></code> 以保证其他插件能正确处理。对于生成实体而言，最好的方式是使用 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/cause/entity/spawn/SpawnType.html">SpawnType</a> 作为根事件上下文。在这个示例中，我们注意到我们的实体是插件生成的，不过，我们也可以指定一些事件原因或上下文用于描述我们为何要生成这个实体，比如由于一个刷怪笼（参见 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/cause/entity/spawn/SpawnTypes.html#MOB_SPAWNER">SpawnTypes#MOB_SPAWNER</a>）或者一个刷怪蛋（参见 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/cause/entity/spawn/SpawnTypes.html#SPAWN_EGG">SpawnTypes#SPAWN_EGG</a>）。</p>
 </div>
 
            </div>

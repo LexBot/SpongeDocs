@@ -19,17 +19,6 @@
 
         <link rel="index" title="Indeks"
               href="../genindex.html"/>        <link rel="search" title="Pencarian" href="../search.html"/>    <link rel="top" title="dokumentasi Sponge 7.2.0" href="../index.html"/>        <link rel="up" title="Membuat Plugin" href="index.html"/>        <link rel="next" title="Plugin Debugging" href="debugging.html"/>        <link rel="prev" title="Plugin Metadata" href="plugin-meta.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -172,10 +161,10 @@
 <p class="first admonition-title">Tip</p>
 <p class="last">Jika Anda menentukan asal sinar untuk menjadi `` Entitas``, arah standar akan menjadi arah dimana Entitas `` sedang menunjuk.</p>
 </div>
-<p>To specify the end point, you can use the <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/util/blockray/BlockRay.BlockRayBuilder.html#to-com.flowpowered.math.vector.Vector3d-">BlockRay.BlockRayBuilder#to(Vector3d)</a> method, which will set both
+<p>To specify the end point, you can use the <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/util/blockray/BlockRay.BlockRayBuilder.html#to-com.flowpowered.math.vector.Vector3d-">BlockRay.BlockRayBuilder#to(Vector3d)</a> method, which will set both
 the direction and ending location. Alternatively, you can specify a direction using
-<a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/util/blockray/BlockRay.BlockRayBuilder.html#direction-com.flowpowered.math.vector.Vector3d-">BlockRay.BlockRayBuilder#direction(Vector3d)</a> and also a distance limit using
-<a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/util/blockray/BlockRay.BlockRayBuilder.html#distanceLimit-double-">BlockRay.BlockRayBuilder#distanceLimit(double)</a>.</p>
+<a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/util/blockray/BlockRay.BlockRayBuilder.html#direction-com.flowpowered.math.vector.Vector3d-">BlockRay.BlockRayBuilder#direction(Vector3d)</a> and also a distance limit using
+<a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/util/blockray/BlockRay.BlockRayBuilder.html#distanceLimit-double-">BlockRay.BlockRayBuilder#distanceLimit(double)</a>.</p>
 <div class="admonition note">
 <p class="first admonition-title">Catatan</p>
 <p class="last">The default distance limit is 1000 blocks as a safeguard to prevent infinite iteration. To disable the distance
@@ -193,12 +182,12 @@ filter use cases:</p>
 <div><ul class="simple">
 <li><code class="docutils literal notranslate"><span class="pre">allFilter</span></code>: kembali filter menerima semua blok</li>
 <li><code class="docutils literal notranslate"><span class="pre">onlyAirFilter</span></code>: kembali filter lewat udara</li>
-<li><code class="docutils literal notranslate"><span class="pre">blockTypeFilter(BlockType)</span></code>: kembali filter menerima yang hanya ditentukan <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/block/BlockType.html">BlockType</a></li>
+<li><code class="docutils literal notranslate"><span class="pre">blockTypeFilter(BlockType)</span></code>: kembali filter menerima yang hanya ditentukan <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/block/BlockType.html">BlockType</a></li>
 <li><code class="docutils literal notranslate"><span class="pre">continueAfterFilter(Predicate&lt;BlockRayHit&lt;E&gt;&gt;,</span> <span class="pre">int)</span></code>: kembali ke filter yang terus melewati filter tertentu dengan jumlah dari blok tertentu.</li>
 </ul>
 </div></blockquote>
 <p>Tentu saja, anda juga dapat menuliskan filter``Predikat&lt;BlockRayHit&lt;E&gt;&gt;`` milik anda sendiri.</p>
-<p>Akhirnya, memakai <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/util/blockray/BlockRay.BlockRayBuilder.html#build--">BlockRay.BlockRayBuilder#build()</a> untuk menyelesaikan pendirian <code class="docutils literal notranslate"><span class="pre">BlockRay</span></code>. Contoh penggunaan <code class="docutils literal notranslate"><span class="pre">BlockRayBuilder</span></code> untuk mendapatkan yang pertama non-udara blok a <code class="docutils literal notranslate"><span class="pre">Player</span></code> lihat contoh di bawah ini.</p>
+<p>Akhirnya, memakai <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/util/blockray/BlockRay.BlockRayBuilder.html#build--">BlockRay.BlockRayBuilder#build()</a> untuk menyelesaikan pendirian <code class="docutils literal notranslate"><span class="pre">BlockRay</span></code>. Contoh penggunaan <code class="docutils literal notranslate"><span class="pre">BlockRayBuilder</span></code> untuk mendapatkan yang pertama non-udara blok a <code class="docutils literal notranslate"><span class="pre">Player</span></code> lihat contoh di bawah ini.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.entity.living.player.Player</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.spongepowered.api.util.blockray.BlockRay</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.spongepowered.api.world.World</span><span class="p">;</span>
@@ -218,7 +207,7 @@ hits.</p>
 </div>
 <div class="section" id="using-blockray">
 <h2>Mengunakan BlockRay<a class="headerlink" href="#using-blockray" title="Link permanen untuk headline ini">¶</a></h2>
-<p>Semenjak <code class="docutils literal notranslate"><span class="pre">BlockRay</span></code> menjalankan <code class="docutils literal notranslate"><span class="pre">Iterator</span></code>, anda dapat menggunakan metode itu sebagai <code class="docutils literal notranslate"><span class="pre">hasNext</span></code> dan <code class="docutils literal notranslate"><span class="pre">berikutnya</span></code> (tetapi tidak <code class="docutils literal notranslate"><span class="pre">menghapus</span></code>) untuk perulangan melalui <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/util/blockray/BlockRayHit.html">BlockRayHit</a>s dihasilkan oleh <code class="docutils literal notranslate"><span class="pre">BlockRay</span></code>. Tambahan lainnya, anda bisa menggunakan metode <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/util/blockray/BlockRay.html#reset--">BlockRay#reset()</a> untuk memasang kembali iterator ke lokasi permulaan. Tentu saja dari perulangan melalui <code class="docutils literal notranslate"><span class="pre">BlockRayHit</span></code>s, anda juga bisa menggunakan metode <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/util/blockray/BlockRay.html#end--">BlockRay#end()</a> untuk melacak cahaya pada blok sampai akhir pada jalan untuk memperoleh blok terakhir yang diterima oleh filter (atau tidak sama sekali jika batas blok tercapai).</p>
+<p>Semenjak <code class="docutils literal notranslate"><span class="pre">BlockRay</span></code> menjalankan <code class="docutils literal notranslate"><span class="pre">Iterator</span></code>, anda dapat menggunakan metode itu sebagai <code class="docutils literal notranslate"><span class="pre">hasNext</span></code> dan <code class="docutils literal notranslate"><span class="pre">berikutnya</span></code> (tetapi tidak <code class="docutils literal notranslate"><span class="pre">menghapus</span></code>) untuk perulangan melalui <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/util/blockray/BlockRayHit.html">BlockRayHit</a>s dihasilkan oleh <code class="docutils literal notranslate"><span class="pre">BlockRay</span></code>. Tambahan lainnya, anda bisa menggunakan metode <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/util/blockray/BlockRay.html#reset--">BlockRay#reset()</a> untuk memasang kembali iterator ke lokasi permulaan. Tentu saja dari perulangan melalui <code class="docutils literal notranslate"><span class="pre">BlockRayHit</span></code>s, anda juga bisa menggunakan metode <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/util/blockray/BlockRay.html#end--">BlockRay#end()</a> untuk melacak cahaya pada blok sampai akhir pada jalan untuk memperoleh blok terakhir yang diterima oleh filter (atau tidak sama sekali jika batas blok tercapai).</p>
 </div>
 <div class="section" id="using-blockrayhit">
 <h2>Menggunakan BlockRayHit<a class="headerlink" href="#using-blockrayhit" title="Link permanen untuk headline ini">¶</a></h2>

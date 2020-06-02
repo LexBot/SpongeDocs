@@ -19,17 +19,6 @@
 
         <link rel="index" title="Index"
               href="../genindex.html"/>        <link rel="search" title="Recherche" href="../search.html"/>    <link rel="top" title="Documentation Sponge 7.2.0" href="../index.html"/>        <link rel="up" title="Création d’un Plugin" href="index.html"/>        <link rel="next" title="Permissions" href="permissions.html"/>        <link rel="prev" title="Services" href="services.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -217,7 +206,7 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>Les URLs JDBC doivent être obtenues depuis <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/sql/SqlService.html#getConnectionUrlFromAlias-java.lang.String-">SqlService#getConnectionUrlFromAlias(String)</a>, avec un alias qui correspond à l’un des alias d’URL JDBC listés dans la configuration globale de Sponge (<code class="docutils literal notranslate"><span class="pre">config/sponge/global.conf</span></code>) sous la clé <code class="docutils literal notranslate"><span class="pre">sponge.sql.aliases</span></code>.</p>
+<p>Les URLs JDBC doivent être obtenues depuis <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/sql/SqlService.html#getConnectionUrlFromAlias-java.lang.String-">SqlService#getConnectionUrlFromAlias(String)</a>, avec un alias qui correspond à l’un des alias d’URL JDBC listés dans la configuration globale de Sponge (<code class="docutils literal notranslate"><span class="pre">config/sponge/global.conf</span></code>) sous la clé <code class="docutils literal notranslate"><span class="pre">sponge.sql.aliases</span></code>.</p>
 <p>Le service SQL fournit une connexion groupée (pooled), afin que la récupération d’une connexion à l’aide du <code class="docutils literal notranslate"><span class="pre">DataSource</span></code> retourné ne soit pas trop lourd. Nous recommandons donc de ne pas garder les connexions et de les fermer peu de temps après leur utilisation, comme montré ci-dessus. Tout <code class="docutils literal notranslate"><span class="pre">PreparedStatement</span></code> ou <code class="docutils literal notranslate"><span class="pre">ResultSet</span></code> créé doit également être fermé après utilisation, avec <code class="docutils literal notranslate"><span class="pre">object.close()</span></code>, ou, de préférence, avec un bloc try-with-resources.</p>
 </div>
 </div>

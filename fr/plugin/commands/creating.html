@@ -19,17 +19,6 @@
 
         <link rel="index" title="Index"
               href="../../genindex.html"/>        <link rel="search" title="Recherche" href="../../search.html"/>    <link rel="top" title="Documentation Sponge 7.2.0" href="../../index.html"/>        <link rel="up" title="Commandes de Plugin" href="index.html"/>        <link rel="next" title="Analyse des Arguments" href="arguments.html"/>        <link rel="prev" title="Commandes de Plugin" href="index.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -175,8 +164,8 @@
            <div itemprop="articleBody">
   <div class="section" id="building-a-command">
 <h1>Construction d’une commande<a class="headerlink" href="#building-a-command" title="Lien permanent vers ce titre">¶</a></h1>
-<p>La première étape est d’obtenir un nouveau constructeur <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/spec/CommandSpec.html">CommandSpec</a>. Le constructeur fournit des méthodes permettant de modifier les messages d’aides de la commande, les différents arguments de la commande et la commande en elle-même. Ces méthodes peuvent être enchaînées.</p>
-<p>Pour finalement construire sa commande, il faudra appeler la méthode <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/spec/CommandSpec.Builder.html#build--">CommandSpec.Builder#build()</a>.</p>
+<p>La première étape est d’obtenir un nouveau constructeur <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/spec/CommandSpec.html">CommandSpec</a>. Le constructeur fournit des méthodes permettant de modifier les messages d’aides de la commande, les différents arguments de la commande et la commande en elle-même. Ces méthodes peuvent être enchaînées.</p>
+<p>Pour finalement construire sa commande, il faudra appeler la méthode <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/spec/CommandSpec.Builder.html#build--">CommandSpec.Builder#build()</a>.</p>
 <p>Après cela, vous devez enregistrer la commande.</p>
 <div class="section" id="example-building-a-simple-command">
 <h2>Exemple: Construction d’une Commande Simple<a class="headerlink" href="#example-building-a-simple-command" title="Lien permanent vers ce titre">¶</a></h2>
@@ -245,7 +234,7 @@
 <div class="section" id="writing-a-command-executor">
 <h3>Écrire l’Éxécution de la Commande<a class="headerlink" href="#writing-a-command-executor" title="Lien permanent vers ce titre">¶</a></h3>
 <p>La seule chose requise pour construire une commande simple est la classe de l’exécution de la commande, qui contient la logique de la commande.</p>
-<p>La classe doit implémenter l’interface <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/spec/CommandExecutor.html">CommandExecutor</a>, qui définit la méthode <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/spec/CommandExecutor.html#execute-org.spongepowered.api.command.CommandSource-org.spongepowered.api.command.args.CommandContext-">CommandExecutor#execute(CommandSource, CommandContext)</a>. La méthode est appelée pendant l’exécution de la commande et possède deux arguments:</p>
+<p>La classe doit implémenter l’interface <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/spec/CommandExecutor.html">CommandExecutor</a>, qui définit la méthode <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/spec/CommandExecutor.html#execute-org.spongepowered.api.command.CommandSource-org.spongepowered.api.command.args.CommandContext-">CommandExecutor#execute(CommandSource, CommandContext)</a>. La méthode est appelée pendant l’exécution de la commande et possède deux arguments:</p>
 <ul class="simple">
 <li>La source qui exécute la commande. (ex: la console, un bloc de commande ou bien un joueur)</li>
 <li>L’objet du contexte de la commande, qui contient l’analyse des arguments (voir <a class="reference internal" href="arguments.html"><span class="doc">Analyse des Arguments</span></a>)</li>
@@ -278,7 +267,7 @@
 <div class="section" id="player-only-commands">
 <h2>Commandes utilisables par les Joueurs Seulement<a class="headerlink" href="#player-only-commands" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Parfois il est nécessaire que seul le joueur puisse exécuter une commande (ex : la commande <code class="docutils literal notranslate"><span class="pre">/suicide</span></code>).</p>
-<p>Effectuer une vérification à l’aide de <code class="docutils literal notranslate"><span class="pre">instanceof</span></code> permet de déterminer le type de <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/CommandSource.html">CommandSource</a>:</p>
+<p>Effectuer une vérification à l’aide de <code class="docutils literal notranslate"><span class="pre">instanceof</span></code> permet de déterminer le type de <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/CommandSource.html">CommandSource</a>:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.entity.living.player.Player</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.spongepowered.api.command.source.CommandBlockSource</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.spongepowered.api.command.source.ConsoleSource</span><span class="p">;</span>
@@ -304,7 +293,7 @@
 </div>
 <div class="section" id="command-results">
 <h3>Résultats de la Commande<a class="headerlink" href="#command-results" title="Lien permanent vers ce titre">¶</a></h3>
-<p>La méthode <code class="docutils literal notranslate"><span class="pre">CommandExecutor::execute()</span></code> doit toujours retourner un <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/CommandResult.html">CommandResult</a>. Dans la plupart des cas, il suffit juste de retourner <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/CommandResult.html#success--">CommandResult#success()</a> si la commande a été exécutée avec succès ou <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/CommandResult.html#empty--">CommandResult#empty()</a> si ce n’est pas le cas. Dans les cas où plusieurs d’informations doivent être déplacées, un <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/CommandResult.html#builder--">CommandResult#builder()</a> peut se révéler utile. Il fournit les méthodes <code class="docutils literal notranslate"><span class="pre">affectedBlocks()</span></code>, <code class="docutils literal notranslate"><span class="pre">affectedEntities()</span></code>, <code class="docutils literal notranslate"><span class="pre">affectedItems()</span></code>, <code class="docutils literal notranslate"><span class="pre">queryResult()</span></code> et <code class="docutils literal notranslate"><span class="pre">successCount()</span></code>, chacune acceptant un entier et affectant l’attribut de même nom. Tous les attributs qui ne sont pas définis pas le constructeur seront vides.</p>
+<p>La méthode <code class="docutils literal notranslate"><span class="pre">CommandExecutor::execute()</span></code> doit toujours retourner un <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/CommandResult.html">CommandResult</a>. Dans la plupart des cas, il suffit juste de retourner <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/CommandResult.html#success--">CommandResult#success()</a> si la commande a été exécutée avec succès ou <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/CommandResult.html#empty--">CommandResult#empty()</a> si ce n’est pas le cas. Dans les cas où plusieurs d’informations doivent être déplacées, un <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/CommandResult.html#builder--">CommandResult#builder()</a> peut se révéler utile. Il fournit les méthodes <code class="docutils literal notranslate"><span class="pre">affectedBlocks()</span></code>, <code class="docutils literal notranslate"><span class="pre">affectedEntities()</span></code>, <code class="docutils literal notranslate"><span class="pre">affectedItems()</span></code>, <code class="docutils literal notranslate"><span class="pre">queryResult()</span></code> et <code class="docutils literal notranslate"><span class="pre">successCount()</span></code>, chacune acceptant un entier et affectant l’attribut de même nom. Tous les attributs qui ne sont pas définis pas le constructeur seront vides.</p>
 <p>Les command blocks peuvent utiliser ces valeurs pour modifier les stats de scoreboard, ce qui peut être utilisé pour élaborer des constructions constituées de multiples command blocks. Un tutoriel sur la manière d’accéder aux données peut être trouvée <a class="reference external" href="https://minecraft.gamepedia.com/Tutorials/Command_stats">ici</a>.</p>
 </div>
 </div>
@@ -319,7 +308,7 @@
 <p>Cet exemple utilise un constructeur pour créer un <code class="docutils literal notranslate"><span class="pre">CommandResult</span></code> pour une commande qui affecte 42 entités et a été un succès.</p>
 <div class="section" id="error-handling">
 <h3>Gestion des erreurs<a class="headerlink" href="#error-handling" title="Lien permanent vers ce titre">¶</a></h3>
-<p>La méthode <code class="docutils literal notranslate"><span class="pre">execute()</span></code> peut également lever une <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/CommandException.html">CommandException</a>, signalant qu’une erreur est survenue lors de l’exécution de la commande. Si cette Exception est levée, son message sera affiché dans la source de la commande, formatée comme une erreur. L’usage de la commande peut être aussi affiché. Un <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/args/ArgumentParseException.html">ArgumentParseException</a>, un sous-type de <code class="docutils literal notranslate"><span class="pre">CommandException</span></code> est automatiquement levé si les arguments de la commande ne peuvent pas être analysés.</p>
+<p>La méthode <code class="docutils literal notranslate"><span class="pre">execute()</span></code> peut également lever une <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/CommandException.html">CommandException</a>, signalant qu’une erreur est survenue lors de l’exécution de la commande. Si cette Exception est levée, son message sera affiché dans la source de la commande, formatée comme une erreur. L’usage de la commande peut être aussi affiché. Un <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/args/ArgumentParseException.html">ArgumentParseException</a>, un sous-type de <code class="docutils literal notranslate"><span class="pre">CommandException</span></code> est automatiquement levé si les arguments de la commande ne peuvent pas être analysés.</p>
 </div>
 </div>
 </div>

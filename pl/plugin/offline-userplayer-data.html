@@ -19,17 +19,6 @@
 
         <link rel="index" title="Indeks"
               href="../genindex.html"/>        <link rel="search" title="Szukaj" href="../search.html"/>    <link rel="top" title="Sponge 7.2.0 - dokumentacja" href="../index.html"/>        <link rel="up" title="Tworzenie pluginu" href="index.html"/>        <link rel="next" title="Listy kart" href="tab-lists.html"/>        <link rel="prev" title="Menadżer Profilu Gry" href="game-profile-manager.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -167,7 +156,7 @@
   <div class="section" id="offline-player-data">
 <h1>Dane gracza offline<a class="headerlink" href="#offline-player-data" title="Stały odnośnik do tego nagłówka">¶</a></h1>
 <p>Czasami pluginy potrzebują uzyskać dane gracza, nawet wtedy kiedy jest on offline (kiedy nie ma go obecnie w grze). Może Ci się wydawać że funkcja <code class="docutils literal notranslate"><span class="pre">Sponge.getServer().getPlayer()</span></code> zwracająca obiekt gracza, może zostać do tego wykorzystana. Lecz, z racji iż obiekt :javadoc: <code class="docutils literal notranslate"><span class="pre">Player</span></code> istnieje tylko w przypadku graczy online, trzeba użyć tu innego rozwiązania.</p>
-<p>Niektóre pluginy, same przechowują potrzebne im dane i dopasowują do nich użytkownika poprzez <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/profile/GameProfileManager.html">GameProfileManager</a>. Pisanie osobnego kodu dla użytkownika offline i użytkownika online nie jest wymagane. <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/ServiceManager.html">ServiceManager</a> natywnie dostarcza serwis znany jako <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/user/UserStorageService.html">UserStorageService</a>, który potrafi zwracać instancje użytkowników <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/living/player/User.html">User</a> przypisanych do graczy <code class="docutils literal notranslate"><span class="pre">Player</span></code>, którzy są obecnie offline. Z powodu iż interfejs <code class="docutils literal notranslate"><span class="pre">Player``poszerza</span> <span class="pre">interfejs</span> <span class="pre">``User</span></code>, to większość metod których możesz użyć na <code class="docutils literal notranslate"><span class="pre">Player</span></code> jest również dostępna w interfejsie <code class="docutils literal notranslate"><span class="pre">User</span></code>.</p>
+<p>Niektóre pluginy, same przechowują potrzebne im dane i dopasowują do nich użytkownika poprzez <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/profile/GameProfileManager.html">GameProfileManager</a>. Pisanie osobnego kodu dla użytkownika offline i użytkownika online nie jest wymagane. <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/ServiceManager.html">ServiceManager</a> natywnie dostarcza serwis znany jako <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/user/UserStorageService.html">UserStorageService</a>, który potrafi zwracać instancje użytkowników <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/living/player/User.html">User</a> przypisanych do graczy <code class="docutils literal notranslate"><span class="pre">Player</span></code>, którzy są obecnie offline. Z powodu iż interfejs <code class="docutils literal notranslate"><span class="pre">Player``poszerza</span> <span class="pre">interfejs</span> <span class="pre">``User</span></code>, to większość metod których możesz użyć na <code class="docutils literal notranslate"><span class="pre">Player</span></code> jest również dostępna w interfejsie <code class="docutils literal notranslate"><span class="pre">User</span></code>.</p>
 <p>Na przykład:</p>
 <ul class="simple">
 <li><code class="docutils literal notranslate"><span class="pre">#hasPermission(String</span> <span class="pre">permission)</span></code> jest dostępne z obu instancji.</li>

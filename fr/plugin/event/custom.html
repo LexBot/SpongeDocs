@@ -19,17 +19,6 @@
 
         <link rel="index" title="Index"
               href="../../genindex.html"/>        <link rel="search" title="Recherche" href="../../search.html"/>    <link rel="top" title="Documentation Sponge 7.2.0" href="../../index.html"/>        <link rel="up" title="Événements" href="index.html"/>        <link rel="next" title="Configuration des plugins" href="../configuration/index.html"/>        <link rel="prev" title="Filtres d’événement" href="filters.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -173,11 +162,11 @@
            <div itemprop="articleBody">
   <div class="section" id="custom-events">
 <h1>Événements personnalisés<a class="headerlink" href="#custom-events" title="Lien permanent vers ce titre">¶</a></h1>
-<p>Vous pouvez écrire vos propres classes d’événements et envoyez ces événements à l’aide de la méthode décrite ci-dessus. Une classe d’événement doit hériter de la classe <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/impl/AbstractEvent.html">AbstractEvent</a>, qui implémente donc l’interface <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/Event.html">Event</a>. Selon la nature exacte de l’événement, plus d’interfaces doivent être implémentées, comme <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/Cancellable.html">Cancellable</a> pour les événements qui peuvent être annulés par un listener, ou des interfaces comme <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/entity/living/humanoid/player/TargetPlayerEvent.html">TargetPlayerEvent</a> clarifiant quelles sortes d’objets sont affectés par votre événement.</p>
+<p>Vous pouvez écrire vos propres classes d’événements et envoyez ces événements à l’aide de la méthode décrite ci-dessus. Une classe d’événement doit hériter de la classe <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/impl/AbstractEvent.html">AbstractEvent</a>, qui implémente donc l’interface <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/Event.html">Event</a>. Selon la nature exacte de l’événement, plus d’interfaces doivent être implémentées, comme <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/Cancellable.html">Cancellable</a> pour les événements qui peuvent être annulés par un listener, ou des interfaces comme <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/entity/living/humanoid/player/TargetPlayerEvent.html">TargetPlayerEvent</a> clarifiant quelles sortes d’objets sont affectés par votre événement.</p>
 <div class="section" id="example-custom-event-class">
 <h2>Exemple : Classe d’Événement Personnalisée<a class="headerlink" href="#example-custom-event-class" title="Lien permanent vers ce titre">¶</a></h2>
-<p>La classe suivante décrit un événement indiquant qu’un <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/living/player/Player.html">Player</a> est entré en contact avec FLARD et s’apprête à muter d’une manière spécifiée par l’événement. Étant donné que l’événement cible un joueur et peut être annulé par les listeners, il implémente les deux interfaces <code class="docutils literal notranslate"><span class="pre">TargetPlayerEvent</span></code> et <code class="docutils literal notranslate"><span class="pre">Cancellable</span></code>.</p>
-<p>Puisque les événements personnalisés sont généralement destinés à être écoutés par les autres plugins, c’est dans votre intérêt de les documenter adéquatement. Cela inclut une liste d’objets généralement trouvés dans la <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/cause/Cause.html">Cause</a>. Dans l’exemple ci-dessous, il serait probablement mentionné que la cause principale est généralement un objet de la classe fictive <code class="docutils literal notranslate"><span class="pre">FLARDSource</span></code>.</p>
+<p>La classe suivante décrit un événement indiquant qu’un <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/living/player/Player.html">Player</a> est entré en contact avec FLARD et s’apprête à muter d’une manière spécifiée par l’événement. Étant donné que l’événement cible un joueur et peut être annulé par les listeners, il implémente les deux interfaces <code class="docutils literal notranslate"><span class="pre">TargetPlayerEvent</span></code> et <code class="docutils literal notranslate"><span class="pre">Cancellable</span></code>.</p>
+<p>Puisque les événements personnalisés sont généralement destinés à être écoutés par les autres plugins, c’est dans votre intérêt de les documenter adéquatement. Cela inclut une liste d’objets généralement trouvés dans la <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/cause/Cause.html">Cause</a>. Dans l’exemple ci-dessous, il serait probablement mentionné que la cause principale est généralement un objet de la classe fictive <code class="docutils literal notranslate"><span class="pre">FLARDSource</span></code>.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.entity.living.player.Player</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.spongepowered.api.event.Cancellable</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.spongepowered.api.event.cause.Cause</span><span class="p">;</span>

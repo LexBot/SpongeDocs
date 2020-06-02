@@ -19,17 +19,6 @@
 
         <link rel="index" title="Index"
               href="../../genindex.html"/>        <link rel="search" title="Recherche" href="../../search.html"/>    <link rel="top" title="Documentation Sponge 7.2.0" href="../../index.html"/>        <link rel="up" title="Commandes de Plugin" href="index.html"/>        <link rel="next" title="Événements" href="../event/index.html"/>        <link rel="prev" title="Le gestionnaire de commandes" href="service.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -175,7 +164,7 @@
            <div itemprop="articleBody">
   <div class="section" id="low-level-command-api">
 <h1>API pour Commandes de Bas Niveau<a class="headerlink" href="#low-level-command-api" title="Lien permanent vers ce titre">¶</a></h1>
-<p>Les interfaces <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/CommandCallable.html">CommandCallable</a> et <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/dispatcher/Dispatcher.html">Dispatcher</a> peuvent être utilisés pour définir des commandes. Ces interfaces peuvent être utilisées en tant que base pour une API de commandes personnalisées.</p>
+<p>Les interfaces <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/CommandCallable.html">CommandCallable</a> et <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/dispatcher/Dispatcher.html">Dispatcher</a> peuvent être utilisés pour définir des commandes. Ces interfaces peuvent être utilisées en tant que base pour une API de commandes personnalisées.</p>
 <p>Il est recommandé d’utiliser la <a class="reference internal" href="creating.html"><span class="doc">Command Builder API</span></a> pour définir des commandes simples.</p>
 <div class="section" id="writing-a-command">
 <h2>Écrire une commande<a class="headerlink" href="#writing-a-command" title="Lien permanent vers ce titre">¶</a></h2>
@@ -226,12 +215,12 @@
 </div>
 <div class="admonition tip">
 <p class="first admonition-title">Astuce</p>
-<p class="last">Voir la JavaDoc pour <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/CommandCallable.html">CommandCallable</a> pour l’application de chaque méthode dans cet exemple.</p>
+<p class="last">Voir la JavaDoc pour <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/CommandCallable.html">CommandCallable</a> pour l’application de chaque méthode dans cet exemple.</p>
 </div>
 </div>
 <div class="section" id="registering-the-command">
 <h2>Enregistrer la commande<a class="headerlink" href="#registering-the-command" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Maintenant nous pouvons enregistrer notre classe dans le <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/CommandManager.html">CommandManager</a>. Le <code class="docutils literal notranslate"><span class="pre">CommandManager</span></code> sert de gestionnaire pour regarder quellques commandes sont tapés dans le chat, et les rediriger vers le bon gestionnaire de commandes. Pour enregistrer votre commande, utilisez la méthode <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/CommandManager.html#register-java.lang.Object-org.spongepowered.api.command.CommandCallable-java.lang.String...-">CommandManager#register(Object, CommandCallable, String…)</a>, en passant votre plugin, une instance de votre commande, et tous les alias nécessaires en paramètres.</p>
+<p>Maintenant nous pouvons enregistrer notre classe dans le <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/CommandManager.html">CommandManager</a>. Le <code class="docutils literal notranslate"><span class="pre">CommandManager</span></code> sert de gestionnaire pour regarder quellques commandes sont tapés dans le chat, et les rediriger vers le bon gestionnaire de commandes. Pour enregistrer votre commande, utilisez la méthode <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/CommandManager.html#register-java.lang.Object-org.spongepowered.api.command.CommandCallable-java.lang.String...-">CommandManager#register(Object, CommandCallable, String…)</a>, en passant votre plugin, une instance de votre commande, et tous les alias nécessaires en paramètres.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.command.CommandManager</span><span class="p">;</span>
 
 <span class="n">CommandManager</span> <span class="n">cmdService</span> <span class="o">=</span> <span class="n">Sponge</span><span class="p">.</span><span class="na">getCommandManager</span><span class="p">();</span>
@@ -247,7 +236,7 @@
 <div class="section" id="command-dispatchers">
 <h2>Routeurs de Commandes<a class="headerlink" href="#command-dispatchers" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Les routeurs de commandes peuvent être utilisés pour créer des structures hiérarchiques de commandes (c’est-à-dire des sous commandes).</p>
-<p>L’implémentation par défaut de l’interface <code class="docutils literal notranslate"><span class="pre">Dispatcher</span></code> est la classe <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/dispatcher/SimpleDispatcher.html">SimpleDispatcher</a>.</p>
+<p>L’implémentation par défaut de l’interface <code class="docutils literal notranslate"><span class="pre">Dispatcher</span></code> est la classe <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/dispatcher/SimpleDispatcher.html">SimpleDispatcher</a>.</p>
 <p>L’interface <code class="docutils literal notranslate"><span class="pre">Dispatcher</span></code> hérite de <code class="docutils literal notranslate"><span class="pre">CommandCallable</span></code>, et peut donc être ajoutée au registre comme n’importe quelle autre commande.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.command.dispatcher.SimpleDispatcher</span><span class="p">;</span>
 

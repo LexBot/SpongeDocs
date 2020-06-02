@@ -19,17 +19,6 @@
 
         <link rel="index" title="Алфавитный указатель"
               href="../../genindex.html"/>        <link rel="search" title="Поиск" href="../../search.html"/>    <link rel="top" title="Документация Sponge 7.2.0" href="../../index.html"/>        <link rel="up" title="Блоки" href="index.html"/>        <link rel="next" title="Tile Entities" href="tileentities.html"/>        <link rel="prev" title="Accessing Blocks" href="accessing.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -176,7 +165,7 @@
 <h1>Изменение блоков<a class="headerlink" href="#modifying-blocks" title="Ссылка на этот заголовок">¶</a></h1>
 <div class="section" id="changing-a-block-s-type">
 <h2>Изменение типа блоков<a class="headerlink" href="#changing-a-block-s-type" title="Ссылка на этот заголовок">¶</a></h2>
-<p>Для изменения типа блока достаточно лишь вызвать метод <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/Location.html#setBlockType-org.spongepowered.api.block.BlockType-">Location#setBlockType(BlockType)</a> с новым <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/block/BlockType.html">BlockType</a>. В примере ниже мы превратили блок в указанной <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/Location.html">Location</a> в губку:</p>
+<p>Для изменения типа блока достаточно лишь вызвать метод <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/world/Location.html#setBlockType-org.spongepowered.api.block.BlockType-">Location#setBlockType(BlockType)</a> с новым <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/block/BlockType.html">BlockType</a>. В примере ниже мы превратили блок в указанной <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/world/Location.html">Location</a> в губку:</p>
 <blockquote>
 <div><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.block.BlockTypes</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.spongepowered.api.world.Location</span><span class="p">;</span>
@@ -188,11 +177,11 @@
 </pre></div>
 </div>
 </div></blockquote>
-<p>Если Вы желаете „удалить“ блок (то есть превератить его в воздух), Вам необходимо просто использовать метод <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/Location.html#removeBlock--">Location#removeBlock()</a> из <code class="docutils literal notranslate"><span class="pre">Location</span></code>.</p>
+<p>Если Вы желаете „удалить“ блок (то есть превератить его в воздух), Вам необходимо просто использовать метод <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/world/Location.html#removeBlock--">Location#removeBlock()</a> из <code class="docutils literal notranslate"><span class="pre">Location</span></code>.</p>
 </div>
 <div class="section" id="altering-block-states">
 <h2>Изменение состояний блока<a class="headerlink" href="#altering-block-states" title="Ссылка на этот заголовок">¶</a></h2>
-<p>Подобно приведенному выше примеру, класс <code class="docutils literal notranslate"><span class="pre">Location</span></code> предоставляет метод <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/Location.html#setBlock-org.spongepowered.api.block.BlockState-">Location#setBlock(BlockState)</a>, принимающий новый <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/block/BlockState.html">BlockState</a>. Чтобы использовать его, вы сначала должны получить <code class="docutils literal notranslate"><span class="pre">BlockState</span></code>, который вы можете изменить. Это можно сделать либо путем получения текущего состояния блока с помощью метода <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/Location.html#getBlock--">Location#getBlock()</a>, либо с помощью состояния <code class="docutils literal notranslate"><span class="pre">BlockType</span></code>-ов по умолчанию. Последнее показано ниже. Состояние по умолчанию для блока Sponge извлекается, а затем изменяется для непосредственного создания блока мокрой губки:</p>
+<p>Подобно приведенному выше примеру, класс <code class="docutils literal notranslate"><span class="pre">Location</span></code> предоставляет метод <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/world/Location.html#setBlock-org.spongepowered.api.block.BlockState-">Location#setBlock(BlockState)</a>, принимающий новый <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/block/BlockState.html">BlockState</a>. Чтобы использовать его, вы сначала должны получить <code class="docutils literal notranslate"><span class="pre">BlockState</span></code>, который вы можете изменить. Это можно сделать либо путем получения текущего состояния блока с помощью метода <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/world/Location.html#getBlock--">Location#getBlock()</a>, либо с помощью состояния <code class="docutils literal notranslate"><span class="pre">BlockType</span></code>-ов по умолчанию. Последнее показано ниже. Состояние по умолчанию для блока Sponge извлекается, а затем изменяется для непосредственного создания блока мокрой губки:</p>
 <blockquote>
 <div><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.Sponge</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.spongepowered.api.block.BlockState</span><span class="p">;</span>
@@ -209,7 +198,7 @@
 </pre></div>
 </div>
 </div></blockquote>
-<p>Поскольку <code class="docutils literal notranslate"><span class="pre">BlockState</span></code> - это <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/ImmutableDataHolder.html">ImmutableDataHolder</a>, то вы можете использовать методы <code class="docutils literal notranslate"><span class="pre">with()</span></code> и <code class="docutils literal notranslate"><span class="pre">without()</span></code>, которые вернут или новый измененный <code class="docutils literal notranslate"><span class="pre">BlockState</span></code>, или <code class="docutils literal notranslate"><span class="pre">Optional.empty()</span></code>, если заданный <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/manipulator/ImmutableDataManipulator.html">ImmutableDataManipulator</a> не применим к данному <code class="docutils literal notranslate"><span class="pre">BlockState</span></code>.</p>
+<p>Поскольку <code class="docutils literal notranslate"><span class="pre">BlockState</span></code> - это <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/ImmutableDataHolder.html">ImmutableDataHolder</a>, то вы можете использовать методы <code class="docutils literal notranslate"><span class="pre">with()</span></code> и <code class="docutils literal notranslate"><span class="pre">without()</span></code>, которые вернут или новый измененный <code class="docutils literal notranslate"><span class="pre">BlockState</span></code>, или <code class="docutils literal notranslate"><span class="pre">Optional.empty()</span></code>, если заданный <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/manipulator/ImmutableDataManipulator.html">ImmutableDataManipulator</a> не применим к данному <code class="docutils literal notranslate"><span class="pre">BlockState</span></code>.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">with()</span></code> method accepts an <code class="docutils literal notranslate"><span class="pre">ImmutableDataManipulator</span></code> and will try to create a new <code class="docutils literal notranslate"><span class="pre">BlockState</span></code> with the
 given data set, overwriting existing values. The following example will change any dirt block to podzol.</p>
 <blockquote>
@@ -234,11 +223,11 @@ given data set, overwriting existing values. The following example will change a
 </pre></div>
 </div>
 </div></blockquote>
-<p>Note that the <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/manipulator/mutable/block/DirtData.html">DirtData</a> is a mutable copy of the data held in the <code class="docutils literal notranslate"><span class="pre">BlockState</span></code>. It is changed and then
+<p>Note that the <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/manipulator/mutable/block/DirtData.html">DirtData</a> is a mutable copy of the data held in the <code class="docutils literal notranslate"><span class="pre">BlockState</span></code>. It is changed and then
 converted back to an immutable and used to create a new <code class="docutils literal notranslate"><span class="pre">BlockState</span></code> which then replaces the original block.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">without()</span></code> method accepts a class reference and will create a new <code class="docutils literal notranslate"><span class="pre">BlockState</span></code> without the data
 represented by the given class. If the block state would not be valid without that data, a default value will be used.
-So if the <code class="docutils literal notranslate"><span class="pre">DirtData</span></code> from a dirt blocks state is removed, it will fall back to <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/type/DirtTypes.html#DIRT">DirtTypes#DIRT</a>, the default
+So if the <code class="docutils literal notranslate"><span class="pre">DirtData</span></code> from a dirt blocks state is removed, it will fall back to <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/type/DirtTypes.html#DIRT">DirtTypes#DIRT</a>, the default
 value. The following example will dry the block at a given <code class="docutils literal notranslate"><span class="pre">Location</span></code>, if possible.</p>
 <blockquote>
 <div><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span>
@@ -254,15 +243,15 @@ value. The following example will dry the block at a given <code class="docutils
 </pre></div>
 </div>
 </div></blockquote>
-<p>Since the <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/manipulator/mutable/WetData.html">WetData</a> data manipulator represents boolean data, by removing it we set the wetness of the block
+<p>Since the <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/manipulator/mutable/WetData.html">WetData</a> data manipulator represents boolean data, by removing it we set the wetness of the block
 (if it has any) to false. The <code class="docutils literal notranslate"><span class="pre">dryState.isPresent()</span></code> check will fail on block states that cannot be wet since
 <code class="docutils literal notranslate"><span class="pre">dryState</span></code> will be <code class="docutils literal notranslate"><span class="pre">Optional.empty()</span></code> in that case.</p>
 </div>
 <div class="section" id="copying-blocks">
 <h2>Copying Blocks<a class="headerlink" href="#copying-blocks" title="Ссылка на этот заголовок">¶</a></h2>
-<p>If you want to copy all of a block’s data, the <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/block/BlockSnapshot.html">BlockSnapshot</a> class is your best friend. While it doesn’t
+<p>If you want to copy all of a block’s data, the <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/block/BlockSnapshot.html">BlockSnapshot</a> class is your best friend. While it doesn’t
 expose all the data, it stores a <code class="docutils literal notranslate"><span class="pre">BlockType</span></code>, its <code class="docutils literal notranslate"><span class="pre">BlockState</span></code> and, if necessary, all additional Tile Entity Data
-(for example chest inventories). Conveniently, the <code class="docutils literal notranslate"><span class="pre">Location</span></code> class provides a <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/Location.html#createSnapshot--">Location#createSnapshot()</a>
+(for example chest inventories). Conveniently, the <code class="docutils literal notranslate"><span class="pre">Location</span></code> class provides a <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/world/Location.html#createSnapshot--">Location#createSnapshot()</a>
 method to create a snapshot of the block at that point in time. That makes copying blocks from one location to another
 very simple:</p>
 <blockquote>

@@ -19,17 +19,6 @@
 
         <link rel="index" title="Index"
               href="../../genindex.html"/>        <link rel="search" title="Recherche" href="../../search.html"/>    <link rel="top" title="Documentation Sponge 7.2.0" href="../../index.html"/>        <link rel="up" title="Création d’un Plugin" href="../index.html"/>        <link rel="next" title="Les Event Listeners" href="listeners.html"/>        <link rel="prev" title="API pour Commandes de Bas Niveau" href="../commands/commandcallable.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -172,7 +161,7 @@
            <div itemprop="articleBody">
   <div class="section" id="events">
 <h1>Événements<a class="headerlink" href="#events" title="Lien permanent vers ce titre">¶</a></h1>
-<p>Les événements sont utilisés pour informer le plugin de certains faits qui se produisent. Beaucoup d’événements peuvent également être <em>annulés</em> – c’est à dire que l’action à laquelle fait référence l’événement peut être empêchée. Les événements annulables implémentent l’interface <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/Cancellable.html">Cancellable</a>.</p>
+<p>Les événements sont utilisés pour informer le plugin de certains faits qui se produisent. Beaucoup d’événements peuvent également être <em>annulés</em> – c’est à dire que l’action à laquelle fait référence l’événement peut être empêchée. Les événements annulables implémentent l’interface <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/Cancellable.html">Cancellable</a>.</p>
 <p>Sponge lui-même contient plusieurs événements; Toutefois, les plugins peuvent créer leurs propres événements que les autres plugins peuvent écouter.</p>
 <p>Les event listeners sont assignés à une priorité qui détermine l’ordre dans laquelle les event listeners seronts exécutés par rapport aux autres event listeners (Comme ceux venant d’autre plugins). Par exemple, un event listener avec une priorité <code class="docutils literal notranslate"><span class="pre">EARLY</span></code> sera appelé avant la plupart des autres event listeners. Voir <a class="reference internal" href="listeners.html#about-listener"><span class="std std-ref">A propos de &#64;Listener</span></a> pour plus d’informations.</p>
 <p>Les événements ne peuvent pas être envoyés qu’à un groupe spécifique de plugins. Tous les plugins qui écoutent un événement seront notifiés quand celui-ci se produit.</p>

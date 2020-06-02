@@ -19,17 +19,6 @@
 
         <link rel="index" title="Index"
               href="../../genindex.html"/>        <link rel="search" title="Zoeken" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 documentatie" href="../../index.html"/>        <link rel="up" title="Entities" href="index.html"/>        <link rel="next" title="Implement Your Own AITasks" href="custom-ai.html"/>        <link rel="prev" title="Modifying an Entity" href="modifying.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -179,7 +168,7 @@ weapon). The following sections will describe what the goals, tasks and other co
 you can change the behavior of entities, and describe how you can write your own AI goals.</p>
 <div class="section" id="agents">
 <h2>Agents<a class="headerlink" href="#agents" title="Permalink naar deze titel">¶</a></h2>
-<p>An <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/living/Agent.html">Agent</a> is a type of living <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/Entity.html">Entity</a> that supports AI and thus simulates the typical behavior of
+<p>An <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/living/Agent.html">Agent</a> is a type of living <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/Entity.html">Entity</a> that supports AI and thus simulates the typical behavior of
 the mobs. You can check whether an <code class="docutils literal notranslate"><span class="pre">Entity</span></code> is also an <code class="docutils literal notranslate"><span class="pre">Agent</span></code> by simply trying to cast it.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.entity.living.Agent</span><span class="p">;</span>
 
@@ -198,12 +187,12 @@ or shops.</p>
 </div>
 <div class="section" id="goals">
 <h2>Goals<a class="headerlink" href="#goals" title="Permalink naar deze titel">¶</a></h2>
-<p>In vanilla Minecraft there are two <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/ai/GoalTypes.html">types</a> of <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/ai/Goal.html">Goal</a>s.</p>
-<p>The first one is the default one: <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/ai/GoalTypes.html#NORMAL">NORMAL</a>. This part of the AI controls the behavior of the
+<p>In vanilla Minecraft there are two <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/ai/GoalTypes.html">types</a> of <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/ai/Goal.html">Goal</a>s.</p>
+<p>The first one is the default one: <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/ai/GoalTypes.html#NORMAL">NORMAL</a>. This part of the AI controls the behavior of the
 entity. This goal contains tasks such as attacking a target using a melee or ranged weapon and looking idly around the
 area if there are no enemies nearby. If we want to override or modify the AI we will usually change this goal and its
 tasks.</p>
-<p>The second goal is more for hostile mods: <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/ai/GoalTypes.html#TARGET">TARGET</a>. This goal contains tasks that help the
+<p>The second goal is more for hostile mods: <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/ai/GoalTypes.html#TARGET">TARGET</a>. This goal contains tasks that help the
 entity to identify which target it should select and then attack using the normal goal. The target goal contains tasks
 such as select nearest attackable target and select the enemy that attacked you first.</p>
 <p>The following code gets the <code class="docutils literal notranslate"><span class="pre">NORMAL</span></code> goal from the entity and clears it.</p>
@@ -235,9 +224,9 @@ transfer the tasks from one entity to another.</p>
 <div class="section" id="tasks">
 <h2>Tasks<a class="headerlink" href="#tasks" title="Permalink naar deze titel">¶</a></h2>
 <p>The behavior of many entity types is similar to each other. For this reason, the entity AI split into multiple
-smaller and reusable parts called <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/ai/task/AITask.html">AITask</a>s. Each of the <code class="docutils literal notranslate"><span class="pre">AITask</span></code>s represents a single behavior trait of an
-entity such as <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/ai/task/AITaskTypes.html#WATCH_CLOSEST">WATCH_CLOSEST</a>, which makes the entity look at the nearest matching
-entity, or <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/ai/task/AITaskTypes.html#AVOID_ENTITY">AVOID_ENTITY</a>, which makes the entity flee from certain matching entities.</p>
+smaller and reusable parts called <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/ai/task/AITask.html">AITask</a>s. Each of the <code class="docutils literal notranslate"><span class="pre">AITask</span></code>s represents a single behavior trait of an
+entity such as <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/ai/task/AITaskTypes.html#WATCH_CLOSEST">WATCH_CLOSEST</a>, which makes the entity look at the nearest matching
+entity, or <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/ai/task/AITaskTypes.html#AVOID_ENTITY">AVOID_ENTITY</a>, which makes the entity flee from certain matching entities.</p>
 <div class="admonition note">
 <p class="first admonition-title">Notitie</p>
 <p class="last">Vanilla Minecraft itself provides a huge variety of <code class="docutils literal notranslate"><span class="pre">AITask</span></code>s, however most of them are not yet accessible via
@@ -259,8 +248,8 @@ the API.</p>
 <span class="n">goal</span><span class="p">.</span><span class="na">addTask</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">watchClosestAiTask</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>In this example we create an <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/ai/task/builtin/WatchClosestAITask.html">WatchClosestAITask</a> using the associated builder. Using the build we define that
-the chance of this goal triggering is 100%. Thus, the entity will look at the closest <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/living/player/Player.html">Player</a> in a range of 30
+<p>In this example we create an <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/ai/task/builtin/WatchClosestAITask.html">WatchClosestAITask</a> using the associated builder. Using the build we define that
+the chance of this goal triggering is 100%. Thus, the entity will look at the closest <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/living/player/Player.html">Player</a> in a range of 30
 blocks. We assign zero as a priority, which is a high priority, thus this goal takes precedence above almost all other
 tasks.</p>
 <div class="admonition note">
@@ -272,7 +261,7 @@ values from zero to roughly ten.</p>
 <div class="section" id="removing-certain-aitasks">
 <h3>Removing Certain AITasks<a class="headerlink" href="#removing-certain-aitasks" title="Permalink naar deze titel">¶</a></h3>
 <p>Removing the correct <code class="docutils literal notranslate"><span class="pre">AITask</span></code>s can be a little tricky, especially if modded entities or custom AI come into play.
-The Sponge API tries to provides a disambiguator. Calling <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/ai/task/AITask.html#getType--">AITask#getType()</a> returns an <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/ai/task/AITaskType.html">AITaskType</a>
+The Sponge API tries to provides a disambiguator. Calling <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/ai/task/AITask.html#getType--">AITask#getType()</a> returns an <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/ai/task/AITaskType.html">AITaskType</a>
 which can be used to differentiate between the existing types of tasks.</p>
 <p>First we try the simple version which will only work if there are no AI altering mods present:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Goal</span><span class="o">&lt;</span><span class="n">Zombie</span><span class="o">&gt;</span> <span class="n">goal</span> <span class="o">=</span> <span class="p">...;</span>
@@ -287,7 +276,7 @@ As you can imagine this strategy has some flaws, as it requires explicit knowled
 given entity.</p>
 <div class="admonition note">
 <p class="first admonition-title">Notitie</p>
-<p class="last">It is not possible to remove <code class="docutils literal notranslate"><span class="pre">AITask</span></code>s directly from the list returned by <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/ai/Goal.html#getTasks--">Goal#getTasks()</a> because it
+<p class="last">It is not possible to remove <code class="docutils literal notranslate"><span class="pre">AITask</span></code>s directly from the list returned by <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/ai/Goal.html#getTasks--">Goal#getTasks()</a> because it
 is immutable.</p>
 </div>
 <p>A much simpler but also less powerful way of removing tasks is removing them by their type. This is the approach you
@@ -295,13 +284,13 @@ should follow, if you don’t need the task’s internals to identify which task
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">goal</span><span class="p">.</span><span class="na">removeTasks</span><span class="p">(</span><span class="n">AITaskTypes</span><span class="p">.</span><span class="na">WANDER</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>In this case we remove all AITasks that have the <code class="docutils literal notranslate"><span class="pre">AITaskType</span></code> <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/ai/task/AITaskTypes.html#WANDER">WANDER</a>.</p>
+<p>In this case we remove all AITasks that have the <code class="docutils literal notranslate"><span class="pre">AITaskType</span></code> <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/ai/task/AITaskTypes.html#WANDER">WANDER</a>.</p>
 <div class="admonition note">
 <p class="first admonition-title">Notitie</p>
 <p class="last">Currently this way is seriously limited in usability due to the incomplete <code class="docutils literal notranslate"><span class="pre">AITaskType</span></code> support in the API.</p>
 </div>
 <p>If you want to remove all AITasks, because you want to configure the entity’s AI from scratch, you can also use
-<a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/ai/Goal.html#clear--">Goal#clear()</a>.</p>
+<a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/ai/Goal.html#clear--">Goal#clear()</a>.</p>
 </div>
 <div class="section" id="implement-your-own-aitask">
 <h3>Implement Your Own AITask<a class="headerlink" href="#implement-your-own-aitask" title="Permalink naar deze titel">¶</a></h3>
@@ -314,9 +303,9 @@ you will encounter.</p>
 <a class="reference internal" href="../event/index.html"><span class="doc">here</span></a>.</p>
 <p>The AI API itself makes use of the following 3 events:</p>
 <ul class="simple">
-<li><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/entity/ai/AITaskEvent.Add.html">AITaskEvent.Add</a></li>
-<li><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/entity/ai/AITaskEvent.Remove.html">AITaskEvent.Remove</a></li>
-<li><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/entity/ai/SetAITargetEvent.html">SetAITargetEvent</a></li>
+<li><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/entity/ai/AITaskEvent.Add.html">AITaskEvent.Add</a></li>
+<li><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/entity/ai/AITaskEvent.Remove.html">AITaskEvent.Remove</a></li>
+<li><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/entity/ai/SetAITargetEvent.html">SetAITargetEvent</a></li>
 </ul>
 <p>The <code class="docutils literal notranslate"><span class="pre">AITaskEvent.Add</span></code> event is published whenever a new <code class="docutils literal notranslate"><span class="pre">AITask</span></code> has been added to a <code class="docutils literal notranslate"><span class="pre">Goal</span></code>, likewise, the
 <code class="docutils literal notranslate"><span class="pre">AITaskEvent.Remove</span></code> event is published if an <code class="docutils literal notranslate"><span class="pre">AITask</span></code> has been removed.</p>

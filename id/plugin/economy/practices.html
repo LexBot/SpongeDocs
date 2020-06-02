@@ -19,17 +19,6 @@
 
         <link rel="index" title="Indeks"
               href="../../genindex.html"/>        <link rel="search" title="Pencarian" href="../../search.html"/>    <link rel="top" title="dokumentasi Sponge 7.2.0" href="../../index.html"/>        <link rel="up" title="Ekonomi" href="index.html"/>        <link rel="next" title="Melaksanakan Perekonomian API" href="implementing.html"/>        <link rel="prev" title="Menggunakan API Ekonomi" href="using.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -202,7 +191,7 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>Daripada hal ini, hal terbaik untuk dilakukan adalah langsung menarik jumlah yang anda butuhkan, dan periksa <a href="#id1"><span class="problematic" id="id2">:javadoc:`ResultType`dari kembalian :javadoc:`TransactionResult`</span></a>. Dalam kasus ini sebuah plugin ekonomi yang tidak bisa memperbolehkan dana negatif akan langsung kembali dengan <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/economy/transaction/ResultType.html#ACCOUNT_NO_FUNDS">ResultType#ACCOUNT_NO_FUNDS</a>, atau <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/economy/transaction/ResultType.html#FAILED">ResultType#FAILED</a>.</p>
+<p>Daripada hal ini, hal terbaik untuk dilakukan adalah langsung menarik jumlah yang anda butuhkan, dan periksa <a href="#id1"><span class="problematic" id="id2">:javadoc:`ResultType`dari kembalian :javadoc:`TransactionResult`</span></a>. Dalam kasus ini sebuah plugin ekonomi yang tidak bisa memperbolehkan dana negatif akan langsung kembali dengan <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/economy/transaction/ResultType.html#ACCOUNT_NO_FUNDS">ResultType#ACCOUNT_NO_FUNDS</a>, atau <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/economy/transaction/ResultType.html#FAILED">ResultType#FAILED</a>.</p>
 <p>Berikut ini bagaimana kamu <strong>sebaiknya</strong> menarik uang:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.event.cause.Cause</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.spongepowered.api.event.cause.EventContext</span><span class="p">;</span>

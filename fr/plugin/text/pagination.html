@@ -19,17 +19,6 @@
 
         <link rel="index" title="Index"
               href="../../genindex.html"/>        <link rel="search" title="Recherche" href="../../search.html"/>    <link rel="top" title="Documentation Sponge 7.2.0" href="../../index.html"/>        <link rel="up" title="Text" href="index.html"/>        <link rel="next" title="Message Channels" href="messagechannels.html"/>        <link rel="prev" title="Format de Configuration" href="representations/configurate.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -178,7 +167,7 @@
 <p class="first admonition-title">Astuce</p>
 <p class="last">Pour une compréhension simple des services, assurez-vous de lire <a class="reference internal" href="../services.html"><span class="doc">Services</span></a> tout d’abord.</p>
 </div>
-<p>Le <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/pagination/PaginationService.html">PaginationService</a> agit de manière à séparer un contenu en pages discrètes. Le service fournit une classe <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/pagination/PaginationList.Builder.html">PaginationList.Builder</a> avec laquelle vous pouvez spécifier des attributs tels qu’un titre, des contenus, des entêtes, et des marges.</p>
+<p>Le <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/pagination/PaginationService.html">PaginationService</a> agit de manière à séparer un contenu en pages discrètes. Le service fournit une classe <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/pagination/PaginationList.Builder.html">PaginationList.Builder</a> avec laquelle vous pouvez spécifier des attributs tels qu’un titre, des contenus, des entêtes, et des marges.</p>
 <div class="section" id="pagination-list-builder">
 <h2>Pagination List Builder<a class="headerlink" href="#pagination-list-builder" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Tout d’abord, obtenez une instance de <code class="docutils literal notranslate"><span class="pre">PaginationList.Builder</span></code> :</p>
@@ -241,7 +230,7 @@
 <p class="first admonition-title">Note</p>
 <p class="last">A l’exception des contenus, tous les composants d’une liste paginée sont optionnels. Néanmoins, il est fortement recommandé de donner un titre.</p>
 </div>
-<p>Finalement, pour envoyer la liste paginée à un <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/channel/MessageReceiver.html">MessageReceiver</a>, utilisez <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/pagination/PaginationList.Builder.html#sendTo-org.spongepowered.api.text.channel.MessageReceiver-">PaginationList.Builder#sendTo(MessageReceiver)</a>.</p>
+<p>Finalement, pour envoyer la liste paginée à un <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/text/channel/MessageReceiver.html">MessageReceiver</a>, utilisez <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/pagination/PaginationList.Builder.html#sendTo-org.spongepowered.api.text.channel.MessageReceiver-">PaginationList.Builder#sendTo(MessageReceiver)</a>.</p>
 <p>Et c’est tout ! Pour récapituler, une liste paginée pleinement fonctionnelle pourrait être générée et envoyée à un <code class="docutils literal notranslate"><span class="pre">msgReceiver</span></code>, précédemment défini, en utilisant le code suivant :</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">PaginationList</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
     <span class="p">.</span><span class="na">title</span><span class="p">(</span><span class="n">Text</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;Title&quot;</span><span class="p">))</span>

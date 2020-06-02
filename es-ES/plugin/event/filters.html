@@ -19,17 +19,6 @@
 
         <link rel="index" title="Índice"
               href="../../genindex.html"/>        <link rel="search" title="Búsqueda" href="../../search.html"/>    <link rel="top" title="documentación de Sponge - 7.2.0" href="../../index.html"/>        <link rel="up" title="Eventos" href="index.html"/>        <link rel="next" title="Eventos Personalizados" href="custom.html"/>        <link rel="prev" title="Causas del Evento" href="causes.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -201,8 +190,8 @@
 <p><strong>&#64;IsCancelled</strong>
 This annotation allows filtering events by their cancellation state at the time that your event listener would normally be
 called. By default, your event listener will not be called if the event has been cancelled by a previous event listener.
-However you can change this behavior to one of three states depending on the <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/util/Tristate.html">Tristate</a> value in the
-<a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/filter/IsCancelled.html">IsCancelled</a> annotation.</p>
+However you can change this behavior to one of three states depending on the <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/util/Tristate.html">Tristate</a> value in the
+<a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/filter/IsCancelled.html">IsCancelled</a> annotation.</p>
 <blockquote>
 <div><ul class="simple">
 <li>`` Tristate.FALSE`` es el comportamiento predeterminado si la anotación `` IsCancelled`` no está presente, y no llamará a su oyente si el evento ha sido cancelado.</li>
@@ -242,7 +231,7 @@ However you can change this behavior to one of three states depending on the <a 
 </div>
 <p><strong>&#64;After</strong> Esto es similar a <code class="docutils literal notranslate"><span class="pre">&#64;</span> <span class="pre">Before</span></code>, pero en su lugar utiliza :javadoc: <cite>Cause#after(Class)</cite>.</p>
 <p><strong>&#64;All</strong> This parameter source annotation requires that the annotated parameter be an array type. The returned array
-will be equivalent to the contents of calling <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/cause/Cause.html#allOf-java.lang.Class-">Cause#allOf(Class)</a>. By default, if the returned array would be
+will be equivalent to the contents of calling <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/cause/Cause.html#allOf-java.lang.Class-">Cause#allOf(Class)</a>. By default, if the returned array would be
 empty then the validation fails however this can be disabled by setting <code class="docutils literal notranslate"><span class="pre">ignoreEmpty=false</span></code>.</p>
 <p><strong>En este ejemplo siempre se llamará a su oyente, aunque la formación de jugadores puede estar vacía si la causa del evento no contenía jugadores.</strong></p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Listener</span>

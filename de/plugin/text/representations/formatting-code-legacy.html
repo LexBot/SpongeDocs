@@ -19,17 +19,6 @@
 
         <link rel="index" title="Stichwortverzeichnis"
               href="../../../genindex.html"/>        <link rel="search" title="Suche" href="../../../search.html"/>    <link rel="top" title="Sponge 7.2.0 Dokumentation" href="../../../index.html"/>        <link rel="up" title="Text-Serialisierer" href="index.html"/>        <link rel="next" title="JSON Format" href="json.html"/>        <link rel="prev" title="Text-Serialisierer" href="index.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -184,12 +173,12 @@
 <p>Beide Formatierungszeichen verwenden die Formatierungscodes, die im <a class="reference external" href="https://minecraft.gamepedia.com/Formatting_codes">Minecraft Wiki</a> beschrieben werden. Es ist wichtig anzumerken, dass das Minecraft Wiki nur die Verwendung des Paragraph-Zeichens (§) zeigt, aber die gleichen Codes funktionieren auch mit dem Und-Zeichen (&amp;).</p>
 <div class="admonition warning">
 <p class="first admonition-title">Warnung</p>
-<p class="last">Die Text-Serialisierung durch die Verwendung von Formatierungs-Zeichen beschränkt die Funktionen von <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/Text.html">Text</a>-Objekten auf Formatierungen. Es kann keine Art von Klick- oder Hover-Aktionen darstellen. Wenn die Kürze nicht relevant ist (wie sie es im Minecraft Chat ist), wird die Verwendung von <a class="reference internal" href="json.html"><span class="doc">JSON Format</span></a> empfohlen.</p>
+<p class="last">Die Text-Serialisierung durch die Verwendung von Formatierungs-Zeichen beschränkt die Funktionen von <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/text/Text.html">Text</a>-Objekten auf Formatierungen. Es kann keine Art von Klick- oder Hover-Aktionen darstellen. Wenn die Kürze nicht relevant ist (wie sie es im Minecraft Chat ist), wird die Verwendung von <a class="reference internal" href="json.html"><span class="doc">JSON Format</span></a> empfohlen.</p>
 </div>
 <div class="section" id="ampersand-formatting">
 <h2>Formatierung mit dem Und-Zeichen<a class="headerlink" href="#ampersand-formatting" title="Link zu dieser Überschrift">¶</a></h2>
 <p>Standardmäßig unterstützt Sponge das Formatierungs-Zeichen <cite>&amp;</cite> (Und-Zeichen). Die Verwendung des Und-Zeichens ermöglicht die schnellere Eingabe von Text-Formatierung und ist in praktisch, wenn man sich kurz fassen muss wie es in Minecraft’s Chat-Fenster der Fall ist.</p>
-<p>Um diese Formatierung zu verwenden, musst du den dazugehörigen <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/serializer/TextSerializer.html">TextSerializer</a> in <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/serializer/TextSerializers.html#FORMATTING_CODE">TextSerializers#FORMATTING_CODE</a> benutzen. Auf diesem kannst du dann wie gewohnt die <code class="docutils literal notranslate"><span class="pre">serialize</span></code> bzw.``deserialize`` Methode verwenden:</p>
+<p>Um diese Formatierung zu verwenden, musst du den dazugehörigen <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/text/serializer/TextSerializer.html">TextSerializer</a> in <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/text/serializer/TextSerializers.html#FORMATTING_CODE">TextSerializers#FORMATTING_CODE</a> benutzen. Auf diesem kannst du dann wie gewohnt die <code class="docutils literal notranslate"><span class="pre">serialize</span></code> bzw.``deserialize`` Methode verwenden:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.text.Text</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.spongepowered.api.text.format.TextColors</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.spongepowered.api.text.format.TextStyles</span><span class="p">;</span>
@@ -204,7 +193,7 @@
 <div class="section" id="legacy-formatting">
 <h2>Legacy-Formatierung<a class="headerlink" href="#legacy-formatting" title="Link zu dieser Überschrift">¶</a></h2>
 <p>Die Legacy Textdarstellung ist das Format war besonders in älteren Versionen von Minecraft weit verbreitet. Es wird mit dem Paragraph-Zeichen (§) dargestellt. Sponge bietet die Serialisierungs- und Deserialisierungsunterstützung für das Legacy Format <strong>nur aus Kompatibilitätsgründen</strong> an. Falls möglich sollte es aber nicht verwenden werden, es sei denn es ist unbedingt nötig. Im Gegenteil, es wird empfohlen die Formatierung über das Und-Zeichen (&amp;) wie oben beschrieben zu verwenden. Die Legacy-Formattierung hat ein paar Beschränkungen, die die Und-Zeichen Variante nicht hat. Die offensichtlichste davon ist, dass Benutzer nicht so einfach das Paragraph Zeichen in den Chat eingeben können.</p>
-<p>Um diese Formatierung zu verwenden, musst du den dazugehörigen <code class="docutils literal notranslate"><span class="pre">TextSerializer</span></code> in <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/serializer/TextSerializers.html#LEGACY_FORMATTING_CODE">TextSerializers#LEGACY_FORMATTING_CODE</a> benutzen. Auf diesem kannst du dann wie gewohnt die <code class="docutils literal notranslate"><span class="pre">serialize</span></code> bzw.``deserialize`` Methode verwenden:</p>
+<p>Um diese Formatierung zu verwenden, musst du den dazugehörigen <code class="docutils literal notranslate"><span class="pre">TextSerializer</span></code> in <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/text/serializer/TextSerializers.html#LEGACY_FORMATTING_CODE">TextSerializers#LEGACY_FORMATTING_CODE</a> benutzen. Auf diesem kannst du dann wie gewohnt die <code class="docutils literal notranslate"><span class="pre">serialize</span></code> bzw.``deserialize`` Methode verwenden:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Text</span> <span class="n">text</span> <span class="o">=</span> <span class="n">Text</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">TextColors</span><span class="p">.</span><span class="na">RED</span><span class="p">,</span> <span class="n">TextStyles</span><span class="p">.</span><span class="na">UNDERLINE</span><span class="p">,</span> <span class="s">&quot;Hello World!&quot;</span><span class="p">);</span>
 <span class="n">String</span> <span class="n">legacyText</span> <span class="o">=</span> <span class="n">TextSerializers</span><span class="p">.</span><span class="na">LEGACY_FORMATTING_CODE</span><span class="p">.</span><span class="na">serialize</span><span class="p">(</span><span class="n">text</span><span class="p">);</span>
 </pre></div>
@@ -212,7 +201,7 @@
 <p>Zum Beispiel der unterstrichene und rot formatierte Text „Hello World!“ hätte mit dem Legacy Formatierungs-Code die folgende Darstellung: <cite>§c§nHello World!</cite></p>
 <div class="admonition tip">
 <p class="first admonition-title">Tipp</p>
-<p class="last">Auch wenn es nicht empfohlen wird, so kannst du dennoch einen <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/serializer/FormattingCodeTextSerializer.html">FormattingCodeTextSerializer</a> mit einem von dir frei wählbaren Formatierungssymbol erstellen, indem du die <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/serializer/TextSerializers.html#formattingCode-char-">TextSerializers#formattingCode(char)</a> Methode mit deinem <code class="docutils literal notranslate"><span class="pre">char</span></code> (Zeichen) als Parameter aufrufst.</p>
+<p class="last">Auch wenn es nicht empfohlen wird, so kannst du dennoch einen <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/text/serializer/FormattingCodeTextSerializer.html">FormattingCodeTextSerializer</a> mit einem von dir frei wählbaren Formatierungssymbol erstellen, indem du die <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/text/serializer/TextSerializers.html#formattingCode-char-">TextSerializers#formattingCode(char)</a> Methode mit deinem <code class="docutils literal notranslate"><span class="pre">char</span></code> (Zeichen) als Parameter aufrufst.</p>
 </div>
 </div>
 </div>

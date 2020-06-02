@@ -19,17 +19,6 @@
 
         <link rel="index" title="Indeks"
               href="../../genindex.html"/>        <link rel="search" title="Pencarian" href="../../search.html"/>    <link rel="top" title="dokumentasi Sponge 7.2.0" href="../../index.html"/>        <link rel="up" title="Data API" href="index.html"/>        <link rel="next" title="Transaksi" href="transactions.html"/>        <link rel="prev" title="Gunakan Tombol" href="keys.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -205,10 +194,10 @@ try to heal someone (or something).</p>
 </div>
 <p>First, we need to check if our target has health data. We do so by first asking it to provide us with its health
 data by passing its class to the <code class="docutils literal notranslate"><span class="pre">get()</span></code> method. We get an <code class="docutils literal notranslate"><span class="pre">Optional</span></code> which we can use for our check.
-This <code class="docutils literal notranslate"><span class="pre">Optional</span></code> will be absent if either our target does not support <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/manipulator/mutable/entity/HealthData.html">HealthData</a> or if it supports it but
+This <code class="docutils literal notranslate"><span class="pre">Optional</span></code> will be absent if either our target does not support <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/manipulator/mutable/entity/HealthData.html">HealthData</a> or if it supports it but
 at the present moment does not hold any health data.</p>
-<p>Jika data kesehatan ada, sekarang berisi salinan yang tidak tetap dari data yang ada pada pemegang data. Kita membuat perubahan dan akhirnya menawarkan penggantian data kembali ke sasaran kita, yang diterima (lagi, <code class="docutils literal notranslate"><span class="pre">offer()</span></code> yang akan mengembalikan <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/DataTransactionResult.html">DataTransactionResult</a> yang akan kita abaikan dalam contoh ini dan kembali ke <a class="reference internal" href="transactions.html"><span class="doc">at a later point</span></a>).</p>
-<p>Seperti yang dapat anda lihat, hasil untuk <code class="docutils literal notranslate"><span class="pre">health()</span></code> dan <code class="docutils literal notranslate"><span class="pre">maxHealth()``lagi-lagi</span> <span class="pre">merupakan</span> <span class="pre">nilai</span> <span class="pre">kunci</span> <span class="pre">yang</span> <span class="pre">kita</span> <span class="pre">peroleh</span> <span class="pre">dari</span> <span class="pre">:javadoc:`DataHolder`.</span> <span class="pre">Sebagai</span> <span class="pre">:javadoc:`MutableBoundedValue`</span> <span class="pre">kita</span> <span class="pre">menerima</span> <span class="pre">panggilan</span> <span class="pre">``health()</span></code> lagi yang berisi salinan data, yang perlu kita terapkan perubahan kembali ke <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/manipulator/DataManipulator.html">DataManipulator</a> sebelum kita dapat menawarkan <code class="docutils literal notranslate"><span class="pre">healthData</span></code> kembali ke sasaran kita.</p>
+<p>Jika data kesehatan ada, sekarang berisi salinan yang tidak tetap dari data yang ada pada pemegang data. Kita membuat perubahan dan akhirnya menawarkan penggantian data kembali ke sasaran kita, yang diterima (lagi, <code class="docutils literal notranslate"><span class="pre">offer()</span></code> yang akan mengembalikan <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/DataTransactionResult.html">DataTransactionResult</a> yang akan kita abaikan dalam contoh ini dan kembali ke <a class="reference internal" href="transactions.html"><span class="doc">at a later point</span></a>).</p>
+<p>Seperti yang dapat anda lihat, hasil untuk <code class="docutils literal notranslate"><span class="pre">health()</span></code> dan <code class="docutils literal notranslate"><span class="pre">maxHealth()``lagi-lagi</span> <span class="pre">merupakan</span> <span class="pre">nilai</span> <span class="pre">kunci</span> <span class="pre">yang</span> <span class="pre">kita</span> <span class="pre">peroleh</span> <span class="pre">dari</span> <span class="pre">:javadoc:`DataHolder`.</span> <span class="pre">Sebagai</span> <span class="pre">:javadoc:`MutableBoundedValue`</span> <span class="pre">kita</span> <span class="pre">menerima</span> <span class="pre">panggilan</span> <span class="pre">``health()</span></code> lagi yang berisi salinan data, yang perlu kita terapkan perubahan kembali ke <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/manipulator/DataManipulator.html">DataManipulator</a> sebelum kita dapat menawarkan <code class="docutils literal notranslate"><span class="pre">healthData</span></code> kembali ke sasaran kita.</p>
 <div class="admonition tip">
 <p class="first admonition-title">Tip</p>
 <p class="last">Peraturan #1 dari Data API: Semua yang anda terima merupakan salinan. Jadi kapanpun anda mengubah sesuatu, pastikan bahwa yang anda ubah diterapkan kembali ke nilai aslinya berasal.</p>
@@ -241,7 +230,7 @@ at the present moment does not hold any health data.</p>
 don't need to bother with <code class="docutils literal notranslate"><span class="pre">Optional</span></code> this time since we verified that <code class="docutils literal notranslate"><span class="pre">HealthData</span></code> is supported and the
 <code class="docutils literal notranslate"><span class="pre">getOrCreate()</span></code> method ensures that even if no data is present, default values are generated.</p>
 <p>Kemudian kami hanya menawarkan data kesehatan yang tersimpan ke target <em>lainnya</em>, sehingga mengubah status kesehatan mereka satu sama lain.</p>
-<p>Contoh ini diselesaikan dengan <code class="docutils literal notranslate"><span class="pre">Keys</span></code> yang akan memakan waktu lebih lama dan lebih rumit karena kita akan mengurus kunci individu masing-masing oleh kita sendiri. Dan daripada kesehatan kita menukar data manipulator lain yang berisi bahkan lebih data (mungkin berisi daftar <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/manipulator/mutable/entity/InvisibilityData.html">InvisibilityData</a>), yang akan memiliki banyak pekerjaan untuk dilakukan. Tetapi sejak pemegang data itu sendiri mengurus semua data yang berkaitan dengan itu, kita bahkan dapat mengubah fungsi di atas untuk menukar data sewenang-wenang di antara dua pemegang.</p>
+<p>Contoh ini diselesaikan dengan <code class="docutils literal notranslate"><span class="pre">Keys</span></code> yang akan memakan waktu lebih lama dan lebih rumit karena kita akan mengurus kunci individu masing-masing oleh kita sendiri. Dan daripada kesehatan kita menukar data manipulator lain yang berisi bahkan lebih data (mungkin berisi daftar <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/manipulator/mutable/entity/InvisibilityData.html">InvisibilityData</a>), yang akan memiliki banyak pekerjaan untuk dilakukan. Tetapi sejak pemegang data itu sendiri mengurus semua data yang berkaitan dengan itu, kita bahkan dapat mengubah fungsi di atas untuk menukar data sewenang-wenang di antara dua pemegang.</p>
 <p><strong>Contoh Kode: Penyembuhan dengan manipulator data</strong></p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.data.manipulator.DataManipulator</span><span class="p">;</span>
 
@@ -276,7 +265,7 @@ with our data, we can rest assured that it will not be changed.</p>
 <p>Ada perbedaan semantik besar antara data tidak hadir dan data yang terdiri dari nilai default. Sedangkan yang kedua selalu mungkin, ada kasus-kasus yang mana ianya mustahil untuk <code class="docutils literal notranslate"><span class="pre">DataHolder</span></code> untuk mendukung jenis data dan kemudian tidak tahan. Contoh yang meliputi:</p>
 <ul class="simple">
 <li><code class="docutils literal notranslate"><span class="pre">HealthData</span></code> selalu ada pada setiap (vanilla) <code class="docutils literal notranslate"><span class="pre">DataHolder</span></code> yang mendukung</li>
-<li><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/manipulator/mutable/DisplayNameData.html">DisplayNameData</a> selalu ada pada <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/living/player/Player.html">Player</a>, tetapi mungkin tidak ada pada entitas lainnya.</li>
+<li><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/manipulator/mutable/DisplayNameData.html">DisplayNameData</a> selalu ada pada <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/living/player/Player.html">Player</a>, tetapi mungkin tidak ada pada entitas lainnya.</li>
 </ul>
 </div>
 </div>

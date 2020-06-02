@@ -19,17 +19,6 @@
 
         <link rel="index" title="Dizin"
               href="../genindex.html"/>        <link rel="search" title="Ara" href="../search.html"/>    <link rel="top" title="Sponge 7.2.0 belgelendirme çalışması" href="../index.html"/>        <link rel="up" title="Bir eklenti oluşturma" href="index.html"/>        <link rel="next" title="Servisler" href="services.html"/>        <link rel="prev" title="Efektler" href="effects.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -166,7 +155,7 @@
            <div itemprop="articleBody">
   <div class="section" id="scheduler">
 <h1>Zamanlayıcı<a class="headerlink" href="#scheduler" title="Bu başlığın kalıcı bağlantısı">¶</a></h1>
-<p>Sponge, gelecekte yürütülecek görevleri belirlemenize izin vermek için <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/scheduler/Scheduler.html">Scheduler</a> öğesini açığa çıkarır. <code class="docutils literal notranslate"><span class="pre">Scheduler</span></code>, gecikme, aralık, isim, eşzamanlılık(eşzamansızlık) ve <code class="docutils literal notranslate"><span class="pre">Runnable</span></code> (bkz: <a class="reference internal" href="#task-properties"><span class="std std-ref">Görev Özellikleri</span></a>) gibi görev özelliklerini belirtebileceğiniz bir <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/scheduler/Task.Builder.html">Task.Builder</a> sağlar.</p>
+<p>Sponge, gelecekte yürütülecek görevleri belirlemenize izin vermek için <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/scheduler/Scheduler.html">Scheduler</a> öğesini açığa çıkarır. <code class="docutils literal notranslate"><span class="pre">Scheduler</span></code>, gecikme, aralık, isim, eşzamanlılık(eşzamansızlık) ve <code class="docutils literal notranslate"><span class="pre">Runnable</span></code> (bkz: <a class="reference internal" href="#task-properties"><span class="std std-ref">Görev Özellikleri</span></a>) gibi görev özelliklerini belirtebileceğiniz bir <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/scheduler/Task.Builder.html">Task.Builder</a> sağlar.</p>
 <div class="section" id="task-builder">
 <h2>Görev Oluşturucu<a class="headerlink" href="#task-builder" title="Bu başlığın kalıcı bağlantısı">¶</a></h2>
 <p>Önce bir <code class="docutils literal notranslate"><span class="pre">Task.Builder</span></code> örneği edinin:</p>
@@ -175,7 +164,7 @@
 <span class="n">Task</span><span class="p">.</span><span class="na">Builder</span> <span class="n">taskBuilder</span> <span class="o">=</span> <span class="n">Task</span><span class="p">.</span><span class="na">builder</span><span class="p">();</span>
 </pre></div>
 </div>
-<p>Gerekli olan tek şey, <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/scheduler/Task.Builder.html#execute-java.lang.Runnable-">Task.Builder#execute(Runnable)</a> kullanarak belirtebileceğiniz <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/lang/Runnable.html">Runnable</a> özelliğidir:</p>
+<p>Gerekli olan tek şey, <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/scheduler/Task.Builder.html#execute-java.lang.Runnable-">Task.Builder#execute(Runnable)</a> kullanarak belirtebileceğiniz <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/lang/Runnable.html">Runnable</a> özelliğidir:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">taskBuilder</span><span class="p">.</span><span class="na">execute</span><span class="p">(</span><span class="k">new</span> <span class="n">Runnable</span><span class="p">()</span> <span class="p">{</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="p">()</span> <span class="p">{</span>
         <span class="n">logger</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;Yay! Schedulers!&quot;</span><span class="p">);</span>
@@ -250,7 +239,7 @@
 </tr>
 </tbody>
 </table>
-<p>Son olarak, <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/scheduler/Task.Builder.html#submit-java.lang.Object-">Task.Builder#submit(Object)</a> kullanarak zamanlayıcıya görevi gönderin.</p>
+<p>Son olarak, <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/scheduler/Task.Builder.html#submit-java.lang.Object-">Task.Builder#submit(Object)</a> kullanarak zamanlayıcıya görevi gönderin.</p>
 <p>Ve bu kadar! Özetlemek gerekirse, 100 milisaniyelik bir başlangıç ​​gecikmesinden sonra her 5 dakikada bir asenkron çalışacak tam işlevli bir zamanlanmış görev oluşturulabilir ve şu kodu kullanarak gönderilebilir:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">java.util.concurrent.TimeUnit</span><span class="p">;</span>
 
@@ -261,7 +250,7 @@
     <span class="p">.</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;ExamplePlugin - Fetch Stats from Database&quot;</span><span class="p">).</span><span class="na">submit</span><span class="p">(</span><span class="n">plugin</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>Bir görevi iptal etmek için, sadece <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/scheduler/Task.html#cancel--">Task#cancel()</a> motodunu çağırmanız yeterli:</p>
+<p>Bir görevi iptal etmek için, sadece <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/scheduler/Task.html#cancel--">Task#cancel()</a> motodunu çağırmanız yeterli:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">task</span><span class="p">.</span><span class="na">cancel</span><span class="p">();</span>
 </pre></div>
 </div>
@@ -292,8 +281,8 @@ reaching 0.</p>
 </div>
 <div class="admonition warning">
 <p class="first admonition-title">Uyarı</p>
-<p class="last"><strong>Any</strong> scheduled tasks should either watch the current <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/GameState.html">state</a> of the <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/Game.html">Game</a> or
-should be unregistered if they are no longer needed (e.g. during a <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GameStoppingServerEvent.html">GameStoppingServerEvent</a>). This is of
+<p class="last"><strong>Any</strong> scheduled tasks should either watch the current <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/GameState.html">state</a> of the <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/Game.html">Game</a> or
+should be unregistered if they are no longer needed (e.g. during a <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/game/state/GameStoppingServerEvent.html">GameStoppingServerEvent</a>). This is of
 particular importance for the client because it can start and stop the server multiple times.</p>
 </div>
 </div>
@@ -320,8 +309,8 @@ with <cite>asynchronously</cite>, including:</p>
 </div>
 <div class="admonition warning">
 <p class="first admonition-title">Uyarı</p>
-<p class="last"><strong>Any</strong> scheduled tasks should either watch the current <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/GameState.html">state</a> of the <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/Game.html">Game</a> or
-should be unregistered if they are no longer needed (e.g. during a <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GameStoppingServerEvent.html">GameStoppingServerEvent</a>). This is of
+<p class="last"><strong>Any</strong> scheduled tasks should either watch the current <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/GameState.html">state</a> of the <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/Game.html">Game</a> or
+should be unregistered if they are no longer needed (e.g. during a <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/game/state/GameStoppingServerEvent.html">GameStoppingServerEvent</a>). This is of
 particular importance for the client because it can start and stop the server multiple times.</p>
 </div>
 </div>
@@ -331,8 +320,8 @@ particular importance for the client because it can start and stop the server mu
 <p>Eklentiniz fiziksel olarak büyüdüğü için Java ve JVM için kullanılabilir olan bir çok aynı anda kullanılır kütüphaneden birini kullanmaya başlamak isteyebilirsiniz. Bu kütüphaneler görevin hangi iplikte çalıştırıldığına yöneltme yoluyla Java’nın <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ExecutorService.html">ExecutorService</a> desteklemeye eğilimlidir.</p>
 <p>Bu kitaplıkların Sponge’un <code class="docutils literal notranslate"><span class="pre">Scheduler</span></code> ile çalışmasına izin vermek için aşağıdaki yöntemler kullanılabilir:</p>
 <ul class="simple">
-<li><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/scheduler/Scheduler.html#createSyncExecutor-java.lang.Object-">Scheduler#createSyncExecutor(Object)</a> Sponge’un eşzamanlı programcısı yoluyla görevleri çalıştıran bir <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/scheduler/SpongeExecutorService.html">SpongeExecutorService</a> oluşturur.</li>
-<li><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/scheduler/Scheduler.html#createAsyncExecutor-java.lang.Object-">Scheduler#createAsyncExecutor(Object)</a>, Sponge’ın eşzamansız zamanlayıcı ile görevleri yürüten bir <code class="docutils literal notranslate"><span class="pre">SpongeExecutorService</span></code> oluşturur. Görevler, ‘Asenkron Görevler’ bölümünde belirtilen kısıtlamalara tabidir.</li>
+<li><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/scheduler/Scheduler.html#createSyncExecutor-java.lang.Object-">Scheduler#createSyncExecutor(Object)</a> Sponge’un eşzamanlı programcısı yoluyla görevleri çalıştıran bir <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/scheduler/SpongeExecutorService.html">SpongeExecutorService</a> oluşturur.</li>
+<li><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/scheduler/Scheduler.html#createAsyncExecutor-java.lang.Object-">Scheduler#createAsyncExecutor(Object)</a>, Sponge’ın eşzamansız zamanlayıcı ile görevleri yürüten bir <code class="docutils literal notranslate"><span class="pre">SpongeExecutorService</span></code> oluşturur. Görevler, ‘Asenkron Görevler’ bölümünde belirtilen kısıtlamalara tabidir.</li>
 </ul>
 <p>Göz önünde bulundurulması gereken bir nokta, senkronize etkileşimlerin ‘Asynchronous Tasks’_ bölümünde listelenen etkileşimler dışında etkileşime giren görevlerin, iş parçacıklarına göre güvenli olması için``Scheduler#createSyncExecutor(Object)`` ile oluşturulmuş ExecutorService üzerinde yürütülmesi gerekir.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.scheduler.SpongeExecutorService</span><span class="p">;</span>

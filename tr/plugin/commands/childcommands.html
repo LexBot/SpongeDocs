@@ -19,17 +19,6 @@
 
         <link rel="index" title="Dizin"
               href="../../genindex.html"/>        <link rel="search" title="Ara" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 belgelendirme çalışması" href="../../index.html"/>        <link rel="up" title="Plugin Commands" href="index.html"/>        <link rel="next" title="Komut Yöneticisi" href="service.html"/>        <link rel="prev" title="Komut Bayrakları" href="flags.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -220,12 +209,12 @@
 </div>
 <div class="section" id="fallback-behavior">
 <h2>Yedek Davranım<a class="headerlink" href="#fallback-behavior" title="Bu başlığın kalıcı bağlantısı">¶</a></h2>
-<p>Eğer bir komutun alt komutları varsa, <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/spec/CommandSpec.Builder.html#executor-org.spongepowered.api.command.spec.CommandExecutor-">CommandSpec.Builder#executor(CommandExecutor)</a> ve ilgili <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/spec/CommandSpec.Builder.html#arguments-org.spongepowered.api.command.args.CommandElement-">CommandSpec.Builder#arguments(CommandElement)</a>’i üzerinden ayarlanan bir <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/spec/CommandExecutor.html">CommandExecutor</a> opsiyoneldir. Seçilen hatanın davranışı ve alt komutları ayrıştırma değişkeni, bu ana işlem ögesinin var olup olmadığına bağlıdır.</p>
-<p>Bir ana işlem ögesi ayarlanmadıysa ve çağırılan alt komut bulunamadıysa ya da değişkenler ayrıştırılamadılarsa, <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/args/ArgumentParseException.html">ArgumentParseException</a> hatası verilecektir.</p>
-<p>Ana komut için bir ana işlem ögesi ayarlandıysa, ilk değişkenin alt komutları takma adlarından biriyle eşleşmemesi durumunda o ana işlem ögesi son çare olarak kullanılır. Eğer bir alt komut seçildiyse ancak değişkenler ayrışmıyorlarsa, <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/spec/CommandSpec.Builder.html#childArgumentParseExceptionFallback-boolean-">CommandSpec.Builder#childArgumentParseExceptionFallback(boolean)</a>’ın nasıl ayarlandığına bağlı olarak şunlardan birisi gerçekleşecektir:</p>
+<p>Eğer bir komutun alt komutları varsa, <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/spec/CommandSpec.Builder.html#executor-org.spongepowered.api.command.spec.CommandExecutor-">CommandSpec.Builder#executor(CommandExecutor)</a> ve ilgili <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/spec/CommandSpec.Builder.html#arguments-org.spongepowered.api.command.args.CommandElement-">CommandSpec.Builder#arguments(CommandElement)</a>’i üzerinden ayarlanan bir <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/spec/CommandExecutor.html">CommandExecutor</a> opsiyoneldir. Seçilen hatanın davranışı ve alt komutları ayrıştırma değişkeni, bu ana işlem ögesinin var olup olmadığına bağlıdır.</p>
+<p>Bir ana işlem ögesi ayarlanmadıysa ve çağırılan alt komut bulunamadıysa ya da değişkenler ayrıştırılamadılarsa, <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/args/ArgumentParseException.html">ArgumentParseException</a> hatası verilecektir.</p>
+<p>Ana komut için bir ana işlem ögesi ayarlandıysa, ilk değişkenin alt komutları takma adlarından biriyle eşleşmemesi durumunda o ana işlem ögesi son çare olarak kullanılır. Eğer bir alt komut seçildiyse ancak değişkenler ayrışmıyorlarsa, <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/spec/CommandSpec.Builder.html#childArgumentParseExceptionFallback-boolean-">CommandSpec.Builder#childArgumentParseExceptionFallback(boolean)</a>’ın nasıl ayarlandığına bağlı olarak şunlardan birisi gerçekleşecektir:</p>
 <ul class="simple">
 <li>Değer <cite>true</cite> (varsayılan) ise, :javadoc:<a href="#id1"><span class="problematic" id="id2">`</span></a>ArgumentParseException`görmezden gelinir ve ana komutlardan değişkenler ayrıştırılır. Başarısız olunursa, ana komut için var olan istisna gösterilir. Bu, alt komut değişkeni ayrıştırması istisnalarının gösterilmediği önceki API revizyonlarıyla aynı davranıştır.</li>
-<li>Değer <cite>false</cite> ise, ana işlem ögesi yürütülmez ve <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/args/ArgumentParseException.html">ArgumentParseException</a> hatası verilir ve istisna, ayrıştırma hatası veren alt komuttan geri döndürülür ve bu durum, ana komutların ve değişken kombinasyonlarının bazılarının çalışmasını engelleyebilir (geri çekilmenin ilk değişkeni ana komut ile aynıysa).</li>
+<li>Değer <cite>false</cite> ise, ana işlem ögesi yürütülmez ve <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/args/ArgumentParseException.html">ArgumentParseException</a> hatası verilir ve istisna, ayrıştırma hatası veren alt komuttan geri döndürülür ve bu durum, ana komutların ve değişken kombinasyonlarının bazılarının çalışmasını engelleyebilir (geri çekilmenin ilk değişkeni ana komut ile aynıysa).</li>
 </ul>
 <p>In all cases, if the arguments parse successfully but the child executor throws an exception, the fallback
 executor (if any) is not executed and the error message from the child executor is displayed.</p>

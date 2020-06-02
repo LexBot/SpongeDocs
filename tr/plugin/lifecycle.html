@@ -19,17 +19,6 @@
 
         <link rel="index" title="Dizin"
               href="../genindex.html"/>        <link rel="search" title="Ara" href="../search.html"/>    <link rel="top" title="Sponge 7.2.0 belgelendirme çalışması" href="../index.html"/>        <link rel="up" title="Bir eklenti oluşturma" href="index.html"/>        <link rel="next" title="Bağımlılık Enjeksiyonu" href="injection.html"/>        <link rel="prev" title="Ana eklenti sınıfı" href="plugin-class.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -184,30 +173,30 @@
 <h2>Başlatma Durumları<a class="headerlink" href="#initialization-states" title="Bu başlığın kalıcı bağlantısı">¶</a></h2>
 <p>Başlatma evreleri sadece bir çalışma sırasında bir kere meydana gelir.</p>
 <p><strong>YAPILANDIRMA</strong></p>
-<p><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GameConstructionEvent.html">GameConstructionEvent</a> başlatılır. Bu evre esnasında her eklenti için``&#64;Plugin`` sınıfı örnekleri harekete geçirilir.</p>
+<p><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/game/state/GameConstructionEvent.html">GameConstructionEvent</a> başlatılır. Bu evre esnasında her eklenti için``&#64;Plugin`` sınıfı örnekleri harekete geçirilir.</p>
 <p><strong>BAŞLATMA ÖNCESİ</strong></p>
-<p>The <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GamePreInitializationEvent.html">GamePreInitializationEvent</a> başlatılır. Bu evre esnasında eklenti başlatmaya hazır olur.Varsayılan kaydedici örneğine erişim ve tercih edilen konfigürasyon dosyalarının yerleri ile ilgili bilgiye erişim mevcuttur.</p>
+<p>The <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/game/state/GamePreInitializationEvent.html">GamePreInitializationEvent</a> başlatılır. Bu evre esnasında eklenti başlatmaya hazır olur.Varsayılan kaydedici örneğine erişim ve tercih edilen konfigürasyon dosyalarının yerleri ile ilgili bilgiye erişim mevcuttur.</p>
 <p><strong>BAŞLATMA</strong></p>
-<p>The <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GameInitializationEvent.html">GameInitializationEvent</a> başlatılır. Bu evrede eklenti işlevsel olması için ihtiyaç duyulan her türlü işi bitirmelidir.Genel olay denetimcileri bu aşamada kaydolmalıdır.</p>
+<p>The <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/game/state/GameInitializationEvent.html">GameInitializationEvent</a> başlatılır. Bu evrede eklenti işlevsel olması için ihtiyaç duyulan her türlü işi bitirmelidir.Genel olay denetimcileri bu aşamada kaydolmalıdır.</p>
 <p><strong>BAŞLATMA SONRASI</strong></p>
-<p>The <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GamePostInitializationEvent.html">GamePostInitializationEvent</a> başlatılır.Bu aşamadan eklentiler arası iletişim meydana gelmeye hazır olmalıdır. API sağlayıcı eklentiler de temel istekleri kabul etmeye hazır olmalıdır.</p>
+<p>The <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/game/state/GamePostInitializationEvent.html">GamePostInitializationEvent</a> başlatılır.Bu aşamadan eklentiler arası iletişim meydana gelmeye hazır olmalıdır. API sağlayıcı eklentiler de temel istekleri kabul etmeye hazır olmalıdır.</p>
 <p><strong>YÜKLEME_TAMAMLANDI</strong></p>
-<p>The <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GameLoadCompleteEvent.html">GameLoadCompleteEvent</a> is triggered.
+<p>The <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/game/state/GameLoadCompleteEvent.html">GameLoadCompleteEvent</a> is triggered.
 By this state, all plugin initialization should be completed.</p>
 </div>
 <div class="section" id="running-states">
 <h2>Çalışma Durumları<a class="headerlink" href="#running-states" title="Bu başlığın kalıcı bağlantısı">¶</a></h2>
 <p>Çalıştırma Evreleri tek bir çalıştırma sırasında birden çok kez oluşabilir. <code class="docutils literal notranslate"><span class="pre">SERVER_ABOUT_TO_START</span></code> <code class="docutils literal notranslate"><span class="pre">SERVER_STOPPED</span></code>’ın ardından gelebilir. Eğer bir hata mevcutsa işlem sırasından herhangi bir noktada <a href="#id1"><span class="problematic" id="id2">``</span></a>SERVER_STOPPED``meydana gelebilir.</p>
 <p><strong>SUNUCU_BAŞLATILMAK_ÜZERE</strong></p>
-<p>The <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GameAboutToStartServerEvent.html">GameAboutToStartServerEvent</a> evresi harekete geçirilir. Sunucu örnekleri mevcut olur ama dünyalar henüz yüklenmemiştir.</p>
+<p>The <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/game/state/GameAboutToStartServerEvent.html">GameAboutToStartServerEvent</a> evresi harekete geçirilir. Sunucu örnekleri mevcut olur ama dünyalar henüz yüklenmemiştir.</p>
 <p><strong>SUNUCU_BAŞLATILIYOR</strong></p>
-<p>The <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GameStartingServerEvent.html">GameStartingServerEvent</a> başlatılır.Sunucu örneği mevcut olur ve dünyalar yüklenir. Komut kaydı bu evre esnasında işlenir.</p>
+<p>The <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/game/state/GameStartingServerEvent.html">GameStartingServerEvent</a> başlatılır.Sunucu örneği mevcut olur ve dünyalar yüklenir. Komut kaydı bu evre esnasında işlenir.</p>
 <p><strong>SUNUCU_BAŞLATILDI</strong></p>
-<p>The <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GameStartedServerEvent.html">GameStartedServerEvent</a> olayı başlatılır. Sunucu örneği mevcut olur ve dünyalar yüklenir.</p>
+<p>The <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/game/state/GameStartedServerEvent.html">GameStartedServerEvent</a> olayı başlatılır. Sunucu örneği mevcut olur ve dünyalar yüklenir.</p>
 <p><strong>SUNUCU_DURUYOR</strong></p>
-<p>The <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GameStoppingServerEvent.html">GameStoppingServerEvent</a> başlatılır. Bu evre dünyalar kaydedilmeden hemen önce ve son tıklamadan hemen sonra meydana gelir.</p>
+<p>The <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/game/state/GameStoppingServerEvent.html">GameStoppingServerEvent</a> başlatılır. Bu evre dünyalar kaydedilmeden hemen önce ve son tıklamadan hemen sonra meydana gelir.</p>
 <p><strong>SUNUCU_DURDU</strong></p>
-<p>The <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GameStoppingServerEvent.html">GameStoppingServerEvent</a> başlatılır. Bu evre esnasında oyuncuların hiç biri bağlı değildir ve dünyalardaki hiçbir değişim kayıtlı değildir.</p>
+<p>The <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/game/state/GameStoppingServerEvent.html">GameStoppingServerEvent</a> başlatılır. Bu evre esnasında oyuncuların hiç biri bağlı değildir ve dünyalardaki hiçbir değişim kayıtlı değildir.</p>
 </div>
 <div class="section" id="stopping-states">
 <h2>Durdurma Durumları<a class="headerlink" href="#stopping-states" title="Bu başlığın kalıcı bağlantısı">¶</a></h2>
@@ -217,11 +206,11 @@ By this state, all plugin initialization should be completed.</p>
 <p class="last">Durma evrelerinin kapatma esnasında çalışacağının garantisi yoktur. Eğer oyun Ctrl-C, Görev Yöneticisi, bilgisayar çökmesi veya buna benzer durumlar ile zorla durdurulduysa çalışmayabilirler.</p>
 </div>
 <p><strong>GAME_STOPPING</strong></p>
-<p>The <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GameStoppingEvent.html">GameStoppingEvent</a> is triggered.
+<p>The <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/game/state/GameStoppingEvent.html">GameStoppingEvent</a> is triggered.
 This state occurs immediately before <code class="docutils literal notranslate"><span class="pre">GAME_STOPPED</span></code>. Plugins providing an API should still be capable of accepting
 basic requests.</p>
 <p><strong>GAME_STOPPED</strong></p>
-<p>The <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GameStoppedEvent.html">GameStoppedEvent</a> is triggered.
+<p>The <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/game/state/GameStoppedEvent.html">GameStoppedEvent</a> is triggered.
 Once this event has finished executing, Minecraft will shut down. No further interaction with the game or other plugins
 should be attempted at this point.</p>
 </div>

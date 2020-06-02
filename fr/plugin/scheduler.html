@@ -19,17 +19,6 @@
 
         <link rel="index" title="Index"
               href="../genindex.html"/>        <link rel="search" title="Recherche" href="../search.html"/>    <link rel="top" title="Documentation Sponge 7.2.0" href="../index.html"/>        <link rel="up" title="Création d’un Plugin" href="index.html"/>        <link rel="next" title="Services" href="services.html"/>        <link rel="prev" title="Effets" href="effects.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -166,7 +155,7 @@
            <div itemprop="articleBody">
   <div class="section" id="scheduler">
 <h1>Scheduler<a class="headerlink" href="#scheduler" title="Lien permanent vers ce titre">¶</a></h1>
-<p>Sponge dispose d’un <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/scheduler/Scheduler.html">Scheduler</a> qui vous permet de désigner des tâches à exécuter plus tard. Le <code class="docutils literal notranslate"><span class="pre">Scheduler</span></code> fournit un <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/scheduler/Task.Builder.html">Task.Builder</a> avec lequel vous pouvez spécifier les propriétés de la tâche telles que le délai, l’intervalle, le nom, la/l”(a)synchronicité, et le <code class="docutils literal notranslate"><span class="pre">Runnable</span></code> (voir <a class="reference internal" href="#task-properties"><span class="std std-ref">Propriétés d’une tâche</span></a>).</p>
+<p>Sponge dispose d’un <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/scheduler/Scheduler.html">Scheduler</a> qui vous permet de désigner des tâches à exécuter plus tard. Le <code class="docutils literal notranslate"><span class="pre">Scheduler</span></code> fournit un <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/scheduler/Task.Builder.html">Task.Builder</a> avec lequel vous pouvez spécifier les propriétés de la tâche telles que le délai, l’intervalle, le nom, la/l”(a)synchronicité, et le <code class="docutils literal notranslate"><span class="pre">Runnable</span></code> (voir <a class="reference internal" href="#task-properties"><span class="std std-ref">Propriétés d’une tâche</span></a>).</p>
 <div class="section" id="task-builder">
 <h2>Constructeur de Tâche<a class="headerlink" href="#task-builder" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Tout d’abord, obtenez une instance de <code class="docutils literal notranslate"><span class="pre">Task.Builder</span></code>:</p>
@@ -175,7 +164,7 @@
 <span class="n">Task</span><span class="p">.</span><span class="na">Builder</span> <span class="n">taskBuilder</span> <span class="o">=</span> <span class="n">Task</span><span class="p">.</span><span class="na">builder</span><span class="p">();</span>
 </pre></div>
 </div>
-<p>La seule propriété requise est le <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/lang/Runnable.html">Runnable</a>, que vous pouvez spécifier en utilisant la méthode <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/scheduler/Task.Builder.html#execute-java.lang.Runnable-">Task.Builder#execute(Runnable)</a>:</p>
+<p>La seule propriété requise est le <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/lang/Runnable.html">Runnable</a>, que vous pouvez spécifier en utilisant la méthode <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/scheduler/Task.Builder.html#execute-java.lang.Runnable-">Task.Builder#execute(Runnable)</a>:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">taskBuilder</span><span class="p">.</span><span class="na">execute</span><span class="p">(</span><span class="k">new</span> <span class="n">Runnable</span><span class="p">()</span> <span class="p">{</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="p">()</span> <span class="p">{</span>
         <span class="n">logger</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;Yay! Schedulers!&quot;</span><span class="p">);</span>
@@ -250,7 +239,7 @@
 </tr>
 </tbody>
 </table>
-<p>Enfin, validez la tâche dans le scheduler, en utilisant la méthode <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/scheduler/Task.Builder.html#submit-java.lang.Object-">Task.Builder#submit(Object)</a>.</p>
+<p>Enfin, validez la tâche dans le scheduler, en utilisant la méthode <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/scheduler/Task.Builder.html#submit-java.lang.Object-">Task.Builder#submit(Object)</a>.</p>
 <p>Et c’est tout! Pour résumer, une tâche planifiée totalement fonctionnelle qui se lancerait toutes les 5 minutes après un délai initial de 100 millisecondes pourrait être construite et validée en utilisant le code suivant:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">java.util.concurrent.TimeUnit</span><span class="p">;</span>
 
@@ -261,7 +250,7 @@
     <span class="p">.</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;ExamplePlugin - Fetch Stats from Database&quot;</span><span class="p">).</span><span class="na">submit</span><span class="p">(</span><span class="n">plugin</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>Pour annuler une tâche, utilisez simplement la méthode <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/scheduler/Task.html#cancel--">Task#cancel()</a>:</p>
+<p>Pour annuler une tâche, utilisez simplement la méthode <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/scheduler/Task.html#cancel--">Task#cancel()</a>:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">task</span><span class="p">.</span><span class="na">cancel</span><span class="p">();</span>
 </pre></div>
 </div>
@@ -290,7 +279,7 @@
 </div>
 <div class="admonition warning">
 <p class="first admonition-title">Avertissement</p>
-<p class="last"><strong>Toutes</strong> les tâches planifiées doivent soit regarder l”<a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/GameState.html">état</a> actuel du <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/Game.html">Game</a>, ou doit être désinscrit du registre si ils ne sont plus nécessaires (ex : lors d’un <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GameStoppingServerEvent.html">GameStoppingServerEvent</a>). C’est d’une importance particulière pour le client car il peut démarrer et arrêter le serveur plusieurs fois.</p>
+<p class="last"><strong>Toutes</strong> les tâches planifiées doivent soit regarder l”<a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/GameState.html">état</a> actuel du <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/Game.html">Game</a>, ou doit être désinscrit du registre si ils ne sont plus nécessaires (ex : lors d’un <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/game/state/GameStoppingServerEvent.html">GameStoppingServerEvent</a>). C’est d’une importance particulière pour le client car il peut démarrer et arrêter le serveur plusieurs fois.</p>
 </div>
 </div>
 <div class="section" id="asynchronous-tasks">
@@ -313,7 +302,7 @@
 </div>
 <div class="admonition warning">
 <p class="first admonition-title">Avertissement</p>
-<p class="last"><strong>Toutes</strong> les tâches planifiées doivent soit regarder l”<a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/GameState.html">état</a> actuel du <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/Game.html">Game</a>, ou doit être désinscrit du registre si ils ne sont plus nécessaires (ex : lors d’un <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GameStoppingServerEvent.html">GameStoppingServerEvent</a>). C’est d’une importance particulière pour le client car il peut démarrer et arrêter le serveur plusieurs fois.</p>
+<p class="last"><strong>Toutes</strong> les tâches planifiées doivent soit regarder l”<a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/GameState.html">état</a> actuel du <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/Game.html">Game</a>, ou doit être désinscrit du registre si ils ne sont plus nécessaires (ex : lors d’un <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/game/state/GameStoppingServerEvent.html">GameStoppingServerEvent</a>). C’est d’une importance particulière pour le client car il peut démarrer et arrêter le serveur plusieurs fois.</p>
 </div>
 </div>
 </div>
@@ -322,8 +311,8 @@
 <p>Pour que votre plugin augmente en taille et en possibilité, vous pouvez commencer à utiliser une des nombreuse librairies en concurrences, valable pour Java et sa JVM. Ces librairies ont tendances à s’appuyer sur l”<a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ExecutorService.html">ExecutorService</a> de Java afin de mieux diriger sur quel Thread il faut exécuter la tâche correspondante.</p>
 <p>Pour permettre à ces librairies de fonctionner avec le <code class="docutils literal notranslate"><span class="pre">Scheduler</span></code> de Sponge la méthode suivante peut être utilisée:</p>
 <ul class="simple">
-<li><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/scheduler/Scheduler.html#createSyncExecutor-java.lang.Object-">Scheduler#createSyncExecutor(Object)</a> crée un <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/scheduler/SpongeExecutorService.html">SpongeExecutorService</a> qui exécute les tâches en passant par le scheduler synchrone de Sponge.</li>
-<li><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/scheduler/Scheduler.html#createAsyncExecutor-java.lang.Object-">Scheduler#createAsyncExecutor(Object)</a> crée un <code class="docutils literal notranslate"><span class="pre">SpongeExecutorService</span></code> qui exécute les tâches en passant par le scheduler asynchrone de Sponge. Les tâches sont sujettes aux restrictions mentionnées dans <a class="reference internal" href="#asynchronous-tasks">Tâches asynchrones</a>.</li>
+<li><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/scheduler/Scheduler.html#createSyncExecutor-java.lang.Object-">Scheduler#createSyncExecutor(Object)</a> crée un <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/scheduler/SpongeExecutorService.html">SpongeExecutorService</a> qui exécute les tâches en passant par le scheduler synchrone de Sponge.</li>
+<li><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/scheduler/Scheduler.html#createAsyncExecutor-java.lang.Object-">Scheduler#createAsyncExecutor(Object)</a> crée un <code class="docutils literal notranslate"><span class="pre">SpongeExecutorService</span></code> qui exécute les tâches en passant par le scheduler asynchrone de Sponge. Les tâches sont sujettes aux restrictions mentionnées dans <a class="reference internal" href="#asynchronous-tasks">Tâches asynchrones</a>.</li>
 </ul>
 <p>Une chose à garder à l’esprit est que chaque tâche qui interagit avec Sponge en dehors des interactions listées dans <a class="reference internal" href="#asynchronous-tasks">Tâches Asynchrones</a> doit être exécuté sur le ExecutorService crée avec <code class="docutils literal notranslate"><span class="pre">Scheduler#createSyncExecutor(Object)</span></code> pour être thread-safe.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.scheduler.SpongeExecutorService</span><span class="p">;</span>

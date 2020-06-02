@@ -19,17 +19,6 @@
 
         <link rel="index" title="색인"
               href="../../genindex.html"/>        <link rel="search" title="검색" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 documentation" href="../../index.html"/>        <link rel="up" title="개체" href="index.html"/>        <link rel="next" title="Entity AI" href="ai.html"/>        <link rel="prev" title="개체 생성하기" href="spawning.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -173,10 +162,10 @@
            <div itemprop="articleBody">
   <div class="section" id="modifying-an-entity">
 <h1>개체 변경하기<a class="headerlink" href="#modifying-an-entity" title="제목 주소">¶</a></h1>
-<p>물론, 평범한 개체를 생성하는 것도 좋지만, 그것보다 흥미로운 게 있지 않을까요? 여기서 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/manipulator/DataManipulator.html">DataManipulator</a> 가 등장합니다. <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/Entity.html">Entity</a> 는 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/DataHolder.html">DataHolder</a> 입니다. 즉, <code class="docutils literal notranslate"><span class="pre">Entity``가</span> <span class="pre">자료를</span> <span class="pre">담을</span> <span class="pre">수</span> <span class="pre">있다는</span> <span class="pre">뜻입니다.</span> <span class="pre">``DataHolder</span></code> 에 대한 더 자세한 정보는 <a class="reference internal" href="../data/index.html"><span class="doc">자료 설명문서</span></a> 에 있습니다.</p>
-<p><code class="docutils literal notranslate"><span class="pre">DataManipulator</span></code>s that apply to <code class="docutils literal notranslate"><span class="pre">Entity</span></code>s are things such as <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/manipulator/mutable/entity/FoodData.html">FoodData</a> or <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/manipulator/mutable/entity/HealthData.html">HealthData</a>. A
-list of applicable <code class="docutils literal notranslate"><span class="pre">DataManipulator</span></code>s can be found at <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/manipulator/mutable/package-summary.html">org.spongepowered.api.data.manipulator.mutable</a> and
-<a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/manipulator/mutable/entity/package-summary.html">org.spongepowered.api.data.manipulator.mutable.entity</a>. Note that not all <code class="docutils literal notranslate"><span class="pre">DataManipulator</span></code>s found there
+<p>물론, 평범한 개체를 생성하는 것도 좋지만, 그것보다 흥미로운 게 있지 않을까요? 여기서 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/manipulator/DataManipulator.html">DataManipulator</a> 가 등장합니다. <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/Entity.html">Entity</a> 는 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/DataHolder.html">DataHolder</a> 입니다. 즉, <code class="docutils literal notranslate"><span class="pre">Entity``가</span> <span class="pre">자료를</span> <span class="pre">담을</span> <span class="pre">수</span> <span class="pre">있다는</span> <span class="pre">뜻입니다.</span> <span class="pre">``DataHolder</span></code> 에 대한 더 자세한 정보는 <a class="reference internal" href="../data/index.html"><span class="doc">자료 설명문서</span></a> 에 있습니다.</p>
+<p><code class="docutils literal notranslate"><span class="pre">DataManipulator</span></code>s that apply to <code class="docutils literal notranslate"><span class="pre">Entity</span></code>s are things such as <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/manipulator/mutable/entity/FoodData.html">FoodData</a> or <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/manipulator/mutable/entity/HealthData.html">HealthData</a>. A
+list of applicable <code class="docutils literal notranslate"><span class="pre">DataManipulator</span></code>s can be found at <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/manipulator/mutable/package-summary.html">org.spongepowered.api.data.manipulator.mutable</a> and
+<a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/manipulator/mutable/entity/package-summary.html">org.spongepowered.api.data.manipulator.mutable.entity</a>. Note that not all <code class="docutils literal notranslate"><span class="pre">DataManipulator</span></code>s found there
 may apply to all entities.</p>
 <div class="section" id="entity-type">
 <h2>Entity Type<a class="headerlink" href="#entity-type" title="제목 주소">¶</a></h2>
@@ -195,7 +184,7 @@ an example of checking if our <code class="docutils literal notranslate"><span c
 <div class="section" id="entity-data-manipulators">
 <h2>Entity Data Manipulators<a class="headerlink" href="#entity-data-manipulators" title="제목 주소">¶</a></h2>
 <p>Now that we are certain that our <code class="docutils literal notranslate"><span class="pre">Entity</span></code> is a creeper, we can apply creeper specific <code class="docutils literal notranslate"><span class="pre">DataManipulator</span></code>s to it.
-For example, <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/manipulator/mutable/entity/ExplosionRadiusData.html">ExplosionRadiusData</a> is a <code class="docutils literal notranslate"><span class="pre">DataManipulator</span></code> that creepers can have, but not all <code class="docutils literal notranslate"><span class="pre">Entity</span></code>s.
+For example, <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/manipulator/mutable/entity/ExplosionRadiusData.html">ExplosionRadiusData</a> is a <code class="docutils literal notranslate"><span class="pre">DataManipulator</span></code> that creepers can have, but not all <code class="docutils literal notranslate"><span class="pre">Entity</span></code>s.
 An example of changing an <code class="docutils literal notranslate"><span class="pre">Entity</span></code>s explosive radius to 50 can be seen below:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.data.manipulator.mutable.entity.ExplosiveRadiusData</span><span class="p">;</span>
 
@@ -209,7 +198,7 @@ An example of changing an <code class="docutils literal notranslate"><span class
 radius of our creeper to 50. We then have to offer the data back to the creeper, as the data we received from our
 <code class="docutils literal notranslate"><span class="pre">Entity</span></code> is only a copy of the live data.</p>
 <p>Perhaps we want to give our <code class="docutils literal notranslate"><span class="pre">Entity</span></code> a name to customize it a bit! This would be done by using
-<a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/manipulator/mutable/DisplayNameData.html">DisplayNameData</a>. An example of this in action can be seen below:</p>
+<a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/manipulator/mutable/DisplayNameData.html">DisplayNameData</a>. An example of this in action can be seen below:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.data.manipulator.mutable.DisplayNameData</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.spongepowered.api.text.Text</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.spongepowered.api.text.format.TextColors</span><span class="p">;</span>
@@ -221,7 +210,7 @@ radius of our creeper to 50. We then have to offer the data back to the creeper,
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>Another, shorter way to do this is by just using <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/key/Keys.html">Keys</a> on our <code class="docutils literal notranslate"><span class="pre">Entity</span></code> instead of using
+<p>Another, shorter way to do this is by just using <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/key/Keys.html">Keys</a> on our <code class="docutils literal notranslate"><span class="pre">Entity</span></code> instead of using
 <code class="docutils literal notranslate"><span class="pre">DataManipulator</span></code>s. This would be done like so:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.data.key.Keys</span><span class="p">;</span>
 

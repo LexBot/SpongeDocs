@@ -19,17 +19,6 @@
 
         <link rel="index" title="Índice"
               href="../../../genindex.html"/>        <link rel="search" title="Búsqueda" href="../../../search.html"/>    <link rel="top" title="documentación de Sponge - 7.2.0" href="../../../index.html"/>        <link rel="up" title="Texto" href="../index.html"/>        <link rel="next" title="Formateo de Código y Formato Heredado" href="formatting-code-legacy.html"/>        <link rel="prev" title="Creación de Texto" href="../text.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -179,7 +168,7 @@
            <div itemprop="articleBody">
   <div class="section" id="text-serializers">
 <h1>Serializadores de Texto<a class="headerlink" href="#text-serializers" title="Enlazar permanentemente con este título">¶</a></h1>
-<p><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/serializer/TextSerializer.html">TextSerializer</a>s proporciona una manera conveniente de serializar y deserializar instancias de <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/Text.html">Text</a>. Hay tres formatos aplicables:</p>
+<p><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/text/serializer/TextSerializer.html">TextSerializer</a>s proporciona una manera conveniente de serializar y deserializar instancias de <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/text/Text.html">Text</a>. Hay tres formatos aplicables:</p>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="formatting-code-legacy.html">Formateo de Código y Formato Heredado</a></li>
@@ -187,7 +176,7 @@
 <li class="toctree-l1"><a class="reference internal" href="configurate.html">Formato de Configuración</a></li>
 </ul>
 </div>
-<p>La clase <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/serializer/TextSerializers.html">TextSerializers</a> proporcionar tres <code class="docutils literal notranslate"><span class="pre">TextSerializer</span></code>s para serializar a una <code class="docutils literal notranslate"><span class="pre">Cadena</span></code> representativa o deserializar a una instancia de <code class="docutils literal notranslate"><span class="pre">Texto</span></code>:</p>
+<p>La clase <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/text/serializer/TextSerializers.html">TextSerializers</a> proporcionar tres <code class="docutils literal notranslate"><span class="pre">TextSerializer</span></code>s para serializar a una <code class="docutils literal notranslate"><span class="pre">Cadena</span></code> representativa o deserializar a una instancia de <code class="docutils literal notranslate"><span class="pre">Texto</span></code>:</p>
 <ul class="simple">
 <li><code class="docutils literal notranslate"><span class="pre">LEGACY_FORMATTING_CODE</span></code></li>
 <li><code class="docutils literal notranslate"><span class="pre">FORMATTING_CODE</span></code></li>
@@ -195,14 +184,14 @@
 </ul>
 <div class="section" id="serializing-text">
 <h2>Serialización de Texto<a class="headerlink" href="#serializing-text" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>Para serializar un objeto de <code class="docutils literal notranslate"><span class="pre">Texto</span></code>, simplemente utilice el método <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/serializer/TextSerializer.html#serialize-org.spongepowered.api.text.Text-">TextSerializer#serialize(Text)</a>, especificando el apropiado objeto de <code class="docutils literal notranslate"><span class="pre">Texto</span></code> como el único argumento. El método devolverá una <code class="docutils literal notranslate"><span class="pre">Cadena</span></code> que representa el objeto de <code class="docutils literal notranslate"><span class="pre">Texto</span></code>.</p>
+<p>Para serializar un objeto de <code class="docutils literal notranslate"><span class="pre">Texto</span></code>, simplemente utilice el método <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/text/serializer/TextSerializer.html#serialize-org.spongepowered.api.text.Text-">TextSerializer#serialize(Text)</a>, especificando el apropiado objeto de <code class="docutils literal notranslate"><span class="pre">Texto</span></code> como el único argumento. El método devolverá una <code class="docutils literal notranslate"><span class="pre">Cadena</span></code> que representa el objeto de <code class="docutils literal notranslate"><span class="pre">Texto</span></code>.</p>
 </div>
 <div class="section" id="deserializing-to-text">
 <h2>Deserialización de Texto<a class="headerlink" href="#deserializing-to-text" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>To deserialize a <code class="docutils literal notranslate"><span class="pre">String</span></code> into its corresponding <code class="docutils literal notranslate"><span class="pre">Text</span></code> object, simply use the
-<a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/serializer/TextSerializer.html#deserialize-java.lang.String-">TextSerializer#deserialize(String)</a> method, specifying the input <code class="docutils literal notranslate"><span class="pre">String</span></code> as the only argument. If the
-input is incorrectly formatted, a <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/serializer/TextParseException.html">TextParseException</a> will be thrown. Alternatively, use the
-<a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/serializer/TextSerializer.html#deserializeUnchecked-java.lang.String-">TextSerializer#deserializeUnchecked(String)</a> method to deserialize without any exceptions. If there is an
+<a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/text/serializer/TextSerializer.html#deserialize-java.lang.String-">TextSerializer#deserialize(String)</a> method, specifying the input <code class="docutils literal notranslate"><span class="pre">String</span></code> as the only argument. If the
+input is incorrectly formatted, a <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/text/serializer/TextParseException.html">TextParseException</a> will be thrown. Alternatively, use the
+<a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/text/serializer/TextSerializer.html#deserializeUnchecked-java.lang.String-">TextSerializer#deserializeUnchecked(String)</a> method to deserialize without any exceptions. If there is an
 error, the raw input will be returned in the form of a <code class="docutils literal notranslate"><span class="pre">Text</span></code> object.</p>
 </div>
 </div>

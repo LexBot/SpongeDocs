@@ -19,17 +19,6 @@
 
         <link rel="index" title="Алфавитный указатель"
               href="../../genindex.html"/>        <link rel="search" title="Поиск" href="../../search.html"/>    <link rel="top" title="Документация Sponge 7.2.0" href="../../index.html"/>        <link rel="up" title="Создание плагина" href="../index.html"/>        <link rel="next" title="Слушатели событий" href="listeners.html"/>        <link rel="prev" title="Низкоуровневый API команд" href="../commands/commandcallable.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -172,7 +161,7 @@
            <div itemprop="articleBody">
   <div class="section" id="events">
 <h1>События<a class="headerlink" href="#events" title="Ссылка на этот заголовок">¶</a></h1>
-<p>События (events) используются, чтобы сообщить плагинам о том, что что-то произошло. Многие события могут быть отменены, то есть, можно предотвратить действие, к которому относится событие. Отменяемые события реализуют интерфейс <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/Cancellable.html">Cancellable</a>.</p>
+<p>События (events) используются, чтобы сообщить плагинам о том, что что-то произошло. Многие события могут быть отменены, то есть, можно предотвратить действие, к которому относится событие. Отменяемые события реализуют интерфейс <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/Cancellable.html">Cancellable</a>.</p>
 <p>Sponge содержит много событий; однако плагины могут создавать свои собственные события, которые могут слушать другие плагины.</p>
 <p>Слушателям событий присваивается приоритет, определяющий порядок, в котором слушатель событий запускается в контексте других слушателей событий (например, из других плагинов). Например, слушатель событий с приоритетом <code class="docutils literal notranslate"><span class="pre">EARLY</span></code> будет выполнен перед большинством других слушателей событий. См. <a class="reference internal" href="listeners.html#about-listener"><span class="std std-ref">О &#64;Listener</span></a> для получения дополнительной информации.</p>
 <p>События не могут быть отправлены в определенный набор плагинов. Все плагины, которые прослушивают событие, будут уведомлены о событии.</p>

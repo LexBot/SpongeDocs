@@ -19,17 +19,6 @@
 
         <link rel="index" title="Dizin"
               href="../genindex.html"/>        <link rel="search" title="Ara" href="../search.html"/>    <link rel="top" title="Sponge 7.2.0 belgelendirme çalışması" href="../index.html"/>        <link rel="up" title="Bir eklenti oluşturma" href="index.html"/>        <link rel="next" title="Sekme listeleri" href="tab-lists.html"/>        <link rel="prev" title="Oyun Profili Yöneticisi" href="game-profile-manager.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -167,7 +156,7 @@
   <div class="section" id="offline-player-data">
 <h1>Çevrim dışı oyuncu verisi<a class="headerlink" href="#offline-player-data" title="Bu başlığın kalıcı bağlantısı">¶</a></h1>
 <p>Eklentiler için, oyuncu çevrimdışı olsa bile, oyuncu verilerine erişmek gerekli olabilir. <code class="docutils literal notranslate"><span class="pre">Sponge.getServer().getPlayer()``metodu</span> <span class="pre">bir</span> <span class="pre">:javadoc:`Player`</span> <span class="pre">döner</span> <span class="pre">ve</span> <span class="pre">bunun</span> <span class="pre">için</span> <span class="pre">kullanılabilir</span> <span class="pre">diye</span> <span class="pre">düşünüyor</span> <span class="pre">olabilirsiniz.</span> <span class="pre">Ancak</span> <span class="pre">``Player</span></code> nesneleri yalnızca çevrimiçi oyuncular içindir, başka bir çözüm kullanılması gerekir.</p>
-<p>Bazı eklentiler ilgili verileri kendileri depolarlar ve <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/profile/GameProfileManager.html">GameProfileManager</a> kullanarak kullanıcıyı ilişkilendirirler. Ancak çevrimdışı ve çevrimiçi kullanıcılar için farklı kod yazmak gerekli değildir. <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/ServiceManager.html">ServiceManager</a> , <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/user/UserStorageService.html">UserStorageService</a> olarak bilinen, offline <code class="docutils literal notranslate"><span class="pre">Player</span></code>lar için :javadoc: <cite>User</cite> oluşumunu dönebilen servisi sağlar. <cite>Player`</cite> arayüzü <code class="docutils literal notranslate"><span class="pre">User</span></code> metodlarını genişlettiğinden dolayı, <code class="docutils literal notranslate"><span class="pre">Player</span></code> da çağırabilirsiniz.</p>
+<p>Bazı eklentiler ilgili verileri kendileri depolarlar ve <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/profile/GameProfileManager.html">GameProfileManager</a> kullanarak kullanıcıyı ilişkilendirirler. Ancak çevrimdışı ve çevrimiçi kullanıcılar için farklı kod yazmak gerekli değildir. <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/ServiceManager.html">ServiceManager</a> , <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/user/UserStorageService.html">UserStorageService</a> olarak bilinen, offline <code class="docutils literal notranslate"><span class="pre">Player</span></code>lar için :javadoc: <cite>User</cite> oluşumunu dönebilen servisi sağlar. <cite>Player`</cite> arayüzü <code class="docutils literal notranslate"><span class="pre">User</span></code> metodlarını genişlettiğinden dolayı, <code class="docutils literal notranslate"><span class="pre">Player</span></code> da çağırabilirsiniz.</p>
 <p>Örneğin:</p>
 <ul class="simple">
 <li>Bütün örnek oluşumlar için <code class="docutils literal notranslate"><span class="pre">#hasPermission(String</span> <span class="pre">permission)</span></code> uygundur.</li>

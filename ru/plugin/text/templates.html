@@ -19,17 +19,6 @@
 
         <link rel="index" title="Алфавитный указатель"
               href="../../genindex.html"/>        <link rel="search" title="Поиск" href="../../search.html"/>    <link rel="top" title="Документация Sponge 7.2.0" href="../../index.html"/>        <link rel="up" title="Текст" href="index.html"/>        <link rel="next" title="Команды" href="../commands/index.html"/>        <link rel="prev" title="Каналы сообщений" href="messagechannels.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -174,7 +163,7 @@
            <div itemprop="articleBody">
   <div class="section" id="texttemplates">
 <h1>Текстовые шаблоны<a class="headerlink" href="#texttemplates" title="Ссылка на этот заголовок">¶</a></h1>
-<p><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/TextTemplate.html">TextTemplate</a> - простой и удобный способ хранения сообщений с переменными элементами. Например, вы можете захотеть создать настраиваемое сообщение для игроков, которые присоединились к серверу в первый раз. Это легко достижимо с помощью <code class="docutils literal notranslate"><span class="pre">TextTemplate</span></code>, если использовать следующую стратегию:</p>
+<p><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/text/TextTemplate.html">TextTemplate</a> - простой и удобный способ хранения сообщений с переменными элементами. Например, вы можете захотеть создать настраиваемое сообщение для игроков, которые присоединились к серверу в первый раз. Это легко достижимо с помощью <code class="docutils literal notranslate"><span class="pre">TextTemplate</span></code>, если использовать следующую стратегию:</p>
 <p>Предположим, мы хотим создать сообщение при подключении к серверу, в котором текст будет желтым и выделенным курсивом, кроме имени игрока, который будет выделен жирным шрифтом и светло-бирюзовым цветом, а также имя сервера, которое будет жирным и красным. Мы можем создать шаблон, используя следующий код:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import static</span> <span class="nn">org.spongepowered.api.text.TextTemplate.*</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.spongepowered.api.text.TextTemplate</span><span class="p">;</span>
@@ -188,16 +177,16 @@
 <span class="p">);</span>
 </pre></div>
 </div>
-<p>Вы можете получить результат этого текстового шаблона с помощью метода <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/TextTemplate.html#apply--">TextTemplate#apply()</a>. Метод <code class="docutils literal notranslate"><span class="pre">apply()</span></code> принимает параметр <code class="docutils literal notranslate"><span class="pre">Map&lt;String,</span> <span class="pre">TextElement&gt;</span></code>, где ключи являются именами аргументов, а значения являются теми значениями <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/TextElement.html">TextElement</a>, которыми вы хотите заменить.</p>
+<p>Вы можете получить результат этого текстового шаблона с помощью метода <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/text/TextTemplate.html#apply--">TextTemplate#apply()</a>. Метод <code class="docutils literal notranslate"><span class="pre">apply()</span></code> принимает параметр <code class="docutils literal notranslate"><span class="pre">Map&lt;String,</span> <span class="pre">TextElement&gt;</span></code>, где ключи являются именами аргументов, а значения являются теми значениями <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/text/TextElement.html">TextElement</a>, которыми вы хотите заменить.</p>
 <div class="admonition note">
 <p class="first admonition-title">Примечание</p>
-<p class="last">Если аргумент не указан как «необязательный» через <code class="docutils literal notranslate"><span class="pre">Arg.optional()</span></code> при создании, отсутствующие параметры, переданные в метод <code class="docutils literal notranslate"><span class="pre">apply()</span></code>, будут вызывать <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/TextTemplateArgumentException.html">TextTemplateArgumentException</a>. Аргументы также могут указывать значение по умолчанию во время их создания с помощью <code class="docutils literal notranslate"><span class="pre">Arg.defaultValue()</span></code></p>
+<p class="last">Если аргумент не указан как «необязательный» через <code class="docutils literal notranslate"><span class="pre">Arg.optional()</span></code> при создании, отсутствующие параметры, переданные в метод <code class="docutils literal notranslate"><span class="pre">apply()</span></code>, будут вызывать <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/text/TextTemplateArgumentException.html">TextTemplateArgumentException</a>. Аргументы также могут указывать значение по умолчанию во время их создания с помощью <code class="docutils literal notranslate"><span class="pre">Arg.defaultValue()</span></code></p>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Примечание</p>
 <p class="last">Хотя аргументы могут иметь связанное с ними форматирование текста, это можно переопределить, предоставив объект Text с настраиваемым форматированием в Map с помощью метода <code class="docutils literal notranslate"><span class="pre">apply()</span></code>.</p>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">TextTemplate</span></code>, как и сами объекты <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/Text.html">Text</a>, могут быть сериализованы для Configurate. Чтобы сохранить <code class="docutils literal notranslate"><span class="pre">TextTemplate</span></code> в файле конфигурации, используйте следующий код. Мы также добавим здесь параметр, чтобы пользователь мог определить имя своего сервера.</p>
+<p><code class="docutils literal notranslate"><span class="pre">TextTemplate</span></code>, как и сами объекты <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/text/Text.html">Text</a>, могут быть сериализованы для Configurate. Чтобы сохранить <code class="docutils literal notranslate"><span class="pre">TextTemplate</span></code> в файле конфигурации, используйте следующий код. Мы также добавим здесь параметр, чтобы пользователь мог определить имя своего сервера.</p>
 <div class="admonition tip">
 <p class="first admonition-title">Совет</p>
 <p class="last">Чтобы узнать больше о том, как использовать Configurate для создания файлов конфигурации вашего плагина, можно найти в статье <a class="reference internal" href="../configuration/index.html"><span class="doc">Настройка плагинов</span></a>.</p>

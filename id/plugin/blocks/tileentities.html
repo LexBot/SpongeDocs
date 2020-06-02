@@ -19,17 +19,6 @@
 
         <link rel="index" title="Indeks"
               href="../../genindex.html"/>        <link rel="search" title="Pencarian" href="../../search.html"/>    <link rel="top" title="dokumentasi Sponge 7.2.0" href="../../index.html"/>        <link rel="up" title="Blok" href="index.html"/>        <link rel="next" title="Virtual Blok Perubahan" href="virtualblock.html"/>        <link rel="prev" title="Memodifikasi Blok" href="modifying.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -239,13 +228,13 @@
 </pre></div>
 </div>
 </div></blockquote>
-<p>Perbedaan utama untuk bekerja dengan suatu <code class="docutils literal notranslate"><span class="pre">BlockState</span></code> adalah sebuah susunan entitas yang bisa berubah <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/DataHolder.html">DataHolder</a> sebagai lawan dari hal yang tidak dapat diubah <code class="docutils literal notranslate"><span class="pre">BlockState</span></code>.</p>
+<p>Perbedaan utama untuk bekerja dengan suatu <code class="docutils literal notranslate"><span class="pre">BlockState</span></code> adalah sebuah susunan entitas yang bisa berubah <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/DataHolder.html">DataHolder</a> sebagai lawan dari hal yang tidak dapat diubah <code class="docutils literal notranslate"><span class="pre">BlockState</span></code>.</p>
 </div>
 <div class="section" id="accessing-inventories">
 <h2>Mengakses Persediaan<a class="headerlink" href="#accessing-inventories" title="Link permanen untuk headline ini">¶</a></h2>
 <p>Quite a share of tile entities come with their own inventory, most notably chests and furnaces. That inventory cannot
 be accessed directly from the <code class="docutils literal notranslate"><span class="pre">TileEntity</span></code> interface. So a cast will be necessary. Since all tile entities containing
-an inventory extend the <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/block/tileentity/carrier/TileEntityCarrier.html">TileEntityCarrier</a> interface it suffices to cast to that interface as shown below.</p>
+an inventory extend the <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/block/tileentity/carrier/TileEntityCarrier.html">TileEntityCarrier</a> interface it suffices to cast to that interface as shown below.</p>
 <blockquote>
 <div><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.block.tileentity.carrier.TileEntityCarrier</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.spongepowered.api.item.inventory.Inventory</span><span class="p">;</span>

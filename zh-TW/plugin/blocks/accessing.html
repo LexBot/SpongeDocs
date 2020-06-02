@@ -19,17 +19,6 @@
 
         <link rel="index" title="索引"
               href="../../genindex.html"/>        <link rel="search" title="搜尋" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 說明文件" href="../../index.html"/>        <link rel="up" title="方塊" href="index.html"/>        <link rel="next" title="修改方塊" href="modifying.html"/>        <link rel="prev" title="概念" href="concepts.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -210,7 +199,7 @@
 </div>
 <div class="section" id="block-data-manipulators">
 <h2>方塊資料操作子（Entity Data Manipulators）<a class="headerlink" href="#block-data-manipulators" title="本標題的永久連結">¶</a></h2>
-<p>和API的其他部分的存储方式类似，一个方块的数据被以 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/manipulator/DataManipulator.html">DataManipulator</a> 的方式存储。它是一个存储了方块的各种角度的信息的容器。这样的信息有方块的方向、特殊类型（例如石头和花岗岩）等。获取这样的数据是十分简单的，如果想要获取方块的方向，你只需要使用 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/manipulator/mutable/block/DirectionalData.html">DirectionalData</a>。</p>
+<p>和API的其他部分的存储方式类似，一个方块的数据被以 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/manipulator/DataManipulator.html">DataManipulator</a> 的方式存储。它是一个存储了方块的各种角度的信息的容器。这样的信息有方块的方向、特殊类型（例如石头和花岗岩）等。获取这样的数据是十分简单的，如果想要获取方块的方向，你只需要使用 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/manipulator/mutable/block/DirectionalData.html">DirectionalData</a>。</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.data.key.Keys</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.spongepowered.api.data.manipulator.mutable.block.DirectionalData</span><span class="p">;</span>
 
@@ -227,7 +216,7 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>首先，我们需要知道我们需要的``DataManipulator``的子接口是什么样子。我们可以在 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/manipulator/mutable/package-summary.html">org.spongepowered.api.data.manipulator.mutable</a> 和 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/manipulator/mutable/block/package-summary.html">org.spongepowered.api.data.manipulator.mutable.block</a> 两个包下找到适用于方块的部分。然后，我们直接把对应的class传入 <code class="docutils literal notranslate"><span class="pre">Location</span></code> 类的 <code class="docutils literal notranslate"><span class="pre">get(DataManipulator)</span></code> 方法从而返回一个 <code class="docutils literal notranslate"><span class="pre">Optional</span></code> 。然后我们就需要通过 <code class="docutils literal notranslate"><span class="pre">isPresent()</span></code> （译者注：原文为 <code class="docutils literal notranslate"><span class="pre">ifPresent()</span></code> ，怀疑其笔误）方法判断这一 <code class="docutils literal notranslate"><span class="pre">DataManipulator</span></code> 是否真的存在，如果存在，我们就可以使用它了。</p>
+<p>首先，我们需要知道我们需要的``DataManipulator``的子接口是什么样子。我们可以在 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/manipulator/mutable/package-summary.html">org.spongepowered.api.data.manipulator.mutable</a> 和 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/manipulator/mutable/block/package-summary.html">org.spongepowered.api.data.manipulator.mutable.block</a> 两个包下找到适用于方块的部分。然后，我们直接把对应的class传入 <code class="docutils literal notranslate"><span class="pre">Location</span></code> 类的 <code class="docutils literal notranslate"><span class="pre">get(DataManipulator)</span></code> 方法从而返回一个 <code class="docutils literal notranslate"><span class="pre">Optional</span></code> 。然后我们就需要通过 <code class="docutils literal notranslate"><span class="pre">isPresent()</span></code> （译者注：原文为 <code class="docutils literal notranslate"><span class="pre">ifPresent()</span></code> ，怀疑其笔误）方法判断这一 <code class="docutils literal notranslate"><span class="pre">DataManipulator</span></code> 是否真的存在，如果存在，我们就可以使用它了。</p>
 <p>更多和 <code class="docutils literal notranslate"><span class="pre">DataManipulator</span></code> 有关的东西可以在 <a class="reference internal" href="../data/datamanipulators.html"><span class="doc">数据 API 文档</span></a> 中找到。</p>
 <div class="admonition tip">
 <p class="first admonition-title">小訣竅</p>
@@ -236,7 +225,7 @@
 </div>
 <div class="section" id="block-states">
 <h2>方塊狀態<a class="headerlink" href="#block-states" title="本標題的永久連結">¶</a></h2>
-<p>一个 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/block/BlockState.html">BlockState</a> 包含一个 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/block/BlockType.html">BlockType</a>、所有应用于该方块的 <code class="docutils literal notranslate"><span class="pre">DataManipulator</span></code> 和属性、以及该方块所拥有的 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/block/trait/BlockTrait.html">BlockTrait</a>。它储存了一个特定的方块的所有不可变数据。一种用法是获取一个 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/manipulator/ImmutableDataManipulator.html">ImmutableDataManipulator</a> ，就像下面这样：</p>
+<p>一个 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/block/BlockState.html">BlockState</a> 包含一个 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/block/BlockType.html">BlockType</a>、所有应用于该方块的 <code class="docutils literal notranslate"><span class="pre">DataManipulator</span></code> 和属性、以及该方块所拥有的 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/block/trait/BlockTrait.html">BlockTrait</a>。它储存了一个特定的方块的所有不可变数据。一种用法是获取一个 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/manipulator/ImmutableDataManipulator.html">ImmutableDataManipulator</a> ，就像下面这样：</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.block.BlockState</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.spongepowered.api.data.manipulator.immutable.ImmutableWetData</span><span class="p">;</span>
 
@@ -272,8 +261,8 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>这就可以得到我们针对的方块的爆炸抗性值并和一个新 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/property/DoubleProperty.html">DoubleProperty</a> 进行比较，因为 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/property/block/BlastResistanceProperty.html">BlastResistanceProperty</a> 是``DoubleProperty``的子类。这一方法就会返回爆炸抗性是否大于等于一，也就是被放置在``matches()``方法里的``DoubleProperty``。如果我们想要知道它是否小于 2，我们就会把 <code class="docutils literal notranslate"><span class="pre">DoubleProperty</span></code> 的构造器中的属性算符换成 <code class="docutils literal notranslate"><span class="pre">Property.Operator.LESS</span></code>。</p>
-<p>如果我们在比较两个已经存在的属性，那么先会判断第一个的 <code class="docutils literal notranslate"><span class="pre">Operator</span></code> ，这里也就是我们设置的 <code class="docutils literal notranslate"><span class="pre">DoubleProperty</span></code> 的 <code class="docutils literal notranslate"><span class="pre">Operator</span></code> 。如果它是 <code class="docutils literal notranslate"><span class="pre">DELEGATE</span></code> ，也就是并不存在，那么它就会获取第二个的 <code class="docutils literal notranslate"><span class="pre">Operator</span></code> ，也就是 <code class="docutils literal notranslate"><span class="pre">matches()</span></code> 中的属性的 <code class="docutils literal notranslate"><span class="pre">Operator</span></code> 。如果两个属性的 <code class="docutils literal notranslate"><span class="pre">Operator</span></code> 都是 <code class="docutils literal notranslate"><span class="pre">DELEGATE</span></code> ，那么它将会返回假。下面是比较两个 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/property/block/PoweredProperty.html">PoweredProperty</a> 和一个 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/property/BooleanProperty.html">BooleanProperty</a> 的例子：</p>
+<p>这就可以得到我们针对的方块的爆炸抗性值并和一个新 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/property/DoubleProperty.html">DoubleProperty</a> 进行比较，因为 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/property/block/BlastResistanceProperty.html">BlastResistanceProperty</a> 是``DoubleProperty``的子类。这一方法就会返回爆炸抗性是否大于等于一，也就是被放置在``matches()``方法里的``DoubleProperty``。如果我们想要知道它是否小于 2，我们就会把 <code class="docutils literal notranslate"><span class="pre">DoubleProperty</span></code> 的构造器中的属性算符换成 <code class="docutils literal notranslate"><span class="pre">Property.Operator.LESS</span></code>。</p>
+<p>如果我们在比较两个已经存在的属性，那么先会判断第一个的 <code class="docutils literal notranslate"><span class="pre">Operator</span></code> ，这里也就是我们设置的 <code class="docutils literal notranslate"><span class="pre">DoubleProperty</span></code> 的 <code class="docutils literal notranslate"><span class="pre">Operator</span></code> 。如果它是 <code class="docutils literal notranslate"><span class="pre">DELEGATE</span></code> ，也就是并不存在，那么它就会获取第二个的 <code class="docutils literal notranslate"><span class="pre">Operator</span></code> ，也就是 <code class="docutils literal notranslate"><span class="pre">matches()</span></code> 中的属性的 <code class="docutils literal notranslate"><span class="pre">Operator</span></code> 。如果两个属性的 <code class="docutils literal notranslate"><span class="pre">Operator</span></code> 都是 <code class="docutils literal notranslate"><span class="pre">DELEGATE</span></code> ，那么它将会返回假。下面是比较两个 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/property/block/PoweredProperty.html">PoweredProperty</a> 和一个 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/property/BooleanProperty.html">BooleanProperty</a> 的例子：</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.data.property.BooleanProperty</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.spongepowered.api.data.property.block.PoweredProperty</span><span class="p">;</span>
 
@@ -295,11 +284,11 @@
 </pre></div>
 </div>
 <p>第二个``if``条件判断其中一个属性是否为真。如果其为真而且两个属性一致，那么两个属性自然都为真。因此，我们不需要检查第二个值就可以知道两个方块都是被充能的。</p>
-<p>可能的方块属性列表可以在 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/property/block/package-summary.html">org.spongepowered.api.data.property.block</a> 下找到。</p>
+<p>可能的方块属性列表可以在 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/property/block/package-summary.html">org.spongepowered.api.data.property.block</a> 下找到。</p>
 </div>
 <div class="section" id="block-traits">
 <h2>方塊狀態值<a class="headerlink" href="#block-traits" title="本標題的永久連結">¶</a></h2>
-<p>方塊狀態值是表現方塊目前狀態的一個特定值。一個方塊可能或可能不包含方塊狀態值，取決於方塊類型。例如一張床有一個``BED_OCCUPIED``的布林方塊狀態值( <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/block/trait/BooleanTrait.html">BooleanTrait</a> )。因為布林只能有兩種值，真或假，故``BED_OCCUPIED``只能是真或假。檢查值非常簡單，只要呼叫:javadoc:<a href="#id1"><span class="problematic" id="id2">`</span></a>BlockState#getTraitValue(BlockTrait)`函式。以下是一段以床作為範例的程式碼：</p>
+<p>方塊狀態值是表現方塊目前狀態的一個特定值。一個方塊可能或可能不包含方塊狀態值，取決於方塊類型。例如一張床有一個``BED_OCCUPIED``的布林方塊狀態值( <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/block/trait/BooleanTrait.html">BooleanTrait</a> )。因為布林只能有兩種值，真或假，故``BED_OCCUPIED``只能是真或假。檢查值非常簡單，只要呼叫:javadoc:<a href="#id1"><span class="problematic" id="id2">`</span></a>BlockState#getTraitValue(BlockTrait)`函式。以下是一段以床作為範例的程式碼：</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.block.trait.BooleanTraits</span><span class="p">;</span>
 
 <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isBedOccupied</span><span class="p">(</span><span class="n">Location</span><span class="o">&lt;</span><span class="n">World</span><span class="o">&gt;</span> <span class="n">blockLoc</span><span class="p">)</span> <span class="p">{</span>

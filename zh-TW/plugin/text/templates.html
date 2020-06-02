@@ -19,17 +19,6 @@
 
         <link rel="index" title="索引"
               href="../../genindex.html"/>        <link rel="search" title="搜尋" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 說明文件" href="../../index.html"/>        <link rel="up" title="文本" href="index.html"/>        <link rel="next" title="插件指令" href="../commands/index.html"/>        <link rel="prev" title="消息通道" href="messagechannels.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -174,7 +163,7 @@
            <div itemprop="articleBody">
   <div class="section" id="texttemplates">
 <h1>文本模板<a class="headerlink" href="#texttemplates" title="本標題的永久連結">¶</a></h1>
-<p><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/TextTemplate.html">TextTemplate</a> 是一个简单方便的方法来存储具有可变元素的消息。例如，您可能会发现自己希望为首次加入服务器的玩家，创建一个可配置的消息。利用 <code class="docutils literal notranslate"><span class="pre">TextTemplate</span></code> ，我们很容易实现：</p>
+<p><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/text/TextTemplate.html">TextTemplate</a> 是一个简单方便的方法来存储具有可变元素的消息。例如，您可能会发现自己希望为首次加入服务器的玩家，创建一个可配置的消息。利用 <code class="docutils literal notranslate"><span class="pre">TextTemplate</span></code> ，我们很容易实现：</p>
 <p>假设我们要创建一个玩家加入消息，其中玩家的名字将是天蓝色和粗体，服务器的名称将是红色和粗体，而其他文本是黄色和斜体。我们可以使用以下代码创建对应的文本模板：</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import static</span> <span class="nn">org.spongepowered.api.text.TextTemplate.*</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.spongepowered.api.text.TextTemplate</span><span class="p">;</span>
@@ -188,16 +177,16 @@
 <span class="p">);</span>
 </pre></div>
 </div>
-<p>你可以使用 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/TextTemplate.html#apply--">TextTemplate#apply()</a> 方法获取此文本模板的结果。 <code class="docutils literal notranslate"><span class="pre">apply()</span></code> 方法接受一个 <code class="docutils literal notranslate"><span class="pre">Map&lt;String,</span> <span class="pre">TextElement&gt;</span></code> 参数，其中键是参数的名称，值是你想要替换的内容对应的 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/TextElement.html">TextElement</a> 。</p>
+<p>你可以使用 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/text/TextTemplate.html#apply--">TextTemplate#apply()</a> 方法获取此文本模板的结果。 <code class="docutils literal notranslate"><span class="pre">apply()</span></code> 方法接受一个 <code class="docutils literal notranslate"><span class="pre">Map&lt;String,</span> <span class="pre">TextElement&gt;</span></code> 参数，其中键是参数的名称，值是你想要替换的内容对应的 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/text/TextElement.html">TextElement</a> 。</p>
 <div class="admonition note">
 <p class="first admonition-title">備註</p>
-<p class="last">除非一个参数在创建时通过 <code class="docutils literal notranslate"><span class="pre">Arg.optional()</span></code> 指定为“可选”，否则提供给 <code class="docutils literal notranslate"><span class="pre">apply()</span></code> 方法的 <code class="docutils literal notranslate"><span class="pre">Map&lt;String,</span> <span class="pre">TextElement&gt;</span></code> 将在缺少参数时抛出一个 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/TextTemplateArgumentException.html">TextTemplateArgumentException</a> 。参数也可以在创建时使用 <code class="docutils literal notranslate"><span class="pre">Arg.defaultValue()</span></code> 指定一个默认值。</p>
+<p class="last">除非一个参数在创建时通过 <code class="docutils literal notranslate"><span class="pre">Arg.optional()</span></code> 指定为“可选”，否则提供给 <code class="docutils literal notranslate"><span class="pre">apply()</span></code> 方法的 <code class="docutils literal notranslate"><span class="pre">Map&lt;String,</span> <span class="pre">TextElement&gt;</span></code> 将在缺少参数时抛出一个 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/text/TextTemplateArgumentException.html">TextTemplateArgumentException</a> 。参数也可以在创建时使用 <code class="docutils literal notranslate"><span class="pre">Arg.defaultValue()</span></code> 指定一个默认值。</p>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">備註</p>
 <p class="last">虽然参数可以具有与其相关联的文本格式，但是可以通过通过 <code class="docutils literal notranslate"><span class="pre">apply()</span></code> 方法向参数映射提供具有自定义格式的 <code class="docutils literal notranslate"><span class="pre">Text</span></code> 对象来覆盖以解决问题。</p>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">TextTemplate</span></code> ，和 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/Text.html">Text</a> 类似，其对象本身可以为 Configurate 所序列化。下面的代码展示了如何将 <code class="docutils literal notranslate"><span class="pre">TextTemplate</span></code> 保存到配置文件。我们还将在此添加一个可配置项，以便用户定义其服务器的名称。</p>
+<p><code class="docutils literal notranslate"><span class="pre">TextTemplate</span></code> ，和 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/text/Text.html">Text</a> 类似，其对象本身可以为 Configurate 所序列化。下面的代码展示了如何将 <code class="docutils literal notranslate"><span class="pre">TextTemplate</span></code> 保存到配置文件。我们还将在此添加一个可配置项，以便用户定义其服务器的名称。</p>
 <div class="admonition tip">
 <p class="first admonition-title">小訣竅</p>
 <p class="last">如想要学习更多关于如何使用 Configurate 处理插件的配置文件，请参阅 <a class="reference internal" href="../configuration/index.html"><span class="doc">設定插件</span></a> 中的内容。</p>

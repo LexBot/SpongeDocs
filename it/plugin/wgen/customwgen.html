@@ -19,17 +19,6 @@
 
         <link rel="index" title="Indice"
               href="../../genindex.html"/>        <link rel="search" title="Cerca" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 documentazione" href="../../index.html"/>        <link rel="up" title="World Generation" href="index.html"/>        <link rel="next" title="Plugin Manager" href="../manager.html"/>        <link rel="prev" title="WorldGeneratorModifiers" href="modifiers.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -182,7 +171,7 @@
 <h2>Modifying Vanilla Generation<a class="headerlink" href="#modifying-vanilla-generation" title="Link a questa intestazione">¶</a></h2>
 <div class="admonition note">
 <p class="first admonition-title">Nota</p>
-<p class="last">This page assumes that you are familiar with setting up your <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/gen/WorldGeneratorModifier.html">WorldGeneratorModifier</a>. If not, then please
+<p class="last">This page assumes that you are familiar with setting up your <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/world/gen/WorldGeneratorModifier.html">WorldGeneratorModifier</a>. If not, then please
 read the article on setting up your modifier at <a class="reference internal" href="modifiers.html"><span class="doc">WorldGeneratorModifiers</span></a>.</p>
 </div>
 <p>Sponge exposes a great deal of vanilla world generation, which can be manipulated through the various interfaces.
@@ -202,13 +191,13 @@ Currently, the only elements of the generation process that are <em>easily</em> 
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>Start by getting the <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/biome/BiomeGenerationSettings.html">BiomeGenerationSettings</a> for the desert biome. This object is a container for all
-generation settings relating to that biome. Next, iterate through the list of all <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/gen/populator/Cactus.html">Cactus</a> populators and set
+<p>Start by getting the <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/world/biome/BiomeGenerationSettings.html">BiomeGenerationSettings</a> for the desert biome. This object is a container for all
+generation settings relating to that biome. Next, iterate through the list of all <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/world/gen/populator/Cactus.html">Cactus</a> populators and set
 the height to 5, which means it can only generate cactii which are 5 blocks tall.</p>
 <div class="admonition note">
 <p class="first admonition-title">Nota</p>
-<p class="last">The <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/gen/populator/Cactus.html#setHeight-int-">Cactus#setHeight(int)</a>, and many other similar methods on other populators, also takes a
-<a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/util/weighted/VariableAmount.html">VariableAmount</a> which can be used to specify the height as a range or other custom value.</p>
+<p class="last">The <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/world/gen/populator/Cactus.html#setHeight-int-">Cactus#setHeight(int)</a>, and many other similar methods on other populators, also takes a
+<a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/util/weighted/VariableAmount.html">VariableAmount</a> which can be used to specify the height as a range or other custom value.</p>
 </div>
 <p>This has been a simple example of how to modify an existing populator. Let’s look at how we can add a new
 instance of a vanilla populator. This time the populator will be added globally, which means it will be
@@ -240,7 +229,7 @@ and their properties.</p>
 </div>
 <div class="section" id="creating-custom-base-terrain">
 <h2>Creating Custom Base Terrain<a class="headerlink" href="#creating-custom-base-terrain" title="Link a questa intestazione">¶</a></h2>
-<p>Changing the base <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/gen/GenerationPopulator.html">GenerationPopulator</a> of a world generator allows you to change the base terrain shape
+<p>Changing the base <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/world/gen/GenerationPopulator.html">GenerationPopulator</a> of a world generator allows you to change the base terrain shape
 generation of the world. A generator populator will roughly follow the procedure of using the seed and biome information
 to seed and modify a series of noise maps, from which the terrain is formed. The terrain created in a modified base
 generator populator should only consist of stone blocks, to allow the biomes to properly replace blocks for
@@ -303,7 +292,7 @@ of the boundaries of the extent.</p>
 <div class="section" id="creating-custom-biomes">
 <h2>Creating Custom Biomes<a class="headerlink" href="#creating-custom-biomes" title="Link a questa intestazione">¶</a></h2>
 <p>While it is currently not possible to create entirely new biomes from within sponge, you can replace the system
-by which they are arranged in the world be implementing the <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/gen/BiomeGenerator.html">BiomeGenerator</a> interface and setting your custom
+by which they are arranged in the world be implementing the <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/world/gen/BiomeGenerator.html">BiomeGenerator</a> interface and setting your custom
 biome generator onto a WorldGenerator.</p>
 <p>Below is an example of a biome generator which creates one large island centered around (0, 0).</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">IslandBiomeGen</span> <span class="kd">implements</span> <span class="n">BiomeGenerator</span> <span class="p">{</span>

@@ -19,17 +19,6 @@
 
         <link rel="index" title="Алфавитный указатель"
               href="../../genindex.html"/>        <link rel="search" title="Поиск" href="../../search.html"/>    <link rel="top" title="Документация Sponge 7.2.0" href="../../index.html"/>        <link rel="up" title="Генерация мира" href="index.html"/>        <link rel="next" title="Менеджер плагинов" href="../manager.html"/>        <link rel="prev" title="WorldGeneratorModifiers" href="modifiers.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -182,7 +171,7 @@
 <h2>Модификация ванильной генерации<a class="headerlink" href="#modifying-vanilla-generation" title="Ссылка на этот заголовок">¶</a></h2>
 <div class="admonition note">
 <p class="first admonition-title">Примечание</p>
-<p class="last">На этой странице предполагается, что вы знакомы с настройкой <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/gen/WorldGeneratorModifier.html">WorldGeneratorModifier</a>. Если нет, то, пожалуйста, прочитайте статью о настройке своего модификатора в <a class="reference internal" href="modifiers.html"><span class="doc">WorldGeneratorModifiers</span></a>.</p>
+<p class="last">На этой странице предполагается, что вы знакомы с настройкой <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/world/gen/WorldGeneratorModifier.html">WorldGeneratorModifier</a>. Если нет, то, пожалуйста, прочитайте статью о настройке своего модификатора в <a class="reference internal" href="modifiers.html"><span class="doc">WorldGeneratorModifiers</span></a>.</p>
 </div>
 <p>Sponge предоставляет большое количество генераций ванильного мира, которыми можно манипулировать с помощью различных интерфейсов. В настоящее время единственными элементами процесса генерации, которые <em>легко</em> подвергаются манипуляции, являются популяторы.</p>
 <p>For a quick example, let’s look at how we would change the cacti that spawn in deserts to be taller.</p>
@@ -200,10 +189,10 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>Начнём с получения <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/biome/BiomeGenerationSettings.html">BiomeGenerationSettings</a> для биома пустыни. Этот объект является контейнером для всех настроек генерации, относящихся к данному биому. Затем переберём список всех <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/gen/populator/Cactus.html">Cactus</a> популяторов и установим высоту на 5, что позволит генерировать только кактусы высотой 5 блоков.</p>
+<p>Начнём с получения <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/world/biome/BiomeGenerationSettings.html">BiomeGenerationSettings</a> для биома пустыни. Этот объект является контейнером для всех настроек генерации, относящихся к данному биому. Затем переберём список всех <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/world/gen/populator/Cactus.html">Cactus</a> популяторов и установим высоту на 5, что позволит генерировать только кактусы высотой 5 блоков.</p>
 <div class="admonition note">
 <p class="first admonition-title">Примечание</p>
-<p class="last"><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/gen/populator/Cactus.html#setHeight-int-">Cactus#setHeight(int)</a> и многие другие аналогичные методы для других популяторов также принимают <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/util/weighted/VariableAmount.html">VariableAmount</a>, который можно использовать для указания высоты как диапазона или другого настраиваемого значения.</p>
+<p class="last"><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/world/gen/populator/Cactus.html#setHeight-int-">Cactus#setHeight(int)</a> и многие другие аналогичные методы для других популяторов также принимают <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/util/weighted/VariableAmount.html">VariableAmount</a>, который можно использовать для указания высоты как диапазона или другого настраиваемого значения.</p>
 </div>
 <p>Это был простой пример того, как можно изменять существующий популятор. Давайте рассмотрим, как можно добавить новый экземпляр ванильного популятора. В этот раз популятор будет добавлен глобально, он будет применяться ко всем чанкам, независимо от биома. Давайте добавим популятор Pumpkin глобально, в результате чего тыквы будут разбросаны по всему миру.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.world.gen.populator.Pumpkin</span><span class="p">;</span>
@@ -229,7 +218,7 @@ and their properties.</p>
 </div>
 <div class="section" id="creating-custom-base-terrain">
 <h2>Creating Custom Base Terrain<a class="headerlink" href="#creating-custom-base-terrain" title="Ссылка на этот заголовок">¶</a></h2>
-<p>Changing the base <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/gen/GenerationPopulator.html">GenerationPopulator</a> of a world generator allows you to change the base terrain shape
+<p>Changing the base <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/world/gen/GenerationPopulator.html">GenerationPopulator</a> of a world generator allows you to change the base terrain shape
 generation of the world. A generator populator will roughly follow the procedure of using the seed and biome information
 to seed and modify a series of noise maps, from which the terrain is formed. The terrain created in a modified base
 generator populator should only consist of stone blocks, to allow the biomes to properly replace blocks for
@@ -292,7 +281,7 @@ of the boundaries of the extent.</p>
 <div class="section" id="creating-custom-biomes">
 <h2>Creating Custom Biomes<a class="headerlink" href="#creating-custom-biomes" title="Ссылка на этот заголовок">¶</a></h2>
 <p>While it is currently not possible to create entirely new biomes from within sponge, you can replace the system
-by which they are arranged in the world be implementing the <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/gen/BiomeGenerator.html">BiomeGenerator</a> interface and setting your custom
+by which they are arranged in the world be implementing the <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/world/gen/BiomeGenerator.html">BiomeGenerator</a> interface and setting your custom
 biome generator onto a WorldGenerator.</p>
 <p>Below is an example of a biome generator which creates one large island centered around (0, 0).</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">IslandBiomeGen</span> <span class="kd">implements</span> <span class="n">BiomeGenerator</span> <span class="p">{</span>

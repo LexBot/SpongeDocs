@@ -19,17 +19,6 @@
 
         <link rel="index" title="Índice"
               href="../genindex.html"/>        <link rel="search" title="Búsqueda" href="../search.html"/>    <link rel="top" title="documentación de Sponge - 7.2.0" href="../index.html"/>        <link rel="up" title="Creando un Plugin" href="index.html"/>        <link rel="next" title="Depuración de Complemento" href="debugging.html"/>        <link rel="prev" title="Metadatos del Complemento" href="plugin-meta.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -167,15 +156,15 @@
   <div class="section" id="ray-tracing">
 <h1>Trazado de Rayos (Ray Tracing)<a class="headerlink" href="#ray-tracing" title="Enlazar permanentemente con este título">¶</a></h1>
 <p>Genéricamente, el trazado de rayos es un método para determinar el camino de una partícula a través de un sistema de coordenadas. En SpongeAPI, esto se implementa con la clase :javadoc: <cite>BlockRay</cite> para descubrir bloques en la ruta de una línea arbitraria en el espacio. Un caso de uso común podría ser encontrar el bloque que está mirando a :javadoc: <cite>Player</cite>.</p>
-<p>Puede especificar el origen del rayo utilizando el método <code class="docutils literal notranslate"><span class="pre">BlockRay</span> <span class="pre">#</span> <span class="pre">from</span></code>, pasando ya sea a :javadoc: <cite>Location</cite>, una <a href="#id1"><span class="problematic" id="id2">:javadoc:`Extensión`</span></a> y <code class="docutils literal notranslate"><span class="pre">Vector3d</span></code>, o una <a href="#id3"><span class="problematic" id="id4">:javadoc:`Entidad`</span></a>. El método devolverá a <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/util/blockray/BlockRay.BlockRayBuilder.html">BlockRay.BlockRayBuilder</a>.</p>
+<p>Puede especificar el origen del rayo utilizando el método <code class="docutils literal notranslate"><span class="pre">BlockRay</span> <span class="pre">#</span> <span class="pre">from</span></code>, pasando ya sea a :javadoc: <cite>Location</cite>, una <a href="#id1"><span class="problematic" id="id2">:javadoc:`Extensión`</span></a> y <code class="docutils literal notranslate"><span class="pre">Vector3d</span></code>, o una <a href="#id3"><span class="problematic" id="id4">:javadoc:`Entidad`</span></a>. El método devolverá a <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/util/blockray/BlockRay.BlockRayBuilder.html">BlockRay.BlockRayBuilder</a>.</p>
 <div class="admonition tip">
 <p class="first admonition-title">Truco</p>
 <p class="last">Si especifica que el origen del rayo es una <code class="docutils literal notranslate"><span class="pre">Entidad</span></code>, la dirección predeterminada será la dirección a la que apunta <code class="docutils literal notranslate"><span class="pre">Entidad</span></code>.</p>
 </div>
-<p>To specify the end point, you can use the <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/util/blockray/BlockRay.BlockRayBuilder.html#to-com.flowpowered.math.vector.Vector3d-">BlockRay.BlockRayBuilder#to(Vector3d)</a> method, which will set both
+<p>To specify the end point, you can use the <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/util/blockray/BlockRay.BlockRayBuilder.html#to-com.flowpowered.math.vector.Vector3d-">BlockRay.BlockRayBuilder#to(Vector3d)</a> method, which will set both
 the direction and ending location. Alternatively, you can specify a direction using
-<a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/util/blockray/BlockRay.BlockRayBuilder.html#direction-com.flowpowered.math.vector.Vector3d-">BlockRay.BlockRayBuilder#direction(Vector3d)</a> and also a distance limit using
-<a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/util/blockray/BlockRay.BlockRayBuilder.html#distanceLimit-double-">BlockRay.BlockRayBuilder#distanceLimit(double)</a>.</p>
+<a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/util/blockray/BlockRay.BlockRayBuilder.html#direction-com.flowpowered.math.vector.Vector3d-">BlockRay.BlockRayBuilder#direction(Vector3d)</a> and also a distance limit using
+<a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/util/blockray/BlockRay.BlockRayBuilder.html#distanceLimit-double-">BlockRay.BlockRayBuilder#distanceLimit(double)</a>.</p>
 <div class="admonition note">
 <p class="first admonition-title">Nota</p>
 <p class="last">The default distance limit is 1000 blocks as a safeguard to prevent infinite iteration. To disable the distance
@@ -198,7 +187,7 @@ filter use cases:</p>
 </ul>
 </div></blockquote>
 <p>Por supuesto, también puede escribir su propio filtro <code class="docutils literal notranslate"><span class="pre">Predicate&lt;BlockRayHit&lt;E&gt;&gt;</span></code>.</p>
-<p>Finalmente, use <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/util/blockray/BlockRay.BlockRayBuilder.html#build--">BlockRay.BlockRayBuilder#build()</a> para terminar de construir el <code class="docutils literal notranslate"><span class="pre">BlockRay</span></code>. Un ejemplo de uso de <code class="docutils literal notranslate"><span class="pre">BlockRayBuilder</span></code> para obtener el primer bloque no aéreo que se ve en <code class="docutils literal notranslate"><span class="pre">Player</span></code> se proporciona a continuación.</p>
+<p>Finalmente, use <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/util/blockray/BlockRay.BlockRayBuilder.html#build--">BlockRay.BlockRayBuilder#build()</a> para terminar de construir el <code class="docutils literal notranslate"><span class="pre">BlockRay</span></code>. Un ejemplo de uso de <code class="docutils literal notranslate"><span class="pre">BlockRayBuilder</span></code> para obtener el primer bloque no aéreo que se ve en <code class="docutils literal notranslate"><span class="pre">Player</span></code> se proporciona a continuación.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.entity.living.player.Player</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.spongepowered.api.util.blockray.BlockRay</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.spongepowered.api.world.World</span><span class="p">;</span>
@@ -218,7 +207,7 @@ hits.</p>
 </div>
 <div class="section" id="using-blockray">
 <h2>Usando BlockRay<a class="headerlink" href="#using-blockray" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>Como <code class="docutils literal notranslate"><span class="pre">BlockRay</span></code> implementa <code class="docutils literal notranslate"><span class="pre">Iterator</span></code>, puedes usar métodos como <code class="docutils literal notranslate"><span class="pre">hasNext</span></code> y <code class="docutils literal notranslate"><span class="pre">next</span></code> (pero no <code class="docutils literal notranslate"><span class="pre">remove</span></code>) para iterar a través de <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/util/blockray/BlockRayHit.html">BlockRayHit</a>s generados por el <code class="docutils literal notranslate"><span class="pre">BlockRay</span></code>. Además, puede usar el método <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/util/blockray/BlockRay.html#reset--">BlockRay#reset()</a> para restablecer el iterador a la ubicación de inicio. En lugar de iterar a través del <code class="docutils literal notranslate"><span class="pre">BlockRayHit</span></code>s, también puede usar el método <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/util/blockray/BlockRay.html#end--">BlockRay#end()</a> para rastrear el bloque de rayos hasta el final de su ruta para obtener el último bloque aceptado por el filtro (o ninguno si se alcanzó el límite de bloque).</p>
+<p>Como <code class="docutils literal notranslate"><span class="pre">BlockRay</span></code> implementa <code class="docutils literal notranslate"><span class="pre">Iterator</span></code>, puedes usar métodos como <code class="docutils literal notranslate"><span class="pre">hasNext</span></code> y <code class="docutils literal notranslate"><span class="pre">next</span></code> (pero no <code class="docutils literal notranslate"><span class="pre">remove</span></code>) para iterar a través de <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/util/blockray/BlockRayHit.html">BlockRayHit</a>s generados por el <code class="docutils literal notranslate"><span class="pre">BlockRay</span></code>. Además, puede usar el método <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/util/blockray/BlockRay.html#reset--">BlockRay#reset()</a> para restablecer el iterador a la ubicación de inicio. En lugar de iterar a través del <code class="docutils literal notranslate"><span class="pre">BlockRayHit</span></code>s, también puede usar el método <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/util/blockray/BlockRay.html#end--">BlockRay#end()</a> para rastrear el bloque de rayos hasta el final de su ruta para obtener el último bloque aceptado por el filtro (o ninguno si se alcanzó el límite de bloque).</p>
 </div>
 <div class="section" id="using-blockrayhit">
 <h2>Usando BlockRayHit<a class="headerlink" href="#using-blockrayhit" title="Enlazar permanentemente con este título">¶</a></h2>

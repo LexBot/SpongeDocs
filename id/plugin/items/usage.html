@@ -19,17 +19,6 @@
 
         <link rel="index" title="Indeks"
               href="../../genindex.html"/>        <link rel="search" title="Pencarian" href="../../search.html"/>    <link rel="top" title="dokumentasi Sponge 7.2.0" href="../../index.html"/>        <link rel="up" title="Item" href="index.html"/>        <link rel="next" title="Menciptakan ItemStack" href="creating.html"/>        <link rel="prev" title="Item" href="index.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -174,7 +163,7 @@
 <p>Barang-barang yang direpresentasikan melalui <a href="#id1"><span class="problematic" id="id2">:javadoc:`kerjatumpukan`</span></a>. <cite>kerjatumpukan</cite> adalah aplikasi persediaan barang dengan informasi seperti jumlah kerja pada tumpukan, jenis barang, dan data tambahan seperti daya tahan. Aplikasi <a href="#id3"><span class="problematic" id="id4">:javadoc:`kerja`</span></a> itu sendiri adalah representasi grafik dari sebuah <cite>kerjatumpukan</cite> sebagai sebuah entitas. Diketahui bahwa anda akan selalu mendapatkan kopi dan <em>tidak</em> sebenarnya <cite>kerjatumpukan</cite> dan dengan demikian, anda akan perlu untuk mengatur kembali ke inventarisasi jika diinginkan.</p>
 <div class="section" id="checking-an-item-s-type">
 <h2>Memeriksa Jenis item<a class="headerlink" href="#checking-an-item-s-type" title="Link permanen untuk headline ini">¶</a></h2>
-<p>Checking the type of the item is very simple. You just need to call the <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/item/inventory/ItemStack.html#getType--">ItemStack#getType()</a> method.</p>
+<p>Checking the type of the item is very simple. You just need to call the <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/item/inventory/ItemStack.html#getType--">ItemStack#getType()</a> method.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.item.ItemType</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.spongepowered.api.item.ItemTypes</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.spongepowered.api.item.inventory.ItemStack</span><span class="p">;</span>
@@ -186,7 +175,7 @@
 </pre></div>
 </div>
 <p>Melihat bagaimana sederhana itu? Karena tongkat dapat stack, kita juga dapat mengetahui berapa banyak yang hadir.</p>
-<p>Getting the number of items in an <code class="docutils literal notranslate"><span class="pre">ItemStack</span></code> is relatively easy. The <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/item/inventory/ItemStack.html#getQuantity--">ItemStack#getQuantity()</a> method will
+<p>Getting the number of items in an <code class="docutils literal notranslate"><span class="pre">ItemStack</span></code> is relatively easy. The <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/item/inventory/ItemStack.html#getQuantity--">ItemStack#getQuantity()</a> method will
 handle this for us.</p>
 </div>
 <div class="section" id="modifying-itemstack-data">
@@ -200,7 +189,7 @@ handle this for us.</p>
 </pre></div>
 </div>
 <p>Dalam hal ini, kita ditentukan bahwa <a href="#id1"><span class="problematic" id="id2">:javadoc:`Tombol#TIDAKAKANHARCUR`</span></a> kunci adalah kunci yang kita ingin perubahan. Kemudian kita tentukan nilainya menjadi <cite>benar</cite> untuk menyiratkan bahwa kerja tidak akan pernah istirahat. Semua ini tertutup dalam <cite>()</cite> metode <cite>kerjatumpukan</cite> untuk kembali berubah kembali ke <cite>kerjatumpukan</cite>.</p>
-<p>Kunci yang berlainan akan membutuhkan harga yang berlainan berdasarkan pekerjaan mereka. Misalnya, untuk mengubah daftar barang, seseorang perlu menentukan <code class="docutils literal notranslate"><span class="pre">Daftar</span></code> dari <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/Text.html">Text</a> dan bukan harga boolean atau lainnya. Penting juga untuk melakukan pengecekan untuk melihat apakah kunci benar-benar dapat diterapkan pada barang tersebut. Contohnya, beberapa barang mungkin tidak memiliki daya tahan atau mungkin sudah memiliki pengetahuan yang diterapkan pada barang tersebut.</p>
+<p>Kunci yang berlainan akan membutuhkan harga yang berlainan berdasarkan pekerjaan mereka. Misalnya, untuk mengubah daftar barang, seseorang perlu menentukan <code class="docutils literal notranslate"><span class="pre">Daftar</span></code> dari <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/text/Text.html">Text</a> dan bukan harga boolean atau lainnya. Penting juga untuk melakukan pengecekan untuk melihat apakah kunci benar-benar dapat diterapkan pada barang tersebut. Contohnya, beberapa barang mungkin tidak memiliki daya tahan atau mungkin sudah memiliki pengetahuan yang diterapkan pada barang tersebut.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.text.Text</span><span class="p">;</span>
 
 <span class="kn">import</span> <span class="nn">java.util.List</span><span class="p">;</span>

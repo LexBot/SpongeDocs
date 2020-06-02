@@ -19,17 +19,6 @@
 
         <link rel="index" title="索引"
               href="../../genindex.html"/>        <link rel="search" title="搜索" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 文档" href="../../index.html"/>        <link rel="up" title="世界生成" href="index.html"/>        <link rel="next" title="改变世界生成" href="customwgen.html"/>        <link rel="prev" title="世界生成" href="index.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -172,7 +161,7 @@
   <div class="section" id="worldgeneratormodifiers">
 <h1>世界生成修改器<a class="headerlink" href="#worldgeneratormodifiers" title="永久链接至标题">¶</a></h1>
 <p><a class="reference internal" href="index.html"><span class="doc">世界生成</span></a> 这一部分提供了关于 Sponge 中的世界生成的一个简要概述。现在我们来看看如何修改或扩充它们。</p>
-<p>所有希望更改世界生成的插件必须注册一个 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/gen/WorldGeneratorModifier.html">WorldGeneratorModifier</a> 。所有的 <code class="docutils literal notranslate"><span class="pre">WorldGeneratorModifier</span></code> ，也就是世界生成修改器都必须提供一个唯一的 ID，同时服务器管理员必须在关于世界的配置添加该 ID，若该 ID 已经添加进配置，世界生成时将会自动调用对应的 <code class="docutils literal notranslate"><span class="pre">WorldGeneratorModifier</span></code> ，以允许其修改世界生成。</p>
+<p>所有希望更改世界生成的插件必须注册一个 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/world/gen/WorldGeneratorModifier.html">WorldGeneratorModifier</a> 。所有的 <code class="docutils literal notranslate"><span class="pre">WorldGeneratorModifier</span></code> ，也就是世界生成修改器都必须提供一个唯一的 ID，同时服务器管理员必须在关于世界的配置添加该 ID，若该 ID 已经添加进配置，世界生成时将会自动调用对应的 <code class="docutils literal notranslate"><span class="pre">WorldGeneratorModifier</span></code> ，以允许其修改世界生成。</p>
 <div class="section" id="creating-a-worldgeneratormodifier">
 <h2>创建世界生成修改器<a class="headerlink" href="#creating-a-worldgeneratormodifier" title="永久链接至标题">¶</a></h2>
 <p>我们先从 <code class="docutils literal notranslate"><span class="pre">WorldGeneratorModifier</span></code> 的格式开始。首先，我们需要实现了 <code class="docutils literal notranslate"><span class="pre">WorldGeneratorModifier</span></code> 接口的一个类：</p>
@@ -198,13 +187,13 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>正如你所看到的一样，我们需要覆写 <code class="docutils literal notranslate"><span class="pre">WorldGeneratorModifier</span></code> 的三种方法。首先我们必须覆写 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/CatalogType.html#getId--">CatalogType#getId()</a> 以使其返回一个用于 <code class="docutils literal notranslate"><span class="pre">WorldGeneratorModifier</span></code> 的唯一常量标识符，该常量标识符将用于关于世界的配置，并用于指定你的世界生成修改器应该应用于哪个世界。同时，我们也必须覆写 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/CatalogType.html#getName--">CatalogType#getName()</a> 方法以提供用一个简单并可读性强的常量名称。</p>
+<p>正如你所看到的一样，我们需要覆写 <code class="docutils literal notranslate"><span class="pre">WorldGeneratorModifier</span></code> 的三种方法。首先我们必须覆写 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/CatalogType.html#getId--">CatalogType#getId()</a> 以使其返回一个用于 <code class="docutils literal notranslate"><span class="pre">WorldGeneratorModifier</span></code> 的唯一常量标识符，该常量标识符将用于关于世界的配置，并用于指定你的世界生成修改器应该应用于哪个世界。同时，我们也必须覆写 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/CatalogType.html#getName--">CatalogType#getName()</a> 方法以提供用一个简单并可读性强的常量名称。</p>
 <p>第三个需要覆写方法是你对世界生成器进行更改的位置。这个方法由游戏调用，游戏会在一个世界已经指定应用你的 <code class="docutils literal notranslate"><span class="pre">WorldGeneratorModifier</span></code> 时调用这个方法。</p>
-<p><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/storage/WorldProperties.html">WorldProperties</a> 和 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/DataContainer.html">DataContainer</a> 作为方法参数传入，旨在方便开发者更方便地获取到世界的数据。比如你可以使用 <code class="docutils literal notranslate"><span class="pre">WorldProperties</span></code> 以保证你的世界生成修改器只会应用于下界。</p>
+<p><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/world/storage/WorldProperties.html">WorldProperties</a> 和 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/DataContainer.html">DataContainer</a> 作为方法参数传入，旨在方便开发者更方便地获取到世界的数据。比如你可以使用 <code class="docutils literal notranslate"><span class="pre">WorldProperties</span></code> 以保证你的世界生成修改器只会应用于下界。</p>
 </div>
 <div class="section" id="registering-a-worldgeneratormodifier">
 <h2>注册世界生成修改器<a class="headerlink" href="#registering-a-worldgeneratormodifier" title="永久链接至标题">¶</a></h2>
-<p>现在你已创建世界生成修改器的对象，接下来你只需要通过 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/GameRegistry.html">GameRegistry</a> 注册它就可以了。注册的方式是<a class="reference internal" href="../event/listeners.html"><span class="doc">监听</span></a> <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/GameRegistryEvent.Register.html">GameRegistryEvent.Register&lt;WorldGeneratorModifier&gt;</a> 事件，然后在那里注册，就像下面这样：</p>
+<p>现在你已创建世界生成修改器的对象，接下来你只需要通过 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/GameRegistry.html">GameRegistry</a> 注册它就可以了。注册的方式是<a class="reference internal" href="../event/listeners.html"><span class="doc">监听</span></a> <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/game/GameRegistryEvent.Register.html">GameRegistryEvent.Register&lt;WorldGeneratorModifier&gt;</a> 事件，然后在那里注册，就像下面这样：</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Listener</span>
 <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onWorldGeneratorModifierRegistration</span><span class="p">(</span><span class="n">GameRegistryEvent</span><span class="p">.</span><span class="na">Register</span><span class="o">&lt;</span><span class="n">WorldGeneratorModifier</span><span class="o">&gt;</span> <span class="n">event</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">event</span><span class="p">.</span><span class="na">register</span><span class="p">(</span><span class="k">new</span> <span class="n">MyModifier</span><span class="p">());</span>

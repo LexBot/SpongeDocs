@@ -19,17 +19,6 @@
 
         <link rel="index" title="Indeks"
               href="../../genindex.html"/>        <link rel="search" title="Pencarian" href="../../search.html"/>    <link rel="top" title="dokumentasi Sponge 7.2.0" href="../../index.html"/>        <link rel="up" title="Acara" href="index.html"/>        <link rel="next" title="Penyebab acara" href="causes.html"/>        <link rel="prev" title="Acara" href="index.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -185,15 +174,15 @@
 <p>Selain itu, kelas yang berisi metode-metode ini harus didaftarkan kepada manajer acara:</p>
 <div class="admonition tip">
 <p class="first admonition-title">Tip</p>
-<p class="last">Untuk acara pendengar pada plugin utama kelas (annotated oleh <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/plugin/Plugin.html">Plugin</a>), anda tidak perlu untuk mendaftarkan objek untuk acara-acara seperti Spons yang akan melakukannya secara otomatis.</p>
+<p class="last">Untuk acara pendengar pada plugin utama kelas (annotated oleh <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/plugin/Plugin.html">Plugin</a>), anda tidak perlu untuk mendaftarkan objek untuk acara-acara seperti Spons yang akan melakukannya secara otomatis.</p>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Catatan</p>
-<p class="last">Acara bis <strong>mendukung supertypes</strong>. Misalnya, <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/block/ChangeBlockEvent.Break.html">ChangeBlockEvent.Break</a> meluas <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/block/ChangeBlockEvent.html">ChangeBlockEvent</a>. Oleh karena itu, sebuah plugin yang bisa mendengarkan <cite>ChangeBlockEvent</cite> dan masih menerima <cite>ChangeBlockEvent.Istirahat</cite>s. Namun, sebuah plugin yang mendengarkan hanya <cite>ChangeBlockEvent.Break</cite> tidak akan diberitahu tentang jenis lain dari <cite>ChangeBlockEvent</cite>.</p>
+<p class="last">Acara bis <strong>mendukung supertypes</strong>. Misalnya, <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/block/ChangeBlockEvent.Break.html">ChangeBlockEvent.Break</a> meluas <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/block/ChangeBlockEvent.html">ChangeBlockEvent</a>. Oleh karena itu, sebuah plugin yang bisa mendengarkan <cite>ChangeBlockEvent</cite> dan masih menerima <cite>ChangeBlockEvent.Istirahat</cite>s. Namun, sebuah plugin yang mendengarkan hanya <cite>ChangeBlockEvent.Break</cite> tidak akan diberitahu tentang jenis lain dari <cite>ChangeBlockEvent</cite>.</p>
 </div>
 <div class="section" id="registering-and-unregistering-event-listeners">
 <h2>Mendaftar dan Tidak mendaftar Acara Pendengar<a class="headerlink" href="#registering-and-unregistering-event-listeners" title="Link permanen untuk headline ini">¶</a></h2>
-<p>Untuk mendaftar acara ini pendengar dijelaskan oleh <cite>&#64;Listener</cite> yang tidak di plugin utama kelas, anda dapat menggunakan <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/EventManager.html#registerListeners-Objek-Objek-">EventManager#registerListeners(Objek, Objek)</a>, yang menerima referensi untuk plugin dan sebuah instance dari kelas yang mengisi acara pendengar.</p>
+<p>Untuk mendaftar acara ini pendengar dijelaskan oleh <cite>&#64;Listener</cite> yang tidak di plugin utama kelas, anda dapat menggunakan <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/EventManager.html#registerListeners-Objek-Objek-">EventManager#registerListeners(Objek, Objek)</a>, yang menerima referensi untuk plugin dan sebuah instance dari kelas yang mengisi acara pendengar.</p>
 <p><strong>Contoh: Mendaftar Acara Pendengar di kelas-Kelas Lain</strong></p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.Sponge</span><span class="p">;</span>
 
@@ -236,12 +225,12 @@
 </div>
 <div class="section" id="unregistering-event-listeners">
 <h3>Tidak mendaftar Acara Pendengar<a class="headerlink" href="#unregistering-event-listeners" title="Link permanen untuk headline ini">¶</a></h3>
-<p>Untuk unregister sebuah peristiwa tunggal pendengar, anda dapat menggunakan <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/EventManager.html#unregisterListeners-Obyek-">EventManager#unregisterListeners(Obyek)</a> metode, yang menerima sebuah instance dari kelas yang mengandung pendengar event.</p>
+<p>Untuk unregister sebuah peristiwa tunggal pendengar, anda dapat menggunakan <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/EventManager.html#unregisterListeners-Obyek-">EventManager#unregisterListeners(Obyek)</a> metode, yang menerima sebuah instance dari kelas yang mengandung pendengar event.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">EventListener</span> <span class="n">listener</span> <span class="o">=</span> <span class="p">...;</span>
 <span class="n">Sponge</span><span class="p">.</span><span class="na">getEventManager</span><span class="p">().</span><span class="na">unregisterListeners</span><span class="p">(</span><span class="n">listener</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>Atau, anda dapat menggunakan <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/EventManager.html#unregisterPluginListeners-Obyek-">EventManager#unregisterPluginListeners(Obyek)</a>, lewat di sebuah referensi untuk plugin, untuk membatalkan semua acara pendengar yang terkait dengan plugin. Catatan bahwa ini akan menghapus <em>semua</em> plugin ini acara pendengar, termasuk orang-orang yang terdaftar dengan <code class="docutils literal notranslate"><span class="pre">&#64;Listener</span></code> anotasi.</p>
+<p>Atau, anda dapat menggunakan <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/EventManager.html#unregisterPluginListeners-Obyek-">EventManager#unregisterPluginListeners(Obyek)</a>, lewat di sebuah referensi untuk plugin, untuk membatalkan semua acara pendengar yang terkait dengan plugin. Catatan bahwa ini akan menghapus <em>semua</em> plugin ini acara pendengar, termasuk orang-orang yang terdaftar dengan <code class="docutils literal notranslate"><span class="pre">&#64;Listener</span></code> anotasi.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">PluginContainer</span> <span class="n">plugin</span> <span class="o">=</span> <span class="p">...;</span>
 <span class="n">Sponge</span><span class="p">.</span><span class="na">getEventManager</span><span class="p">().</span><span class="na">unregisterPluginListeners</span><span class="p">(</span><span class="n">plugin</span><span class="p">);</span>
 </pre></div>
@@ -251,7 +240,7 @@
 <span id="id1"></span><h3>Tentang &#64;Pendengar<a class="headerlink" href="#about-listener" title="Link permanen untuk headline ini">¶</a></h3>
 <p>Yang <code class="docutils literal notranslate"><span class="pre">&#64;Listener</span></code> penjelasan memiliki beberapa bidang dikonfigurasi:</p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">order</span></code> is the priority in which the event listener is to be run. See the <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/Order.html">Order</a> enum in SpongeAPI to
+<li><code class="docutils literal notranslate"><span class="pre">order</span></code> is the priority in which the event listener is to be run. See the <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/Order.html">Order</a> enum in SpongeAPI to
 see the available options.</li>
 <li><code class="docutils literal notranslate"><span class="pre">beforeModifications</span></code> menentukan jika acara pendengar harus dipanggil sebelum server lain mods, seperti Bengkel modifikasi. Secara default, ini diatur ke palsu.</li>
 </ul>
@@ -261,7 +250,7 @@ see the available options.</li>
 <span id="game-reload"></span><h3>GameReloadEvent<a class="headerlink" href="#gamereloadevent" title="Link permanen untuk headline ini">¶</a></h3>
 <p>To prevent all plugins providing their own reload commands, Sponge provides a built-in callback for plugins to listen
 to, and when executed, perform any reloading actions. What constitutes as a 'reloading action' is purely up to the
-plugin to decide. The <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/GameReloadEvent.html">GameReloadEvent</a> will fire when a player executes the
+plugin to decide. The <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/game/GameReloadEvent.html">GameReloadEvent</a> will fire when a player executes the
 <code class="docutils literal notranslate"><span class="pre">/sponge</span> <span class="pre">plugins</span> <span class="pre">reload</span></code> command. The event is not necessarily limited to reloading configuration.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.event.game.GameReloadEvent</span><span class="p">;</span>
 
@@ -277,14 +266,14 @@ plugin to decide. The <a class="reference external" href="https://jd.spongepower
 <div class="section" id="firing-events">
 <h2>Peristiwa Penembakan<a class="headerlink" href="#firing-events" title="Link permanen untuk headline ini">¶</a></h2>
 <p>Untuk mengirimkan sebuah acara, anda perlu sebuah objek yang mengimplementasikan :javadoc: <cite>Acara</cite> antarmuka.</p>
-<p>Anda dapat peristiwa kebakaran menggunakan bus (<a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/EventManager.html">EventManager</a>):</p>
+<p>Anda dapat peristiwa kebakaran menggunakan bus (<a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/EventManager.html">EventManager</a>):</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">boolean</span> <span class="n">cancelled</span> <span class="o">=</span> <span class="n">Sponge</span><span class="p">.</span><span class="na">getEventManager</span><span class="p">().</span><span class="na">post</span><span class="p">(</span><span class="n">theEventObject</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>Metode pengembalian <code class="docutils literal notranslate"><span class="pre">benar</span></code> jika acara dibatalkan, <code class="docutils literal notranslate"><span class="pre">palsu</span></code> jika tidak.</p>
 <div class="section" id="firing-sponge-events">
 <h3>Penembakan Sponge Peristiwa<a class="headerlink" href="#firing-sponge-events" title="Link permanen untuk headline ini">¶</a></h3>
-<p>Hal ini dimungkinkan untuk menghasilkan contoh built-in peristiwa dengan statis <code class="docutils literal notranslate"><span class="pre">SpongeEventFactory</span></code>. Kelas ini secara otomatis dihasilkan sehingga tidak ada Javadocs. Menggunakan IDE pelengkapan otomatis untuk daftar metode yang ada. Peristiwa yang diciptakan oleh <code class="docutils literal notranslate"><span class="pre">SpongeEventFactory</span></code> yang kemudian diteruskan ke <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/EventManager.html#post-Acara-">EventManager#post(Acara)</a>.</p>
+<p>Hal ini dimungkinkan untuk menghasilkan contoh built-in peristiwa dengan statis <code class="docutils literal notranslate"><span class="pre">SpongeEventFactory</span></code>. Kelas ini secara otomatis dihasilkan sehingga tidak ada Javadocs. Menggunakan IDE pelengkapan otomatis untuk daftar metode yang ada. Peristiwa yang diciptakan oleh <code class="docutils literal notranslate"><span class="pre">SpongeEventFactory</span></code> yang kemudian diteruskan ke <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/EventManager.html#post-Acara-">EventManager#post(Acara)</a>.</p>
 </div>
 <div class="section" id="example-firing-lightningevent">
 <h3>Contoh: Penembakan LightningEvent<a class="headerlink" href="#example-firing-lightningevent" title="Link permanen untuk headline ini">¶</a></h3>

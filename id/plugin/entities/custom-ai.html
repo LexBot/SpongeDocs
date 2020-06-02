@@ -19,17 +19,6 @@
 
         <link rel="index" title="Indeks"
               href="../../genindex.html"/>        <link rel="search" title="Pencarian" href="../../search.html"/>    <link rel="top" title="dokumentasi Sponge 7.2.0" href="../../index.html"/>        <link rel="up" title="Badan" href="index.html"/>        <link rel="next" title="Item" href="../items/index.html"/>        <link rel="prev" title="Entity AI" href="ai.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -173,7 +162,7 @@
            <div itemprop="articleBody">
   <div class="section" id="implement-your-own-aitasks">
 <h1>Implement Your Own AITasks<a class="headerlink" href="#implement-your-own-aitasks" title="Link permanen untuk headline ini">¶</a></h1>
-<p>Before we start implementing our own <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/ai/task/AITask.html">AITask</a> we have to make sure our workspace is properly configured. Please
+<p>Before we start implementing our own <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/ai/task/AITask.html">AITask</a> we have to make sure our workspace is properly configured. Please
 follow the instructions in <a class="reference internal" href="../internals/mcp-setup.html"><span class="doc">Menggunakan MCP di Plugin</span></a>.</p>
 <p>Here is a list of imports we will use while implementing the <code class="docutils literal notranslate"><span class="pre">AITask</span></code>.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">java.util.Comparator</span><span class="p">;</span>
@@ -204,9 +193,9 @@ fields set via a constructor.</p>
 <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">MUTEX_FLAG_MOVE</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// Minecraft bit flag</span>
 </pre></div>
 </div>
-<p>If you want to implement your own <code class="docutils literal notranslate"><span class="pre">AITask</span></code> then you must extend <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/ai/task/AbstractAITask.html">AbstractAITask</a> with your task. The
+<p>If you want to implement your own <code class="docutils literal notranslate"><span class="pre">AITask</span></code> then you must extend <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/ai/task/AbstractAITask.html">AbstractAITask</a> with your task. The
 following example shows an example implementation of such a custom AITask. Also, we need to generate a new
-<a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/ai/task/AITaskType.html">AITaskType</a> for our <code class="docutils literal notranslate"><span class="pre">AITask</span></code>. To avoid spreading the logic everywhere we simply create a static field and a
+<a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/ai/task/AITaskType.html">AITaskType</a> for our <code class="docutils literal notranslate"><span class="pre">AITask</span></code>. To avoid spreading the logic everywhere we simply create a static field and a
 <code class="docutils literal notranslate"><span class="pre">register</span></code> method for it in the class itself as shown by the following code example:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">CreepyCompanionAITask</span> <span class="kd">extends</span> <span class="n">AbstractAITask</span><span class="o">&lt;</span><span class="n">Agent</span><span class="o">&gt;</span> <span class="p">{</span>
 
@@ -305,7 +294,7 @@ what to do in that case. We start with the check whether the task should be exec
 </pre></div>
 </div>
 <p>The owner's <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/util/Random.html">Random</a> is usually a good source of randomness in those tasks, but any other <code class="docutils literal notranslate"><span class="pre">Random</span></code> would work
-as well. The sole reason the <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/Entity.html">Entity</a> has a random is to avoid having a <code class="docutils literal notranslate"><span class="pre">Random</span></code> in every class that
+as well. The sole reason the <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/Entity.html">Entity</a> has a random is to avoid having a <code class="docutils literal notranslate"><span class="pre">Random</span></code> in every class that
 interacts with the entity.</p>
 <p>The search for the target is pretty straight forward. First, we get all entities from the world the entity is currently
 in and then we filter that list using the <code class="docutils literal notranslate"><span class="pre">entityFilter</span></code> <code class="docutils literal notranslate"><span class="pre">Predicate</span></code> that we set in the constructor. After that we

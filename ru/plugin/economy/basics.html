@@ -19,17 +19,6 @@
 
         <link rel="index" title="Алфавитный указатель"
               href="../../genindex.html"/>        <link rel="search" title="Поиск" href="../../search.html"/>    <link rel="top" title="Документация Sponge 7.2.0" href="../../index.html"/>        <link rel="up" title="Экономика" href="index.html"/>        <link rel="next" title="Использование Economy API" href="using.html"/>        <link rel="prev" title="Экономика" href="index.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -182,7 +171,7 @@
 </ul>
 <div class="section" id="the-economyservice">
 <h2>EconomyService<a class="headerlink" href="#the-economyservice" title="Ссылка на этот заголовок">¶</a></h2>
-<p><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/economy/EconomyService.html">EconomyService</a> является основой Economy API. Он используется для взаимодействия через API экономики, хранит валюту и предоставляет методы для управления учетными записями.</p>
+<p><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/economy/EconomyService.html">EconomyService</a> является основой Economy API. Он используется для взаимодействия через API экономики, хранит валюту и предоставляет методы для управления учетными записями.</p>
 <div class="admonition warning">
 <p class="first admonition-title">Предупреждение</p>
 <p class="last">Sponge по умолчанию не предоставляет реализацию для <code class="docutils literal notranslate"><span class="pre">EconomyService</span></code>. Реализация Economy API лежит полностью на плагинах. Это означает, что Вам нужно полагаться на другой плагин, реализующий <code class="docutils literal notranslate"><span class="pre">EconomyService</span></code>, или Вам придётся его реализовывать самостоятельно.</p>
@@ -190,13 +179,13 @@
 </div>
 <div class="section" id="currency">
 <h2>Валюта<a class="headerlink" href="#currency" title="Ссылка на этот заголовок">¶</a></h2>
-<p>The <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/economy/Currency.html">Currency</a> object represents a form of Currency. <code class="docutils literal notranslate"><span class="pre">Currency</span></code> stores a display name (plural and singular),
+<p>The <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/economy/Currency.html">Currency</a> object represents a form of Currency. <code class="docutils literal notranslate"><span class="pre">Currency</span></code> stores a display name (plural and singular),
 a symbol, the number of fractional digits, and whether the currency is the default currency for the economy. If the
 economy plugin chooses, it can support multiple currencies.</p>
 </div>
 <div class="section" id="accounts">
 <h2>Аккаунты<a class="headerlink" href="#accounts" title="Ссылка на этот заголовок">¶</a></h2>
-<p><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/economy/account/Account.html">Account</a>-ы используются для хранения экономической информации о конкретном игроке или другом объекте (то есть банке, бизнесе, сущности). В Sponge Economy API есть два типа учётных записей:</p>
+<p><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/economy/account/Account.html">Account</a>-ы используются для хранения экономической информации о конкретном игроке или другом объекте (то есть банке, бизнесе, сущности). В Sponge Economy API есть два типа учётных записей:</p>
 <div class="section" id="virtual-accounts">
 <h3>Виртуальные аккаунты<a class="headerlink" href="#virtual-accounts" title="Ссылка на этот заголовок">¶</a></h3>
 <p>Виртуальные учётные записи привязаны к идентификатору, который хранится в виде строки. Виртуальные счета могут быть привязаны практически ко всему, но обычно не используются для игроков, а скорее для банков. Чтобы получить идентификатор виртуальной учетной записи, используйте <code class="docutils literal notranslate"><span class="pre">getIdentifier()</span></code>.</p>
@@ -214,7 +203,7 @@ economy plugin chooses, it can support multiple currencies.</p>
 <li>Вывод: появляется, когда со счёта уходят средства</li>
 <li>Перевод: происходит при обмене средств с другой учётной записью</li>
 </ul>
-<p>Во время перевода запускается <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/economy/EconomyTransactionEvent.html">EconomyTransactionEvent</a>. Используя это событие, вы можете получить <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/economy/transaction/TransactionResult.html">TransactionResult</a>. В <code class="docutils literal notranslate"><span class="pre">TransactionResult</span></code> хранятся данные о произошедшей транзакции, включая:</p>
+<p>Во время перевода запускается <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/economy/EconomyTransactionEvent.html">EconomyTransactionEvent</a>. Используя это событие, вы можете получить <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/economy/transaction/TransactionResult.html">TransactionResult</a>. В <code class="docutils literal notranslate"><span class="pre">TransactionResult</span></code> хранятся данные о произошедшей транзакции, включая:</p>
 <ul class="simple">
 <li>Учётную запись</li>
 <li>Валюту</li>
@@ -222,7 +211,7 @@ economy plugin chooses, it can support multiple currencies.</p>
 <li>Тип транзакции</li>
 <li>Результат транзакции</li>
 </ul>
-<p>Вы можете просмотреть все возможные транзакции на странице JavaDocs <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/economy/transaction/ResultType.html">ResultType</a>.</p>
+<p>Вы можете просмотреть все возможные транзакции на странице JavaDocs <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/economy/transaction/ResultType.html">ResultType</a>.</p>
 </div>
 </div>
 

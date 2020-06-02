@@ -19,17 +19,6 @@
 
         <link rel="index" title="Dizin"
               href="../../genindex.html"/>        <link rel="search" title="Ara" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 belgelendirme çalışması" href="../../index.html"/>        <link rel="up" title="Etkinlikler" href="index.html"/>        <link rel="next" title="Etkinlik Nedenleri" href="causes.html"/>        <link rel="prev" title="Etkinlikler" href="index.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -173,7 +162,7 @@
            <div itemprop="articleBody">
   <div class="section" id="event-listeners">
 <h1>Etkinlik Dinleyicileri<a class="headerlink" href="#event-listeners" title="Bu başlığın kalıcı bağlantısı">¶</a></h1>
-<p>Bir olayın dinlenebilmesi için bir olayın dinlenmesi gerekir. Bu, herhangi bir adla bir yöntem yapıp, ilk parametrenin arzulanan olay türünü tanımlayarak ve sonra <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/Listener.html">Listener</a> açıklamalarının metoda eklenmesi ile yapılır.</p>
+<p>Bir olayın dinlenebilmesi için bir olayın dinlenmesi gerekir. Bu, herhangi bir adla bir yöntem yapıp, ilk parametrenin arzulanan olay türünü tanımlayarak ve sonra <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/Listener.html">Listener</a> açıklamalarının metoda eklenmesi ile yapılır.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.event.Listener</span><span class="p">;</span>
 
 <span class="nd">@Listener</span>
@@ -193,7 +182,7 @@
 </div>
 <div class="section" id="registering-and-unregistering-event-listeners">
 <h2>Olay Dinleyicileri Kaydetme ve Kaydını İptal Etme<a class="headerlink" href="#registering-and-unregistering-event-listeners" title="Bu başlığın kalıcı bağlantısı">¶</a></h2>
-<p>Ana eklenti sınıfında olmayan``&#64;Listener``tarafından  not alınmış etkinlik dinleyicilerini kaydetmek için eklentiye bir başvuruyu ve etkinlik dinleyicilerini içeren sınıfın bir örneğini kabul eden <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/EventManager.html#registerListeners-java.lang.Object-java.lang.Object-">EventManager#registerListeners(Object, Object)</a> kodunu kullabilirsiniz.</p>
+<p>Ana eklenti sınıfında olmayan``&#64;Listener``tarafından  not alınmış etkinlik dinleyicilerini kaydetmek için eklentiye bir başvuruyu ve etkinlik dinleyicilerini içeren sınıfın bir örneğini kabul eden <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/EventManager.html#registerListeners-java.lang.Object-java.lang.Object-">EventManager#registerListeners(Object, Object)</a> kodunu kullabilirsiniz.</p>
 <p><strong>Örnek: Olay Dinleyicileri Diğer Sınıflara Kaydediliyor</strong></p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.Sponge</span><span class="p">;</span>
 
@@ -210,7 +199,7 @@
 </div>
 <div class="section" id="dynamically-registering-event-listeners">
 <h3>Dinleyiciye Olay Dinleyicileri Kaydediliyor<a class="headerlink" href="#dynamically-registering-event-listeners" title="Bu başlığın kalıcı bağlantısı">¶</a></h3>
-<p>Bazı eklentiler (komut dosyası eklentileri gibi) dinamik olarak bir etkinlik dinleyicisi isteyebilir. Bu durumda olay dinleyicisi, <code class="docutils literal notranslate"><span class="pre">&#64;Listener</span></code> ile açıklanan bir yöntem değil, daha çok <code class="docutils literal notranslate"><span class="pre">EventListener</span></code> arayüzünü uygulayan bir sınıfdır. Bu olay dinleyicisi daha sonra, ilk argüman olarak eklentiye bir başvuruyu kabul eden <code class="docutils literal notranslate"><span class="pre">EventManager#registerListener</span></code> ‘i çağırarak kaydedilebilir, ikinci argüman olarak ele alınan olayların <code class="docutils literal notranslate"><span class="pre">Class</span></code> ve final olarak dinleyicidir argüman. İsteğe bağlı olarak, olay dinleyicisini üçüncü argüman olarak çalıştırmak için bir <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/Order.html">Order</a> veya bir dinleyici değeri (dinleyicinin örneğinden önce) dördüncü bağımsız değişkeni olarak belirtebilirsiniz; bu, dinleyiciyi diğer sunucu değişiklikleri öncesinde çağırıp aramayacağınıza karar verebilir.</p>
+<p>Bazı eklentiler (komut dosyası eklentileri gibi) dinamik olarak bir etkinlik dinleyicisi isteyebilir. Bu durumda olay dinleyicisi, <code class="docutils literal notranslate"><span class="pre">&#64;Listener</span></code> ile açıklanan bir yöntem değil, daha çok <code class="docutils literal notranslate"><span class="pre">EventListener</span></code> arayüzünü uygulayan bir sınıfdır. Bu olay dinleyicisi daha sonra, ilk argüman olarak eklentiye bir başvuruyu kabul eden <code class="docutils literal notranslate"><span class="pre">EventManager#registerListener</span></code> ‘i çağırarak kaydedilebilir, ikinci argüman olarak ele alınan olayların <code class="docutils literal notranslate"><span class="pre">Class</span></code> ve final olarak dinleyicidir argüman. İsteğe bağlı olarak, olay dinleyicisini üçüncü argüman olarak çalıştırmak için bir <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/Order.html">Order</a> veya bir dinleyici değeri (dinleyicinin örneğinden önce) dördüncü bağımsız değişkeni olarak belirtebilirsiniz; bu, dinleyiciyi diğer sunucu değişiklikleri öncesinde çağırıp aramayacağınıza karar verebilir.</p>
 <p><strong>Örnek: EventListener uygulamak</strong></p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.event.EventListener</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.spongepowered.api.event.block.ChangeBlockEvent</span><span class="p">;</span>
@@ -236,12 +225,12 @@
 </div>
 <div class="section" id="unregistering-event-listeners">
 <h3>Etkinlik Dinleyicilerinin Kaydının Kaydedilmesi<a class="headerlink" href="#unregistering-event-listeners" title="Bu başlığın kalıcı bağlantısı">¶</a></h3>
-<p>Tek bir olay dinleyicisini silmek için, olay dinleyicilerini içeren sınıfın bir örneğini kabul eden <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/EventManager.html#unregisterListeners-java.lang.Object-">EventManager#unregisterListeners(Object)</a> yöntemi kullanabilirsiniz.</p>
+<p>Tek bir olay dinleyicisini silmek için, olay dinleyicilerini içeren sınıfın bir örneğini kabul eden <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/EventManager.html#unregisterListeners-java.lang.Object-">EventManager#unregisterListeners(Object)</a> yöntemi kullanabilirsiniz.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">EventListener</span> <span class="n">listener</span> <span class="o">=</span> <span class="p">...;</span>
 <span class="n">Sponge</span><span class="p">.</span><span class="na">getEventManager</span><span class="p">().</span><span class="na">unregisterListeners</span><span class="p">(</span><span class="n">listener</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>Alternatif olarak, şunları kullanabilirsiniz <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/EventManager.html#unregisterPluginListeners-java.lang.Object-">EventManager#unregisterPluginListeners(Object)</a>, bu eklentiyle ilişkili tüm olay dinleyicilerinin kaydını silmek için eklentiye bir referans gönderir. Bunun, eklentinin olayın dinleyicilerinin * hepsini* kaldırdığı unutmayın; bunlara <code class="docutils literal notranslate"><span class="pre">&#64;Listener</span></code> ek açıklamalarıyla kayıtlı olanlar da dahil.</p>
+<p>Alternatif olarak, şunları kullanabilirsiniz <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/EventManager.html#unregisterPluginListeners-java.lang.Object-">EventManager#unregisterPluginListeners(Object)</a>, bu eklentiyle ilişkili tüm olay dinleyicilerinin kaydını silmek için eklentiye bir referans gönderir. Bunun, eklentinin olayın dinleyicilerinin * hepsini* kaldırdığı unutmayın; bunlara <code class="docutils literal notranslate"><span class="pre">&#64;Listener</span></code> ek açıklamalarıyla kayıtlı olanlar da dahil.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">PluginContainer</span> <span class="n">plugin</span> <span class="o">=</span> <span class="p">...;</span>
 <span class="n">Sponge</span><span class="p">.</span><span class="na">getEventManager</span><span class="p">().</span><span class="na">unregisterPluginListeners</span><span class="p">(</span><span class="n">plugin</span><span class="p">);</span>
 </pre></div>
@@ -251,7 +240,7 @@
 <span id="id1"></span><h3>&#64;Listener hakkında<a class="headerlink" href="#about-listener" title="Bu başlığın kalıcı bağlantısı">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">&#64;Listener</span></code> ek açıklaması ayarlanabilir bir kaç alana sahiptir:</p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">order</span></code> is the priority in which the event listener is to be run. See the <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/Order.html">Order</a> enum in SpongeAPI to
+<li><code class="docutils literal notranslate"><span class="pre">order</span></code> is the priority in which the event listener is to be run. See the <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/Order.html">Order</a> enum in SpongeAPI to
 see the available options.</li>
 <li>Eğer etkinlik dinleyicisi Forge modları gibi diğer sunucu modlarından önce çağırılmalı ise <a href="#id1"><span class="problematic" id="id2">``</span></a>beforeModifications``bunu belirtir.Varsayılan olarak bu yanlış şeklinde ayarlanır.</li>
 </ul>
@@ -261,7 +250,7 @@ see the available options.</li>
 <span id="game-reload"></span><h3>GameReloadEvent<a class="headerlink" href="#gamereloadevent" title="Bu başlığın kalıcı bağlantısı">¶</a></h3>
 <p>To prevent all plugins providing their own reload commands, Sponge provides a built-in callback for plugins to listen
 to, and when executed, perform any reloading actions. What constitutes as a ‘reloading action’ is purely up to the
-plugin to decide. The <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/GameReloadEvent.html">GameReloadEvent</a> will fire when a player executes the
+plugin to decide. The <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/game/GameReloadEvent.html">GameReloadEvent</a> will fire when a player executes the
 <code class="docutils literal notranslate"><span class="pre">/sponge</span> <span class="pre">plugins</span> <span class="pre">reload</span></code> command. The event is not necessarily limited to reloading configuration.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.event.game.GameReloadEvent</span><span class="p">;</span>
 
@@ -276,15 +265,15 @@ plugin to decide. The <a class="reference external" href="https://jd.spongepower
 </div>
 <div class="section" id="firing-events">
 <h2>Ateşleme Olayları<a class="headerlink" href="#firing-events" title="Bu başlığın kalıcı bağlantısı">¶</a></h2>
-<p>Bir olayı göndermek için, <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/Event.html">Event</a> ara birimini uygulayan bir nesneye ihtiyacınız var.</p>
-<p>Etkinlik otobüsü kullanarak etkinlikleri ateşleyebilirsin (<a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/EventManager.html">EventManager</a>):</p>
+<p>Bir olayı göndermek için, <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/Event.html">Event</a> ara birimini uygulayan bir nesneye ihtiyacınız var.</p>
+<p>Etkinlik otobüsü kullanarak etkinlikleri ateşleyebilirsin (<a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/EventManager.html">EventManager</a>):</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">boolean</span> <span class="n">cancelled</span> <span class="o">=</span> <span class="n">Sponge</span><span class="p">.</span><span class="na">getEventManager</span><span class="p">().</span><span class="na">post</span><span class="p">(</span><span class="n">theEventObject</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>Yöntem olay iptal edildiğinde <code class="docutils literal notranslate"><span class="pre">true</span></code>, değilse <code class="docutils literal notranslate"><span class="pre">false</span></code> döndürür.</p>
 <div class="section" id="firing-sponge-events">
 <h3>Sponge Olaylarını Çalıştırmak<a class="headerlink" href="#firing-sponge-events" title="Bu başlığın kalıcı bağlantısı">¶</a></h3>
-<p>Statik <code class="docutils literal notranslate"><span class="pre">SpongeEventFactory``ile</span> <span class="pre">yerleşik</span> <span class="pre">olayların</span> <span class="pre">örneklerini</span> <span class="pre">oluşturmak</span> <span class="pre">mümkündür.</span> <span class="pre">Bu</span> <span class="pre">sınıf</span> <span class="pre">otomatik</span> <span class="pre">olarak</span> <span class="pre">oluşturulur,</span> <span class="pre">böylece</span> <span class="pre">Javadocs</span> <span class="pre">yoktur.</span> <span class="pre">Mevcut</span> <span class="pre">yöntemleri</span> <span class="pre">listelemek</span> <span class="pre">için</span> <span class="pre">IDE'nizin</span> <span class="pre">otomatik</span> <span class="pre">tamamlamasını</span> <span class="pre">kullanın.</span> <span class="pre">``SpongeEventFactory</span></code> tarafından oluşturulan olaylar daha sonra <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/EventManager.html#post-org.spongepowered.api.event.Event-">EventManager#post(Event)</a> iletilir.</p>
+<p>Statik <code class="docutils literal notranslate"><span class="pre">SpongeEventFactory``ile</span> <span class="pre">yerleşik</span> <span class="pre">olayların</span> <span class="pre">örneklerini</span> <span class="pre">oluşturmak</span> <span class="pre">mümkündür.</span> <span class="pre">Bu</span> <span class="pre">sınıf</span> <span class="pre">otomatik</span> <span class="pre">olarak</span> <span class="pre">oluşturulur,</span> <span class="pre">böylece</span> <span class="pre">Javadocs</span> <span class="pre">yoktur.</span> <span class="pre">Mevcut</span> <span class="pre">yöntemleri</span> <span class="pre">listelemek</span> <span class="pre">için</span> <span class="pre">IDE'nizin</span> <span class="pre">otomatik</span> <span class="pre">tamamlamasını</span> <span class="pre">kullanın.</span> <span class="pre">``SpongeEventFactory</span></code> tarafından oluşturulan olaylar daha sonra <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/EventManager.html#post-org.spongepowered.api.event.Event-">EventManager#post(Event)</a> iletilir.</p>
 </div>
 <div class="section" id="example-firing-lightningevent">
 <h3>Örnek: LightningEvent ateşleme<a class="headerlink" href="#example-firing-lightningevent" title="Bu başlığın kalıcı bağlantısı">¶</a></h3>

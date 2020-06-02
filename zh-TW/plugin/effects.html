@@ -19,17 +19,6 @@
 
         <link rel="index" title="索引"
               href="../genindex.html"/>        <link rel="search" title="搜尋" href="../search.html"/>    <link rel="top" title="Sponge 7.2.0 說明文件" href="../index.html"/>        <link rel="up" title="建立插件" href="index.html"/>        <link rel="next" title="排程" href="scheduler.html"/>        <link rel="prev" title="開設交易" href="trade-offers.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -166,7 +155,7 @@
            <div itemprop="articleBody">
   <div class="section" id="effects">
 <h1>效果<a class="headerlink" href="#effects" title="本標題的永久連結">¶</a></h1>
-<p>通过对 Sponge 中的效果 API 的使用，我们可以在服务端创建特殊的效果（Effect）。通过使用 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/effect/Viewer.html">Viewer</a> 我们可以播放声音或者在服务端产生粒子效果。</p>
+<p>通过对 Sponge 中的效果 API 的使用，我们可以在服务端创建特殊的效果（Effect）。通过使用 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/effect/Viewer.html">Viewer</a> 我们可以播放声音或者在服务端产生粒子效果。</p>
 <div class="section" id="playing-sounds">
 <h2>播放聲音<a class="headerlink" href="#playing-sounds" title="本標題的永久連結">¶</a></h2>
 <p>对于任何给定的 <code class="docutils literal notranslate"><span class="pre">Viewer</span></code> ，我们都可以以非常简单的方式在指定位置播放声音：</p>
@@ -178,8 +167,8 @@
 <span class="n">viewer</span><span class="p">.</span><span class="na">playSound</span><span class="p">(</span><span class="n">SoundTypes</span><span class="p">.</span><span class="na">ENTITY_CREEPER_PRIMED</span><span class="p">,</span> <span class="k">new</span> <span class="n">Vector3d</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">65</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="mi">1</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>现在让我们分析一下。首先，我们有一个定义了要播放的声音类型的 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/effect/sound/SoundType.html">SoundType</a> 对象。然后我们有一个 <code class="docutils literal notranslate"><span class="pre">Vector3d</span></code> 用于设定播放的位置。这一位置可以手动生成，也可以通过 <code class="docutils literal notranslate"><span class="pre">Location</span></code> 的 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/Location.html#getPosition--">Location#getPosition()</a> 方法得到。在上面的示例中，声音将于 <code class="docutils literal notranslate"><span class="pre">1,</span> <span class="pre">65,</span> <span class="pre">1</span></code> 的位置播放。最后，我们有一个用于设置声音音量的数。这个音量是一个介于零和二之间的双精度浮点数。</p>
-<p>现在我们可以播放基本的声音了，然后让我们接着更深入地调整声音。我们这里需要设置声音的音调为一个特定的值。因此，我们使用 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/effect/sound/PitchModulation.html">PitchModulation</a> 类以设置音量为一个特定的值。我们也可以使用 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/effect/sound/SoundCategory.html">SoundCategory</a> 以指定声音是什么类别的。下面是一段示例代码：</p>
+<p>现在让我们分析一下。首先，我们有一个定义了要播放的声音类型的 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/effect/sound/SoundType.html">SoundType</a> 对象。然后我们有一个 <code class="docutils literal notranslate"><span class="pre">Vector3d</span></code> 用于设定播放的位置。这一位置可以手动生成，也可以通过 <code class="docutils literal notranslate"><span class="pre">Location</span></code> 的 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/world/Location.html#getPosition--">Location#getPosition()</a> 方法得到。在上面的示例中，声音将于 <code class="docutils literal notranslate"><span class="pre">1,</span> <span class="pre">65,</span> <span class="pre">1</span></code> 的位置播放。最后，我们有一个用于设置声音音量的数。这个音量是一个介于零和二之间的双精度浮点数。</p>
+<p>现在我们可以播放基本的声音了，然后让我们接着更深入地调整声音。我们这里需要设置声音的音调为一个特定的值。因此，我们使用 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/effect/sound/PitchModulation.html">PitchModulation</a> 类以设置音量为一个特定的值。我们也可以使用 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/effect/sound/SoundCategory.html">SoundCategory</a> 以指定声音是什么类别的。下面是一段示例代码：</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.effect.sound.PitchModulation</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.spongepowered.api.effect.sound.SoundCategories</span><span class="p">;</span>
 
@@ -187,7 +176,7 @@
     <span class="k">new</span> <span class="n">Vector3d</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">65</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">PitchModulation</span><span class="p">.</span><span class="na">AFLAT0</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>如果在播放声音时尚未指定 <code class="docutils literal notranslate"><span class="pre">SoundCategory</span></code> ，那么默认的将会是 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/effect/sound/SoundCategories.html#MASTER">SoundCategories#MASTER</a> 。</p>
+<p>如果在播放声音时尚未指定 <code class="docutils literal notranslate"><span class="pre">SoundCategory</span></code> ，那么默认的将会是 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/effect/sound/SoundCategories.html#MASTER">SoundCategories#MASTER</a> 。</p>
 </div>
 <div class="section" id="spawning-particles">
 <h2>生成粒子效果<a class="headerlink" href="#spawning-particles" title="本標題的永久連結">¶</a></h2>
@@ -202,8 +191,8 @@
 <span class="n">viewer</span><span class="p">.</span><span class="na">spawnParticles</span><span class="p">(</span><span class="n">effect</span><span class="p">,</span> <span class="n">position</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>通过使用 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/effect/particle/ParticleEffect.Builder.html">ParticleEffect.Builder</a> ，我们可以指定我们想要生成的粒子效果的类型，同时，我们还指定了五十种粒子效果。</p>
-<p>现在，如果我们想要更精确地指定一种粒子，我们可以通过使用 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/effect/particle/ParticleTypes.html">ParticleTypes</a> 类提供的各种粒子类型来完成这一点。比方说我们想生成正在被破坏的沙子方块的粒子效果，那么我们就需要用到 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/effect/particle/ParticleTypes.html#BLOCK_CRACK">ParticleTypes#BLOCK_CRACK</a>，同时我们还需要通过 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/effect/particle/ParticleOptions.html#BLOCK_STATE">ParticleOptions#BLOCK_STATE</a> 指定我们想要使用沙子方块，也就是下面这个样子：</p>
+<p>通过使用 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/effect/particle/ParticleEffect.Builder.html">ParticleEffect.Builder</a> ，我们可以指定我们想要生成的粒子效果的类型，同时，我们还指定了五十种粒子效果。</p>
+<p>现在，如果我们想要更精确地指定一种粒子，我们可以通过使用 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/effect/particle/ParticleTypes.html">ParticleTypes</a> 类提供的各种粒子类型来完成这一点。比方说我们想生成正在被破坏的沙子方块的粒子效果，那么我们就需要用到 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/effect/particle/ParticleTypes.html#BLOCK_CRACK">ParticleTypes#BLOCK_CRACK</a>，同时我们还需要通过 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/effect/particle/ParticleOptions.html#BLOCK_STATE">ParticleOptions#BLOCK_STATE</a> 指定我们想要使用沙子方块，也就是下面这个样子：</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.block.BlockTypes</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.spongepowered.api.effect.particle.ParticleOptions</span><span class="p">;</span>
 
@@ -228,7 +217,7 @@
         <span class="p">.</span><span class="na">build</span><span class="p">();</span>
 </pre></div>
 </div>
-<p>通过这样使用，我们生成了一个名为“急迫 V（Haste V）”的 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/effect/potion/PotionEffect.html">PotionEffect</a> ，并且其持续十个 Tick （译者注：0.5秒）。和声音及粒子不同，药水不能应用于一个 <code class="docutils literal notranslate"><span class="pre">Viewer</span></code> 。我们反而要去寻找一个支持 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/manipulator/mutable/PotionEffectData.html">PotionEffectData</a> 的实体，比如玩家。</p>
+<p>通过这样使用，我们生成了一个名为“急迫 V（Haste V）”的 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/effect/potion/PotionEffect.html">PotionEffect</a> ，并且其持续十个 Tick （译者注：0.5秒）。和声音及粒子不同，药水不能应用于一个 <code class="docutils literal notranslate"><span class="pre">Viewer</span></code> 。我们反而要去寻找一个支持 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/manipulator/mutable/PotionEffectData.html">PotionEffectData</a> 的实体，比如玩家。</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.data.manipulator.mutable.PotionEffectData</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.spongepowered.api.entity.living.player.Player</span><span class="p">;</span>
 

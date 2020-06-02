@@ -19,17 +19,6 @@
 
         <link rel="index" title="Алфавитный указатель"
               href="../../../genindex.html"/>        <link rel="search" title="Поиск" href="../../../search.html"/>    <link rel="top" title="Документация Sponge 7.2.0" href="../../../index.html"/>        <link rel="up" title="Сериализация текста" href="index.html"/>        <link rel="next" title="Формат JSON" href="json.html"/>        <link rel="prev" title="Сериализация текста" href="index.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -187,13 +176,13 @@ by default: the ampersand (&amp;) and the section character (§).</p>
 <div class="admonition warning">
 <p class="first admonition-title">Предупреждение</p>
 <p class="last">Text serialization using any kind of formatting code is limited to representing only some of the capabilities
-of a <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/Text.html">Text</a>, namely formatting. It cannot represent any kind of click or hover actions. If brevity is not
+of a <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/text/Text.html">Text</a>, namely formatting. It cannot represent any kind of click or hover actions. If brevity is not
 an issue (as it is in Minecraft chat), it is recommended to use the <a class="reference internal" href="json.html"><span class="doc">Формат JSON</span></a>.</p>
 </div>
 <div class="section" id="ampersand-formatting">
 <h2>Форматирование амперсантом<a class="headerlink" href="#ampersand-formatting" title="Ссылка на этот заголовок">¶</a></h2>
 <p>По умолчанию Sponge поддерживает символ форматирования <cite>&amp;</cite> (амперсант). Использование амперсанта позволяет упростить ввод форматированного текста и полезно в таких случаях, когда необходима краткость, например, в консоли Minecraft.</p>
-<p>Чтобы использовать данное форматирование, вы можете получить доступ из <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/serializer/TextSerializer.html">TextSerializer</a> с помощью <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/serializer/TextSerializers.html#FORMATTING_CODE">TextSerializers#FORMATTING_CODE</a>. Оттуда используйте методы <code class="docutils literal notranslate"><span class="pre">serialize</span></code> или <code class="docutils literal notranslate"><span class="pre">deserialize</span></code>:</p>
+<p>Чтобы использовать данное форматирование, вы можете получить доступ из <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/text/serializer/TextSerializer.html">TextSerializer</a> с помощью <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/text/serializer/TextSerializers.html#FORMATTING_CODE">TextSerializers#FORMATTING_CODE</a>. Оттуда используйте методы <code class="docutils literal notranslate"><span class="pre">serialize</span></code> или <code class="docutils literal notranslate"><span class="pre">deserialize</span></code>:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.text.Text</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.spongepowered.api.text.format.TextColors</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.spongepowered.api.text.format.TextStyles</span><span class="p">;</span>
@@ -208,7 +197,7 @@ an issue (as it is in Minecraft chat), it is recommended to use the <a class="re
 <div class="section" id="legacy-formatting">
 <h2>Устаревшее форматирование<a class="headerlink" href="#legacy-formatting" title="Ссылка на этот заголовок">¶</a></h2>
 <p>Устаревшее текстовое представление - это формат, широко используемый в старых версиях Minecraft, представленный символом раздела (§). Sponge обеспечивает сериализацию и десериализацию с использованием устаревшего формата <strong>только для совместимости</strong>. Он должен использоваться, если это крайне необходимо. Рекомендуется использовать форматирование с амперсантом (&amp;), как описано выше. У устаревшего форматирования есть несколько ограничений, которые нет в форматировании амперсантом (&amp;), причем наиболее очевидным из них является то, что пользователи не могут легко ввести символ раздела (§) в чат.</p>
-<p>Чтобы использовать данное форматирование, вы можете получить доступ из <code class="docutils literal notranslate"><span class="pre">TextSerializer</span></code> с помощью <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/serializer/TextSerializers.html#LEGACY_FORMATTING_CODE">TextSerializers#LEGACY_FORMATTING_CODE</a>. Оттуда используйте мотоды <code class="docutils literal notranslate"><span class="pre">serialize</span></code> или <code class="docutils literal notranslate"><span class="pre">deserialize</span></code>:</p>
+<p>Чтобы использовать данное форматирование, вы можете получить доступ из <code class="docutils literal notranslate"><span class="pre">TextSerializer</span></code> с помощью <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/text/serializer/TextSerializers.html#LEGACY_FORMATTING_CODE">TextSerializers#LEGACY_FORMATTING_CODE</a>. Оттуда используйте мотоды <code class="docutils literal notranslate"><span class="pre">serialize</span></code> или <code class="docutils literal notranslate"><span class="pre">deserialize</span></code>:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Text</span> <span class="n">text</span> <span class="o">=</span> <span class="n">Text</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">TextColors</span><span class="p">.</span><span class="na">RED</span><span class="p">,</span> <span class="n">TextStyles</span><span class="p">.</span><span class="na">UNDERLINE</span><span class="p">,</span> <span class="s">&quot;Hello World!&quot;</span><span class="p">);</span>
 <span class="n">String</span> <span class="n">legacyText</span> <span class="o">=</span> <span class="n">TextSerializers</span><span class="p">.</span><span class="na">LEGACY_FORMATTING_CODE</span><span class="p">.</span><span class="na">serialize</span><span class="p">(</span><span class="n">text</span><span class="p">);</span>
 </pre></div>
@@ -216,7 +205,7 @@ an issue (as it is in Minecraft chat), it is recommended to use the <a class="re
 <p>Например, текст «Hello World!», красным цветом и с подчеркиванием используя старый формат, выглядит так: <cite>§c§nHello World!</cite></p>
 <div class="admonition tip">
 <p class="first admonition-title">Совет</p>
-<p class="last">Хотя его использование не рекомендуется, получить его можно в <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/serializer/FormattingCodeTextSerializer.html">FormattingCodeTextSerializer</a>, используя любой символ форматирования, который вам нужен, вызывая: <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/serializer/TextSerializers.html#formattingCode-char-">TextSerializers#formattingCode(char)</a>, передавая <code class="docutils literal notranslate"><span class="pre">char</span></code> в качестве единственного аргумента.</p>
+<p class="last">Хотя его использование не рекомендуется, получить его можно в <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/text/serializer/FormattingCodeTextSerializer.html">FormattingCodeTextSerializer</a>, используя любой символ форматирования, который вам нужен, вызывая: <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/text/serializer/TextSerializers.html#formattingCode-char-">TextSerializers#formattingCode(char)</a>, передавая <code class="docutils literal notranslate"><span class="pre">char</span></code> в качестве единственного аргумента.</p>
 </div>
 </div>
 </div>

@@ -19,17 +19,6 @@
 
         <link rel="index" title="Dizin"
               href="../../genindex.html"/>        <link rel="search" title="Ara" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 belgelendirme çalışması" href="../../index.html"/>        <link rel="up" title="Bloklar" href="index.html"/>        <link rel="next" title="Karo birimler" href="tileentities.html"/>        <link rel="prev" title="Bloklara erişim" href="accessing.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -176,8 +165,8 @@
 <h1>Blokları modifiye etme<a class="headerlink" href="#modifying-blocks" title="Bu başlığın kalıcı bağlantısı">¶</a></h1>
 <div class="section" id="changing-a-block-s-type">
 <h2>Changing a Block’s Type<a class="headerlink" href="#changing-a-block-s-type" title="Bu başlığın kalıcı bağlantısı">¶</a></h2>
-<p>Changing the Type of a Block is as simple as calling the <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/Location.html#setBlockType-org.spongepowered.api.block.BlockType-">Location#setBlockType(BlockType)</a> method with
-the new <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/block/BlockType.html">BlockType</a>. The following code turns the block at the given <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/Location.html">Location</a> into a
+<p>Changing the Type of a Block is as simple as calling the <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/world/Location.html#setBlockType-org.spongepowered.api.block.BlockType-">Location#setBlockType(BlockType)</a> method with
+the new <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/block/BlockType.html">BlockType</a>. The following code turns the block at the given <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/world/Location.html">Location</a> into a
 sponge:</p>
 <blockquote>
 <div><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.block.BlockTypes</span><span class="p">;</span>
@@ -190,11 +179,11 @@ sponge:</p>
 </pre></div>
 </div>
 </div></blockquote>
-<p>Bu kadar basit. Eğer bir bloğu ‘silmek’ isterseniz, <a href="#id1"><span class="problematic" id="id2">``</span></a>Location``tarafından sunulan <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/Location.html#removeBlock--">Location#removeBlock()</a> metodunu kullanabilirsiniz.</p>
+<p>Bu kadar basit. Eğer bir bloğu ‘silmek’ isterseniz, <a href="#id1"><span class="problematic" id="id2">``</span></a>Location``tarafından sunulan <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/world/Location.html#removeBlock--">Location#removeBlock()</a> metodunu kullanabilirsiniz.</p>
 </div>
 <div class="section" id="altering-block-states">
 <h2>Blok Durumlarını Değiştirme<a class="headerlink" href="#altering-block-states" title="Bu başlığın kalıcı bağlantısı">¶</a></h2>
-<p>Yukarıdaki örnekte olduğu gibi, <code class="docutils literal notranslate"><span class="pre">Location</span></code> sınıfı yeni <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/block/BlockState.html">BlockState</a> alan bir <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/Location.html#setBlock-org.spongepowered.api.block.BlockState-">Location#setBlock(BlockState)</a> edinmeniz gerekir. Bloğun geçerli durumunu <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/Location.html#getBlock--">Location#getBlock()</a> yöntemiyle alabilir veya bir <code class="docutils literal notranslate"><span class="pre">BlockType</span></code>’ın varsayılan durumunu kullanarak yapabilirsiniz. İkincisi aşağıda gösterilmiştir. Bir Sponge bloğu için varsayılan durum, doğrudan ıslak bir Sponge bloğu oluşturmak üzere alınır ve değiştirilir:</p>
+<p>Yukarıdaki örnekte olduğu gibi, <code class="docutils literal notranslate"><span class="pre">Location</span></code> sınıfı yeni <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/block/BlockState.html">BlockState</a> alan bir <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/world/Location.html#setBlock-org.spongepowered.api.block.BlockState-">Location#setBlock(BlockState)</a> edinmeniz gerekir. Bloğun geçerli durumunu <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/world/Location.html#getBlock--">Location#getBlock()</a> yöntemiyle alabilir veya bir <code class="docutils literal notranslate"><span class="pre">BlockType</span></code>’ın varsayılan durumunu kullanarak yapabilirsiniz. İkincisi aşağıda gösterilmiştir. Bir Sponge bloğu için varsayılan durum, doğrudan ıslak bir Sponge bloğu oluşturmak üzere alınır ve değiştirilir:</p>
 <blockquote>
 <div><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.Sponge</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.spongepowered.api.block.BlockState</span><span class="p">;</span>
@@ -251,7 +240,7 @@ sponge:</p>
 </pre></div>
 </div>
 </div></blockquote>
-<p>Since the <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/manipulator/mutable/WetData.html">WetData</a> data manipulator represents boolean data, by removing it we set the wetness of the block
+<p>Since the <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/manipulator/mutable/WetData.html">WetData</a> data manipulator represents boolean data, by removing it we set the wetness of the block
 (if it has any) to false. The <code class="docutils literal notranslate"><span class="pre">dryState.isPresent()</span></code> check will fail on block states that cannot be wet since
 <code class="docutils literal notranslate"><span class="pre">dryState</span></code> will be <code class="docutils literal notranslate"><span class="pre">Optional.empty()</span></code> in that case.</p>
 </div>

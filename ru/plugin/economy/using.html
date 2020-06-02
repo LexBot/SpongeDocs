@@ -19,17 +19,6 @@
 
         <link rel="index" title="Алфавитный указатель"
               href="../../genindex.html"/>        <link rel="search" title="Поиск" href="../../search.html"/>    <link rel="top" title="Документация Sponge 7.2.0" href="../../index.html"/>        <link rel="up" title="Экономика" href="index.html"/>        <link rel="next" title="Рекомендации по использованию Economy API" href="practices.html"/>        <link rel="prev" title="Основные понятия" href="basics.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -176,7 +165,7 @@
 <p>Economy API объединяет все плагины экономики под одним API. Это означает, что любой плагин, использующий Economy API, будет совместим со всеми плагинами экономики, которые реализуют указанный API. На этой странице вы узнаете, как его использовать в Вашем собственном плагине.</p>
 <div class="section" id="loading-the-economyservice">
 <h2>Загрузка EconomyService<a class="headerlink" href="#loading-the-economyservice" title="Ссылка на этот заголовок">¶</a></h2>
-<p>Чтобы использовать Economy API, вы должны сначала загрузить класс <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/economy/EconomyService.html">EconomyService</a> используя <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/ServiceManager.html">ServiceManager</a>.</p>
+<p>Чтобы использовать Economy API, вы должны сначала загрузить класс <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/economy/EconomyService.html">EconomyService</a> используя <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/ServiceManager.html">ServiceManager</a>.</p>
 <div class="admonition warning">
 <p class="first admonition-title">Предупреждение</p>
 <p class="last">Вам нужно обращать внимание на различные <code class="docutils literal notranslate"><span class="pre">game</span> <span class="pre">states</span></code>, когда сервер запускается, останавливается или работает при использовании таких сервисов, как Economy API. Посмотрите на странице <a class="reference internal" href="../services.html"><span class="doc">Сервисы</span></a> для получения дополнительной информации.</p>
@@ -195,11 +184,11 @@
 </div>
 <div class="admonition warning">
 <p class="first admonition-title">Предупреждение</p>
-<p class="last">Храните этот сервис в локальной переменной вместо глобальной переменной, поскольку реализация может измениться в любой момент. Если вам нужно хранить сервис глобально, по какой-либо причине используйте <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/service/ChangeServiceProviderEvent.html">ChangeServiceProviderEvent</a>, чтобы обновлять реализацию.</p>
+<p class="last">Храните этот сервис в локальной переменной вместо глобальной переменной, поскольку реализация может измениться в любой момент. Если вам нужно хранить сервис глобально, по какой-либо причине используйте <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/service/ChangeServiceProviderEvent.html">ChangeServiceProviderEvent</a>, чтобы обновлять реализацию.</p>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Примечание</p>
-<p class="last">В отличие от других сервисов, вы должны пытаться использовать <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/ServiceManager.html#provide-java.lang.Class-">ServiceManager#provide(Class)</a> вместо <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/ServiceManager.html#provideUnchecked-java.lang.Class-">ServiceManager#provideUnchecked(Class)</a>, потому что Sponge не предоставляет реализацию по умолчанию для <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/economy/EconomyService.html">EconomyService</a>, и поэтому он не гарантирует, что он существует.</p>
+<p class="last">В отличие от других сервисов, вы должны пытаться использовать <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/ServiceManager.html#provide-java.lang.Class-">ServiceManager#provide(Class)</a> вместо <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/ServiceManager.html#provideUnchecked-java.lang.Class-">ServiceManager#provideUnchecked(Class)</a>, потому что Sponge не предоставляет реализацию по умолчанию для <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/economy/EconomyService.html">EconomyService</a>, и поэтому он не гарантирует, что он существует.</p>
 </div>
 </div>
 </div>
@@ -221,7 +210,7 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>Некоторые методы <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/economy/account/Account.html">Account</a> требуют таких переменных, как:</p>
+<p>Некоторые методы <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/economy/account/Account.html">Account</a> требуют таких переменных, как:</p>
 <ul class="simple">
 <li>Валюта: участвующая в обмене валюта</li>
 <li>Причина: что вызвало изменение учётной записи</li>
@@ -229,7 +218,7 @@
 </ul>
 <p>Они предназначены для более продвинутых видов использования, но всё равно должны быть заполнены. Ниже приведен список допустимых значений по умолчанию:</p>
 <ul class="simple">
-<li>Валюта: <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/economy/EconomyService.html#getDefaultCurrency--">EconomyService#getDefaultCurrency()</a></li>
+<li>Валюта: <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/economy/EconomyService.html#getDefaultCurrency--">EconomyService#getDefaultCurrency()</a></li>
 <li>Cause: <code class="docutils literal notranslate"><span class="pre">Cause.of(EventContext.builder().add(EventContextKeys.PLUGIN,</span> <span class="pre">plugin).build(),</span> <span class="pre">plugin)</span></code></li>
 <li>Контекст: <code class="docutils literal notranslate"><span class="pre">new</span> <span class="pre">HashSet&lt;Context&gt;()</span></code></li>
 </ul>

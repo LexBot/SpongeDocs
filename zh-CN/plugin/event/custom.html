@@ -19,17 +19,6 @@
 
         <link rel="index" title="索引"
               href="../../genindex.html"/>        <link rel="search" title="搜索" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 文档" href="../../index.html"/>        <link rel="up" title="事件" href="index.html"/>        <link rel="next" title="插件配置" href="../configuration/index.html"/>        <link rel="prev" title="事件过滤" href="filters.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -173,11 +162,11 @@
            <div itemprop="articleBody">
   <div class="section" id="custom-events">
 <h1>自定义事件<a class="headerlink" href="#custom-events" title="永久链接至标题">¶</a></h1>
-<p>你可以编写你自己的事件类，然后使用之前提到的方法去调度它们。一个事件类必须继承自 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/impl/AbstractEvent.html">AbstractEvent</a> 类，当然同时实现了 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/Event.html">Event</a> 接口。开发者应根据事件的不同性质实现不同的接口，如 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/Cancellable.html">Cancellable</a> 表示该事件可以被取消，一些诸如 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/entity/living/humanoid/player/TargetPlayerEvent.html">TargetPlayerEvent</a> 的事件接口代表了事件发生时影响到的对象类型。</p>
+<p>你可以编写你自己的事件类，然后使用之前提到的方法去调度它们。一个事件类必须继承自 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/impl/AbstractEvent.html">AbstractEvent</a> 类，当然同时实现了 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/Event.html">Event</a> 接口。开发者应根据事件的不同性质实现不同的接口，如 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/Cancellable.html">Cancellable</a> 表示该事件可以被取消，一些诸如 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/entity/living/humanoid/player/TargetPlayerEvent.html">TargetPlayerEvent</a> 的事件接口代表了事件发生时影响到的对象类型。</p>
 <div class="section" id="example-custom-event-class">
 <h2>示例：自定义事件类<a class="headerlink" href="#example-custom-event-class" title="永久链接至标题">¶</a></h2>
 <p>下面这个类描述了一个指示一个 :javadoc:<code class="docutils literal notranslate"><span class="pre">Player</span></code> 曾经接触过一个 FLARD 然后在即将变异时触发的事件。因为这个事件的目标是玩家，并且可以取消，所以它实现了 <code class="docutils literal notranslate"><span class="pre">TargetPlayerEvent</span></code> 和 <code class="docutils literal notranslate"><span class="pre">Cancellable</span></code> 两个接口。</p>
-<p>因为一般的自定义事件旨在使其他插件监听，所以最好的办法自然是把它们以合适的方式整理归类。我们可以在 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/cause/Cause.html">Cause</a> 类中找到一串对象用于表示事件的来源。在下面的示例中，我们虚构了一个 <code class="docutils literal notranslate"><span class="pre">FLARDSource</span></code> 类用于表示事件的来源信息，并作为根对象包含于事件原因（Cause）中。</p>
+<p>因为一般的自定义事件旨在使其他插件监听，所以最好的办法自然是把它们以合适的方式整理归类。我们可以在 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/cause/Cause.html">Cause</a> 类中找到一串对象用于表示事件的来源。在下面的示例中，我们虚构了一个 <code class="docutils literal notranslate"><span class="pre">FLARDSource</span></code> 类用于表示事件的来源信息，并作为根对象包含于事件原因（Cause）中。</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.entity.living.player.Player</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.spongepowered.api.event.Cancellable</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.spongepowered.api.event.cause.Cause</span><span class="p">;</span>

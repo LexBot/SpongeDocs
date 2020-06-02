@@ -19,17 +19,6 @@
 
         <link rel="index" title="Índice"
               href="../genindex.html"/>        <link rel="search" title="Búsqueda" href="../search.html"/>    <link rel="top" title="documentación de Sponge - 7.2.0" href="../index.html"/>        <link rel="up" title="Creando un Plugin" href="index.html"/>        <link rel="next" title="Baneos" href="bans.html"/>        <link rel="prev" title="Bases de datos" href="database.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -251,7 +240,7 @@ command even if he has other <cite>teleport</cite> permissions.
 </div>
 <div class="section" id="permissiondescription">
 <h2>PermissionDescription<a class="headerlink" href="#permissiondescription" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>El :javadoc: <cite>PermisionDescription</cite> es una utilidad que está destinada a proporcionar al propietario del servidor los detalles sobre un determinado permiso. <code class="docutils literal notranslate"><span class="pre">PermissionDescription</span></code>s es una función opcional a la que <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/permission/PermissionService.html">PermissionService</a> puede proporcionar. La creación de una descripción de permiso <strong>no</strong> tiene ningún impacto sobre si existe un permiso, quién tiene acceso o cuál es su valor predeterminado.</p>
+<p>El :javadoc: <cite>PermisionDescription</cite> es una utilidad que está destinada a proporcionar al propietario del servidor los detalles sobre un determinado permiso. <code class="docutils literal notranslate"><span class="pre">PermissionDescription</span></code>s es una función opcional a la que <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/permission/PermissionService.html">PermissionService</a> puede proporcionar. La creación de una descripción de permiso <strong>no</strong> tiene ningún impacto sobre si existe un permiso, quién tiene acceso o cuál es su valor predeterminado.</p>
 <p>La descripción consiste en:</p>
 <ul class="simple">
 <li>el Id de permiso de destino</li>
@@ -304,7 +293,7 @@ Owner: MyPlugin v1.2.3
 </div>
 <div class="section" id="subject">
 <h2>Tema<a class="headerlink" href="#subject" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>Un :javadoc: <cite>Subject</cite> es un titular de permisos asignados. Se puede obtener de <code class="docutils literal notranslate"><span class="pre">PermissionService</span></code> a través de :javadoc: <cite>SubjectCollection</cite>s. :javadoc: <cite>CommandSource</cite>s como <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/living/player/Player.html">Player</a>s son <code class="docutils literal notranslate"><span class="pre">Subject</span></code>s por defecto, pero hay muchos otros tipos de <code class="docutils literal notranslate"><span class="pre">Subject</span></code>s. Todo lo que tiene permisos es un Sujeto, incluso si solo delega las verificaciones en un Asunto contenido. Los permisos pueden ser otorgados o denegados a un Sujeto. Si un permiso no se otorga ni se niega, su configuración se heredará. Ver herencia. Los sujetos proporcionan métodos para verificar si tienen cierto permiso o no. Los complementos que usan este método solo deben consultar el permiso específico que desean verificar. Es tarea de PermissionService respetar el permiso y la herencia del sujeto.</p>
+<p>Un :javadoc: <cite>Subject</cite> es un titular de permisos asignados. Se puede obtener de <code class="docutils literal notranslate"><span class="pre">PermissionService</span></code> a través de :javadoc: <cite>SubjectCollection</cite>s. :javadoc: <cite>CommandSource</cite>s como <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/living/player/Player.html">Player</a>s son <code class="docutils literal notranslate"><span class="pre">Subject</span></code>s por defecto, pero hay muchos otros tipos de <code class="docutils literal notranslate"><span class="pre">Subject</span></code>s. Todo lo que tiene permisos es un Sujeto, incluso si solo delega las verificaciones en un Asunto contenido. Los permisos pueden ser otorgados o denegados a un Sujeto. Si un permiso no se otorga ni se niega, su configuración se heredará. Ver herencia. Los sujetos proporcionan métodos para verificar si tienen cierto permiso o no. Los complementos que usan este método solo deben consultar el permiso específico que desean verificar. Es tarea de PermissionService respetar el permiso y la herencia del sujeto.</p>
 <div class="section" id="example">
 <h3>Ejemplo<a class="headerlink" href="#example" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>El siguiente ejemplo podría usarse para verificar si el reproductor tiene permiso para ejecutar el comando de teletransporte.</p>
@@ -472,7 +461,7 @@ for features that were changed by the plugin.</p>
 <p>Si considera cada permiso para un privilegio o habilidad para poder hacer algo, a :javadoc: <cite>Context</cite> son las circunstancias donde ese privilegio es utilizable.</p>
 <p>Es posible que desees otorgar un permiso <code class="docutils literal notranslate"><span class="pre">Subject</span></code> para hacer algo, pero solo cuando <code class="docutils literal notranslate"><span class="pre">Subject</span></code> esté en cierto mundo o en cierta región.</p>
 <p>Los contextos son acumulados por un <code class="docutils literal notranslate"><span class="pre">Subject</span></code>, y luego son usados por <code class="docutils literal notranslate"><span class="pre">PermissionService</span></code> para decidir si <code class="docutils literal notranslate"><span class="pre">Subject</span></code> tiene un privilegio o no.</p>
-<p>Sponge proporciona algunos contextos por defecto, pero generalmente se debe a otros complementos para proporcionar contextos adicionales al PermissionService, a través de <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/context/ContextCalculator.html">ContextCalculator</a>.</p>
+<p>Sponge proporciona algunos contextos por defecto, pero generalmente se debe a otros complementos para proporcionar contextos adicionales al PermissionService, a través de <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/context/ContextCalculator.html">ContextCalculator</a>.</p>
 <p>Al crear contextos para su propio complemento (plugin), intente evitar conflictos con otros complementos (por ejemplo, prefijando la clave de contexto con su id de complemento), a menos que estos contextos estén destinados a ser compartidos.</p>
 <div class="admonition note">
 <p class="first admonition-title">Nota</p>

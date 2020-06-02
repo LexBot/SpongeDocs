@@ -19,17 +19,6 @@
 
         <link rel="index" title="Índice"
               href="../../genindex.html"/>        <link rel="search" title="Búsqueda" href="../../search.html"/>    <link rel="top" title="documentación de Sponge - 7.2.0" href="../../index.html"/>        <link rel="up" title="La API de Datos" href="index.html"/>        <link rel="next" title="Transacciones" href="transactions.html"/>        <link rel="prev" title="Utilización de Claves" href="keys.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -205,7 +194,7 @@ try to heal someone (or something).</p>
 </div>
 <p>First, we need to check if our target has health data. We do so by first asking it to provide us with its health
 data by passing its class to the <code class="docutils literal notranslate"><span class="pre">get()</span></code> method. We get an <code class="docutils literal notranslate"><span class="pre">Optional</span></code> which we can use for our check.
-This <code class="docutils literal notranslate"><span class="pre">Optional</span></code> will be absent if either our target does not support <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/manipulator/mutable/entity/HealthData.html">HealthData</a> or if it supports it but
+This <code class="docutils literal notranslate"><span class="pre">Optional</span></code> will be absent if either our target does not support <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/manipulator/mutable/entity/HealthData.html">HealthData</a> or if it supports it but
 at the present moment does not hold any health data.</p>
 <p>Si los datos de salud están presentes, ahora contiene una copia mutable de los datos presentes en el titular de los datos. Hacemos nuestras modificaciones y finalmente volvemos a ofrecer los datos modificados a nuestro objetivo, donde es aceptado (nuevamente, `` offer () `` devolverá a :javadoc: <cite>DataTransactionResult</cite> que no tomaremos en cuenta en este ejemplo y volveremos a :doc: <cite>en un punto posterior &lt;transactions&gt;</cite>).</p>
 <p>Como puede ver, los resultados para `` health () `` y `` maxHealth () `` son nuevamente valores con clave que obtenemos de :javadoc: <cite>DataHolder</cite>. Como el :javadoc: <cite>MutableBoundedValue</cite> que recibimos al llamar` <cite>health ()</cite> <cite>nuevamente solo contiene una copia de los datos, primero debemos aplicar nuestros cambios a :javadoc:</cite> DataManipulator` antes de poder ofrecer el ` <cite>healthData`</cite> de vuelta hacia nuestro objetivo.</p>
@@ -276,7 +265,7 @@ with our data, we can rest assured that it will not be changed.</p>
 <p>Existe una gran diferencia semántica entre los datos que no están presentes y los datos que consisten en valores predeterminados. Si bien esto último siempre es posible, hay casos en los que es imposible que un <code class="docutils literal notranslate"><span class="pre">DataHolder</span></code> admita un tipo de datos y luego no los guarde. Ejemplos de esos incluyen:</p>
 <ul class="simple">
 <li>`` HealthData`` siempre está presente en cada (vainilla) `` DataHolder`` que lo soporta</li>
-<li><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/manipulator/mutable/DisplayNameData.html">DisplayNameData</a> is always present on a <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/living/player/Player.html">Player</a>, but may be absent on other entities.</li>
+<li><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/manipulator/mutable/DisplayNameData.html">DisplayNameData</a> is always present on a <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/living/player/Player.html">Player</a>, but may be absent on other entities.</li>
 </ul>
 </div>
 </div>

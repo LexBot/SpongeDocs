@@ -19,17 +19,6 @@
 
         <link rel="index" title="Index"
               href="../genindex.html"/>        <link rel="search" title="Recherche" href="../search.html"/>    <link rel="top" title="Documentation Sponge 7.2.0" href="../index.html"/>        <link rel="up" title="Création d’un Plugin" href="index.html"/>        <link rel="next" title="Bonnes Pratiques" href="practices/index.html"/>        <link rel="prev" title="Cycle de vie des Plugins" href="lifecycle.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -170,33 +159,33 @@
 <div class="section" id="temporary-list-of-injected-types">
 <h2>Liste Temporaire des Types Injectés<a class="headerlink" href="#temporary-list-of-injected-types" title="Lien permanent vers ce titre">¶</a></h2>
 <dl class="docutils">
-<dt><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/config/ConfigDir.html">ConfigDir</a> (annotation sur Path ou File)</dt>
-<dd>Utilisé pour injecter le répertoire de configuration du plugin: <code class="docutils literal notranslate"><span class="pre">./config/</span></code> ou <code class="docutils literal notranslate"><span class="pre">./config/&lt;Plugin#id&gt;/</span></code> selon la valeur de <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/config/ConfigDir.html#sharedRoot--">ConfigDir#sharedRoot()</a></dd>
-<dt><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/config/DefaultConfig.html">DefaultConfig</a> (annotation sur Path, ConfigurationLoader ou File)</dt>
+<dt><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/config/ConfigDir.html">ConfigDir</a> (annotation sur Path ou File)</dt>
+<dd>Utilisé pour injecter le répertoire de configuration du plugin: <code class="docutils literal notranslate"><span class="pre">./config/</span></code> ou <code class="docutils literal notranslate"><span class="pre">./config/&lt;Plugin#id&gt;/</span></code> selon la valeur de <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/config/ConfigDir.html#sharedRoot--">ConfigDir#sharedRoot()</a></dd>
+<dt><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/config/DefaultConfig.html">DefaultConfig</a> (annotation sur Path, ConfigurationLoader ou File)</dt>
 <dd>Utilisé pour injecter le fichier de configuration spécifique du plugin: <code class="docutils literal notranslate"><span class="pre">&lt;Plugin#id&gt;.conf</span></code>.</dd>
-<dt><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/asset/AssetId.html">AssetId</a> (annotation on Asset)</dt>
+<dt><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/asset/AssetId.html">AssetId</a> (annotation on Asset)</dt>
 <dd>Used to inject a <code class="docutils literal notranslate"><span class="pre">Asset</span></code> from the asset folder of the plugin</dd>
-<dt><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/scheduler/AsynchronousExecutor.html">AsynchronousExecutor</a> (annotation on SpongeExecutorService)</dt>
+<dt><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/scheduler/AsynchronousExecutor.html">AsynchronousExecutor</a> (annotation on SpongeExecutorService)</dt>
 <dd>Used to inject the plugin’s specific AsynchronousExecutor</dd>
-<dt><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/scheduler/SynchronousExecutor.html">SynchronousExecutor</a> (annotation on SpongeExecutorService)</dt>
+<dt><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/scheduler/SynchronousExecutor.html">SynchronousExecutor</a> (annotation on SpongeExecutorService)</dt>
 <dd>Used to inject the plugin’s specific SynchronousExecutor</dd>
-<dt><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/network/ChannelId.html">ChannelId</a> (annotation on ChannelBinding.IndexedMessageChannel or ChannelBinding.RawDataChannel)</dt>
+<dt><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/network/ChannelId.html">ChannelId</a> (annotation on ChannelBinding.IndexedMessageChannel or ChannelBinding.RawDataChannel)</dt>
 <dd>Used to inject a <code class="docutils literal notranslate"><span class="pre">ChannelBinding</span></code> with the given channel id</dd>
-<dt><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/asset/Asset.html">Asset</a></dt>
+<dt><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/asset/Asset.html">Asset</a></dt>
 <dd>Must be annotated with <code class="docutils literal notranslate"><span class="pre">&#64;AssetId</span></code>.</dd>
-<dt><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/scheduler/SpongeExecutorService.html">SpongeExecutorService</a></dt>
+<dt><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/scheduler/SpongeExecutorService.html">SpongeExecutorService</a></dt>
 <dd>Must be annotated with either <code class="docutils literal notranslate"><span class="pre">&#64;AsynchronousExecutor</span></code> or <code class="docutils literal notranslate"><span class="pre">&#64;SynchronousExecutor</span></code>.
 Depending on the annotation given this will contain a reference to the plugin’s specific
 Asynchronous or Synchronous Executor.</dd>
 <dt><a class="reference external" href="https://configurate.aoeu.xyz/apidocs/ninja/leaping/configurate/loader/ConfigurationLoader.html">ConfigurationLoader&lt;CommentedConfigurationNode&gt;</a></dt>
 <dd>Doit être une annotation avec <code class="docutils literal notranslate"><span class="pre">&#64;DefaultConfig</span></code>. Utilisé pour injecter un <code class="docutils literal notranslate"><span class="pre">ConfigurationLoader</span></code> pré-généré pour le <code class="docutils literal notranslate"><span class="pre">File</span></code> ou la même annotation.</dd>
-<dt><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/EventManager.html">EventManager</a></dt>
+<dt><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/EventManager.html">EventManager</a></dt>
 <dd>Gère l’enregistrement des manipulateurs d’événements (event handlers) et de l’envoi des événements.</dd>
 <dt>File</dt>
 <dd>Doit être une annotation avec soit <code class="docutils literal notranslate"><span class="pre">&#64;DefaultConfig</span></code> soit <code class="docutils literal notranslate"><span class="pre">&#64;ConfigDir</span></code>. Dépendant de l’annotation de ce que contiendra une référence de fichier vers le fichier de configuration par défaut des plugins ou du dossier utilisé pour stocker les fichiers de configuration. Toutefois, Path (voir ci-dessus) doit être privilégié.</dd>
-<dt><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/Game.html">Game</a></dt>
+<dt><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/Game.html">Game</a></dt>
 <dd>L’objet <code class="docutils literal notranslate"><span class="pre">Game</span></code> est l’accesseur principal de SpongeAPI.</dd>
-<dt><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/GameRegistry.html">GameRegistry</a></dt>
+<dt><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/GameRegistry.html">GameRegistry</a></dt>
 <dd>Fournit un moyen facile pour récupérer certains types depuis un objet <code class="docutils literal notranslate"><span class="pre">Game</span></code>.</dd>
 <dt><a class="reference external" href="https://configurate.aoeu.xyz/apidocs/ninja/leaping/configurate/objectmapping/GuiceObjectMapperFactory.html">GuiceObjectMapperFactory</a></dt>
 <dd>Un outil fournit par Configurate qui permet un mapping plus simple des objets des nodes de configuration. Voir <a class="reference internal" href="configuration/serialization.html"><span class="doc">Sérialisation d’objets</span></a> pour l’usage.</dd>
@@ -206,9 +195,9 @@ Asynchronous or Synchronous Executor.</dd>
 <dd>Utilisé pour identifier le plugin depuis lequel les messages de log sont envoyés.</dd>
 <dt>Path</dt>
 <dd>Doit être une annotation avec soit <code class="docutils literal notranslate"><span class="pre">&#64;DefaultConfig</span></code> soit <code class="docutils literal notranslate"><span class="pre">&#64;ConfigDir</span></code>. Dépendant de l’annotation de ce que contiendra une référence de chemin d’accès vers le fichier configuration par défaut des plugins ou du dossier utilisé pour stocker les fichiers de configuration.</dd>
-<dt><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/plugin/PluginContainer.html">PluginContainer</a></dt>
-<dd>Un wrapper de classe <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/plugin/Plugin.html">Plugin</a>, utilisé pour récupérer les informations de l’annotation plus facilement.</dd>
-<dt><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/plugin/PluginManager.html">PluginManager</a></dt>
+<dt><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/plugin/PluginContainer.html">PluginContainer</a></dt>
+<dd>Un wrapper de classe <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/plugin/Plugin.html">Plugin</a>, utilisé pour récupérer les informations de l’annotation plus facilement.</dd>
+<dt><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/plugin/PluginManager.html">PluginManager</a></dt>
 <dd>Gère les plugins qui sont chargés par l’implémentation. Peut récupérer le <code class="docutils literal notranslate"><span class="pre">PluginContainer</span></code> d’un autre plugin.</dd>
 </dl>
 </div>
@@ -228,7 +217,7 @@ Asynchronous or Synchronous Executor.</dd>
 </div>
 <div class="section" id="game">
 <h3>Game<a class="headerlink" href="#game" title="Lien permanent vers ce titre">¶</a></h3>
-<p>La classe <code class="docutils literal notranslate"><span class="pre">Game</span></code> est l’ouverture à plusieurs fonctions internes de SpongeAPI depuis l”<code class="docutils literal notranslate"><span class="pre">EventManager</span></code> jusqu’au <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/Server.html">Server</a> et même les Sync/Async <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/scheduler/Scheduler.html">Scheduler</a>.</p>
+<p>La classe <code class="docutils literal notranslate"><span class="pre">Game</span></code> est l’ouverture à plusieurs fonctions internes de SpongeAPI depuis l”<code class="docutils literal notranslate"><span class="pre">EventManager</span></code> jusqu’au <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/Server.html">Server</a> et même les Sync/Async <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/scheduler/Scheduler.html">Scheduler</a>.</p>
 <p>Alors qu’il est tout à fait possible de récupérer l’objet <code class="docutils literal notranslate"><span class="pre">Game</span></code> avec <code class="docutils literal notranslate"><span class="pre">Sponge.getGame()</span></code>, il est généralement obtenu via une injection.</p>
 <p><strong>Exemple - Field</strong></p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">com.google.inject.Inject</span><span class="p">;</span>
@@ -261,7 +250,7 @@ Asynchronous or Synchronous Executor.</dd>
 </div>
 <div class="section" id="config-directory">
 <h3>Dossier de configuration<a class="headerlink" href="#config-directory" title="Lien permanent vers ce titre">¶</a></h3>
-<p>La manière recommandée pour obtenir votre fichier de configuration est d’utiliser Guice, au moyen de l’annotation <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/config/ConfigDir.html">ConfigDir</a>.</p>
+<p>La manière recommandée pour obtenir votre fichier de configuration est d’utiliser Guice, au moyen de l’annotation <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/config/ConfigDir.html">ConfigDir</a>.</p>
 <div class="admonition tip">
 <p class="first admonition-title">Astuce</p>
 <p class="last">Si vous assignez à <code class="docutils literal notranslate"><span class="pre">sharedRoot</span></code> la valeur <code class="docutils literal notranslate"><span class="pre">true</span></code>, votre <code class="docutils literal notranslate"><span class="pre">ConfigDir</span></code> sera le même répertoire qui - potentiellement - contient la configuration d’autres plugins. Dans la plupart des cas où récupérer le <code class="docutils literal notranslate"><span class="pre">ConfigDir</span></code> est nécessaire, la valeur devrait être mise à <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>

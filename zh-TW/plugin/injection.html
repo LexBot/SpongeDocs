@@ -19,17 +19,6 @@
 
         <link rel="index" title="索引"
               href="../genindex.html"/>        <link rel="search" title="搜尋" href="../search.html"/>    <link rel="top" title="Sponge 7.2.0 說明文件" href="../index.html"/>        <link rel="up" title="建立插件" href="index.html"/>        <link rel="next" title="實踐" href="practices/index.html"/>        <link rel="prev" title="插件的生命週期" href="lifecycle.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -170,33 +159,33 @@
 <div class="section" id="temporary-list-of-injected-types">
 <h2>注入型態的臨時清單<a class="headerlink" href="#temporary-list-of-injected-types" title="本標題的永久連結">¶</a></h2>
 <dl class="docutils">
-<dt><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/config/ConfigDir.html">ConfigDir</a>（在 Path 或 File 加上 annotation）</dt>
-<dd>用于注入插件的配置目录： <code class="docutils literal notranslate"><span class="pre">./config/</span></code> 或 <code class="docutils literal notranslate"><span class="pre">./config/&lt;Plugin#id&gt;/</span></code> ，取决于 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/config/ConfigDir.html#sharedRoot--">ConfigDir#sharedRoot()</a> 。</dd>
-<dt><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/config/DefaultConfig.html">DefaultConfig</a>（在 Path、ConfigurationLoader 或 File 加上 annotation）</dt>
+<dt><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/config/ConfigDir.html">ConfigDir</a>（在 Path 或 File 加上 annotation）</dt>
+<dd>用于注入插件的配置目录： <code class="docutils literal notranslate"><span class="pre">./config/</span></code> 或 <code class="docutils literal notranslate"><span class="pre">./config/&lt;Plugin#id&gt;/</span></code> ，取决于 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/config/ConfigDir.html#sharedRoot--">ConfigDir#sharedRoot()</a> 。</dd>
+<dt><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/config/DefaultConfig.html">DefaultConfig</a>（在 Path、ConfigurationLoader 或 File 加上 annotation）</dt>
 <dd>用于注入插件的特定配置文件： <code class="docutils literal notranslate"><span class="pre">&lt;Plugin#id&gt;.conf</span></code> 。</dd>
-<dt><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/asset/AssetId.html">AssetId</a> (annotation on Asset)</dt>
+<dt><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/asset/AssetId.html">AssetId</a> (annotation on Asset)</dt>
 <dd>Used to inject a <code class="docutils literal notranslate"><span class="pre">Asset</span></code> from the asset folder of the plugin</dd>
-<dt><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/scheduler/AsynchronousExecutor.html">AsynchronousExecutor</a> (annotation on SpongeExecutorService)</dt>
+<dt><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/scheduler/AsynchronousExecutor.html">AsynchronousExecutor</a> (annotation on SpongeExecutorService)</dt>
 <dd>Used to inject the plugin’s specific AsynchronousExecutor</dd>
-<dt><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/scheduler/SynchronousExecutor.html">SynchronousExecutor</a> (annotation on SpongeExecutorService)</dt>
+<dt><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/scheduler/SynchronousExecutor.html">SynchronousExecutor</a> (annotation on SpongeExecutorService)</dt>
 <dd>Used to inject the plugin’s specific SynchronousExecutor</dd>
-<dt><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/network/ChannelId.html">ChannelId</a> (annotation on ChannelBinding.IndexedMessageChannel or ChannelBinding.RawDataChannel)</dt>
+<dt><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/network/ChannelId.html">ChannelId</a> (annotation on ChannelBinding.IndexedMessageChannel or ChannelBinding.RawDataChannel)</dt>
 <dd>Used to inject a <code class="docutils literal notranslate"><span class="pre">ChannelBinding</span></code> with the given channel id</dd>
-<dt><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/asset/Asset.html">Asset</a></dt>
+<dt><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/asset/Asset.html">Asset</a></dt>
 <dd>Must be annotated with <code class="docutils literal notranslate"><span class="pre">&#64;AssetId</span></code>.</dd>
-<dt><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/scheduler/SpongeExecutorService.html">SpongeExecutorService</a></dt>
+<dt><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/scheduler/SpongeExecutorService.html">SpongeExecutorService</a></dt>
 <dd>Must be annotated with either <code class="docutils literal notranslate"><span class="pre">&#64;AsynchronousExecutor</span></code> or <code class="docutils literal notranslate"><span class="pre">&#64;SynchronousExecutor</span></code>.
 Depending on the annotation given this will contain a reference to the plugin’s specific
 Asynchronous or Synchronous Executor.</dd>
 <dt><a class="reference external" href="https://configurate.aoeu.xyz/apidocs/ninja/leaping/configurate/loader/ConfigurationLoader.html">ConfigurationLoader&lt;CommentedConfigurationNode&gt;</a></dt>
 <dd>必须使用 <code class="docutils literal notranslate"><span class="pre">&#64;DefaultConfig</span></code> 注解。用于注入根据拥有相同注解的 <code class="docutils literal notranslate"><span class="pre">File</span></code> 预先生成的 <code class="docutils literal notranslate"><span class="pre">ConfigurationLoader</span></code> 。</dd>
-<dt><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/EventManager.html">EventManager</a></dt>
+<dt><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/EventManager.html">EventManager</a></dt>
 <dd>管理事件的注册和触发。</dd>
 <dt>File</dt>
 <dd>必须使用 <code class="docutils literal notranslate"><span class="pre">&#64;DefaultConfig</span></code> 或 <code class="docutils literal notranslate"><span class="pre">&#64;ConfigDir</span></code> 注解。根据给定的注解注入插件的默认配置文件或配置目录。然而，我们更建议使用 Path（见下）。</dd>
-<dt><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/Game.html">Game</a></dt>
+<dt><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/Game.html">Game</a></dt>
 <dd><code class="docutils literal notranslate"><span class="pre">Game</span></code> 对象是 SpongeAPI 的核心访问器。</dd>
-<dt><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/GameRegistry.html">GameRegistry</a></dt>
+<dt><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/GameRegistry.html">GameRegistry</a></dt>
 <dd>以简单的方式通过一个 <code class="docutils literal notranslate"><span class="pre">Game</span></code> 获取类型。</dd>
 <dt><a class="reference external" href="https://configurate.aoeu.xyz/apidocs/ninja/leaping/configurate/objectmapping/GuiceObjectMapperFactory.html">GuiceObjectMapperFactory</a></dt>
 <dd>一个 Configurate 提供的用于更容易地建立对象和配置节点之间的映射的工具。参见 <a class="reference internal" href="configuration/serialization.html"><span class="doc">序列化对象</span></a> 以获取其使用方法。</dd>
@@ -206,9 +195,9 @@ Asynchronous or Synchronous Executor.</dd>
 <dd>用于标识插件用于发送日志消息的日志记录器。</dd>
 <dt>Path</dt>
 <dd>必须使用 <code class="docutils literal notranslate"><span class="pre">&#64;DefaultConfig</span></code> 或 <code class="docutils literal notranslate"><span class="pre">&#64;ConfigDir</span></code> 注解。根据给定的注解注入插件的默认配置文件或配置目录的路径。</dd>
-<dt><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/plugin/PluginContainer.html">PluginContainer</a></dt>
-<dd><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/plugin/Plugin.html">Plugin</a> 类的一层包装，用于更容易地获取注解的信息。</dd>
-<dt><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/plugin/PluginManager.html">PluginManager</a></dt>
+<dt><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/plugin/PluginContainer.html">PluginContainer</a></dt>
+<dd><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/plugin/Plugin.html">Plugin</a> 类的一层包装，用于更容易地获取注解的信息。</dd>
+<dt><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/plugin/PluginManager.html">PluginManager</a></dt>
 <dd>用于管理被加载的插件。你可以通过它获得另一个插件的 <code class="docutils literal notranslate"><span class="pre">PluginContainer</span></code> 。</dd>
 </dl>
 </div>
@@ -228,7 +217,7 @@ Asynchronous or Synchronous Executor.</dd>
 </div>
 <div class="section" id="game">
 <h3>Game<a class="headerlink" href="#game" title="本標題的永久連結">¶</a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">Game</span></code> 对象是调用 SpongeAPI 中的许多内部函数的开端，从 <code class="docutils literal notranslate"><span class="pre">EventManager</span></code> 到 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/Server.html">Server</a> ，甚至是同步或异步的 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/scheduler/Scheduler.html">Scheduler</a> 。</p>
+<p><code class="docutils literal notranslate"><span class="pre">Game</span></code> 对象是调用 SpongeAPI 中的许多内部函数的开端，从 <code class="docutils literal notranslate"><span class="pre">EventManager</span></code> 到 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/Server.html">Server</a> ，甚至是同步或异步的 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/scheduler/Scheduler.html">Scheduler</a> 。</p>
 <p>虽然可以通过 <code class="docutils literal notranslate"><span class="pre">Sponge.getGame()</span></code> 获取 <code class="docutils literal notranslate"><span class="pre">Game</span></code> 对象，但通常我们通过注入来获取。</p>
 <p><strong>範例 - Field</strong></p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">com.google.inject.Inject</span><span class="p">;</span>
@@ -261,7 +250,7 @@ Asynchronous or Synchronous Executor.</dd>
 </div>
 <div class="section" id="config-directory">
 <h3>設定資料夾<a class="headerlink" href="#config-directory" title="本標題的永久連結">¶</a></h3>
-<p>推荐的获取配置文件的方式是通过 Guice 和 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/config/ConfigDir.html">ConfigDir</a> 注解。</p>
+<p>推荐的获取配置文件的方式是通过 Guice 和 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/config/ConfigDir.html">ConfigDir</a> 注解。</p>
 <div class="admonition tip">
 <p class="first admonition-title">小訣竅</p>
 <p class="last">如果你设置 <code class="docutils literal notranslate"><span class="pre">sharedRoot</span></code> 为 <code class="docutils literal notranslate"><span class="pre">true</span></code> ，那么你的 <code class="docutils literal notranslate"><span class="pre">ConfigDir</span></code> 将是同一个目录，其下（潜在地）包含有其他插件的配置文件。在大多数需要获取 <code class="docutils literal notranslate"><span class="pre">ConfigDir</span></code> 的情况下，这通常应该是 <code class="docutils literal notranslate"><span class="pre">false</span></code> 。</p>

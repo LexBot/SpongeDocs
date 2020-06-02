@@ -19,17 +19,6 @@
 
         <link rel="index" title="索引"
               href="../../genindex.html"/>        <link rel="search" title="搜尋" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 說明文件" href="../../index.html"/>        <link rel="up" title="插件指令" href="index.html"/>        <link rel="next" title="子指令" href="childcommands.html"/>        <link rel="prev" title="引數剖析" href="arguments.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -176,7 +165,7 @@
   <div class="section" id="command-flags">
 <h1>指令旗標<a class="headerlink" href="#command-flags" title="本標題的永久連結">¶</a></h1>
 <p>命令标志在想要定义额外的不应属于正常的命令参数的参数时很有帮助。</p>
-<p>若要创建一个命令标志，我们需要首先创建一个命令标志的 Builder。我们只需要简单地使用 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/args/GenericArguments.html">GenericArguments</a> 提供的 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/args/GenericArguments.html#flags--">GenericArguments#flags()</a> 方法就可以获取这一 Builder。然后我们就可以指定什么样的标志是我们想要的。注意标志被指定为一个参数。</p>
+<p>若要创建一个命令标志，我们需要首先创建一个命令标志的 Builder。我们只需要简单地使用 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/args/GenericArguments.html">GenericArguments</a> 提供的 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/args/GenericArguments.html#flags--">GenericArguments#flags()</a> 方法就可以获取这一 Builder。然后我们就可以指定什么样的标志是我们想要的。注意标志被指定为一个参数。</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.command.args.GenericArguments</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.spongepowered.api.command.spec.CommandSpec</span><span class="p">;</span>
 
@@ -186,8 +175,8 @@
     <span class="p">.</span><span class="na">build</span><span class="p">();</span>
 </pre></div>
 </div>
-<p>这将创建一个命令参数，因为当玩家执行 <code class="docutils literal notranslate"><span class="pre">/our-command</span> <span class="pre">-s</span></code> 时， <code class="docutils literal notranslate"><span class="pre">s</span></code> 这一标志将为真。注意 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/args/GenericArguments.html#none--">GenericArguments#none()</a> 方法会导致命令不会有任何的参数。如果你想要设置正常的命令参数和命令标志，你需要在 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/args/CommandFlags.Builder.html#buildWith-org.spongepowered.api.command.args.CommandElement-">CommandFlags.Builder#buildWith(CommandElement)</a> 这一方法中指定你的参数。</p>
-<p>现在我们仅仅指定了命令可以使用命令标志执行，然而我们还不能获取到标志对应的值。像上面指定的那个简单的布尔型标志，我们可以方便地检查其是否存在。在下面的示例中，我们将检查命令的 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/args/CommandContext.html">CommandContext</a> 是否有 <code class="docutils literal notranslate"><span class="pre">s</span></code> 这一标志。</p>
+<p>这将创建一个命令参数，因为当玩家执行 <code class="docutils literal notranslate"><span class="pre">/our-command</span> <span class="pre">-s</span></code> 时， <code class="docutils literal notranslate"><span class="pre">s</span></code> 这一标志将为真。注意 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/args/GenericArguments.html#none--">GenericArguments#none()</a> 方法会导致命令不会有任何的参数。如果你想要设置正常的命令参数和命令标志，你需要在 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/args/CommandFlags.Builder.html#buildWith-org.spongepowered.api.command.args.CommandElement-">CommandFlags.Builder#buildWith(CommandElement)</a> 这一方法中指定你的参数。</p>
+<p>现在我们仅仅指定了命令可以使用命令标志执行，然而我们还不能获取到标志对应的值。像上面指定的那个简单的布尔型标志，我们可以方便地检查其是否存在。在下面的示例中，我们将检查命令的 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/args/CommandContext.html">CommandContext</a> 是否有 <code class="docutils literal notranslate"><span class="pre">s</span></code> 这一标志。</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.text.Text</span><span class="p">;</span>
 
 <span class="k">if</span> <span class="p">(</span><span class="n">args</span><span class="p">.</span><span class="na">hasAny</span><span class="p">(</span><span class="s">&quot;s&quot;</span><span class="p">))</span> <span class="p">{</span>
@@ -197,7 +186,7 @@
 </div>
 <div class="section" id="permission-flags">
 <h2>權限旗標<a class="headerlink" href="#permission-flags" title="本標題的永久連結">¶</a></h2>
-<p>我们的命令标志设计实在是太美妙了，但是如果我们想要使玩家在只有特定权限的情况下使用标志呢？我们可以转而去使用 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/args/CommandFlags.Builder.html#permissionFlag-java.lang.String-java.lang.String...-">CommandFlags.Builder#permissionFlag(String, String…)</a> 方法设置我们的命令标志。这会要求玩家拥有特定权限才能去使用指定的命令标志，示例如下：</p>
+<p>我们的命令标志设计实在是太美妙了，但是如果我们想要使玩家在只有特定权限的情况下使用标志呢？我们可以转而去使用 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/args/CommandFlags.Builder.html#permissionFlag-java.lang.String-java.lang.String...-">CommandFlags.Builder#permissionFlag(String, String…)</a> 方法设置我们的命令标志。这会要求玩家拥有特定权限才能去使用指定的命令标志，示例如下：</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">CommandSpec</span> <span class="n">myCommand</span> <span class="o">=</span> <span class="n">CommandSpec</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
         <span class="p">.</span><span class="na">executor</span><span class="p">(</span><span class="k">new</span> <span class="n">MyCommand</span><span class="p">())</span>
         <span class="p">.</span><span class="na">arguments</span><span class="p">(</span><span class="n">GenericArguments</span><span class="p">.</span><span class="na">flags</span><span class="p">().</span><span class="na">permissionFlag</span><span class="p">(</span><span class="s">&quot;myplugin.command.flag&quot;</span><span class="p">,</span>
@@ -209,7 +198,7 @@
 </div>
 <div class="section" id="value-flags">
 <h2>數值旗標<a class="headerlink" href="#value-flags" title="本標題的永久連結">¶</a></h2>
-<p>当然，使用布尔值实在是太美妙了，但如果我们想要标志后追加一个字符串或者整数呢？现在就是 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/args/CommandFlags.Builder.html#valueFlag-org.spongepowered.api.command.args.CommandElement-java.lang.String...-">CommandFlags.Builder#valueFlag(CommandElement, String…)</a> 方法大显身手的时候了，我们可以使用 <code class="docutils literal notranslate"><span class="pre">valueFlag()</span></code> 这一方法指定我们想要附加的特定值类型，比如整数或者字符串。下面是一个设置整数类型附加值的例子：</p>
+<p>当然，使用布尔值实在是太美妙了，但如果我们想要标志后追加一个字符串或者整数呢？现在就是 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/args/CommandFlags.Builder.html#valueFlag-org.spongepowered.api.command.args.CommandElement-java.lang.String...-">CommandFlags.Builder#valueFlag(CommandElement, String…)</a> 方法大显身手的时候了，我们可以使用 <code class="docutils literal notranslate"><span class="pre">valueFlag()</span></code> 这一方法指定我们想要附加的特定值类型，比如整数或者字符串。下面是一个设置整数类型附加值的例子：</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">CommandSpec</span> <span class="n">myCommand</span> <span class="o">=</span> <span class="n">CommandSpec</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
         <span class="p">.</span><span class="na">executor</span><span class="p">(</span><span class="k">new</span> <span class="n">MyCommand</span><span class="p">())</span>
         <span class="p">.</span><span class="na">arguments</span><span class="p">(</span><span class="n">GenericArguments</span><span class="p">.</span><span class="na">flags</span><span class="p">().</span><span class="na">valueFlag</span><span class="p">(</span><span class="n">GenericArguments</span>
@@ -217,7 +206,7 @@
         <span class="p">.</span><span class="na">build</span><span class="p">();</span>
 </pre></div>
 </div>
-<p>你可以把 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/args/GenericArguments.html#integer-org.spongepowered.api.text.Text-">GenericArguments#integer(Text)</a> 替换成任何你想要指定的类型，例如 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/args/GenericArguments.html#string-org.spongepowered.api.text.Text-">GenericArguments#string(Text)</a> 。</p>
+<p>你可以把 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/args/GenericArguments.html#integer-org.spongepowered.api.text.Text-">GenericArguments#integer(Text)</a> 替换成任何你想要指定的类型，例如 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/args/GenericArguments.html#string-org.spongepowered.api.text.Text-">GenericArguments#string(Text)</a> 。</p>
 <p>现在我们可以在命令中检索命令标志，并把它附加的值当作正常的命令参数一样处理。我们只需要检查一下它是否存在：</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">java.util.Optional</span><span class="p">;</span>
 

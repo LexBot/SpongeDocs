@@ -19,17 +19,6 @@
 
         <link rel="index" title="Dizin"
               href="../../genindex.html"/>        <link rel="search" title="Ara" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 belgelendirme çalışması" href="../../index.html"/>        <link rel="up" title="Veri API’sı" href="index.html"/>        <link rel="next" title="İşlemler" href="transactions.html"/>        <link rel="prev" title="Anahtarları Kullanma" href="keys.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -205,7 +194,7 @@ try to heal someone (or something).</p>
 </div>
 <p>First, we need to check if our target has health data. We do so by first asking it to provide us with its health
 data by passing its class to the <code class="docutils literal notranslate"><span class="pre">get()</span></code> method. We get an <code class="docutils literal notranslate"><span class="pre">Optional</span></code> which we can use for our check.
-This <code class="docutils literal notranslate"><span class="pre">Optional</span></code> will be absent if either our target does not support <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/manipulator/mutable/entity/HealthData.html">HealthData</a> or if it supports it but
+This <code class="docutils literal notranslate"><span class="pre">Optional</span></code> will be absent if either our target does not support <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/manipulator/mutable/entity/HealthData.html">HealthData</a> or if it supports it but
 at the present moment does not hold any health data.</p>
 <p>Sağlık verileri mevcutsa, artık veri sahibi üzerinde bulunan verilerin değiştirilebilir bir kopyasını içerir. Değişikliklerimizi yaparız ve nihayet değiştirilen veriyi kabul edildiği yerde tekrar hedefimize geri getiririz (yine, ‘’ offer () ‘’ a :javadoc: ‘DataTransactionResult’ bu, bu örneği de gözardı edeceğiz ve şunlara geri döneceğiz :doc: ‘daha sonraki bir noktada&lt;transactions&gt;’).</p>
 <p>Gördüğünüz gibi ‘’ health () ‘’ ve ‘’ maxHealth () ‘’ sonuçları yine :javadoc: ‘DataHolder’ den elde ettiğimiz anahtar değerlerdir. ‘’ Health () ‘’ çağrısından aldığımız :javadoc: ‘MutableBoundedValue’, sadece bir verinin bir kopyasını içerdiğinden önce değişiklikleri uygulamanız gerekiyor::javadoc: ‘DataManipulator’, ‘healthData’’ hedefimize döndü.</p>
@@ -276,7 +265,7 @@ with our data, we can rest assured that it will not be changed.</p>
 <p>Verilerin mevcut olmadığı ve varsayılan değerlerden oluşan veriler arasında büyük bir anlamsal fark vardır. İkincisi her zaman mümkün olmakla birlikte, bir <code class="docutils literal notranslate"><span class="pre">DataHolder</span></code> ‘ın bir tür veriyi desteklemesi ve ardından tutması olanaksız olduğu durumlar vardır. Bunların örnekleri şunları içerir:</p>
 <ul class="simple">
 <li><code class="docutils literal notranslate"><span class="pre">HealthData</span></code> onu destekleyen her (vanilla)``DataHolder``da daima belirlidir</li>
-<li><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/manipulator/mutable/DisplayNameData.html">DisplayNameData</a>, :javadoc:<a href="#id1"><span class="problematic" id="id2">`</span></a>Player`da daima belirlidir, fakat diğer entity’lerde bulunmayabilir.</li>
+<li><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/manipulator/mutable/DisplayNameData.html">DisplayNameData</a>, :javadoc:<a href="#id1"><span class="problematic" id="id2">`</span></a>Player`da daima belirlidir, fakat diğer entity’lerde bulunmayabilir.</li>
 </ul>
 </div>
 </div>

@@ -19,17 +19,6 @@
 
         <link rel="index" title="索引"
               href="../../genindex.html"/>        <link rel="search" title="搜索" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 文档" href="../../index.html"/>        <link rel="up" title="插件开发" href="../index.html"/>        <link rel="next" title="世界生成修改器" href="modifiers.html"/>        <link rel="prev" title="实现一个经济 API" href="../economy/implementing.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -187,16 +176,16 @@
 <p class="first admonition-title">注解</p>
 <p class="last">这一生成阶段中的方块放置完全在缓冲区内进行，也就是说在该阶段的最后一步结束后才会创建 Chunk 对象。</p>
 </div>
-<p>首先，游戏将会在一个 2D 的生物群系图的缓存下生成生物群系，该缓存下的每一格都将对应真实世界地图区块中的 1x1 的一竖列方块。然后，基础的 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/gen/GenerationPopulator.html">GenerationPopulator</a> 生成地形的基本形状。这时的世界是完全由石头组成的。默认生成只是简单地根据柏林噪声（Perlin Noise）生成的高度图，然后进行填充——在高于海平面的地方填充空气，在低于海平面的地方填充水。这一步可以通过 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/gen/WorldGenerator.html#setBaseGenerationPopulator-org.spongepowered.api.world.gen.GenerationPopulator-">WorldGenerator#setBaseGenerationPopulator(GenerationPopulator)</a> 方法将默认的行为替换成你自己的世界生成行为。</p>
-<p>然后，使用上面提到的生物群系缓存，世界生成器开始把世界表层的方块以生物群系的 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/biome/GroundCoverLayer.html">GroundCoverLayer</a> 所指定的替换层数替换为同样由其所指定的 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/block/BlockState.html">BlockState</a> 。生物群系由 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/gen/BiomeGenerator.html">BiomeGenerator</a> 提供——这可以当作 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/gen/WorldGenerator.html#setBiomeGenerator-org.spongepowered.api.world.gen.BiomeGenerator-">WorldGenerator#setBiomeGenerator(BiomeGenerator)</a> 的参数传入。</p>
-<p>现在我们注意到基础的地形生成已经完成了，这时该轮到 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/gen/GenerationPopulator.html">GenerationPopulator</a> 开始工作了。 <code class="docutils literal notranslate"><span class="pre">GenerationPopulator</span></code> 分为两种类型：用于普适的世界生成与用于特定生物群系的世界生成。用于特定区块的世界生成的 <code class="docutils literal notranslate"><span class="pre">GenerationPopulator</span></code> 的集合，是所有该区块内存在的生物群系适用的 <code class="docutils literal notranslate"><span class="pre">GenerationPopulator</span></code> 的联合。</p>
+<p>首先，游戏将会在一个 2D 的生物群系图的缓存下生成生物群系，该缓存下的每一格都将对应真实世界地图区块中的 1x1 的一竖列方块。然后，基础的 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/world/gen/GenerationPopulator.html">GenerationPopulator</a> 生成地形的基本形状。这时的世界是完全由石头组成的。默认生成只是简单地根据柏林噪声（Perlin Noise）生成的高度图，然后进行填充——在高于海平面的地方填充空气，在低于海平面的地方填充水。这一步可以通过 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/world/gen/WorldGenerator.html#setBaseGenerationPopulator-org.spongepowered.api.world.gen.GenerationPopulator-">WorldGenerator#setBaseGenerationPopulator(GenerationPopulator)</a> 方法将默认的行为替换成你自己的世界生成行为。</p>
+<p>然后，使用上面提到的生物群系缓存，世界生成器开始把世界表层的方块以生物群系的 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/world/biome/GroundCoverLayer.html">GroundCoverLayer</a> 所指定的替换层数替换为同样由其所指定的 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/block/BlockState.html">BlockState</a> 。生物群系由 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/world/gen/BiomeGenerator.html">BiomeGenerator</a> 提供——这可以当作 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/world/gen/WorldGenerator.html#setBiomeGenerator-org.spongepowered.api.world.gen.BiomeGenerator-">WorldGenerator#setBiomeGenerator(BiomeGenerator)</a> 的参数传入。</p>
+<p>现在我们注意到基础的地形生成已经完成了，这时该轮到 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/world/gen/GenerationPopulator.html">GenerationPopulator</a> 开始工作了。 <code class="docutils literal notranslate"><span class="pre">GenerationPopulator</span></code> 分为两种类型：用于普适的世界生成与用于特定生物群系的世界生成。用于特定区块的世界生成的 <code class="docutils literal notranslate"><span class="pre">GenerationPopulator</span></code> 的集合，是所有该区块内存在的生物群系适用的 <code class="docutils literal notranslate"><span class="pre">GenerationPopulator</span></code> 的联合。</p>
 <p><code class="docutils literal notranslate"><span class="pre">GenerationPopulator</span></code> 被设计成用于大型的密集操作，也就是说被设计应用于缓冲区而不是尚未存在的 Chunk 对象。这意味着必须限制 <code class="docutils literal notranslate"><span class="pre">GenerationPopulator</span></code> 不得放置位于当前生成的区块外的方块。也就是说如果一个 <code class="docutils literal notranslate"><span class="pre">GenerationPopulator</span></code> 生成的方块跨越了多个区块，那么它们必须按照区块边界切开成小块，并且按照世界种子及其所在的区块坐标决定目前在世界上生成的是哪一小块。</p>
 <p>最后，当基本的地形生成完毕，生物群系已应用其上， <code class="docutils literal notranslate"><span class="pre">GenerationPopulator</span></code> 也已运行完成后，我们就完成了世界生成的 Generation 阶段，同时 Chunk 对象将构建生成并返回。</p>
 </div>
 <div class="section" id="the-population-phase">
 <h3>Population 阶段<a class="headerlink" href="#the-population-phase" title="永久链接至标题">¶</a></h3>
 <p><em>Population 阶段</em> 只会在一个区块及其 X 轴与 Z 轴相邻的正方向的三个区块都被加载时进行世界生成。这允许在这一阶段的某种特性（Object）在不需要为 <code class="docutils literal notranslate"><span class="pre">GenerationPopulator</span></code> 进行部分生成的情况下，扩展到已经生成的 16x16 区块外。为了支持这一点，实际的 16x16 大小区块的生成会在 X 轴和 Z 轴的方向进行各 8 格的偏移。</p>
-<p>只有位于 <code class="docutils literal notranslate"><span class="pre">(x*16+16,</span> <span class="pre">0,</span> <span class="pre">z*16+16)</span></code> 处的生物群系中的 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/gen/Populator.html">Populator</a> 才会应用于这一块。也就是说游戏不会将所有该区域中的 <code class="docutils literal notranslate"><span class="pre">GenerationPopulator</span></code> 联合到一起。</p>
+<p>只有位于 <code class="docutils literal notranslate"><span class="pre">(x*16+16,</span> <span class="pre">0,</span> <span class="pre">z*16+16)</span></code> 处的生物群系中的 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/world/gen/Populator.html">Populator</a> 才会应用于这一块。也就是说游戏不会将所有该区域中的 <code class="docutils literal notranslate"><span class="pre">GenerationPopulator</span></code> 联合到一起。</p>
 <p><code class="docutils literal notranslate"><span class="pre">Populator</span></code> 可以用于生成小的建筑（如沙漠水井等）或者附加的地形特征（如树等）。Sponge 提供了大量的原版的可复用的世界生成的 <code class="docutils literal notranslate"><span class="pre">Populator</span></code> ，开发者可以通过对它们的配置进行复用。</p>
 </div>
 </div>

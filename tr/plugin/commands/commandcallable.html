@@ -19,17 +19,6 @@
 
         <link rel="index" title="Dizin"
               href="../../genindex.html"/>        <link rel="search" title="Ara" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 belgelendirme çalışması" href="../../index.html"/>        <link rel="up" title="Plugin Commands" href="index.html"/>        <link rel="next" title="Etkinlikler" href="../event/index.html"/>        <link rel="prev" title="Komut Yöneticisi" href="service.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -175,7 +164,7 @@
            <div itemprop="articleBody">
   <div class="section" id="low-level-command-api">
 <h1>Düşük Seviye Komut API’sı<a class="headerlink" href="#low-level-command-api" title="Bu başlığın kalıcı bağlantısı">¶</a></h1>
-<p><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/CommandCallable.html">CommandCallable</a> ve <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/dispatcher/Dispatcher.html">Dispatcher</a> arayüzlerinin komutlarını tanımlamak için kullanılabilir. Arayüzler, özel komut API’leri için bir temel olarak kullanılabilir.</p>
+<p><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/CommandCallable.html">CommandCallable</a> ve <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/dispatcher/Dispatcher.html">Dispatcher</a> arayüzlerinin komutlarını tanımlamak için kullanılabilir. Arayüzler, özel komut API’leri için bir temel olarak kullanılabilir.</p>
 <p>Basit komut tanımları için <a class="reference internal" href="creating.html"><span class="doc">Command Builder API</span></a> yı kullanmanız önerilir.</p>
 <div class="section" id="writing-a-command">
 <h2>Bir komut yazma<a class="headerlink" href="#writing-a-command" title="Bu başlığın kalıcı bağlantısı">¶</a></h2>
@@ -226,12 +215,12 @@
 </div>
 <div class="admonition tip">
 <p class="first admonition-title">Tüyo</p>
-<p class="last">Bu örnekteki her yöntemin kullanımı için JavaDoc için <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/CommandCallable.html">CommandCallable</a> a bakın.</p>
+<p class="last">Bu örnekteki her yöntemin kullanımı için JavaDoc için <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/CommandCallable.html">CommandCallable</a> a bakın.</p>
 </div>
 </div>
 <div class="section" id="registering-the-command">
 <h2>Komutun kaydedilmesi<a class="headerlink" href="#registering-the-command" title="Bu başlığın kalıcı bağlantısı">¶</a></h2>
-<p>Şimdi <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/CommandManager.html">CommandManager</a> içindeki class’ı kaydedebiliriz. <code class="docutils literal notranslate"><span class="pre">CommandManager</span></code>, chat’e hangi komutların girildiğini kontrol edip onları doğru command handler’lara yönlendiren bir yönetim mekanizmasıdır. Komutunuzu kaydetmek için <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/CommandManager.html#register-java.lang.Object-org.spongepowered.api.command.CommandCallable-java.lang.String...-">CommandManager#register(Object, CommandCallable, String…)</a> metodunu kullanın, eklentinizi okutun, komutunuzun ve gerekli alternatif adlarının parametre olarak bir instance’ını oluşturun.</p>
+<p>Şimdi <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/CommandManager.html">CommandManager</a> içindeki class’ı kaydedebiliriz. <code class="docutils literal notranslate"><span class="pre">CommandManager</span></code>, chat’e hangi komutların girildiğini kontrol edip onları doğru command handler’lara yönlendiren bir yönetim mekanizmasıdır. Komutunuzu kaydetmek için <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/CommandManager.html#register-java.lang.Object-org.spongepowered.api.command.CommandCallable-java.lang.String...-">CommandManager#register(Object, CommandCallable, String…)</a> metodunu kullanın, eklentinizi okutun, komutunuzun ve gerekli alternatif adlarının parametre olarak bir instance’ını oluşturun.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.command.CommandManager</span><span class="p">;</span>
 
 <span class="n">CommandManager</span> <span class="n">cmdService</span> <span class="o">=</span> <span class="n">Sponge</span><span class="p">.</span><span class="na">getCommandManager</span><span class="p">();</span>

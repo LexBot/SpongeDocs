@@ -19,17 +19,6 @@
 
         <link rel="index" title="Indeks"
               href="../genindex.html"/>        <link rel="search" title="Pencarian" href="../search.html"/>    <link rel="top" title="dokumentasi Sponge 7.2.0" href="../index.html"/>        <link rel="up" title="Membuat Plugin" href="index.html"/>        <link rel="next" title="Layanan" href="services.html"/>        <link rel="prev" title="Hasil" href="effects.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -250,7 +239,7 @@
 </tr>
 </tbody>
 </table>
-<p>Terakhir, menyerahkan tugas scheduler menggunakan <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/scheduler/Task.Builder.html#submit-java.lang.Object-">Task.Builder#submit(Object)</a>.</p>
+<p>Terakhir, menyerahkan tugas scheduler menggunakan <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/scheduler/Task.Builder.html#submit-java.lang.Object-">Task.Builder#submit(Object)</a>.</p>
 <p>Dan hanya itu! Untuk meringkas, sepenuhnya fungsional tugas terjadwal yang akan berjalan asynchronously setiap 5 menit setelah awal keterlambatan dari 100 milidetik bisa dibangun dan disampaikan dengan menggunakan kode berikut:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">java.util.concurrent.TimeUnit</span><span class="p">;</span>
 
@@ -292,8 +281,8 @@ reaching 0.</p>
 </div>
 <div class="admonition warning">
 <p class="first admonition-title">Peringatan</p>
-<p class="last"><strong>Any</strong> scheduled tasks should either watch the current <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/GameState.html">state</a> of the <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/Game.html">Game</a> or
-should be unregistered if they are no longer needed (e.g. during a <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GameStoppingServerEvent.html">GameStoppingServerEvent</a>). This is of
+<p class="last"><strong>Any</strong> scheduled tasks should either watch the current <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/GameState.html">state</a> of the <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/Game.html">Game</a> or
+should be unregistered if they are no longer needed (e.g. during a <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/game/state/GameStoppingServerEvent.html">GameStoppingServerEvent</a>). This is of
 particular importance for the client because it can start and stop the server multiple times.</p>
 </div>
 </div>
@@ -320,8 +309,8 @@ with <cite>asynchronously</cite>, including:</p>
 </div>
 <div class="admonition warning">
 <p class="first admonition-title">Peringatan</p>
-<p class="last"><strong>Any</strong> scheduled tasks should either watch the current <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/GameState.html">state</a> of the <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/Game.html">Game</a> or
-should be unregistered if they are no longer needed (e.g. during a <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GameStoppingServerEvent.html">GameStoppingServerEvent</a>). This is of
+<p class="last"><strong>Any</strong> scheduled tasks should either watch the current <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/GameState.html">state</a> of the <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/Game.html">Game</a> or
+should be unregistered if they are no longer needed (e.g. during a <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/game/state/GameStoppingServerEvent.html">GameStoppingServerEvent</a>). This is of
 particular importance for the client because it can start and stop the server multiple times.</p>
 </div>
 </div>
@@ -331,8 +320,8 @@ particular importance for the client because it can start and stop the server mu
 <p>Sebagai plugin anda tumbuh dalam ukuran dan ruang lingkup anda mungkin ingin mulai menggunakan salah satu dari banyak concurrency perpustakaan, tersedia untuk Java dan JVM. Perpustakaan ini memang cenderung mendukung Java <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ExecutorService.html">ExecutorService</a> sebagai sarana untuk mengarahkan di mana benang tugas dijalankan.</p>
 <p>Untuk memungkinkan perpustakaan ini untuk bekerja dengan Spons <code class="docutils literal notranslate"><span class="pre">Scheduler</span></code> metode berikut dapat digunakan:</p>
 <ul class="simple">
-<li><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/scheduler/Scheduler.html#createSyncExecutor-java.lang.Object-">Scheduler#createSyncExecutor(Object)</a> menciptakan :javadoc: <cite>SpongeExecutorService</cite> yang menjalankan tugas-tugas melalui Spons sinkron scheduler.</li>
-<li><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/scheduler/Scheduler.html#createAsyncExecutor-java.lang.Object-">Scheduler#createAsyncExecutor(Object)</a> creates a <code class="docutils literal notranslate"><span class="pre">SpongeExecutorService</span></code> which executes tasks through
+<li><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/scheduler/Scheduler.html#createSyncExecutor-java.lang.Object-">Scheduler#createSyncExecutor(Object)</a> menciptakan :javadoc: <cite>SpongeExecutorService</cite> yang menjalankan tugas-tugas melalui Spons sinkron scheduler.</li>
+<li><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/scheduler/Scheduler.html#createAsyncExecutor-java.lang.Object-">Scheduler#createAsyncExecutor(Object)</a> creates a <code class="docutils literal notranslate"><span class="pre">SpongeExecutorService</span></code> which executes tasks through
 Sponge's asynchronous scheduler. Tasks are subject to the restrictions mentioned in <a class="reference internal" href="#asynchronous-tasks">Asynchronous Tasks</a>.</li>
 </ul>
 <p>Satu hal yang perlu diingat adalah bahwa tugas-tugas yang berinteraksi dengan Sponge di luar interaksi yang terdaftar di <a class="reference internal" href="#asynchronous-tasks">Asynchronous Tugas</a> butuh untuk dieksekusi pada ExecutorService dibuat dengan <cite>Scheduler#createSyncExecutor(Objek)</cite> untuk menjadi thread-safe.</p>

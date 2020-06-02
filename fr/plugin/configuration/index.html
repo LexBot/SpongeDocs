@@ -19,17 +19,6 @@
 
         <link rel="index" title="Index"
               href="../../genindex.html"/>        <link rel="search" title="Recherche" href="../../search.html"/>    <link rel="top" title="Documentation Sponge 7.2.0" href="../../index.html"/>        <link rel="up" title="Création d’un Plugin" href="../index.html"/>        <link rel="next" title="Loaders de Configuration" href="loaders.html"/>        <link rel="prev" title="Événements personnalisés" href="../event/custom.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -196,7 +185,7 @@ about working with its components.</p>
 </div>
 <div class="section" id="getting-your-default-plugin-configuration">
 <span id="getting-default-config"></span><h3>Votre Première Configuration par Défaut<a class="headerlink" href="#getting-your-default-plugin-configuration" title="Lien permanent vers ce titre">¶</a></h3>
-<p>SpongeAPI offre l’utilisation de l’annotation <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/config/DefaultConfig.html">DefaultConfig</a> sur une méthode ou un champ avec le type <code class="docutils literal notranslate"><span class="pre">Path</span></code> pour obtenir le fichier de configuration par défaut de votre plugin.</p>
+<p>SpongeAPI offre l’utilisation de l’annotation <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/config/DefaultConfig.html">DefaultConfig</a> sur une méthode ou un champ avec le type <code class="docutils literal notranslate"><span class="pre">Path</span></code> pour obtenir le fichier de configuration par défaut de votre plugin.</p>
 <p>Si vous placez l’annotation <code class="docutils literal notranslate"><span class="pre">&#64;DefaultConfig</span></code> sur un champ avec le type <code class="docutils literal notranslate"><span class="pre">ConfigurationLoader&lt;CommentedConfigurationNode&gt;</span></code>, alors vous pouvez l’utiliser pour charger et sauvegarder le fichier de configuration par défaut dans le système de fichiers. Merci de garder à l’esprit que le <code class="docutils literal notranslate"><span class="pre">ConfigurationLoader</span></code> annoté n’utilise pas un quelconque fichier de configuration par défaut que vous auriez pu mettre dans votre jar, à moins que vous ne le chargiez explicitement.</p>
 <p>L’annotation <code class="docutils literal notranslate"><span class="pre">&#64;DefaultConfig</span></code> exige un booléen <code class="docutils literal notranslate"><span class="pre">sharedRoot</span></code>. Si vous définissez <code class="docutils literal notranslate"><span class="pre">sharedRoot</span></code> sur <code class="docutils literal notranslate"><span class="pre">true</span></code>, le chemin d’accès retourné sera dans un répertoire de configuration partagé. Dans ce cas, le fichier de configuration pour votre plugin sera <code class="docutils literal notranslate"><span class="pre">your_plugin_id.conf</span></code>, où «&nbsp;your_plugin_id&nbsp;» est remplacé par l’ID de votre plugin.</p>
 <div class="admonition tip">
@@ -209,7 +198,7 @@ about working with its components.</p>
 <li>Si vous prévoyez d’avoir plusieurs fichiers de configuration (plugin complexe), vous devrez mettre la valeur sur <code class="docutils literal notranslate"><span class="pre">false</span></code>.</li>
 <li>Si vous envisagez d’avoir un seul fichier de configuration (plugin moins complexe), vous devrez mettre la valeur sur <code class="docutils literal notranslate"><span class="pre">true</span></code>.</li>
 </ul>
-<p>Vous pouvez également obtenir une instance de <code class="docutils literal notranslate"><span class="pre">Path</span></code> pointant sur le répertoire de config au lieu d’un fichier particulier. Juste l’avoir injecté à l’aide de l’annotation <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/config/ConfigDir.html">ConfigDir</a>, soit avec <code class="docutils literal notranslate"><span class="pre">sharedRoot</span></code> définit sur <code class="docutils literal notranslate"><span class="pre">false</span></code> pour un répertoire spécifique de plugin, ou sur <code class="docutils literal notranslate"><span class="pre">true</span></code> pour obtenir le répertoire de configuration partagé.</p>
+<p>Vous pouvez également obtenir une instance de <code class="docutils literal notranslate"><span class="pre">Path</span></code> pointant sur le répertoire de config au lieu d’un fichier particulier. Juste l’avoir injecté à l’aide de l’annotation <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/config/ConfigDir.html">ConfigDir</a>, soit avec <code class="docutils literal notranslate"><span class="pre">sharedRoot</span></code> définit sur <code class="docutils literal notranslate"><span class="pre">false</span></code> pour un répertoire spécifique de plugin, ou sur <code class="docutils literal notranslate"><span class="pre">true</span></code> pour obtenir le répertoire de configuration partagé.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">Bien qu’il soit possible de récupérer un <code class="docutils literal notranslate"><span class="pre">File</span></code> au lieu d’un <code class="docutils literal notranslate"><span class="pre">Path</span></code>, Configurate (et Sponge) recommandent d’utiliser <code class="docutils literal notranslate"><span class="pre">Path</span></code>.</p>

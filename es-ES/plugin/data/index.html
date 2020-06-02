@@ -19,17 +19,6 @@
 
         <link rel="index" title="Índice"
               href="../../genindex.html"/>        <link rel="search" title="Búsqueda" href="../../search.html"/>    <link rel="top" title="documentación de Sponge - 7.2.0" href="../../index.html"/>        <link rel="up" title="Creando un Plugin" href="../index.html"/>        <link rel="next" title="Datos Personalizados" href="custom/index.html"/>        <link rel="prev" title="La API de Activos" href="../assets.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -178,7 +167,7 @@
 <p>Where other approaches define the available data using interfaces and inheritance (like a <code class="docutils literal notranslate"><span class="pre">LivingEntity</span></code>
 interface providing getter and setter functions for current and maximum health), in Sponge every entity, block
 etc. is completely oblivious to what data it holds. While this may appear less straightforward than direct
-accessor methods, it is foremost far more extensible. And thanks to the addition of <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/key/Key.html">Key</a>s, simply accessing
+accessor methods, it is foremost far more extensible. And thanks to the addition of <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/key/Key.html">Key</a>s, simply accessing
 specific values is no less straightforward.</p>
 <div class="admonition tip">
 <p class="first admonition-title">Truco</p>
@@ -192,19 +181,19 @@ in the <code class="docutils literal notranslate"><span class="pre">#dev</span><
 <div class="section" id="catalogtypes">
 <h3>CatalogTypes<a class="headerlink" href="#catalogtypes" title="Enlazar permanentemente con este título">¶</a></h3>
 <p><a class="reference internal" href="catalog-types.html"><span class="doc">Catalog Types</span></a> are groups of values that can be used in certain context. Famous examples of these types are
-<a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/block/BlockType.html">BlockType</a>s, <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/EntityType.html">EntityType</a>s and <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/item/ItemType.html">ItemType</a>s.</p>
+<a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/block/BlockType.html">BlockType</a>s, <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/EntityType.html">EntityType</a>s and <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/item/ItemType.html">ItemType</a>s.</p>
 </div>
 <div class="section" id="dataholder">
 <h3>DataHolder<a class="headerlink" href="#dataholder" title="Enlazar permanentemente con este título">¶</a></h3>
-<p>Un contenedor de datos es justamente eso - algo que contiene datos. Provee métodos para buscar y recobrar información. La interfaz misma es completamente independiente de los datos almacenados. Ya que sólo las implementaciones tendrán este conocimiento, es posible pedirle a un <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/DataHolder.html">DataHolder</a> que provea información que no posee o que acepte información que no puede usar. En esos casos, los valores de retorno de los métodos, informarán que esos datos no están disponibles (a través de <code class="docutils literal notranslate"><span class="pre">Optional.empty()</span></code>) o que no fueron aceptados (a través de <a class="reference internal" href="transactions.html"><span class="doc">DataTransactionResult</span></a>).</p>
+<p>Un contenedor de datos es justamente eso - algo que contiene datos. Provee métodos para buscar y recobrar información. La interfaz misma es completamente independiente de los datos almacenados. Ya que sólo las implementaciones tendrán este conocimiento, es posible pedirle a un <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/DataHolder.html">DataHolder</a> que provea información que no posee o que acepte información que no puede usar. En esos casos, los valores de retorno de los métodos, informarán que esos datos no están disponibles (a través de <code class="docutils literal notranslate"><span class="pre">Optional.empty()</span></code>) o que no fueron aceptados (a través de <a class="reference internal" href="transactions.html"><span class="doc">DataTransactionResult</span></a>).</p>
 </div>
 <div class="section" id="property">
 <h3>Propiedad<a class="headerlink" href="#property" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>A property too is data, but not synchronized between server and clients. Therefore, it can only be
 changed by modifications present on both client and server. Since Sponge is not intended to require a
 client-side counterpart, properties are not modifiable.
-Examples of properties are the harvesting abilities on tools (represented as <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/property/item/HarvestingProperty.html">HarvestingProperty</a> or the damage
-absorption of an equipable armor item (represented as <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/property/item/DamageAbsorptionProperty.html">DamageAbsorptionProperty</a>).</p>
+Examples of properties are the harvesting abilities on tools (represented as <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/property/item/HarvestingProperty.html">HarvestingProperty</a> or the damage
+absorption of an equipable armor item (represented as <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/data/property/item/DamageAbsorptionProperty.html">DamageAbsorptionProperty</a>).</p>
 </div>
 <div class="section" id="datamanipulator">
 <h3>Manipulador de Datos<a class="headerlink" href="#datamanipulator" title="Enlazar permanentemente con este título">¶</a></h3>

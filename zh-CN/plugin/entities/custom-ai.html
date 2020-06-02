@@ -19,17 +19,6 @@
 
         <link rel="index" title="索引"
               href="../../genindex.html"/>        <link rel="search" title="搜索" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 文档" href="../../index.html"/>        <link rel="up" title="实体" href="index.html"/>        <link rel="next" title="物品" href="../items/index.html"/>        <link rel="prev" title="实体 AI" href="ai.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -173,7 +162,7 @@
            <div itemprop="articleBody">
   <div class="section" id="implement-your-own-aitasks">
 <h1>实现自定义 <code class="docutils literal notranslate"><span class="pre">AITask</span></code><a class="headerlink" href="#implement-your-own-aitasks" title="永久链接至标题">¶</a></h1>
-<p>在开始实现自定义 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/ai/task/AITask.html">AITask</a> 之前，首先要确保我们的工作环境已正确配置。请在按照“<a class="reference internal" href="../internals/mcp-setup.html"><span class="doc">在插件中使用 MCP</span></a>”一文中的流程操作。</p>
+<p>在开始实现自定义 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/ai/task/AITask.html">AITask</a> 之前，首先要确保我们的工作环境已正确配置。请在按照“<a class="reference internal" href="../internals/mcp-setup.html"><span class="doc">在插件中使用 MCP</span></a>”一文中的流程操作。</p>
 <p>下面列出了实现 <code class="docutils literal notranslate"><span class="pre">AITask</span></code> 时所有需要用到的类。</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">java.util.Comparator</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">java.util.Optional</span><span class="p">;</span>
@@ -202,7 +191,7 @@
 <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">MUTEX_FLAG_MOVE</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// Minecraft bit flag</span>
 </pre></div>
 </div>
-<p>如果你需要实现你自己的 <code class="docutils literal notranslate"><span class="pre">AITask</span></code>，你需要继承 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/ai/task/AbstractAITask.html">AbstractAITask</a>。下面是一个这样的完全自定义的 <code class="docutils literal notranslate"><span class="pre">AITask</span></code> 的例子。同时，我们需要为这个新的 <code class="docutils literal notranslate"><span class="pre">AITask</span></code> 生成一个新的 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/ai/task/AITaskType.html">AITaskType</a>。为了避免业务逻辑分散得到处都是，我们在这里只用一个静态字段以及一个 <code class="docutils literal notranslate"><span class="pre">register</span></code> 方法，如下所示：</p>
+<p>如果你需要实现你自己的 <code class="docutils literal notranslate"><span class="pre">AITask</span></code>，你需要继承 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/ai/task/AbstractAITask.html">AbstractAITask</a>。下面是一个这样的完全自定义的 <code class="docutils literal notranslate"><span class="pre">AITask</span></code> 的例子。同时，我们需要为这个新的 <code class="docutils literal notranslate"><span class="pre">AITask</span></code> 生成一个新的 <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/ai/task/AITaskType.html">AITaskType</a>。为了避免业务逻辑分散得到处都是，我们在这里只用一个静态字段以及一个 <code class="docutils literal notranslate"><span class="pre">register</span></code> 方法，如下所示：</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">CreepyCompanionAITask</span> <span class="kd">extends</span> <span class="n">AbstractAITask</span><span class="o">&lt;</span><span class="n">Agent</span><span class="o">&gt;</span> <span class="p">{</span>
 
     <span class="kd">private</span> <span class="kd">static</span> <span class="n">AITaskType</span> <span class="n">TYPE</span><span class="p">;</span>
@@ -290,7 +279,7 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>通常我们可以直接使用 owner 的 <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/util/Random.html">Random</a> 对象来获得随机数，但实际上任何随机数都可以。<a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/Entity.html">Entity</a> 有一个 <code class="docutils literal notranslate"><span class="pre">Random</span></code> 对象的原因只是为了避免重复创建多余的 <code class="docutils literal notranslate"><span class="pre">Random</span></code> 对象并散落得到处都是。</p>
+<p>通常我们可以直接使用 owner 的 <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/util/Random.html">Random</a> 对象来获得随机数，但实际上任何随机数都可以。<a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/Entity.html">Entity</a> 有一个 <code class="docutils literal notranslate"><span class="pre">Random</span></code> 对象的原因只是为了避免重复创建多余的 <code class="docutils literal notranslate"><span class="pre">Random</span></code> 对象并散落得到处都是。</p>
 <p>搜寻目标的逻辑非常简单明了：首先我们拿到当前世界中所有加载实体的列表，并使用 <code class="docutils literal notranslate"><span class="pre">entityFilter</span></code> 这个 <code class="docutils literal notranslate"><span class="pre">Predicate</span></code> 进行过滤，然后排除所有离得太远（这里是 20 格）的实体。你可以根据情况修改刚才提到的最大距离，但请注意这个距离越大，寻路的计算量也越大。</p>
 <p>在找到合适目标之后，我们只需要让实体向目标实体移动即可。在这里，移动速度是个非常关键的因素：速度太快会让它不小心错过目标，最后导致它在目标之间来回跑（所以请确保你计算出的可接受条件在合理范围之内），速度太慢的话又会令它看上去胜似原地踏步（不仅看上去很奇怪，而且对于“跟着 X”这样的 AITask 来说这未免有些滑稽）。</p>
 <p>上述代码中包含了一些提高可读性的辅助方法，下面给出了这些方法的实现：</p>

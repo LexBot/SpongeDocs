@@ -19,17 +19,6 @@
 
         <link rel="index" title="Index"
               href="../../genindex.html"/>        <link rel="search" title="Recherche" href="../../search.html"/>    <link rel="top" title="Documentation Sponge 7.2.0" href="../../index.html"/>        <link rel="up" title="Commandes de Plugin" href="index.html"/>        <link rel="next" title="Le gestionnaire de commandes" href="service.html"/>        <link rel="prev" title="Command Flags" href="flags.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -175,7 +164,7 @@
            <div itemprop="articleBody">
   <div class="section" id="child-commands">
 <h1>Sous-Commandes<a class="headerlink" href="#child-commands" title="Lien permanent vers ce titre">¶</a></h1>
-<p>Le constructeur <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/spec/CommandSpec.html">CommandSpec</a> supporte les commandes à structures hiérarchiques tel que:</p>
+<p>Le constructeur <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/spec/CommandSpec.html">CommandSpec</a> supporte les commandes à structures hiérarchiques tel que:</p>
 <ul class="simple">
 <li><code class="docutils literal notranslate"><span class="pre">/mail</span></code> (commande principale)<ul>
 <li><code class="docutils literal notranslate"><span class="pre">/mail</span> <span class="pre">send</span></code> (sous-commande)</li>
@@ -203,7 +192,7 @@
     <span class="p">.</span><span class="na">build</span><span class="p">();</span>
 </pre></div>
 </div>
-<p>Au lieu de les enregistrer dans le service de commande, les sous-commandes sont enregistrées dans la commande principale par le biais de la méthode <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/spec/CommandSpec.Builder.html#child-org.spongepowered.api.command.CommandCallable-java.lang.String...-">CommandSpec.Builder#child(CommandCallable, String…)</a>. Elles sont enregistrées avec la liste de leurs alias. Le premier alias fourni est le principal et apparaîtra dans la message d’aide d’utilisation.</p>
+<p>Au lieu de les enregistrer dans le service de commande, les sous-commandes sont enregistrées dans la commande principale par le biais de la méthode <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/spec/CommandSpec.Builder.html#child-org.spongepowered.api.command.CommandCallable-java.lang.String...-">CommandSpec.Builder#child(CommandCallable, String…)</a>. Elles sont enregistrées avec la liste de leurs alias. Le premier alias fourni est le principal et apparaîtra dans la message d’aide d’utilisation.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.Sponge</span><span class="p">;</span>
 
 <span class="n">PluginContainer</span> <span class="n">plugin</span> <span class="o">=</span> <span class="p">...;</span>
@@ -220,12 +209,12 @@
 </div>
 <div class="section" id="fallback-behavior">
 <h2>Comportement de Secours<a class="headerlink" href="#fallback-behavior" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Si une commande a une sous-commande, un <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/spec/CommandExecutor.html">CommandExecutor</a>, défini via <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/spec/CommandSpec.Builder.html#executor-org.spongepowered.api.command.spec.CommandExecutor-">CommandSpec.Builder#executor(CommandExecutor)</a> et ses <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/spec/CommandSpec.Builder.html#arguments-org.spongepowered.api.command.args.CommandElement-">CommandSpec.Builder#arguments(CommandElement)</a> associés sont optionnels. Le comportement des erreurs dans la sélection et la lecture des arguments des sous-commandes dépend de si l’exécuteur parent existe.</p>
-<p>Si un exécuteur parent n’a pas été défini, alors la sous-commande demandée ne pourra pas être trouvée ou l’argument ne pourra pas être lu, alors une <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/args/ArgumentParseException.html">ArgumentParseException</a> sera lancée.</p>
-<p>Si un exécuteur parent a été défini pour la commande parent, il est utilisé comme secours si le premier argument ne correspond à aucune sous-commande. Si une sous-commande est sélectionnée mais les arguments ne peuvent pas être lus, un des suivants arrivera par rapport à ce sur quoi <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/spec/CommandSpec.Builder.html#childArgumentParseExceptionFallback-boolean-">CommandSpec.Builder#childArgumentParseExceptionFallback(boolean)</a> est défini :</p>
+<p>Si une commande a une sous-commande, un <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/spec/CommandExecutor.html">CommandExecutor</a>, défini via <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/spec/CommandSpec.Builder.html#executor-org.spongepowered.api.command.spec.CommandExecutor-">CommandSpec.Builder#executor(CommandExecutor)</a> et ses <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/spec/CommandSpec.Builder.html#arguments-org.spongepowered.api.command.args.CommandElement-">CommandSpec.Builder#arguments(CommandElement)</a> associés sont optionnels. Le comportement des erreurs dans la sélection et la lecture des arguments des sous-commandes dépend de si l’exécuteur parent existe.</p>
+<p>Si un exécuteur parent n’a pas été défini, alors la sous-commande demandée ne pourra pas être trouvée ou l’argument ne pourra pas être lu, alors une <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/args/ArgumentParseException.html">ArgumentParseException</a> sera lancée.</p>
+<p>Si un exécuteur parent a été défini pour la commande parent, il est utilisé comme secours si le premier argument ne correspond à aucune sous-commande. Si une sous-commande est sélectionnée mais les arguments ne peuvent pas être lus, un des suivants arrivera par rapport à ce sur quoi <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/spec/CommandSpec.Builder.html#childArgumentParseExceptionFallback-boolean-">CommandSpec.Builder#childArgumentParseExceptionFallback(boolean)</a> est défini :</p>
 <ul class="simple">
-<li>Si <cite>true</cite> (par défaut), la <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/args/ArgumentParseException.html">ArgumentParseException</a> est annulée et les arguments de la commande parent sont lus. S’il ratent, l’exception de la commande parent sera affichée. C’est le même comportement que dans les versions précédentes de l’API, où les exceptions de lecture d’argument de la sou-commande ne seront pas affichées.</li>
-<li>Si <cite>false</cite>, l’exécuteur parent n’est pas exécuté et une <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/args/ArgumentParseException.html">ArgumentParseException</a> est lancée, retournant l’exception de l’argument de la sous-commande qui n’a pas pu être lu, mais peut empêcher certaines combinaisons de commandes parent et d’arguments d’être exécutés (si le premier argument du secours est le même que la sous-commande).</li>
+<li>Si <cite>true</cite> (par défaut), la <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/args/ArgumentParseException.html">ArgumentParseException</a> est annulée et les arguments de la commande parent sont lus. S’il ratent, l’exception de la commande parent sera affichée. C’est le même comportement que dans les versions précédentes de l’API, où les exceptions de lecture d’argument de la sou-commande ne seront pas affichées.</li>
+<li>Si <cite>false</cite>, l’exécuteur parent n’est pas exécuté et une <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/command/args/ArgumentParseException.html">ArgumentParseException</a> est lancée, retournant l’exception de l’argument de la sous-commande qui n’a pas pu être lu, mais peut empêcher certaines combinaisons de commandes parent et d’arguments d’être exécutés (si le premier argument du secours est le même que la sous-commande).</li>
 </ul>
 <p>Dans tous les cas, si l’argument est correctement lu mais que l’exécuteur enfant lance une exception, l’exécuteur de secours (s’il existe) n’est pas exécuté et le message d’erreur de l’exécuteur enfant est affiché.</p>
 </div>

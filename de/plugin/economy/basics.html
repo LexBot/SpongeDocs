@@ -19,17 +19,6 @@
 
         <link rel="index" title="Stichwortverzeichnis"
               href="../../genindex.html"/>        <link rel="search" title="Suche" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 Dokumentation" href="../../index.html"/>        <link rel="up" title="Wirtschaft" href="index.html"/>        <link rel="next" title="Verwenden der Economy API" href="using.html"/>        <link rel="prev" title="Wirtschaft" href="index.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -182,7 +171,7 @@
 </ul>
 <div class="section" id="the-economyservice">
 <h2>Der EconomyService<a class="headerlink" href="#the-economyservice" title="Link zu dieser Überschrift">¶</a></h2>
-<p>Der <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/economy/EconomyService.html">EconomyService</a> ist die Basis der Economy API. Dieser wird verwendet um mit der Economy API zu interagieren, speichert zudem die dazugehörigen Währungen und bietet Methoden zum Account-Management an.</p>
+<p>Der <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/economy/EconomyService.html">EconomyService</a> ist die Basis der Economy API. Dieser wird verwendet um mit der Economy API zu interagieren, speichert zudem die dazugehörigen Währungen und bietet Methoden zum Account-Management an.</p>
 <div class="admonition warning">
 <p class="first admonition-title">Warnung</p>
 <p class="last">Sponge stellt keine Standardimplementierung für den``EconomyService`` bereit. Es liegt an den Plugins selbst, die ‚Economy API‘ zu implementieren. Das heißt, dass du ein anderes Plugin brauchst, das diesen Service implementiert, oder dass du die ‚Economy API‘ selbst implementieren musst, wenn du von ihr Gebrauch machen möchtest.</p>
@@ -190,13 +179,13 @@
 </div>
 <div class="section" id="currency">
 <h2>Währung<a class="headerlink" href="#currency" title="Link zu dieser Überschrift">¶</a></h2>
-<p>The <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/economy/Currency.html">Currency</a> object represents a form of Currency. <code class="docutils literal notranslate"><span class="pre">Currency</span></code> stores a display name (plural and singular),
+<p>The <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/economy/Currency.html">Currency</a> object represents a form of Currency. <code class="docutils literal notranslate"><span class="pre">Currency</span></code> stores a display name (plural and singular),
 a symbol, the number of fractional digits, and whether the currency is the default currency for the economy. If the
 economy plugin chooses, it can support multiple currencies.</p>
 </div>
 <div class="section" id="accounts">
 <h2>Konten<a class="headerlink" href="#accounts" title="Link zu dieser Überschrift">¶</a></h2>
-<p><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/economy/account/Account.html">Account</a>s are used to store economy information about a specific player or other object (i.e. bank,
+<p><a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/economy/account/Account.html">Account</a>s are used to store economy information about a specific player or other object (i.e. bank,
 business, entity). There are two account types in the Sponge Economy API:</p>
 <div class="section" id="virtual-accounts">
 <h3>Virtuelle Konten<a class="headerlink" href="#virtual-accounts" title="Link zu dieser Überschrift">¶</a></h3>
@@ -217,8 +206,8 @@ anything, but are commonly used for things such as banks, or non-players. To get
 <li>Withdraw: Occurs when an account has funds removed from it</li>
 <li>Transfer: Occurs when an account exchanges funds with another account</li>
 </ul>
-<p>When a transfer occurs, the <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/economy/EconomyTransactionEvent.html">EconomyTransactionEvent</a> is fired. Using this event, you can get the
-<a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/economy/transaction/TransactionResult.html">TransactionResult</a>. The <code class="docutils literal notranslate"><span class="pre">TransactionResult</span></code> stores data about the transaction that occurred, including:</p>
+<p>When a transfer occurs, the <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/event/economy/EconomyTransactionEvent.html">EconomyTransactionEvent</a> is fired. Using this event, you can get the
+<a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/economy/transaction/TransactionResult.html">TransactionResult</a>. The <code class="docutils literal notranslate"><span class="pre">TransactionResult</span></code> stores data about the transaction that occurred, including:</p>
 <ul class="simple">
 <li>Account involved</li>
 <li>Currency involved</li>
@@ -226,7 +215,7 @@ anything, but are commonly used for things such as banks, or non-players. To get
 <li>Transaction type</li>
 <li>Result of the transaction</li>
 </ul>
-<p>You can view all possible transaction results on the <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/economy/transaction/ResultType.html">ResultType</a> JavaDocs page.</p>
+<p>You can view all possible transaction results on the <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/economy/transaction/ResultType.html">ResultType</a> JavaDocs page.</p>
 </div>
 </div>
 

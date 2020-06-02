@@ -19,17 +19,6 @@
 
         <link rel="index" title="Índice"
               href="../genindex.html"/>        <link rel="search" title="Búsqueda" href="../search.html"/>    <link rel="top" title="documentación de Sponge - 7.2.0" href="../index.html"/>        <link rel="up" title="Creando un Plugin" href="index.html"/>        <link rel="next" title="Permisos" href="permissions.html"/>        <link rel="prev" title="Servicios" href="services.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -217,7 +206,7 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>Las URL de JDBC deben obtenerse de <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/sql/SqlService.html#getConnectionUrlFromAlias​​-java.lang.String-">SqlService#getConnectionUrlFromAlias​​(String)</a>, con un alias que coincida con uno de los alias de JDBC URL listados en la configuración global de Sponge (<code class="docutils literal notranslate"><span class="pre">config/sponge/global.conf</span></code>) bajo la clave ` <cite>sponge.sql.aliases`</cite>.</p>
+<p>Las URL de JDBC deben obtenerse de <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/service/sql/SqlService.html#getConnectionUrlFromAlias​​-java.lang.String-">SqlService#getConnectionUrlFromAlias​​(String)</a>, con un alias que coincida con uno de los alias de JDBC URL listados en la configuración global de Sponge (<code class="docutils literal notranslate"><span class="pre">config/sponge/global.conf</span></code>) bajo la clave ` <cite>sponge.sql.aliases`</cite>.</p>
 <p>El servicio SQL ofrece una conexión agrupada, con lo cual conseguir una  conexión de la “Fuente de Datos” devuelta  no es costoso. Por ese motivo, recomendamos no mantener conexiones sueltas y cerrarlas apenas han sido usadas, como se  muestra más arriba. Cualquier <code class="docutils literal notranslate"><span class="pre">PreparedStatement</span></code> y <code class="docutils literal notranslate"><span class="pre">ResultSet</span></code> creados, también deben cerrarse luego de ser usados,con  <code class="docutils literal notranslate"><span class="pre">object.close()</span></code> o, preferentemente, a través de un bloque trata-con-recursos.</p>
 </div>
 </div>

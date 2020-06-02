@@ -19,17 +19,6 @@
 
         <link rel="index" title="Індекс"
               href="../genindex.html"/>        <link rel="search" title="Пошук" href="../search.html"/>    <link rel="top" title="Sponge 7.2.0 documentation" href="../index.html"/>        <link rel="up" title="Creating a Plugin" href="index.html"/>        <link rel="next" title="Plugin Metadata" href="plugin-meta.html"/>        <link rel="prev" title="Offline Player Data" href="offline-userplayer-data.html"/>
-    <!-- Google Analytics -->
-    <script>
-        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
-        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
-        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-59476017-2', 'auto');
-        ga('send', 'pageview');
-    </script>
-
   <script src="../_static/js/modernizr.min.js"></script>
 
 </head>
@@ -168,7 +157,7 @@
 <h1>Tab Lists<a class="headerlink" href="#tab-lists" title="Постійне посилання на цей заголовок">¶</a></h1>
 <p>Tab lists are used in Minecraft to display the list of players currently on a server. SpongeAPI allows for
 manipulation of the tab list on a per-player basis.</p>
-<p>To get a player’s <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/living/player/tab/TabList.html">TabList</a>, you simply need to call the <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/living/player/Player.html#getTabList--">Player#getTabList()</a> method:</p>
+<p>To get a player’s <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/living/player/tab/TabList.html">TabList</a>, you simply need to call the <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/living/player/Player.html#getTabList--">Player#getTabList()</a> method:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.entity.living.player.Player</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">org.spongepowered.api.entity.living.player.tab.TabList</span><span class="p">;</span>
 
@@ -184,14 +173,14 @@ the footer of the <code class="docutils literal notranslate"><span class="pre">T
 <span class="n">tablist</span><span class="p">.</span><span class="na">setFooter</span><span class="p">(</span><span class="n">Text</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">TextColors</span><span class="p">.</span><span class="na">RED</span><span class="p">,</span> <span class="s">&quot;The tab list footer&quot;</span><span class="p">));</span>
 </pre></div>
 </div>
-<p>We can call the <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/living/player/tab/TabList.html#setHeaderAndFooter-org.spongepowered.api.text.Text-org.spongepowered.api.text.Text-">TabList#setHeaderAndFooter(Text, Text)</a> method if we want to alter both of them at once:</p>
+<p>We can call the <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/living/player/tab/TabList.html#setHeaderAndFooter-org.spongepowered.api.text.Text-org.spongepowered.api.text.Text-">TabList#setHeaderAndFooter(Text, Text)</a> method if we want to alter both of them at once:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">tablist</span><span class="p">.</span><span class="na">setHeaderAndFooter</span><span class="p">(</span><span class="n">Text</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;header&quot;</span><span class="p">),</span> <span class="n">Text</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;footer&quot;</span><span class="p">));</span>
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Примітка</p>
 <p class="last">If you are wanting to alter the tab list header <em>and</em> footer, it is recommended to use the <code class="docutils literal notranslate"><span class="pre">setHeaderAndFooter()</span></code>
-method over individually calling the <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/living/player/tab/TabList.html#setHeader-org.spongepowered.api.text.Text-">TabList#setHeader(Text)</a> and <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/living/player/tab/TabList.html#setFooter-org.spongepowered.api.text.Text-">TabList#setFooter(Text)</a>
+method over individually calling the <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/living/player/tab/TabList.html#setHeader-org.spongepowered.api.text.Text-">TabList#setHeader(Text)</a> and <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/living/player/tab/TabList.html#setFooter-org.spongepowered.api.text.Text-">TabList#setFooter(Text)</a>
 methods, as it only sends one packet instead of two separate packets for the header and the footer.</p>
 </div>
 <div class="section" id="tab-list-entries">
@@ -210,14 +199,14 @@ of this is shown below:</p>
 <span class="n">tablist</span><span class="p">.</span><span class="na">addEntry</span><span class="p">(</span><span class="n">entry</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>Now let’s break this down. We set the list associated with the <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/living/player/tab/TabListEntry.html">TabListEntry</a> to our specified <code class="docutils literal notranslate"><span class="pre">TabList</span></code>
-using the <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/living/player/tab/TabListEntry.Builder.html#list-org.spongepowered.api.entity.living.player.tab.TabList-">TabListEntry.Builder#list(TabList)</a> method. We then set the game mode of our entry to
-<a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/living/player/gamemode/GameModes.html#SURVIVAL">GameModes#SURVIVAL</a>. The game mode of our entry is used to determine various things. On the client, it is
+<p>Now let’s break this down. We set the list associated with the <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/living/player/tab/TabListEntry.html">TabListEntry</a> to our specified <code class="docutils literal notranslate"><span class="pre">TabList</span></code>
+using the <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/living/player/tab/TabListEntry.Builder.html#list-org.spongepowered.api.entity.living.player.tab.TabList-">TabListEntry.Builder#list(TabList)</a> method. We then set the game mode of our entry to
+<a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/living/player/gamemode/GameModes.html#SURVIVAL">GameModes#SURVIVAL</a>. The game mode of our entry is used to determine various things. On the client, it is
 used to determine if a player is in creative or perhaps a spectator. If the game mode is spectator, then their name
 will also appear gray and italicized. We then need to specify the <code class="docutils literal notranslate"><span class="pre">GameProfile</span></code> that the entry is associated with.
 The <code class="docutils literal notranslate"><span class="pre">GameProfile</span></code> may be constructed using the <code class="docutils literal notranslate"><span class="pre">GameProfile#of()</span></code> method, or it can be obtained from a real
 profile, such as a player. For more information, see the <a class="reference internal" href="game-profile-manager.html"><span class="doc">Game Profile Manager</span></a> article. To apply the entry to the
-tab list, we simply need to call the <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/living/player/tab/TabList.html#addEntry-org.spongepowered.api.entity.living.player.tab.TabListEntry-">TabList#addEntry(TabListEntry)</a> method.</p>
+tab list, we simply need to call the <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/living/player/tab/TabList.html#addEntry-org.spongepowered.api.entity.living.player.tab.TabListEntry-">TabList#addEntry(TabListEntry)</a> method.</p>
 <p>We can flesh out our basic example by specifying things such as the display name or latency of the entry:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">TabListEntry</span> <span class="n">entry</span> <span class="o">=</span> <span class="n">TabListEntry</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
     <span class="p">.</span><span class="na">list</span><span class="p">(</span><span class="n">tablist</span><span class="p">)</span>
@@ -229,14 +218,14 @@ tab list, we simply need to call the <a class="reference external" href="https:/
 </pre></div>
 </div>
 <p>Here, we set the display name that our entry will appear under to <cite>Spongie</cite> using the
-<a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/living/player/tab/TabListEntry.Builder.html#displayName-org.spongepowered.api.text.Text-">TabListEntry.Builder#displayName(Text)</a> method. We then set the latency for our <code class="docutils literal notranslate"><span class="pre">TabListEntry</span></code> to five bars.
-See the <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/living/player/tab/TabListEntry.html#setLatency-int-">TabListEntry#setLatency(int)</a> method for more information on how to specify other types of bars for
+<a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/living/player/tab/TabListEntry.Builder.html#displayName-org.spongepowered.api.text.Text-">TabListEntry.Builder#displayName(Text)</a> method. We then set the latency for our <code class="docutils literal notranslate"><span class="pre">TabListEntry</span></code> to five bars.
+See the <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/living/player/tab/TabListEntry.html#setLatency-int-">TabListEntry#setLatency(int)</a> method for more information on how to specify other types of bars for
 our entry.</p>
 </div>
 <div class="section" id="modifying-current-entries">
 <h2>Modifying Current Entries<a class="headerlink" href="#modifying-current-entries" title="Постійне посилання на цей заголовок">¶</a></h2>
 <p>Using the <code class="docutils literal notranslate"><span class="pre">TabList</span></code>, we can obtain entries currently on the <code class="docutils literal notranslate"><span class="pre">TabList</span></code> for our own modification. To obtain a
-specific entry, use the <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/living/player/tab/TabList.html#getEntry-java.util.UUID-">TabList#getEntry(UUID)</a> method. This method will return <code class="docutils literal notranslate"><span class="pre">Optional.empty()</span></code> if the
+specific entry, use the <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/living/player/tab/TabList.html#getEntry-java.util.UUID-">TabList#getEntry(UUID)</a> method. This method will return <code class="docutils literal notranslate"><span class="pre">Optional.empty()</span></code> if the
 specified UUID cannot be found. An example is shown below:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">java.util.Optional</span><span class="p">;</span>
 
@@ -254,10 +243,10 @@ entry:</p>
 </pre></div>
 </div>
 <p>As an alternative to getting entries, we can also remove a specified entry. We must simply call the
-<a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/living/player/tab/TabList.html#removeEntry-java.util.UUID-">TabList#removeEntry(UUID)</a> method, specifying the <code class="docutils literal notranslate"><span class="pre">UUID</span></code> of the entry that we wish to remove. As with
+<a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/living/player/tab/TabList.html#removeEntry-java.util.UUID-">TabList#removeEntry(UUID)</a> method, specifying the <code class="docutils literal notranslate"><span class="pre">UUID</span></code> of the entry that we wish to remove. As with
 <code class="docutils literal notranslate"><span class="pre">getEntry(UUID)</span></code>, this will return <code class="docutils literal notranslate"><span class="pre">Optional.empty()</span></code> if the specified UUID cannot be found.</p>
 <p>If we don’t have a specific entry to modify, then we can iterate through all <code class="docutils literal notranslate"><span class="pre">TabListEntry</span></code>s in a <code class="docutils literal notranslate"><span class="pre">TabList</span></code>. We
-just need to call the <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/living/player/tab/TabList.html#getEntries--">TabList#getEntries()</a> method to obtain a <code class="docutils literal notranslate"><span class="pre">Collection&lt;TabListEntry&gt;</span></code> that we may
+just need to call the <a class="reference external" href="https://spongedl.neptunepowered.org/javadocs/7.2.0/org/spongepowered/api/entity/living/player/tab/TabList.html#getEntries--">TabList#getEntries()</a> method to obtain a <code class="docutils literal notranslate"><span class="pre">Collection&lt;TabListEntry&gt;</span></code> that we may
 iterate through.</p>
 </div>
 </div>
