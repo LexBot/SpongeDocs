@@ -1,0 +1,659 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>crwdns17969:0crwdne17969:0 &mdash; Sponge 7.2.0 documentation</title>
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>        <link rel="search" title="Search" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 documentation" href="../../index.html"/>        <link rel="up" title="crwdns18080:0crwdne18080:0" href="index.html"/>        <link rel="next" title="crwdns18165:0crwdne18165:0" href="../spongedocs.html"/>        <link rel="prev" title="crwdns18085:0crwdne18085:0" href="mixins.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../../index.html">
+            <img src="../../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../server/index.html">crwdns21189:0crwdne21189:0</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../versions/index.html">crwdns43724:0crwdne43724:0</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../preparing/index.html">crwdns20424:0crwdne20424:0</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../plugin/index.html">crwdns19348:0crwdne19348:0</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ore/index.html">crwdns18293:0crwdne18293:0</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">crwdns18123:0crwdne18123:0</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../guidelines.html">crwdns17839:0crwdne17839:0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../howtogit.html">crwdns17853:0crwdne17853:0</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">crwdns18080:0crwdne18080:0</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="codestyle.html">crwdns17932:0crwdne17932:0</a></li>
+<li class="toctree-l3"><a class="reference internal" href="git-implementation.html">crwdns18071:0crwdne18071:0</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pr.html">crwdns18095:0crwdne18095:0</a></li>
+<li class="toctree-l3"><a class="reference internal" href="debugging/index.html">crwdns43342:0crwdne43342:0</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mixins.html">crwdns18085:0crwdne18085:0</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">crwdns17969:0crwdne17969:0</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../spongedocs.html">crwdns18165:0crwdne18165:0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../porting.html">crwdns18155:0crwdne18155:0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../versioning.html">crwdns43600:0crwdne43600:0</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">crwdns17633:0crwdne17633:0</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+          <li><a href="../index.html">crwdns18123:0crwdne18123:0</a> &raquo;</li>
+          <li><a href="index.html">crwdns18080:0crwdne18080:0</a> &raquo;</li>
+    <li>crwdns17969:0crwdne17969:0</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/contributing/implementation/datamanipulator.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="implementing-datamanipulators">
+<h1>crwdns17969:0crwdne17969:0<a class="headerlink" href="#implementing-datamanipulators" title="Permalink to this headline">¶</a></h1>
+<p>crwdns17970:0crwdne17970:0</p>
+<p>crwdns41986:0:javadoc:crwdne41986:0</p>
+<ol class="arabic simple">
+<li>crwdns17972:0crwdne17972:0</li>
+<li>crwdns41987:0:javadoc:crwdne41987:0</li>
+</ol>
+<p>crwdns17974:0crwdne17974:0</p>
+<ol class="arabic simple" start="3">
+<li>crwdns41988:0:javadoc:crwdne41988:0</li>
+<li>crwdns17976:0crwdne17976:0</li>
+<li>crwdns41989:0:javadoc:crwdne41989:0</li>
+</ol>
+<p>crwdns37086:0crwdne37086:0</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">crwdns17979:0:doc:crwdne17979:0</p>
+</div>
+<p>crwdns41990:0crwdne41990:0</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.common.data.DataProcessor</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.common.data.ValueProcessor</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.common.data.manipulator.immutable.entity.ImmutableSpongeHealthData</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.common.data.manipulator.mutable.common.AbstractData</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.common.data.manipulator.mutable.entity.SpongeHealthData</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.common.data.processor.common.AbstractEntityDataProcessor</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.common.util.Constants</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.common.data.util.NbtDataUtil</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.common.registry.type.data.KeyRegistryModule</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="section" id="implement-the-datamanipulator">
+<h2>crwdns17980:0crwdne17980:0<a class="headerlink" href="#implement-the-datamanipulator" title="Permalink to this headline">¶</a></h2>
+<p>crwdns41991:0:javadoc:crwdne41991:0</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">SpongeHealthData</span> <span class="kd">extends</span> <span class="n">AbstractData</span><span class="o">&lt;</span><span class="n">HealthData</span><span class="p">,</span> <span class="n">ImmutableHealthData</span><span class="o">&gt;</span> <span class="kd">implements</span> <span class="n">HealthData</span> <span class="p">{</span>
+    <span class="o">[</span><span class="p">...</span><span class="o">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>crwdns17982:0crwdne17982:0</p>
+<div class="section" id="the-constructor">
+<h3>crwdns17983:0crwdne17983:0<a class="headerlink" href="#the-constructor" title="Permalink to this headline">¶</a></h3>
+<p>crwdns37064:0crwdne37064:0</p>
+<ul class="simple">
+<li>crwdns17985:0crwdne17985:0</li>
+<li>crwdns17986:0crwdne17986:0</li>
+</ul>
+<p>crwdns17987:0crwdne17987:0</p>
+<ul class="simple">
+<li>crwdns17988:0crwdne17988:0</li>
+<li>crwdns17989:0crwdne17989:0</li>
+<li>crwdns17990:0crwdne17990:0</li>
+</ul>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import static</span> <span class="nn">com.google.common.base.Preconditions.checkArgument</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SpongeHealthData</span> <span class="kd">extends</span> <span class="n">AbstractData</span><span class="o">&lt;</span><span class="n">HealthData</span><span class="p">,</span> <span class="n">ImmutableHealthData</span><span class="o">&gt;</span> <span class="kd">implements</span> <span class="n">HealthData</span> <span class="p">{</span>
+
+    <span class="kd">private</span> <span class="kt">double</span> <span class="n">health</span><span class="p">;</span>
+    <span class="kd">private</span> <span class="kt">double</span> <span class="n">maxHealth</span><span class="p">;</span>
+
+    <span class="kd">public</span> <span class="nf">SpongeHealthData</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">(</span><span class="mi">20</span><span class="n">D</span><span class="p">,</span> <span class="mi">20</span><span class="n">D</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="nf">SpongeHealthData</span><span class="p">(</span><span class="kt">double</span> <span class="n">health</span><span class="p">,</span> <span class="kt">double</span> <span class="n">maxHealth</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">super</span><span class="p">(</span><span class="n">HealthData</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+        <span class="n">checkArgument</span><span class="p">(</span><span class="n">maxHealth</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">health</span> <span class="o">=</span> <span class="n">health</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">maxHealth</span> <span class="o">=</span> <span class="n">maxHealth</span><span class="p">;</span>
+        <span class="n">registerGettersAndSetters</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="o">[</span><span class="p">...</span><span class="o">]</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>crwdns42530:0crwdne42530:0</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">crwdns42531:0crwdne42531:0</p>
+</div>
+</div>
+<div class="section" id="accessors-defined-by-the-interface">
+<h3>crwdns17993:0crwdne17993:0<a class="headerlink" href="#accessors-defined-by-the-interface" title="Permalink to this headline">¶</a></h3>
+<p>crwdns41993:0:javadoc:crwdnd41993:0:javadoc:crwdnd41993:0:javadoc:crwdne41993:0</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="n">MutableBoundedValue</span><span class="o">&lt;</span><span class="n">Double</span><span class="o">&gt;</span> <span class="nf">health</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">SpongeValueFactory</span><span class="p">.</span><span class="na">boundedBuilder</span><span class="p">(</span><span class="n">Keys</span><span class="p">.</span><span class="na">HEALTH</span><span class="p">)</span>
+        <span class="p">.</span><span class="na">minimum</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="p">.</span><span class="na">maximum</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">maxHealth</span><span class="p">)</span>
+        <span class="p">.</span><span class="na">defaultValue</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">maxHealth</span><span class="p">)</span>
+        <span class="p">.</span><span class="na">actualValue</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">health</span><span class="p">)</span>
+        <span class="p">.</span><span class="na">build</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">crwdns17995:0crwdne17995:0</p>
+</div>
+<p>crwdns41994:0:javadoc:crwdne41994:0</p>
+</div>
+<div class="section" id="copying-and-serialization">
+<h3>crwdns17997:0crwdne17997:0<a class="headerlink" href="#copying-and-serialization" title="Permalink to this headline">¶</a></h3>
+<p>crwdns41995:0:javadoc:crwdnd41995:0:javadoc:crwdne41995:0</p>
+<p>crwdns41996:0:javadoc:crwdnd41996:0:javadoc:crwdnd41996:0:javadoc:crwdnd41996:0:javadoc:crwdnd41996:0:javadoc:crwdne41996:0</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="n">DataContainer</span> <span class="nf">toContainer</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="kd">super</span><span class="p">.</span><span class="na">toContainer</span><span class="p">()</span>
+        <span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="n">Keys</span><span class="p">.</span><span class="na">HEALTH</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="na">health</span><span class="p">)</span>
+        <span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="n">Keys</span><span class="p">.</span><span class="na">MAX_HEALTH</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="na">maxHealth</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="registergettersandsetters">
+<h3>crwdns18000:0crwdne18000:0<a class="headerlink" href="#registergettersandsetters" title="Permalink to this headline">¶</a></h3>
+<p>crwdns18001:0crwdne18001:0</p>
+<ul class="simple">
+<li>crwdns41997:0:javadoc:crwdne41997:0</li>
+<li>crwdns41998:0:javadoc:crwdne41998:0</li>
+<li>crwdns18004:0crwdne18004:0</li>
+</ul>
+<p>crwdns18005:0crwdne18005:0</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">private</span> <span class="n">SpongeHealthData</span> <span class="nf">setCurrentHealthIfValid</span><span class="p">(</span><span class="kt">double</span> <span class="n">value</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">value</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">value</span> <span class="o">&lt;=</span> <span class="p">(</span><span class="kt">double</span><span class="p">)</span> <span class="n">Float</span><span class="p">.</span><span class="na">MAX_VALUE</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">health</span> <span class="o">=</span> <span class="n">value</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="k">throw</span> <span class="k">new</span> <span class="n">IllegalArgumentException</span><span class="p">(</span><span class="s">&quot;Invalid value for current health&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">private</span> <span class="n">SpongeHealthData</span> <span class="nf">setMaximumHealthIfValid</span><span class="p">(</span><span class="kt">double</span> <span class="n">value</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">value</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">value</span> <span class="o">&lt;=</span> <span class="p">(</span><span class="kt">double</span><span class="p">)</span> <span class="n">Float</span><span class="p">.</span><span class="na">MAX_VALUE</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">maxHealth</span> <span class="o">=</span> <span class="n">value</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="k">throw</span> <span class="k">new</span> <span class="n">IllegalArgumentException</span><span class="p">(</span><span class="s">&quot;Invalid value for maximum health&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">private</span> <span class="kt">void</span> <span class="nf">registerGettersAndSetters</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">registerFieldGetter</span><span class="p">(</span><span class="n">Keys</span><span class="p">.</span><span class="na">HEALTH</span><span class="p">,</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="k">this</span><span class="p">.</span><span class="na">health</span><span class="p">);</span>
+    <span class="n">registerFieldSetter</span><span class="p">(</span><span class="n">Keys</span><span class="p">.</span><span class="na">HEALTH</span><span class="p">,</span> <span class="k">this</span><span class="p">::</span><span class="n">setCurrentHealthIfValid</span><span class="p">);</span>
+    <span class="n">registerKeyValue</span><span class="p">(</span><span class="n">Keys</span><span class="p">.</span><span class="na">HEALTH</span><span class="p">,</span> <span class="k">this</span><span class="p">::</span><span class="n">health</span><span class="p">);</span>
+
+    <span class="n">registerFieldGetter</span><span class="p">(</span><span class="n">Keys</span><span class="p">.</span><span class="na">MAX_HEALTH</span><span class="p">,</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="k">this</span><span class="p">.</span><span class="na">maxHealth</span><span class="p">);</span>
+    <span class="n">registerFieldSetter</span><span class="p">(</span><span class="n">Keys</span><span class="p">.</span><span class="na">MAX_HEALTH</span><span class="p">,</span> <span class="k">this</span><span class="p">::</span><span class="n">setMaximumHealthIfValid</span><span class="p">);</span>
+    <span class="n">registerKeyValue</span><span class="p">(</span><span class="n">Keys</span><span class="p">.</span><span class="na">MAX_HEALTH</span><span class="p">,</span> <span class="k">this</span><span class="p">::</span><span class="n">maxHealth</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>crwdns41999:0:javadoc:crwdne41999:0</p>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">crwdns43930:0crwdne43930:0</p>
+</div>
+<p>crwdns18008:0crwdne18008:0</p>
+</div>
+</div>
+<div class="section" id="implement-the-immutabledatamanipulator">
+<h2>crwdns18009:0crwdne18009:0<a class="headerlink" href="#implement-the-immutabledatamanipulator" title="Permalink to this headline">¶</a></h2>
+<p>crwdns42001:0:javadoc:crwdne42001:0</p>
+<p>crwdns18011:0crwdne18011:0</p>
+<ul class="simple">
+<li>crwdns18012:0crwdne18012:0</li>
+<li>crwdns18013:0crwdne18013:0</li>
+<li>crwdns18014:0crwdne18014:0</li>
+</ul>
+<p>crwdns42532:0crwdne42532:0</p>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">crwdns18016:0crwdne18016:0</p>
+</div>
+</div>
+<div class="section" id="register-the-key-in-the-keyregistrymodule">
+<h2>crwdns42002:0crwdne42002:0<a class="headerlink" href="#register-the-key-in-the-keyregistrymodule" title="Permalink to this headline">¶</a></h2>
+<p>crwdns42003:0:javadoc:crwdnd42003:0:javadoc:crwdne42003:0</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import static</span> <span class="nn">org.spongepowered.api.data.DataQuery.of</span><span class="p">;</span>
+
+<span class="k">this</span><span class="p">.</span><span class="na">register</span><span class="p">(</span><span class="s">&quot;health&quot;</span><span class="p">,</span> <span class="n">Key</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
+        <span class="p">.</span><span class="na">type</span><span class="p">(</span><span class="n">TypeTokens</span><span class="p">.</span><span class="na">BOUNDED_DOUBLE_VALUE_TOKEN</span><span class="p">)</span>
+        <span class="p">.</span><span class="na">id</span><span class="p">(</span><span class="s">&quot;health&quot;</span><span class="p">)</span>
+        <span class="p">.</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;Health&quot;</span><span class="p">)</span>
+        <span class="p">.</span><span class="na">query</span><span class="p">(</span><span class="n">of</span><span class="p">(</span><span class="s">&quot;Health&quot;</span><span class="p">))</span>
+        <span class="p">.</span><span class="na">build</span><span class="p">());</span>
+<span class="k">this</span><span class="p">.</span><span class="na">register</span><span class="p">(</span><span class="s">&quot;max_health&quot;</span><span class="p">,</span> <span class="n">Key</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
+        <span class="p">.</span><span class="na">type</span><span class="p">(</span><span class="n">TypeTokens</span><span class="p">.</span><span class="na">BOUNDED_DOUBLE_VALUE_TOKEN</span><span class="p">)</span>
+        <span class="p">.</span><span class="na">id</span><span class="p">(</span><span class="s">&quot;max_health&quot;</span><span class="p">)</span>
+        <span class="p">.</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;Max Health&quot;</span><span class="p">)</span>
+        <span class="p">.</span><span class="na">query</span><span class="p">(</span><span class="n">of</span><span class="p">(</span><span class="s">&quot;MaxHealth&quot;</span><span class="p">))</span>
+        <span class="p">.</span><span class="na">build</span><span class="p">());</span>
+</pre></div>
+</div>
+<p>crwdns42004:0:javadoc:crwdnd42004:0:javadoc:crwdne42004:0</p>
+</div>
+<div class="section" id="implement-the-dataprocessors">
+<h2>crwdns18020:0crwdne18020:0<a class="headerlink" href="#implement-the-dataprocessors" title="Permalink to this headline">¶</a></h2>
+<p>crwdns18021:0crwdne18021:0</p>
+<p>crwdns42533:0crwdne42533:0</p>
+<p>crwdns18023:0crwdne18023:0</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">HealthDataProcessor</span>
+        <span class="kd">extends</span> <span class="n">AbstractEntityDataProcessor</span><span class="o">&lt;</span><span class="n">EntityLivingBase</span><span class="p">,</span> <span class="n">HealthData</span><span class="p">,</span> <span class="n">ImmutableHealthData</span><span class="o">&gt;</span> <span class="p">{</span>
+
+    <span class="kd">public</span> <span class="nf">HealthDataProcessor</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kd">super</span><span class="p">(</span><span class="n">EntityLivingBase</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="o">[</span><span class="p">...</span><span class="o">]</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>crwdns18024:0crwdne18024:0</p>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">crwdns42005:0crwdne42005:0</p>
+</div>
+<div class="section" id="validation-methods">
+<h3>crwdns18026:0crwdne18026:0<a class="headerlink" href="#validation-methods" title="Permalink to this headline">¶</a></h3>
+<p>crwdns42006:0crwdne42006:0</p>
+<p>crwdns18028:0crwdne18028:0</p>
+<p>crwdns18029:0crwdne18029:0</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Override</span>
+<span class="kd">protected</span> <span class="kt">boolean</span> <span class="nf">doesDataExist</span><span class="p">(</span><span class="n">EntityLivingBase</span> <span class="n">entity</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="setter-methods">
+<h3>crwdns18030:0crwdne18030:0<a class="headerlink" href="#setter-methods" title="Permalink to this headline">¶</a></h3>
+<p>crwdns18031:0crwdne18031:0</p>
+<p>crwdns18032:0crwdne18032:0</p>
+<p>crwdns18033:0crwdne18033:0</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Override</span>
+<span class="kd">protected</span> <span class="kt">boolean</span> <span class="nf">set</span><span class="p">(</span><span class="n">EntityLivingBase</span> <span class="n">entity</span><span class="p">,</span> <span class="n">Map</span><span class="o">&lt;</span><span class="n">Key</span><span class="o">&lt;?&gt;</span><span class="p">,</span> <span class="n">Object</span><span class="o">&gt;</span> <span class="n">keyValues</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">entity</span><span class="p">.</span><span class="na">getEntityAttribute</span><span class="p">(</span><span class="n">SharedMonsterAttributes</span><span class="p">.</span><span class="na">MAX_HEALTH</span><span class="p">)</span>
+            <span class="p">.</span><span class="na">setBaseValue</span><span class="p">(((</span><span class="n">Double</span><span class="p">)</span> <span class="n">keyValues</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">Keys</span><span class="p">.</span><span class="na">MAX_HEALTH</span><span class="p">)).</span><span class="na">floatValue</span><span class="p">());</span>
+    <span class="kt">float</span> <span class="n">health</span> <span class="o">=</span> <span class="p">((</span><span class="n">Double</span><span class="p">)</span> <span class="n">keyValues</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">Keys</span><span class="p">.</span><span class="na">HEALTH</span><span class="p">)).</span><span class="na">floatValue</span><span class="p">();</span>
+    <span class="n">entity</span><span class="p">.</span><span class="na">setHealth</span><span class="p">(</span><span class="n">health</span><span class="p">);</span>
+    <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">crwdns42250:0:javadoc:crwdnd42250:0:doc:crwdnd42250:0:javadoc:crwdne42250:0</p>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">crwdns42008:0:javadoc:crwdne42008:0</p>
+</div>
+</div>
+<div class="section" id="removal-method">
+<h3>crwdns18036:0crwdne18036:0<a class="headerlink" href="#removal-method" title="Permalink to this headline">¶</a></h3>
+<p>crwdns18037:0crwdne18037:0</p>
+<p>crwdns42009:0crwdne42009:0</p>
+<p>crwdns42010:0:javadoc:crwdne42010:0</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Override</span>
+<span class="kd">public</span> <span class="n">DataTransactionResult</span> <span class="nf">remove</span><span class="p">(</span><span class="n">DataHolder</span> <span class="n">dataHolder</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">DataTransactionResult</span><span class="p">.</span><span class="na">failNoData</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="getter-methods">
+<h3>crwdns18040:0crwdne18040:0<a class="headerlink" href="#getter-methods" title="Permalink to this headline">¶</a></h3>
+<p>crwdns18041:0crwdne18041:0</p>
+<p>crwdns18042:0crwdne18042:0</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">crwdns42011:0crwdne42011:0</p>
+</div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Override</span>
+<span class="kd">protected</span> <span class="n">Map</span><span class="o">&lt;</span><span class="n">Key</span><span class="o">&lt;?&gt;</span><span class="p">,</span> <span class="o">?&gt;</span> <span class="n">getValues</span><span class="p">(</span><span class="n">EntityLivingBase</span> <span class="n">entity</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">final</span> <span class="kt">double</span> <span class="n">health</span> <span class="o">=</span> <span class="n">entity</span><span class="p">.</span><span class="na">getHealth</span><span class="p">();</span>
+    <span class="kd">final</span> <span class="kt">double</span> <span class="n">maxHealth</span> <span class="o">=</span> <span class="n">entity</span><span class="p">.</span><span class="na">getMaxHealth</span><span class="p">();</span>
+    <span class="k">return</span> <span class="n">ImmutableMap</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">Keys</span><span class="p">.</span><span class="na">HEALTH</span><span class="p">,</span> <span class="n">health</span><span class="p">,</span> <span class="n">Keys</span><span class="p">.</span><span class="na">MAX_HEALTH</span><span class="p">,</span> <span class="n">maxHealth</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="filler-methods">
+<h3>crwdns18044:0crwdne18044:0<a class="headerlink" href="#filler-methods" title="Permalink to this headline">¶</a></h3>
+<p>crwdns18045:0crwdne18045:0</p>
+<p>crwdns42534:0crwdne42534:0</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Override</span>
+<span class="kd">public</span> <span class="n">Optional</span><span class="o">&lt;</span><span class="n">HealthData</span><span class="o">&gt;</span> <span class="nf">fill</span><span class="p">(</span><span class="n">DataContainer</span> <span class="n">container</span><span class="p">,</span> <span class="n">HealthData</span> <span class="n">healthData</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">container</span><span class="p">.</span><span class="na">contains</span><span class="p">(</span><span class="n">Keys</span><span class="p">.</span><span class="na">MAX_HEALTH</span><span class="p">.</span><span class="na">getQuery</span><span class="p">())</span> <span class="o">||</span> <span class="o">!</span><span class="n">container</span><span class="p">.</span><span class="na">contains</span><span class="p">(</span><span class="n">Keys</span><span class="p">.</span><span class="na">HEALTH</span><span class="p">.</span><span class="na">getQuery</span><span class="p">()))</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">Optional</span><span class="p">.</span><span class="na">empty</span><span class="p">();</span>
+    <span class="p">}</span>
+    <span class="n">healthData</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="n">Keys</span><span class="p">.</span><span class="na">MAX_HEALTH</span><span class="p">,</span> <span class="n">getData</span><span class="p">(</span><span class="n">container</span><span class="p">,</span> <span class="n">Keys</span><span class="p">.</span><span class="na">MAX_HEALTH</span><span class="p">));</span>
+    <span class="n">healthData</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="n">Keys</span><span class="p">.</span><span class="na">HEALTH</span><span class="p">,</span> <span class="n">getData</span><span class="p">(</span><span class="n">container</span><span class="p">,</span> <span class="n">Keys</span><span class="p">.</span><span class="na">HEALTH</span><span class="p">));</span>
+    <span class="k">return</span> <span class="n">Optional</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">healthData</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>crwdns42012:0crwdne42012:0</p>
+</div>
+<div class="section" id="other-methods">
+<h3>crwdns18048:0crwdne18048:0<a class="headerlink" href="#other-methods" title="Permalink to this headline">¶</a></h3>
+<p>crwdns18049:0crwdne18049:0</p>
+<p>crwdns18050:0crwdne18050:0</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Override</span>
+<span class="kd">protected</span> <span class="n">HealthData</span> <span class="nf">createManipulator</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="n">SpongeHealthData</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="implement-the-valueprocessors">
+<h2>crwdns18051:0crwdne18051:0<a class="headerlink" href="#implement-the-valueprocessors" title="Permalink to this headline">¶</a></h2>
+<p>crwdns18052:0crwdne18052:0</p>
+<p>crwdns18053:0crwdne18053:0</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">HealthValueProcessor</span>
+        <span class="kd">extends</span> <span class="n">AbstractSpongeValueProcessor</span><span class="o">&lt;</span><span class="n">EntityLivingBase</span><span class="p">,</span> <span class="n">Double</span><span class="p">,</span> <span class="n">MutableBoundedValue</span><span class="o">&lt;</span><span class="n">Double</span><span class="o">&gt;&gt;</span> <span class="p">{</span>
+
+    <span class="kd">public</span> <span class="nf">HealthValueProcessor</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kd">super</span><span class="p">(</span><span class="n">EntityLivingBase</span><span class="p">.</span><span class="na">class</span><span class="p">,</span> <span class="n">Keys</span><span class="p">.</span><span class="na">HEALTH</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="o">[</span><span class="p">...</span><span class="o">]</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>crwdns18054:0crwdne18054:0</p>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">crwdns18055:0crwdne18055:0</p>
+</div>
+<p>crwdns18056:0crwdne18056:0</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Override</span>
+<span class="kd">protected</span> <span class="n">MutableBoundedValue</span><span class="o">&lt;</span><span class="n">Double</span><span class="o">&gt;</span> <span class="nf">constructValue</span><span class="p">(</span><span class="n">Double</span> <span class="n">health</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">SpongeValueFactory</span><span class="p">.</span><span class="na">boundedBuilder</span><span class="p">(</span><span class="n">Keys</span><span class="p">.</span><span class="na">HEALTH</span><span class="p">)</span>
+        <span class="p">.</span><span class="na">minimum</span><span class="p">(</span><span class="mf">0D</span><span class="p">)</span>
+        <span class="p">.</span><span class="na">maximum</span><span class="p">(((</span><span class="n">Float</span><span class="p">)</span> <span class="n">Float</span><span class="p">.</span><span class="na">MAX_VALUE</span><span class="p">).</span><span class="na">doubleValue</span><span class="p">())</span>
+        <span class="p">.</span><span class="na">defaultValue</span><span class="p">(</span><span class="mi">20</span><span class="n">D</span><span class="p">)</span>
+        <span class="p">.</span><span class="na">actualValue</span><span class="p">(</span><span class="n">health</span><span class="p">)</span>
+        <span class="p">.</span><span class="na">build</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="nd">@Override</span>
+<span class="kd">protected</span> <span class="n">ImmutableBoundedValue</span><span class="o">&lt;</span><span class="n">Double</span><span class="o">&gt;</span> <span class="nf">constructImmutableValue</span><span class="p">(</span><span class="n">Double</span> <span class="n">value</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">constructValue</span><span class="p">(</span><span class="n">value</span><span class="p">).</span><span class="na">asImmutable</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Override</span>
+<span class="kd">protected</span> <span class="n">Optional</span><span class="o">&lt;</span><span class="n">Double</span><span class="o">&gt;</span> <span class="nf">getVal</span><span class="p">(</span><span class="n">EntityLivingBase</span> <span class="n">container</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">Optional</span><span class="p">.</span><span class="na">of</span><span class="p">((</span><span class="kt">double</span><span class="p">)</span> <span class="n">container</span><span class="p">.</span><span class="na">getHealth</span><span class="p">());</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>crwdns18057:0crwdne18057:0</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Override</span>
+<span class="kd">protected</span> <span class="kt">boolean</span> <span class="nf">set</span><span class="p">(</span><span class="n">EntityLivingBase</span> <span class="n">container</span><span class="p">,</span> <span class="n">Double</span> <span class="n">value</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">value</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">value</span> <span class="o">&lt;=</span> <span class="p">(</span><span class="kt">double</span><span class="p">)</span> <span class="n">Float</span><span class="p">.</span><span class="na">MAX_VALUE</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">container</span><span class="p">.</span><span class="na">setHealth</span><span class="p">(</span><span class="n">value</span><span class="p">.</span><span class="na">floatValue</span><span class="p">());</span>
+        <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>crwdns18058:0crwdne18058:0</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Override</span>
+<span class="kd">public</span> <span class="n">DataTransactionResult</span> <span class="nf">removeFrom</span><span class="p">(</span><span class="n">ValueContainer</span><span class="o">&lt;?&gt;</span> <span class="n">container</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">DataTransactionResult</span><span class="p">.</span><span class="na">failNoData</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>crwdns18059:0crwdne18059:0</p>
+</div>
+<div class="section" id="register-processors">
+<h2>crwdns18060:0crwdne18060:0<a class="headerlink" href="#register-processors" title="Permalink to this headline">¶</a></h2>
+<p>crwdns42013:0crwdne42013:0</p>
+<div class="section" id="dataprocessors">
+<h3>crwdns18062:0crwdne18062:0<a class="headerlink" href="#dataprocessors" title="Permalink to this headline">¶</a></h3>
+<p>crwdns18063:0crwdne18063:0</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">DataUtil</span><span class="p">.</span><span class="na">registerDataProcessorAndImpl</span><span class="p">(</span><span class="n">HealthData</span><span class="p">.</span><span class="na">class</span><span class="p">,</span> <span class="n">SpongeHealthData</span><span class="p">.</span><span class="na">class</span><span class="p">,</span>
+        <span class="n">ImmutableHealthData</span><span class="p">.</span><span class="na">class</span><span class="p">,</span> <span class="n">ImmutableSpongeHealthData</span><span class="p">.</span><span class="na">class</span><span class="p">,</span>
+        <span class="k">new</span> <span class="n">HealthDataProcessor</span><span class="p">());</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="valueprocessors">
+<h3>crwdns18064:0crwdne18064:0<a class="headerlink" href="#valueprocessors" title="Permalink to this headline">¶</a></h3>
+<p>crwdns18065:0crwdne18065:0</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">DataUtil</span><span class="p">.</span><span class="na">registerValueProcessor</span><span class="p">(</span><span class="n">Keys</span><span class="p">.</span><span class="na">HEALTH</span><span class="p">,</span> <span class="k">new</span> <span class="n">HealthValueProcessor</span><span class="p">());</span>
+<span class="n">DataUtil</span><span class="p">.</span><span class="na">registerValueProcessor</span><span class="p">(</span><span class="n">Keys</span><span class="p">.</span><span class="na">MAX_HEALTH</span><span class="p">,</span> <span class="k">new</span> <span class="n">MaxHealthValueProcessor</span><span class="p">());</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="implementing-block-data">
+<h2>crwdns37087:0crwdne37087:0<a class="headerlink" href="#implementing-block-data" title="Permalink to this headline">¶</a></h2>
+<p>crwdns37088:0crwdne37088:0</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Mixin</span><span class="p">(</span><span class="n">BlockHorizontal</span><span class="p">.</span><span class="na">class</span><span class="p">)</span>
+<span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">MixinBlockHorizontal</span> <span class="kd">extends</span> <span class="n">MixinBlock</span> <span class="p">{</span>
+
+    <span class="o">[</span><span class="p">...</span><span class="o">]</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>crwdns37089:0crwdne37089:0</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Override</span>
+<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">supports</span><span class="p">(</span><span class="n">Class</span><span class="o">&lt;?</span> <span class="kd">extends</span> <span class="n">ImmutableDataManipulator</span><span class="o">&lt;?</span><span class="p">,</span> <span class="o">?&gt;&gt;</span> <span class="n">immutable</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="kd">super</span><span class="p">.</span><span class="na">supports</span><span class="p">(</span><span class="n">immutable</span><span class="p">)</span> <span class="o">||</span> <span class="n">ImmutableDirectionalData</span><span class="p">.</span><span class="na">class</span><span class="p">.</span><span class="na">isAssignableFrom</span><span class="p">(</span><span class="n">immutable</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>crwdns37090:0crwdne37090:0</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Override</span>
+<span class="kd">public</span> <span class="n">Optional</span><span class="o">&lt;</span><span class="n">BlockState</span><span class="o">&gt;</span> <span class="nf">getStateWithData</span><span class="p">(</span><span class="n">IBlockState</span> <span class="n">blockState</span><span class="p">,</span> <span class="n">ImmutableDataManipulator</span><span class="o">&lt;?</span><span class="p">,</span> <span class="o">?&gt;</span> <span class="n">manipulator</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">manipulator</span> <span class="k">instanceof</span> <span class="n">ImmutableDirectionalData</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">final</span> <span class="n">Direction</span> <span class="n">direction</span> <span class="o">=</span> <span class="p">((</span><span class="n">ImmutableDirectionalData</span><span class="p">)</span> <span class="n">manipulator</span><span class="p">).</span><span class="na">direction</span><span class="p">().</span><span class="na">get</span><span class="p">();</span>
+        <span class="kd">final</span> <span class="n">EnumFacing</span> <span class="n">facing</span> <span class="o">=</span> <span class="n">DirectionResolver</span><span class="p">.</span><span class="na">getFor</span><span class="p">(</span><span class="n">direction</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">Optional</span><span class="p">.</span><span class="na">of</span><span class="p">((</span><span class="n">BlockState</span><span class="p">)</span> <span class="n">blockState</span><span class="p">.</span><span class="na">withProperty</span><span class="p">(</span><span class="n">BlockHorizontal</span><span class="p">.</span><span class="na">FACING</span><span class="p">,</span> <span class="n">facing</span><span class="p">));</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="kd">super</span><span class="p">.</span><span class="na">getStateWithData</span><span class="p">(</span><span class="n">blockState</span><span class="p">,</span> <span class="n">manipulator</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>crwdns37091:0crwdne37091:0</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Override</span>
+<span class="kd">public</span> <span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span> <span class="n">Optional</span><span class="o">&lt;</span><span class="n">BlockState</span><span class="o">&gt;</span> <span class="nf">getStateWithValue</span><span class="p">(</span><span class="n">IBlockState</span> <span class="n">blockState</span><span class="p">,</span> <span class="n">Key</span><span class="o">&lt;?</span> <span class="kd">extends</span> <span class="n">BaseValue</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;&gt;</span> <span class="n">key</span><span class="p">,</span> <span class="n">E</span> <span class="n">value</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">key</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">Keys</span><span class="p">.</span><span class="na">DIRECTION</span><span class="p">))</span> <span class="p">{</span>
+        <span class="kd">final</span> <span class="n">Direction</span> <span class="n">direction</span> <span class="o">=</span> <span class="p">(</span><span class="n">Direction</span><span class="p">)</span> <span class="n">value</span><span class="p">;</span>
+        <span class="kd">final</span> <span class="n">EnumFacing</span> <span class="n">facing</span> <span class="o">=</span> <span class="n">DirectionResolver</span><span class="p">.</span><span class="na">getFor</span><span class="p">(</span><span class="n">direction</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">Optional</span><span class="p">.</span><span class="na">of</span><span class="p">((</span><span class="n">BlockState</span><span class="p">)</span> <span class="n">blockState</span><span class="p">.</span><span class="na">withProperty</span><span class="p">(</span><span class="n">BlockHorizontal</span><span class="p">.</span><span class="na">FACING</span><span class="p">,</span> <span class="n">facing</span><span class="p">));</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="kd">super</span><span class="p">.</span><span class="na">getStateWithValue</span><span class="p">(</span><span class="n">blockState</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>crwdns37092:0crwdne37092:0</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Override</span>
+<span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">ImmutableDataManipulator</span><span class="o">&lt;?</span><span class="p">,</span> <span class="o">?&gt;&gt;</span> <span class="n">getManipulators</span><span class="p">(</span><span class="n">IBlockState</span> <span class="n">blockState</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">ImmutableList</span><span class="p">.</span><span class="o">&lt;</span><span class="n">ImmutableDataManipulator</span><span class="o">&lt;?</span><span class="p">,</span> <span class="o">?&gt;&gt;</span><span class="n">builder</span><span class="p">()</span>
+            <span class="p">.</span><span class="na">addAll</span><span class="p">(</span><span class="kd">super</span><span class="p">.</span><span class="na">getManipulators</span><span class="p">(</span><span class="n">blockState</span><span class="p">))</span>
+            <span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span> <span class="n">ImmutableSpongeDirectionalData</span><span class="p">(</span><span class="n">DirectionResolver</span><span class="p">.</span><span class="na">getFor</span><span class="p">(</span><span class="n">blockState</span><span class="p">.</span><span class="na">getValue</span><span class="p">(</span><span class="n">BlockHorizontal</span><span class="p">.</span><span class="na">FACING</span><span class="p">))))</span>
+            <span class="p">.</span><span class="na">build</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="further-information">
+<h2>crwdns18066:0crwdne18066:0<a class="headerlink" href="#further-information" title="Permalink to this headline">¶</a></h2>
+<p>crwdns18067:0crwdne18067:0</p>
+<p>crwdns44000:0crwdne44000:0</p>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../spongedocs.html" class="btn btn-neutral float-right" title="crwdns18165:0crwdne18165:0" accesskey="n" rel="next">crwdns37176:0crwdne37176:0 <span class="fa fa-angle-right"></span></a>
+        <a href="mixins.html" class="btn btn-neutral" title="crwdns18085:0crwdne18085:0" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> crwdns37177:0crwdne37177:0</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../../_static/flags/lol_US.svg"
+         alt="lol" title="LOLCAT">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../../_static/jquery.js"></script>      <script type="text/javascript" src="../../_static/underscore.js"></script>      <script type="text/javascript" src="../../_static/doctools.js"></script>      <script type="text/javascript" src="../../_static/language_data.js"></script>      <script type="text/javascript" src="../../_static/translations.js"></script>      <script type="text/javascript" src="../../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

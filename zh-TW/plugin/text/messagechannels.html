@@ -1,0 +1,399 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>消息通道 &mdash; Sponge 7.2.0 說明文件</title>
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="索引"
+              href="../../genindex.html"/>        <link rel="search" title="搜尋" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 說明文件" href="../../index.html"/>        <link rel="up" title="文本" href="index.html"/>        <link rel="next" title="文本模板" href="templates.html"/>        <link rel="prev" title="分页" href="pagination.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../../index.html">
+            <img src="../../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../server/index.html">建立伺服器</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../versions/index.html">版本控制方針</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../preparing/index.html">準備開發</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">建立插件</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../api-versions.html">API版本</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../buildsystem.html">建置系統</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../workspace/index.html">建立你的工作空間</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../project/index.html">建立你的專案</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-identifier.html">插件識別碼</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-class.html">主要插件類別</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lifecycle.html">插件的生命週期</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../injection.html">相依注入</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../practices/index.html">實踐</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../optional/index.html">Optionals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../logging.html">記錄與除錯</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">文本</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="text.html">创建文本</a></li>
+<li class="toctree-l3"><a class="reference internal" href="representations/index.html">文本序列化器（Text Serializer）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pagination.html">分页</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">消息通道</a></li>
+<li class="toctree-l3"><a class="reference internal" href="templates.html">文本模板</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/index.html">插件指令</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../event/index.html">事件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/index.html">設定插件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assets.html">Asset API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data/index.html">Data API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../blocks/index.html">方塊</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../entities/index.html">實體</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../items/index.html">物品</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../trade-offers.html">開設交易</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../effects.html">效果</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../scheduler.html">排程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../services.html">服務</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database.html">資料庫</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../permissions.html">權限</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bans.html">封鎖</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metrics.html">Metrics 收集</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bookview.html">書本閱覽</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../economy/index.html">經濟</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wgen/index.html">世界生成</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manager.html">插件管理器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../game-profile-manager.html">遊戲設定檔管理器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../offline-userplayer-data.html">離線玩家資料</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tab-lists.html">Tab 清單</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-meta.html">插件元數據</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ray-tracing.html">光線追蹤</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../debugging.html">插件除錯</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials.html">教學</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internals/index.html">相依於實作的插件</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ore/index.html">Ore 文件</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/index.html">為 Sponge 貢獻</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">關於 Sponge 專案</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+          <li><a href="../index.html">建立插件</a> &raquo;</li>
+          <li><a href="index.html">文本</a> &raquo;</li>
+    <li>消息通道</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/plugin/text/messagechannels.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="message-channels">
+<h1>消息通道<a class="headerlink" href="#message-channels" title="本標題的永久連結">¶</a></h1>
+<p>在 Sponge 中，可以发送消息的每个对象，都实现了 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/channel/MessageReceiver.html">MessageReceiver</a> 接口。 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/channel/MessageChannel.html">MessageChannel</a> 是一种设备，用于发送消息到任意数量的 <code class="docutils literal notranslate"><span class="pre">MessageReceiver</span></code> ，也可以按照消息的收件人进行特定的格式化等操作。</p>
+<div class="section" id="selecting-message-recipients">
+<h2>选定消息接受者<a class="headerlink" href="#selecting-message-recipients" title="本標題的永久連結">¶</a></h2>
+<p>在 <code class="docutils literal notranslate"><span class="pre">MessageChannel</span></code> 接口中，一些常量和静态方法可以用来获取或创建常用的信道。当然，创建一个 <code class="docutils literal notranslate"><span class="pre">MessageChannel</span></code> 并不仅限于使用这些类和接口，例如 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/channel/AbstractMutableMessageChannel.html">AbstractMutableMessageChannel</a>， 和 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/channel/MutableMessageChannel.html">MutableMessageChannel</a>。可以在包 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/channel/package-summary.html">org.spongepowered.api.text.channel</a> 及其子包中找到一个完整的列表。</p>
+<div class="section" id="broadcasting">
+<h3>广播<a class="headerlink" href="#broadcasting" title="本標題的永久連結">¶</a></h3>
+<p>最常见的信道是广播信道。我们既可以通过 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/Server.html">Server</a> 类中的 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/Server.html#getBroadcastChannel--">Server#getBroadcastChannel()</a> 方法获取，也可以从 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/channel/MessageChannel.html#TO_PLAYERS">MessageChannel#TO_PLAYERS</a> 或者 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/channel/MessageChannel.html#TO_ALL">MessageChannel#TO_ALL</a> 两个常量中获取到广播信道。唯一的区别是 <code class="docutils literal notranslate"><span class="pre">TO_ALL</span></code> 不仅包括连接到服务器的每个玩家，还包括服务器的控制台输出（Console）。</p>
+<p><code class="docutils literal notranslate"><span class="pre">getBroadcastChannel()</span></code> 方法的返回值一般情况下和常量 <code class="docutils literal notranslate"><span class="pre">MessageChannel.TO_ALL</span></code> 相同。不过，我们也可以通过 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/Server.html#setBroadcastChannel-org.spongepowered.api.text.channel.MessageChannel-">Server#setBroadcastChannel(MessageChannel)</a> 方法设置不同的信道。</p>
+</div>
+<div class="section" id="sending-to-a-fixed-list-of-messagereceivers">
+<h3>指定发送列表的消息通道<a class="headerlink" href="#sending-to-a-fixed-list-of-messagereceivers" title="本標題的永久連結">¶</a></h3>
+<p>另外，也可以不向所有已连接的玩家发送消息，而是手动选择接收消息的目标。这可以通过手动将接收消息的目标列表传入 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/channel/MessageChannel.html#fixed-org.spongepowered.api.text.channel.MessageReceiver...-">MessageChannel#fixed(MessageReceiver…)</a> 方法来完成。与大多数其他信道不同，收件人列表不会在每次发送消息时动态生成，而是静态地保持仍然保持连接的其余部分的引用。不过，这样的引用是 <em>弱</em> 引用。这意味着如果一个玩家断开连接并且相应的 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/living/player/Player.html">Player</a> 对象被 Java 的 <em>垃圾收集器</em> 回收，该玩家也将从该列表中消失。</p>
+</div>
+<div class="section" id="permission-based-selection">
+<h3>基于权限的选择列表的消息通道<a class="headerlink" href="#permission-based-selection" title="本標題的永久連結">¶</a></h3>
+<p>你也可以创建一个信道，用于发送给拥有特定权限的所有接收者。可以通过 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/channel/MessageChannel.html#permission-java.lang.String-">MessageChannel#permission(String)</a> 方法生成这样一个贪信道，传入的参数将作为检查的权限。当通过这个信道发送消息时，它将向所有拥有给定权限的 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/permission/PermissionService.html">PermissionService</a> 发送消息。</p>
+</div>
+<div class="section" id="combining-channels">
+<h3>合并消息通道<a class="headerlink" href="#combining-channels" title="本標題的永久連結">¶</a></h3>
+<p>你也可以将多个信道组合成一个。这可以通过将所有通道传入 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/channel/MessageChannel.html#combined-org.spongepowered.api.text.channel.MessageChannel...-">MessageChannel#combined(MessageChannel…)</a> 方法来完成。在发送消息时，消息就会传递到出现在任一个信道中的消息接收者中。</p>
+</div>
+</div>
+<div class="section" id="sending-messages">
+<h2>发送消息<a class="headerlink" href="#sending-messages" title="本標題的永久連結">¶</a></h2>
+<p>一旦你得到了一个 <code class="docutils literal notranslate"><span class="pre">MessageChannel</span></code> ，你就可以通过 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/channel/MessageChannel.html#send-java.lang.Object-org.spongepowered.api.text.Text-">MessageChannel#send(Object, Text)</a> 方法发送消息。和 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/channel/MessageChannel.html#send-org.spongepowered.api.text.Text-">MessageChannel#send(Text)</a> 相比，我们更建议使用前者，因为 <code class="docutils literal notranslate"><span class="pre">Object</span></code> 可以用于识别或执行其他各种操作。 你也可以使用 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/chat/ChatType.html">ChatType</a> ，并使用 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/channel/MessageChannel.html#send-java.lang.Object-org.spongepowered.api.text.Text-org.spongepowered.api.text.chat.ChatType-">MessageChannel#send(Object, Text, ChatType)</a> 方法，来指定消息将发送到哪里。然后，信道将为每个接收者变换消息并发送变换后的消息。</p>
+<div class="section" id="extended-application-chat-channels">
+<h3>扩展应用：聊天专用消息通道<a class="headerlink" href="#extended-application-chat-channels" title="本標題的永久連結">¶</a></h3>
+<p>消息信道具有一个非常有用的应用，因为它们可以被用来建立聊天信道。例如，您可以为您希望拥有的每个聊天频道建立一个消息信道。然后，当一个 <code class="docutils literal notranslate"><span class="pre">MessageReceiver</span></code> 连入一个频道，比如 <code class="docutils literal notranslate"><span class="pre">/join</span> <span class="pre">&lt;channel</span> <span class="pre">name&gt;</span></code> 时，只需通过 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/channel/MessageReceiver.html#setMessageChannel-org.spongepowered.api.text.channel.MessageChannel-">MessageReceiver#setMessageChannel(MessageChannel)</a> 方法把 <code class="docutils literal notranslate"><span class="pre">MessageReceiver</span></code> 的 <code class="docutils literal notranslate"><span class="pre">MessageChannel</span></code> 设置为合适的信道。这将导致 <em>从</em> <code class="docutils literal notranslate"><span class="pre">MessageReceiver</span></code> 发送的每个消息被传递给指定的 <code class="docutils literal notranslate"><span class="pre">MessageChannel</span></code> 而非默认的 <code class="docutils literal notranslate"><span class="pre">MessageChannel</span></code> 。你也可以监听 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/message/MessageChannelEvent.html">MessageChannelEvent</a> ，并使用 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/message/MessageChannelEvent.html#setChannel-org.spongepowered.api.text.channel.MessageChannel-">MessageChannelEvent#setChannel(MessageChannel)</a> 方法设置合适的 <code class="docutils literal notranslate"><span class="pre">MessageChannel</span></code> 。将 <code class="docutils literal notranslate"><span class="pre">null</span></code> 传递给该方法将取消对于任何自定义信道的设置，并使消息发送至原始的 <code class="docutils literal notranslate"><span class="pre">MessageChannel</span></code> 中。</p>
+</div>
+</div>
+<div class="section" id="transforming-messages">
+<h2>变换消息<a class="headerlink" href="#transforming-messages" title="本標題的永久連結">¶</a></h2>
+<p>你可以为所有经过 <code class="docutils literal notranslate"><span class="pre">MessageChannel</span></code> 的 <code class="docutils literal notranslate"><span class="pre">Text</span></code> ，按照你喜欢的方式，变换其中的内容。你可以继承 <code class="docutils literal notranslate"><span class="pre">MessageChannel</span></code> ，并且覆写 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/channel/MessageChannel.html#transformMessage-java.lang.Object-org.spongepowered.api.text.channel.MessageReceiver-org.spongepowered.api.text.Text-org.spongepowered.api.text.chat.ChatType-">MessageChannel#transformMessage(Object, MessageReceiver, Text, ChatType)</a> 方法，就像下面的示例一样。</p>
+<p><strong>示例：变换消息</strong></p>
+<p>下面的代码摘录定义了一个 <code class="docutils literal notranslate"><span class="pre">AdminMessageChannel</span></code> 类，它覆写了默认的 <code class="docutils literal notranslate"><span class="pre">transformMessage</span></code> 方法。新的 <code class="docutils literal notranslate"><span class="pre">transformMessage</span></code> 方法将获取原始消息，并在消息的前面附加上一个红色的 <code class="docutils literal notranslate"><span class="pre">[Admin]</span></code> 标签。</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">java.util.Collection</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Collections</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Optional</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.text.Text</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.text.channel.MessageChannel</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.text.channel.MessageReceiver</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.text.chat.ChatType</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.text.format.TextColors</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">AdminMessageChannel</span> <span class="kd">implements</span> <span class="n">MessageChannel</span> <span class="p">{</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">Optional</span><span class="o">&lt;</span><span class="n">Text</span><span class="o">&gt;</span> <span class="nf">transformMessage</span><span class="p">(</span><span class="n">Object</span> <span class="n">sender</span><span class="p">,</span> <span class="n">MessageReceiver</span> <span class="n">recipient</span><span class="p">,</span>
+                <span class="n">Text</span> <span class="n">original</span><span class="p">,</span> <span class="n">ChatType</span> <span class="n">type</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">Text</span> <span class="n">text</span> <span class="o">=</span> <span class="n">original</span><span class="p">;</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">Text</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">TextColors</span><span class="p">.</span><span class="na">RED</span><span class="p">,</span> <span class="s">&quot;[Admin]&quot;</span><span class="p">,</span> <span class="n">TextColors</span><span class="p">.</span><span class="na">RESET</span><span class="p">,</span> <span class="n">text</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">Optional</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">text</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">Collection</span><span class="o">&lt;</span><span class="n">MessageReceiver</span><span class="o">&gt;</span> <span class="nf">getMembers</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">Collections</span><span class="p">.</span><span class="na">emptyList</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>请注意，我们不希望定义任何其他收件人，因此我们使 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/channel/MessageChannel.html#getMembers--">MessageChannel#getMembers()</a> 方法返回一个空集合。</p>
+<p>由于我们可以将 <code class="docutils literal notranslate"><span class="pre">MessageChannel</span></code> 进行组合，因此我们可以将我们新创建的 <code class="docutils literal notranslate"><span class="pre">AdminMessageChannel</span></code> 与任何其他的 <code class="docutils literal notranslate"><span class="pre">MessageChannel</span></code> 组合。现在如果一个新加入的玩家拥有 <code class="docutils literal notranslate"><span class="pre">myplugin.admin</span></code> 权限，那么我们将获得用于发送其消息的 <code class="docutils literal notranslate"><span class="pre">MessageChannel</span></code> ，并与一个 <code class="docutils literal notranslate"><span class="pre">AdminMessageChannel</span></code> 组合，并将组合结果设置回玩家。这样，所有的消息都被发送到原先的信道指定的每个人，但是由于添加了 <code class="docutils literal notranslate"><span class="pre">AdminMessageChannel</span></code> ，部分信息将附加一个红色的 <code class="docutils literal notranslate"><span class="pre">[Admin]</span></code> 前缀。</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.entity.living.player.Player</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.event.Listener</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.event.network.ClientConnectionEvent</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.text.channel.MessageChannel</span><span class="p">;</span>
+
+<span class="kd">private</span> <span class="n">AdminMessageChannel</span> <span class="n">adminChannel</span> <span class="o">=</span> <span class="k">new</span> <span class="n">AdminMessageChannel</span><span class="p">();</span>
+
+<span class="nd">@Listener</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onClientConnectionJoin</span><span class="p">(</span><span class="n">ClientConnectionEvent</span><span class="p">.</span><span class="na">Join</span> <span class="n">event</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">Player</span> <span class="n">player</span> <span class="o">=</span> <span class="n">event</span><span class="p">.</span><span class="na">getTargetEntity</span><span class="p">();</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">player</span><span class="p">.</span><span class="na">hasPermission</span><span class="p">(</span><span class="s">&quot;myplugin.admin&quot;</span><span class="p">))</span> <span class="p">{</span>
+        <span class="n">MessageChannel</span> <span class="n">originalChannel</span> <span class="o">=</span> <span class="n">event</span><span class="p">.</span><span class="na">getOriginalChannel</span><span class="p">();</span>
+        <span class="n">MessageChannel</span> <span class="n">newChannel</span> <span class="o">=</span> <span class="n">MessageChannel</span><span class="p">.</span><span class="na">combined</span><span class="p">(</span><span class="n">originalChannel</span><span class="p">,</span>
+            <span class="n">adminChannel</span><span class="p">);</span>
+        <span class="n">player</span><span class="p">.</span><span class="na">setMessageChannel</span><span class="p">(</span><span class="n">newChannel</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>注意所有满足条件的玩家发送的 <strong>所有</strong> 消息都将会加上一个前缀。这包括了玩家离开的消息、死亡的消息等。如果你只想要给 <strong>聊天</strong> 消息加上前缀的话，那么你需要监听 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/message/MessageChannelEvent.Chat.html">MessageChannelEvent.Chat</a> 事件，并且设置事件而非玩家的信道。你可以通过 <code class="docutils literal notranslate"><span class="pre">MessageChannelEvent.Chat</span></code> 的 <code class="docutils literal notranslate"><span class="pre">event.setChannel(newChannel)</span></code> 方法来完成这件事。如果想要获取玩家并且检查其权限，你需要从事件的 <code class="docutils literal notranslate"><span class="pre">Cause</span></code> 中获取一个 <code class="docutils literal notranslate"><span class="pre">Player</span></code> ，下面就是代码示例：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Optional</span><span class="o">&lt;</span><span class="n">Player</span><span class="o">&gt;</span> <span class="n">playerOptional</span> <span class="o">=</span> <span class="n">event</span><span class="p">.</span><span class="na">getCause</span><span class="p">().</span><span class="o">&lt;</span><span class="n">Player</span><span class="o">&gt;</span><span class="n">first</span><span class="p">(</span><span class="n">Player</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>更多和 <code class="docutils literal notranslate"><span class="pre">Cause</span></code> 有关的东西可以在 <a class="reference internal" href="../event/causes.html"><span class="doc">causes page</span></a> 中找到。</p>
+<div class="admonition note">
+<p class="first admonition-title">備註</p>
+<p class="last">当把多个 <code class="docutils literal notranslate"><span class="pre">MessageChannel</span></code> 进行组合以进行消息转换时， <code class="docutils literal notranslate"><span class="pre">Text</span></code> 的转换结果取决于传入 <code class="docutils literal notranslate"><span class="pre">MessageChannel#combined(MessageChannel...</span> <span class="pre">channels)</span></code> 方法的 <code class="docutils literal notranslate"><span class="pre">MessageChannel</span></code> 的顺序。请注意所有返回一个空的 <code class="docutils literal notranslate"><span class="pre">Optional</span></code> 的 <code class="docutils literal notranslate"><span class="pre">MessageChannel</span></code> 将被忽略，除非它是消息转换链上的最后一个 <code class="docutils literal notranslate"><span class="pre">MessageChannel</span></code> 。</p>
+</div>
+</div>
+<div class="section" id="mutable-message-channels">
+<h2>可变消息通道<a class="headerlink" href="#mutable-message-channels" title="本標題的永久連結">¶</a></h2>
+<p>一个 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/channel/MutableMessageChannel.html">MutableMessageChannel</a> 包含了一些方法用于更改通过我们的信道发送的消息的接收者。因此，我们必须实现执行修改的操作的方法。为此，我们将创建一个名为 <code class="docutils literal notranslate"><span class="pre">MutableAdminMessageChannel</span></code> 的类，并实现一个 <code class="docutils literal notranslate"><span class="pre">MutableMessageChannel</span></code> 。</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">java.util.Collection</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Collections</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Optional</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Set</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.WeakHashMap</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.text.Text</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.text.channel.MessageReceiver</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.text.channel.MutableMessageChannel</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.text.chat.ChatType</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.text.format.TextColors</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MutableAdminMessageChannel</span> <span class="kd">implements</span> <span class="n">MutableMessageChannel</span> <span class="p">{</span>
+
+    <span class="kd">private</span> <span class="n">Set</span><span class="o">&lt;</span><span class="n">MessageReceiver</span><span class="o">&gt;</span> <span class="n">members</span><span class="p">;</span>
+
+    <span class="kd">public</span> <span class="nf">MutableAdminMessageChannel</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">(</span><span class="n">Collections</span><span class="p">.</span><span class="na">emptySet</span><span class="p">());</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="nf">MutableAdminMessageChannel</span><span class="p">(</span><span class="n">Collection</span><span class="o">&lt;</span><span class="n">MessageReceiver</span><span class="o">&gt;</span> <span class="n">members</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">members</span> <span class="o">=</span> <span class="n">Collections</span><span class="p">.</span><span class="na">newSetFromMap</span><span class="p">(</span><span class="k">new</span> <span class="n">WeakHashMap</span><span class="o">&lt;&gt;</span><span class="p">());</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">members</span><span class="p">.</span><span class="na">addAll</span><span class="p">(</span><span class="n">members</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">Collection</span><span class="o">&lt;</span><span class="n">MessageReceiver</span><span class="o">&gt;</span> <span class="nf">getMembers</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">Collections</span><span class="p">.</span><span class="na">unmodifiableSet</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">members</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">addMember</span><span class="p">(</span><span class="n">MessageReceiver</span> <span class="n">member</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">members</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">member</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">removeMember</span><span class="p">(</span><span class="n">MessageReceiver</span> <span class="n">member</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">members</span><span class="p">.</span><span class="na">remove</span><span class="p">(</span><span class="n">member</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">clearMembers</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">members</span><span class="p">.</span><span class="na">clear</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">Optional</span><span class="o">&lt;</span><span class="n">Text</span><span class="o">&gt;</span> <span class="nf">transformMessage</span><span class="p">(</span><span class="n">Object</span> <span class="n">sender</span><span class="p">,</span> <span class="n">MessageReceiver</span> <span class="n">recipient</span><span class="p">,</span>
+                <span class="n">Text</span> <span class="n">original</span><span class="p">,</span> <span class="n">ChatType</span> <span class="n">type</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">Text</span> <span class="n">text</span> <span class="o">=</span> <span class="n">original</span><span class="p">;</span>
+        <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">members</span><span class="p">.</span><span class="na">contains</span><span class="p">(</span><span class="n">recipient</span><span class="p">))</span> <span class="p">{</span>
+            <span class="n">text</span> <span class="o">=</span> <span class="n">Text</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">TextColors</span><span class="p">.</span><span class="na">RED</span><span class="p">,</span> <span class="s">&quot;[Admin]&quot;</span><span class="p">,</span> <span class="n">TextColors</span><span class="p">.</span><span class="na">RESET</span><span class="p">,</span> <span class="n">text</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">Optional</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">text</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>我们的 <code class="docutils literal notranslate"><span class="pre">AdminMessageChannel</span></code> 和我们的新的 <code class="docutils literal notranslate"><span class="pre">MutableAdminMessageChannel</span></code> 之间的主要区别是在于我们转换消息之前是否检查接收者在接收者列表中。如果是，那么我们可以改变发送的消息，也就是附加红色的 <code class="docutils literal notranslate"><span class="pre">[Admin]</span></code> 前缀。在我们的 <code class="docutils literal notranslate"><span class="pre">getMembers()</span></code> 方法中，我们返回一个不可变的集合，而这一集合只能通过我们的 <code class="docutils literal notranslate"><span class="pre">MutableAdminMessageChannel</span></code> 中的适当的方法来修改。</p>
+<p>请注意，在 SpongeAPI 中 <code class="docutils literal notranslate"><span class="pre">MutableMessageChannel</span></code> 的抽象实现为 <code class="docutils literal notranslate"><span class="pre">AbstractMutableMessageChannel</span></code> 。还要注意，我们的成员不保证是否被回收。 如果玩家离开服务器，他们将从集合中删除。</p>
+<div class="section" id="modifying-the-members">
+<h3>修改消息接收者<a class="headerlink" href="#modifying-the-members" title="本標題的永久連結">¶</a></h3>
+<p>为了充分利用我们的 <code class="docutils literal notranslate"><span class="pre">MutableAdminMessageChannel</span></code> ，我们需要能够添加和删除接收者。为此，当我们需要从成员集中添加或删除一个接收者时，我们可以简单地调用我们的 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/channel/MutableMessageChannel.html#addMember-org.spongepowered.api.text.channel.MessageReceiver-">MutableMessageChannel#addMember(MessageReceiver)</a> 和 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/channel/MutableMessageChannel.html#addMember-org.spongepowered.api.text.channel.MessageReceiver-">MutableMessageChannel#addMember(MessageReceiver)</a> 两个方法。</p>
+</div>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="templates.html" class="btn btn-neutral float-right" title="文本模板" accesskey="n" rel="next">下一頁 <span class="fa fa-angle-right"></span></a>
+        <a href="pagination.html" class="btn btn-neutral" title="分页" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> 上一頁</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../../_static/flags/zh_TW.svg"
+         alt="zh-TW" title="繁體中文">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../../_static/jquery.js"></script>      <script type="text/javascript" src="../../_static/underscore.js"></script>      <script type="text/javascript" src="../../_static/doctools.js"></script>      <script type="text/javascript" src="../../_static/language_data.js"></script>      <script type="text/javascript" src="../../_static/translations.js"></script>      <script type="text/javascript" src="../../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

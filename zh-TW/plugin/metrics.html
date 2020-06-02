@@ -1,0 +1,271 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Metrics 收集 &mdash; Sponge 7.2.0 說明文件</title>
+
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="索引"
+              href="../genindex.html"/>        <link rel="search" title="搜尋" href="../search.html"/>    <link rel="top" title="Sponge 7.2.0 說明文件" href="../index.html"/>        <link rel="up" title="建立插件" href="index.html"/>        <link rel="next" title="書本閱覽" href="bookview.html"/>        <link rel="prev" title="封鎖" href="bans.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../index.html">
+            <img src="../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../server/index.html">建立伺服器</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../versions/index.html">版本控制方針</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../preparing/index.html">準備開發</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">建立插件</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="api-versions.html">API版本</a></li>
+<li class="toctree-l2"><a class="reference internal" href="buildsystem.html">建置系統</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workspace/index.html">建立你的工作空間</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project/index.html">建立你的專案</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin-identifier.html">插件識別碼</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin-class.html">主要插件類別</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lifecycle.html">插件的生命週期</a></li>
+<li class="toctree-l2"><a class="reference internal" href="injection.html">相依注入</a></li>
+<li class="toctree-l2"><a class="reference internal" href="practices/index.html">實踐</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optional/index.html">Optionals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.html">記錄與除錯</a></li>
+<li class="toctree-l2"><a class="reference internal" href="text/index.html">文本</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands/index.html">插件指令</a></li>
+<li class="toctree-l2"><a class="reference internal" href="event/index.html">事件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration/index.html">設定插件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assets.html">Asset API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data/index.html">Data API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/index.html">方塊</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entities/index.html">實體</a></li>
+<li class="toctree-l2"><a class="reference internal" href="items/index.html">物品</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trade-offers.html">開設交易</a></li>
+<li class="toctree-l2"><a class="reference internal" href="effects.html">效果</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scheduler.html">排程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="services.html">服務</a></li>
+<li class="toctree-l2"><a class="reference internal" href="database.html">資料庫</a></li>
+<li class="toctree-l2"><a class="reference internal" href="permissions.html">權限</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bans.html">封鎖</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Metrics 收集</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bookview.html">書本閱覽</a></li>
+<li class="toctree-l2"><a class="reference internal" href="economy/index.html">經濟</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wgen/index.html">世界生成</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manager.html">插件管理器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="game-profile-manager.html">遊戲設定檔管理器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="offline-userplayer-data.html">離線玩家資料</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tab-lists.html">Tab 清單</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin-meta.html">插件元數據</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ray-tracing.html">光線追蹤</a></li>
+<li class="toctree-l2"><a class="reference internal" href="debugging.html">插件除錯</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials.html">教學</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internals/index.html">相依於實作的插件</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ore/index.html">Ore 文件</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contributing/index.html">為 Sponge 貢獻</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">關於 Sponge 專案</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+          <li><a href="index.html">建立插件</a> &raquo;</li>
+    <li>Metrics 收集</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/plugin/metrics.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="metrics-collection">
+<h1>Metrics 收集<a class="headerlink" href="#metrics-collection" title="本標題的永久連結">¶</a></h1>
+<p>收集使用你的插件的服务器统计信息对于决定你的下一步开发方向很有帮助。然而，<a class="reference internal" href="../ore/guidelines.html"><span class="doc">Ore 插件提交指南</span></a> 的“外部连接”一节指出仅当有明确同意时插件才能收集统计信息。这种“明确同意”必须是<strong>可选的</strong>，且数据收集默认应当关闭。</p>
+<p>为简化同意征集，Sponge 为插件提供了一个中心化的检查方式。</p>
+<p>Metric 信息收集是基于插件的；插件<strong>不能</strong>认为同意某个插件收集信息等于同意所有插件收集信息。</p>
+<div class="section" id="obtaining-consent">
+<h2>获得同意<a class="headerlink" href="#obtaining-consent" title="本標題的永久連結">¶</a></h2>
+<p>要获得服主同意，插件可向服主发出相应请求。这可以通过某种启动时显示给玩家的提示，让他们更新配置文件来完成。SpongeForge 和 SpongeVanilla 也提供了 <code class="docutils literal notranslate"><span class="pre">/sponge</span> <span class="pre">metrics</span> <span class="pre">&lt;puglinid&gt;</span> <span class="pre">enable</span></code> 命令。</p>
+<p>插件<strong>可以</strong>向服主提供快速收集同意的命令或点击即可同意的游戏内“链接”。</p>
+<div class="admonition warning">
+<p class="first admonition-title">警告</p>
+<p class="last">插件<strong>不能</strong>在未经服主统一的情况下直接执行 <code class="docutils literal notranslate"><span class="pre">/sponge</span> <span class="pre">metrics</span> <span class="pre">&lt;pluginid&gt;</span> <span class="pre">enable</span></code> 命令，否则这样的插件将会被 Ore 平台拒绝。</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">備註</p>
+<p class="last"><code class="docutils literal notranslate"><span class="pre">/sponge</span> <span class="pre">metrics</span></code> 命令只保证在 <code class="docutils literal notranslate"><span class="pre">SpongeForge</span></code> 和 <code class="docutils literal notranslate"><span class="pre">SpongeVanilla</span></code> 两个服务器实现中存在。其他诸如 <code class="docutils literal notranslate"><span class="pre">Lantern</span></code> 等实现中可能并无此命令。</p>
+</div>
+</div>
+<div class="section" id="checking-for-consent">
+<h2>检查同意<a class="headerlink" href="#checking-for-consent" title="本標題的永久連結">¶</a></h2>
+<p><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/util/metric/MetricsConfigManager.html">MetricsConfigManager</a> 可用于检查插件是否已获得收集 metrics 信息的许可。你可通过依赖注入到你的插件主类中来获取它，也可直接通过 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/Sponge.html#getMetricsConfigManager--">Sponge#getMetricsConfigManager()</a> 按需获取。</p>
+<p><strong>Every time</strong> your plugin wishes to send metrics, you must check the
+<a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/util/metric/MetricsConfigManager.html#getCollectionState-org.spongepowered.api.plugin.PluginContainer-">MetricsConfigManager#getCollectionState(PluginContainer)</a>, supplying the <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/plugin/PluginContainer.html">PluginContainer</a> of
+your plugin. Metrics must only be sent if this returns <code class="docutils literal notranslate"><span class="pre">Tristate#TRUE</span></code> for your plugin.</p>
+<p>下列例子展示了如何使用字段注入获得 <code class="docutils literal notranslate"><span class="pre">MetricsConfigManager</span></code> 对象和你的插件的 <code class="docutils literal notranslate"><span class="pre">PluginContainer</span></code>，以及如何使用这两者来检查许可。</p>
+<p><strong>示例</strong></p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">com.google.inject.Inject</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.plugin.PluginContainer</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.util.metric.MetricsConfigManager</span><span class="p">;</span>
+
+<span class="nd">@Inject</span>
+<span class="kd">private</span> <span class="n">PluginContainer</span> <span class="n">container</span><span class="p">;</span>
+
+<span class="nd">@Inject</span>
+<span class="kd">private</span> <span class="n">MetricsConfigManager</span> <span class="n">metricsConfigManager</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">hasConsent</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">metricsConfigManager</span><span class="p">.</span><span class="na">getCollectionState</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">container</span><span class="p">).</span><span class="na">asBoolean</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="bookview.html" class="btn btn-neutral float-right" title="書本閱覽" accesskey="n" rel="next">下一頁 <span class="fa fa-angle-right"></span></a>
+        <a href="bans.html" class="btn btn-neutral" title="封鎖" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> 上一頁</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../_static/flags/zh_TW.svg"
+         alt="zh-TW" title="繁體中文">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../_static/jquery.js"></script>      <script type="text/javascript" src="../_static/underscore.js"></script>      <script type="text/javascript" src="../_static/doctools.js"></script>      <script type="text/javascript" src="../_static/language_data.js"></script>      <script type="text/javascript" src="../_static/translations.js"></script>      <script type="text/javascript" src="../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

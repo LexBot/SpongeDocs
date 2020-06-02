@@ -1,0 +1,362 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Belirtilen özellikler &mdash; Sponge 7.2.0 belgelendirme çalışması</title>
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="Dizin"
+              href="../../genindex.html"/>        <link rel="search" title="Ara" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 belgelendirme çalışması" href="../../index.html"/>        <link rel="up" title="İsteğe bağlı" href="index.html"/>        <link rel="next" title="Kullanım örnekleri" href="usage.html"/>        <link rel="prev" title="İsteğe bağlı" href="index.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../../index.html">
+            <img src="../../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../server/index.html">Bir sunucu oluşturma</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../versions/index.html">Versioning Policy</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../preparing/index.html">Geliştirme için hazırlanıyor</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Bir eklenti oluşturma</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../api-versions.html">API-Versions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../buildsystem.html">Sistem oluşturun</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../workspace/index.html">Çalışma Alanınız Kuruluyor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../project/index.html">Projenizi Ayarlama</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-identifier.html">Eklenti Tanımlayıcıları</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-class.html">Ana eklenti sınıfı</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lifecycle.html">Eklenti Yaşan Döngüsü</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../injection.html">Bağımlılık Enjeksiyonu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../practices/index.html">Alıştırmalar</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">İsteğe bağlı</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Belirtilen özellikler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="usage.html">Kullanım örnekleri</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../logging.html">Günlük Oluşturma ve Hata Giderme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text/index.html">Metin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/index.html">Plugin Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../event/index.html">Etkinlikler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/index.html">Eklentileri yapılandırma</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assets.html">API öğesi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data/index.html">Veri API’sı</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../blocks/index.html">Bloklar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../entities/index.html">Varlıklar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../items/index.html">Öğeler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../trade-offers.html">Ticaret-Teklifleri</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../effects.html">Efektler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../scheduler.html">Zamanlayıcı</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../services.html">Servisler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database.html">Veritabanları</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../permissions.html">İzinler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bans.html">Yasaklılar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metrics.html">Metrics Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bookview.html">Kitap görünümleri</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../economy/index.html">Ekonomi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wgen/index.html">Dünya oluşturma</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manager.html">Eklenti yöneticisi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../game-profile-manager.html">Oyun Profili Yöneticisi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../offline-userplayer-data.html">Çevrim dışı oyuncu verisi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tab-lists.html">Sekme listeleri</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-meta.html">Eklenti Metaverileri</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ray-tracing.html">Işın izleme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../debugging.html">Eklenti Hata Ayıklama</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials.html">Eğiticiler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internals/index.html">Uygulamaya Bağlı Eklentiler</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ore/index.html">Ore Dökümanları</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/index.html">Sponge’a Katkı Sağlama</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">Sponge Projesi Hakkında</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+          <li><a href="../index.html">Bir eklenti oluşturma</a> &raquo;</li>
+          <li><a href="index.html">İsteğe bağlı</a> &raquo;</li>
+    <li>Belirtilen özellikler</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/plugin/optional/basic.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="optionals-explained">
+<h1>Belirtilen özellikler<a class="headerlink" href="#optionals-explained" title="Bu başlığın kalıcı bağlantısı">¶</a></h1>
+<p>Much of SpongeAPI makes use of Java’s <cite>Optional</cite> system on object accessors, but if you’ve never used <code class="docutils literal notranslate"><span class="pre">Optional</span></code>
+before this might seem like a bit of a peculiar way of doing things. You might be tempted to ask:
+<em>“why do I need to perform an extra step when fetching something from an API object?”</em></p>
+<p>This section gives a brief summary of <code class="docutils literal notranslate"><span class="pre">Optional</span></code> and explains how - and perhaps more importantly why -
+it’s used throughout SpongeAPI.</p>
+<p>Biraz eskiye gidelim ve erişimcilerin - özellikle de “getters” - <a href="#id1"><span class="problematic" id="id2">``</span></a>Optional``kullanmadan nasıl çalıştıklarına göz atalım.</p>
+<div class="section" id="implicit-nullable-contracts-and-why-they-suck">
+<h2>1. Bahsedilen Nullable Sözleşmeleri ve neden bahsedildiği<a class="headerlink" href="#implicit-nullable-contracts-and-why-they-suck" title="Bu başlığın kalıcı bağlantısı">¶</a></h2>
+<p>Diyelim ki, <code class="docutils literal notranslate"><span class="pre">getFoo()``yöntemiyle</span> <span class="pre">``Entity</span></code> adında basit bir API Nesnemiz var ve bu nesne, <a href="#id1"><span class="problematic" id="id2">``</span></a>Foo``yu döndürüyor.</p>
+<img alt="../../_images/optionals1.png" src="../../_images/optionals1.png" />
+<p>Daha önceden, eklentimiz <code class="docutils literal notranslate"><span class="pre">getter</span></code> işlevini kullanarak <code class="docutils literal notranslate"><span class="pre">Foo</span></code> yı şu şekilde alıp kullanabilirdi:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">someEventHandler</span><span class="p">(</span><span class="n">Entity</span> <span class="n">someEntity</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">Foo</span> <span class="n">entityFoo</span> <span class="o">=</span> <span class="n">someEntity</span><span class="p">.</span><span class="na">getFoo</span><span class="p">();</span>
+    <span class="n">entityFoo</span><span class="p">.</span><span class="na">bar</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Sorun çıktığında - API aşamasında - yöntemin <code class="docutils literal notranslate"><span class="pre">null</span></code> e döndürülebileceğinin (veya döndürülemeyeceğinin) konusunda``getFoo`` yönteminde * bahsedilen* bir sözleşmeye bağlı kalmak zorundayız. Bu <em>bahsedilen sözleşme</em> iki yoldan biriyle tanımlanabilir:</p>
+<ul class="simple">
+<li>** Javadoc’da ** - bu, yöntem için javadoc’a erişen eklenti yazarına açık olmayabilir. Yapılan iş çok faydalı değil</li>
+<li>** Null olabilecek ek açıklamaları ** - IDE veya derleyici ek açıklamaları işlemek için güvenilir bir araç gerekir, çünkü genel itibarla kullanmak ideal değildir.</li>
+</ul>
+<img alt="../../_images/optionals2.png" src="../../_images/optionals2.png" />
+<p><code class="docutils literal notranslate"><span class="pre">getFoo()</span></code> yönteminin sözleşmenin bir parçası olarak null döndürdüğünü varsayalım. Burada``entityFoo`` değeri boşsa, <code class="docutils literal notranslate"><span class="pre">NullPointerException</span></code> ile sonuçlanabileceği için yukarıdaki kodun güvensiz olduğu anlamına gelir.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">someEventHandler</span><span class="p">(</span><span class="n">Entity</span> <span class="n">someEntity</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">Foo</span> <span class="n">entityFoo</span> <span class="o">=</span> <span class="n">someEntity</span><span class="p">.</span><span class="na">getFoo</span><span class="p">();</span>
+    <span class="n">entityFoo</span><span class="p">.</span><span class="na">bar</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Eklenti yazarımızın <code class="docutils literal notranslate"><span class="pre">getFoo</span></code> yönteminin geçersiz niteliğini araştırdığını ve sorunun null denetimi ile düzeltilmeye karar verdiğini varsayalım. Bir sabite <code class="docutils literal notranslate"><span class="pre">Foo</span></code> tanımladığını varsayarsak, sonuçta ortaya çıkan kod şöyle görünür:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">someEventHandler</span><span class="p">(</span><span class="n">Entity</span> <span class="n">someEntity</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">Foo</span> <span class="n">entityFoo</span> <span class="o">=</span> <span class="n">someEntity</span><span class="p">.</span><span class="na">getFoo</span><span class="p">();</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">entityFoo</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">entityFoo</span> <span class="o">=</span> <span class="n">MyPlugin</span><span class="p">.</span><span class="na">DEFAULT_FOO</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">entityFoo</span><span class="p">.</span><span class="na">bar</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In this example, the plugin author is aware that the method can return null and has a constant available with a
+default instance of <code class="docutils literal notranslate"><span class="pre">Foo</span></code> which can be used instead. Of course, the plugin could just short-circuit the call entirely,
+or it could attempt to fetch <cite>Foo</cite> from somewhere else. The key message is that handling nulls even in simple cases
+can lead to spaghetti code quite quickly, and moreover relies on the plugin author to explicitly visit the method’s
+contract to check whether a null check is necessary in the first place.</p>
+<p>Ancak tek dezavantajı bu değildir. API’yi uzun vadede ele alalım ve yazarın eklentiyi yazdığı sırada, javadoc yöntemini ziyaret ettiğini ve yöntemin hiçbir zaman null döndürmeyeceğini garanti ettiğini varsayalım (her`Entity`te daima bir <code class="docutils literal notranslate"><span class="pre">Foo</span></code> mevcut). Mükemmel! Artık kontrol gerekli değil!</p>
+<p>Ancak şimdi oyunun sonraki bir sürümünde, oyun geliştiricilerin <code class="docutils literal notranslate"><span class="pre">Foo</span></code> kavramını kaldırdığını veya reddettiğini varsayalım. API yazarları buna göre API’yi günceller ve bundan böyle <code class="docutils literal notranslate"><span class="pre">getFoo</span> <span class="pre">()</span> <span class="pre">``</span> <span class="pre">yöntemi</span> <span class="pre">**</span> <span class="pre">``null</span></code> döndürebilir ve bunu javadoc yöntemine yazar. Şimdi bir sorun var: yöntem sözleşmesini ilk kez kod yazarken kontrol eden çalışkan eklenti yazarları farkında olmadan metodu hatalı bir şekilde işlemekteler: hiçbir boşluk yerine <code class="docutils literal notranslate"><span class="pre">getFoo</span></code> den döndürülen <code class="docutils literal notranslate"><span class="pre">Foo</span></code> işlevini kullanan herhangi bir kod yoksa bu NPE’yi artıracaktır.</p>
+<p>Thus, we can see that allowing implicit nullable contracts leaves us with a selection of pretty awful solutions to
+choose from:</p>
+<ul class="simple">
+<li>Eklenti yazarları, ** ** yöntemlerin boşa dönebileceğini ve buna göre savunucuyu kodlandırabileceğini varsayabilir, bunun zaten spagetti koduna oldukça seri yol açtığını görmüştük.</li>
+<li>API yazarları, sadece önceki yaklaşımı daha da kötüleştiren eklenti yazarının sorununun null işlenmesine neden olmak için her API yönteminde ima edilen bir null sözleşmeyi tanımlayabilir.</li>
+<li>API yazarları, tanımladıkları tüm bahsedilen null sözleşmelerini, ileriye dönük olarak değiştirilmeyeceğini iddia edebilirler. Bu, bir oyunun temel oyundan kaldırılmasının gerektiği sonucuna varılacağı anlamına gelir:</li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li>Bazı istisnaları saymazsak kolay sayılabilecek bir kod başka yerdeki bir kodu tetikletebilir ve zayıf NPD ortaya çıkartır. Bunu teşhis etmek zor olacaktır</li>
+<li>“Sahte” bir nesne veya geçersiz değer döndürürseniz, eklenti kodu çalışmaya devam edeceğini, ancak API geliştiricilerini zorlayıcı unsurlar barındıracağını, kullanımdan kaldırılan her özellikte daha sahte nesnelerin oluşturulması gerekeceği anlamına gelir. Bu durum, kısa süre içinde büyük bir API yığınının, artık kullanılmayan API bölümlerinin dolu duruma gelmesine neden olabilir.</li>
+</ul>
+</div></blockquote>
+<p>Belirtilen API son derece homojen olmayan bir temel üzerinde olduğundan, daha belirgin hale getirmek için * bahsedilen * null sözleşmelere eklenmiş bazı önemli sorunlara karşı açık olmalıdır. Neyse ki daha iyi bir yol var:</p>
+</div>
+<div class="section" id="optional-and-the-explicit-nullable-contract">
+<h2>2. İsteğe bağlı ve Açık Anlaşılabilir Sözleşme<a class="headerlink" href="#optional-and-the-explicit-nullable-contract" title="Bu başlığın kalıcı bağlantısı">¶</a></h2>
+<p>As mentioned above, APIs for Minecraft are in a difficult situation. Ultimately, they need to provide a platform with
+a <em>reasonable amount of implied stability</em> atop a platform (the game) with <em>absolutely no amount of implied stability</em>.
+Thus, any API for Minecraft needs to be designed with full awareness that any aspect of the game is liable to change at
+any time for any reason in any way imaginable; up to and including being removed altogether!</p>
+<p>Bu dalgalanma yukarıda açıklanan boşaltılabilen yöntem sözleşmeleriyle ilgili soruna neden olmaktadır.</p>
+<p><cite>İsteğe bağlı</cite>, <em>gizli sözleşmeler*i, *açık</em> olanlarla değiştirerek yukarıdaki problemleri çözer. API, asla duyurmaz, <em>“burada nesneniz, kthxbai”</em> yerine <em>“burada, istediğiniz nesneyi içerebilecek veya içermeyebilecek bir kutu olan, ymmv”</em>’e olan erişimcileri sunar.</p>
+<img alt="../../_images/optionals3.png" src="../../_images/optionals3.png" />
+<p><code class="docutils literal notranslate"><span class="pre">null</span></code>’un açık bir sözleşme olma ihtimalini kodlayarak, * null denetleme* kavramını incelikli <em>var olmayabilir</em> kavramı ile değiştiriyoruz. Ayrıca bu sözleşmeyi <em>günden itibaren</em> şart koşuyoruz.</p>
+<p>So, what does this mean?</p>
+<p>Özetle, artık yazarların <code class="docutils literal notranslate"><span class="pre">null</span></code>’un geri gelme ihtimali hakkında endişelenmelerine gerek yok. Buna karşılık belirli bir nesnenin var olmama ihtimali eklenti kodunun dokusuna göre kodlanır hale gelir. Bu null denetimleri sürekli olarak uygulanırken aynı düzeyde güvenlik içerebilir, ancak bunu yapmak kodun okunabilmesi ve düzenli olması açısından çok daha iyi hale gelir.</p>
+<p>Bunun nedenini görmek için, yukarıdaki örneğe bir göz atalım: <code class="docutils literal notranslate"><span class="pre">İsteğe</span> <span class="pre">bağlı&lt;Foo&gt;</span></code>’ya geri dönme yöntemini <code class="docutils literal notranslate"><span class="pre">getFoo</span></code> kullanmaya dönüştürelim bunun yerine:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">someEventHandler</span><span class="p">(</span><span class="n">Entity</span> <span class="n">someEntity</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">Optional</span><span class="o">&lt;</span><span class="n">Foo</span><span class="o">&gt;</span> <span class="n">entityFoo</span> <span class="o">=</span> <span class="n">someEntity</span><span class="p">.</span><span class="na">getFoo</span><span class="p">();</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">entityFoo</span><span class="p">.</span><span class="na">isPresent</span><span class="p">())</span> <span class="p">{</span>
+        <span class="n">entityFoo</span><span class="p">.</span><span class="na">get</span><span class="p">().</span><span class="na">bar</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Bu örnek standart bir sıfırlama denetimi gibi görünmesine rağmen, <code class="docutils literal notranslate"><span class="pre">İsteğe</span> <span class="pre">bağlı</span></code> kullanımı aslında aynı miktar kodda biraz daha fazla bilgi taşır. Örneğin, yukarıdaki kodu okuyan birinin yöntem sözleşmesini kontrol etmesine gerek yoktur, yöntemin bir değeri geri getiremediği ve değerin yokluğunun işlenmesinin açık ve net olduğu açıktır.</p>
+<p>Ne olmuş? Bu davadaki açık sözleşmemiz sıfırlama denetimi ile aynı miktarda kod temel alır - alıcı tarafından sözleşmeye dayalı olarak <em>zorunlu</em> da olsa. <em>“Büyük bir mesele,”</em> sen, <em>“ne olmuş?”</em> diyorsun</p>
+<p><cite>İsteğe Bağlı</cite> kutulama geleneksel olarak sıfırlama denetiminin daha değişik yönlerinden bazılarını almamıza ve bunları daha iyi hale getirmemize izin verir: aşağıdaki kodu takip edin:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">someEventHandler</span><span class="p">(</span><span class="n">Entity</span> <span class="n">someEntity</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">Foo</span> <span class="n">entityFoo</span> <span class="o">=</span> <span class="n">someEntity</span><span class="p">.</span><span class="na">getFoo</span><span class="p">().</span><span class="na">orElse</span><span class="p">(</span><span class="n">MyPlugin</span><span class="p">.</span><span class="na">DEFAULT_FOO</span><span class="p">);</span>
+    <span class="n">entityFoo</span><span class="p">.</span><span class="na">bar</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Hatta kalın! Yukarıdaki örnekte yer alan sıkıcı sıfırlama denetimini ve varsayılan atamayı tek bir kod satırı ile değiştirdik mi? Evet gerçekten yaptık. Aslında, basit kullanım örnekleri için, atamadan bile vazgeçebiliriz:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">someEventHandler</span><span class="p">(</span><span class="n">Entity</span> <span class="n">someEntity</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">someEntity</span><span class="p">.</span><span class="na">getFoo</span><span class="p">().</span><span class="na">orElse</span><span class="p">(</span><span class="n">MyPlugin</span><span class="p">.</span><span class="na">DEFAULT_FOO</span><span class="p">).</span><span class="na">bar</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">MyPlugin.DEFAULT_FOO</span></code> her zaman kullanılabilir olması şartıyla son derece güvenlidir.</p>
+<p>Örneği takip ederek iki birimi göz önünde bulundurun, boşaltılabilen gizli bir sözleşme yapmak için ilk birimden <code class="docutils literal notranslate"><span class="pre">Foo</span></code>’yu kullanmanızı istiyoruz, eğer kullanılabilir değilse ikinci <code class="docutils literal notranslate"><span class="pre">birim``den</span> <span class="pre">``Foo</span></code>’yu kullanın ya da ikisi de kullanılabilir değilse varsayılanımıza geri dönün:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">someEventHandler</span><span class="p">(</span><span class="n">Entity</span> <span class="n">someEntity</span><span class="p">,</span> <span class="n">Entity</span> <span class="n">entity2</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">Foo</span> <span class="n">entityFoo</span> <span class="o">=</span> <span class="n">someEntity</span><span class="p">.</span><span class="na">getFoo</span><span class="p">();</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">entityFoo</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">entityFoo</span> <span class="o">=</span> <span class="n">entity2</span><span class="p">.</span><span class="na">getFoo</span><span class="p">();</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">entityFoo</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">entityFoo</span> <span class="o">=</span> <span class="n">MyPlugin</span><span class="p">.</span><span class="na">DEFAULT_FOO</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">entityFoo</span><span class="p">.</span><span class="na">bar</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">İsteğe</span> <span class="pre">bağlı</span></code>’yı kullanarak bunu çok daha temiz şekilde kodlayabiliriz:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">someEventHandler</span><span class="p">(</span><span class="n">Entity</span> <span class="n">someEntity</span><span class="p">,</span> <span class="n">Entity</span> <span class="n">entity2</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">someEntity</span><span class="p">.</span><span class="na">getFoo</span><span class="p">().</span><span class="na">orElse</span><span class="p">(</span><span class="n">entity2</span><span class="p">.</span><span class="na">getFoo</span><span class="p">().</span><span class="na">orElse</span><span class="p">(</span><span class="n">MyPlugin</span><span class="p">.</span><span class="na">DEFAULT_FOO</span><span class="p">)).</span><span class="na">bar</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This is merely the tip of the <code class="docutils literal notranslate"><span class="pre">Optional</span></code> iceberg. In java 8 <code class="docutils literal notranslate"><span class="pre">Optional</span></code> also supports the <code class="docutils literal notranslate"><span class="pre">Consumer</span></code> and
+<code class="docutils literal notranslate"><span class="pre">Supplier</span></code> interfaces, allowing lambdas to be used for <em>absent</em> failover. Usage examples for those can be found on the
+<a class="reference internal" href="usage.html"><span class="doc">Kullanım örnekleri</span></a> page.</p>
+<div class="admonition note">
+<p class="first admonition-title">Not</p>
+<p class="last">Geçersiz referanslardan kaçınmanın arkasındaki gerekçelere ilişkin bir başka açıklamayı <cite>Guava: Sıfırlama Açıklamasının Kullanılması ve Kullanılmaması Kriteri &lt;https://github.com/google/guava/wiki/UsingAndAvoidingNullExplained/&gt;</cite> _ ‘da bulabilirsiniz. Bağlantılı makalede belirtilen guava <code class="docutils literal notranslate"><span class="pre">İsteğe</span> <span class="pre">bağlı</span></code> sınıfının, javaya ait <code class="docutils literal notranslate"><span class="pre">java.util.Optional</span></code>’dan farklı olduğuna ve burada kullanılanlardan farklı metod isimlerine sahip olduğuna dikkat edin.</p>
+</div>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="usage.html" class="btn btn-neutral float-right" title="Kullanım örnekleri" accesskey="n" rel="next">İleri <span class="fa fa-angle-right"></span></a>
+        <a href="index.html" class="btn btn-neutral" title="İsteğe bağlı" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> Önceki</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../../_static/flags/tr_TR.svg"
+         alt="tr" title="Türkçe">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../../_static/jquery.js"></script>      <script type="text/javascript" src="../../_static/underscore.js"></script>      <script type="text/javascript" src="../../_static/doctools.js"></script>      <script type="text/javascript" src="../../_static/language_data.js"></script>      <script type="text/javascript" src="../../_static/translations.js"></script>      <script type="text/javascript" src="../../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

@@ -1,0 +1,265 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>世界生成 &mdash; Sponge 7.2.0 說明文件</title>
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="索引"
+              href="../../genindex.html"/>        <link rel="search" title="搜尋" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 說明文件" href="../../index.html"/>        <link rel="up" title="建立插件" href="../index.html"/>        <link rel="next" title="世界生成修改器" href="modifiers.html"/>        <link rel="prev" title="实现一个经济 API" href="../economy/implementing.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../../index.html">
+            <img src="../../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../server/index.html">建立伺服器</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../versions/index.html">版本控制方針</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../preparing/index.html">準備開發</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">建立插件</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../api-versions.html">API版本</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../buildsystem.html">建置系統</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../workspace/index.html">建立你的工作空間</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../project/index.html">建立你的專案</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-identifier.html">插件識別碼</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-class.html">主要插件類別</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lifecycle.html">插件的生命週期</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../injection.html">相依注入</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../practices/index.html">實踐</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../optional/index.html">Optionals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../logging.html">記錄與除錯</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text/index.html">文本</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/index.html">插件指令</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../event/index.html">事件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/index.html">設定插件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assets.html">Asset API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data/index.html">Data API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../blocks/index.html">方塊</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../entities/index.html">實體</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../items/index.html">物品</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../trade-offers.html">開設交易</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../effects.html">效果</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../scheduler.html">排程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../services.html">服務</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database.html">資料庫</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../permissions.html">權限</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bans.html">封鎖</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metrics.html">Metrics 收集</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bookview.html">書本閱覽</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../economy/index.html">經濟</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">世界生成</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modifiers.html">世界生成修改器</a></li>
+<li class="toctree-l3"><a class="reference internal" href="customwgen.html">改变世界生成</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../manager.html">插件管理器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../game-profile-manager.html">遊戲設定檔管理器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../offline-userplayer-data.html">離線玩家資料</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tab-lists.html">Tab 清單</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-meta.html">插件元數據</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ray-tracing.html">光線追蹤</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../debugging.html">插件除錯</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials.html">教學</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internals/index.html">相依於實作的插件</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ore/index.html">Ore 文件</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/index.html">為 Sponge 貢獻</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">關於 Sponge 專案</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+          <li><a href="../index.html">建立插件</a> &raquo;</li>
+    <li>世界生成</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/plugin/wgen/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="world-generation">
+<h1>世界生成<a class="headerlink" href="#world-generation" title="本標題的永久連結">¶</a></h1>
+<p>在 Minecraft 中，世界生成是一个十分复杂的过程，当然 Sponge 本身也增加了它的复杂程度。这里我们为感兴趣的读者提供一个关于世界是如何生成的基本描述。你可以选择跳过此步骤，并直接转到 API 的详细信息：</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="modifiers.html">世界生成修改器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="customwgen.html">改变世界生成</a></li>
+</ul>
+</div>
+<div class="section" id="an-overview-of-world-generation-in-minecraft">
+<h2>Minecraft 中的世界是如何生成的<a class="headerlink" href="#an-overview-of-world-generation-in-minecraft" title="本標題的永久連結">¶</a></h2>
+<p>Minecraft 中的世界生成单位是 <em>区块</em> 。当游戏请求一个不存在的区块时，世界生成系统就会在该处生成一个区块。生成这个区块的过程分为两个阶段： <strong>Generation</strong> 和 <strong>Population</strong> 。</p>
+<div class="section" id="the-generation-phase">
+<h3>Generation 阶段<a class="headerlink" href="#the-generation-phase" title="本標題的永久連結">¶</a></h3>
+<p>生成一个区块的第一个阶段是 <em>Generation 阶段</em> 。该阶段主要负责生成基本地形、生物群系、以及村庄、洞穴等较大的地形特征。</p>
+<div class="admonition note">
+<p class="first admonition-title">備註</p>
+<p class="last">这一生成阶段中的方块放置完全在缓冲区内进行，也就是说在该阶段的最后一步结束后才会创建 Chunk 对象。</p>
+</div>
+<p>首先，游戏将会在一个 2D 的生物群系图的缓存下生成生物群系，该缓存下的每一格都将对应真实世界地图区块中的 1x1 的一竖列方块。然后，基础的 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/gen/GenerationPopulator.html">GenerationPopulator</a> 生成地形的基本形状。这时的世界是完全由石头组成的。默认生成只是简单地根据柏林噪声（Perlin Noise）生成的高度图，然后进行填充——在高于海平面的地方填充空气，在低于海平面的地方填充水。这一步可以通过 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/gen/WorldGenerator.html#setBaseGenerationPopulator-org.spongepowered.api.world.gen.GenerationPopulator-">WorldGenerator#setBaseGenerationPopulator(GenerationPopulator)</a> 方法将默认的行为替换成你自己的世界生成行为。</p>
+<p>然后，使用上面提到的生物群系缓存，世界生成器开始把世界表层的方块以生物群系的 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/biome/GroundCoverLayer.html">GroundCoverLayer</a> 所指定的替换层数替换为同样由其所指定的 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/block/BlockState.html">BlockState</a> 。生物群系由 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/gen/BiomeGenerator.html">BiomeGenerator</a> 提供——这可以当作 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/gen/WorldGenerator.html#setBiomeGenerator-org.spongepowered.api.world.gen.BiomeGenerator-">WorldGenerator#setBiomeGenerator(BiomeGenerator)</a> 的参数传入。</p>
+<p>现在我们注意到基础的地形生成已经完成了，这时该轮到 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/gen/GenerationPopulator.html">GenerationPopulator</a> 开始工作了。 <code class="docutils literal notranslate"><span class="pre">GenerationPopulator</span></code> 分为两种类型：用于普适的世界生成与用于特定生物群系的世界生成。用于特定区块的世界生成的 <code class="docutils literal notranslate"><span class="pre">GenerationPopulator</span></code> 的集合，是所有该区块内存在的生物群系适用的 <code class="docutils literal notranslate"><span class="pre">GenerationPopulator</span></code> 的联合。</p>
+<p><code class="docutils literal notranslate"><span class="pre">GenerationPopulator</span></code> 被设计成用于大型的密集操作，也就是说被设计应用于缓冲区而不是尚未存在的 Chunk 对象。这意味着必须限制 <code class="docutils literal notranslate"><span class="pre">GenerationPopulator</span></code> 不得放置位于当前生成的区块外的方块。也就是说如果一个 <code class="docutils literal notranslate"><span class="pre">GenerationPopulator</span></code> 生成的方块跨越了多个区块，那么它们必须按照区块边界切开成小块，并且按照世界种子及其所在的区块坐标决定目前在世界上生成的是哪一小块。</p>
+<p>最后，当基本的地形生成完毕，生物群系已应用其上， <code class="docutils literal notranslate"><span class="pre">GenerationPopulator</span></code> 也已运行完成后，我们就完成了世界生成的 Generation 阶段，同时 Chunk 对象将构建生成并返回。</p>
+</div>
+<div class="section" id="the-population-phase">
+<h3>Population 阶段<a class="headerlink" href="#the-population-phase" title="本標題的永久連結">¶</a></h3>
+<p><em>Population 阶段</em> 只会在一个区块及其 X 轴与 Z 轴相邻的正方向的三个区块都被加载时进行世界生成。这允许在这一阶段的某种特性（Object）在不需要为 <code class="docutils literal notranslate"><span class="pre">GenerationPopulator</span></code> 进行部分生成的情况下，扩展到已经生成的 16x16 区块外。为了支持这一点，实际的 16x16 大小区块的生成会在 X 轴和 Z 轴的方向进行各 8 格的偏移。</p>
+<p>只有位于 <code class="docutils literal notranslate"><span class="pre">(x*16+16,</span> <span class="pre">0,</span> <span class="pre">z*16+16)</span></code> 处的生物群系中的 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/gen/Populator.html">Populator</a> 才会应用于这一块。也就是说游戏不会将所有该区域中的 <code class="docutils literal notranslate"><span class="pre">GenerationPopulator</span></code> 联合到一起。</p>
+<p><code class="docutils literal notranslate"><span class="pre">Populator</span></code> 可以用于生成小的建筑（如沙漠水井等）或者附加的地形特征（如树等）。Sponge 提供了大量的原版的可复用的世界生成的 <code class="docutils literal notranslate"><span class="pre">Populator</span></code> ，开发者可以通过对它们的配置进行复用。</p>
+</div>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="modifiers.html" class="btn btn-neutral float-right" title="世界生成修改器" accesskey="n" rel="next">下一頁 <span class="fa fa-angle-right"></span></a>
+        <a href="../economy/implementing.html" class="btn btn-neutral" title="实现一个经济 API" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> 上一頁</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../../_static/flags/zh_TW.svg"
+         alt="zh-TW" title="繁體中文">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../../_static/jquery.js"></script>      <script type="text/javascript" src="../../_static/underscore.js"></script>      <script type="text/javascript" src="../../_static/doctools.js"></script>      <script type="text/javascript" src="../../_static/language_data.js"></script>      <script type="text/javascript" src="../../_static/translations.js"></script>      <script type="text/javascript" src="../../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

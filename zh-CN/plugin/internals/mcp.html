@@ -1,0 +1,306 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MCP 简介 &mdash; Sponge 7.2.0 文档</title>
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="索引"
+              href="../../genindex.html"/>        <link rel="search" title="搜索" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 文档" href="../../index.html"/>        <link rel="up" title="依赖底层实现" href="index.html"/>        <link rel="next" title="在插件中使用 MCP" href="mcp-setup.html"/>        <link rel="prev" title="依赖底层实现" href="index.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../../index.html">
+            <img src="../../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../server/index.html">创建服务器</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../versions/index.html">版本策略</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../preparing/index.html">为开发作准备</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">插件开发</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../api-versions.html">API版本</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../buildsystem.html">构建系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../workspace/index.html">设置开发环境</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../project/index.html">设置你的项目</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-identifier.html">插件标识符</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-class.html">插件的主类</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lifecycle.html">插件的生命周期</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../injection.html">依赖注入</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../practices/index.html">插件开发惯例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../optional/index.html">使用 Optional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../logging.html">日志记录和调试</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text/index.html">文本 API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/index.html">插件命令</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../event/index.html">事件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/index.html">插件配置</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assets.html">使用 Asset API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data/index.html">数据 API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../blocks/index.html">方块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../entities/index.html">实体</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../items/index.html">物品</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../trade-offers.html">村民交易</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../effects.html">效果</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../scheduler.html">调度器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../services.html">服务</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database.html">数据库</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../permissions.html">权限</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bans.html">黑名单</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metrics.html">Metrics 收集</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bookview.html">成书</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../economy/index.html">经济 API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wgen/index.html">世界生成</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manager.html">插件管理器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../game-profile-manager.html">玩家资料管理器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../offline-userplayer-data.html">离线玩家数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tab-lists.html">玩家列表</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-meta.html">插件的元数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ray-tracing.html">光线追踪</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../debugging.html">调试插件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials.html">教程</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">依赖底层实现</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">MCP 简介</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mcp-setup.html">在插件中使用 MCP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="access-transformers.html">使用 Access Transformer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mixins.html">在插件中使用 Mixin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="implementation.html">Sponge 的实现类</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ore/index.html">Ore 文档</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/index.html">向 Sponge 贡献代码</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">关于 Sponge</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+          <li><a href="../index.html">插件开发</a> &raquo;</li>
+          <li><a href="index.html">依赖底层实现</a> &raquo;</li>
+    <li>MCP 简介</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/plugin/internals/mcp.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="mcp-mod-coder-pack">
+<h1>MCP 简介<a class="headerlink" href="#mcp-mod-coder-pack" title="永久链接至标题">¶</a></h1>
+<p><a class="reference external" href="http://www.modcoderpack.com">Mod Coder Pack</a>（缩写 MCP）最初是一套用于 Minecraft Mod 开发的工具包，包括了种种救开发者于水深火热之中的脚本、工具及映射表。之所以说“救开发者于水深火热之中”，归根结底还是因为 Minecraft 不是开源软件，而且绝大部分程序带有混淆；在 MCP 出现之前，开发者若要制作基于 Minecraft 的 Mod 就必须在反编译 Minecraft 后硬啃天书一样的反编译结果；而 MCP 出现后，开发者便可以在反编译反混淆（人类能看懂）的环境里轻松开发 Minecraft 的 Mod 了。</p>
+<div class="section" id="workflow">
+<h2>工作流程<a class="headerlink" href="#workflow" title="永久链接至标题">¶</a></h2>
+<p>其实，在插件开发中使用 MCP 并不难：</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>配置 MCP 工作环境</dt>
+<dd><ul class="first last">
+<li>下载原版 Minecraft 客户端及服务器的必须文件</li>
+<li>反混淆（换言之，将“天书”翻译成可辨识的文字）</li>
+<li>反编译（暴力拆解编译好的类并生成对应的源码）</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li>然后，基于反混淆后的 Minecraft 源码编写插件</li>
+<li>编译时，重新混淆对 Minecraft 本身代码的引用，使之可以在生产环境（也就是你的 Minecraft 服务器上）运行</li>
+</ul>
+</div>
+<div class="section" id="mappings">
+<h2>映射表<a class="headerlink" href="#mappings" title="永久链接至标题">¶</a></h2>
+<p>MCP 使用了两份映射表（译注：指<em>Searge</em>、<em>MCP</em>、<em>Notch</em> 三种名称之间存在的两份映射表；三种名称的区别见下），每份映射表的功能不尽相同。具体来说，<em>Notch</em> 、 <em>Searge</em> 和 <em>MCP</em> 的差别大概就是：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>// Notch
+boolean a(rw ☃);
+
+// Searge
+boolean func_72838_d(Entity p_72838_1_);
+
+// MCP
+boolean spawnEntityInWorld(Entity entityIn);
+</pre></div>
+</div>
+<ul class="simple">
+<li><strong>Notch 名</strong>，指原版 Minecraft 本身，这个编译好的二进制文件中，使用的各种带混淆的名字。 Minecraft 更新一次，这个名字就会变一次。</li>
+<li><strong>Searge 名</strong>则略显复杂，它包含两部分：一部分是可以望文生义的类名，另一部分是给混淆后的方法、字段及参数取的特殊名字（依旧是混淆的），两两之间互不相同。它的特点在于，只要对应方法签名不变，不论 Notch 名怎么变，Searge 名都不会发生变化。实际上 SpongeVanilla 和 SpongeForge 都在生产环境中使用 Searge 名。</li>
+<li><strong>MCP 名</strong>则全部是普通人可辨识的文字了。不要小看这些名字——这些文字背后是无数社区成员奋战无数个日夜后的成果。一般，这就是开发环境所使用的各种类、方法、字段、参数的名称；编译时会自动将这些引用翻译回 Searge 名或 Notch 名。</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">你在开发环境中看到的自然是清一色的 <strong>MCP 名</strong>。若要在生产环境（即某个服务器上）中运行插件，你需要将其重新混淆至 <strong>Searge 名</strong>。</p>
+</div>
+<div class="section" id="using-the-mcpbot">
+<h3>使用 MCPBot<a class="headerlink" href="#using-the-mcpbot" title="永久链接至标题">¶</a></h3>
+<p><a class="reference external" href="http://mcpbot.bspk.rs/">MCPBot</a> 是个运行在 Sponge 和 MCP 的 IRC 频道和 MCP 的 Discord 服务器的 <code class="docutils literal notranslate"><span class="pre">#bot-spam</span></code> 频道里的机器人。（译注：这两个 IRC 频道都在 esper.net 上）这个机器人可以帮你快速查找 MCP 映射表的具体映射，同时也提供了贡献新映射名的窗口。只需加入频道（比如 <code class="docutils literal notranslate"><span class="pre">#spongedev</span></code> 中就可以找到这个机器人），然后发送消息，一切就是那么简单。</p>
+<div class="admonition tip">
+<p class="first admonition-title">小技巧</p>
+<p class="last">使用 MCP 机器人前记得查阅 <a class="reference external" href="http://mcpbot.bspk.rs/help">MCPBot help page</a> ，以确认可用指令。</p>
+</div>
+<div class="section" id="contributing-new-names">
+<h4>提交新的映射<a class="headerlink" href="#contributing-new-names" title="永久链接至标题">¶</a></h4>
+<p>对于那些还没MCP名的映射，你可以考虑抢先提交一个。具体操作流程可以在 <a class="reference external" href="http://mcpbot.bspk.rs/help">MCPBot help page</a> 找到。</p>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">然而，一旦 MCP 名确定下来了你就没法修改了。如果你的确对某个 MCP 名有意见（或建议），你可以在 GitHub 上寻找 <a class="reference external" href="https://github.com/ModCoderPack/MCPBot-Issues/issues">这个机器人的问题追踪器</a> 提出意见。</p>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">参见</p>
+<dl class="last docutils">
+<dt><a class="reference external" href="http://www.modcoderpack.com">Mod Coder Pack</a></dt>
+<dd>Mod Coder Pack 的官方网站。</dd>
+<dt><a class="reference external" href="http://mcpbot.bspk.rs/help">MCPBot help page</a></dt>
+<dd><a class="reference external" href="http://mcpbot.bspk.rs/">MCPBot</a> 的帮助页面。</dd>
+</dl>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="mcp-setup.html" class="btn btn-neutral float-right" title="在插件中使用 MCP" accesskey="n" rel="next">下一页 <span class="fa fa-angle-right"></span></a>
+        <a href="index.html" class="btn btn-neutral" title="依赖底层实现" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> 上一页</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../../_static/flags/zh_CN.svg"
+         alt="zh-CN" title="简体中文">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../../_static/jquery.js"></script>      <script type="text/javascript" src="../../_static/underscore.js"></script>      <script type="text/javascript" src="../../_static/doctools.js"></script>      <script type="text/javascript" src="../../_static/language_data.js"></script>      <script type="text/javascript" src="../../_static/translations.js"></script>      <script type="text/javascript" src="../../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

@@ -1,0 +1,357 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>鉱石プラグイン提出に関するガイドライン &mdash; Sponge 7.2.0 ドキュメント</title>
+
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="索引"
+              href="../genindex.html"/>        <link rel="search" title="検索" href="../search.html"/>    <link rel="top" title="Sponge 7.2.0 ドキュメント" href="../index.html"/>        <link rel="up" title="Ore ドキュメント" href="index.html"/>        <link rel="next" title="プラグインの公開" href="publish.html"/>        <link rel="prev" title="Ore ドキュメント" href="index.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../index.html">
+            <img src="../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../server/index.html">サーバーの作成</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../versions/index.html">Versioning Policy</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../preparing/index.html">開発環境の準備</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../plugin/index.html">プラグインの作成</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Ore ドキュメント</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">鉱石プラグイン提出に関するガイドライン</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#projects">案件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#files">ファイル</a></li>
+<li class="toctree-l2"><a class="reference internal" href="publish.html">プラグインの公開</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html">セキュリティ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html">Ore の Web API</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contributing/index.html">Sponge に貢献する</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">Sponge プロジェクトについて</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+          <li><a href="index.html">Ore ドキュメント</a> &raquo;</li>
+    <li>鉱石プラグイン提出に関するガイドライン</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/ore/guidelines.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="ore-plugin-submission-guidelines">
+<h1>鉱石プラグイン提出に関するガイドライン<a class="headerlink" href="#ore-plugin-submission-guidelines" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>歓迎の提出に関するガイドライン鉱石. このドキュメントの概要当社への期待の両方のプロジェクトファイルを投稿.</p>
+<p>これだけのガイドラインの鉱石チーム, と呼ばれる “スタッフ” このガイドライン, 場合により、又は不可というアクションが明示的にリストされていない場では当社独自の判断.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="projects">
+<h1>案件<a class="headerlink" href="#projects" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>提出したプロジェクトの期待:</p>
+<div class="section" id="name">
+<h2>Name<a class="headerlink" href="#name" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Your project’s submitted name should not include a version, tagline, or other description. The name should be unique
+and original and must not have a name implying it is an official Sponge project.</p>
+<p>Examples of names that are <strong>not acceptable</strong>:</p>
+<ul class="simple">
+<li><em>SpongeWarp</em></li>
+<li><em>SpongeHome</em></li>
+<li><em>SpongeEssentials</em></li>
+<li><em>SpongeCloud</em></li>
+</ul>
+<p>Examples of names that are <strong>acceptable</strong>:</p>
+<ul class="simple">
+<li><em>CoolWarps-Sponge</em></li>
+<li><em>MoneyMiner-Sponge</em></li>
+<li><em>Golfball-for-Sponge</em></li>
+<li><em>Calendar-for-Sponge</em></li>
+</ul>
+</div>
+<div class="section" id="main-documentation-page-home">
+<h2>主なドキュメンテーションページ (ホーム)<a class="headerlink" href="#main-documentation-page-home" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>This is the first page that anyone will see when visiting your project. Information here should include a clear and concise
+description of your project’s features and goals. The following, if present in your plugin, should be documented on the main
+page if relevant:</p>
+<blockquote>
+<div><p><strong>外部接続</strong></p>
+<p>の場合のプロジェクトweb API, 電話がホームデータを収集する, その他に接続システム外部のサーバーでないようにするには、, このような特徴などについての情報を有効または無効になければ目立つ場所に掲示し、メインページ. 場合はプロジェクトの目的を活用し、外部システム (など Sponge plugin 変換するチャットと言語), 設定オプションを切り替える作りにつながるサービスが不要. 場合はプラグイン情報を (例えば, plugin リストまたはプレイヤーデータ), 収集した情報に記載されていることをメインページ.</p>
+<p>例システムを必要とする書類:</p>
+<blockquote>
+<div><ul class="simple">
+<li>統計の利用情報の収集 (‘メトリクス’)</li>
+<li>ジオロケーション</li>
+<li>翻訳サービス</li>
+<li>Webサーバ上で稼動するプラグイン, ィ情報をユーザー</li>
+<li>サーバ上で稼動するプラグイン, 試聴からの要請その他サービス</li>
+<li>IRC/Discord/Telegram/WhatsApp bot or relay</li>
+</ul>
+</div></blockquote>
+<p>Examples of systems that do <strong>not</strong> require documentation:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Local databases or database connections specified by the end-user</li>
+</ul>
+</div></blockquote>
+</div></blockquote>
+</div>
+<div class="section" id="category">
+<h2>カテゴリ<a class="headerlink" href="#category" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>カテゴリの選択は正確な. プロジェクトは最も狭い分類できなカテゴリにもと若干の適用. ない場合、カテゴリーが表示され精度, その他のカテゴリを使用する必要があります.</p>
+</div>
+<div class="section" id="download-links">
+<h2>ダウンロードリンク<a class="headerlink" href="#download-links" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Ore provides, on each project page, a download button which will automatically choose the most recent release. If you
+wish to add additional download links, all links must point to files hosted on Ore. In addition to links to approved
+files, you may link to the download pages of unapproved Ore file submissions, but these links must not be recommended
+over any approved submission by any means. This includes both explicitly marking a link to an unapproved file as
+recommended, or implicitly by making such links as or more prominent than links to approved builds. Further, you must
+not attempt to circumvent any plugin warnings on Ore, including warnings that inform the user that a project has not
+yet been reviewed.</p>
+</div>
+<div class="section" id="monetization-advertising">
+<h2>Monetization / Advertising<a class="headerlink" href="#monetization-advertising" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>提出場することはしません。, せ機能を追加する解錠可能と支払い. 広告やその他の収益の発生のリンク (例えばadfly) は許可されない. の文書が含まれている場合がありめのリンクページへの寄付は、プロジェクトメンテナ又はその他の拠出者として感謝がる場合がありますので、あらかじめ提供してはならない追加機能やその他の プラグイン/改造 販売.</p>
+</div>
+<div class="section" id="cracked-offline-mode-online-mode-false-support">
+<h2>“Cracked” / Offline-mode / online-mode=false Support<a class="headerlink" href="#cracked-offline-mode-online-mode-false-support" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>件を明示できるように設計されていなどの利用不可. プロジェクト, などの認証システム, して機能するために活用できるサーバーにかかわらずサーバーの利用Mojangの認証, ということを推進追加利用する専用のサーバーを避け、Mojang auth. 施設の特徴を活かしたサービスのための委任状が必要 オンライン-モード=falseの場合せ, 迂回を容易にするために書かれていない Minecraft 口座を保有.</p>
+</div>
+<div class="section" id="eula">
+<h2>EULA<a class="headerlink" href="#eula" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>を目指して完全には順守し、 Mojang EULA. 他のプラグイン, サービス, 投稿, そして/リンク違反の疑いがあるの EULA 削除される可能性がありの判断により Sponge スタッフ又は要請 Mojang AB.</p>
+</div>
+<div class="section" id="forks">
+<h2>フォーク<a class="headerlink" href="#forks" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>フォークを許可, いすべて満たす事項を以下にリスト. スタッフが最後に何をもって受付フォーク. のライセンスの親会社のプロジェクトを適切に.</p>
+<p>のいずれか:</p>
+<blockquote>
+<div><ul class="simple">
+<li>を含む重要な変更証を、新しいプロジェクト. これを回避することであ “私のメッセージ色Xプラグインになっ請求項信用!”, または</li>
+<li>継続プラグインがされてい, 証を著していない応答メッセージまたは述べてのプロジェクト間の更新.</li>
+</ul>
+</div></blockquote>
+<p>ご了承くは信用のプラグインの開発. 基本的に, いである」といった新しいプラグインが、リスクや不確実性を自分で作り出し.</p>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="files">
+<h1>ファイル<a class="headerlink" href="#files" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>ファイルで提出するためにサーバーに接続でき、以下の期待:</p>
+<div class="section" id="obfuscation">
+<h2>難読化<a class="headerlink" href="#obfuscation" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>ファイルを利用した難読化されに該当する場合を除き、以下の例外:</p>
+<blockquote>
+<div><p><strong>NMS Obfuscation</strong></p>
+<p>これだけ適用されるプラグインを参照する Minecraft や鍛mod. 参考にすべきではないでしょうかプラグインを使用Mixinsやプラグインと併用でForge mod (プラグインハイブリッド). のみobfuscated参照をobfuscated源を用いて生成する ForgeGradle または VanillaGradle, プラグインが進行する審査プロセス.</p>
+</div></blockquote>
+</div>
+<div class="section" id="core-mods-and-mixins-modification-of-the-minecraft-base-code">
+<h2>コア Mods そして Mixins: の変更 Minecraft ベースコード<a class="headerlink" href="#core-mods-and-mixins-modification-of-the-minecraft-base-code" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Plugins and mods that use a system that modifies the Minecraft base code at runtime, (such as core mods and mixins)
+must disclose the edits that they make to the Minecraft code, and their reasoning for them. Sponge plugins should use
+SpongeAPI where possible. Sponge implementations may implement technical restrictions to prevent such modifications
+from being applied by default. Files are not permitted to attempt to work around these restrictions, but can notify
+the user that enhanced functionality can be enabled via the Sponge provided configuration options.</p>
+</div>
+<div class="section" id="external-connections-web-api-phoning-home-etc">
+<h2>External Connections (Web API, Phoning Home, etc.)<a class="headerlink" href="#external-connections-web-api-phoning-home-etc" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>多くの大きな特徴できるようにとの通話を外部システム. ど明瞭に文書化したプロジェクトの説明, などの機能を設定可能、初期状態で無効にするようにした. 場合はプロジェクトの目的を活用し、外部システム (など Sponge プラグイン変換するチャットと言語), 接続するシステムの必要のないdisableable. 場合はプラグイン情報を (例えば、プラグイン一覧, プレイヤーデータ, や地図データ) 外部システム, 収集した情報に記載されていることをメインページ (上記参照).</p>
+<blockquote>
+<div><p><strong>Metrics (Data Collection)</strong></p>
+<p>Whenever data collected about the server (often referred to as 「stats」 or 「metrics」 data, such as server or
+plugin versions, as well as usage information) is to be sent to an external service, the plugin must first query
+the Sponge API MetricsConfigManager. Documentation on doing so can be found <a class="reference internal" href="../plugin/metrics.html"><span class="doc">Here</span></a>.
+This API must be checked each time data is sent, not only once. Plugins may not modify the values the API
+returns, but may encourage users to make the decision to enable the collection and sending of this data for their
+plugin.</p>
+</div></blockquote>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p class="last">This API was added in API 7.1.0. Plugins built against older API versions must instead check against a variable in
+a configuration file unique to that plugin for the enabled/disabled status, which must also default to disabled.</p>
+</div>
+</div>
+<div class="section" id="execution-of-downloaded-code">
+<h2>Execution of Downloaded Code<a class="headerlink" href="#execution-of-downloaded-code" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>We cannot ensure that content that is downloaded and executed at runtime is safe and complies with our guidelines.
+Any project that performs downloads and execution of code will have warnings on the project page and a warning
+prior to download to ensure users know the risk.</p>
+<p>The following conditions must be also be met by the project:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Downloaded content must have hard-coded SHA256 (or better) based hash checking</li>
+<li>Downloaded content must be explained in the main project page as to what is downloaded and what purpose it serves</li>
+<li>Downloaded content must be performed over HTTPS connections</li>
+<li>Downloaded content must not be hosted in a location that will limit downloads (e.g. DropBox, Google Drive)</li>
+<li>Downloading another plugin must go through Ore’s API in the same fashion as Update Checking</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="id1">
+<h2>Monetization / Advertising<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>All functionality present in your plugin should be usable without restriction, and cannot require a license key to
+operate. External APIs, such as translation or geolocation services, that require payment for functionality can be
+allowed but must be discussed among staff prior to approval. Plugins may not be used to display advertisements.</p>
+</div>
+<div class="section" id="update-checking">
+<h2>更新チェック<a class="headerlink" href="#update-checking" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>チェックのための更新プログラムの実行を使用して鉱石 API. プあたりのリンクで鉱石が演出のユーザーのプラグインをダウンロードは、新しいバージョン. この更新チェックカウントとして外部接続, るキュメント化する必要があります、設定が存在しなければならな無効にすることもでき.</p>
+</div>
+<div class="section" id="privilege-granting">
+<h2>Privilege Granting<a class="headerlink" href="#privilege-granting" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>プラグインな助成又は取り消す機能へのアクセスは、特定のユーザーまたはグループのユーザーが定めるプラグイン開発. この中には著者の権を与えうる特別の表示名させたりすること自体が特徴のコマンド. 特徴, 適用できる場合, ロックする必要があ背後にノードを許可, よりアクセスが所定の著者. コマンドを与えるための特定, 事前にプログラムのユーザーまたはOP権限がない可能.</p>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="publish.html" class="btn btn-neutral float-right" title="プラグインの公開" accesskey="n" rel="next">次へ <span class="fa fa-angle-right"></span></a>
+        <a href="index.html" class="btn btn-neutral" title="Ore ドキュメント" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> 戻る</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../_static/flags/ja_JP.svg"
+         alt="ja" title="日本語">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../_static/jquery.js"></script>      <script type="text/javascript" src="../_static/underscore.js"></script>      <script type="text/javascript" src="../_static/doctools.js"></script>      <script type="text/javascript" src="../_static/language_data.js"></script>      <script type="text/javascript" src="../_static/translations.js"></script>      <script type="text/javascript" src="../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

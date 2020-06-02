@@ -1,0 +1,344 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diretrizes de Submissão de Plugins no Ore &mdash; Documentação Sponge 7.2.0</title>
+
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="Índice"
+              href="../genindex.html"/>        <link rel="search" title="Pesquisar" href="../search.html"/>    <link rel="top" title="Documentação Sponge 7.2.0" href="../index.html"/>        <link rel="up" title="Documentação do Ore" href="index.html"/>        <link rel="next" title="Publicar o teu Plugin" href="publish.html"/>        <link rel="prev" title="Documentação do Ore" href="index.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../index.html">
+            <img src="../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../server/index.html">Criar um Servidor</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../versions/index.html">Políticas de Versionamento</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../preparing/index.html">Preparação para Desenvolvimento</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../plugin/index.html">Criar um Plugin</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Documentação do Ore</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Diretrizes de Submissão de Plugins no Ore</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#projects">Projetos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#files">Ficheiros</a></li>
+<li class="toctree-l2"><a class="reference internal" href="publish.html">Publicar o teu Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html">Segurança</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html">Ore Web API</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contributing/index.html">Contribuir para o Sponge</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">Sobre o Projeto Sponge</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+          <li><a href="index.html">Documentação do Ore</a> &raquo;</li>
+    <li>Diretrizes de Submissão de Plugins no Ore</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/ore/guidelines.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="ore-plugin-submission-guidelines">
+<h1>Diretrizes de Submissão de Plugins no Ore<a class="headerlink" href="#ore-plugin-submission-guidelines" title="Link permanente para este título">¶</a></h1>
+<p>Bem-vindo às diretrizes de submissão de plugins do Ore. Este documento descreve as nossas expectativas para submissões de ficheiros e de projetos.</p>
+<p>Lembra-te que isto não passam de orientações e que a equipa do Ore, doravante chamada <em>staff</em>, pode escolher se aceita ou não qualquer ação que não esteja aqui explicitamente descrita segundo o seu próprio critério.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="projects">
+<h1>Projetos<a class="headerlink" href="#projects" title="Link permanente para este título">¶</a></h1>
+<p>Projectos apresentados devem satisfazer os seguintes critérios:</p>
+<div class="section" id="name">
+<h2>Nome<a class="headerlink" href="#name" title="Link permanente para este título">¶</a></h2>
+<p>O nome do teu projeto não deve conter a versão, uma tag ou qualquer outra descrição. O nome deve ser único e original e não pode ter um nome a implicar que se trata de um projeto Sponge oficial.</p>
+<p>Exemplos de nomes <strong>não são aceitáveis</strong>:</p>
+<ul class="simple">
+<li><em>SpongeWarp</em></li>
+<li><em>SpongeHome</em></li>
+<li><em>SpongeEssentials</em></li>
+<li><em>SpongeCloud</em></li>
+</ul>
+<p>Exemplos de nomes são <strong>aceitáveis</strong>:</p>
+<ul class="simple">
+<li><em>CoolWarps-Sponge</em></li>
+<li><em>MoneyMiner-Sponge</em></li>
+<li><em>Golfball-for-Sponge</em></li>
+<li><em>Calendar-for-Sponge</em></li>
+</ul>
+</div>
+<div class="section" id="main-documentation-page-home">
+<h2>Página Principal de Documentação (Home)<a class="headerlink" href="#main-documentation-page-home" title="Link permanente para este título">¶</a></h2>
+<p>This is the first page that anyone will see when visiting your project. Information here should include a clear and concise
+description of your project’s features and goals. The following, if present in your plugin, should be documented on the main
+page if relevant:</p>
+<blockquote>
+<div><p><strong>Ligações Externas</strong></p>
+<p>Se o teu projeto utiliza uma Web API, faz chamadas a um servidor privado para recolher dados, ou de outra forma se liga a um sistema externo ao servidor em que está a correr, a presença desta funcionalidade, bem como informação sobre como esta pode ser ativada/desativada, deve ser bem assinalada na página principal. Se o principal propósito do teu projeto envolve a utilização de um serviço externo (como, por exemplo, um plugin do Sponge que traduz entre idiomas do chat), não é necessária a presença de uma configuração que permita desativar a criação dessas ligações. Por outro lado, se o teu plugin envia informação (como, por exemplo, uma lista de plugins ou dados dos jogadores), a informação recolhida deve ser indicada na página principal.</p>
+<p>Exemplos de sistemas que requerem documentação:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Estatísticas ou recolha de informação de utilização (<em>metrics</em>)</li>
+<li>Geolocalização</li>
+<li>Serviços de tradução</li>
+<li>Servidor Web que corre no plugin, fornecendo informação para os utilizadores</li>
+<li>Servidor que corre no plugin, a servir pedidos de outros serviços</li>
+<li>bot ou relay IRC/Discord/Telegram/WhatsApp</li>
+</ul>
+</div></blockquote>
+<p>Examples of systems that do <strong>not</strong> require documentation:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Local databases or database connections specified by the end-user</li>
+</ul>
+</div></blockquote>
+</div></blockquote>
+</div>
+<div class="section" id="category">
+<h2>Categoria<a class="headerlink" href="#category" title="Link permanente para este título">¶</a></h2>
+<p>A categoria que escolhes deve ser precisa. O teu projeto deve usar a categoria mais restritiva possível, e não uma categoria que se aplique parcialmente. Se nenhuma categoria parecer apropriada, seleciona a categoria <em>Miscellaneous</em>.</p>
+</div>
+<div class="section" id="download-links">
+<h2>Links para download<a class="headerlink" href="#download-links" title="Link permanente para este título">¶</a></h2>
+<p>O Ore providencia, na página de cada projeto, um botão de download que escolhe automaticamente a versão mais recente. Se desejas adicionar mais links de download, todos estes devem apontar para ficheiros hospedados no Ore. Para além de links para ficheiros aprovados, podes adicionar links para página não aprovadas, mas não links diretos de ficheiros, mas estes links não podem ser mais recomendados do que a submissão aprovada de qualquer maneira. Isto inclui tanto marcar um link não aprovado como recomendado, como fazer estes links serem mais proeminentes do que links para builds aprovadas. Além disso, não podes tentar dar a volta a qualquer aviso de plugin no Ore, como avisos que informam que o plugin ainda não foi revisto.</p>
+</div>
+<div class="section" id="monetization-advertising">
+<h2>Monetização / Publicidade<a class="headerlink" href="#monetization-advertising" title="Link permanente para este título">¶</a></h2>
+<p>Submissões não podem ser vendidas, nem podem haver funcionalidades adicionais desbloqueáveis mediamente pagamento. Propagandas e outros links de geração de receitas (por exemplo, adfly) não são permitidos. A documentação pode conter um link para uma página para doar para o desenvolvedor do projeto ou para outros contribuintes como agradecimento, mas essa página não pode oferecer recursos adicionais ou outros plugins/mods para venda.</p>
+</div>
+<div class="section" id="cracked-offline-mode-online-mode-false-support">
+<h2>Suporte para «cracked» / Modo Offline / online-mode=false<a class="headerlink" href="#cracked-offline-mode-online-mode-false-support" title="Link permanente para este título">¶</a></h2>
+<p>Projetos que afirmam explicitamente que são feitos para tais usos não são permitidos. Alguns projetos, como os sistemas de autenticação, podem ter a funcionalidade que pode ser útil para os servidores, independentemente do uso do servidor de autenticação da Mojang, mas eles não podem promover esse uso adicional ou ser projetados especificamente para servidores evitando Mojang auth. Projetos concebidos para proxies, que exijam online-mode=false são permitidos, desde que eles não estejam feitos de modo a facilitar a evasão de propriedade de conta de Minecraft.</p>
+</div>
+<div class="section" id="eula">
+<h2>EULA (Contrato de Licença de Utilizador Final)<a class="headerlink" href="#eula" title="Link permanente para este título">¶</a></h2>
+<p>Tencionamos obedecer integralmente ao EULA da Mojang. Quaisquer plugins, serviços, posts e/ou links suspeitos de violarem o EULA poderão ser removidos a critério do Staff, ou a pedido da Mojang AB.</p>
+</div>
+<div class="section" id="forks">
+<h2>Forks<a class="headerlink" href="#forks" title="Link permanente para este título">¶</a></h2>
+<p>Forks são permitidos, desde que cumpram todos os requisitos abaixo. O staff tem a palavra final sobre o que é um fork válido. Deves seguir a licença do projeto pai adequadamente.</p>
+<p>Ou:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Contém modificações suficientes, justificando a criação de um novo projeto. Isto serve para evitar situações como: «Mudei as cores das mensagens do plugin X e agora fico com os louros!», ou</li>
+<li>Continua um plugin que foi abandonado, com prova de que o autor não tem respondido a mensagens, ou afirmou que o projeto não será atualizado daí em diante.</li>
+</ul>
+</div></blockquote>
+<p>Reconhece ou dá o devido crédito ao plugin original e aos seus desenvolvedores. Isto é, não alegues que um novo plugin é exclusivamente criação tua.</p>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="files">
+<h1>Ficheiros<a class="headerlink" href="#files" title="Link permanente para este título">¶</a></h1>
+<p>Os ficheiros apresentados devem satisfazer os seguintes critérios:</p>
+<div class="section" id="obfuscation">
+<h2>Obfuscação<a class="headerlink" href="#obfuscation" title="Link permanente para este título">¶</a></h2>
+<p>Um ficheiro obfuscado será recusado a menos que caia na seguinte exceção:</p>
+<blockquote>
+<div><p><strong>Obfuscação NMS</strong></p>
+<p>Isto só se aplica a plugins que façam referência ao Minecraft ou a um Forge Mod. Possíveis exemplos são plugins que usem Mixins ou um plugin que também seja um Forge Mod(plugin híbrido). Desde que a as únicas referências obfuscadas sejam a código fonte obfuscado gerado pelo ForgeGradle ou VanillaGradle, o plugin pode prosseguir pelo processo de revisão.</p>
+</div></blockquote>
+</div>
+<div class="section" id="core-mods-and-mixins-modification-of-the-minecraft-base-code">
+<h2>Core Mods e Mixins: Modificação do Código Base do Minecraft<a class="headerlink" href="#core-mods-and-mixins-modification-of-the-minecraft-base-code" title="Link permanente para este título">¶</a></h2>
+<p>Plugins e mods que usem um sistema que modifique o código base do Minecraft em runtime (como core mods e mixins) devem divulgar as edições que fizeram, bem como o motivo para as terem feito. Os plugins Sponge devem usar a SpongeAPI sempre que possível. Algumas implementações do Sponge podem ser feitas de modo a impedir que estas modificações sejam aplicadas por predefinição. Os ficheiros não podem contornar estas restrições, mas podem notificar o utilizador que há mais funcionalidades que podem ser ativadas através das opções de configuração fornecidas pelo Sponge.</p>
+</div>
+<div class="section" id="external-connections-web-api-phoning-home-etc">
+<h2>Ligações externas (Web API, Phoning Home, etc.)<a class="headerlink" href="#external-connections-web-api-phoning-home-etc" title="Link permanente para este título">¶</a></h2>
+<p>Há muitas funcionalidades excelentes que podem ser feitas com recurso a chamadas a sistemas externos. Para além de estarem claramente explicitadas na documentação, estas funcionalidades devem ser configuráveis e devem estar desativadas por omissão. Se o principal propósito do teu projeto envolve a utilização de um serviço externo (como, por exemplo, um plugin do Sponge que traduz entre idiomas do chat), não é necessária a presença de uma configuração que permita desativar essas ligações. Por outro lado, se o teu plugin envia informação (como, por exemplo, uma lista de plugins, dados dos jogadores, ou dados do mapa) para sistemas externos, a informação recolhida deve ser indicada na página principal (ver acima).</p>
+<blockquote>
+<div><p><strong>Metrics (Data Collection)</strong></p>
+<p>Whenever data collected about the server (often referred to as «stats» or «metrics» data, such as server or
+plugin versions, as well as usage information) is to be sent to an external service, the plugin must first query
+the Sponge API MetricsConfigManager. Documentation on doing so can be found <a class="reference internal" href="../plugin/metrics.html"><span class="doc">Here</span></a>.
+This API must be checked each time data is sent, not only once. Plugins may not modify the values the API
+returns, but may encourage users to make the decision to enable the collection and sending of this data for their
+plugin.</p>
+</div></blockquote>
+<div class="admonition note">
+<p class="first admonition-title">Nota</p>
+<p class="last">This API was added in API 7.1.0. Plugins built against older API versions must instead check against a variable in
+a configuration file unique to that plugin for the enabled/disabled status, which must also default to disabled.</p>
+</div>
+</div>
+<div class="section" id="execution-of-downloaded-code">
+<h2>Execução de código descarregado<a class="headerlink" href="#execution-of-downloaded-code" title="Link permanente para este título">¶</a></h2>
+<p>We cannot ensure that content that is downloaded and executed at runtime is safe and complies with our guidelines.
+Any project that performs downloads and execution of code will have warnings on the project page and a warning
+prior to download to ensure users know the risk.</p>
+<p>The following conditions must be also be met by the project:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Downloaded content must have hard-coded SHA256 (or better) based hash checking</li>
+<li>Downloaded content must be explained in the main project page as to what is downloaded and what purpose it serves</li>
+<li>Downloaded content must be performed over HTTPS connections</li>
+<li>Downloaded content must not be hosted in a location that will limit downloads (e.g. DropBox, Google Drive)</li>
+<li>Downloading another plugin must go through Ore’s API in the same fashion as Update Checking</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="id1">
+<h2>Monetização / Publicidade<a class="headerlink" href="#id1" title="Link permanente para este título">¶</a></h2>
+<p>Todas as funcionalidades presentes no teu plug-in devem ser utilizáveis sem qualquer restrição e não podem exigir uma chave de licença para operar. APIs externas, tais como tradução ou serviços de geolocalização, que exigem o pagamento para funcionar, podem ser permitidos, mas terão de ser discutidos pelo staff antes da aprovação. Os plugins não podem ser utilizados para exibir anúncios.</p>
+</div>
+<div class="section" id="update-checking">
+<h2>Verificação de Updates<a class="headerlink" href="#update-checking" title="Link permanente para este título">¶</a></h2>
+<p>A verificação de atualizações deve ser realizada utilizando a Ore API. O teu plugin não pode tens links para mais lado nenhum exceto para o Ore, quando direcionar os utilizadores para descarregarem uma nova versão. Nota que esta verificação de updates conta como uma ligação externa, que deve ser documentada, e para a qual deve existir uma configuração que permita desativá-la.</p>
+</div>
+<div class="section" id="privilege-granting">
+<h2>Concessão de privilégios<a class="headerlink" href="#privilege-granting" title="Link permanente para este título">¶</a></h2>
+<p>Os plugins não podem dar ou revogar acesso a funcionalidades a qualquer utilizador ou grupo com base em configurações do desenvolvedor. Isto inclui o autor dar a si próprio um nome especial ou permitirem que eles usem um comando especial. Privilégios, quando aplicável, devem ser atribuídos por intermédio de nós de permissão, e não pré-determinados pelo autor do plugin. Também não é aceite a presença de comandos para dar permissões ou OP a um conjunto de utilizadores pré-programado.</p>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="publish.html" class="btn btn-neutral float-right" title="Publicar o teu Plugin" accesskey="n" rel="next">Seguinte <span class="fa fa-angle-right"></span></a>
+        <a href="index.html" class="btn btn-neutral" title="Documentação do Ore" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> Anterior</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../_static/flags/pt_PT.svg"
+         alt="pt" title="Português">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../_static/jquery.js"></script>      <script type="text/javascript" src="../_static/underscore.js"></script>      <script type="text/javascript" src="../_static/doctools.js"></script>      <script type="text/javascript" src="../_static/language_data.js"></script>      <script type="text/javascript" src="../_static/translations.js"></script>      <script type="text/javascript" src="../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

@@ -1,0 +1,362 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Serializing Data &mdash; dokumentasi Sponge 7.2.0</title>
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="Indeks"
+              href="../../genindex.html"/>        <link rel="search" title="Pencarian" href="../../search.html"/>    <link rel="top" title="dokumentasi Sponge 7.2.0" href="../../index.html"/>        <link rel="up" title="Data API" href="index.html"/>        <link rel="next" title="Blok" href="../blocks/index.html"/>        <link rel="prev" title="Transaksi" href="transactions.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../../index.html">
+            <img src="../../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../server/index.html">Membuat sebuah server</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../versions/index.html">Versioning Policy</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../preparing/index.html">Mempersiapkan untuk Pengembangan</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Membuat Plugin</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../api-versions.html">API-Versions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../buildsystem.html">Membangun Sistem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../workspace/index.html">Anda mengatur ruang kerja</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../project/index.html">Menyiapkan proyek anda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-identifier.html">Pengenal Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-class.html">Class Plugin utama</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lifecycle.html">Plugin Siklus Hidup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../injection.html">Ketergantungan Injeksi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../practices/index.html">Kebiasaan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../optional/index.html">Pilihan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../logging.html">Penebangan dan Debugging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text/index.html">Teks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/index.html">Plugin Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../event/index.html">Acara</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/index.html">Mengkonfigurasi plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assets.html">Aset API</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Data API</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="custom/index.html">Kustom Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="catalog-types.html">Catalog Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="keys.html">Gunakan Tombol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="datamanipulators.html">Data Manipulator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="transactions.html">Transaksi</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Serializing Data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../blocks/index.html">Blok</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../entities/index.html">Badan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../items/index.html">Item</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../trade-offers.html">Trade-Offers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../effects.html">Hasil</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../scheduler.html">Penjadwalan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../services.html">Layanan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database.html">Basis data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../permissions.html">Hak akses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bans.html">Larang</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metrics.html">Metrics Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bookview.html">Tampilan buku</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../economy/index.html">Ekonomi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wgen/index.html">Generasi dunia</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manager.html">Pengelola Pengaya</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../game-profile-manager.html">Manajer profil game</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../offline-userplayer-data.html">Tidak hidup Data Pemain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tab-lists.html">Daftar tab</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-meta.html">Plugin Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ray-tracing.html">V8 Tracing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../debugging.html">Plugin Debugging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials.html">Tutorial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internals/index.html">Plugin yang tergantung pada pelaksanaan</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ore/index.html">Dokumentasi bijih</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/index.html">Berkontribusi pada Sponge</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">Tentang Sponge Project</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+          <li><a href="../index.html">Membuat Plugin</a> &raquo;</li>
+          <li><a href="index.html">Data API</a> &raquo;</li>
+    <li>Serializing Data</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/plugin/data/serialization.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="serializing-data">
+<h1>Serializing Data<a class="headerlink" href="#serializing-data" title="Link permanen untuk headline ini">¶</a></h1>
+<p>Sementara <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/manipulator/ImmutableDataManipulator.html">ImmutableDataManipulator</a> merupakan cara yang baik untuk menyimpan data saat server sedang berjalan, tidak akan bertahan selama mengulang kembali. Bagaimanapun, setiap <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/manipulator/DataManipulator.html">DataManipulator</a> mengimplementasikan interface <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/DataSerializable.html">DataSerializable</a> sehingga dapat diserialkan ke <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/DataContainer.html">DataContainer</a> dan dibuat tidak serial lagi oleh <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/persistence/DataBuilder.html">DataBuilder</a>.</p>
+<p>Setelah konversi awal ini dari <code class="docutils literal notranslate"><span class="pre">DataManipulator</span></code> khusus ke struktur yang lebih umum, <code class="docutils literal notranslate"><span class="pre">DataContainer</span></code> dapat diproses lebih lanjut.</p>
+<div class="section" id="datacontainer-and-dataview">
+<h2>Wadah Data dan Tampilan Data<a class="headerlink" href="#datacontainer-and-dataview" title="Link permanen untuk headline ini">¶</a></h2>
+<p><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/DataView.html">DataView</a> adalah struktur umum untuk memegang semua jenis data. Mendukung beberapa nilai dan bahkan <code class="docutils literal notranslate"><span class="pre">DataView</span></code>s bersarang sebagai suatu nilai, sehingga mengizinkan untuk struktur seperti-tree. Setiap nilai diidentifikasikan oleh <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/DataQuery.html">DataQuery</a>. <code class="docutils literal notranslate"><span class="pre">DataContainer</span></code> merupakan akar <code class="docutils literal notranslate"><span class="pre">DataView</span></code>.</p>
+<p>Setiap <code class="docutils literal notranslate"><span class="pre">DataSerializable</span></code> menyediakan metode <code class="docutils literal notranslate"><span class="pre">toContainer()</span></code> yang akan membuat dan mengembalikan <code class="docutils literal notranslate"><span class="pre">DataContainer</span></code>. Sebagai contoh, memanggil <code class="docutils literal notranslate"><span class="pre">toContainer()</span></code> pada sebuah instance <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/manipulator/mutable/entity/HealthData.html">HealthData</a> akan menghasilkan sebuah <code class="docutils literal notranslate"><span class="pre">DataContainer</span></code> yang berisi dua nilai, satu untuk kesehatan saat ini dan satu untuk kesehatan maksimal, masing-masing diidentifikasi oleh <code class="docutils literal notranslate"><span class="pre">DataQuery</span></code> yang berhubungan dengan <code class="docutils literal notranslate"><span class="pre">Key</span></code>.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.data.DataContainer</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.data.key.Keys</span><span class="p">;</span>
+
+<span class="n">DataContainer</span> <span class="n">serializedHealth</span> <span class="o">=</span> <span class="n">healthData</span><span class="p">.</span><span class="na">toContainer</span><span class="p">();</span>
+<span class="kt">double</span> <span class="n">currentHealth</span> <span class="o">=</span> <span class="n">serializedHealth</span><span class="p">.</span><span class="na">getDouble</span><span class="p">(</span><span class="n">Keys</span><span class="p">.</span><span class="na">HEALTH</span><span class="p">.</span><span class="na">getQuery</span><span class="p">()).</span><span class="na">get</span><span class="p">();</span>
+<span class="n">currentHealth</span> <span class="o">==</span> <span class="n">healthData</span><span class="p">.</span><span class="na">health</span><span class="p">().</span><span class="na">get</span><span class="p">();</span>  <span class="c1">// true</span>
+</pre></div>
+</div>
+<p>Mengkonversi container ini kembali ke instance <code class="docutils literal notranslate"><span class="pre">HealthData</span></code> dilakukan oleh <code class="docutils literal notranslate"><span class="pre">DataBuilder</span></code> yang sesuai. itu didaftarkan dan dikelola oleh <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/DataManager.html">DataManager</a>. Dapat diperoleh salah satunya dari sebuah instance <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/Game.html">Game</a> yang valid atau menggunakan kelas utilitas <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/Sponge.html">Sponge</a>. <code class="docutils literal notranslate"><span class="pre">DataManager</span></code> menyediakan sebuah metode untuk mendapatkan <code class="docutils literal notranslate"><span class="pre">DataBuilder</span></code> yang sesuai memisahkan serial kelas yang diberikan dan tambahan metode singkat untuk mendapatkan <code class="docutils literal notranslate"><span class="pre">DataBuilder</span></code> dan membuatnya melakukan pemisahan serial dalam satu langkah. Kedua contoh berikut sama secara fungsional.</p>
+<p><strong>Kode Contoh: Deserialization, jalan panjang</strong></p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.data.DataView</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.data.manipulator.mutable.entity.HealthData</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.util.persistence.DataBuilder</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.Optional</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="n">Optional</span><span class="o">&lt;</span><span class="n">HealthData</span><span class="o">&gt;</span> <span class="nf">deserializeHealth</span><span class="p">(</span><span class="n">DataView</span> <span class="n">container</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">final</span> <span class="n">Optional</span><span class="o">&lt;</span><span class="n">DataBuilder</span><span class="o">&lt;</span><span class="n">HealthData</span><span class="o">&gt;&gt;</span> <span class="n">builder</span> <span class="o">=</span> <span class="n">Sponge</span><span class="p">.</span><span class="na">getDataManager</span><span class="p">().</span><span class="na">getBuilder</span><span class="p">(</span><span class="n">HealthData</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">builder</span><span class="p">.</span><span class="na">isPresent</span><span class="p">())</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">builder</span><span class="p">.</span><span class="na">get</span><span class="p">().</span><span class="na">build</span><span class="p">(</span><span class="n">container</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">Optional</span><span class="p">.</span><span class="na">empty</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Kode Contoh: Deserialization, cara singkat</strong></p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.data.manipulator.mutable.entity.HealthData</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="n">Optional</span><span class="o">&lt;</span><span class="n">HealthData</span><span class="o">&gt;</span> <span class="nf">deserializeHealth</span><span class="p">(</span><span class="n">DataView</span> <span class="n">container</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">Sponge</span><span class="p">.</span><span class="na">getDataManager</span><span class="p">().</span><span class="na">deserialize</span><span class="p">(</span><span class="n">HealthData</span><span class="p">.</span><span class="na">class</span><span class="p">,</span> <span class="n">container</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">DeserializeHealth</span></code> fungsi akan kembali <code class="docutils literal notranslate"><span class="pre">Optional.kosong()</span></code> jika tidak ada <code class="docutils literal notranslate"><span class="pre">DataBuilder</span></code> terdaftar <code class="docutils literal notranslate"><span class="pre">HealthData...`</span> <span class="pre">atau</span> <span class="pre">disediakan</span> <span class="pre">``DataContainer</span></code> adalah kosong. Jika data yang tidak valid hadir dalam <code class="docutils literal notranslate"><span class="pre">DataContainer</span></code>, <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/persistence/InvalidDataException.html">InvalidDataException</a> akan dilemparkan.</p>
+</div>
+<div class="section" id="datatranslator">
+<h2>DataTranslator<a class="headerlink" href="#datatranslator" title="Link permanen untuk headline ini">¶</a></h2>
+<p>Dalam Spons, umumnya implementasi <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/MemoryDataView.html">MemoryDataView</a> dan <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/MemoryDataContainer.html">MemoryDataContainer</a> yang digunakan, yang berada di memori saja dan dengan demikian tidak akan bertahan lebih dari satu server restart. Dalam rangka untuk terus-menerus menyimpan <code class="docutils literal notranslate"><span class="pre">DataContainer</span></code>, hal pertama yang harus diubah menjadi storable representasi.</p>
+<p>Menggunakan <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/persistence/DataTranslators.html#CONFIGURATION_NODE">DataTranslators#CONFIGURATION_NODE</a> pelaksanaan <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/persistence/DataTranslator.html">DataTranslator</a>, kita dapat mengkonversi <cite>DataView</cite> ke <a class="reference external" href="https://configurate.aoeu.xyz/apidocs/ninja/leaping/configurate/ConfigurationNode.html">ConfigurationNode</a> dan sebaliknya. <cite>ConfigurationNode</cite>s kemudian dapat dibaca dan ditulis gigih file menggunakan <span class="xref std std-doc">Configurate Perpustakaan</span>.</p>
+<p>** Kode Contoh: Serializing contoh HealthData untuk configurate **</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ninja.leaping.configurate.ConfigurationNode</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.data.persistence.DataTranslator</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.data.persistence.DataTranslators</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="n">ConfigurationNode</span> <span class="nf">translateToConfig</span><span class="p">(</span><span class="n">HealthData</span> <span class="n">data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">final</span> <span class="n">DataTranslator</span><span class="o">&lt;</span><span class="n">ConfigurationNode</span><span class="o">&gt;</span> <span class="n">translator</span> <span class="o">=</span> <span class="n">DataTranslators</span><span class="p">.</span><span class="na">CONFIGURATION_NODE</span><span class="p">;</span>
+    <span class="kd">final</span> <span class="n">DataView</span> <span class="n">container</span> <span class="o">=</span> <span class="n">data</span><span class="p">.</span><span class="na">toContainer</span><span class="p">();</span>
+    <span class="k">return</span> <span class="n">translator</span><span class="p">.</span><span class="na">translate</span><span class="p">(</span><span class="n">container</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>** Contoh Kode: Deserializing contoh HealthData dari Configurate **</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">java.util.Optional</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="n">Optional</span><span class="o">&lt;</span><span class="n">HealthData</span><span class="o">&gt;</span> <span class="nf">translateFromConfig</span><span class="p">(</span><span class="n">ConfigurationNode</span> <span class="n">node</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">final</span> <span class="n">DataTranslator</span><span class="o">&lt;</span><span class="n">ConfigurationNode</span><span class="o">&gt;</span> <span class="n">translator</span> <span class="o">=</span> <span class="n">DataTranslators</span><span class="p">.</span><span class="na">CONFIGURATION_NODE</span><span class="p">;</span>
+    <span class="kd">final</span> <span class="n">DataView</span> <span class="n">container</span> <span class="o">=</span> <span class="n">translator</span><span class="p">.</span><span class="na">translate</span><span class="p">(</span><span class="n">node</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">deserializeHealth</span><span class="p">(</span><span class="n">container</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="dataformat">
+<h2>Format Data<a class="headerlink" href="#dataformat" title="Link permanen untuk headline ini">¶</a></h2>
+<p>Alternatif untuk menggunakan <cite>DataTranslator</cite> adalah dengan menggunakan <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/persistence/DataFormat.html">DataFormat</a>, yang memungkinkan anda untuk menyimpan <cite>DataContainer</cite> di HOCON, JSON atau NBT format. Anda juga dapat menciptakan Datakontainer menggunakan <cite>DataFormat</cite>. Spons yang disediakan <cite>DataFormat</cite> implementasi tersedia di <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/persistence/DataFormat.html">DataFormat</a> kelas.</p>
+<p>Sebagai contoh, kita dapat menggunakan <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/persistence/DataFormat.html#JSON">DataFormat#JSON</a> <cite>DataFormat</cite> yang memungkinkan kita untuk membuat JSON representasi dari <cite>Datakontainer</cite>. Pengeluaran JSON kemudian bisa dengan mudah disimpan dalam database. Kita kemudian dapat menggunakan yang sama <cite>DataFormat</cite> untuk menciptakan asli <cite>Datakontainer</cite> dari JSON ini bila diperlukan.</p>
+<p><strong>Impor untuk contoh kode</strong></p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.Sponge</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.data.DataContainer</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.data.persistence.DataFormats</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.item.inventory.ItemStackSnapshot</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.io.InputStream</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.io.OutputStream</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.nio.file.Files</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.nio.file.Path</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Optional</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>** Contoh Kode: Serializing sebuah ItemStackSnapshot ke format JSON **</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">json</span> <span class="o">=</span> <span class="n">DataFormats</span><span class="p">.</span><span class="na">JSON</span><span class="p">.</span><span class="na">write</span><span class="p">(</span><span class="n">itemStack</span><span class="p">.</span><span class="na">toContainer</span><span class="p">());</span>
+</pre></div>
+</div>
+<p>** Contoh Kode: Deserializing sebuah ItemStackSnapshot dari format JSON **</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">DataContainer</span> <span class="n">container</span> <span class="o">=</span> <span class="n">DataFormats</span><span class="p">.</span><span class="na">JSON</span><span class="p">.</span><span class="na">read</span><span class="p">(</span><span class="n">json</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>** Contoh Kode: Menulis sebuah ItemStackSnapshot ke file menggunakan NBT **</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">writeItemStackSnapshotToFile</span><span class="p">(</span><span class="n">ItemStackSnapshot</span> <span class="n">itemStackSnapshot</span><span class="p">,</span> <span class="n">Path</span> <span class="n">path</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">DataContainer</span> <span class="n">dataContainer</span> <span class="o">=</span> <span class="n">itemStackSnapshot</span><span class="p">.</span><span class="na">toContainer</span><span class="p">();</span>
+    <span class="k">try</span> <span class="p">(</span><span class="n">OutputStream</span> <span class="n">outputStream</span> <span class="o">=</span> <span class="n">Files</span><span class="p">.</span><span class="na">newOutputStream</span><span class="p">(</span><span class="n">path</span><span class="p">))</span> <span class="p">{</span>
+        <span class="n">DataFormats</span><span class="p">.</span><span class="na">NBT</span><span class="p">.</span><span class="na">writeTo</span><span class="p">(</span><span class="n">outputStream</span><span class="p">,</span> <span class="n">dataContainer</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">IOException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// For the purposes of this example, we just print the error to the console. However,</span>
+        <span class="c1">// as this exception indicates the file didn&#39;t save, you should handle this in a way</span>
+        <span class="c1">// more suitable for your plugin.</span>
+        <span class="n">e</span><span class="p">.</span><span class="na">printStackTrace</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>** Contoh Kode: Membaca ItemStackSnapshot dari sebuah file menggunakan NBT **</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="n">Optional</span><span class="o">&lt;</span><span class="n">ItemStackSnapshot</span><span class="o">&gt;</span> <span class="nf">readItemStackSnapshotFromFile</span><span class="p">(</span><span class="n">Path</span> <span class="n">path</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">try</span> <span class="p">(</span><span class="n">InputStream</span> <span class="n">inputStream</span> <span class="o">=</span> <span class="n">Files</span><span class="p">.</span><span class="na">newInputStream</span><span class="p">(</span><span class="n">path</span><span class="p">))</span> <span class="p">{</span>
+        <span class="n">DataContainer</span> <span class="n">dataContainer</span> <span class="o">=</span> <span class="n">DataFormats</span><span class="p">.</span><span class="na">NBT</span><span class="p">.</span><span class="na">readFrom</span><span class="p">(</span><span class="n">inputStream</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">Sponge</span><span class="p">.</span><span class="na">getDataManager</span><span class="p">().</span><span class="na">deserialize</span><span class="p">(</span><span class="n">ItemStackSnapshot</span><span class="p">.</span><span class="na">class</span><span class="p">,</span> <span class="n">dataContainer</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">IOException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">e</span><span class="p">.</span><span class="na">printStackTrace</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">Optional</span><span class="p">.</span><span class="na">empty</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../blocks/index.html" class="btn btn-neutral float-right" title="Blok" accesskey="n" rel="next">Selanjutnya <span class="fa fa-angle-right"></span></a>
+        <a href="transactions.html" class="btn btn-neutral" title="Transaksi" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> Sebelumnya</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../../_static/flags/id_ID.svg"
+         alt="id" title="Indonesia">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../../_static/jquery.js"></script>      <script type="text/javascript" src="../../_static/underscore.js"></script>      <script type="text/javascript" src="../../_static/doctools.js"></script>      <script type="text/javascript" src="../../_static/language_data.js"></script>      <script type="text/javascript" src="../../_static/translations.js"></script>      <script type="text/javascript" src="../../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

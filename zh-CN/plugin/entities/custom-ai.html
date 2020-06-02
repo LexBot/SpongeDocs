@@ -1,0 +1,396 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>实现自定义 AITask &mdash; Sponge 7.2.0 文档</title>
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="索引"
+              href="../../genindex.html"/>        <link rel="search" title="搜索" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 文档" href="../../index.html"/>        <link rel="up" title="实体" href="index.html"/>        <link rel="next" title="物品" href="../items/index.html"/>        <link rel="prev" title="实体 AI" href="ai.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../../index.html">
+            <img src="../../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../server/index.html">创建服务器</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../versions/index.html">版本策略</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../preparing/index.html">为开发作准备</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">插件开发</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../api-versions.html">API版本</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../buildsystem.html">构建系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../workspace/index.html">设置开发环境</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../project/index.html">设置你的项目</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-identifier.html">插件标识符</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-class.html">插件的主类</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lifecycle.html">插件的生命周期</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../injection.html">依赖注入</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../practices/index.html">插件开发惯例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../optional/index.html">使用 Optional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../logging.html">日志记录和调试</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text/index.html">文本 API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/index.html">插件命令</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../event/index.html">事件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/index.html">插件配置</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assets.html">使用 Asset API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data/index.html">数据 API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../blocks/index.html">方块</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">实体</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="spawning.html">生成一个实体</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modifying.html">修改一个实体</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ai.html">实体 AI</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">实现自定义 <code class="docutils literal notranslate"><span class="pre">AITask</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../items/index.html">物品</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../trade-offers.html">村民交易</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../effects.html">效果</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../scheduler.html">调度器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../services.html">服务</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database.html">数据库</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../permissions.html">权限</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bans.html">黑名单</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metrics.html">Metrics 收集</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bookview.html">成书</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../economy/index.html">经济 API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wgen/index.html">世界生成</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manager.html">插件管理器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../game-profile-manager.html">玩家资料管理器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../offline-userplayer-data.html">离线玩家数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tab-lists.html">玩家列表</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-meta.html">插件的元数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ray-tracing.html">光线追踪</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../debugging.html">调试插件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials.html">教程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internals/index.html">依赖底层实现</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ore/index.html">Ore 文档</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/index.html">向 Sponge 贡献代码</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">关于 Sponge</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+          <li><a href="../index.html">插件开发</a> &raquo;</li>
+          <li><a href="index.html">实体</a> &raquo;</li>
+    <li>实现自定义 <code class="docutils literal notranslate"><span class="pre">AITask</span></code></li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/plugin/entities/custom-ai.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="implement-your-own-aitasks">
+<h1>实现自定义 <code class="docutils literal notranslate"><span class="pre">AITask</span></code><a class="headerlink" href="#implement-your-own-aitasks" title="永久链接至标题">¶</a></h1>
+<p>在开始实现自定义 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/ai/task/AITask.html">AITask</a> 之前，首先要确保我们的工作环境已正确配置。请在按照“<a class="reference internal" href="../internals/mcp-setup.html"><span class="doc">在插件中使用 MCP</span></a>”一文中的流程操作。</p>
+<p>下面列出了实现 <code class="docutils literal notranslate"><span class="pre">AITask</span></code> 时所有需要用到的类。</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">java.util.Comparator</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Optional</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.function.Predicate</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.GameRegistry</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.entity.Entity</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.entity.ai.task.AITask</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.entity.ai.task.AITaskType</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.entity.ai.task.AbstractAITask</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.entity.living.Agent</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">com.flowpowered.math.vector.Vector3d</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">com.google.common.base.Preconditions</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">net.minecraft.entity.EntityLiving</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">net.minecraft.entity.ai.EntityAIBase</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">net.minecraft.pathfinding.PathNavigate</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>为简化实现，我们使用下列常量。当然这些常量的使用是可选的，你也可以把它们换成字段，并在构造器里赋值。</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">double</span> <span class="n">MOVEMENT_SPEED</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">double</span> <span class="n">APPROACH_DISTANCE_SQUARED</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="mi">2</span><span class="p">;</span>
+<span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">double</span> <span class="n">MAX_DISTANCE_SQUARED</span> <span class="o">=</span> <span class="mi">20</span> <span class="o">*</span> <span class="mi">20</span><span class="p">;</span>
+<span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">float</span> <span class="n">EXECUTION_CHANCE</span> <span class="o">=</span> <span class="mf">0.2F</span><span class="p">;</span>
+<span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">MUTEX_FLAG_MOVE</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// Minecraft bit flag</span>
+</pre></div>
+</div>
+<p>如果你需要实现你自己的 <code class="docutils literal notranslate"><span class="pre">AITask</span></code>，你需要继承 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/ai/task/AbstractAITask.html">AbstractAITask</a>。下面是一个这样的完全自定义的 <code class="docutils literal notranslate"><span class="pre">AITask</span></code> 的例子。同时，我们需要为这个新的 <code class="docutils literal notranslate"><span class="pre">AITask</span></code> 生成一个新的 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/ai/task/AITaskType.html">AITaskType</a>。为了避免业务逻辑分散得到处都是，我们在这里只用一个静态字段以及一个 <code class="docutils literal notranslate"><span class="pre">register</span></code> 方法，如下所示：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">CreepyCompanionAITask</span> <span class="kd">extends</span> <span class="n">AbstractAITask</span><span class="o">&lt;</span><span class="n">Agent</span><span class="o">&gt;</span> <span class="p">{</span>
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="n">AITaskType</span> <span class="n">TYPE</span><span class="p">;</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">register</span><span class="p">(</span><span class="kd">final</span> <span class="n">Object</span> <span class="n">plugin</span><span class="p">,</span> <span class="kd">final</span> <span class="n">GameRegistry</span> <span class="n">gameRegistry</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">TYPE</span> <span class="o">=</span> <span class="n">gameRegistry</span>
+                <span class="p">.</span><span class="na">registerAITaskType</span><span class="p">(</span><span class="n">plugin</span><span class="p">,</span> <span class="s">&quot;creepy_companion&quot;</span><span class="p">,</span> <span class="s">&quot;CreepyCompanion&quot;</span><span class="p">,</span> <span class="n">CreepyCompanionAITask</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="o">[</span><span class="p">...</span><span class="o">]</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>自然地，我们得在我们的主类中调用这个方法，但这也不是很困难：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Listener</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onInitialize</span><span class="p">(</span><span class="kd">final</span> <span class="n">GameInitializationEvent</span> <span class="n">event</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">CreepyCompanionAITask</span><span class="p">.</span><span class="na">register</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="n">game</span><span class="p">.</span><span class="na">getRegistry</span><span class="p">());</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>在此之后我们终于可以开始实现 <code class="docutils literal notranslate"><span class="pre">AITask</span></code> 了。为此，我们需要一个构造器，以及七个方法：</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">CreepyCompanionAITask(...)</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">boolean</span> <span class="pre">canRunConcurrentWith(AITask&lt;Agent&gt;)</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">boolean</span> <span class="pre">canBeInterrupted()</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">boolean</span> <span class="pre">shouldUpdate()</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">start()</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">boolean</span> <span class="pre">continueUpdating()</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">update()</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">reset()</span></code></li>
+</ul>
+<p>下图描述了这些方法的大致执行顺序：</p>
+<img alt="The method execution order of the ai task" class="align-center" src="../../_images/ai-execution-order.png" />
+<p>我们需要通过构造器来传入所有我们希望 <code class="docutils literal notranslate"><span class="pre">AITask</span></code> 拥有的参数，同时调整其一些基本配置。在这里我们设定了 <code class="docutils literal notranslate"><span class="pre">AITaskType</span></code> 和 Mutex Bit，并传入了名为 <code class="docutils literal notranslate"><span class="pre">entityFilter</span></code> 的 <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/util/function/Predicate.html">Predicate</a> 供以后使用。</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">private</span> <span class="kd">final</span> <span class="n">Predicate</span><span class="o">&lt;</span><span class="n">Entity</span><span class="o">&gt;</span> <span class="n">entityFilter</span><span class="p">;</span>
+
+<span class="kd">private</span> <span class="n">Optional</span><span class="o">&lt;</span><span class="n">Entity</span><span class="o">&gt;</span> <span class="n">optTarget</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="nf">CreepyCompanionAITask</span><span class="p">(</span><span class="kd">final</span> <span class="n">Predicate</span><span class="o">&lt;</span><span class="n">Entity</span><span class="o">&gt;</span> <span class="n">entityFilter</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">super</span><span class="p">(</span><span class="n">TYPE</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">entityFilter</span> <span class="o">=</span> <span class="n">Preconditions</span><span class="p">.</span><span class="na">checkNotNull</span><span class="p">(</span><span class="n">entityFilter</span><span class="p">);</span>
+    <span class="p">((</span><span class="n">EntityAIBase</span><span class="p">)</span> <span class="p">(</span><span class="n">Object</span><span class="p">)</span> <span class="k">this</span><span class="p">).</span><span class="na">setMutexBits</span><span class="p">(</span><span class="n">MUTEX_FLAG_MOVE</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>很不幸，我们需要肮脏地转型到 Minecraft 的底层类上去，这也是为什么我们需要重新配置工作环境以使用 MCP 的原因。</p>
+<p>在此之后，我们首先实现容易实现的 <code class="docutils literal notranslate"><span class="pre">canRunConcurrentWith</span></code> 和 <code class="docutils literal notranslate"><span class="pre">canBeInterrupted</span></code>。对于前者，我们直接依赖原版逻辑，但这再次需要肮脏的转型。对于后者，我们只需要根据情况判断它是否可以中断即可。</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Override</span>
+<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">canRunConcurrentWith</span><span class="p">(</span><span class="kd">final</span> <span class="n">AITask</span><span class="o">&lt;</span><span class="n">Agent</span><span class="o">&gt;</span> <span class="n">other</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">(((</span><span class="n">EntityAIBase</span><span class="p">)</span> <span class="p">(</span><span class="n">Object</span><span class="p">)</span> <span class="k">this</span><span class="p">).</span><span class="na">getMutexBits</span><span class="p">()</span> <span class="o">&amp;</span> <span class="p">((</span><span class="n">EntityAIBase</span><span class="p">)</span> <span class="n">other</span><span class="p">).</span><span class="na">getMutexBits</span><span class="p">())</span> <span class="o">==</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nd">@Override</span>
+<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">canBeInterrupted</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>在此之后，我们需要开始正式实现这个 <code class="docutils literal notranslate"><span class="pre">AITask</span></code> 的逻辑了——“什么时候开始执行逻辑”，和“具体的逻辑是什么”。我们首先实现“什么时候开始执行逻辑”，通常这需要两步：</p>
+<ul class="simple">
+<li>根据随机数确定执行概率，以此决定是否执行</li>
+<li>寻找合适的对象</li>
+</ul>
+<p>具体的逻辑其实就是在我们找到的目标实体上执行我们想要它做的事情。</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Override</span>
+<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">shouldUpdate</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">final</span> <span class="n">Agent</span> <span class="n">owner</span> <span class="o">=</span> <span class="n">getOwner</span><span class="p">().</span><span class="na">get</span><span class="p">();</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">owner</span><span class="p">.</span><span class="na">getRandom</span><span class="p">().</span><span class="na">nextFloat</span><span class="p">()</span> <span class="o">&gt;</span> <span class="n">EXECUTION_CHANCE</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">final</span> <span class="n">Vector3d</span> <span class="n">position</span> <span class="o">=</span> <span class="n">getPositionOf</span><span class="p">(</span><span class="n">owner</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">optTarget</span> <span class="o">=</span> <span class="n">owner</span><span class="p">.</span><span class="na">getWorld</span><span class="p">()</span>
+            <span class="p">.</span><span class="na">getEntities</span><span class="p">().</span><span class="na">stream</span><span class="p">()</span>
+            <span class="p">.</span><span class="na">filter</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">entityFilter</span><span class="p">)</span>
+            <span class="p">.</span><span class="na">filter</span><span class="p">(</span><span class="n">e</span> <span class="o">-&gt;</span> <span class="n">getPositionOf</span><span class="p">(</span><span class="n">e</span><span class="p">).</span><span class="na">distanceSquared</span><span class="p">(</span><span class="n">position</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">MAX_DISTANCE_SQUARED</span><span class="p">)</span>
+            <span class="p">.</span><span class="na">min</span><span class="p">(</span><span class="n">Comparator</span><span class="p">.</span><span class="na">comparingDouble</span><span class="p">(</span><span class="n">e</span> <span class="o">-&gt;</span> <span class="n">getPositionOf</span><span class="p">(</span><span class="n">e</span><span class="p">).</span><span class="na">distanceSquared</span><span class="p">(</span><span class="n">position</span><span class="p">)));</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">optTarget</span><span class="p">.</span><span class="na">isPresent</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="nd">@Override</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">start</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">getNavigator</span><span class="p">().</span><span class="na">tryMoveToEntityLiving</span><span class="p">((</span><span class="n">net</span><span class="p">.</span><span class="na">minecraft</span><span class="p">.</span><span class="na">entity</span><span class="p">.</span><span class="na">Entity</span><span class="p">)</span> <span class="k">this</span><span class="p">.</span><span class="na">optTarget</span><span class="p">.</span><span class="na">get</span><span class="p">(),</span> <span class="n">MOVEMENT_SPEED</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>通常我们可以直接使用 owner 的 <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/util/Random.html">Random</a> 对象来获得随机数，但实际上任何随机数都可以。<a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/Entity.html">Entity</a> 有一个 <code class="docutils literal notranslate"><span class="pre">Random</span></code> 对象的原因只是为了避免重复创建多余的 <code class="docutils literal notranslate"><span class="pre">Random</span></code> 对象并散落得到处都是。</p>
+<p>搜寻目标的逻辑非常简单明了：首先我们拿到当前世界中所有加载实体的列表，并使用 <code class="docutils literal notranslate"><span class="pre">entityFilter</span></code> 这个 <code class="docutils literal notranslate"><span class="pre">Predicate</span></code> 进行过滤，然后排除所有离得太远（这里是 20 格）的实体。你可以根据情况修改刚才提到的最大距离，但请注意这个距离越大，寻路的计算量也越大。</p>
+<p>在找到合适目标之后，我们只需要让实体向目标实体移动即可。在这里，移动速度是个非常关键的因素：速度太快会让它不小心错过目标，最后导致它在目标之间来回跑（所以请确保你计算出的可接受条件在合理范围之内），速度太慢的话又会令它看上去胜似原地踏步（不仅看上去很奇怪，而且对于“跟着 X”这样的 AITask 来说这未免有些滑稽）。</p>
+<p>上述代码中包含了一些提高可读性的辅助方法，下面给出了这些方法的实现：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">private</span> <span class="n">Vector3d</span> <span class="nf">getPositionOf</span><span class="p">(</span><span class="kd">final</span> <span class="n">Entity</span> <span class="n">entity</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">entity</span><span class="p">.</span><span class="na">getLocation</span><span class="p">().</span><span class="na">getPosition</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kd">private</span> <span class="n">PathNavigate</span> <span class="nf">getNavigator</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">((</span><span class="n">EntityLiving</span><span class="p">)</span> <span class="p">(</span><span class="n">getOwner</span><span class="p">().</span><span class="na">get</span><span class="p">())).</span><span class="na">getNavigator</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>第一个方法只是单纯把多个调用打成一个。第二个方法则用于拿到实体的 <code class="docutils literal notranslate"><span class="pre">PathNavigate</span></code>（或者说移动控制器）对象，而这再次需要转型到 Minecraft 底层类。</p>
+<p>最后，我们需要实现“该任务是否应当继续执行”的检查，以及“完成任务之前必须的清理工作“。</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Override</span>
+<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">continueUpdating</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">getNavigator</span><span class="p">().</span><span class="na">noPath</span><span class="p">())</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="na">optTarget</span><span class="p">.</span><span class="na">isPresent</span><span class="p">())</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="kd">final</span> <span class="n">Entity</span> <span class="n">target</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="na">optTarget</span><span class="p">.</span><span class="na">get</span><span class="p">();</span>
+    <span class="k">return</span> <span class="n">getPositionOf</span><span class="p">(</span><span class="n">target</span><span class="p">).</span><span class="na">distanceSquared</span><span class="p">(</span><span class="n">getPositionOf</span><span class="p">(</span><span class="n">getOwner</span><span class="p">().</span><span class="na">get</span><span class="p">()))</span> <span class="o">&gt;</span> <span class="n">APPROACH_DISTANCE_SQUARED</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nd">@Override</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">update</span><span class="p">()</span> <span class="p">{</span>
+<span class="p">}</span>
+
+<span class="nd">@Override</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">reset</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">getNavigator</span><span class="p">().</span><span class="na">clearPath</span><span class="p">();</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">optTarget</span> <span class="o">=</span> <span class="n">Optional</span><span class="p">.</span><span class="na">empty</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>对于我们的这个例子来说这两个都很简单。首先，我们检查实体是否遇到了死路或者已经足够接近目标实体了。Minecraft 会在我们返回 <code class="docutils literal notranslate"><span class="pre">false</span></code> 时调用 <code class="docutils literal notranslate"><span class="pre">reset()</span></code>。我们应当在 <code class="docutils literal notranslate"><span class="pre">reset</span></code> 中进行清理操作。对于我们这个例子来说，我们需要清理掉目标实体的引用，避免内存泄漏。若是我们在刚才那个方法中返回了 <code class="docutils literal notranslate"><span class="pre">true</span></code>，Minecraft 则会继续调用 <code class="docutils literal notranslate"><span class="pre">update()</span></code>，但在我们这个例子中它没有任何操作，因为实体移动和 AI 是分开的两套系统，实体此时仍然会向目标移动。</p>
+<p>以上是实现 <code class="docutils literal notranslate"><span class="pre">AITask</span></code> 所必须的所有步骤了，在此之后我们就可以按照“<a class="reference internal" href="ai.html"><span class="doc">实体 AI</span></a>”一文的“添加 AI 任务”小节中描述的那样，在某一实体中使用这个新的 <code class="docutils literal notranslate"><span class="pre">AITask</span></code> 了。</p>
+<p>但我们为什么管这个叫 <code class="docutils literal notranslate"><span class="pre">CreepyCompanionAITask</span></code>？很简单：我们并不在检查 <code class="docutils literal notranslate"><span class="pre">AITask</span></code> 是否应当执行时检查实体是否已经距离目标实体足够近了，因此有这个 AI 的实体会随着时间流逝一步一步向目标实体接近。然后我们大概只需要让这个实体只在目标实体没有看着它时接近目标就行了——想象一下 Creeper 从背后接近你的感觉。</p>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../items/index.html" class="btn btn-neutral float-right" title="物品" accesskey="n" rel="next">下一页 <span class="fa fa-angle-right"></span></a>
+        <a href="ai.html" class="btn btn-neutral" title="实体 AI" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> 上一页</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../../_static/flags/zh_CN.svg"
+         alt="zh-CN" title="简体中文">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../../_static/jquery.js"></script>      <script type="text/javascript" src="../../_static/underscore.js"></script>      <script type="text/javascript" src="../../_static/doctools.js"></script>      <script type="text/javascript" src="../../_static/language_data.js"></script>      <script type="text/javascript" src="../../_static/translations.js"></script>      <script type="text/javascript" src="../../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

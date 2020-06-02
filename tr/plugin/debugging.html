@@ -1,0 +1,393 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eklenti Hata Ayıklama &mdash; Sponge 7.2.0 belgelendirme çalışması</title>
+
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="Dizin"
+              href="../genindex.html"/>        <link rel="search" title="Ara" href="../search.html"/>    <link rel="top" title="Sponge 7.2.0 belgelendirme çalışması" href="../index.html"/>        <link rel="up" title="Bir eklenti oluşturma" href="index.html"/>        <link rel="next" title="Eğiticiler" href="tutorials.html"/>        <link rel="prev" title="Işın izleme" href="ray-tracing.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../index.html">
+            <img src="../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../server/index.html">Bir sunucu oluşturma</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../versions/index.html">Versioning Policy</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../preparing/index.html">Geliştirme için hazırlanıyor</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Bir eklenti oluşturma</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="api-versions.html">API-Versions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="buildsystem.html">Sistem oluşturun</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workspace/index.html">Çalışma Alanınız Kuruluyor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project/index.html">Projenizi Ayarlama</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin-identifier.html">Eklenti Tanımlayıcıları</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin-class.html">Ana eklenti sınıfı</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lifecycle.html">Eklenti Yaşan Döngüsü</a></li>
+<li class="toctree-l2"><a class="reference internal" href="injection.html">Bağımlılık Enjeksiyonu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="practices/index.html">Alıştırmalar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optional/index.html">İsteğe bağlı</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.html">Günlük Oluşturma ve Hata Giderme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="text/index.html">Metin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands/index.html">Plugin Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="event/index.html">Etkinlikler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration/index.html">Eklentileri yapılandırma</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assets.html">API öğesi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data/index.html">Veri API’sı</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/index.html">Bloklar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entities/index.html">Varlıklar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="items/index.html">Öğeler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trade-offers.html">Ticaret-Teklifleri</a></li>
+<li class="toctree-l2"><a class="reference internal" href="effects.html">Efektler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scheduler.html">Zamanlayıcı</a></li>
+<li class="toctree-l2"><a class="reference internal" href="services.html">Servisler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="database.html">Veritabanları</a></li>
+<li class="toctree-l2"><a class="reference internal" href="permissions.html">İzinler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bans.html">Yasaklılar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metrics.html">Metrics Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bookview.html">Kitap görünümleri</a></li>
+<li class="toctree-l2"><a class="reference internal" href="economy/index.html">Ekonomi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wgen/index.html">Dünya oluşturma</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manager.html">Eklenti yöneticisi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="game-profile-manager.html">Oyun Profili Yöneticisi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="offline-userplayer-data.html">Çevrim dışı oyuncu verisi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tab-lists.html">Sekme listeleri</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin-meta.html">Eklenti Metaverileri</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ray-tracing.html">Işın izleme</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Eklenti Hata Ayıklama</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials.html">Eğiticiler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internals/index.html">Uygulamaya Bağlı Eklentiler</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ore/index.html">Ore Dökümanları</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contributing/index.html">Sponge’a Katkı Sağlama</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">Sponge Projesi Hakkında</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+          <li><a href="index.html">Bir eklenti oluşturma</a> &raquo;</li>
+    <li>Eklenti Hata Ayıklama</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/plugin/debugging.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="plugin-debugging">
+<h1>Eklenti Hata Ayıklama<a class="headerlink" href="#plugin-debugging" title="Bu başlığın kalıcı bağlantısı">¶</a></h1>
+<p>Eklentinizdeki hataları keşfetmek zorlaştığında, yaptığınız her değişiklik ve günlük çıktıların karmaşıklığında boğulabilirsiniz ve hata ayıklama çok sıkıcı olabilir. Bu nedenle, bu kısım eklentinizi Java’nın hata ayıklama yeteneklerinden yararlanmak için nasıl yararlanabileceğinizi açıklayacak.</p>
+<div class="section" id="preparing-your-workspace">
+<h2>Çalışma Alanınız Hazırlanıyor<a class="headerlink" href="#preparing-your-workspace" title="Bu başlığın kalıcı bağlantısı">¶</a></h2>
+<p>Hem Sponge’u hem de IDE’nizden eklentinizi çalıştırdığımız için çalışma alanınızdan bir proje gibi hangisini kullanmak istediğinize bağlı olarak ya <a class="reference external" href="https://github.com/SpongePowered/SpongeForge">SpongeForge</a> ya da <a class="reference external" href="https://github.com/SpongePowered/SpongeVanilla">SpongeVanilla</a> kodunu içeri aktarmanız gerekecektir. Bunu yapmak için yönergeleri ilgili projenin GitHub sayfasında bulabilirsiniz.Burada ilerlemeden önce bu yönergelei izleyin.</p>
+<p>Şimdi sizin plugin projenizin yeni oluşturduğunuz <strong>SpongeForge/SpongeVanilla</strong> projesinde görünür olduğundan emin olmalısınız. Gerekli adımlar IDE’inize bağlıdır.</p>
+<div class="section" id="intellij-idea">
+<h3>IntelliJ IDEA<a class="headerlink" href="#intellij-idea" title="Bu başlığın kalıcı bağlantısı">¶</a></h3>
+<p>IntelliJ’de her projenin kendi çalışma alanı (ları) vardır. Projenizi ** Sponge (Vanilla) ** projesinde görünür kılmak için bir * Modül * olması gerekir. Projenizi zaten :doc: <cite>workspace / idea</cite> bölümünde tanımlanan şekilde oluşturduğunuzu varsayarsak, aşağıdaki adımları izleyerek içe aktarın.</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">SpongeVanilla</span></code>/<code class="docutils literal notranslate"><span class="pre">SpongeForge</span></code> projesini açın.</li>
+<li><a href="#id1"><span class="problematic" id="id2">``</span></a>New``i takip eden <a href="#id3"><span class="problematic" id="id4">``</span></a>File``a ve sonra <a href="#id5"><span class="problematic" id="id6">``</span></a>Module from Existing Sources…``a tıklayın.</li>
+<li>Eklenti projenizin dizinine gidin.<ul>
+<li>Eğer Gradle kullanıyorsanız, <code class="docutils literal notranslate"><span class="pre">build.gradle</span></code> dosyasını seçin, bir sonraki diyaloğun içindeki <cite>Use auto-import`</cite> seçeneğini işaretleyin ve onaylayın.</li>
+<li>Aksi takdirde, sadece dizinin tamamını seçin ve “Bitir” i tıklayın.</li>
+</ul>
+</li>
+<li><code class="docutils literal notranslate"><span class="pre">Finish</span></code>’e basın.</li>
+</ul>
+<div class="admonition tip">
+<p class="first admonition-title">Tüyo</p>
+<p class="last">Henüz plugin’nizi oluşturmadıysanız, <code class="docutils literal notranslate"><span class="pre">Module</span> <span class="pre">from</span> <span class="pre">Existing</span> <span class="pre">Sources...</span></code> yerine <code class="docutils literal notranslate"><span class="pre">Module...</span></code> tıklayınız, ardından projenizi aşağıdaki diyaloğa takiben oluşturunuz.</p>
+</div>
+</div>
+<div class="section" id="eclipse">
+<h3>Tutulma<a class="headerlink" href="#eclipse" title="Bu başlığın kalıcı bağlantısı">¶</a></h3>
+<p>Projenizi burada tarif edildiği gibi girin:
+<a class="reference internal" href="workspace/eclipse.html"><span class="doc">Tutulma ayarlama</span></a>.
+<code class="docutils literal notranslate"><span class="pre">SpongeVanilla</span></code>/<code class="docutils literal notranslate"><span class="pre">SpongeForge</span></code> projenizde aynı çalışma alanında oldupu sürece projeniz görünür olacaktır.</p>
+</div>
+</div>
+<div class="section" id="adding-plugin-to-sponge-classpath">
+<h2>Sponge sınıf yoluna eklenti eklemek<a class="headerlink" href="#adding-plugin-to-sponge-classpath" title="Bu başlığın kalıcı bağlantısı">¶</a></h2>
+<p>Bunun arkasındaki fikir, Sponge’yi IDE’nizden normal gibi başlatacağımızdır. Bununla birlikte, aradaki fark, eklentinizi sınıf yoluna ekleyeceğiz. Sponge varsayılan olarak, sınıf yolunda bulunan tüm eklentileri yükleyeceğinden, eklenti projesini Sponge’nin sınıf yoluna ekleyerek, her değişiklikten sonra eser dosyasını yeniden oluşturmanız ve sunucu dizininize kopyalamanız gerekliliğinden kurtulursunuz.</p>
+<p>İlk olarak Sponge <a href="#id9"><span class="problematic" id="id10">`README.md'de gösterilen Çalıştır / Hata Ayıklama Yapılandırma(lar)ınızı uygun bir şekilde ayarladığınızdan emin olmanız gerekir.&lt;https://github.com/SpongePowered/SpongeForge/blob/stable-7/README.md#running&gt;`_</span></a></p>
+<p>Ardından, projeyi sınıf yolunuza dahil edecek şekilde Çalıştır / Hata ayıklama Yapılandırmasını düzenlemeniz gerekir. Bunu yeniden nasıl yapacağınız, IDE’nize bağlıdır:</p>
+<div class="section" id="id1">
+<h3>IntelliJ IDEA<a class="headerlink" href="#id1" title="Bu başlığın kalıcı bağlantısı">¶</a></h3>
+<ul class="simple">
+<li>Proje Yapınızı açın.<ul>
+<li><a href="#id1"><span class="problematic" id="id2">``</span></a>Project Structure…``dan sonra <a href="#id3"><span class="problematic" id="id4">``</span></a>File``a tıklayın.</li>
+<li>Veya <code class="docutils literal notranslate"><span class="pre">Search</span></code> ikonunun yanında IDE’nin sağ üst köşesindeki  <a href="#id1"><span class="problematic" id="id2">``</span></a>Project Structure``ikonuna tıklayın.</li>
+</ul>
+</li>
+<li><code class="docutils literal notranslate"><span class="pre">Modules``a</span> <span class="pre">tıklayın.``SpongeForge</span></code> veya <code class="docutils literal notranslate"><span class="pre">SpongeVanilla</span></code> yı (seçiminize bağlı olarak) genişletin.</li>
+<li><code class="docutils literal notranslate"><span class="pre">SpongeForge_main</span></code> veya <code class="docutils literal notranslate"><span class="pre">SpongeVanilla_main</span></code> in seçili olduğundan emin olun.</li>
+<li>Sağ sütundaki <a href="#id1"><span class="problematic" id="id2">``</span></a>Dependencies``i seçin.</li>
+<li>Sütunun altındaki (<code class="docutils literal notranslate"><span class="pre">Add</span></code>) de ` <cite>+`</cite> sembolüne tıklayın ve <a href="#id1"><span class="problematic" id="id2">``</span></a>Module Dependency``i seçin.</li>
+<li><a href="#id1"><span class="problematic" id="id2">``</span></a>yourplugin_main``i seçin.</li>
+<li>Listeye eklendikten sonra modüldeki <code class="docutils literal notranslate"><span class="pre">Export</span></code> seçeneğini kontrol ETMEYİN.</li>
+</ul>
+<div class="admonition warning">
+<p class="first admonition-title">Uyarı</p>
+<p>Due to a bug in IntelliJ (<a class="reference external" href="https://youtrack.jetbrains.com/issue/IDEA-194641">IDEA-194641</a>), any dependencies that your plugin has (e.g.
+the Kotlin standard library, or Gson) will <strong>not</strong> be added to the classpath using the above
+method. This results in a <code class="docutils literal notranslate"><span class="pre">ClassNotFoundException</span></code> when your plugin tries to access one
+of these classes, even though it successfully compiled against that class.</p>
+<p>This issue only affects running your plugin from IntelliJ as a module. Your final
+built plugin jar will run normally in both IntelliJ and a production server.</p>
+<p>If your plugin has external dependencies, you’ll need to follow these steps
+in order to run it directly from IntelliJ:</p>
+<ul class="simple">
+<li>Create a new Java module with <code class="docutils literal notranslate"><span class="pre">File</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">New</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">Module...</span></code>. Name it <code class="docutils literal notranslate"><span class="pre">SpongeForgeContainer</span></code>.</li>
+<li>Open the module settings for <code class="docutils literal notranslate"><span class="pre">SpongeForgeContainer</span></code> as described above</li>
+<li>In the dependency settings for <code class="docutils literal notranslate"><span class="pre">SpongeForgeContainer</span></code>, add a module dependency on <code class="docutils literal notranslate"><span class="pre">SpongeForge_main</span></code></li>
+<li>Edit your server run configuration. Change <code class="docutils literal notranslate"><span class="pre">Use</span> <span class="pre">classpath</span> <span class="pre">of</span> <span class="pre">module:</span></code> from <code class="docutils literal notranslate"><span class="pre">SpongeForge_main</span></code> to <code class="docutils literal notranslate"><span class="pre">SpongeForgeContainer</span></code></li>
+</ul>
+<p class="last">You can leave all of your settings unchanged, including <code class="docutils literal notranslate"><span class="pre">SpongeForge_main</span></code>’s dependency on your plugin module.
+Now, all of your plugin’s dependencies should be added to the classpath when you run the server.</p>
+</div>
+</div>
+<div class="section" id="id2">
+<h3>Tutulma<a class="headerlink" href="#id2" title="Bu başlığın kalıcı bağlantısı">¶</a></h3>
+<ul class="simple">
+<li>Kendi Çalıştır/Hata ayıkla Düzenlemenizi bulun.<ul>
+<li><a href="#id1"><span class="problematic" id="id2">``</span></a>Run``a ve ardından <a href="#id3"><span class="problematic" id="id4">``</span></a>Run Configurations…``a tıklayın</li>
+<li>Veya Çalıştır/Hata ayıkla ikonunun yanısıra aşağı indirme okuna tıklayın  ve sonra ayrı ayrı <code class="docutils literal notranslate"><span class="pre">Run</span> <span class="pre">Configurations...</span></code> veya <code class="docutils literal notranslate"><span class="pre">Debug</span> <span class="pre">Configurations...</span></code> girin.</li>
+</ul>
+</li>
+<li>Sol taraftaki Sponge (sunucusu) için kendi Çalıştır/Hata ayıkla konfigürasyonunuzu seçin.</li>
+<li><code class="docutils literal notranslate"><span class="pre">Classpath</span></code> sekmesine geçin.</li>
+<li><code class="docutils literal notranslate"><span class="pre">Add</span> <span class="pre">Projects...</span></code> butonundan sonra <a href="#id1"><span class="problematic" id="id2">``</span></a>User Entries``i seçin.</li>
+<li>Eklentinize uygun projeyi seçin.</li>
+<li><code class="docutils literal notranslate"><span class="pre">OK</span></code> butonuna tıklayınız.</li>
+<li>Sağ alt köşedeki <code class="docutils literal notranslate"><span class="pre">Apply</span></code> butonuna tıklayın.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="running-the-configuration">
+<span id="runconfig"></span><h2>Yapılandırmayı Çalıştırma<a class="headerlink" href="#running-the-configuration" title="Bu başlığın kalıcı bağlantısı">¶</a></h2>
+<p>After you’ve followed the previous steps, you should be ready to start debugging.
+If you start your server from your IDE, its working directory will be the <code class="docutils literal notranslate"><span class="pre">run</span></code> directory in your
+SpongeForge/SpongeVanilla project. All the files usually created by a server (worlds, configs etc.) will be stored in
+that <code class="docutils literal notranslate"><span class="pre">run</span></code> directory and persist over multiple runs of your local test server, just as if you manually copied a
+server .jar to the <code class="docutils literal notranslate"><span class="pre">run</span></code> directory and started it from there.</p>
+<div class="section" id="id3">
+<h3>IntelliJ IDEA<a class="headerlink" href="#id3" title="Bu başlığın kalıcı bağlantısı">¶</a></h3>
+<p>Çalıştır / hata ayıklama yapılandırmasını çalıştırmak için Yeşil sağ ok işaretine basmak yerine sağdaki Yeşil simgesini tıklayın, “Hata ayıklama”.</p>
+</div>
+<div class="section" id="id4">
+<h3>Tutulma<a class="headerlink" href="#id4" title="Bu başlığın kalıcı bağlantısı">¶</a></h3>
+<p>Rather than pressing the green right-pointing arrow to run your Run/Debug configuration, click the drop-down arrow of
+the Debug icon (the one displaying a bug) and click your <code class="docutils literal notranslate"><span class="pre">Test</span> <span class="pre">(Server)</span></code> configuration. If it doesn’t appear in the
+drop-down menu, click <code class="docutils literal notranslate"><span class="pre">Debug</span> <span class="pre">Configurations</span></code>. Select <code class="docutils literal notranslate"><span class="pre">Test</span> <span class="pre">(Server)</span></code> configuration and hit the <code class="docutils literal notranslate"><span class="pre">Debug</span></code> button
+on the bottom left.</p>
+</div>
+</div>
+<div class="section" id="using-the-debugger">
+<span id="usingdebugger"></span><h2>Hata ayıklama kullanımı<a class="headerlink" href="#using-the-debugger" title="Bu başlığın kalıcı bağlantısı">¶</a></h2>
+<p>Sunucunuz (ve Plugin’iniz) Hata Ayıklayıcı’da çalıştığı için tuttuğu özellikleri kullanabilirsiniz. Bunların en önemlileri aşağıda kısaca açıklanmaktadır, ancak bunlar Sponge’ın özellikleri değil, IDE’nizin kullandığı Java Debugger.</p>
+<div class="section" id="breakpoints">
+<h3>Kesme Noktaları<a class="headerlink" href="#breakpoints" title="Bu başlığın kalıcı bağlantısı">¶</a></h3>
+<p>Kesme noktaları, koda daha yakından bakmak için kullanışlı bir araçtır. Bir kesme noktası bir kod satırı veya bir işlevin başında ayarlanabilir. Bir kesme noktasına erişirken, hata ayıklayıcı kod yürütülmesini durduracak ve IDE, geçerli kapsamdaki tüm değişkenlerin içeriğini incelemenize izin veren bir görünüm açacaktır. IDE’nizin hata ayıklama görünümünde buna uygun düğmeye basmadığınız sürece kod yürütmesi devam etmez.</p>
+<p>Hata ayıklama devam ederken kesme noktaları da eklenebilir, kaldırılabilir veya geçici olarak devre dışı bırakılabilir.</p>
+<div class="admonition tip">
+<p class="first admonition-title">Tüyo</p>
+<p class="last">Tek bi sunucu işareti verilmiş zamandan daha fazla zaman alırsa, bekçi bu sunucunun çöktüğünü düşünür ve onu zorla kapatır. Kırılma noktaları ile çalışırken bu meydana gelebilir, bu nedenle test ortamlarınızı <code class="docutils literal notranslate"><span class="pre">server.properties</span></code> dosyasını ve <code class="docutils literal notranslate"><span class="pre">max-tick-time</span></code> değerini çok büyük bir sayıya ayarlamanız tavsiye edilir ( bir işaretin alabileceği milisaniye miktarı) veya <a href="#id1"><span class="problematic" id="id2">``</span></a>-1``( Bekçi’yi komple etkisiz kılmak için).</p>
+</div>
+<div class="section" id="id5">
+<h4>IntelliJ IDEA<a class="headerlink" href="#id5" title="Bu başlığın kalıcı bağlantısı">¶</a></h4>
+<p>Bir kesme noktası eklemek veya çıkarmak için, sadece editörünüzün solundaki boş alana sol tıklayın.</p>
+<p>Alternatif olarak, imlecinizi kesme noktasının eklenmesini veya kaldırılmasını istediğiniz satıra getirin ve sonra `` Çalıştır’ı tıklayın ve ardından `` Satır Kesme Noktasını Aç / Kapat ‘’ ı tıklayın.</p>
+</div>
+<div class="section" id="id6">
+<h4>Tutulma<a class="headerlink" href="#id6" title="Bu başlığın kalıcı bağlantısı">¶</a></h4>
+<p>Bir kesme noktası eklemek veya kaldırmak için, yalnızca düzenleyicinin solundaki boş alanı sağ tıklatın ve ardından `` Toggle Breakpoint`` seçeneğini tıklayın.</p>
+<p>Alternatif olarak, imlecinizi kesme noktasının eklenmesini veya kaldırılmasını istediğiniz satıra getirmesini sağlayın ve ardından `` Çalıştır’ı tıklayın ve ardından `` Kesme Kırpma Değiştir ‘’ e tıklayın.</p>
+</div>
+</div>
+<div class="section" id="code-hotswapping">
+<h3>Kod Güncellemesi<a class="headerlink" href="#code-hotswapping" title="Bu başlığın kalıcı bağlantısı">¶</a></h3>
+<p>Hata ayıklayıcı’nın diğer önemli özelliği, kod değiştirme sayesinde her küçük değişiklik için sunucunuzu yeniden başlatmanızın gerekmemesidir. Bu, hata ayıklayıcıda çalışırken yalnızca kod bölümlerini yeniden derleyebilirsiniz. Bununla birlikte, birkaç sınırlama vardır, bunlardan en önemlileri şunlardır:</p>
+<ul>
+<li><p class="first">Methodları oluşturamaz veya kaldıramazsınız.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Yöntemlerdeki değişiklikler, yöntemin içindeki * kodu ile sınırlıdır. İmzasını değiştiremezsiniz (adı, dönüş türü ve parametre türleri anlamına gelir)</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">Sınıfları silemezsiniz.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Bir sınıfın adını, üst sınıfını veya uyguladığı arabirimlerin listesini değiştiremezsiniz.</li>
+<li>Sınıf ekleyebilirsiniz. Bununla birlikte, yapı oluşturulduktan ve çalıştırıldıktan sonra, sınıf yukarıdaki kuralları izler.</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p>Bu işlevi test edebilirsiniz: Eklentinize sadece bir kelime yazan basit bir komut verin,``Sponge``gibi. Ardından kaydedin ve sunucuya yukarıda anlatıldığı gibi başlayın. <code class="docutils literal notranslate"><span class="pre">Sponge</span></code> i çıkartacak komutu çalıştırın. Şimdi komutu konsola farklı bir kelime yazmak üzere değiştirin, dosyayı kaydedin. Bir değişiklikten sonra, Çalışan programdaki değişiklikleri hotswap için aşağıdaki gibi yapın:</p>
+<div class="section" id="id7">
+<h4>IntelliJ IDEA<a class="headerlink" href="#id7" title="Bu başlığın kalıcı bağlantısı">¶</a></h4>
+<ul class="simple">
+<li>IDE’nin üstünden <code class="docutils literal notranslate"><span class="pre">Run</span></code> menüsünü açın.</li>
+<li>İlk kategori sonunun altındaki “Değiştirilen Sınıfları Yeniden Yükle” ye tıklayın.</li>
+</ul>
+</div>
+<div class="section" id="id8">
+<h4>Tutulma<a class="headerlink" href="#id8" title="Bu başlığın kalıcı bağlantısı">¶</a></h4>
+<p>Hiçbir işlem gerekmedi. Dosyayı kaydettiğiniz anda yeniden oluşturulur ve o anda çalışmakta olan hata ayıklama işlemiyle otomatik olarak çalışırken değiştirilir. Bu varsayılan varsayılan davranışı değiştirmediğiniz sürece, el ile çalıştırmayı tetiklemek zorunda kalmazsınız.</p>
+</div>
+</div>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="tutorials.html" class="btn btn-neutral float-right" title="Eğiticiler" accesskey="n" rel="next">İleri <span class="fa fa-angle-right"></span></a>
+        <a href="ray-tracing.html" class="btn btn-neutral" title="Işın izleme" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> Önceki</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../_static/flags/tr_TR.svg"
+         alt="tr" title="Türkçe">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../_static/jquery.js"></script>      <script type="text/javascript" src="../_static/underscore.js"></script>      <script type="text/javascript" src="../_static/doctools.js"></script>      <script type="text/javascript" src="../_static/language_data.js"></script>      <script type="text/javascript" src="../_static/translations.js"></script>      <script type="text/javascript" src="../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

@@ -1,0 +1,291 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data API &mdash; Sponge 7.2.0 說明文件</title>
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="索引"
+              href="../../genindex.html"/>        <link rel="search" title="搜尋" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 說明文件" href="../../index.html"/>        <link rel="up" title="建立插件" href="../index.html"/>        <link rel="next" title="自定義資料" href="custom/index.html"/>        <link rel="prev" title="Asset API" href="../assets.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../../index.html">
+            <img src="../../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../server/index.html">建立伺服器</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../versions/index.html">版本控制方針</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../preparing/index.html">準備開發</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">建立插件</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../api-versions.html">API版本</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../buildsystem.html">建置系統</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../workspace/index.html">建立你的工作空間</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../project/index.html">建立你的專案</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-identifier.html">插件識別碼</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-class.html">主要插件類別</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lifecycle.html">插件的生命週期</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../injection.html">相依注入</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../practices/index.html">實踐</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../optional/index.html">Optionals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../logging.html">記錄與除錯</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text/index.html">文本</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/index.html">插件指令</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../event/index.html">事件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/index.html">設定插件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assets.html">Asset API</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Data API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="custom/index.html">自定義資料</a></li>
+<li class="toctree-l3"><a class="reference internal" href="catalog-types.html">索引类型</a></li>
+<li class="toctree-l3"><a class="reference internal" href="keys.html">使用鍵（Key）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="datamanipulators.html">操作数据</a></li>
+<li class="toctree-l3"><a class="reference internal" href="transactions.html">数据操作记录</a></li>
+<li class="toctree-l3"><a class="reference internal" href="serialization.html">序列化資料</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../blocks/index.html">方塊</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../entities/index.html">實體</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../items/index.html">物品</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../trade-offers.html">開設交易</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../effects.html">效果</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../scheduler.html">排程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../services.html">服務</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database.html">資料庫</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../permissions.html">權限</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bans.html">封鎖</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metrics.html">Metrics 收集</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bookview.html">書本閱覽</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../economy/index.html">經濟</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wgen/index.html">世界生成</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manager.html">插件管理器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../game-profile-manager.html">遊戲設定檔管理器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../offline-userplayer-data.html">離線玩家資料</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tab-lists.html">Tab 清單</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-meta.html">插件元數據</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ray-tracing.html">光線追蹤</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../debugging.html">插件除錯</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials.html">教學</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internals/index.html">相依於實作的插件</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ore/index.html">Ore 文件</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/index.html">為 Sponge 貢獻</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">關於 Sponge 專案</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+          <li><a href="../index.html">建立插件</a> &raquo;</li>
+    <li>Data API</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/plugin/data/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="the-data-api">
+<h1>Data API<a class="headerlink" href="#the-data-api" title="本標題的永久連結">¶</a></h1>
+<p>Sponge 提供了一套统一的数据 API 旨在提供一致的方式访问和修改数据。“数据”，在这里指的是所有始终保持客户端和服务端的同步的数据，可以在服务端被更改，然后同步到所有已连接的客户端内。这些数据包括但远远不限于，一块木牌上的文字、一匹马的外貌、和任何有生命的实体的生命值。</p>
+<p>尽管其他的 API 通过继承和接口的方式去访问和修改数据（比如一个 <code class="docutils literal notranslate"><span class="pre">LivingEntity</span></code> 提供对于当前生命值和最大生命值的 Getter 和 Setter 来访问和修改），然而在 Sponge 中，每一个实体、方块等，都不能直接地看出其拥有什么数据。和直接了当地获取数据相比，这可能并不那么直观，但是其强大的可扩展性却是非常重要的。由于增加了 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/key/Key.html">Key</a>，访问特定的数据还是那么简单。</p>
+<div class="admonition tip">
+<p class="first admonition-title">小訣竅</p>
+<p class="last">如果这套数据 API 中有和你预期不一致的行为（例如在本应返回有意义数据的地方返回了空 <code class="docutils literal notranslate"><span class="pre">Optional</span></code>），或你需要的数据这套 API 中没有，请前往<a class="reference external" href="https://github.com/SpongePowered/SpongeCommon/issues/8">实现追踪器</a>查询，亦可前往 esper.net 的 <code class="docutils literal notranslate"><span class="pre">#spongedev</span></code> 频道、<a class="reference external" href="https://forums.spongepowered.org">Sponge 论坛</a>或 Sponge Discord 服务器的 <code class="docutils literal notranslate"><span class="pre">#dev</span></code> 频道询问有关开发者。</p>
+</div>
+<div class="section" id="concepts">
+<h2>概念<a class="headerlink" href="#concepts" title="本標題的永久連結">¶</a></h2>
+<p>如果你第一次接触数据 API 的文档，可能已经被多如牛毛的接口（Interface）和包（Package）吓得喘不过气了。不过如果只是想要使用数据 API，你并不需要完全理解它们，因为大部分的接口只是用于操纵特定的数据。</p>
+<div class="section" id="catalogtypes">
+<h3>索引类型（CatalogType）<a class="headerlink" href="#catalogtypes" title="本標題的永久連結">¶</a></h3>
+<p><a class="reference internal" href="catalog-types.html"><span class="doc">索引类型</span></a> 代表在特定上下文中有意义的数据。一些索引类型我们早已耳熟能详，比如说 :javadoc:<code class="docutils literal notranslate"><span class="pre">BlockType</span></code> 、 :javadoc:<code class="docutils literal notranslate"><span class="pre">EntityType</span></code> 、以及 :javadoc:<code class="docutils literal notranslate"><span class="pre">EntityType</span></code> 等。</p>
+</div>
+<div class="section" id="dataholder">
+<h3>DataHolder<a class="headerlink" href="#dataholder" title="本標題的永久連結">¶</a></h3>
+<p>一个数据访问器其实仅仅是——用于读写数据的一个东西。它提供了一些方法用于检索和设置数据。接口本身和其存储的数据类型一点关系都没有。因为只有实现才关系到存储的数据类型，所以访问一个其根本没有存在的数据，或者设置一个其根本无法使用的数据，在 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/DataHolder.html">DataHolder</a> 身上是完全有可能的。在这些情况下，返回值便会提供对于数据不可读（通过 <code class="docutils literal notranslate"><span class="pre">Optional.empty()</span></code> ）或者不可写（通过 <a class="reference internal" href="transactions.html"><span class="doc">DataTransactionResult</span></a> ）的信息。</p>
+</div>
+<div class="section" id="property">
+<h3>屬性（Property）<a class="headerlink" href="#property" title="本標題的永久連結">¶</a></h3>
+<p>一个属性也是数据，但并不在客户端和服务端之间同步。因此，对其的修改只能在客户端和服务端进行。因为 Sponge 并不打算提供一个客户端，所以属性均是不可修改（Not Modifiable）的。一些属性的示例有：工具的采掘等级（Harvesting Ability，以 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/property/item/HarvestingProperty.html">HarvestingProperty</a> 的形式存在）、盔甲的伤害吸收等级（Damage Absorption，以 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/property/item/DamageAbsorptionProperty.html">DamageAbsorptionProperty</a> 的形式存在）等。</p>
+</div>
+<div class="section" id="datamanipulator">
+<h3>資料操作者（DataManipulator）<a class="headerlink" href="#datamanipulator" title="本標題的永久連結">¶</a></h3>
+<p>一个数据操纵器表示描述特定数据的内聚的数据点。比如 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/manipulator/mutable/entity/HealthData.html">HealthData</a> 同时包含了当前生命值和最大生命值两个数据。如果一个数据访问器（DataHolder）拥有 <code class="docutils literal notranslate"><span class="pre">HealthData</span></code> ，那么它就有着生命值，这一生命值可以，不管以什么样的方式，被扣除或者补充，同时在生命值为零时死亡。通过这样的组合，可以有效地防止多余的方法定义。比如羊、染色玻璃、以及皮革盔甲都拥有着 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/manipulator/mutable/DyeableData.html">DyeableData</a> 表示其被染的颜色。</p>
+</div>
+<div class="section" id="key">
+<h3>鍵（Key）<a class="headerlink" href="#key" title="本標題的永久連結">¶</a></h3>
+<p>一个数据键是单个数据的唯一标识符，被用于直接获取或者设置数据而无需使用较为复杂的数据操纵器（DataManipulator）。它被设计为提供类似于 Getter 或者 Setter 的方式访问数据。 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/key/Keys.html">Keys</a> 工具类以常量的形式包含了在 Sponge 中使用的所有数据键。</p>
+</div>
+<div class="section" id="value">
+<h3>值（Value）<a class="headerlink" href="#value" title="本標題的永久連結">¶</a></h3>
+<p>在数据 API 中，一个数据键（Key）对应的数据值是一个被包装起来的对象。在本文档中，将会使用“数据值”一词，以防止和实际值混淆。一个数据值封装了一个实际值（如果有的话），一个默认值（在实际值未定义时使用），和对应的数据键。</p>
+</div>
+</div>
+<div class="section" id="contents">
+<h2>目錄<a class="headerlink" href="#contents" title="本標題的永久連結">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="custom/index.html">自定義資料</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="custom/datamanipulators.html">自定義 DataManipulators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="custom/dataholders.html">自定義 DataHolders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="custom/serialization.html">序列化自定義資料</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="catalog-types.html">索引类型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="keys.html">使用鍵（Key）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="datamanipulators.html">操作数据</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transactions.html">数据操作记录</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serialization.html">序列化資料</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="custom/index.html" class="btn btn-neutral float-right" title="自定義資料" accesskey="n" rel="next">下一頁 <span class="fa fa-angle-right"></span></a>
+        <a href="../assets.html" class="btn btn-neutral" title="Asset API" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> 上一頁</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../../_static/flags/zh_TW.svg"
+         alt="zh-TW" title="繁體中文">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../../_static/jquery.js"></script>      <script type="text/javascript" src="../../_static/underscore.js"></script>      <script type="text/javascript" src="../../_static/doctools.js"></script>      <script type="text/javascript" src="../../_static/language_data.js"></script>      <script type="text/javascript" src="../../_static/translations.js"></script>      <script type="text/javascript" src="../../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

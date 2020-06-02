@@ -1,0 +1,351 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acara Filter &mdash; dokumentasi Sponge 7.2.0</title>
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="Indeks"
+              href="../../genindex.html"/>        <link rel="search" title="Pencarian" href="../../search.html"/>    <link rel="top" title="dokumentasi Sponge 7.2.0" href="../../index.html"/>        <link rel="up" title="Acara" href="index.html"/>        <link rel="next" title="Acara Khusus" href="custom.html"/>        <link rel="prev" title="Penyebab acara" href="causes.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../../index.html">
+            <img src="../../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../server/index.html">Membuat sebuah server</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../versions/index.html">Versioning Policy</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../preparing/index.html">Mempersiapkan untuk Pengembangan</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Membuat Plugin</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../api-versions.html">API-Versions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../buildsystem.html">Membangun Sistem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../workspace/index.html">Anda mengatur ruang kerja</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../project/index.html">Menyiapkan proyek anda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-identifier.html">Pengenal Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-class.html">Class Plugin utama</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lifecycle.html">Plugin Siklus Hidup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../injection.html">Ketergantungan Injeksi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../practices/index.html">Kebiasaan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../optional/index.html">Pilihan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../logging.html">Penebangan dan Debugging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text/index.html">Teks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/index.html">Plugin Commands</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Acara</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="listeners.html">Acara Pendengar</a></li>
+<li class="toctree-l3"><a class="reference internal" href="causes.html">Penyebab acara</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Acara Filter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="custom.html">Acara Khusus</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/index.html">Mengkonfigurasi plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assets.html">Aset API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data/index.html">Data API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../blocks/index.html">Blok</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../entities/index.html">Badan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../items/index.html">Item</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../trade-offers.html">Trade-Offers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../effects.html">Hasil</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../scheduler.html">Penjadwalan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../services.html">Layanan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database.html">Basis data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../permissions.html">Hak akses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bans.html">Larang</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metrics.html">Metrics Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bookview.html">Tampilan buku</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../economy/index.html">Ekonomi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wgen/index.html">Generasi dunia</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manager.html">Pengelola Pengaya</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../game-profile-manager.html">Manajer profil game</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../offline-userplayer-data.html">Tidak hidup Data Pemain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tab-lists.html">Daftar tab</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-meta.html">Plugin Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ray-tracing.html">V8 Tracing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../debugging.html">Plugin Debugging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials.html">Tutorial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internals/index.html">Plugin yang tergantung pada pelaksanaan</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ore/index.html">Dokumentasi bijih</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/index.html">Berkontribusi pada Sponge</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">Tentang Sponge Project</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+          <li><a href="../index.html">Membuat Plugin</a> &raquo;</li>
+          <li><a href="index.html">Acara</a> &raquo;</li>
+    <li>Acara Filter</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/plugin/event/filters.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="event-filters">
+<h1>Acara Filter<a class="headerlink" href="#event-filters" title="Link permanen untuk headline ini">¶</a></h1>
+<p>Sekarang setelah Anda menghabiskan sedikit waktu untuk bekerja dengan acara, Anda mungkin telah memperhatikan bahwa ada beberapa prasyarat yang biasanya Anda periksa saat menulis pendengar acara. Filter acara adalah sekelompok anotasi yang membantu Anda dengan mengizinkan Anda untuk secara otomatis memvalidasi aspek acara, dan jika validasi gagal, pendengar Anda tidak akan dipanggil. Hal ini memungkinkan pendengar Anda didedikasikan untuk logika pawang Anda, bukan prasyarat, sehingga menghasilkan kode yang lebih bersih.</p>
+<p>Acara filter datang dalam dua acara varietas, jenis filter dan parameter filter.</p>
+<p>Filter jenis acara adalah anotasi metode yang diterapkan pada metode pendengar Anda beserta anotasi <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/Listener.html">Listener</a> dan berikan beberapa filter berdasarkan jenis atau keadaan acara.</p>
+<p>Parameter filter memvalidasi objek yang terkandung dalam acara seperti penyebabnya. Mereka datang di sebuah lanjut dua varietas parameter sumber dan parameter filter. Setiap tambahan parameter harus memiliki salah satu sumber annotation, dan optionally mungkin termasuk sejumlah menyaring annotations.</p>
+<div class="section" id="event-type-filters">
+<h2>Acara Tipe Filters<a class="headerlink" href="#event-type-filters" title="Link permanen untuk headline ini">¶</a></h2>
+<p><strong>&#64;Memasukan/&#64;Meniadakan</strong> Dua Parameter ini digunakan dalam hubungannya untuk mendengarkan acara supertype :javadoc: 'MempengaruhiEntitasAcara' sementara penyempitan acara yang anda terima hanya diperluas dari acara yang anda dengarkan.</p>
+<p>Sabagai contoh:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Listener</span>
+<span class="nd">@Exclude</span><span class="p">(</span><span class="n">InteractBlockEvent</span><span class="p">.</span><span class="na">Primary</span><span class="p">.</span><span class="na">class</span><span class="p">)</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onInteract</span><span class="p">(</span><span class="n">InteractBlockEvent</span> <span class="n">event</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// do something</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Pendengar ini biasanya akan disebut memperluas semua acara untuk InteraksiBidangAcara. Namun, :javadoc: 'Meniadakan' penjelasanya akan mencegah pendengaran anda dapat disebut :javadoc: 'InteraksiBidangAcara.Primary' acara (hanya meninggalkan :javadoc: 'InteraksiBidangAcara.Secondary' acara).</p>
+<p>Contoh <a href="#id1"><span class="problematic" id="id2">:javadoc:`Mencakup`</span></a> seperti:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Listener</span>
+<span class="nd">@Include</span><span class="p">({</span><span class="n">DamageEntityEvent</span><span class="p">.</span><span class="na">class</span><span class="p">,</span> <span class="n">DestructEntityEvent</span><span class="p">.</span><span class="na">class</span><span class="p">})</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onEvent</span><span class="p">(</span><span class="n">TargetEntityEvent</span> <span class="n">event</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// do something</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Pendengar ini biasanya akan disebut untuk semua EntityEvents, namun <cite>Seperti</cite> penjelasan menyempit itu untuk hanya menerima :javadoc: 'DamageEntityEvent' dan :javadoc: 'DamageEntityEvent',s.</p>
+<p><strong>&#64;IsCancelled</strong>
+This annotation allows filtering events by their cancellation state at the time that your event listener would normally be
+called. By default, your event listener will not be called if the event has been cancelled by a previous event listener.
+However you can change this behavior to one of three states depending on the <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/util/Tristate.html">Tristate</a> value in the
+<a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/filter/IsCancelled.html">IsCancelled</a> annotation.</p>
+<blockquote>
+<div><ul class="simple">
+<li>` <cite>Tristate.False</cite> ` adalah perilaku default jika <cite>IsCancelled</cite> penjelasan tidak hadir, dan tidak akan menelepon pendengarmu jika acara ini telah dibatalkan.</li>
+<li><cite>Tristate.UNDEFINED</cite> akan menyebabkan pendengar anda tersebut untuk terlepas dari pembatalan negara dari acara tersebut.</li>
+<li>` <cite>Tristate.Betul</cite> ` akan menyebabkan pendengar anda untuk disebut hanya jika acara ini telah dibatalkan oleh acara sebelumnya pendengar.</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="parameter-filters">
+<h2>Penyaringan Parameter<a class="headerlink" href="#parameter-filters" title="Link permanen untuk headline ini">¶</a></h2>
+<p>Penyaringan parameter memungkinkan anda untuk menyaring berdasarkan benda-benda dalam acara tersebut. Anotasi ini datang dalam dua jenis, sumber dan filter. Masing-masing parameter tambahan untuk metode pendengarmu, di luar normal acara parameter, membutuhkan persis satu sumber penjelasan dan opsional dapat memiliki sejumlah filter penjelasan.</p>
+<div class="section" id="parameter-source-annotations">
+<h3>Parameter Sumber Anotasi<a class="headerlink" href="#parameter-source-annotations" title="Link permanen untuk headline ini">¶</a></h3>
+<p>Parameter sumber penjelasan menceritakan peristiwa sistem di mana ia harus mencari parameter nilai.</p>
+<p><strong>&#64;Pertama</strong> Parameter sumber penjelasan ini menceritakan peristiwa sistem untuk menemukan objek pertama dalam acara ini penyebab yang sesuai dengan jenis parameter anda (Ini adalah setara dengan <a href="#id1"><span class="problematic" id="id2">:javadoc:`Penyebab#pertama(kelas)`</span></a>). Jika tidak ada objek yang setara dengan parameter ini maka pendengarmu tidak akan disebut.</p>
+<p><strong>Dalam contoh ini pendengar anda hanya dapat disebut jika ada pemain dalam acara adalah penyebabnya, dan yang</strong> &quot;pemain&quot; <strong>parameter akan ditetapkan untuk penyebab pemain pertama yang hadir.</strong></p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Listener</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onInteract</span><span class="p">(</span><span class="n">InteractBlockEvent</span><span class="p">.</span><span class="na">Secondary</span> <span class="n">event</span><span class="p">,</span> <span class="nd">@First</span> <span class="n">Player</span> <span class="n">player</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// do something</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>&#64;Lalu</strong> Hal ini mirip dengan &quot;&#64;Pertama&quot; namun hal itu bukan untuk membuat dapat disebut untuk :javadoc: 'Penyebab#lalu(Kelas)'.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Listener</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onInteract</span><span class="p">(</span><span class="n">InteractBlockEvent</span><span class="p">.</span><span class="na">Secondary</span> <span class="n">event</span><span class="p">,</span> <span class="nd">@Last</span> <span class="n">Player</span> <span class="n">player</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// do something</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>&#64;Sebelum</strong> Parameter dari sumber penjelasan ini menyampaikan mekanisme acara untuk menemukan yang sebelum diantara jenis yang ditentukan oleh penjelasan parameter ( Ini adalah setera dengan :javadoc: 'Penyebab#sebelum(Kelas)' ). Selain itu, objek yang ditemukan harus sesuai dengan jenis parameter. Jika tidak ada objek yang ditemukan memenuhi kriteria ini, maka pendengar anda tidak disebut.</p>
+<p><strong>Dalam contoh ini pendengar anda hanya bisa disebut jika ada pemain terletak dalam wadah plugin acara ini adalah penyebabnya, yang</strong> &quot;pemain&quot; <strong>parameter yang akan ditetapkan untuk pemain.</strong></p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Listener</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onInteract</span><span class="p">(</span><span class="n">InteractBlockEvent</span><span class="p">.</span><span class="na">Secondary</span> <span class="n">event</span><span class="p">,</span> <span class="nd">@Before</span><span class="p">(</span><span class="n">PluginContainer</span><span class="p">.</span><span class="na">class</span><span class="p">)</span> <span class="n">Player</span> <span class="n">player</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// do something</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>&#64;Sesudah</strong> Hal ini mirip dengan &quot;&#64;Sebelum&quot;, tapi itu bukan menggunakan :javadoc: 'Penyebab#sesudah(Kelas)'.</p>
+<p><strong>&#64;All</strong> This parameter source annotation requires that the annotated parameter be an array type. The returned array
+will be equivalent to the contents of calling <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/cause/Cause.html#allOf-java.lang.Class-">Cause#allOf(Class)</a>. By default, if the returned array would be
+empty then the validation fails however this can be disabled by setting <code class="docutils literal notranslate"><span class="pre">ignoreEmpty=false</span></code>.</p>
+<p><strong>Dalam contoh ini pendengar anda akan selalu dapat disebut, meskipun para pemain mungkin akan kosong jika hal ini menyebabkan tidak ada pemain yang terisi.</strong></p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Listener</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onInteract</span><span class="p">(</span><span class="n">InteractBlockEvent</span><span class="p">.</span><span class="na">Secondary</span> <span class="n">event</span><span class="p">,</span> <span class="nd">@All</span><span class="p">(</span><span class="n">ignoreEmpty</span><span class="o">=</span><span class="kc">false</span><span class="p">)</span> <span class="n">Player</span><span class="o">[]</span> <span class="n">players</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// do something</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>&#64;Akar</strong> Penjelasan dari sumber parameter ini akan mengambil objek akar penyebab, setara dengan :javadoc:'Penyebab#akar()'. hal ini juga melakukan pemeriksaan tambahan yang jenis akar objek sesuai dengan jenis parameter anda.</p>
+<p><strong>&#64;Penyerap</strong> Parameter Ini sumber penjelasan akan mengambil penyerap di acara dengan nama tertentu. Jika ditentukan pengambil kembali &quot;Opsional&quot;,&quot; &#64;Penyerap&quot; akan secara otomatis membuka &quot;Opsional&quot;.</p>
+<p><strong>Dalam contoh ini, kita mencoba untuk mengambil nilai dari</strong> &quot;dapatMengunakanHasilBarang&quot; <strong>menggunakan</strong> &quot;Penyerap&quot; <strong>penjelasan.</strong></p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Listener</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onInteract</span><span class="p">(</span><span class="n">InteractBlockEvent</span><span class="p">.</span><span class="na">Secondary</span> <span class="n">event</span><span class="p">,</span> <span class="nd">@Getter</span><span class="p">(</span><span class="s">&quot;getUseItemResult&quot;</span><span class="p">)</span> <span class="n">Tristate</span> <span class="n">result</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// do something</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="parameter-filter-annotations">
+<h3>Parameter Filter Anotasi<a class="headerlink" href="#parameter-filter-annotations" title="Link permanen untuk headline ini">¶</a></h3>
+<p>Parameter penyaring penjelasan menambahkan validasi tambahan untuk benda-benda yang kembali dari parameter sumber penjelasan. Seperti dengan semua acara penyaringan jika ada validasi ini gagal maka pendengar anda tidak akan dipanggil.</p>
+<p>** &#64; Mendukung ** Filter parameter ini dapat diterapkan ke tipe parameter manapun yang adalah : javadoc: <cite>DataHolder</cite>. Dibutuhkan perpanjangan kelas : javadoc: <cite>DataManipulator</cite> sebagai parameternya dan memvalidasi bahwa DataHolder` yang diberi anotasi mendukung 'DataManipulator` yang diberikan. Validasi ini setara dengan : javadoc: <cite>CompositeValueStore # support (Class &lt;? Extends H&gt;)</cite>.</p>
+<p><strong>Dalam contoh ini pendengar akan disebut hanya jika ada entitas yang dalam hal ini menyebabkan, dan jika entitas yang mendukung data manipulator</strong> <a href="#id1"><span class="problematic" id="id2">:javadoc:`Dataterbang`</span></a>.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Listener</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onInteract</span><span class="p">(</span><span class="n">InteractBlockEvent</span><span class="p">.</span><span class="na">Secondary</span> <span class="n">event</span><span class="p">,</span> <span class="nd">@First</span> <span class="nd">@Supports</span><span class="p">(</span><span class="n">FlyingData</span><span class="p">.</span><span class="na">class</span><span class="p">)</span> <span class="n">Entity</span> <span class="n">entity</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// do something</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>** &#64; Has ** Filter parameter ini mirip dengan filter parameter `` &#64; Supports``, kecuali bahwa itu juga memvalidasi bahwa `` DataHolder` berisi sebuah instance dari DataManipulator` yang diberikan.</p>
+<p><strong>Dalam contoh ini pendengar akan disebut hanya jika ada entitas yang dalam hal ini menyebabkan, dan jika entitas yang memiliki sebuah contoh</strong> <a href="#id1"><span class="problematic" id="id2">`</span></a>Dataterbang`**.**</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Listener</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onInteract</span><span class="p">(</span><span class="n">InteractBlockEvent</span><span class="p">.</span><span class="na">Secondary</span> <span class="n">event</span><span class="p">,</span> <span class="nd">@First</span> <span class="nd">@Has</span><span class="p">(</span><span class="n">FlyingData</span><span class="p">.</span><span class="na">class</span><span class="p">)</span> <span class="n">Entity</span> <span class="n">entity</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// do something</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Catatan</p>
+<p class="last">Kedua <cite>&#64;</cite> dan <cite>&#64;Mendukung</cite> memiliki sebuah parameter opsional <cite>terbalik</cite> yang dapat diatur untuk menyebabkan validasi gagal jika tidak memiliki, atau tidak mendukung, target DataManipulasi.</p>
+</div>
+</div>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="custom.html" class="btn btn-neutral float-right" title="Acara Khusus" accesskey="n" rel="next">Selanjutnya <span class="fa fa-angle-right"></span></a>
+        <a href="causes.html" class="btn btn-neutral" title="Penyebab acara" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> Sebelumnya</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../../_static/flags/id_ID.svg"
+         alt="id" title="Indonesia">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../../_static/jquery.js"></script>      <script type="text/javascript" src="../../_static/underscore.js"></script>      <script type="text/javascript" src="../../_static/doctools.js"></script>      <script type="text/javascript" src="../../_static/language_data.js"></script>      <script type="text/javascript" src="../../_static/translations.js"></script>      <script type="text/javascript" src="../../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

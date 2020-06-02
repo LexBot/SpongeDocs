@@ -1,0 +1,642 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>權限 &mdash; Sponge 7.2.0 說明文件</title>
+
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="索引"
+              href="../genindex.html"/>        <link rel="search" title="搜尋" href="../search.html"/>    <link rel="top" title="Sponge 7.2.0 說明文件" href="../index.html"/>        <link rel="up" title="建立插件" href="index.html"/>        <link rel="next" title="封鎖" href="bans.html"/>        <link rel="prev" title="資料庫" href="database.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../index.html">
+            <img src="../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../server/index.html">建立伺服器</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../versions/index.html">版本控制方針</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../preparing/index.html">準備開發</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">建立插件</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="api-versions.html">API版本</a></li>
+<li class="toctree-l2"><a class="reference internal" href="buildsystem.html">建置系統</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workspace/index.html">建立你的工作空間</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project/index.html">建立你的專案</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin-identifier.html">插件識別碼</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin-class.html">主要插件類別</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lifecycle.html">插件的生命週期</a></li>
+<li class="toctree-l2"><a class="reference internal" href="injection.html">相依注入</a></li>
+<li class="toctree-l2"><a class="reference internal" href="practices/index.html">實踐</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optional/index.html">Optionals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.html">記錄與除錯</a></li>
+<li class="toctree-l2"><a class="reference internal" href="text/index.html">文本</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands/index.html">插件指令</a></li>
+<li class="toctree-l2"><a class="reference internal" href="event/index.html">事件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration/index.html">設定插件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assets.html">Asset API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data/index.html">Data API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/index.html">方塊</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entities/index.html">實體</a></li>
+<li class="toctree-l2"><a class="reference internal" href="items/index.html">物品</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trade-offers.html">開設交易</a></li>
+<li class="toctree-l2"><a class="reference internal" href="effects.html">效果</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scheduler.html">排程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="services.html">服務</a></li>
+<li class="toctree-l2"><a class="reference internal" href="database.html">資料庫</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">權限</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bans.html">封鎖</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metrics.html">Metrics 收集</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bookview.html">書本閱覽</a></li>
+<li class="toctree-l2"><a class="reference internal" href="economy/index.html">經濟</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wgen/index.html">世界生成</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manager.html">插件管理器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="game-profile-manager.html">遊戲設定檔管理器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="offline-userplayer-data.html">離線玩家資料</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tab-lists.html">Tab 清單</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin-meta.html">插件元數據</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ray-tracing.html">光線追蹤</a></li>
+<li class="toctree-l2"><a class="reference internal" href="debugging.html">插件除錯</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials.html">教學</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internals/index.html">相依於實作的插件</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ore/index.html">Ore 文件</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contributing/index.html">為 Sponge 貢獻</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">關於 Sponge 專案</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+          <li><a href="index.html">建立插件</a> &raquo;</li>
+    <li>權限</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/plugin/permissions.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="permissions">
+<h1>權限<a class="headerlink" href="#permissions" title="本標題的永久連結">¶</a></h1>
+<p>如果你想了解原版命令的权限，请移步至<a class="reference internal" href="../server/spongineer/commands.html"><span class="doc">这个页面</span></a>。关于定制权限等级的说明，请参阅<a class="reference internal" href="../server/management/permissions.html"><span class="doc">权限管理</span></a>页面，或查阅你使用的权限插件的文档。</p>
+<div class="section" id="permission">
+<h2>權限<a class="headerlink" href="#permission" title="本標題的永久連結">¶</a></h2>
+<p>Permission 字符串对大小写不敏感，其用于决定一个 Subject 可以和不可以做什么。该字符串使用小数点分隔成若干分立的部分。一个 Permission 字符串应该长这样：</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&lt;PluginID&gt;.&lt;MainGroup&gt;.&lt;Subgroup1&gt;...
+</pre></div>
+</div>
+<p>允許的字元為：</p>
+<ul class="simple">
+<li>「A」 - 「Z」</li>
+<li>「a」 - 「z」</li>
+<li>「0」 - 「9」</li>
+<li>「_」</li>
+<li>「-「</li>
+<li>「.」</li>
+</ul>
+<div class="section" id="inheritance">
+<h3>繼承（Inheritance）<a class="headerlink" href="#inheritance" title="本標題的永久連結">¶</a></h3>
+<p>如果一个用户具有 <code class="docutils literal notranslate"><span class="pre">myplugin.commands</span></code> 的权限，那么所有诸如 <code class="docutils literal notranslate"><span class="pre">myplugin.commands.teleport</span></code> 等子权限都将自动拥有，除非它被显式地删除。</p>
+<div class="admonition note">
+<p class="first admonition-title">備註</p>
+<p class="last">没有诸如 <code class="docutils literal notranslate"><span class="pre">myplugin.commands.*</span></code> 的通配符形式。请使用 <code class="docutils literal notranslate"><span class="pre">myplugin.commands</span></code> 解决问题。</p>
+</div>
+</div>
+<div class="section" id="structure-example">
+<h3>結構範例<a class="headerlink" href="#structure-example" title="本標題的永久連結">¶</a></h3>
+<p>下面的示例展示了一个构造 Permission 字符串的通常方法，当然按照该结构来并不是必须的。</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">myplugin</span></code></dt>
+<dd><ul class="first last">
+<li>给予有关该插件的 <strong>所有</strong> 权限。</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">myplugin.commands</span></code></dt>
+<dd><ul class="first last">
+<li>给予有关该插件的命令的 <strong>所有</strong> 权限。</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">myplugin.commands.teleport.execute</span></code></dt>
+<dd><ul class="first last">
+<li>仅仅给予用户执行指定命令的权限。如果用户没有该权限，那么即便他拥有其他有关于 <cite>teleport</cite> 的权限，他也没有办法运行该命令（拥有该权限的用户只能将自己传送到其所在世界的其他人的位置）。</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">myplugin.commands.teleport.all</span></code></dt>
+<dd><ul class="first last">
+<li>仅仅给予用户一次性传送所有玩家的权限。</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">myplugin.commands.teleport.worlds</span></code></dt>
+<dd><ul class="first last">
+<li>仅仅给予用户传送所有世界的玩家的权限。</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">myplugin.commands.teleport.worlds.mynetherworld</span></code></dt>
+<dd><ul class="first last">
+<li>仅仅给予用户传送到 <em>mynetherworld</em> 的权限。</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="permissiondescription">
+<h2>权限描述<a class="headerlink" href="#permissiondescription" title="本標題的永久連結">¶</a></h2>
+<p>一个权限描述是一个 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/permission/PermissionDescription.html">PermissionDescription</a> 对象，用于向服主提供有关于某些权限的详细信息。 <code class="docutils literal notranslate"><span class="pre">PermissionDescription</span></code> 是 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/permission/PermissionService.html">PermissionService</a> 可以提供的可选特性。创建权限描述并 <strong>不</strong> 会影响已有的权限是否存在，拥有权限的都有谁，以及其默认值是什么。</p>
+<p>权限描述包括：</p>
+<ul class="simple">
+<li>目标 Permission 字符串</li>
+<li>一个用于描述的 Text 对象</li>
+<li>一个或多个分配规则</li>
+<li>提供该权限的插件</li>
+</ul>
+<p>如果你有一个诸如 <code class="docutils literal notranslate"><span class="pre">World</span></code> 或者 <code class="docutils literal notranslate"><span class="pre">ItemType</span></code> 的动态元素，那么你可以使用 <code class="docutils literal notranslate"><span class="pre">&lt;TemplateParts&gt;</span></code> 。</p>
+<div class="section" id="usage-example">
+<h3>使用範例<a class="headerlink" href="#usage-example" title="本標題的永久連結">¶</a></h3>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.service.permission.PermissionDescription</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.service.permission.PermissionDescription.Builder</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.service.permission.PermissionService</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.text.Text</span><span class="p">;</span>
+
+<span class="n">PluginContainer</span> <span class="n">plugin</span> <span class="o">=</span> <span class="p">...;</span>
+<span class="n">Builder</span> <span class="n">builder</span> <span class="o">=</span> <span class="n">permissionService</span><span class="p">.</span><span class="na">newDescriptionBuilder</span><span class="p">(</span><span class="n">plugin</span><span class="p">);</span>
+
+<span class="n">builder</span><span class="p">.</span><span class="na">id</span><span class="p">(</span><span class="s">&quot;myplugin.commands.teleport.execute&quot;</span><span class="p">)</span>
+       <span class="p">.</span><span class="na">description</span><span class="p">(</span><span class="n">Text</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;Allows the user to execute the teleport command.&quot;</span><span class="p">))</span>
+       <span class="p">.</span><span class="na">assign</span><span class="p">(</span><span class="n">PermissionDescription</span><span class="p">.</span><span class="na">ROLE_STAFF</span><span class="p">,</span> <span class="kc">true</span><span class="p">)</span>
+       <span class="p">.</span><span class="na">register</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="simple-result">
+<h3>簡單的結果<a class="headerlink" href="#simple-result" title="本標題的永久連結">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>myplugin.commands.teleport.execute
+
+Description: Allows the user to execute the teleport command.
+Role: user
+Owner: MyPlugin v1.2.3
+</pre></div>
+</div>
+</div>
+<div class="section" id="template-result">
+<h3>範本結果<a class="headerlink" href="#template-result" title="本標題的永久連結">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>myplugin.commands.teleport.worlds.&lt;World&gt;
+
+Description: Allows the user to teleport to the world &lt;World&gt;.
+Role: staff
+Owner: MyPlugin v1.2.3
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">小訣竅</p>
+<p class="last">你可能不会为某些父权限组编写描述，例如 <code class="docutils literal notranslate"><span class="pre">myplugin.commands.teleport.worlds</span></code> 或者 <code class="docutils literal notranslate"><span class="pre">myplugin.commands</span></code> 等，因为相应的权限结构和其对应的子权限已经足够描述该权限的意义了。</p>
+</div>
+</div>
+</div>
+<div class="section" id="subject">
+<h2>权限主体<a class="headerlink" href="#subject" title="本標題的永久連結">¶</a></h2>
+<p>一个权限主体是一个 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/permission/Subject.html">Subject</a> 对象，持有着若干权限。通过 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/permission/SubjectCollection.html">SubjectCollection</a> 我们可以从 <code class="docutils literal notranslate"><span class="pre">PermissionService</span></code> 中获取到权限主体。一些诸如 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/CommandSource.html">CommandSource</a> （比如 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/living/player/Player.html">Player</a> 等）的对象本身就属于 <code class="docutils literal notranslate"><span class="pre">Subject</span></code> 。不过同样有其他多种多样的 <code class="docutils literal notranslate"><span class="pre">Subject</span></code> 。任何具有权限的东西都是权限主体，即使它只是将检查委托给一个包含的权限主体。可以向权限主体授予或去除权限。如果权限既不被授予也不被去除，那么其设置将被继承（请参阅后面的内容）。权限主体提供方法来检查他们是否具有某种权限。使用此方法的插件应仅查询其要检查的特定权限，而 PermissionService 的任务才是管理权限及其继承。</p>
+<div class="section" id="example">
+<h3>範例<a class="headerlink" href="#example" title="本標題的永久連結">¶</a></h3>
+<p>檢查玩家是否可以使用傳送指令的範例如下：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.entity.living.player.Player</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.world.World</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">canTeleport</span><span class="p">(</span><span class="n">Player</span> <span class="n">subject</span><span class="p">,</span> <span class="n">World</span> <span class="n">targetWorld</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">subject</span><span class="p">.</span><span class="na">hasPermission</span><span class="p">(</span><span class="s">&quot;myplugin.command.teleport.execute&quot;</span><span class="p">)</span>
+            <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">subject</span><span class="p">.</span><span class="na">getWorld</span><span class="p">()</span> <span class="o">==</span> <span class="n">targetWorld</span>
+                    <span class="o">||</span> <span class="n">subject</span><span class="p">.</span><span class="na">hasPermission</span><span class="p">(</span><span class="s">&quot;myplugin.command.teleport.&quot;</span> <span class="o">+</span> <span class="n">targetWorld</span><span class="p">.</span><span class="na">getName</span><span class="p">()));</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id1">
+<h3>繼承（Inheritance）<a class="headerlink" href="#id1" title="本標題的永久連結">¶</a></h3>
+<p>如果 <code class="docutils literal notranslate"><span class="pre">Subject</span></code> 被指定了是否拥有给定的权限，那么它将按照指定的方式去做。否则它会继承任何父 <code class="docutils literal notranslate"><span class="pre">Subject</span></code> ，而不管父 <code class="docutils literal notranslate"><span class="pre">Subject</span></code> 是什么样子的（如用户组或玩家等）。</p>
+<p>如果权限主体本身或任何父权限主体都不授予或去除一个权限，那么它将继承于默认的 <code class="docutils literal notranslate"><span class="pre">Subject</span></code> 。每个 <code class="docutils literal notranslate"><span class="pre">SubjectCollection</span></code> 都定义了自己的默认值。全局和最弱的默认 <code class="docutils literal notranslate"><span class="pre">Subject</span></code> 可以从 <code class="docutils literal notranslate"><span class="pre">PermissionService</span></code> 获得。插件可以在每个服务器启动期间定义它们自己对默认 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/permission/SubjectData.html">SubjectData</a> 的权限。这允许服主根据自己的需要使用默认的 <code class="docutils literal notranslate"><span class="pre">SubjectData</span></code> 来覆盖插件定义的默认值。如果你想为服主提供一个配置指南，请使用 <code class="docutils literal notranslate"><span class="pre">PermissionDescription</span></code> 。</p>
+<div class="admonition warning">
+<p class="first admonition-title">警告</p>
+<p class="last">在向用户授予权限前，你应该仔细考虑考虑。你对于这些默认权限的设置相当于你默许所有服主（至少在第一次插件运行时）都接受这些默认值，并且在特殊情况下才会去除相应权限（如果没有插件可用于管理权限，自由去除权限的事甚至无法完成）。插件开发者应该考虑在单人用户的无作弊局域网下，一个玩家加入多人游戏时应有的默认权限。比如一个聊天插件将允许默认情况下发送聊天信息以在基于原版游戏允许做的事的基础上加入自己的特性。</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">備註</p>
+<p class="last"><code class="docutils literal notranslate"><span class="pre">Subject</span></code> 默认持有的持久的（persistent） <code class="docutils literal notranslate"><span class="pre">SubjectData</span></code> 比临时的（transient）优先级要高。对于其他的 <code class="docutils literal notranslate"><span class="pre">Subject</span></code>，临时的 <code class="docutils literal notranslate"><span class="pre">SubjectData</span></code> 比持久的优先级要高。</p>
+</div>
+<p>如果权限主体本身、其所有的父权限主体、以及默认情况都没有声明授予还是去除一个权限，那么该权限将自动拒绝授予给该权限主体，也就是去除。</p>
+<div class="admonition note">
+<p class="first admonition-title">備註</p>
+<p>优先次序从先到后排序：</p>
+<ul class="last simple">
+<li><dl class="first docutils">
+<dt>权限主体本身</dt>
+<dd><ul class="first last">
+<li>暂时</li>
+<li>持续</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>父权限主体</dt>
+<dd><ul class="first last">
+<li>暂时</li>
+<li>持续</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>SubjectCollection 的默认情况</dt>
+<dd><ul class="first last">
+<li>持续</li>
+<li>暂时</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>PermissionService 的默认情况</dt>
+<dd><ul class="first last">
+<li>持续</li>
+<li>暂时</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li>拒絕權限</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="subjectcollections">
+<h2>SubjectCollection<a class="headerlink" href="#subjectcollections" title="本標題的永久連結">¶</a></h2>
+<p>SubjectCollection 是一个用于根据名称获取权限主体的容器。有一些默认的 SubjectCollection：</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>使用者</dt>
+<dd><ul class="first last">
+<li>包含了所有在线的 <code class="docutils literal notranslate"><span class="pre">Player</span></code> 及不在线的 <code class="docutils literal notranslate"><span class="pre">User</span></code> （至少是那些非默认的）。</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>组（Group）</dt>
+<dd><ul class="first last">
+<li>包含了所有组合在一起的 <code class="docutils literal notranslate"><span class="pre">Subject</span></code> 。组通过一种简单的方式把 <code class="docutils literal notranslate"><span class="pre">Subject</span></code> 用命名过的 <code class="docutils literal notranslate"><span class="pre">Subject</span></code> 方式组成继承树。组通常用于有额外附加权限的 <code class="docutils literal notranslate"><span class="pre">Subject</span></code> 如队伍、派别、或职务等。</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>系統</dt>
+<dd><ul class="first last">
+<li>包括了所有服务端用到的 <code class="docutils literal notranslate"><span class="pre">Subject</span></code> ，如服务端控制台等终端。</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>命令方塊</dt>
+<dd><ul class="first last">
+<li>包括了所有命令方块的 <code class="docutils literal notranslate"><span class="pre">Subject</span></code> 。如果你只想要命令方块拥有相关权限如命令方块创建者的权限，那么该 SubjectCollection 将起到帮助。</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>角色模板（Role Template）</dt>
+<dd><ul class="first last">
+<li>包括了所有用于 <code class="docutils literal notranslate"><span class="pre">PermissionDescription</span></code> 的角色模板权限主体。这对于查找一个用户的权限来说是很有帮助的，不过不要将其用于继承。</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">備註</p>
+<p class="last">当试图从 <code class="docutils literal notranslate"><span class="pre">SubjectCollection</span></code> 中查询 <code class="docutils literal notranslate"><span class="pre">Subject</span></code> 时，如果它们不存在，它们将被自动创建。然而它们并不一定显示在 <code class="docutils literal notranslate"><span class="pre">getAllSubjects()</span></code> 中，除非设置了非默认值。</p>
+</div>
+</div>
+<div class="section" id="subjectdata">
+<h2>主要資訊<a class="headerlink" href="#subjectdata" title="本標題的永久連結">¶</a></h2>
+<p>SubjectData 是存储权限主体的权限数据的真正地方。我们有两种存储方式：</p>
+<ul class="simple">
+<li>暂时（Transient）：只会在相关时间段中持续，也就是说不会保存</li>
+<li>持续（Persistent）：可能会存储在什么地方，也就是说会永远保存下去。我们建议 <code class="docutils literal notranslate"><span class="pre">PermissionService</span></code> 提供关于持续 SubjectData 的实现，尽管这并非必要。当然这也取决于权限主体。如果没有办法以持续的方式存储，那么两个方法将都返回暂时数据。</li>
+</ul>
+<p>插件开发者若要在两者之间选择，应仔细考虑是否需要持续地存储数据。</p>
+<ul class="simple">
+<li>一般情况下往往只有使用很短时间的权限（如小游戏）才需要暂时存储的 SubjectData。</li>
+<li>需要使用长时间的权限（如 VIP）应使用持续方式存储。</li>
+</ul>
+<p>如果想知道更多关于继承和优先级的顺时和永久 <code class="docutils literal notranslate"><span class="pre">SubjectData</span></code> 的，请参阅继承部分。</p>
+<div class="section" id="id2">
+<h3>範例<a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h3>
+<p>下列示例展示了如何在全局 Context 中将玩家指定权限赋值为 true：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.entity.living.player.Player</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">setPermission</span><span class="p">(</span><span class="n">Player</span> <span class="n">player</span><span class="p">,</span> <span class="n">String</span> <span class="n">permission</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">player</span><span class="p">.</span><span class="na">hasPermission</span><span class="p">(</span><span class="n">permission</span><span class="p">)</span>
+        <span class="n">player</span><span class="p">.</span><span class="na">getSubjectData</span><span class="p">().</span><span class="na">setPermission</span><span class="p">(</span><span class="n">SubjectData</span><span class="p">.</span><span class="na">GLOBAL_CONTEXT</span><span class="p">,</span> <span class="n">permission</span><span class="p">,</span> <span class="n">Tristate</span><span class="p">.</span><span class="na">TRUE</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">備註</p>
+<p class="last">在这个例子中，我们将玩家的指定权限赋值为 <code class="docutils literal notranslate"><span class="pre">Tristate.TRUE</span></code>，当然你也可以使用 <cite>Tristate.FALSE`</cite>，或者用 <code class="docutils literal notranslate"><span class="pre">Tristate.UNDEFINED</span></code> 来取消权限。</p>
+</div>
+</div>
+</div>
+<div class="section" id="subject-options">
+<h2>Subject 选项<a class="headerlink" href="#subject-options" title="本標題的永久連結">¶</a></h2>
+<p>Subject 还提供存储字符串选项的可能性。它们基本上就是可以赋值并继承的键值对。与 Permission 字符串不同，这些选项没有层次结构，亦无继承机制，但它们能以和 Permission 字符串相同的方式从父级 <code class="docutils literal notranslate"><span class="pre">Subject</span></code> 继承过来。</p>
+</div>
+<div class="section" id="contexts">
+<h2>Context<a class="headerlink" href="#contexts" title="本標題的永久連結">¶</a></h2>
+<p>若把 Permission 视作是一种特权，或者说是做某事的能力，那么<a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/context/Context.html">Context</a> 就是用来决定这种特权是否可用的环境对象。</p>
+<p>你可能想让一个 <code class="docutils literal notranslate"><span class="pre">Subject</span></code> 只在特定世界或者特定区域内的时候有某个权限。</p>
+<p><code class="docutils literal notranslate"><span class="pre">Subject</span></code> 会不断产生并整合 Context，然后 <code class="docutils literal notranslate"><span class="pre">PermissionService</span></code> 会用这些 Context 来判断该 <code class="docutils literal notranslate"><span class="pre">Subject</span></code> 是否有对应权限。</p>
+<p>Sponge 自身预置了一些 Context，但一般情况下 Context 都是其他插件通过 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/context/ContextCalculator.html">ContextCalculator</a> 向 PermissionService 提供的。</p>
+<p>新建 Context 时，如果不是与其他插件共享的 Context，请通过使用你的插件 ID 作为前缀等方式来避免与其他插件冲突。</p>
+<div class="admonition note">
+<p class="first admonition-title">備註</p>
+<p class="last">请确保你的 <code class="docutils literal notranslate"><span class="pre">ContextCalculator</span></code> <strong>尽可能快</strong>地响应，因他它将频繁地被调用。</p>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">警告</p>
+<p class="last"><code class="docutils literal notranslate"><span class="pre">ContextCalculator</span></code> 的实现必须保证<strong>线程安全</strong>，因为它们可能会在别的线程上调用，甚至是并发调用。也因此，所有不是基于名称或 UUID 的 <code class="docutils literal notranslate"><span class="pre">ContextCalculator</span></code>（比如基于位置的实现）必须使用缓存，并且必须透过事件监听器或同步的调度器来进行数据更新。</p>
+</div>
+<div class="section" id="id3">
+<h3>範例<a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h3>
+<p>你的 <code class="docutils literal notranslate"><span class="pre">ContextCalculator</span></code> 可能看起来就像这样：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.command.CommandSource</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.service.context.Context</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.service.context.ContextCalculator</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.service.permission.Subject</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.HashMap</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Map</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Set</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.UUID</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ExampleCalculator</span> <span class="kd">implements</span> <span class="n">ContextCalculator</span><span class="o">&lt;</span><span class="n">Subject</span><span class="o">&gt;</span> <span class="p">{</span>
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">Context</span> <span class="n">IN_ANY_ARENA</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Context</span><span class="p">(</span><span class="s">&quot;myarenaplugin-inAnyArena&quot;</span><span class="p">,</span> <span class="s">&quot;true&quot;</span><span class="p">);</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">Context</span> <span class="n">NOT_ANY_ARENA</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Context</span><span class="p">(</span><span class="s">&quot;myarenaplugin-inAnyArena&quot;</span><span class="p">,</span> <span class="s">&quot;false&quot;</span><span class="p">);</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">ARENA_KEY</span> <span class="o">=</span> <span class="s">&quot;myarenaplugin-arena&quot;</span><span class="p">;</span>
+
+    <span class="kd">private</span> <span class="kd">final</span> <span class="n">Map</span><span class="o">&lt;</span><span class="n">UUID</span><span class="p">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">playerArenas</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">accumulateContexts</span><span class="p">(</span><span class="n">Subject</span> <span class="n">calculable</span><span class="p">,</span> <span class="n">Set</span><span class="o">&lt;</span><span class="n">Context</span><span class="o">&gt;</span> <span class="n">accumulator</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">final</span> <span class="n">Optional</span><span class="o">&lt;</span><span class="n">CommandSource</span><span class="o">&gt;</span> <span class="n">commandSource</span> <span class="o">=</span> <span class="n">calculable</span><span class="p">.</span><span class="na">getCommandSource</span><span class="p">();</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">commandSource</span><span class="p">.</span><span class="na">isPresent</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="n">commandSource</span><span class="p">.</span><span class="na">get</span><span class="p">()</span> <span class="k">instanceof</span> <span class="n">Player</span><span class="p">)</span> <span class="p">{</span>
+            <span class="kd">final</span> <span class="n">Player</span> <span class="n">player</span> <span class="o">=</span> <span class="p">(</span><span class="n">Player</span><span class="p">)</span> <span class="n">commandSource</span><span class="p">.</span><span class="na">get</span><span class="p">();</span>
+
+            <span class="kd">final</span> <span class="n">UUID</span> <span class="n">uuid</span> <span class="o">=</span> <span class="n">player</span><span class="p">.</span><span class="na">getUniqueId</span><span class="p">();</span>
+            <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">playerArenas</span><span class="p">.</span><span class="na">containsKey</span><span class="p">(</span><span class="n">uuid</span><span class="p">))</span> <span class="p">{</span>
+                <span class="n">accumulator</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">IN_ANY_ARENA</span><span class="p">);</span>
+                <span class="n">accumulator</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span> <span class="n">Context</span><span class="p">(</span><span class="n">ARENA_KEY</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="na">playerArenas</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">uuid</span><span class="p">)));</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="n">accumulator</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">NOT_ANY_ARENA</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">matches</span><span class="p">(</span><span class="n">Context</span> <span class="n">context</span><span class="p">,</span> <span class="n">Subject</span> <span class="n">subject</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">context</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">IN_ANY_ARENA</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">context</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">NOT_ANY_ARENA</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">context</span><span class="p">.</span><span class="na">getKey</span><span class="p">().</span><span class="na">equals</span><span class="p">(</span><span class="n">ARENA_KEY</span><span class="p">))</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="kd">final</span> <span class="n">Optional</span><span class="o">&lt;</span><span class="n">CommandSource</span><span class="o">&gt;</span> <span class="n">commandSource</span> <span class="o">=</span> <span class="n">subject</span><span class="p">.</span><span class="na">getCommandSource</span><span class="p">();</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">commandSource</span><span class="p">.</span><span class="na">isPresent</span><span class="p">()</span> <span class="o">||</span> <span class="o">!</span><span class="p">(</span><span class="n">commandSource</span><span class="p">.</span><span class="na">get</span><span class="p">()</span> <span class="k">instanceof</span> <span class="n">Player</span><span class="p">))</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="kd">final</span> <span class="n">Player</span> <span class="n">player</span> <span class="o">=</span> <span class="p">(</span><span class="n">Player</span><span class="p">)</span> <span class="n">commandSource</span><span class="p">.</span><span class="na">get</span><span class="p">();</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">context</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">IN_ANY_ARENA</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="na">playerArenas</span><span class="p">.</span><span class="na">containsKey</span><span class="p">(</span><span class="n">player</span><span class="p">.</span><span class="na">getUniqueId</span><span class="p">()))</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">context</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">NOT_ANY_ARENA</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="k">this</span><span class="p">.</span><span class="na">playerArenas</span><span class="p">.</span><span class="na">containsKey</span><span class="p">(</span><span class="n">player</span><span class="p">.</span><span class="na">getUniqueId</span><span class="p">()))</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">context</span><span class="p">.</span><span class="na">getKey</span><span class="p">().</span><span class="na">equals</span><span class="p">(</span><span class="n">ARENA_KEY</span><span class="p">))</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="na">playerArenas</span><span class="p">.</span><span class="na">containsKey</span><span class="p">(</span><span class="n">player</span><span class="p">.</span><span class="na">getUniqueId</span><span class="p">()))</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+            <span class="p">}</span>
+
+            <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="na">playerArenas</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">player</span><span class="p">.</span><span class="na">getUniqueId</span><span class="p">()).</span><span class="na">equals</span><span class="p">(</span><span class="n">context</span><span class="p">.</span><span class="na">getValue</span><span class="p">()))</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">ContextCalculator</span></code> 可以通过注册：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">permissionService</span><span class="p">.</span><span class="na">registerContextCalculator</span><span class="p">(</span><span class="n">contextCalculator</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="for-forge-mods">
+<h2>與Forge模組相容<a class="headerlink" href="#for-forge-mods" title="本標題的永久連結">¶</a></h2>
+<p>如果你是一个 Forge Mod 的作者，同时目前却没有使用 Forge 的权限 API，而是使用检查 OP 的方式，那么你其实也可以让 Sponge 检查特定的权限。</p>
+<p>你可以通过一个方法在 Forge Mod 中检查 Sponge 权限，而不需要依赖 SpongeAPI，这个方法就是 Minecraft 代码中的 <code class="docutils literal notranslate"><span class="pre">ICommandSender</span></code> 接口，它的全名是 <code class="docutils literal notranslate"><span class="pre">ICommandSender.canCommandSenderUseCommand(int</span> <span class="pre">permLevel,</span> <span class="pre">String</span> <span class="pre">commandName)</span></code> 。在纯 Forge 中这个方法传入的第二个参数没有任何用途，但是如果添加有 SpongeForge，那么 Sponge 会获取这个字符串，并将其转换为针对权限的检查。</p>
+<div class="section" id="id4">
+<h3>範例<a class="headerlink" href="#id4" title="本標題的永久連結">¶</a></h3>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">AwesomeBlock</span> <span class="kd">extends</span> <span class="n">Block</span> <span class="p">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">onBlockActivated</span><span class="p">(</span><span class="n">World</span> <span class="n">world</span><span class="p">,</span> <span class="n">BlockPos</span> <span class="n">pos</span><span class="p">,</span> <span class="n">IBlockState</span> <span class="n">state</span><span class="p">,</span>
+            <span class="n">EntityPlayer</span> <span class="n">player</span><span class="p">,</span> <span class="n">EnumHand</span> <span class="n">hand</span><span class="p">,</span> <span class="n">EnumFacing</span> <span class="n">facing</span><span class="p">,</span> <span class="kt">float</span> <span class="n">hitX</span><span class="p">,</span> <span class="kt">float</span> <span class="n">hitY</span><span class="p">,</span> <span class="kt">float</span> <span class="n">hitZ</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">player</span><span class="p">.</span><span class="na">canUseCommand</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="s">&quot;examplemod.awesomeblock.interact&quot;</span><span class="p">))</span> <span class="p">{</span>
+            <span class="c1">// Do cool stuff</span>
+            <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>正如你所看到的那样，我们首先检查 OP 等级，并传入一个看起来没什么用的字符串，以希望 Sponge 检查对应的权限，如果 Sponge 存在的话。如果只有 Forge 的话，那么玩家只需要拥有特定的 OP 等级，所以如果传入零，那么所有的玩家都可以和方块交互，但如果有 SpongeForge 的话，那么玩家就需要有相应的权限，也就是 <code class="docutils literal notranslate"><span class="pre">examplemod.awesomeblock.interact</span></code> 的权限。Sponge 建议在检查权限时按照上面的权限的结构的约定。继承在这里的权限检查中同样也是起到作用的。</p>
+<div class="admonition note">
+<p class="first admonition-title">備註</p>
+<p class="last">这个方法的 SRG 名称是 <code class="docutils literal notranslate"><span class="pre">func_70003_b</span></code> 。</p>
+</div>
+</div>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="bans.html" class="btn btn-neutral float-right" title="封鎖" accesskey="n" rel="next">下一頁 <span class="fa fa-angle-right"></span></a>
+        <a href="database.html" class="btn btn-neutral" title="資料庫" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> 上一頁</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../_static/flags/zh_TW.svg"
+         alt="zh-TW" title="繁體中文">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../_static/jquery.js"></script>      <script type="text/javascript" src="../_static/underscore.js"></script>      <script type="text/javascript" src="../_static/doctools.js"></script>      <script type="text/javascript" src="../_static/language_data.js"></script>      <script type="text/javascript" src="../_static/translations.js"></script>      <script type="text/javascript" src="../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

@@ -1,0 +1,372 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>设置 IntelliJ IDEA &mdash; Sponge 7.2.0 文档</title>
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="索引"
+              href="../../genindex.html"/>        <link rel="search" title="搜索" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 文档" href="../../index.html"/>        <link rel="up" title="设置开发环境" href="index.html"/>        <link rel="next" title="设置 Eclipse" href="eclipse.html"/>        <link rel="prev" title="设置开发环境" href="index.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../../index.html">
+            <img src="../../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../server/index.html">创建服务器</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../versions/index.html">版本策略</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../preparing/index.html">为开发作准备</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">插件开发</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../api-versions.html">API版本</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../buildsystem.html">构建系统</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">设置开发环境</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">设置 IntelliJ IDEA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="eclipse.html">设置 Eclipse</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../project/index.html">设置你的项目</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-identifier.html">插件标识符</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-class.html">插件的主类</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lifecycle.html">插件的生命周期</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../injection.html">依赖注入</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../practices/index.html">插件开发惯例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../optional/index.html">使用 Optional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../logging.html">日志记录和调试</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text/index.html">文本 API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/index.html">插件命令</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../event/index.html">事件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/index.html">插件配置</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assets.html">使用 Asset API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data/index.html">数据 API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../blocks/index.html">方块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../entities/index.html">实体</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../items/index.html">物品</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../trade-offers.html">村民交易</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../effects.html">效果</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../scheduler.html">调度器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../services.html">服务</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database.html">数据库</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../permissions.html">权限</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bans.html">黑名单</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metrics.html">Metrics 收集</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bookview.html">成书</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../economy/index.html">经济 API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wgen/index.html">世界生成</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manager.html">插件管理器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../game-profile-manager.html">玩家资料管理器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../offline-userplayer-data.html">离线玩家数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tab-lists.html">玩家列表</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-meta.html">插件的元数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ray-tracing.html">光线追踪</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../debugging.html">调试插件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials.html">教程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internals/index.html">依赖底层实现</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ore/index.html">Ore 文档</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/index.html">向 Sponge 贡献代码</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">关于 Sponge</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+          <li><a href="../index.html">插件开发</a> &raquo;</li>
+          <li><a href="index.html">设置开发环境</a> &raquo;</li>
+    <li>设置 IntelliJ IDEA</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/plugin/workspace/idea.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="setting-up-intellij-idea">
+<h1>设置 IntelliJ IDEA<a class="headerlink" href="#setting-up-intellij-idea" title="永久链接至标题">¶</a></h1>
+<p>这一部分介绍了如何为开发基于 SpongeAPI 的插件，设置你的 <strong>IntelliJ IDEA</strong> 工作目录，并 <a class="reference internal" href="../buildsystem.html"><span class="doc">使用一些诸如 Maven 或 Gradle 的构建系统</span></a>或 <a class="reference external" href="https://minecraftdev.org/">Minecraft Development plugin</a>。</p>
+<p>如果你想从零开始新建项目，请直接忽略 Gradle 和 Maven 两小节。使用 Minecraft Dev 插件来配置工作环境可以省去很多不必要的麻烦。</p>
+<div class="section" id="using-idea-minecraft-dev-plugin-to-create-a-working-starting-point">
+<h2>使用 IDEA 的 Minecraft Dev 插件新建项目起点<a class="headerlink" href="#using-idea-minecraft-dev-plugin-to-create-a-working-starting-point" title="永久链接至标题">¶</a></h2>
+<p>由社区成员开发的 <a class="reference external" href="https://minecraftdev.org/">Minecraft Development 插件</a>在使开发环境的部署更简单的同时，还提供了大量开发时有用的功能，默认它会使用 Gradle 作为你新建项目的构建工具。</p>
+<div class="section" id="installing-the-minecraft-dev-plugin">
+<h3>安装 Minecraft Dev 插件<a class="headerlink" href="#installing-the-minecraft-dev-plugin" title="永久链接至标题">¶</a></h3>
+<p>你可以在 JetBrains 的 Intellij 插件仓库（plugin repository）中找到该插件。</p>
+<p>因此你可以直接通过 Intellij 的插件浏览器安装该插件。依次点击 <code class="docutils literal notranslate"><span class="pre">File</span> <span class="pre">-&gt;</span> <span class="pre">Settings</span> <span class="pre">-&gt;</span> <span class="pre">Plugins</span></code>，然后点击弹出的窗口底部的 <code class="docutils literal notranslate"><span class="pre">Browse</span> <span class="pre">Repositories...</span></code> 按钮。在搜索框中直接搜索 <code class="docutils literal notranslate"><span class="pre">Minecraft</span></code>。找到插件后就可以直接安装，并重启 Intellij 以激活插件了。</p>
+</div>
+<div class="section" id="creating-your-project-from-a-template">
+<h3>使用模板创建新项目<a class="headerlink" href="#creating-your-project-from-a-template" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li>打开 <strong>IntelliJ IDEA</strong> 。</li>
+<li>单击 <code class="docutils literal notranslate"><span class="pre">Create</span> <span class="pre">New</span> <span class="pre">Project</span></code> 。</li>
+<li>在弹出的窗口中选择 <code class="docutils literal notranslate"><span class="pre">Minecraft</span></code>。</li>
+<li>确保你的 <strong>Project SDK</strong> 使用了 Java8/1.8 的某个版本。</li>
+<li>选择 <code class="docutils literal notranslate"><span class="pre">Sponge</span> <span class="pre">plugin</span></code> 作为项目类型，然后点击 <code class="docutils literal notranslate"><span class="pre">Next</span></code> 继续。</li>
+<li>输入你的 <strong>Group ID</strong> ， <strong>Artifact ID</strong> ，和 <strong>Version</strong> 。<ul>
+<li>你的 <strong>Group ID</strong> 通常应和你的 Java 包名相一致。详见 <a class="reference internal" href="../plugin-class.html"><span class="doc">插件的主类</span></a> 。</li>
+<li>你的 <strong>Artifact ID</strong> 通常应该和你的 <strong>plugin ID</strong> 一致，如 <code class="docutils literal notranslate"><span class="pre">myplugin</span></code> 。</li>
+<li><strong>版本号</strong>由你来决定。参阅<a class="reference internal" href="../project/version-numbers.html"><span class="doc">版本号</span></a>了解更多信息。</li>
+</ul>
+</li>
+<li>选择你想用的构建工具，通常是 Gradle 和 Maven 二选一，然后点击 <code class="docutils literal notranslate"><span class="pre">Next</span></code> 继续。</li>
+<li>检查你的 <strong>Plugin Name</strong> 和 <strong>Main Class Name</strong>，确保它们的值是你想设定的值。</li>
+<li>按需声明你的插件的描述、作者、网站及依赖。</li>
+<li>点击 <code class="docutils literal notranslate"><span class="pre">Next</span></code> 继续。</li>
+<li>检查项目名、位置及模块信息，然后点击 <code class="docutils literal notranslate"><span class="pre">Finish</span></code>。</li>
+<li>该插件将会新建一个 Java 文件作为入口，并已配置好 logger 的依赖注入。你可以通过在 <code class="docutils literal notranslate"><span class="pre">onServerStart</span></code> 中加一句 <code class="docutils literal notranslate"><span class="pre">logger.info()</span></code> 来验证其是否能正常工作。</li>
+</ul>
+</div>
+<div class="section" id="editing-the-project-configuration">
+<h3>修改项目配置<a class="headerlink" href="#editing-the-project-configuration" title="永久链接至标题">¶</a></h3>
+<p>根据你的项目的实际情况，参阅 <a class="reference internal" href="#gradle">Gradle</a> 或 <a class="reference internal" href="#maven">Maven</a> 配置部分完成配置。</p>
+</div>
+</div>
+<div class="section" id="creating-a-plugin-from-scratch-gradle">
+<span id="gradle"></span><h2>从零开始新建插件——Gradle 篇<a class="headerlink" href="#creating-a-plugin-from-scratch-gradle" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li>打开 <strong>IntelliJ IDEA</strong> 。</li>
+<li>单击 <code class="docutils literal notranslate"><span class="pre">Create</span> <span class="pre">New</span> <span class="pre">Project</span></code> 。</li>
+<li>在弹出的窗口中选择 <code class="docutils literal notranslate"><span class="pre">Gradle</span></code>。</li>
+<li>你可以按需选择更多的库和框架，比如 Kotlin。</li>
+<li>确保你的 <strong>Project SDK</strong> 使用了 Java8/1.8 的某个版本。</li>
+<li>点击 <code class="docutils literal notranslate"><span class="pre">Next</span></code> 继续。</li>
+<li>输入你的 <strong>Group ID</strong> ， <strong>Artifact ID</strong> ，和 <strong>Version</strong> 。<ul>
+<li>你的 <strong>Group ID</strong> 通常应和你的 Java 包名相一致。详见 <a class="reference internal" href="../plugin-class.html"><span class="doc">插件的主类</span></a> 。</li>
+<li>你的 <strong>Artifact ID</strong> 通常应该和你的 <strong>plugin ID</strong> 一致，如 <code class="docutils literal notranslate"><span class="pre">myplugin</span></code> 。</li>
+<li><strong>版本号</strong>由你来决定。参阅<a class="reference internal" href="../project/version-numbers.html"><span class="doc">版本号</span></a>了解更多信息。</li>
+</ul>
+</li>
+<li>点击两次 <code class="docutils literal notranslate"><span class="pre">Next</span></code> 并命名你的项目，然后点击 <code class="docutils literal notranslate"><span class="pre">Finish</span></code> 。</li>
+<li>插件项目新建完后并不会生成 <code class="docutils literal notranslate"><span class="pre">src</span></code> 目录，如果你的 Java 源文件放在了错误的位置，它们将不会被识别并编译，所以你应该勾选 “Create directories for empty content roots” 选项，它的位置是：<ul>
+<li><strong>Windows</strong>: <code class="docutils literal notranslate"><span class="pre">File</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">Settings</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">Build,</span> <span class="pre">Execution,</span> <span class="pre">Deployment</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">Gradle</span></code></li>
+<li><strong>Mac</strong>: <code class="docutils literal notranslate"><span class="pre">Intellij</span> <span class="pre">IDEA</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">Preferences</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">Build,</span> <span class="pre">Execution,</span> <span class="pre">Deployment</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">Build</span> <span class="pre">Tools</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">Gradle</span></code></li>
+</ul>
+</li>
+<li>启用 <code class="docutils literal notranslate"><span class="pre">Use</span> <span class="pre">Auto-import</span></code> 后可以自动在 Gradle 配置发生变化时自动刷新项目，而不是每次询问是否刷新。</li>
+<li>启用这些选项后，此时应该会有 <code class="docutils literal notranslate"><span class="pre">/src/main/java</span></code> 目录自动生成完毕，你在这个目录里可以开始写插件了。</li>
+</ul>
+<div class="section" id="editing-the-build-script">
+<h3>编辑构建脚本<a class="headerlink" href="#editing-the-build-script" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li>在 Navigator 中打开 <code class="docutils literal notranslate"><span class="pre">build.gradle</span></code> 并添加依赖项。</li>
+<li>可以根据 <a class="reference internal" href="../project/gradle.html"><span class="doc">设置 Gradle</span></a> 的内容编辑构建脚本。</li>
+<li>在 IntelliJ 的主界面的右侧打开 <strong>Gradle tab</strong> 并点击刷新按钮。</li>
+<li>Gradle 相关的设置就已经完成了！你可以开始开发你的插件了。</li>
+</ul>
+</div>
+</div>
+<div class="section" id="creating-a-plugin-from-scratch-maven">
+<span id="maven"></span><h2>从零开始新建插件——Maven 篇<a class="headerlink" href="#creating-a-plugin-from-scratch-maven" title="永久链接至标题">¶</a></h2>
+<div class="section" id="creating-your-project">
+<h3>创建你的项目<a class="headerlink" href="#creating-your-project" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li>打开 <strong>IntelliJ IDEA</strong> 。</li>
+<li>单击 <code class="docutils literal notranslate"><span class="pre">Create</span> <span class="pre">New</span> <span class="pre">Project</span></code> 。</li>
+<li>在弹出的窗口中选择 <code class="docutils literal notranslate"><span class="pre">Maven</span></code>。</li>
+<li>确保你的 <strong>Project SDK</strong> 使用了 Java8/1.8 的某个版本。</li>
+<li>点击 <code class="docutils literal notranslate"><span class="pre">Next</span></code> 继续。</li>
+<li>输入你的 <strong>Group ID</strong> ， <strong>Artifact ID</strong> ，和 <strong>Version</strong> 。<ul>
+<li>你的 <strong>Group ID</strong> 通常应和你的 Java 包名相一致。详见 <a class="reference internal" href="../plugin-class.html"><span class="doc">插件的主类</span></a> 。</li>
+<li>你的 <strong>Artifact ID</strong> 通常应该和你的 <strong>plugin ID</strong> 一致，如 <code class="docutils literal notranslate"><span class="pre">myplugin</span></code> 。</li>
+<li><strong>版本号</strong>由你来决定。参阅<a class="reference internal" href="../project/version-numbers.html"><span class="doc">版本号</span></a>了解更多信息。</li>
+</ul>
+</li>
+<li>点击 <code class="docutils literal notranslate"><span class="pre">Next</span></code> 。</li>
+<li>输入你的项目的名称，然后点击 <code class="docutils literal notranslate"><span class="pre">Finish</span></code> 。</li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h3>修改项目配置<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li>在 Navigator 中打开 <code class="docutils literal notranslate"><span class="pre">pom.xml</span></code> 。</li>
+<li>请根据 <a class="reference internal" href="../project/maven.html"><span class="doc">设置 Maven</span></a> 页面上的内容编辑构建配置。</li>
+<li>刷新你的 Maven 项目。</li>
+<li>如有提示，请按照提示导入 Maven 的变化。</li>
+</ul>
+</div>
+</div>
+<div class="section" id="testing-your-plugin">
+<h2>调试插件<a class="headerlink" href="#testing-your-plugin" title="永久链接至标题">¶</a></h2>
+<p>下述流程可以用来快速调试插件，但并不适合快速迭代开发。</p>
+<p>使用 Gradle 编译出 <code class="docutils literal notranslate"><span class="pre">.jar</span></code> 文件：</p>
+<ul class="simple">
+<li>依次点击 <code class="docutils literal notranslate"><span class="pre">View</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">Tool</span> <span class="pre">Windows</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">Gradle</span></code></li>
+<li>在 <code class="docutils literal notranslate"><span class="pre">Tasks</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">Build</span></code> 中，点击 <code class="docutils literal notranslate"><span class="pre">jar</span></code></li>
+<li>构建结果可在 <code class="docutils literal notranslate"><span class="pre">build\libs</span></code> 中找到。</li>
+</ul>
+<p>使用 Maven 编译出 <code class="docutils literal notranslate"><span class="pre">.jar</span></code> 文件：</p>
+<ul class="simple">
+<li>依次点击 <code class="docutils literal notranslate"><span class="pre">View</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">Tool</span> <span class="pre">Windows</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">Maven</span> <span class="pre">Projects</span></code></li>
+<li>在 <code class="docutils literal notranslate"><span class="pre">Maven</span> <span class="pre">Projects</span></code> 窗口中，展开你的项目名称</li>
+<li>在 <code class="docutils literal notranslate"><span class="pre">Plugins</span></code> 中展开 <code class="docutils literal notranslate"><span class="pre">jar</span></code></li>
+<li>双击 <code class="docutils literal notranslate"><span class="pre">jar:jar</span></code></li>
+<li>构建结果可在 <code class="docutils literal notranslate"><span class="pre">target</span></code> 中找到。</li>
+</ul>
+<p>将构建出的 jar 文件复制到可以运行的服务器的 <code class="docutils literal notranslate"><span class="pre">mods</span></code> 文件夹中，重启服务器以测试。</p>
+<p>关于更高效的开发流程，请参阅 <a class="reference internal" href="../debugging.html"><span class="doc">调试插件</span></a> 中有关在 IDEA 中运行 Sponge 服务器的说明。在 IDEA 中运行 Sponge 服务器可以让你使用热重载功能，使得你可以在不重启服务器的情况下替换一部分插件代码。</p>
+</div>
+<div class="section" id="importing-an-existing-project-gradle-or-maven">
+<h2>导入现有项目（Gradle 或 Maven）<a class="headerlink" href="#importing-an-existing-project-gradle-or-maven" title="永久链接至标题">¶</a></h2>
+<p>如果你已经开始你的项目开发工作了，而且想要稍后在 IDE 中打开它，那么你需要去直接导入它而不是在 IDE 中再次创建。</p>
+<ul class="simple">
+<li>点击 <code class="docutils literal notranslate"><span class="pre">File</span> <span class="pre">&gt;</span> <span class="pre">Open</span></code> 或 <code class="docutils literal notranslate"><span class="pre">Import</span> <span class="pre">Project</span></code>。</li>
+<li><strong>Gradle</strong>：浏览到项目目录中的 <code class="docutils literal notranslate"><span class="pre">build.gradle</span></code>，选中。</li>
+<li><strong>Maven</strong>：浏览到项目目录中的 <code class="docutils literal notranslate"><span class="pre">pom.xml</span></code>，选中。</li>
+<li>确认所有选项均设置正确，然后点击 <code class="docutils literal notranslate"><span class="pre">Ok</span></code>。</li>
+</ul>
+</div>
+<div class="section" id="git-integration">
+<h2>Git 集成<a class="headerlink" href="#git-integration" title="永久链接至标题">¶</a></h2>
+<p>JetBrains 提供了详细的使用他们的 Git 集成的文档：</p>
+<p><a class="reference external" href="https://www.jetbrains.com/help/idea/using-git-integration.html">https://www.jetbrains.com/help/idea/using-git-integration.html</a></p>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="eclipse.html" class="btn btn-neutral float-right" title="设置 Eclipse" accesskey="n" rel="next">下一页 <span class="fa fa-angle-right"></span></a>
+        <a href="index.html" class="btn btn-neutral" title="设置开发环境" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> 上一页</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../../_static/flags/zh_CN.svg"
+         alt="zh-CN" title="简体中文">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../../_static/jquery.js"></script>      <script type="text/javascript" src="../../_static/underscore.js"></script>      <script type="text/javascript" src="../../_static/doctools.js"></script>      <script type="text/javascript" src="../../_static/language_data.js"></script>      <script type="text/javascript" src="../../_static/translations.js"></script>      <script type="text/javascript" src="../../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

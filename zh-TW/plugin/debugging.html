@@ -1,0 +1,378 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>插件除錯 &mdash; Sponge 7.2.0 說明文件</title>
+
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="索引"
+              href="../genindex.html"/>        <link rel="search" title="搜尋" href="../search.html"/>    <link rel="top" title="Sponge 7.2.0 說明文件" href="../index.html"/>        <link rel="up" title="建立插件" href="index.html"/>        <link rel="next" title="教學" href="tutorials.html"/>        <link rel="prev" title="光線追蹤" href="ray-tracing.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../index.html">
+            <img src="../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../server/index.html">建立伺服器</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../versions/index.html">版本控制方針</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../preparing/index.html">準備開發</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">建立插件</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="api-versions.html">API版本</a></li>
+<li class="toctree-l2"><a class="reference internal" href="buildsystem.html">建置系統</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workspace/index.html">建立你的工作空間</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project/index.html">建立你的專案</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin-identifier.html">插件識別碼</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin-class.html">主要插件類別</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lifecycle.html">插件的生命週期</a></li>
+<li class="toctree-l2"><a class="reference internal" href="injection.html">相依注入</a></li>
+<li class="toctree-l2"><a class="reference internal" href="practices/index.html">實踐</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optional/index.html">Optionals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.html">記錄與除錯</a></li>
+<li class="toctree-l2"><a class="reference internal" href="text/index.html">文本</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands/index.html">插件指令</a></li>
+<li class="toctree-l2"><a class="reference internal" href="event/index.html">事件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration/index.html">設定插件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assets.html">Asset API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data/index.html">Data API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/index.html">方塊</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entities/index.html">實體</a></li>
+<li class="toctree-l2"><a class="reference internal" href="items/index.html">物品</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trade-offers.html">開設交易</a></li>
+<li class="toctree-l2"><a class="reference internal" href="effects.html">效果</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scheduler.html">排程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="services.html">服務</a></li>
+<li class="toctree-l2"><a class="reference internal" href="database.html">資料庫</a></li>
+<li class="toctree-l2"><a class="reference internal" href="permissions.html">權限</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bans.html">封鎖</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metrics.html">Metrics 收集</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bookview.html">書本閱覽</a></li>
+<li class="toctree-l2"><a class="reference internal" href="economy/index.html">經濟</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wgen/index.html">世界生成</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manager.html">插件管理器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="game-profile-manager.html">遊戲設定檔管理器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="offline-userplayer-data.html">離線玩家資料</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tab-lists.html">Tab 清單</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin-meta.html">插件元數據</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ray-tracing.html">光線追蹤</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">插件除錯</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials.html">教學</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internals/index.html">相依於實作的插件</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ore/index.html">Ore 文件</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contributing/index.html">為 Sponge 貢獻</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">關於 Sponge 專案</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+          <li><a href="index.html">建立插件</a> &raquo;</li>
+    <li>插件除錯</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/plugin/debugging.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="plugin-debugging">
+<h1>插件除錯<a class="headerlink" href="#plugin-debugging" title="本標題的永久連結">¶</a></h1>
+<p>平时我们很难定位插件里一个 Bug 的具体位置，重新编译并且加一大堆测试代码会让人想上天，因此，本节教程将教会你如何利用 Java 的 Debug 功能.</p>
+<div class="section" id="preparing-your-workspace">
+<h2>准备你的工作环境<a class="headerlink" href="#preparing-your-workspace" title="本標題的永久連結">¶</a></h2>
+<p>由于我们将在你的 IDE 中运行 Sponge 和你的插件，所以您需要导入 <a class="reference external" href="https://github.com/SpongePowered/SpongeForge">SpongeForge</a> 或 <a class="reference external" href="https://github.com/SpongePowered/SpongeVanilla">SpongeVanilla</a> ，具体取决于你要使用哪个。相应项目的 GitHub 页面上提供了如何做的说明。在继续操作之前，请仔细按照这些说明进行操作。</p>
+<p>现在，你需要确保您的插件项目对您刚刚创建的 <strong>SpongeForge/SpongeVanilla</strong> 项目可见。所需的步骤取决于你的 IDE。</p>
+<div class="section" id="intellij-idea">
+<h3>IntelliJ IDEA<a class="headerlink" href="#intellij-idea" title="本標題的永久連結">¶</a></h3>
+<p>在 IntelliJ 中，每一个项目都有它自己的一个工作环境。所以如果你想要让你的项目对 <strong>Sponge(Vanilla)</strong> 可见，你需要将其作为一个 <em>Module</em> 。假设你已经按照 <a class="reference internal" href="workspace/idea.html"><span class="doc">設置 IntelliJ IDEA</span></a> 描述的方式创建了你自己的项目，那么请按下面的步骤做。</p>
+<ul class="simple">
+<li>打开 <code class="docutils literal notranslate"><span class="pre">SpongeVanilla</span></code>/<code class="docutils literal notranslate"><span class="pre">SpongeForge</span></code> 项目。</li>
+<li>单击 <code class="docutils literal notranslate"><span class="pre">File</span></code> ，然后单击 <code class="docutils literal notranslate"><span class="pre">New</span></code> ，然后单击 <code class="docutils literal notranslate"><span class="pre">Module</span> <span class="pre">from</span> <span class="pre">Existing</span> <span class="pre">Sources...</span></code> 。</li>
+<li>定位至你的插件的根目录。<ul>
+<li>如果你正在使用 Gradle，请选择 <code class="docutils literal notranslate"><span class="pre">build.gradle</span></code> 文件，然后在下一步选择 <code class="docutils literal notranslate"><span class="pre">Use</span> <span class="pre">auto-import</span></code> 并点击确定。</li>
+<li>否则请直接选择整个目录并点击 <code class="docutils literal notranslate"><span class="pre">Finish</span></code> 。</li>
+</ul>
+</li>
+<li>点击 <code class="docutils literal notranslate"><span class="pre">Finish</span></code> 。</li>
+</ul>
+<div class="admonition tip">
+<p class="first admonition-title">小訣竅</p>
+<p class="last">如果你还没有创建你自己的插件，请单击 <code class="docutils literal notranslate"><span class="pre">Module...</span></code> 而不是 <code class="docutils literal notranslate"><span class="pre">Module</span> <span class="pre">from</span> <span class="pre">Existing</span> <span class="pre">Sources...</span></code> ，并按照接下来的指示新建项目。</p>
+</div>
+</div>
+<div class="section" id="eclipse">
+<h3>Eclipse<a class="headerlink" href="#eclipse" title="本標題的永久連結">¶</a></h3>
+<p>只需要直接按照 <a class="reference internal" href="workspace/eclipse.html"><span class="doc">設置 Eclipse</span></a> 中描述的方式创建项目。只要它和 <code class="docutils literal notranslate"><span class="pre">SpongeVanilla</span></code>/<code class="docutils literal notranslate"><span class="pre">SpongeForge</span></code> 在同一个工作区，那么你的插件项目就对它们可见。</p>
+</div>
+</div>
+<div class="section" id="adding-plugin-to-sponge-classpath">
+<h2>将插件添加到 Sponge 的 CLASSPATH 中<a class="headerlink" href="#adding-plugin-to-sponge-classpath" title="本標題的永久連結">¶</a></h2>
+<p>这背后的想法是，我们将从你的 IDE 中像正常项目一样启动 Sponge，但区别在于我们将把你的插件添加到 CLASSPATH 中。由于 Sponge 将默认加载在 CLASSPATH 中找到的所有插件，将插件项目添加到 Sponge 的 CLASSPATH 中将会使你无需在每次更改后重建并将项目文件复制到你的 Sponge 服务器目录下。</p>
+<p>首先你需要确认你的运行和调试配置都已设置好。请根据 Sponge 的 <a class="reference external" href="https://github.com/SpongePowered/SpongeForge/blob/stable-7/README.md#Running">README.md</a> 中的内容进行检查。</p>
+<p>然后你需要编辑你的运行和调试配置使得你的工作目录已被加入到 CLASSPATH 中。请再次根据你的 IDE 进行这一操作：</p>
+<div class="section" id="id1">
+<h3>IntelliJ IDEA<a class="headerlink" href="#id1" title="本標題的永久連結">¶</a></h3>
+<ul class="simple">
+<li>打开你的项目的 Project Structure。<ul>
+<li>单击 <code class="docutils literal notranslate"><span class="pre">File</span></code> ，然后单击 <code class="docutils literal notranslate"><span class="pre">Project</span> <span class="pre">Structure...</span></code> 。</li>
+<li>或者直接点击 <code class="docutils literal notranslate"><span class="pre">Project</span> <span class="pre">Structure</span></code> 按钮，该按钮位于你的 IDE 的右上角， <code class="docutils literal notranslate"><span class="pre">Search</span></code> 按钮的旁边。</li>
+</ul>
+</li>
+<li>单击 <code class="docutils literal notranslate"><span class="pre">Modules</span></code> 并展开 <code class="docutils literal notranslate"><span class="pre">SpongeForge</span></code> 或 <code class="docutils literal notranslate"><span class="pre">SpongeVanilla</span></code> 组（取决于你选择了什么）。</li>
+<li>确定你已选择了 <code class="docutils literal notranslate"><span class="pre">SpongeForge_main</span></code> 或 <code class="docutils literal notranslate"><span class="pre">SpongeVanilla_main</span></code> 中的一个。</li>
+<li>在右侧列中选择 <code class="docutils literal notranslate"><span class="pre">Dependencies</span></code> 选项卡。</li>
+<li>点击底侧的 <code class="docutils literal notranslate"><span class="pre">+</span></code> （添加）按钮，然后选择 <code class="docutils literal notranslate"><span class="pre">Module</span> <span class="pre">Dependency</span></code> 。</li>
+<li>选择你的插件项目（ <code class="docutils literal notranslate"><span class="pre">yourplugin_main</span></code> ）</li>
+<li>在添加后 <strong>不要</strong> 检查 <code class="docutils literal notranslate"><span class="pre">Export</span></code> 选项。</li>
+</ul>
+<div class="admonition warning">
+<p class="first admonition-title">警告</p>
+<p>因为 Intellij IDEA 的一个 Bug（<a class="reference external" href="https://youtrack.jetbrains.com/issue/IDEA-194641">IDEA-194641</a>），你的插件的所有依赖（比如 Kotlin 标准库、GSON 等）<strong>不能</strong>通过上述方式添加到你的 classpath 中。这会导致你的插件虽然能成功编译，但在调试中访问这些类时抛出 <code class="docutils literal notranslate"><span class="pre">ClassNotFoundException</span></code>。</p>
+<p>这个问题只会影响你在 Intellij IDEA 中以一个模块的形式运行你的插件。你最终构建出的插件仍然可以在 Intellij IDEA 和生产服务器上正常工作。</p>
+<p>如果你的插件有外部依赖，你需要按以下步骤操作以能在 Intellij IDEA 中正常运行你的插件：</p>
+<ul class="simple">
+<li>新建新的 Java 模块。依次点击 <code class="docutils literal notranslate"><span class="pre">File</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">New</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">Module...</span></code>，命名为 <code class="docutils literal notranslate"><span class="pre">SpongeForgeContainer</span></code>。</li>
+<li>打开之前新建的 <code class="docutils literal notranslate"><span class="pre">SpongeForgeContainer</span></code> 的模块设定。</li>
+<li>在 <code class="docutils literal notranslate"><span class="pre">SpongeForgeContainer</span></code> 的依赖选项中，添加对 <code class="docutils literal notranslate"><span class="pre">SpongeForge_main</span></code> 的模块依赖。</li>
+<li>编辑服务器的启动配置。将 <code class="docutils literal notranslate"><span class="pre">Use</span> <span class="pre">classpath</span> <span class="pre">of</span> <span class="pre">module:</span></code> 从 <code class="docutils literal notranslate"><span class="pre">SpongeForge_main</span></code> 改为 <code class="docutils literal notranslate"><span class="pre">SpongeForgeContainer</span></code>。</li>
+</ul>
+<p class="last">其他选项保持不变。现在，你的插件所有的依赖都应该能正常添加到服务器的启动 classpath 中了。</p>
+</div>
+</div>
+<div class="section" id="id2">
+<h3>Eclipse<a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h3>
+<ul class="simple">
+<li>找到你的运行或调试配置<ul>
+<li>单击 <code class="docutils literal notranslate"><span class="pre">Run</span></code> ，然后单击 <code class="docutils literal notranslate"><span class="pre">Run</span> <span class="pre">Configurations...</span></code></li>
+<li>或者，请分别点击 Run/Debug 图标对应的下拉菜单后的 <code class="docutils literal notranslate"><span class="pre">Run</span> <span class="pre">Configurations...</span></code> 或 <code class="docutils literal notranslate"><span class="pre">Debug</span> <span class="pre">Configurations...</span></code> 。</li>
+</ul>
+</li>
+<li>在左侧栏选择关于 Sponge（服务端）的运行或调试配置。</li>
+<li>切换到 <code class="docutils literal notranslate"><span class="pre">Classpath</span></code> 选项卡。</li>
+<li>选择 <code class="docutils literal notranslate"><span class="pre">User</span> <span class="pre">Entries</span></code> ，然后单击 <code class="docutils literal notranslate"><span class="pre">Add</span> <span class="pre">Projects...</span></code> 按钮。</li>
+<li>选择你的插件项目。</li>
+<li>单击确定按钮。</li>
+<li>单击右下角的应用按钮。</li>
+</ul>
+</div>
+</div>
+<div class="section" id="running-the-configuration">
+<span id="runconfig"></span><h2>运行你的配置<a class="headerlink" href="#running-the-configuration" title="本標題的永久連結">¶</a></h2>
+<p>在你执行了上面的操作步骤后，你就可以开始调试你的插件了。如果你从你的 IDE 启动你的服务器，那么它的运行目录应为你的 SpongeForge/SpongeVanilla 下的 <code class="docutils literal notranslate"><span class="pre">run</span></code> 目录。所有服务端创建的文件（包括世界、配置等）都将存储于该目录并且每次都将从该目录启动服务器，就像你手动将服务端的 JAR 复制到了该目录下并启动一样。</p>
+<div class="section" id="id3">
+<h3>IntelliJ IDEA<a class="headerlink" href="#id3" title="本標題的永久連結">¶</a></h3>
+<p>如果你想要调试，请不要点击表示运行或调试的两个按钮的绿色小箭头，而应点击旁边的绿色 <code class="docutils literal notranslate"><span class="pre">Debug</span></code> 按钮。</p>
+</div>
+<div class="section" id="id4">
+<h3>Eclipse<a class="headerlink" href="#id4" title="本標題的永久連結">¶</a></h3>
+<p>如果你想要调试，请不要点击表示运行或调试的两个按钮的绿色小箭头，而应点击 Debug 按钮旁边的下拉小箭头（因为一个 BUG）弹出一个下拉菜单，然后再点击 <code class="docutils literal notranslate"><span class="pre">Test</span> <span class="pre">(Server)</span></code> 配置。如果它并不存在在下拉菜单中，请点击 <code class="docutils literal notranslate"><span class="pre">Debug</span> <span class="pre">Configurations</span></code> ，然后点击 <code class="docutils literal notranslate"><span class="pre">Test</span> <span class="pre">(Server)</span></code> 配置并点击右下角的 <code class="docutils literal notranslate"><span class="pre">Debug</span></code> 按钮。</p>
+</div>
+</div>
+<div class="section" id="using-the-debugger">
+<span id="usingdebugger"></span><h2>使用调试器<a class="headerlink" href="#using-the-debugger" title="本標題的永久連結">¶</a></h2>
+<p>现在你的服务端（和你的插件）都在以调试器的方式运行了。你可以开始利用调试器的种种特性。下面简要介绍最明显的用法，尽管它们不属于 Sponge，而属于 IDE 使用的 Java Debugger 的特性。</p>
+<div class="section" id="breakpoints">
+<h3>断点<a class="headerlink" href="#breakpoints" title="本標題的永久連結">¶</a></h3>
+<p>若要仔细看看代码，断点是一个很有用的工具。断点可以在代码行或方法的开头设置。当到达断点时，调试器将停止代码执行，同时 IDE 将打开一个视图，允许您检查当前范围中所有变量的内容。代码执行将不会还原，除非您在 IDE 的调试视图中按相应的按钮。</p>
+<p>在调试的过程中，你可以任意地添加、移除、或者临时禁用断点。</p>
+<div class="admonition tip">
+<p class="first admonition-title">小訣竅</p>
+<p class="last">一旦单个服务器检查需要超过给定的时间，监视器（Watchdog）将会认为服务器崩溃并强制关闭它。当使用断点时这件事就可能会发生了，因此建议您编辑测试环境的 <code class="docutils literal notranslate"><span class="pre">server.properties</span></code> 文件，并将``max-tick-time`` （毫秒）的值设置为一个非常大的数字，或干脆直接设置为 <code class="docutils literal notranslate"><span class="pre">-1</span></code> （完全禁用监视器）。</p>
+</div>
+<div class="section" id="id5">
+<h4>IntelliJ IDEA<a class="headerlink" href="#id5" title="本標題的永久連結">¶</a></h4>
+<p>若要添加或移除断点，只需在你的 IDE 的文本编辑器界面左侧的空白区域左键单击。</p>
+<p>或者，将光标放在要添加或删除断点的行中，然后单击 <code class="docutils literal notranslate"><span class="pre">Run</span></code> 并单击 <code class="docutils literal notranslate"><span class="pre">Toggle</span> <span class="pre">Line</span> <span class="pre">Breakpoint</span></code> 。</p>
+</div>
+<div class="section" id="id6">
+<h4>Eclipse<a class="headerlink" href="#id6" title="本標題的永久連結">¶</a></h4>
+<p>若要添加或移除断点，只需在你的 IDE 的文本编辑器界面左侧的空白区域右键单击并点击 <code class="docutils literal notranslate"><span class="pre">Toggle</span> <span class="pre">Breakpoint</span></code> 。</p>
+<p>或者，将光标放在要添加或删除断点的行中，然后单击 <code class="docutils literal notranslate"><span class="pre">Run</span></code> 并单击 <code class="docutils literal notranslate"><span class="pre">Toggle</span> <span class="pre">Breakpoint</span></code> 。</p>
+</div>
+</div>
+<div class="section" id="code-hotswapping">
+<h3>代码热替换<a class="headerlink" href="#code-hotswapping" title="本標題的永久連結">¶</a></h3>
+<p>调试器的另一个主要特点是，你不必为每一个小的变化重新启动服务器，因为我们可以进行代码热替换。这意味着您可以在调试器中运行代码时重新编译部分代码。当然，这有几个限制，其中最重要的是：</p>
+<ul>
+<li><p class="first">你不能添加或移除方法。</p>
+<blockquote>
+<div><ul class="simple">
+<li>对方法的改变仅限于方法 <em>内</em> 的代码。也就是你甚至连方法的签名（Signature）都不可以改变（这包括方法名称、返回值以及参数类型）。</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">你不能移除一个类。</p>
+<blockquote>
+<div><ul class="simple">
+<li>你不能修改一个类的名称、父类、以及它实现的接口列表。</li>
+<li>你可以添加类。不过，它一旦添加并通过代码热替换的方式进行加载，你就不能对这个类做上面提到的操作了。</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p>你可以测试这个功能：在插件中引入一个简单的命令，而且该命令的作用只是输出一个词，比如 <code class="docutils literal notranslate"><span class="pre">Sponge</span></code> ，然后保存并启动服务器，如上所述。运行命令。它会输出 <code class="docutils literal notranslate"><span class="pre">Sponge</span></code> 。现在改变命令，使其输出一个不同的词到控制台，保存文件。更改后，请执行以下操作以将更改传送到正在运行的程序：</p>
+<div class="section" id="id7">
+<h4>IntelliJ IDEA<a class="headerlink" href="#id7" title="本標題的永久連結">¶</a></h4>
+<ul class="simple">
+<li>从 IDE 的顶部打开 <code class="docutils literal notranslate"><span class="pre">Run</span></code> 菜单。</li>
+<li>在第一个分组的分隔线后，单击 <code class="docutils literal notranslate"><span class="pre">Reload</span> <span class="pre">Changed</span> <span class="pre">Classes</span></code> 。</li>
+</ul>
+</div>
+<div class="section" id="id8">
+<h4>Eclipse<a class="headerlink" href="#id8" title="本標題的永久連結">¶</a></h4>
+<p>不需要任何操作。你一旦保存这个文件，它将被重新生成，然后热替换到当前运行的调试器中。除非你改变了这种特定的默认行为，否则你不需要手动触发代码热替换。</p>
+</div>
+</div>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="tutorials.html" class="btn btn-neutral float-right" title="教學" accesskey="n" rel="next">下一頁 <span class="fa fa-angle-right"></span></a>
+        <a href="ray-tracing.html" class="btn btn-neutral" title="光線追蹤" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> 上一頁</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../_static/flags/zh_TW.svg"
+         alt="zh-TW" title="繁體中文">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../_static/jquery.js"></script>      <script type="text/javascript" src="../_static/underscore.js"></script>      <script type="text/javascript" src="../_static/doctools.js"></script>      <script type="text/javascript" src="../_static/language_data.js"></script>      <script type="text/javascript" src="../_static/translations.js"></script>      <script type="text/javascript" src="../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

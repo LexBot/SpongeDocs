@@ -1,0 +1,345 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>配置加载器 &mdash; Sponge 7.2.0 說明文件</title>
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="索引"
+              href="../../genindex.html"/>        <link rel="search" title="搜尋" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 說明文件" href="../../index.html"/>        <link rel="up" title="設定插件" href="index.html"/>        <link rel="next" title="配置节点" href="nodes.html"/>        <link rel="prev" title="設定插件" href="index.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../../index.html">
+            <img src="../../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../server/index.html">建立伺服器</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../versions/index.html">版本控制方針</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../preparing/index.html">準備開發</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">建立插件</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../api-versions.html">API版本</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../buildsystem.html">建置系統</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../workspace/index.html">建立你的工作空間</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../project/index.html">建立你的專案</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-identifier.html">插件識別碼</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-class.html">主要插件類別</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lifecycle.html">插件的生命週期</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../injection.html">相依注入</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../practices/index.html">實踐</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../optional/index.html">Optionals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../logging.html">記錄與除錯</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text/index.html">文本</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/index.html">插件指令</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../event/index.html">事件</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">設定插件</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">配置加载器</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nodes.html">配置节点</a></li>
+<li class="toctree-l3"><a class="reference internal" href="serialization.html">序列化对象</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../assets.html">Asset API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data/index.html">Data API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../blocks/index.html">方塊</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../entities/index.html">實體</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../items/index.html">物品</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../trade-offers.html">開設交易</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../effects.html">效果</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../scheduler.html">排程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../services.html">服務</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database.html">資料庫</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../permissions.html">權限</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bans.html">封鎖</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metrics.html">Metrics 收集</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bookview.html">書本閱覽</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../economy/index.html">經濟</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wgen/index.html">世界生成</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manager.html">插件管理器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../game-profile-manager.html">遊戲設定檔管理器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../offline-userplayer-data.html">離線玩家資料</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tab-lists.html">Tab 清單</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-meta.html">插件元數據</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ray-tracing.html">光線追蹤</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../debugging.html">插件除錯</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials.html">教學</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internals/index.html">相依於實作的插件</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ore/index.html">Ore 文件</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/index.html">為 Sponge 貢獻</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">關於 Sponge 專案</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+          <li><a href="../index.html">建立插件</a> &raquo;</li>
+          <li><a href="index.html">設定插件</a> &raquo;</li>
+    <li>配置加载器</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/plugin/configuration/loaders.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="configuration-loaders">
+<h1>配置加载器<a class="headerlink" href="#configuration-loaders" title="本標題的永久連結">¶</a></h1>
+<p>让我们分解 Configurate 的整个工作流程，从加载开始。 Configurate 提供了 <a class="reference external" href="https://configurate.aoeu.xyz/apidocs/ninja/leaping/configurate/loader/ConfigurationLoader.html">ConfigurationLoader</a> 用于常见的配置格式，并用于管理物理上的配置文件，允许你通过给定资源读取或存储数据。它们还允许你加载空配置，并给予你权利去指定硬编码的默认值，或者从一个已经写好的文件指定默认值。</p>
+<div class="admonition tip">
+<p class="first admonition-title">小訣竅</p>
+<p class="last">Sponge 插件推荐使用的配置文件格式是 HOCON，这也是默认的格式。</p>
+</div>
+<div class="section" id="getting-your-loader">
+<h2>获取配置加载器<a class="headerlink" href="#getting-your-loader" title="本標題的永久連結">¶</a></h2>
+<div class="admonition note">
+<p class="first admonition-title">備註</p>
+<p class="last">默认的 <a class="reference external" href="https://configurate.aoeu.xyz/apidocs/ninja/leaping/configurate/loader/ConfigurationLoader.html">ConfigurationLoader</a> 可用于单个 HOCON 格式的配置文件的场景。请参见 <a class="reference internal" href="index.html"><span class="doc">插件配置</span></a> 页面的相关内容。</p>
+</div>
+<p>首先，让我们新建一个 <a class="reference external" href="https://configurate.aoeu.xyz/apidocs/ninja/leaping/configurate/hocon/HoconConfigurationLoader.html">HoconConfigurationLoader</a> 并指向我们的配置文件。</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">java.nio.file.Path</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">ninja.leaping.configurate.commented.CommentedConfigurationNode</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">ninja.leaping.configurate.hocon.HoconConfigurationLoader</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">ninja.leaping.configurate.loader.ConfigurationLoader</span><span class="p">;</span>
+
+<span class="n">Path</span> <span class="n">potentialFile</span> <span class="o">=</span> <span class="n">getConfigPath</span><span class="p">();</span>
+<span class="n">ConfigurationLoader</span><span class="o">&lt;</span><span class="n">CommentedConfigurationNode</span><span class="o">&gt;</span> <span class="n">loader</span> <span class="o">=</span>
+        <span class="n">HoconConfigurationLoader</span><span class="p">.</span><span class="na">builder</span><span class="p">().</span><span class="na">setPath</span><span class="p">(</span><span class="n">potentialFile</span><span class="p">).</span><span class="na">build</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>配置加载器同时会存有一个泛型以决定其会构建什么样的节点类型。关于节点，也就是 <em>Configuration Nodes</em> 的内容，会在 <a class="reference internal" href="nodes.html"><span class="doc">稍后的章节</span></a> 中加以阐述。</p>
+<p><code class="docutils literal notranslate"><span class="pre">ConfigurationLoader</span></code> 通常持有一个生成器（ Builder ）用于静态地访问和创建一个你想要的类型的新加载器。对于基本的配置，我们并不需要指定除了我们想要加载和保存的文件之外的其他东西。因此，我们需要做的全部事情就是使用 <a class="reference external" href="https://configurate.aoeu.xyz/apidocs/ninja/leaping/configurate/loader/AbstractConfigurationLoader.Builder.html#setPath-java.nio.file.Path-">HoconConfigurationLoader.builder().setPath(path)</a> 。然后我们通过生成器生成（<a class="reference external" href="https://configurate.aoeu.xyz/apidocs/ninja/leaping/configurate/hocon/HoconConfigurationLoader.Builder.html#build--">build()</a>）了一个实例并将其存储在了一个变量里。</p>
+<p>当然，这并不是加载文件的唯一方法。生成器还有一个名为 <a class="reference external" href="https://configurate.aoeu.xyz/apidocs/ninja/leaping/configurate/loader/AbstractConfigurationLoader.Builder.html#setURL-java.net.URL-">setURL(url)</a> 的方法，如果你想要加载的资源不使用 <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/nio/file/Path.html">Path</a> 的话可以使用。时刻注意，通过 <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/net/URL.html">URL</a> 创建的配置加载器是只读的，因为它们没有办法把数据写回 URL。</p>
+<p>这一功能可以用于把你的插件 JAR 中的一个文件绑定到默认的配置上，然后将其作为初始化时的配置文件以供服务器管理员（或者插件本身）修改。</p>
+<div class="admonition note">
+<p class="first admonition-title">備註</p>
+<p class="last">这个例子中使用了 Sponge 推荐的 <code class="docutils literal notranslate"><span class="pre">HoconConfigurationLoader</span></code>，但你仍然可以使用 <a class="reference external" href="https://configurate.aoeu.xyz/apidocs/ninja/leaping/configurate/yaml/YAMLConfigurationLoader.html">YAMLConfigurationLoader</a> 或 <a class="reference external" href="https://configurate.aoeu.xyz/apidocs/ninja/leaping/configurate/gson/GsonConfigurationLoader.html">GsonConfigurationLoader</a> 加载旧版配置文件。</p>
+</div>
+</div>
+<div class="section" id="loading-and-saving">
+<h2>加载和保存<a class="headerlink" href="#loading-and-saving" title="本標題的永久連結">¶</a></h2>
+<p>当你获取到了 <code class="docutils literal notranslate"><span class="pre">ConfigurationLoader</span></code> ，就可以通过 <a class="reference external" href="https://configurate.aoeu.xyz/apidocs/ninja/leaping/configurate/loader/ConfigurationLoader.html#createEmptyNode--">createEmptyNode()</a> 方法来获取一个空的 <a class="reference external" href="https://configurate.aoeu.xyz/apidocs/ninja/leaping/configurate/ConfigurationNode.html">ConfigurationNode</a> 。</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ninja.leaping.configurate.ConfigurationNode</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">ninja.leaping.configurate.ConfigurationOptions</span><span class="p">;</span>
+
+<span class="n">Path</span> <span class="n">potentialFile</span> <span class="o">=</span> <span class="n">getConfigPath</span><span class="p">();</span>
+<span class="n">ConfigurationLoader</span><span class="o">&lt;</span><span class="n">CommentedConfigurationNode</span><span class="o">&gt;</span> <span class="n">loader</span> <span class="o">=</span>
+        <span class="n">HoconConfigurationLoader</span><span class="p">.</span><span class="na">builder</span><span class="p">().</span><span class="na">setPath</span><span class="p">(</span><span class="n">potentialFile</span><span class="p">).</span><span class="na">build</span><span class="p">();</span>
+<span class="n">ConfigurationNode</span> <span class="n">rootNode</span> <span class="o">=</span> <span class="n">loader</span><span class="p">.</span><span class="na">createEmptyNode</span><span class="p">(</span><span class="n">ConfigurationOptions</span><span class="p">.</span><span class="na">defaults</span><span class="p">());</span>
+</pre></div>
+</div>
+<p>这个方法期望一个 <a class="reference external" href="https://configurate.aoeu.xyz/apidocs/ninja/leaping/configurate/ConfigurationOptions.html">ConfigurationOptions</a> 作为参数。除非你有想要使用的特性，如自定义类型的序列化方式，否则你直接使用 <a class="reference external" href="https://configurate.aoeu.xyz/apidocs/ninja/leaping/configurate/ConfigurationOptions.html#defaults--">ConfigurationOptions#defaults()</a> 来创建这个参数作为默认值就可以了。</p>
+<p>可以通过使用 <a class="reference external" href="https://configurate.aoeu.xyz/apidocs/ninja/leaping/configurate/loader/ConfigurationLoader.html#load--">load()</a> 方法在 <code class="docutils literal notranslate"><span class="pre">ConfigurationLoader</span></code> 创建时从指定的源加载配置内容。当然它也需要一个 <code class="docutils literal notranslate"><span class="pre">ConfigurationOptions</span></code> 的实例，而且同时提供一个等价于 <a class="reference external" href="https://configurate.aoeu.xyz/apidocs/ninja/leaping/configurate/loader/ConfigurationLoader.html#load-ninja.leaping.configurate.ConfigurationOptions-">load(ConfigurationOptions.defaults())</a> 的简写形式。</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="p">;</span>
+
+<span class="n">Path</span> <span class="n">potentialFile</span> <span class="o">=</span> <span class="n">getConfigPath</span><span class="p">();</span>
+<span class="n">ConfigurationLoader</span><span class="o">&lt;</span><span class="n">CommentedConfigurationNode</span><span class="o">&gt;</span> <span class="n">loader</span> <span class="o">=</span>
+        <span class="n">HoconConfigurationLoader</span><span class="p">.</span><span class="na">builder</span><span class="p">().</span><span class="na">setPath</span><span class="p">(</span><span class="n">potentialFile</span><span class="p">).</span><span class="na">build</span><span class="p">();</span>
+<span class="n">ConfigurationNode</span> <span class="n">rootNode</span><span class="p">;</span>
+<span class="k">try</span> <span class="p">{</span>
+    <span class="n">rootNode</span> <span class="o">=</span> <span class="n">loader</span><span class="p">.</span><span class="na">load</span><span class="p">();</span>
+<span class="p">}</span> <span class="k">catch</span><span class="p">(</span><span class="n">IOException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// handle error</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>如果给定的 <code class="docutils literal notranslate"><span class="pre">Path</span></code> 不存在，那么 <code class="docutils literal notranslate"><span class="pre">load()</span></code> 方法将会创建一个空的 <code class="docutils literal notranslate"><span class="pre">ConfigurationNode</span></code> 。任何可能的错误都将会抛出一个 <code class="docutils literal notranslate"><span class="pre">IOException</span></code> ，因此你需要对其进行妥善处理。</p>
+<p>如果你使用了默认的配置加载器，我们建议你获取相应的 <code class="docutils literal notranslate"><span class="pre">ConfigurationOptions</span></code> 对象，因为你可以通过它序列化 Sponge 中出现的绝大部分对象。</p>
+<p>一旦你修改了你的 <code class="docutils literal notranslate"><span class="pre">ConfigurationNode</span></code> 并想要保存修改过的数据，你可以通过 <code class="docutils literal notranslate"><span class="pre">ConfigurationLoader</span></code> 保存你的节点至你初始化时设置的文件中。如果这么一个文件不存在，那么它将被创建，如果存在，那么它将被覆盖。</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="k">try</span> <span class="p">{</span>
+    <span class="n">loader</span><span class="p">.</span><span class="na">save</span><span class="p">(</span><span class="n">rootNode</span><span class="p">);</span>
+<span class="p">}</span> <span class="k">catch</span><span class="p">(</span><span class="n">IOException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// handle error</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>再一次地，所有的错误都会抛出一个 <code class="docutils literal notranslate"><span class="pre">IOException</span></code> ，同时你必须处理它。</p>
+<div class="admonition tip">
+<p class="first admonition-title">小訣竅</p>
+<p class="last">我们建议在插件加载完配置之后，也就是配置更新之后立刻保存配置文件，确保新增项目或从旧版配置转换来的项目能及时保存到硬盘上。如果不能及时保存，我们强烈建议保存的操作在非主线程上进行。参考你应当避免的<a class="reference internal" href="../practices/bad.html"><span class="doc">不好的實現</span></a>。</p>
+</div>
+</div>
+<div class="section" id="loading-a-default-config-from-the-plugin-jar-file">
+<h2>从插件的 jar 中加载默认配置<a class="headerlink" href="#loading-a-default-config-from-the-plugin-jar-file" title="本標題的永久連結">¶</a></h2>
+<p>很多开发者喜欢在插件中捆绑一份默认配置文件，并在缺失时自动复制到配置文件目录中。你可以使用 <a class="reference internal" href="../assets.html"><span class="doc">Asset API</span></a> 来实现这个效果，如下面的示例所示：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">PluginContainer</span> <span class="n">plugin</span> <span class="o">=</span> <span class="p">...;</span>
+<span class="n">Path</span> <span class="n">path</span> <span class="o">=</span> <span class="p">...;</span>
+
+<span class="n">Sponge</span><span class="p">.</span><span class="na">getAssetManager</span><span class="p">().</span><span class="na">getAsset</span><span class="p">(</span><span class="n">plugin</span><span class="p">,</span> <span class="s">&quot;default.conf&quot;</span><span class="p">).</span><span class="na">get</span><span class="p">().</span><span class="na">copyToFile</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+<span class="n">loader</span> <span class="o">=</span> <span class="n">HoconConfigurationLoader</span><span class="p">.</span><span class="na">builder</span><span class="p">().</span><span class="na">setPath</span><span class="p">(</span><span class="n">path</span><span class="p">).</span><span class="na">build</span><span class="p">();</span>
+<span class="n">rootNode</span> <span class="o">=</span> <span class="n">loader</span><span class="p">.</span><span class="na">load</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>在这一示例中需要着重注意的一点是，<a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/asset/AssetManager.html#getAsset-java.lang.String-">AssetManager#getAsset(String)</a> 这个方法是以插件的 Asset 目录为根目录查找文件的。因此，如果上面的示例中的插件 ID 为 <code class="docutils literal notranslate"><span class="pre">myplugin</span></code> ，那么 <code class="docutils literal notranslate"><span class="pre">default.conf</span></code> 不应放在 JAR 的根目录中，而是放在 <code class="docutils literal notranslate"><span class="pre">assets/myplugin</span></code> 目录下。本示例中使用的 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/asset/Asset.html#copyToFile-java.nio.file.Path-boolean-boolean-">Asset#copyToFile(Path, boolean, boolean)</a> 还允许你强制覆盖已有的同名文件。</p>
+<div class="admonition note">
+<p class="first admonition-title">備註</p>
+<p class="last">若你的插件的 jar 中找不到目标配置文件，你会在调用 <code class="docutils literal notranslate"><span class="pre">Optional&lt;Asset&gt;.get()</span></code> 时得到一个 <code class="docutils literal notranslate"><span class="pre">NoSuchElementException</span></code> 异常。请确保你已正确配置了你的<a class="reference internal" href="../buildsystem.html"><span class="doc">构建系统</span></a>，使之能把配置文件一并打包进去。</p>
+</div>
+<p>如果你有其他的配置类，还有一个更简单的解决方案，且在配置文件缺失一部分时也能使用。参考“<a class="reference internal" href="serialization.html"><span class="doc">序列化对象</span></a>”一文了解这个解决方案的具体细节。</p>
+</div>
+<div class="section" id="updating-configuration-files-from-the-default-configuration">
+<h2>根据默认配置更新配置文件<a class="headerlink" href="#updating-configuration-files-from-the-default-configuration" title="本標題的永久連結">¶</a></h2>
+<p>如果你想把新的配置节点合并入已有的配置文件中，你可以使用 <code class="docutils literal notranslate"><span class="pre">CommentedConfigurationNode</span></code> 来从指定 asset 中加载对应的值，具体方式上文中已经说明。它会尝试从指定 asset 中提取节点并尝试在缺失的情况下插入已有配置中。和直接覆盖不一样，这个操作只会更新原配置中缺失的内容。</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">PluginContainer</span> <span class="n">plugin</span> <span class="o">=</span> <span class="p">...;</span>
+
+<span class="n">node</span><span class="p">.</span><span class="na">mergeValuesFrom</span><span class="p">(</span><span class="n">HoconConfigurationLoader</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
+                    <span class="p">.</span><span class="na">setURL</span><span class="p">(</span><span class="n">plugin</span><span class="p">.</span><span class="na">getAsset</span><span class="p">(</span><span class="s">&quot;default.conf&quot;</span><span class="p">).</span><span class="na">get</span><span class="p">().</span><span class="na">getUrl</span><span class="p">())</span>
+                    <span class="p">.</span><span class="na">build</span><span class="p">()</span>
+                    <span class="p">.</span><span class="na">load</span><span class="p">(</span><span class="n">ConfigurationOptions</span><span class="p">.</span><span class="na">defaults</span><span class="p">()));</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">備註</p>
+<p class="last">这样做不会影响既有的节点，所以不论服务器上是否已经有对应的配置文件都可以调用这个方法。</p>
+</div>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="nodes.html" class="btn btn-neutral float-right" title="配置节点" accesskey="n" rel="next">下一頁 <span class="fa fa-angle-right"></span></a>
+        <a href="index.html" class="btn btn-neutral" title="設定插件" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> 上一頁</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../../_static/flags/zh_TW.svg"
+         alt="zh-TW" title="繁體中文">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../../_static/jquery.js"></script>      <script type="text/javascript" src="../../_static/underscore.js"></script>      <script type="text/javascript" src="../../_static/doctools.js"></script>      <script type="text/javascript" src="../../_static/language_data.js"></script>      <script type="text/javascript" src="../../_static/translations.js"></script>      <script type="text/javascript" src="../../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

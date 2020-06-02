@@ -1,0 +1,390 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bir Komut Kurmak &mdash; Sponge 7.2.0 belgelendirme çalışması</title>
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="Dizin"
+              href="../../genindex.html"/>        <link rel="search" title="Ara" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 belgelendirme çalışması" href="../../index.html"/>        <link rel="up" title="Plugin Commands" href="index.html"/>        <link rel="next" title="Ayrıştırma Argümanı" href="arguments.html"/>        <link rel="prev" title="Plugin Commands" href="index.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../../index.html">
+            <img src="../../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../server/index.html">Bir sunucu oluşturma</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../versions/index.html">Versioning Policy</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../preparing/index.html">Geliştirme için hazırlanıyor</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Bir eklenti oluşturma</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../api-versions.html">API-Versions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../buildsystem.html">Sistem oluşturun</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../workspace/index.html">Çalışma Alanınız Kuruluyor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../project/index.html">Projenizi Ayarlama</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-identifier.html">Eklenti Tanımlayıcıları</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-class.html">Ana eklenti sınıfı</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lifecycle.html">Eklenti Yaşan Döngüsü</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../injection.html">Bağımlılık Enjeksiyonu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../practices/index.html">Alıştırmalar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../optional/index.html">İsteğe bağlı</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../logging.html">Günlük Oluşturma ve Hata Giderme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text/index.html">Metin</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Plugin Commands</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Bir Komut Kurmak</a></li>
+<li class="toctree-l3"><a class="reference internal" href="arguments.html">Ayrıştırma Argümanı</a></li>
+<li class="toctree-l3"><a class="reference internal" href="flags.html">Komut Bayrakları</a></li>
+<li class="toctree-l3"><a class="reference internal" href="childcommands.html">Alt komutlar</a></li>
+<li class="toctree-l3"><a class="reference internal" href="service.html">Komut Yöneticisi</a></li>
+<li class="toctree-l3"><a class="reference internal" href="commandcallable.html">Düşük Seviye Komut API’sı</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../event/index.html">Etkinlikler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/index.html">Eklentileri yapılandırma</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assets.html">API öğesi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data/index.html">Veri API’sı</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../blocks/index.html">Bloklar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../entities/index.html">Varlıklar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../items/index.html">Öğeler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../trade-offers.html">Ticaret-Teklifleri</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../effects.html">Efektler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../scheduler.html">Zamanlayıcı</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../services.html">Servisler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database.html">Veritabanları</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../permissions.html">İzinler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bans.html">Yasaklılar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metrics.html">Metrics Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bookview.html">Kitap görünümleri</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../economy/index.html">Ekonomi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wgen/index.html">Dünya oluşturma</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manager.html">Eklenti yöneticisi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../game-profile-manager.html">Oyun Profili Yöneticisi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../offline-userplayer-data.html">Çevrim dışı oyuncu verisi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tab-lists.html">Sekme listeleri</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-meta.html">Eklenti Metaverileri</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ray-tracing.html">Işın izleme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../debugging.html">Eklenti Hata Ayıklama</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials.html">Eğiticiler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internals/index.html">Uygulamaya Bağlı Eklentiler</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ore/index.html">Ore Dökümanları</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/index.html">Sponge’a Katkı Sağlama</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">Sponge Projesi Hakkında</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+          <li><a href="../index.html">Bir eklenti oluşturma</a> &raquo;</li>
+          <li><a href="index.html">Plugin Commands</a> &raquo;</li>
+    <li>Bir Komut Kurmak</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/plugin/commands/creating.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="building-a-command">
+<h1>Bir Komut Kurmak<a class="headerlink" href="#building-a-command" title="Bu başlığın kalıcı bağlantısı">¶</a></h1>
+<p>İlk adım, yeni bir :javadoc: <cite>CommandSpec</cite> oluşturucu elde etmektir. Oluşturucu, komut yardım iletilerini, komut bağımsız değişkenlerini ve komut mantığını değiştirme yöntemleri sağlar. Bu yöntemler zincirlenebilir.</p>
+<p>Sonunda komutu oluşturmak için, :javadoc: <cite>CommandSpec.Builder # build ()</cite> yöntemini çağırmak isteyeceksiniz.</p>
+<p>Ondan sonra, komutu kaydettirmelisin.</p>
+<div class="section" id="example-building-a-simple-command">
+<h2>Örnek: Basit Bir Komut Kurmak<a class="headerlink" href="#example-building-a-simple-command" title="Bu başlığın kalıcı bağlantısı">¶</a></h2>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.Sponge</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.text.Text</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.command.spec.CommandSpec</span><span class="p">;</span>
+
+<span class="n">PluginContainer</span> <span class="n">plugin</span> <span class="o">=</span> <span class="p">...;</span>
+
+<span class="n">CommandSpec</span> <span class="n">myCommandSpec</span> <span class="o">=</span> <span class="n">CommandSpec</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
+    <span class="p">.</span><span class="na">description</span><span class="p">(</span><span class="n">Text</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;Hello World Command&quot;</span><span class="p">))</span>
+    <span class="p">.</span><span class="na">permission</span><span class="p">(</span><span class="s">&quot;myplugin.command.helloworld&quot;</span><span class="p">)</span>
+    <span class="p">.</span><span class="na">executor</span><span class="p">(</span><span class="k">new</span> <span class="n">HelloWorldCommand</span><span class="p">())</span>
+    <span class="p">.</span><span class="na">build</span><span class="p">();</span>
+
+<span class="n">Sponge</span><span class="p">.</span><span class="na">getCommandManager</span><span class="p">().</span><span class="na">register</span><span class="p">(</span><span class="n">plugin</span><span class="p">,</span> <span class="n">myCommandSpec</span><span class="p">,</span> <span class="s">&quot;helloworld&quot;</span><span class="p">,</span> <span class="s">&quot;hello&quot;</span><span class="p">,</span> <span class="s">&quot;test&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="overview-of-the-commandspec-builder-methods">
+<h2>CommandSpec yapıcı yöntemlerine genel bakış<a class="headerlink" href="#overview-of-the-commandspec-builder-methods" title="Bu başlığın kalıcı bağlantısı">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="19%" />
+<col width="81%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Yöntem</th>
+<th class="head">Açıklama</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>‘’ executor’’</td>
+<td><p class="first">Komut mantığını tanımlar (See <a class="reference internal" href="#writing-a-command-executor">Writing a Command Executor</a>).</p>
+<p class="last">** Hiçbir alt komut ayarlanmadıysa yürütmenin ayarlanması gereklidir <a href="#id1"><span class="problematic" id="id2">**</span></a>.</p>
+</td>
+</tr>
+<tr class="row-odd"><td>“argümanlar”</td>
+<td>Bu komut için argüman belirtimini ayarlar (Bkz :doc: <cite>arguments</cite>).</td>
+</tr>
+<tr class="row-even"><td>‘’ izin ‘’</td>
+<td>Bu komutu kullanmadan önce kontrol edilecek izni ayarlayın.</td>
+</tr>
+<tr class="row-odd"><td>“açıklama”</td>
+<td>Bu komutun amacına ilişkin kısa, bir satırlık bir açıklama, yardım sistemi tarafından görüntülenir.</td>
+</tr>
+<tr class="row-even"><td>“genişletilmişAçıklama”</td>
+<td>Daha uzun yardım listelerinde kullanılacak genişletilmiş bir açıklama ayarlar. Kısa açıklama eklenecektir.</td>
+</tr>
+<tr class="row-odd"><td>‘’ çocuk ‘’</td>
+<td>Bu komutu, takma adlarıyla ekler (Bkz :doc: <a href="#id1"><span class="problematic" id="id2">`</span></a>childcommands ‘).</td>
+</tr>
+<tr class="row-even"><td>‘’ çocuklar ‘’</td>
+<td>Bu komutun alt komutlarını takma adlarıyla ayarlar (Bkz :doc: <a href="#id1"><span class="problematic" id="id2">`</span></a>childcommands ‘).</td>
+</tr>
+<tr class="row-odd"><td>‘’ inputTokenizer’’</td>
+<td><p class="first">Bağımsız değişkenlerin nasıl ayrıştırılacağını tanımlar. Varsayılan olarak, ayrıştırıcı komut girdisini boşluklarla böler. Teklifler tek bir argüman olarak sayılır.</p>
+<p class="last">Örnek: `` / tpworld Çentik “Benim Dünyam” `` iki terimle sonuçlanacaktır: “Çentik” ve “Benim Dünyam”.</p>
+</td>
+</tr>
+<tr class="row-even"><td>“kurmak”</td>
+<td>Komutu kurar. Ondan sonra, komutu kaydettirmelisin.</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="writing-a-command-executor">
+<h3>Komutanlığa Mektup Yazma<a class="headerlink" href="#writing-a-command-executor" title="Bu başlığın kalıcı bağlantısı">¶</a></h3>
+<p>Basit bir komut oluşturmak için gereken tek bileşen komutun mantığını içeren komut yürütücü sınıfıdır.</p>
+<p>Sınıf, :javadoc: <cite>CommandExecutor #execute (CommandSource, CommandContext)</cite> yöntemini tanımlayan :javadoc: <cite>CommandExecutor</cite> arayüzünü uygulamak zorundadır. Yöntem, komut yürütme üzerinde çağırılır ve iki bağımsız değişkeni vardır:</p>
+<ul class="simple">
+<li>Komut çağrısının kaynağı (örneğin, konsol, komut bloğu veya bir oyuncu)</li>
+<li>Ayrıştırılmış argümanları içeren komut bağlam nesnesi (Bkz :doc: <cite>argümanlar</cite>)</li>
+</ul>
+</div>
+</div>
+<div class="section" id="example-simple-command-executor">
+<h2>Örnek: Basit Komut Yürütücüsü<a class="headerlink" href="#example-simple-command-executor" title="Bu başlığın kalıcı bağlantısı">¶</a></h2>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.command.CommandException</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.command.CommandResult</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.command.CommandSource</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.command.args.CommandContext</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.command.spec.CommandExecutor</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">HelloWorldCommand</span> <span class="kd">implements</span> <span class="n">CommandExecutor</span> <span class="p">{</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">CommandResult</span> <span class="nf">execute</span><span class="p">(</span><span class="n">CommandSource</span> <span class="n">src</span><span class="p">,</span> <span class="n">CommandContext</span> <span class="n">args</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">CommandException</span> <span class="p">{</span>
+        <span class="n">src</span><span class="p">.</span><span class="na">sendMessage</span><span class="p">(</span><span class="n">Text</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;Hello World!&quot;</span><span class="p">));</span>
+        <span class="k">return</span> <span class="n">CommandResult</span><span class="p">.</span><span class="na">success</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">Tüyo</p>
+<p class="last">Komut yürütücüsünü komut oluşturma sürecinde tanımlamak için <cite>anonim sınıflar &lt;https://docs.oracle.com/javase/tutorial/java/javaOO/anonymousclasses.html&gt; _</cite> kullanabilirsiniz (Bkz. Örnek :doc: argümanlar sayfası).</p>
+</div>
+</div>
+<div class="section" id="player-only-commands">
+<h2>Yalnızca Oynatıcılara Yönelik Komutlar<a class="headerlink" href="#player-only-commands" title="Bu başlığın kalıcı bağlantısı">¶</a></h2>
+<p>Sometimes it is necessary that only players can execute a command (e.g. a <code class="docutils literal notranslate"><span class="pre">/suicide</span></code> command).</p>
+<p>Perform an <code class="docutils literal notranslate"><span class="pre">instanceof</span></code> check to determine the type of the <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/CommandSource.html">CommandSource</a>:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.entity.living.player.Player</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.command.source.CommandBlockSource</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.command.source.ConsoleSource</span><span class="p">;</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">src</span> <span class="k">instanceof</span> <span class="n">Player</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">Player</span> <span class="n">player</span> <span class="o">=</span> <span class="p">(</span><span class="n">Player</span><span class="p">)</span> <span class="n">src</span><span class="p">;</span>
+    <span class="n">player</span><span class="p">.</span><span class="na">sendMessage</span><span class="p">(</span><span class="n">Text</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;Hello &quot;</span> <span class="o">+</span> <span class="n">player</span><span class="p">.</span><span class="na">getName</span><span class="p">()</span> <span class="o">+</span> <span class="s">&quot;!&quot;</span><span class="p">));</span>
+<span class="p">}</span>
+<span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">src</span> <span class="k">instanceof</span> <span class="n">ConsoleSource</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">src</span><span class="p">.</span><span class="na">sendMessage</span><span class="p">(</span><span class="n">Text</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;Hello GLaDOS!&quot;</span><span class="p">));</span>
+    <span class="c1">// The Cake Is a Lie</span>
+<span class="p">}</span>
+<span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">src</span> <span class="k">instanceof</span> <span class="n">CommandBlockSource</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">src</span><span class="p">.</span><span class="na">sendMessage</span><span class="p">(</span><span class="n">Text</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;Hello Companion Cube!&quot;</span><span class="p">));</span>
+    <span class="c1">// &lt;3</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Not</p>
+<p>Komutu ** konsola uyumlu ** yapmak için isteğe bağlı bir `` [player] `` argümanı eklemenizi öneririz (örneğin `` / inticide [player] <a href="#id1"><span class="problematic" id="id2">``</span></a>).</p>
+<p class="last">Bunun en kolay yolu, bir `` playerOrSource`` komut elemanı eklemektir (Bkz :doc: <cite>arguments</cite>).</p>
+</div>
+<div class="section" id="command-results">
+<h3>Komuta Sonuçları<a class="headerlink" href="#command-results" title="Bu başlığın kalıcı bağlantısı">¶</a></h3>
+<p>`` CommandExecutor # execute () `` yöntemi her zaman bir :javadoc: <cite>CommandResult</cite> döndürmelidir. Çoğu durumda, geri dönmek yeterlidir :javadoc: <cite>CommandResult # success ()</cite> komutu başarılıysa veya :javadoc: <cite>CommandResult # empty ()</cite> olmamışsa. Daha fazla bilginin iletilmesi gereken durumlarda, bir :javadoc: <cite>CommandResult # builder ()</cite> kullanılmalıdır. Oluşturucu, bir tamsayıyı kabul eden ve aynı adın özniteliğini ayarlayacak çeşitli çeşitli yöntemler sağlar. Oluşturucu tarafından ayarlanmamış tüm özellikler boş kalacaktır.</p>
+<p>Komut blokları, bu değerleri, birden fazla komut bloğundan oluşan detaylı yapılar için kullanılabilir olan puan tablosu istatistiklerini değiştirmek için kullanabilir. Verilere nasıl erişildiğine dair bir eğitim materyali burada bulunabilir: &lt;<a class="reference external" href="https://minecraft.gamepedia.com/Tutorials/Command_stats">https://minecraft.gamepedia.com/Tutorials/Command_stats</a>&gt; <a href="#id1"><span class="problematic" id="id2">`</span></a>.</p>
+</div>
+</div>
+<div class="section" id="example-building-a-commandresult">
+<h2>Örnek: Bir Komut Sonrası Oluşturma<a class="headerlink" href="#example-building-a-commandresult" title="Bu başlığın kalıcı bağlantısı">¶</a></h2>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">CommandResult</span> <span class="n">result</span> <span class="o">=</span> <span class="n">CommandResult</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
+    <span class="p">.</span><span class="na">affectedEntities</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+    <span class="p">.</span><span class="na">successCount</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="p">.</span><span class="na">build</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Bu örnek, 42 varlıktan etkilenen ve başarılı olan bir komut için bir `` CommandResult` ‘oluşturmak için bir oluşturucu kullanır.</p>
+<div class="section" id="error-handling">
+<h3>Hata işleme<a class="headerlink" href="#error-handling" title="Bu başlığın kalıcı bağlantısı">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">execute()</span></code> method may also throw a <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/CommandException.html">CommandException</a>, signaling that an error occurred while trying to
+execute the command. If such an Exception is thrown, its message will be displayed to the command source, formatted as
+an error. Also, the commands usage message will be displayed. An <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/args/ArgumentParseException.html">ArgumentParseException</a>, a subtype of
+<code class="docutils literal notranslate"><span class="pre">CommandException</span></code> is automatically thrown if the commands arguments could not be parsed.</p>
+</div>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="arguments.html" class="btn btn-neutral float-right" title="Ayrıştırma Argümanı" accesskey="n" rel="next">İleri <span class="fa fa-angle-right"></span></a>
+        <a href="index.html" class="btn btn-neutral" title="Plugin Commands" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> Önceki</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../../_static/flags/tr_TR.svg"
+         alt="tr" title="Türkçe">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../../_static/jquery.js"></script>      <script type="text/javascript" src="../../_static/underscore.js"></script>      <script type="text/javascript" src="../../_static/doctools.js"></script>      <script type="text/javascript" src="../../_static/language_data.js"></script>      <script type="text/javascript" src="../../_static/translations.js"></script>      <script type="text/javascript" src="../../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

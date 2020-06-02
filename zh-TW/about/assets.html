@@ -1,0 +1,233 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>美術資產 &mdash; Sponge 7.2.0 說明文件</title>
+
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="索引"
+              href="../genindex.html"/>        <link rel="search" title="搜尋" href="../search.html"/>    <link rel="top" title="Sponge 7.2.0 說明文件" href="../index.html"/>        <link rel="up" title="關於 Sponge 專案" href="index.html"/>        <link rel="next" title="Sponge 的歷史" href="history.html"/>        <link rel="prev" title="Sponge 術語" href="glossary.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../index.html">
+            <img src="../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../server/index.html">建立伺服器</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../versions/index.html">版本控制方針</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../preparing/index.html">準備開發</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../plugin/index.html">建立插件</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ore/index.html">Ore 文件</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contributing/index.html">為 Sponge 貢獻</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">關於 Sponge 專案</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="introduction.html">簡介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html">常見問題</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structure.html">Sponge 專案的結構</a></li>
+<li class="toctree-l2"><a class="reference internal" href="future.html">未來的計畫</a></li>
+<li class="toctree-l2"><a class="reference internal" href="license.html">授權協議</a></li>
+<li class="toctree-l2"><a class="reference internal" href="posting.html">論壇發佈指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rules.html">论坛、Discord 及 IRC 守则</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tos.html">服務條款</a></li>
+<li class="toctree-l2"><a class="reference internal" href="privacy.html">隱私權政策</a></li>
+<li class="toctree-l2"><a class="reference internal" href="staff.html">工作人員</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html">Sponge 術語</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">美術資產</a></li>
+<li class="toctree-l2"><a class="reference internal" href="history.html">Sponge 的歷史</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+          <li><a href="index.html">關於 Sponge 專案</a> &raquo;</li>
+    <li>美術資產</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/about/assets.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="art-assets">
+<h1>美術資產<a class="headerlink" href="#art-assets" title="本標題的永久連結">¶</a></h1>
+<p>此頁提供官方SpongePowered的logo及吉祥物。首頁上使用的字體為 <em>Montserrat</em>。您可以使用這些分享 Sponge給其他人。但請注意：這些圖像非MIT授權，而是`創用CC – 非公開，無衍生性授權 &lt;<a class="reference external" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">https://creativecommons.org/licenses/by-nc-nd/4.0/</a>&gt;`_.若要關於我們意願更詳細的資訊，請閱讀下方。</p>
+<div class="admonition note">
+<p class="first admonition-title">備註</p>
+<p class="last">如果您正在閱讀翻譯後的版本，請留意應以英語版的授權規範為準。翻譯版的授權規範僅供參考。</p>
+</div>
+<p>你可以：</p>
+<ul class="simple">
+<li>对吉祥物 Spongie 的面部表情进行轻度修改 —— 比如做出一个可爱的微笑，使其看上去满脸困惑或者伤感，增加一顶帽子等等。尽管它有着不同的表情或着装有所差异，但经过你修改的 Spongie 仍应具备明显的辨识度，可确定是吉祥物 Spongie 的形象。</li>
+<li>使用 Spongie 或 SpongePowered 標誌在文章或部落格發佈內容，以推廣 Sponge 專案。</li>
+<li>使用 SpongePowered 的图标链接到 Sponge 主页 &lt;<a class="reference external" href="https://www.spongepowered.org">https://www.spongepowered.org</a>&gt; （比如在你的论坛的签名中等等）或者别的 SpongePowered 官方资源。</li>
+<li>在社群分享按鈕中使用 Logo</li>
+</ul>
+<p>你不可以：</p>
+<ul class="simple">
+<li>只使用吉祥物作為 Sponge 專案的連結。作為相關性或參考時，SpongePowered 標誌（Spongie 原本的形式）是一個更能代表 Sponge 專案。</li>
+<li>創造一個魔改版本的 Spongie，使她面目全非或是與原本的 Spongie 吉祥物截然不同。</li>
+<li>在 Spongie 或其 Logo 上加入你的專案圖案，反之亦然。</li>
+<li>聲稱 Spongie 是你的吉祥物，或是將她作為你自己專案的吉祥物。</li>
+<li>未經許可在商業上出售或使用 Spongie 或其 Logo。</li>
+<li>更改任何顏色或尺寸。</li>
+</ul>
+<div class="section" id="the-official-sponge-logo">
+<h2>官方的 Sponge Logo<a class="headerlink" href="#the-official-sponge-logo" title="本標題的永久連結">¶</a></h2>
+<img alt="official SpongePowered logo" class="align-center" src="../_images/logo-spongepowered.png" />
+</div>
+<div class="section" id="spongie-the-official-sponge-mascot">
+<h2>Spongie - 官方的 Sponge 吉祥物<a class="headerlink" href="#spongie-the-official-sponge-mascot" title="本標題的永久連結">¶</a></h2>
+<img alt="Spongie the SpongePowered mascot" class="align-center" src="../_images/logo-spongie.png" />
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="history.html" class="btn btn-neutral float-right" title="Sponge 的歷史" accesskey="n" rel="next">下一頁 <span class="fa fa-angle-right"></span></a>
+        <a href="glossary.html" class="btn btn-neutral" title="Sponge 術語" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> 上一頁</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../_static/flags/zh_TW.svg"
+         alt="zh-TW" title="繁體中文">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../_static/jquery.js"></script>      <script type="text/javascript" src="../_static/underscore.js"></script>      <script type="text/javascript" src="../_static/doctools.js"></script>      <script type="text/javascript" src="../_static/language_data.js"></script>      <script type="text/javascript" src="../_static/translations.js"></script>      <script type="text/javascript" src="../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

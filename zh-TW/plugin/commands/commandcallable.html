@@ -1,0 +1,328 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>低階指令 API &mdash; Sponge 7.2.0 說明文件</title>
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="索引"
+              href="../../genindex.html"/>        <link rel="search" title="搜尋" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 說明文件" href="../../index.html"/>        <link rel="up" title="插件指令" href="index.html"/>        <link rel="next" title="事件" href="../event/index.html"/>        <link rel="prev" title="指令管理器" href="service.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../../index.html">
+            <img src="../../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../server/index.html">建立伺服器</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../versions/index.html">版本控制方針</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../preparing/index.html">準備開發</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">建立插件</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../api-versions.html">API版本</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../buildsystem.html">建置系統</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../workspace/index.html">建立你的工作空間</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../project/index.html">建立你的專案</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-identifier.html">插件識別碼</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-class.html">主要插件類別</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lifecycle.html">插件的生命週期</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../injection.html">相依注入</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../practices/index.html">實踐</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../optional/index.html">Optionals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../logging.html">記錄與除錯</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text/index.html">文本</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">插件指令</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="creating.html">建立一個指令</a></li>
+<li class="toctree-l3"><a class="reference internal" href="arguments.html">引數剖析</a></li>
+<li class="toctree-l3"><a class="reference internal" href="flags.html">指令旗標</a></li>
+<li class="toctree-l3"><a class="reference internal" href="childcommands.html">子指令</a></li>
+<li class="toctree-l3"><a class="reference internal" href="service.html">指令管理器</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">低階指令 API</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../event/index.html">事件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/index.html">設定插件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assets.html">Asset API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data/index.html">Data API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../blocks/index.html">方塊</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../entities/index.html">實體</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../items/index.html">物品</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../trade-offers.html">開設交易</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../effects.html">效果</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../scheduler.html">排程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../services.html">服務</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database.html">資料庫</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../permissions.html">權限</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bans.html">封鎖</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metrics.html">Metrics 收集</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bookview.html">書本閱覽</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../economy/index.html">經濟</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wgen/index.html">世界生成</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manager.html">插件管理器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../game-profile-manager.html">遊戲設定檔管理器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../offline-userplayer-data.html">離線玩家資料</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tab-lists.html">Tab 清單</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-meta.html">插件元數據</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ray-tracing.html">光線追蹤</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../debugging.html">插件除錯</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials.html">教學</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internals/index.html">相依於實作的插件</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ore/index.html">Ore 文件</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/index.html">為 Sponge 貢獻</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">關於 Sponge 專案</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+          <li><a href="../index.html">建立插件</a> &raquo;</li>
+          <li><a href="index.html">插件指令</a> &raquo;</li>
+    <li>低階指令 API</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/plugin/commands/commandcallable.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="low-level-command-api">
+<h1>低階指令 API<a class="headerlink" href="#low-level-command-api" title="本標題的永久連結">¶</a></h1>
+<p><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/CommandCallable.html">CommandCallable</a> 和 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/dispatcher/Dispatcher.html">Dispatcher</a> 两个接口可以用于定义命令。这两个接口可以用于自定义命令 API 的基础。</p>
+<p>我们强烈地建议使用 <a class="reference internal" href="creating.html"><span class="doc">Command Builder API</span></a> 以定义简单的命令。</p>
+<div class="section" id="writing-a-command">
+<h2>撰寫一個指令<a class="headerlink" href="#writing-a-command" title="本標題的永久連結">¶</a></h2>
+<p>第一步是创建一个命令类，并使其实现 <code class="docutils literal notranslate"><span class="pre">CommandCallable</span></code> 接口：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.Sponge</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.text.Text</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.command.CommandCallable</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.command.CommandException</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.command.CommandResult</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.command.CommandSource</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.Collections</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Optional</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyBroadcastCommand</span> <span class="kd">implements</span> <span class="n">CommandCallable</span> <span class="p">{</span>
+
+    <span class="kd">private</span> <span class="kd">final</span> <span class="n">Optional</span><span class="o">&lt;</span><span class="n">Text</span><span class="o">&gt;</span> <span class="n">desc</span> <span class="o">=</span> <span class="n">Optional</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">Text</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;Displays a message to all players&quot;</span><span class="p">));</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="n">Optional</span><span class="o">&lt;</span><span class="n">Text</span><span class="o">&gt;</span> <span class="n">help</span> <span class="o">=</span> <span class="n">Optional</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">Text</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;Displays a message to all players. It has no color support!&quot;</span><span class="p">));</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="n">Text</span> <span class="n">usage</span> <span class="o">=</span> <span class="n">Text</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;&lt;message&gt;&quot;</span><span class="p">);</span>
+
+    <span class="kd">public</span> <span class="n">CommandResult</span> <span class="nf">process</span><span class="p">(</span><span class="n">CommandSource</span> <span class="n">source</span><span class="p">,</span> <span class="n">String</span> <span class="n">arguments</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">CommandException</span> <span class="p">{</span>
+        <span class="n">Sponge</span><span class="p">.</span><span class="na">getServer</span><span class="p">().</span><span class="na">getBroadcastChannel</span><span class="p">().</span><span class="na">send</span><span class="p">(</span><span class="n">Text</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">arguments</span><span class="p">));</span>
+        <span class="k">return</span> <span class="n">CommandResult</span><span class="p">.</span><span class="na">success</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">testPermission</span><span class="p">(</span><span class="n">CommandSource</span> <span class="n">source</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">source</span><span class="p">.</span><span class="na">hasPermission</span><span class="p">(</span><span class="s">&quot;myplugin.broadcast&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="n">Optional</span><span class="o">&lt;</span><span class="n">Text</span><span class="o">&gt;</span> <span class="nf">getShortDescription</span><span class="p">(</span><span class="n">CommandSource</span> <span class="n">source</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">desc</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="n">Optional</span><span class="o">&lt;</span><span class="n">Text</span><span class="o">&gt;</span> <span class="nf">getHelp</span><span class="p">(</span><span class="n">CommandSource</span> <span class="n">source</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">help</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="n">Text</span> <span class="nf">getUsage</span><span class="p">(</span><span class="n">CommandSource</span> <span class="n">source</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">usage</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="nf">getSuggestions</span><span class="p">(</span><span class="n">CommandSource</span> <span class="n">source</span><span class="p">,</span> <span class="n">String</span> <span class="n">arguments</span><span class="p">,</span> <span class="nd">@Nullable</span> <span class="n">Location</span><span class="o">&lt;</span><span class="n">World</span><span class="o">&gt;</span> <span class="n">targetPosition</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">CommandException</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">Collections</span><span class="p">.</span><span class="na">emptyList</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">小訣竅</p>
+<p class="last">如欲获取这一示例中每个方法的用途，请参阅 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/CommandCallable.html">CommandCallable</a> 。</p>
+</div>
+</div>
+<div class="section" id="registering-the-command">
+<h2>註冊該指令<a class="headerlink" href="#registering-the-command" title="本標題的永久連結">¶</a></h2>
+<p>那么我们现在可以通过 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/CommandManager.html">CommandManager</a> 注册这个类了。 <code class="docutils literal notranslate"><span class="pre">CommandManager</span></code> 用于监视用户在聊天框中输入的命令，并将其重定向到正确的命令处理代码。请使用 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/CommandManager.html#register-java.lang.Object-org.spongepowered.api.command.CommandCallable-java.lang.String...-">CommandManager#register(Object, CommandCallable, String…)</a> 方法，并传入插件的实例、命令的实例、以及所有需要作为命令的别名的字符串，以注册这一命令。</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.command.CommandManager</span><span class="p">;</span>
+
+<span class="n">CommandManager</span> <span class="n">cmdService</span> <span class="o">=</span> <span class="n">Sponge</span><span class="p">.</span><span class="na">getCommandManager</span><span class="p">();</span>
+<span class="n">PluginContainer</span> <span class="n">plugin</span> <span class="o">=</span> <span class="p">...;</span>
+<span class="n">cmdService</span><span class="p">.</span><span class="na">register</span><span class="p">(</span><span class="n">plugin</span><span class="p">,</span> <span class="k">new</span> <span class="n">MyBroadcastCommand</span><span class="p">(),</span> <span class="s">&quot;message&quot;</span><span class="p">,</span> <span class="s">&quot;broadcast&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">備註</p>
+<p class="last">命令的实例后的参数就是待注册的命令的所有别名。你可以添加任意多的字符串。没有被其他命令占用的第一个别名将成为命令的主名称。这意味着已被其他命令占用的别名会被忽略。</p>
+</div>
+</div>
+<div class="section" id="command-dispatchers">
+<h2>指令調度器<a class="headerlink" href="#command-dispatchers" title="本標題的永久連結">¶</a></h2>
+<p>命令调度可以用于创建分层命令结构（子命令）。</p>
+<p>默认的 <code class="docutils literal notranslate"><span class="pre">Dispatcher</span></code> 接口的实现是 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/command/dispatcher/SimpleDispatcher.html">SimpleDispatcher</a> 类。</p>
+<p>一个 <code class="docutils literal notranslate"><span class="pre">Dispatcher</span></code> 同时也是一个 <code class="docutils literal notranslate"><span class="pre">CommandCallable</span></code> ，因此它可以像其他命令一样注册。</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.command.dispatcher.SimpleDispatcher</span><span class="p">;</span>
+
+<span class="n">CommandCallable</span> <span class="n">subCommand1</span> <span class="o">=</span> <span class="p">...;</span>
+<span class="n">CommandCallable</span> <span class="n">subCommand2</span> <span class="o">=</span> <span class="p">...;</span>
+
+<span class="n">SimpleDispatcher</span> <span class="n">rootCommand</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SimpleDispatcher</span><span class="p">();</span>
+
+<span class="n">rootCommand</span><span class="p">.</span><span class="na">register</span><span class="p">(</span><span class="n">subCommand1</span><span class="p">,</span> <span class="s">&quot;subcommand1&quot;</span><span class="p">,</span> <span class="s">&quot;sub1&quot;</span><span class="p">);</span>
+<span class="n">rootCommand</span><span class="p">.</span><span class="na">register</span><span class="p">(</span><span class="n">subCommand2</span><span class="p">,</span> <span class="s">&quot;subcommand2&quot;</span><span class="p">,</span> <span class="s">&quot;sub2&quot;</span><span class="p">);</span>
+
+<span class="n">Sponge</span><span class="p">.</span><span class="na">getCommandManager</span><span class="p">().</span><span class="na">register</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="n">rootCommand</span><span class="p">,</span> <span class="s">&quot;root&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../event/index.html" class="btn btn-neutral float-right" title="事件" accesskey="n" rel="next">下一頁 <span class="fa fa-angle-right"></span></a>
+        <a href="service.html" class="btn btn-neutral" title="指令管理器" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> 上一頁</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../../_static/flags/zh_TW.svg"
+         alt="zh-TW" title="繁體中文">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../../_static/jquery.js"></script>      <script type="text/javascript" src="../../_static/underscore.js"></script>      <script type="text/javascript" src="../../_static/doctools.js"></script>      <script type="text/javascript" src="../../_static/language_data.js"></script>      <script type="text/javascript" src="../../_static/translations.js"></script>      <script type="text/javascript" src="../../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

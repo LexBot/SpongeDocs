@@ -1,0 +1,309 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MCP (Mod Coder Pack) &mdash; Sponge 7.2.0 belgelendirme çalışması</title>
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="Dizin"
+              href="../../genindex.html"/>        <link rel="search" title="Ara" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 belgelendirme çalışması" href="../../index.html"/>        <link rel="up" title="Uygulamaya Bağlı Eklentiler" href="index.html"/>        <link rel="next" title="Eklentilerde MCP kullanılması" href="mcp-setup.html"/>        <link rel="prev" title="Uygulamaya Bağlı Eklentiler" href="index.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../../index.html">
+            <img src="../../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../server/index.html">Bir sunucu oluşturma</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../versions/index.html">Versioning Policy</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../preparing/index.html">Geliştirme için hazırlanıyor</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Bir eklenti oluşturma</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../api-versions.html">API-Versions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../buildsystem.html">Sistem oluşturun</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../workspace/index.html">Çalışma Alanınız Kuruluyor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../project/index.html">Projenizi Ayarlama</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-identifier.html">Eklenti Tanımlayıcıları</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-class.html">Ana eklenti sınıfı</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lifecycle.html">Eklenti Yaşan Döngüsü</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../injection.html">Bağımlılık Enjeksiyonu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../practices/index.html">Alıştırmalar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../optional/index.html">İsteğe bağlı</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../logging.html">Günlük Oluşturma ve Hata Giderme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text/index.html">Metin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/index.html">Plugin Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../event/index.html">Etkinlikler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/index.html">Eklentileri yapılandırma</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assets.html">API öğesi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data/index.html">Veri API’sı</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../blocks/index.html">Bloklar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../entities/index.html">Varlıklar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../items/index.html">Öğeler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../trade-offers.html">Ticaret-Teklifleri</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../effects.html">Efektler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../scheduler.html">Zamanlayıcı</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../services.html">Servisler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database.html">Veritabanları</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../permissions.html">İzinler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bans.html">Yasaklılar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metrics.html">Metrics Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bookview.html">Kitap görünümleri</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../economy/index.html">Ekonomi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wgen/index.html">Dünya oluşturma</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manager.html">Eklenti yöneticisi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../game-profile-manager.html">Oyun Profili Yöneticisi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../offline-userplayer-data.html">Çevrim dışı oyuncu verisi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tab-lists.html">Sekme listeleri</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-meta.html">Eklenti Metaverileri</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ray-tracing.html">Işın izleme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../debugging.html">Eklenti Hata Ayıklama</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials.html">Eğiticiler</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Uygulamaya Bağlı Eklentiler</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">MCP (Mod Coder Pack)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mcp-setup.html">Eklentilerde MCP kullanılması</a></li>
+<li class="toctree-l3"><a class="reference internal" href="access-transformers.html">Dönüştürücülere Ulaşın</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mixins.html">Mixins eklentisi</a></li>
+<li class="toctree-l3"><a class="reference internal" href="implementation.html">İç Sponge Sınıfları</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ore/index.html">Ore Dökümanları</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/index.html">Sponge’a Katkı Sağlama</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">Sponge Projesi Hakkında</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+          <li><a href="../index.html">Bir eklenti oluşturma</a> &raquo;</li>
+          <li><a href="index.html">Uygulamaya Bağlı Eklentiler</a> &raquo;</li>
+    <li>MCP (Mod Coder Pack)</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/plugin/internals/mcp.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="mcp-mod-coder-pack">
+<h1>MCP (Mod Coder Pack)<a class="headerlink" href="#mcp-mod-coder-pack" title="Bu başlığın kalıcı bağlantısı">¶</a></h1>
+<p><a class="reference external" href="http://www.modcoderpack.com">Mod Coder Pack</a> (kısa MCP) başlangıçta Minecraft için modların geliştirilmesini kolaylaştırmak için senaryoların, araçların ve eşleşmelerin bir koleksiyonu olarak yaratılmıştır. Minecraft açık kaynak olmadığı ve çoğunlukla karmaşık olduğu için, orijinal kod neredeyse okunaklı olmadığından gelişmeler kötü durumdaydı. MCP, geliştiricilerin decompiled, deobuscated (insani okunabilir) Minecraft kodunu kullanarak mod oluşturabileceği bir çalışma alanı olarak tasarlandı.</p>
+<div class="section" id="workflow">
+<h2>İş Akışı<a class="headerlink" href="#workflow" title="Bu başlığın kalıcı bağlantısı">¶</a></h2>
+<p>MCP’yi kullanmak, eklentileri geliştirme iş akışına ek adımlar ekleyerek aşağıda basitleştirilmiştir:</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>MCP çalışma alanını ayarla</dt>
+<dd><ul class="first last">
+<li>Minecraft istemci/sunucu dosyalarını indirin</li>
+<li>Deobfüssiyon kodunu (okunamayan isimleri okunabilir olanlara çevirin)</li>
+<li>Decompile kod çözme (ikili sınıflardan kaynak dosyalar üretme)</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li>Deobfuscated Minecraft kaynak kullanarak bir eklenti oluşturun</li>
+<li>Re-obfuscate the plugin code so it can be used with the obfuscated code at runtime</li>
+</ul>
+</div>
+<div class="section" id="mappings">
+<h2>Eşleşmeler<a class="headerlink" href="#mappings" title="Bu başlığın kalıcı bağlantısı">¶</a></h2>
+<p>MCP, çalışma alanı kurulumu sırasında ayrı olarak uygulanan iki eşleme kümesi kullanır. Notch <a href="#id1"><span class="problematic" id="id2">*</span></a>, * Searge * ve * MCP * eşlemeleri arasındaki fark aşağıdaki örnekte görülebilir:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>// Notch
+boolean a(rw ☃);
+
+// Searge
+boolean func_72838_d(Entity p_72838_1_);
+
+// MCP
+boolean spawnEntityInWorld(Entity entityIn);
+</pre></div>
+</div>
+<ul class="simple">
+<li>** Notch eşlemeleri <a href="#id1"><span class="problematic" id="id2">**</span></a>, obfuscated Minecraft ikili dosyasındaki orijinal adlardır. Yeni Minecraft sürümleriyle düzenli olarak değişirler.</li>
+<li>** Searge eşlemeleri <a href="#id1"><span class="problematic" id="id2">**</span></a>, obfuscated yöntemler, alanlar ve parametreler ile sınıflar için okunabilir isimler için benzersiz adlar içerir. Notch eşleştirmelerinin aksine, yöntem imzaları değişmedikçe genellikle Minecraft güncellemelerinde aynı kalırlar. SpongeVanilla ve SpongeForge için ayrıca üretimde (IDE’nizin dışında) kullanılırlar.</li>
+<li>** MCP eşlemeleri <a href="#id1"><span class="problematic" id="id2">**</span></a>, çoğunlukla topluluk tarafından katkıda bulunan okunabilir isimleri içerir. Genellikle yalnızca geliştirme ortamında kullanılırlar ve daha sonra Searge veya Notch eşlemelerine tekrar okunamaz hale getirilirler.</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Not</p>
+<p class="last">When you create a plugin, you work with <em>MCP mappings</em> in your development environment. To run the plugin in
+production (outside of your IDE) you need to re-obfuscate it to <em>Searge mappings</em>.</p>
+</div>
+<div class="section" id="using-the-mcpbot">
+<h3>MCPBot’u kullanma<a class="headerlink" href="#using-the-mcpbot" title="Bu başlığın kalıcı bağlantısı">¶</a></h3>
+<p>The <a class="reference external" href="http://mcpbot.bspk.rs/">MCPBot</a> is available in the Sponge and MCP IRC channels, or in the <code class="docutils literal notranslate"><span class="pre">#bot-spam</span></code> channel on Discord,
+and allows you to lookup MCP mappings or contribute new names.
+You can send commands to the bot by sending messages in one of the supported channels (e.g. <code class="docutils literal notranslate"><span class="pre">#spongedev</span></code>).</p>
+<div class="admonition tip">
+<p class="first admonition-title">Tüyo</p>
+<p class="last">Mevcut tüm komutların bir listesi için <a class="reference external" href="http://mcpbot.bspk.rs/help">MCPBot help page</a> sayfasına göz atın.</p>
+</div>
+<div class="section" id="contributing-new-names">
+<h4>Yeni isimlere katkıda bulunmak<a class="headerlink" href="#contributing-new-names" title="Bu başlığın kalıcı bağlantısı">¶</a></h4>
+<p>Hâlâ adlandırılmamış sınıf üyeleri için adlar da katkıda bulunabilirsiniz. Daha fazla talimat için <cite>MCPBot yardım sayfasını</cite> gözden geçirin.</p>
+<div class="admonition note">
+<p class="first admonition-title">Not</p>
+<p class="last">Mevcut isimleri değiştiremezsiniz. Mevcut bir eşlemeyi değiştirmeyi öneriyorsanız, GitHub’daki MCPBot sorun izleyicisinde yeni bir konu oluşturun &lt;<a class="reference external" href="https://github.com/ModCoderPack/MCPBot-Issues/issues">https://github.com/ModCoderPack/MCPBot-Issues/issues</a>&gt;`_.</p>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">Ayrıca bkz.</p>
+<dl class="last docutils">
+<dt><a class="reference external" href="http://www.modcoderpack.com">Mod Kodlayıcı Paketi</a></dt>
+<dd>Mod Coder Pack’in resmi internet sitesi.</dd>
+<dt><a class="reference external" href="http://mcpbot.bspk.rs/help">MCPBot yardım sayfası</a></dt>
+<dd><a class="reference external" href="http://mcpbot.bspk.rs/">MCPBot</a> kullanımı hakkında daha fazla bilgi.</dd>
+</dl>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="mcp-setup.html" class="btn btn-neutral float-right" title="Eklentilerde MCP kullanılması" accesskey="n" rel="next">İleri <span class="fa fa-angle-right"></span></a>
+        <a href="index.html" class="btn btn-neutral" title="Uygulamaya Bağlı Eklentiler" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> Önceki</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../../_static/flags/tr_TR.svg"
+         alt="tr" title="Türkçe">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../../_static/jquery.js"></script>      <script type="text/javascript" src="../../_static/underscore.js"></script>      <script type="text/javascript" src="../../_static/doctools.js"></script>      <script type="text/javascript" src="../../_static/language_data.js"></script>      <script type="text/javascript" src="../../_static/translations.js"></script>      <script type="text/javascript" src="../../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

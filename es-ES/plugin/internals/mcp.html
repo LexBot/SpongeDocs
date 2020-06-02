@@ -1,0 +1,309 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CPM(codificador del paquete de modificaciones) &mdash; documentación de Sponge - 7.2.0</title>
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="Índice"
+              href="../../genindex.html"/>        <link rel="search" title="Búsqueda" href="../../search.html"/>    <link rel="top" title="documentación de Sponge - 7.2.0" href="../../index.html"/>        <link rel="up" title="Implementation-dependent Plugins" href="index.html"/>        <link rel="next" title="Usando Complementos MCP" href="mcp-setup.html"/>        <link rel="prev" title="Implementation-dependent Plugins" href="index.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../../index.html">
+            <img src="../../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../server/index.html">Creando un Servidor</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../versions/index.html">Versioning Policy</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../preparing/index.html">Preparándose para el Desarrollo</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Creando un Plugin</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../api-versions.html">API-Versions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../buildsystem.html">Sistemas de Compilación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../workspace/index.html">Configuración de su Espacio de Trabajo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../project/index.html">Configurando Su Proyecto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-identifier.html">Identificadores de Complementos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-class.html">Clase de Plug-in Principal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lifecycle.html">Ciclo de vida del Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../injection.html">Inyección de Dependencia</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../practices/index.html">Prácticas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../optional/index.html">Opcionales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../logging.html">Registro y Depuración</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text/index.html">Texto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/index.html">Plugin Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../event/index.html">Eventos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/index.html">Configurando Extensiones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assets.html">La API de Activos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data/index.html">La API de Datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../blocks/index.html">Bloques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../entities/index.html">Entidades</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../items/index.html">Articulos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../trade-offers.html">Ofertas de Intercambio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../effects.html">Efectos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../scheduler.html">Programador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../services.html">Servicios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database.html">Bases de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../permissions.html">Permisos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bans.html">Baneos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metrics.html">Metrics Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bookview.html">Vistas del Libro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../economy/index.html">Economía</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wgen/index.html">Generación de Mundo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manager.html">Administrador de Complementos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../game-profile-manager.html">Administrador de Perfiles del Juego</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../offline-userplayer-data.html">Datos del Jugador Fuera de Línea</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tab-lists.html">Listas de Tabulaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-meta.html">Metadatos del Complemento</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ray-tracing.html">Trazado de Rayos (Ray Tracing)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../debugging.html">Depuración de Complemento</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials.html">Tutoriales</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Implementation-dependent Plugins</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">CPM(codificador del paquete de modificaciones)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mcp-setup.html">Usando Complementos MCP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="access-transformers.html">Transformadores de Acceso</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mixins.html">Complementos de Mixins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="implementation.html">Clases Internas de Sponge</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ore/index.html">Documentación Ore</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/index.html">Contribuyendo a Sponge</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">Acerca del proyecto Sponge</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+          <li><a href="../index.html">Creando un Plugin</a> &raquo;</li>
+          <li><a href="index.html">Implementation-dependent Plugins</a> &raquo;</li>
+    <li>CPM(codificador del paquete de modificaciones)</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/plugin/internals/mcp.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="mcp-mod-coder-pack">
+<h1>CPM(codificador del paquete de modificaciones)<a class="headerlink" href="#mcp-mod-coder-pack" title="Enlazar permanentemente con este título">¶</a></h1>
+<p>El`Mod Coder Pack`_(resumido MCP) fue originalmente creado para la colección de guiones, herramientas y mapeos para crear el desarrollo de las modificaciones de Minecraft facilmente. Como Minecraft no es de codigo abierto y su mayor parte esta ofuscado, desarrollar nuevamente seria difícil ya que el codigo original era casi ilegible. MCP fue diseñado como un espacio de trabajo en el que los desarrolladores pudieran crear modificaciones usando descompresiones, el codigo Minecraft (humanamente legibles) descomprimido.</p>
+<div class="section" id="workflow">
+<h2>Flujo de trabajo<a class="headerlink" href="#workflow" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Mediante MCP añade pasos adicionales para el flujo de trabajo de los desarrolladores de complementos, simplificado a continuacion:</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>Configura el área de trabajo MCP</dt>
+<dd><ul class="first last">
+<li>Descarga los archivos cliente/servidor de Minecraft</li>
+<li>Desofusca el código (cambiando los nombres ofuscados a nombres legibles por humanos)</li>
+<li>Desompila el codigo (generando archivos fuente desde las clases binarias)</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li>Crea un complemento usando la fuente desofuscada de Minecraft</li>
+<li>Re-ofusca el código del complemento de modo que pueda ser usado con el código ofuscado en tiempo de ejecución</li>
+</ul>
+</div>
+<div class="section" id="mappings">
+<h2>Mapeos<a class="headerlink" href="#mappings" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>MCP usa dos conjuntos diferentes de asignaciones que se aplican por separado durante la configuración del espacio de trabajo. La diferencia entre las asignaciones <em>Notch</em>, <em>Searge</em> y * MCP* se pueden ver en el siguiente ejemplo:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>// Notch
+boolean a(rw ☃);
+
+// Searge
+boolean func_72838_d(Entity p_72838_1_);
+
+// MCP
+boolean spawnEntityInWorld(Entity entityIn);
+</pre></div>
+</div>
+<ul class="simple">
+<li><strong>Mapeos Notch</strong> son los nombres originales en el binario ofuscado de Minecraft. Estos cambian regularmente con las nuevas versiones de Minecraft.</li>
+<li><strong>Mapeos Searge</strong> contienen nombres únicos para todos los métodos, campos y parámetros ofuscados, así como también nombres legibles para las clases. A diferencia de las asignaciones de Notch, generalmente permanecen iguales en las actualizaciones de Minecraft a menos que las firmas de método cambien. Para SpongeVanilla y SpongeForge, también son usadas en la producción (fuera de tu IDE).</li>
+<li><strong>Mapeos MCP</strong> contienen nombres legibles por humanos, en gran parte aportados por la comunidad. Por lo general, solo se usan en el entorno de desarrollo y luego se vuelven a ofuscar a mapeos Notch o Searge.</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Nota</p>
+<p class="last">When you create a plugin, you work with <em>MCP mappings</em> in your development environment. To run the plugin in
+production (outside of your IDE) you need to re-obfuscate it to <em>Searge mappings</em>.</p>
+</div>
+<div class="section" id="using-the-mcpbot">
+<h3>Usando el Bot MCP<a class="headerlink" href="#using-the-mcpbot" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>The <a class="reference external" href="http://mcpbot.bspk.rs/">MCPBot</a> is available in the Sponge and MCP IRC channels, or in the <code class="docutils literal notranslate"><span class="pre">#bot-spam</span></code> channel on Discord,
+and allows you to lookup MCP mappings or contribute new names.
+You can send commands to the bot by sending messages in one of the supported channels (e.g. <code class="docutils literal notranslate"><span class="pre">#spongedev</span></code>).</p>
+<div class="admonition tip">
+<p class="first admonition-title">Truco</p>
+<p class="last">Échale un vistazo a la <a class="reference external" href="http://mcpbot.bspk.rs/help">MCPBot help page</a> para una lista de todos los comandos disponibles.</p>
+</div>
+<div class="section" id="contributing-new-names">
+<h4>Aportando nuevos nombres<a class="headerlink" href="#contributing-new-names" title="Enlazar permanentemente con este título">¶</a></h4>
+<p>También puedes aportar nuevos nombres para miembros de clase que aun no tienen nombre. Échale un vistazo al <a class="reference external" href="http://mcpbot.bspk.rs/help">MCPBot help page</a> para mas instrucciones.</p>
+<div class="admonition note">
+<p class="first admonition-title">Nota</p>
+<p class="last">No puedes cambiar nombres existentes. Si quieres sugerir cambiar un mapeo existente, crea un nuevo asunto en el <a class="reference external" href="https://github.com/ModCoderPack/MCPBot-Issues/issues">MCPBot issue tracker on GitHub</a>.</p>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">Ver también</p>
+<dl class="last docutils">
+<dt><a class="reference external" href="http://www.modcoderpack.com">Mod Coder Pack</a></dt>
+<dd>Sitio web oficial del Paquete de Codificación para Modificaciones.</dd>
+<dt><a class="reference external" href="http://mcpbot.bspk.rs/help">MCPBot help page</a></dt>
+<dd>Mas información sobre el uso del <a class="reference external" href="http://mcpbot.bspk.rs/">MCPBot</a>.</dd>
+</dl>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="mcp-setup.html" class="btn btn-neutral float-right" title="Usando Complementos MCP" accesskey="n" rel="next">Siguiente <span class="fa fa-angle-right"></span></a>
+        <a href="index.html" class="btn btn-neutral" title="Implementation-dependent Plugins" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> Previo</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../../_static/flags/es_ES.svg"
+         alt="es" title="Español">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../../_static/jquery.js"></script>      <script type="text/javascript" src="../../_static/underscore.js"></script>      <script type="text/javascript" src="../../_static/doctools.js"></script>      <script type="text/javascript" src="../../_static/language_data.js"></script>      <script type="text/javascript" src="../../_static/translations.js"></script>      <script type="text/javascript" src="../../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

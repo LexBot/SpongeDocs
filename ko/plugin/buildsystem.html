@@ -1,0 +1,265 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>빌드 시스템 &mdash; Sponge 7.2.0 documentation</title>
+
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="색인"
+              href="../genindex.html"/>        <link rel="search" title="검색" href="../search.html"/>    <link rel="top" title="Sponge 7.2.0 documentation" href="../index.html"/>        <link rel="up" title="플러그인 개발하기" href="index.html"/>        <link rel="next" title="작업 공간 준비하기" href="workspace/index.html"/>        <link rel="prev" title="API 버전" href="api-versions.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../index.html">
+            <img src="../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../server/index.html">서버 만들기</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../versions/index.html">Versioning Policy</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../preparing/index.html">개발 준비</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">플러그인 개발하기</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="api-versions.html">API 버전</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">빌드 시스템</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workspace/index.html">작업 공간 준비하기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project/index.html">프로젝트 준비하기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin-identifier.html">플러그인 식별자</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin-class.html">메인 플러그인 클래스</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lifecycle.html">플러그인 생명 주기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="injection.html">의존성 주입</a></li>
+<li class="toctree-l2"><a class="reference internal" href="practices/index.html">관행</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optional/index.html">Optional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.html">로그 및 디버그</a></li>
+<li class="toctree-l2"><a class="reference internal" href="text/index.html">텍스트</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands/index.html">플러그인 명령어</a></li>
+<li class="toctree-l2"><a class="reference internal" href="event/index.html">이벤트</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration/index.html">플러그인 설정</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assets.html">자산 API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data/index.html">자료 API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/index.html">블록</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entities/index.html">개체</a></li>
+<li class="toctree-l2"><a class="reference internal" href="items/index.html">아이템</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trade-offers.html">거래 제안</a></li>
+<li class="toctree-l2"><a class="reference internal" href="effects.html">효과</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scheduler.html">스케줄러</a></li>
+<li class="toctree-l2"><a class="reference internal" href="services.html">서비스</a></li>
+<li class="toctree-l2"><a class="reference internal" href="database.html">데이터베이스</a></li>
+<li class="toctree-l2"><a class="reference internal" href="permissions.html">권한</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bans.html">차단</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metrics.html">Metrics Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bookview.html">책 View</a></li>
+<li class="toctree-l2"><a class="reference internal" href="economy/index.html">경제</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wgen/index.html">세계 생성</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manager.html">플러그인 관리자</a></li>
+<li class="toctree-l2"><a class="reference internal" href="game-profile-manager.html">게임 프로필 관리자</a></li>
+<li class="toctree-l2"><a class="reference internal" href="offline-userplayer-data.html">오프라인 플레이어 데이터</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tab-lists.html">탭 목록</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin-meta.html">플러그인 메타데이터</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ray-tracing.html">광선 추적</a></li>
+<li class="toctree-l2"><a class="reference internal" href="debugging.html">플러그인 디버그</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials.html">튜토리얼</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internals/index.html">구현 의존 플러그인</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ore/index.html">Ore 설명 문서</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contributing/index.html">Sponge에 기여하기</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">Sponge 프로젝트에 대하여</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+          <li><a href="index.html">플러그인 개발하기</a> &raquo;</li>
+    <li>빌드 시스템</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/plugin/buildsystem.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="build-systems">
+<h1>빌드 시스템<a class="headerlink" href="#build-systems" title="제목 주소">¶</a></h1>
+<p><a class="reference external" href="https://gradle.org/">Gradle</a> 이나 <a class="reference external" href="https://maven.apache.org/">Maven</a> 같은 빌드 시스템은 프로젝트의 빌드 과정을 관리합니다. IDE와는 독립된 도구로, SpongeAPI나 다른 플러그인에 대한 의존성을 관리하고 다른 사람이 쉽게 당신의 플러그인을 소스에서 빌드할 수 있도록 합니다.</p>
+<div class="admonition note">
+<p class="first admonition-title">주석</p>
+<p class="last">SpongeAPI를 사용한 플러그인 개발에 빌드 시스템의 사용은 <strong>필수가 아닙니다만</strong>, 사용하는 것이 권장됩니다. <a class="reference internal" href="#creating-a-plugin-without-a-build-system">Creating a plugin without a build system</a> 에서의 짧은 설명을 제외한 아래의 지침서는 당신이 프로젝트의 의존성을 관리해 줄 빌드 시스템을 사용한다고 가정합니다.</p>
+</div>
+<p>기본적으로, 당신은 자바 프로젝트의 빌드 시스템 표준으로 <em>Maven dependency</em> 를 지원하는 어떠한 빌드 시스템을 사용해도 좋습니다. 다음 지침은 빌드 시스템으로 가장 많이 사용되는 <a class="reference external" href="https://gradle.org/">Gradle</a> 과 <a class="reference external" href="https://maven.apache.org/">Maven</a> 의 사용에 초점을 맞출 것입니다. 만약 당신이 무엇을 사용할 지 모르겠다면, <a class="reference external" href="https://gradle.org/">Gradle</a> 이 Sponge 프로젝트에 사용되고 있고 Sponge 플러그인에게 최상의 연계를 제공하기 때문에 저희들은 <a class="reference external" href="https://gradle.org/">Gradle</a> 의 사용을 추천드립니다.</p>
+<div class="section" id="gradle">
+<span id="gradle-setup"></span><h2>Gradle<a class="headerlink" href="#gradle" title="제목 주소">¶</a></h2>
+<p><a class="reference external" href="https://gradle.org/">Gradle</a> 은 프로젝트 설정에 사용되는 <a class="reference external" href="https://www.groovy-lang.org/">Groovy</a> 또는 <a class="reference external" href="https://kotlinlang.org/">Kotlin</a> 기반 스크립트를 사용합니다. <a class="reference external" href="https://gradle.org/">Gradle</a> 프로젝트는 일반적으로 최상위 디렉토리에 있는 <code class="docutils literal notranslate"><span class="pre">build.gradle</span></code> 파일이 <a class="reference external" href="https://gradle.org/">Gradle</a> 에게 프로젝트를 어떤 식으로 빌드할지 지시합니다.</p>
+<div class="admonition tip">
+<p class="first admonition-title">참고</p>
+<p class="last"><a class="reference external" href="https://gradle.org/">Gradle</a> 의 개념에 대한 기본 안내와 설치 방법은 <a class="reference external" href="https://docs.gradle.org/current/userguide/userguide.html">Gradle User Guide</a> 를 참조하세요. 만약 당신이 간단한 자바 프로젝트에 <a class="reference external" href="https://gradle.org/">Gradle</a> 을 어떻게 사용하는지에만 관심이 있다면, <a class="reference external" href="https://docs.gradle.org/current/userguide/building_java_projects.html">Gradle Java Quickstart</a> 를 먼저 확인하세요.</p>
+</div>
+<p><a class="reference internal" href="workspace/index.html"><span class="doc">작업 공간 준비하기</span></a> 에 설명된 대로 작업공간을 설정한 다음 <a class="reference internal" href="project/gradle.html"><span class="doc">Gradle 설치하기</span></a> 지침서를 따르세요.</p>
+</div>
+<div class="section" id="maven">
+<h2>Maven<a class="headerlink" href="#maven" title="제목 주소">¶</a></h2>
+<p><a class="reference external" href="https://maven.apache.org/">Maven</a> 은 <a class="reference external" href="https://maven.apache.org/guides/introduction/introduction-to-the-pom.html">Project Object Model</a> (또는 <em>POM</em>) 이라고 하는 XML기반의 설정을 프로젝트를 설정하기 위해 사용합니다. <a class="reference external" href="https://maven.apache.org/">Maven</a> 프로젝트는 어떻게 프로젝트를 빌드할 지를 지시하기 위해 프로젝트의 최상단 폴더에 일반적으로 <code class="docutils literal notranslate"><span class="pre">pom.xml</span></code> 파일을 포함합니다.</p>
+<div class="admonition tip">
+<p class="first admonition-title">참고</p>
+<p class="last"><a class="reference external" href="https://maven.apache.org/">Maven</a> 의 설치 및 사용되는 개념에 대한 설명은 <a class="reference external" href="https://maven.apache.org/users/index.html">Maven Users Centre</a> 를 참고하세요. 만약, <a class="reference external" href="https://maven.apache.org/">Maven</a> 을 간단한 자바 프로젝트에 어떻게 사용하는지에만 관심이 있다면, <a class="reference external" href="https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html">Maven in 5 Minutes</a> 가 시작하기 좋을 것입니다.</p>
+</div>
+<p><a class="reference internal" href="workspace/index.html"><span class="doc">작업 공간 준비하기</span></a> 에 설명되어 있는대로 작업 공간을 설정하세요. 그리고 <a class="reference internal" href="project/maven.html"><span class="doc">Maven 설치하기</span></a> 를 따라하세요.</p>
+</div>
+<div class="section" id="creating-a-plugin-without-a-build-system">
+<h2>빌드 시스템 없이 플러그인 개발하기<a class="headerlink" href="#creating-a-plugin-without-a-build-system" title="제목 주소">¶</a></h2>
+<p>당신의 IDE에 포함된 기능만을 사용하면, 빌드 시스템 없이도 Sponge 플러그인을 개발할 수 있습니다.</p>
+<div class="admonition warning">
+<p class="first admonition-title">경고</p>
+<p class="last"><strong>저희는 SpongeAPI를 빌드 시스템 없이 사용하는 것을 권장하지 않습니다.</strong> 장기적으로 볼 때 빌드 시스템을 사용하면 당신, 그리고 당신의 프로젝트에 기여하기를 원하는 사람들의 개발 진행이 간소화될 것입니다. 빌드 시스템 없는 플러그인 개발은 Sponge 팀으로부터 지속적인 지원을 받을 수 없습니다.</p>
+</div>
+<p>빌드 시스템 없이 플러그인을 개발하기 위해서는 <a class="reference external" href="https://www.spongepowered.org/downloads/spongeapi/">SpongeAPI Download Page</a> 에서 SpongeAPI 의존성을 직접 다운로드 해야합니다. 빌드 시스템 없이 개발하기 위해서, 우리는 일반적으로는 빌드시스템에서 자동으로 다운로드 하는 모든 의존성을 포함한 <code class="docutils literal notranslate"><span class="pre">shaded</span></code> 된 artifact를 제공합니다.</p>
+<p><code class="docutils literal notranslate"><span class="pre">shaded</span></code> 된 artifact를 다운로드 하고, 프로젝트의 IDE에 추가했다면, 당신은 플러그인 개발을 시작할 수 있습니다. 프로젝트의 식별자를 고르기 위해서 <a class="reference internal" href="plugin-identifier.html"><span class="doc">플러그인 식별자</span></a> 로 가세요. 그리고 <a class="reference internal" href="plugin-class.html"><span class="doc">메인 플러그인 클래스</span></a> 를 따라하세요.</p>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="workspace/index.html" class="btn btn-neutral float-right" title="작업 공간 준비하기" accesskey="n" rel="next">다음 <span class="fa fa-angle-right"></span></a>
+        <a href="api-versions.html" class="btn btn-neutral" title="API 버전" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> 이전</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../_static/flags/ko_KR.svg"
+         alt="ko" title="한국어">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../_static/jquery.js"></script>      <script type="text/javascript" src="../_static/underscore.js"></script>      <script type="text/javascript" src="../_static/doctools.js"></script>      <script type="text/javascript" src="../_static/language_data.js"></script>      <script type="text/javascript" src="../_static/translations.js"></script>      <script type="text/javascript" src="../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

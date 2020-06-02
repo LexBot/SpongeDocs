@@ -1,0 +1,235 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Installere Java &mdash; Sponge 7.2.0 documentation</title>
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>        <link rel="search" title="Søk" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 documentation" href="../../index.html"/>        <link rel="up" title="Kom i gang" href="index.html"/>        <link rel="next" title="Migrere til Sponge" href="migrating.html"/>        <link rel="prev" title="Kom i gang" href="index.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../../index.html">
+            <img src="../../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Lag en server</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html">Hurtigstartsguide</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Kom i gang</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Installere Java</a></li>
+<li class="toctree-l3"><a class="reference internal" href="migrating.html">Migrere til Sponge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="implementations/index.html">Velge en implementasjon</a></li>
+<li class="toctree-l3"><a class="reference internal" href="launch-script.html">Lage et startskript</a></li>
+<li class="toctree-l3"><a class="reference internal" href="port-forward.html">Portvideresending</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bungeecord.html">Using Sponge with Server Proxies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configuration/index.html">Konfigurere Sponge</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../management/index.html">Serveradministrasjon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spongineer/index.html">Bli en ekspert-spongeniør</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../versions/index.html">Strategi for versjonskontroll</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../preparing/index.html">Forberedelse til utvikling</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../plugin/index.html">Creating a Plugin</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ore/index.html">Ore-dokumentasjon</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/index.html">Å medvirke til Sponge</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">Om Sponge-prosjektet</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+          <li><a href="../index.html">Lag en server</a> &raquo;</li>
+          <li><a href="index.html">Kom i gang</a> &raquo;</li>
+    <li>Installere Java</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/server/getting-started/jre.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="installing-java">
+<h1>Installere Java<a class="headerlink" href="#installing-java" title="Permalink til denne oversikten">¶</a></h1>
+<p>Java er påkrevd for at du skal kunne kjøre Sponge og Minecraft: Java Edition. Mest sannsynlig har du allerede Java installert, men det kan hende at du må oppdatere til en nyere versjon.</p>
+<p>Sponge krever for tiden Java 8 (spesifikt <code class="docutils literal notranslate"><span class="pre">1.8.0_20</span></code> eller høyere). Eldre versjoner av Java er utdatert, og vil ikke fungere med Sponge. Forskjellen mellom hovedversjoner av Java (6, 7, 8) er stor, og eldre versjoner kan ikke kjøre Sponge på en ordentlig måte. For tiden fungerer Sponge heller ikke på Javaversjoner som er større enn 8.</p>
+<div class="section" id="id1">
+<h2>Installere Java<a class="headerlink" href="#id1" title="Permalink til denne oversikten">¶</a></h2>
+<p>Hvis du har Windows eller macOS på din maskin, kan du <a class="reference external" href="https://java.com/en/download/manual.jsp">laste ned Java fra den offisielle nettsiden</a>.</p>
+<p>Linux-brukere kan installere OpenJDK via sin pakkehåndterer. OpenJDK er en versjon av Oracle sin Java med åpen kildekode, og bør fungere minst like bra. Det er imidlertid også mulig å <a class="reference external" href="https://www.oracle.com/technetwork/java/javase/downloads/index.html">laste ned Oracle sin versjon for Linux</a>, men du bør være klar over at mange Linuxpakker som krever Java vil installere OpenJDK likevel.</p>
+<p>Det kan hende du må konfigurere pekeren til din JRE/JDK i din</p>
+<ul class="simple">
+<li>launcher med <code class="docutils literal notranslate"><span class="pre">Profil</span></code> (<code class="docutils literal notranslate"><span class="pre">Avanserte</span> <span class="pre">innstillinger</span></code>) -&gt; <code class="docutils literal notranslate"><span class="pre">&lt;Din</span> <span class="pre">profil&gt;</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">Java-Executable</span></code> (<code class="docutils literal notranslate"><span class="pre">.../java.exe</span></code>)</li>
+<li>server, enten ved å sette <code class="docutils literal notranslate"><span class="pre">PATH</span></code>-variablen, eller ved å bruke hele stien til din Javafil</li>
+</ul>
+<div class="section" id="bit-vs-64-bit">
+<h3>32-bit eller 64-bit<a class="headerlink" href="#bit-vs-64-bit" title="Permalink til denne oversikten">¶</a></h3>
+<p>Hvis datamaskinen din støtter det, bør du alltid bruke 64-bit-versjoner av Java. Installasjonsprogrammene fra <a class="reference external" href="https://java.com/en/download/">denne nettsiden</a> bør merke om din datamaskin støtter 64-bit. Det hender imidlertid at automatikken tar feil (prøv en annen nettleser om du er usikker).</p>
+<p>Det er også mulig å finne ut av dette i systeminformasjonsvinduet.</p>
+<ul class="simple">
+<li>Windows: Trykk <code class="docutils literal notranslate"><span class="pre">&lt;Win&gt;</span></code> + <code class="docutils literal notranslate"><span class="pre">&lt;Pause&gt;</span></code>, eller se på din <code class="docutils literal notranslate"><span class="pre">systemtype</span></code> gjennom <code class="docutils literal notranslate"><span class="pre">System</span></code> i Kontrollpanel.</li>
+<li>Linux: åpne en terminal og skriv <code class="docutils literal notranslate"><span class="pre">arch</span></code> eller <code class="docutils literal notranslate"><span class="pre">uname</span> <span class="pre">-m</span></code>. <code class="docutils literal notranslate"><span class="pre">i686</span></code> betyr at du har 32-bit, og <code class="docutils literal notranslate"><span class="pre">x86-64</span></code> betyr at du har 64-bit.</li>
+<li>Mac: det finnes kun én nedlasting uansett…</li>
+</ul>
+<p>Hvis du er sikker på hvilken arkitektur din maskin bruker, kan du <a class="reference external" href="https://java.com/en/download/manual.jsp">velge riktig installasjonsprogram selv</a>.</p>
+<p>Fordi 64-bit-versjonen av Java kjører mye bedre, og også lar Java bruke mer enn ca. 3 GB med RAM (minne), så anbefaler vi alltid 64-bit over 32-bit.</p>
+<p>De fleste moderne datamaskiner støtter 64-bit.</p>
+</div>
+<div class="section" id="jdk-vs-jre">
+<h3>JDK eller JRE<a class="headerlink" href="#jdk-vs-jre" title="Permalink til denne oversikten">¶</a></h3>
+<p>JRE (Java Runtime Environment, Javakjøretidsmiljø) brukes for å kjøre Javaprogrammer. Nedlastingssiden som er lenket til lenger oppe tilbyr JRE.</p>
+<p>JDK (Java Development Kit, Javautviklersettet) brukes til å lage Javaprogrammer, og du trenger det ikke med mindre du har tenkt til å lage Spongeplugins eller jobbe på Sponge. I noen tilfeller kan det imidlertid hende du trenger JDK for å diagnostisere et kjørende Javaprogram, slik som Sponge. Du kan laste ned JDK <a class="reference external" href="https://www.oracle.com/technetwork/java/javase/downloads/index.html">fra en annen nettside</a>.</p>
+</div>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="migrating.html" class="btn btn-neutral float-right" title="Migrere til Sponge" accesskey="n" rel="next">Neste <span class="fa fa-angle-right"></span></a>
+        <a href="index.html" class="btn btn-neutral" title="Kom i gang" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> Forrige</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../../_static/flags/nb_NO.svg"
+         alt="nb" title="Norsk Bokmål">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../../_static/jquery.js"></script>      <script type="text/javascript" src="../../_static/underscore.js"></script>      <script type="text/javascript" src="../../_static/doctools.js"></script>      <script type="text/javascript" src="../../_static/language_data.js"></script>      <script type="text/javascript" src="../../_static/translations.js"></script>      <script type="text/javascript" src="../../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

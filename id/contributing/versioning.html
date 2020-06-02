@@ -1,0 +1,245 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Repository Branch Layout &mdash; dokumentasi Sponge 7.2.0</title>
+
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="Indeks"
+              href="../genindex.html"/>        <link rel="search" title="Pencarian" href="../search.html"/>    <link rel="top" title="dokumentasi Sponge 7.2.0" href="../index.html"/>        <link rel="up" title="Berkontribusi pada Sponge" href="index.html"/>        <link rel="next" title="Tentang Sponge Project" href="../about/index.html"/>        <link rel="prev" title="Porting Sponge untuk Platform Lainnya" href="porting.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../index.html">
+            <img src="../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../server/index.html">Membuat sebuah server</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../versions/index.html">Versioning Policy</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../preparing/index.html">Mempersiapkan untuk Pengembangan</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../plugin/index.html">Membuat Plugin</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ore/index.html">Dokumentasi bijih</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Berkontribusi pada Sponge</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="guidelines.html">Pedoman kontribusi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="howtogit.html">Cara Git (Hub)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="implementation/index.html">Mengembangkan Spenge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spongedocs.html">Menulis SpongeDocs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="porting.html">Porting Sponge untuk Platform Lainnya</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Repository Branch Layout</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">Tentang Sponge Project</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+          <li><a href="index.html">Berkontribusi pada Sponge</a> &raquo;</li>
+    <li>Repository Branch Layout</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/contributing/versioning.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="repository-branch-layout">
+<h1>Repository Branch Layout<a class="headerlink" href="#repository-branch-layout" title="Link permanen untuk headline ini">¶</a></h1>
+<p>The layout of our branches is designed to assist <a class="reference internal" href="../versions/versioning.html#sem-ver"><span class="std std-ref">semantic versioning</span></a> by allowing us to make minor
+releases without a breaking change forcing us to make it a major release. This branch layout applies to SpongeAPI,
+SpongeCommon, SpongeForge, and SpongeVanilla repositories but not to the SpongeDocs.</p>
+<div class="section" id="spongeapi-spongecommon-spongeforge-and-spongevanilla">
+<h2>SpongeAPI, SpongeCommon, SpongeForge dan SpongeVanilla<a class="headerlink" href="#spongeapi-spongecommon-spongeforge-and-spongevanilla" title="Link permanen untuk headline ini">¶</a></h2>
+<div class="section" id="the-bleeding-branch">
+<h3>Cabang Pendarahan<a class="headerlink" href="#the-bleeding-branch" title="Link permanen untuk headline ini">¶</a></h3>
+<p>The core of our repositories is the <code class="docutils literal notranslate"><span class="pre">bleeding</span></code> branch. Almost all changes will be added to <code class="docutils literal notranslate"><span class="pre">bleeding</span></code>, including
+new features, changes, and bugfixes. The version of <code class="docutils literal notranslate"><span class="pre">bleeding</span></code> will always be the next major release version
+appended with <code class="docutils literal notranslate"><span class="pre">-SNAPSHOT</span></code> (e.g. <code class="docutils literal notranslate"><span class="pre">7.0.0-SNAPSHOT</span></code>) to denote that it is not yet a final build and subject to change.</p>
+<p>Alasan utama untuk memiliki cabang `` perdarahan` adalah memiliki tempat uji coba untuk perubahan. Bahkan anggota tim Sponge yang berpengalaman dapat secara tidak sengaja menyebabkan kegagalan atau kehilangan bug. Cabang `` bleeding`` akan diuji oleh orang-orang di masyarakat yang menginginkan yang terbaru, dan itu berarti kita dapat memperbaiki bug yang muncul dengan lebih mudah.</p>
+</div>
+<div class="section" id="stable-branches">
+<h3>Cabang yang Stabil<a class="headerlink" href="#stable-branches" title="Link permanen untuk headline ini">¶</a></h3>
+<p>Cabang stabil mewakili platform yang jauh lebih stabil yang dapat digunakan plugin dan implementasi server. Tidak akan ada kerusakan API, hanya penambahan yang tidak melanggar. Ada cabang yang dinamai setiap rilis API utama, yang berisi API / implementasi terbaru untuk rilis tersebut termasuk rilis minor atau patch lainnya.</p>
+<p>When the time comes to release a major version, a new <code class="docutils literal notranslate"><span class="pre">stable-x</span></code> branch will be created from <code class="docutils literal notranslate"><span class="pre">bleeding</span></code>, where
+<code class="docutils literal notranslate"><span class="pre">x</span></code> is the new major version - for example, <code class="docutils literal notranslate"><span class="pre">stable-7</span></code>. <code class="docutils literal notranslate"><span class="pre">bleeding</span></code> will be appropriately updated to be the next
+major release as described above.</p>
+<p>Perubahan yang terjadi pada `` pendarahan`` untuk sementara, yang tidak memiliki bug yang diketahui, dan yang dapat diterapkan pada pelepasan mayor sebelumnya akan dipilih secara ceri ke yang relevan. cabang `` stabil` untuk rilis selanjutnya. Perubahan akan dikelompokkan ke dalam versi minor yang baru, kecuali jika perbaikan segera lebih disukai dimana versi bugfix akan dibuat. ketika sebuah versi dilepaskan, api repositori akan memiliki tag dibuat menunjuk bahwa rilis ini melakukan.</p>
+</div>
+<div class="section" id="feature-branches">
+<h3>Fitur cabang<a class="headerlink" href="#feature-branches" title="Link permanen untuk headline ini">¶</a></h3>
+<p>Fitur baru atau perubahan harus dibuat dalam `` fitur / foo`` atau `` memperbaiki / bar`` cabang. ini harus didasarkan pada yang terbaru berkomitmen untuk `` bleeding``. satu-satunya pengecualian ini adalah jika perubahan yang tidak kompatibel dengan melanggar perubahan `` bleeding``, dalam hal ini Anda harus dasar terhadap relevan `` stabil-x``. Negara Anda harus tarik permintaan mengapa Anda mengubah tidak bisa dimasukkan di `` bleeding`` - seperti memperbaiki bug dalam fitur yang telah dihapus oleh mojang kemudian di rilis.</p>
+<p>Jika perubahan yang dilakukan tidak melanggar untuk rilis sebelumnya, tim Sponge juga dapat memilih perubahan pada satu atau lebih cabang `` stabil` dengan anggapan bahwa tidak ada masalah yang timbul setelah perubahan tersebut digabungkan menjadi `` pendarahan``.</p>
+</div>
+</div>
+<div class="section" id="spongedocs">
+<h2>Dokumen Sepon<a class="headerlink" href="#spongedocs" title="Link permanen untuk headline ini">¶</a></h2>
+<p>The SpongeDocs themselves are unversioned following our philosophy that they will never be finished, but instead in a
+constant flux of ever increasing usability. However, they <em>target</em> a specific version of the API, generally the most
+recent <em>release</em> of SpongeAPI.</p>
+<div class="section" id="core-branch">
+<h3>Cabang Inti<a class="headerlink" href="#core-branch" title="Link permanen untuk headline ini">¶</a></h3>
+<p>Cabang inti untuk SpongeDocs adalah `` stable``. Setiap komit baru untuk `` stabil` <cite>memicu pembangunan kembali situs web</cite> docs &lt;<a class="reference external" href="https://docs.spongepowered.org/">https://docs.spongepowered.org/</a>&gt; <cite>_. Berkomitmen untuk `</cite> stabil`` umumnya dibuat untuk mendokumentasikan pelepasan SpongeAPI terbaru atau memperbaiki kesalahan kecil pada Dokumen.</p>
+</div>
+<div class="section" id="id1">
+<h3>Fitur cabang<a class="headerlink" href="#id1" title="Link permanen untuk headline ini">¶</a></h3>
+<p>Setiap kali fitur baru dijelaskan, teks yang lebih lama akan diperbarui atau dicetak ulang atau dokumen direstrukturisasi, dilakukan di cabang `` feature / foo`` atau `` fix / bar``. Cabang-cabang tersebut kemudian akan ditinjau dan, setelah dianggap selesai, maka dapat digabungkan.</p>
+<p>A feature branch may only be merged into master if the changes / additions made in it are correct regarding the
+<strong>SpongeAPI release currently targeted by the SpongeDocs</strong>. Any feature branches that describe features not yet included
+in a release stay unmerged until the corresponding API version is released and becomes the new targeted version for the
+SpongeDocs. However, the Docs team might collect additions for a specific version on a single branch.</p>
+<img alt="release branch example" src="../_images/versioning-release-branch.svg" /></div>
+<div class="section" id="release-branches">
+<h3>Lepaskan Cabang<a class="headerlink" href="#release-branches" title="Link permanen untuk headline ini">¶</a></h3>
+<p>SpongeDocs menggunakan cabang `` release / x.y.z`` untuk menerbitkan Documents untuk versi API lama seperti API `` 3.1.0``. Rilis API yang lebih lama tersedia di cabang masing-masing. Setiap kali versi API baru dilepaskan, Staf Dokumen akan membuat cabang `` release / x.y.z`` baru dan benjolan master ke versi API yang baru sesudahnya. Sebuah komit ke cabang `` release`` juga memicu penataan kembali rilis Documents yang lebih tua, seperti di cabang inti.</p>
+</div>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../about/index.html" class="btn btn-neutral float-right" title="Tentang Sponge Project" accesskey="n" rel="next">Selanjutnya <span class="fa fa-angle-right"></span></a>
+        <a href="porting.html" class="btn btn-neutral" title="Porting Sponge untuk Platform Lainnya" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> Sebelumnya</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../_static/flags/id_ID.svg"
+         alt="id" title="Indonesia">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../_static/jquery.js"></script>      <script type="text/javascript" src="../_static/underscore.js"></script>      <script type="text/javascript" src="../_static/doctools.js"></script>      <script type="text/javascript" src="../_static/language_data.js"></script>      <script type="text/javascript" src="../_static/translations.js"></script>      <script type="text/javascript" src="../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

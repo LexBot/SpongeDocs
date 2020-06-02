@@ -1,0 +1,349 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explication des Optionals &mdash; Documentation Sponge 7.2.0</title>
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>        <link rel="search" title="Recherche" href="../../search.html"/>    <link rel="top" title="Documentation Sponge 7.2.0" href="../../index.html"/>        <link rel="up" title="Optionnels" href="index.html"/>        <link rel="next" title="Exemples d’utilisation" href="usage.html"/>        <link rel="prev" title="Optionnels" href="index.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../../index.html">
+            <img src="../../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../server/index.html">Créer un Serveur</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../versions/index.html">Stratégie de versioning</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../preparing/index.html">Préparation pour le développement</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Création d’un Plugin</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../api-versions.html">Versions de l’API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../buildsystem.html">Build Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../workspace/index.html">Mise en Place de votre Espace de Travail</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../project/index.html">Configurer Votre Projet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-identifier.html">Identifiants de Plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-class.html">Classe Principale du Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lifecycle.html">Cycle de vie des Plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../injection.html">Injection de Dépendances</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../practices/index.html">Bonnes Pratiques</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Optionnels</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Explication des Optionals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="usage.html">Exemples d’utilisation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../logging.html">Journalisation (Logging) et Débogage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text/index.html">Text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/index.html">Commandes de Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../event/index.html">Événements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/index.html">Configuration des plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assets.html">L’API des Ressources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data/index.html">La Data API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../blocks/index.html">Blocs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../entities/index.html">Entités</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../items/index.html">Items</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../trade-offers.html">Trade-Offers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../effects.html">Effets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../scheduler.html">Scheduler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../services.html">Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database.html">Bases de données</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../permissions.html">Permissions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bans.html">Bans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metrics.html">Collection de Metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bookview.html">Views d’un Livre</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../economy/index.html">Économie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wgen/index.html">Génération du monde</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manager.html">Gestionnaire de Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../game-profile-manager.html">Gestionnaire de Profil de Jeu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../offline-userplayer-data.html">Données du Joueur Hors-Ligne</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tab-lists.html">Tab Lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-meta.html">Plugin Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ray-tracing.html">Ray Tracing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../debugging.html">Debugging d’un plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials.html">Tutoriels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internals/index.html">Plugins dépendants des implémentations</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ore/index.html">Documentation d’Ore</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/index.html">Contribuer à Sponge</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">À propos du Projet Sponge</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+          <li><a href="../index.html">Création d’un Plugin</a> &raquo;</li>
+          <li><a href="index.html">Optionnels</a> &raquo;</li>
+    <li>Explication des Optionals</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/plugin/optional/basic.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="optionals-explained">
+<h1>Explication des Optionals<a class="headerlink" href="#optionals-explained" title="Lien permanent vers ce titre">¶</a></h1>
+<p>La plupart de SpongeAPI utilise le système <cite>Optional</cite> de Java sur les accesseurs d’objets, mais si vous n’avez jamais utilisé <code class="docutils literal notranslate"><span class="pre">Optional</span></code> avant, cela peut sembler être une façon assez particulière de faire les choses. Vous pouvez être tentés de demander : <em>«&nbsp;Pourquoi ai-je besoin d’effectuer une étape en plus lorsque je récupère quelque chose depuis un objet de l’API ?&nbsp;»</em></p>
+<p>Cette section donne un bref sommaire de l”<code class="docutils literal notranslate"><span class="pre">Optional</span></code> et explique comment - et peut-être plus important pourquoi - il est utilisé à travers SpongeAPI.</p>
+<p>Commençons avec une petite histoire, et regardez comment ces accesseurs - particulièrement les «&nbsp;getters&nbsp;» - fonctionnent lorsqu’ils n’utilisent pas <code class="docutils literal notranslate"><span class="pre">Optional</span></code>.</p>
+<div class="section" id="implicit-nullable-contracts-and-why-they-suck">
+<h2>1. Contrats Nullables Implicites et Pourquoi Ils Sont Nuls<a class="headerlink" href="#implicit-nullable-contracts-and-why-they-suck" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Disons que nous avons un objet d’API simple <code class="docutils literal notranslate"><span class="pre">Entity</span></code> avec une méthode <code class="docutils literal notranslate"><span class="pre">getFoo()</span></code> qui retourne le <code class="docutils literal notranslate"><span class="pre">Foo</span></code> de l’entité.</p>
+<img alt="../../_images/optionals1.png" src="../../_images/optionals1.png" />
+<p>Dans les anciens temps d’autrefois, notre plugin pouvait récupérer et utiliser le <code class="docutils literal notranslate"><span class="pre">Foo</span></code> depuis notre entité en utilisant le <code class="docutils literal notranslate"><span class="pre">getter</span></code> comme ceci :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">someEventHandler</span><span class="p">(</span><span class="n">Entity</span> <span class="n">someEntity</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">Foo</span> <span class="n">entityFoo</span> <span class="o">=</span> <span class="n">someEntity</span><span class="p">.</span><span class="na">getFoo</span><span class="p">();</span>
+    <span class="n">entityFoo</span><span class="p">.</span><span class="na">bar</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Le problème survient parce que - lors du design de l’API - nous devons compter sur un contrat <em>implicite</em> sur la méthode <code class="docutils literal notranslate"><span class="pre">getFoo</span></code> par rapport à si la méthode peut (ou ne peut pas) retourner <code class="docutils literal notranslate"><span class="pre">null</span></code>. Ce <em>contrat implicite</em> peut être défini de deux manières :</p>
+<ul class="simple">
+<li><strong>Dans le javadoc</strong> - c’est mauvais parce que ça compte sur le fait que l’auteur du plugin lise la javadoc de la méthode, et le contrat peut ne pas être clair pour l’auteur du plugin</li>
+<li><strong>Utiliser des annotations nullable</strong> - ce n’est pas l’idéal parce qu’en général ces annotations demandent un outil pour être utilisées, en comptant par exemple sur l’IDE ou le compileur pour gérer ces annotations.</li>
+</ul>
+<img alt="../../_images/optionals2.png" src="../../_images/optionals2.png" />
+<p>Assumons que la méthode <code class="docutils literal notranslate"><span class="pre">getFoo()</span></code> peut - dans le cadre de son contrat - retourner null. Cela signifie soudainement que notre code ci-dessus est dangereux puisqu’il peut résulter en une <code class="docutils literal notranslate"><span class="pre">NullPointerException</span></code> si <code class="docutils literal notranslate"><span class="pre">entityFoo</span></code> est null.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">someEventHandler</span><span class="p">(</span><span class="n">Entity</span> <span class="n">someEntity</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">Foo</span> <span class="n">entityFoo</span> <span class="o">=</span> <span class="n">someEntity</span><span class="p">.</span><span class="na">getFoo</span><span class="p">();</span>
+    <span class="n">entityFoo</span><span class="p">.</span><span class="na">bar</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Assumons que notre auteur de plugin soit conscient de la nature du nullable de notre méthode <code class="docutils literal notranslate"><span class="pre">getFoo</span></code> et décide de corriger le problème avec des null checks. Assumons qu’il a défini une constante locale <code class="docutils literal notranslate"><span class="pre">Foo</span></code>, le code résultat ressemble à ceci :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">someEventHandler</span><span class="p">(</span><span class="n">Entity</span> <span class="n">someEntity</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">Foo</span> <span class="n">entityFoo</span> <span class="o">=</span> <span class="n">someEntity</span><span class="p">.</span><span class="na">getFoo</span><span class="p">();</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">entityFoo</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">entityFoo</span> <span class="o">=</span> <span class="n">MyPlugin</span><span class="p">.</span><span class="na">DEFAULT_FOO</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">entityFoo</span><span class="p">.</span><span class="na">bar</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Dans cet exemple, l’auteur du plugin est conscient que la méthode puisse retourner null et a une constante disponible avec une instance par défaut de <code class="docutils literal notranslate"><span class="pre">Foo</span></code> qui peut être utilisée à la place. Évidemment, le plugin pourrait juste court-circuiter l’appel en entier, ou il pourrait essayer de récupérer <cite>Foo</cite> depuis quelque part d’autre. Le message fondamental est que gérer les nulls même dans des cas simples peut mener à du code spaghetti assez rapidement, et de plus, compte sur le fait que l’auteur du plugin va visiter explicitement le contrat de la méthode pour vérifier si un null check est nécessaire.</p>
+<p>Toutefois, ce n’est pas le seul inconvénient. Considérons l’API sur un plus long terme et assumons qu’au moment où l’auteur écrit le plugin, il visite la javadoc de la méthode et voit que la méthode ne retourne jamais null (puisque toutes les <cite>Entity</cite> a toujours un <code class="docutils literal notranslate"><span class="pre">Foo</span></code> de disponible). Bien ! Pas besoin de null check compliqué !</p>
+<p>Toutefois, assumons maintenant que dans une version ultérieure du jeu, les développeurs du jeu suppriment ou déprécient le concept de <code class="docutils literal notranslate"><span class="pre">Foo</span></code>. Les auteurs de l’API mettent à jour l’API par conséquent et déclarent qu’à partir de maintenant la méthode <code class="docutils literal notranslate"><span class="pre">getFoo()</span></code> <strong>peut</strong> retourner <code class="docutils literal notranslate"><span class="pre">null</span></code> et l’écrivent dans la javadoc de la méthode. Maintenant il y a un problème : même les auteurs de plugin assidus qui ont vérifiés le contrat de la méthode quand ils ont écrit leur code gèrent involontairement la méthode incorrectement : avec aucun null check dans le code, utiliser le <code class="docutils literal notranslate"><span class="pre">Foo</span></code> retourné depuis <code class="docutils literal notranslate"><span class="pre">getFoo</span></code> va lever une NPE.</p>
+<p>Ainsi, nous pouvons voir qu’accepter des contrats nullables implicites nous laisse avec une sélection de solutions atroces à choisir :</p>
+<ul class="simple">
+<li>Les auteurs de plugins peuvent assumer que <strong>toutes</strong> les méthodes peuvent retourner null et coder par conséquent de manière défensive, toutefois nous avons déjà vu que cela mène à du code spaghetti plutôt rapidement.</li>
+<li>Les auteurs de l’API peuvent définir un contrat nullable implicite sur chaque méthode de l’API, en essayant de gérer le problème de l’auteur du plugin, ce qui ne fait qu’aggraver l’approche précédente.</li>
+<li>Les auteurs de l’API peuvent affirmer que tous les contrats nullables implicites qu’ils définissent ne sont jamais altérés à l’avenir. Cela signifie que dans l’éventualité où ils ont besoin de gérer la suppression d’une fonctionnalité du jeu de base, alors ils doivent soit :</li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li>Lever une exception - guère élégant mais certainement plus facile à diagnostiquer qu’un NPE en vrac qui peut être déclenché ailleurs de le base de code et être difficile à traquer</li>
+<li>Retourner un objet «&nbsp;fake&nbsp;» ou une valeur invalide - cela signifie que le code du consommant (plugin) va continuer de fonctionner, mais crée un fardeau toujours croissant sur les développeurs de l’API puisque chaque fonctionnalité dépréciée nécessitera la création d’encore plus d’objets fake. Cela pourrait rapidement conduire à la situation où une grande partie de l’API est remplie d’objets inutiles dont le seul but est de supporter les parties de l’API qui ne sont plus en service.</li>
+</ul>
+</div></blockquote>
+<p>Cela devrait être assez clair à partir de maintenant qu’il y a des maux de tête assez importants attachés à ces contrats nullables <em>implicites</em>, d’autant plus poignants lorsque l’API en question est une couche sur un produit de base extrêmement instable. Heureusement, il existe une meilleure façon :</p>
+</div>
+<div class="section" id="optional-and-the-explicit-nullable-contract">
+<h2>2. Les Optionals et les Contrats Nullables Explicites<a class="headerlink" href="#optional-and-the-explicit-nullable-contract" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Comme mentionné ci-dessus, les APIs pour Minecraft se trouvent dans une situation difficile. En fin de compte, ils ont besoin de fournir une plateforme avec un <em>montant raisonnable de stabilité</em> par dessus une plateforme (le jeu) avec <em>absolument aucun montant de stabilité</em>. Donc, toutes les APIs pour Minecraft ont besoin d’être designées avec pleine conscience que n’importe quel aspect du jeu est susceptible de changer à tout moment pour une raison quelconque et de n’importe quelle façon imaginable; jusqu’à et y compris être supprimé entièrement !</p>
+<p>Cette volatilité est ce qui conduit au problème avec les contrats de méthodes nullables décrites ci-dessus.</p>
+<p><cite>Optional</cite> résoud les problèmes ci-dessus en remplaçant les <em>contrats implicites</em> par des <em>contrats explicites</em>. L’API ne publie jamais, <em>«&nbsp;Voici votre objet, kthxbai&nbsp;»</em>, à la place il présente des accesseurs avec un <em>«&nbsp;Voici une boîte qui peut ou non contenir l’objet que vous avez demandé, ymmv&nbsp;»</em>.</p>
+<img alt="../../_images/optionals3.png" src="../../_images/optionals3.png" />
+<p>En encodant la possibilité de retourner <code class="docutils literal notranslate"><span class="pre">null</span></code> en un contrat explicite, nous remplaçons la notion de <em>null checking</em> avec le concept plus nuancé de <em>peut ne pas exister</em>. Nous stipulons aussi ce contrat <em>depuis le premier jour</em>.</p>
+<p>Donc, qu’est-ce que cela signifie ?</p>
+<p>En un mot, les auteurs de plugins n’ont plus besoin de se soucier de la possibilité que <code class="docutils literal notranslate"><span class="pre">null</span></code> soit retourné. Au lieu de cela, la possibilité même qu’un objet particulier ne soit pas disponible devient codé dans l’étoffe même du code de leur plugin. Cela a, en soi, le même niveau de sécurité que d’effectuer constemment des null-checks, mais avec les avantages d’avoir un code bien plus élégant et lisible.</p>
+<p>Pour vour pourquoi, jetons un oeil à l’exemple ci-dessus, converti pour utiliser une méthode <code class="docutils literal notranslate"><span class="pre">getFoo</span></code> qui retourne un <code class="docutils literal notranslate"><span class="pre">Optional&lt;Foo&gt;</span></code> à la place :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">someEventHandler</span><span class="p">(</span><span class="n">Entity</span> <span class="n">someEntity</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">Optional</span><span class="o">&lt;</span><span class="n">Foo</span><span class="o">&gt;</span> <span class="n">entityFoo</span> <span class="o">=</span> <span class="n">someEntity</span><span class="p">.</span><span class="na">getFoo</span><span class="p">();</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">entityFoo</span><span class="p">.</span><span class="na">isPresent</span><span class="p">())</span> <span class="p">{</span>
+        <span class="n">entityFoo</span><span class="p">.</span><span class="na">get</span><span class="p">().</span><span class="na">bar</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Vous pouvez noter que cet exemple ressemble beaucoup à un null-check standard, toutefois l’utilisation d’un <code class="docutils literal notranslate"><span class="pre">Optional</span></code> comporte actuellement un peu plus d’informations dans la même quantité de code. Par exemple, il n’est pas nécessaire pour quelqu’un qui lit le code ci-dessus de vérifier le contrat de la méthode, il est clair que cette méthode peut ne peut pas retourner une valeur, et la gestion de l’absence de la valeur est explicite et claire.</p>
+<p>Et alors ? Notre contrat explicite entraîne dans ce cas essentiellement la même quantité de code qu’un null check - bien qu’un soit contractuellement <em>enforcé</em> par le getter. <em>«&nbsp;Hop là !&nbsp;»</em>, dîtes-vous, <em>«&nbsp;et alors ?&nbsp;»</em></p>
+<p>Et bien l’emboîtement <cite>Optional</cite> nous permet de prendre certains aspects traditionnellement plus maladroits de null-checking et de les rendre plus élégants : examinons le code suivant :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">someEventHandler</span><span class="p">(</span><span class="n">Entity</span> <span class="n">someEntity</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">Foo</span> <span class="n">entityFoo</span> <span class="o">=</span> <span class="n">someEntity</span><span class="p">.</span><span class="na">getFoo</span><span class="p">().</span><span class="na">orElse</span><span class="p">(</span><span class="n">MyPlugin</span><span class="p">.</span><span class="na">DEFAULT_FOO</span><span class="p">);</span>
+    <span class="n">entityFoo</span><span class="p">.</span><span class="na">bar</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>2 minutes ! Est-ce que nous venons de remplacer le fastidieux null-check-et-assignement-par-défaut de l’exemple ci-dessus avec une seule ligne de code ? Oui en effet, nous l’avons fait. En fait, pour les cas d’usage simple nous pouvons même renoncer à l’affectation :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">someEventHandler</span><span class="p">(</span><span class="n">Entity</span> <span class="n">someEntity</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">someEntity</span><span class="p">.</span><span class="na">getFoo</span><span class="p">().</span><span class="na">orElse</span><span class="p">(</span><span class="n">MyPlugin</span><span class="p">.</span><span class="na">DEFAULT_FOO</span><span class="p">).</span><span class="na">bar</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Ceci est parfaitement sûr étant donné que <code class="docutils literal notranslate"><span class="pre">MyPlugin.DEFAULT_FOO</span></code> est toujours disponible.</p>
+<p>Considérez l’exemple suivant avec deux entités, nous voulons utiliser <code class="docutils literal notranslate"><span class="pre">Foo</span></code> de la première entité à l’aide d’un contrat nullable implicite, ou si non disponible utiliser <code class="docutils literal notranslate"><span class="pre">Foo</span></code> de la seconde <code class="docutils literal notranslate"><span class="pre">entity</span></code>, et se retirer sur notre valeur par défaut si aucun n’est disponible :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">someEventHandler</span><span class="p">(</span><span class="n">Entity</span> <span class="n">someEntity</span><span class="p">,</span> <span class="n">Entity</span> <span class="n">entity2</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">Foo</span> <span class="n">entityFoo</span> <span class="o">=</span> <span class="n">someEntity</span><span class="p">.</span><span class="na">getFoo</span><span class="p">();</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">entityFoo</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">entityFoo</span> <span class="o">=</span> <span class="n">entity2</span><span class="p">.</span><span class="na">getFoo</span><span class="p">();</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">entityFoo</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">entityFoo</span> <span class="o">=</span> <span class="n">MyPlugin</span><span class="p">.</span><span class="na">DEFAULT_FOO</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">entityFoo</span><span class="p">.</span><span class="na">bar</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>En utilisant <code class="docutils literal notranslate"><span class="pre">Optional</span></code> nous pouvons encoder ceci beaucoup plus proprement :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">someEventHandler</span><span class="p">(</span><span class="n">Entity</span> <span class="n">someEntity</span><span class="p">,</span> <span class="n">Entity</span> <span class="n">entity2</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">someEntity</span><span class="p">.</span><span class="na">getFoo</span><span class="p">().</span><span class="na">orElse</span><span class="p">(</span><span class="n">entity2</span><span class="p">.</span><span class="na">getFoo</span><span class="p">().</span><span class="na">orElse</span><span class="p">(</span><span class="n">MyPlugin</span><span class="p">.</span><span class="na">DEFAULT_FOO</span><span class="p">)).</span><span class="na">bar</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Ce n’est que la pointe de l’iceberg de l”<code class="docutils literal notranslate"><span class="pre">Optional</span></code>. Dans Java 8, <code class="docutils literal notranslate"><span class="pre">Optional</span></code> supporte aussi les interfaces <code class="docutils literal notranslate"><span class="pre">Consumer</span></code> et <code class="docutils literal notranslate"><span class="pre">Supplier</span></code>, permettant aux lambdas d’êtres utilisées comme relais d”<em>absence</em>. Des exemples d’utilisation peuvent être trouvés sur la page <a class="reference internal" href="usage.html"><span class="doc">Exemples d’utilisation</span></a>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Une autre explication sur la raison derrière l’évitement des références null peut être trouvée sur <a class="reference external" href="https://github.com/google/guava/wiki/UsingAndAvoidingNullExplained/">Guava : Using And Avoiding Null Explained</a>. Méfiez-vous la classe guava <code class="docutils literal notranslate"><span class="pre">Optional</span></code> mentionnée dans l’article lié est différente de celle de Java <code class="docutils literal notranslate"><span class="pre">java.util.Optional</span></code> et auront donc des noms de méthodes différentes de celles utilisées ici.</p>
+</div>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="usage.html" class="btn btn-neutral float-right" title="Exemples d’utilisation" accesskey="n" rel="next">Suivant <span class="fa fa-angle-right"></span></a>
+        <a href="index.html" class="btn btn-neutral" title="Optionnels" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> Précédent</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../../_static/flags/fr_FR.svg"
+         alt="fr" title="Français">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../../_static/jquery.js"></script>      <script type="text/javascript" src="../../_static/underscore.js"></script>      <script type="text/javascript" src="../../_static/doctools.js"></script>      <script type="text/javascript" src="../../_static/language_data.js"></script>      <script type="text/javascript" src="../../_static/translations.js"></script>      <script type="text/javascript" src="../../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

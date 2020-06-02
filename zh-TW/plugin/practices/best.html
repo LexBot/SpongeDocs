@@ -1,0 +1,290 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>最佳實踐 &mdash; Sponge 7.2.0 說明文件</title>
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="索引"
+              href="../../genindex.html"/>        <link rel="search" title="搜尋" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 說明文件" href="../../index.html"/>        <link rel="up" title="實踐" href="index.html"/>        <link rel="next" title="不好的實現" href="bad.html"/>        <link rel="prev" title="實踐" href="index.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../../index.html">
+            <img src="../../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../server/index.html">建立伺服器</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../versions/index.html">版本控制方針</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../preparing/index.html">準備開發</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">建立插件</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../api-versions.html">API版本</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../buildsystem.html">建置系統</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../workspace/index.html">建立你的工作空間</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../project/index.html">建立你的專案</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-identifier.html">插件識別碼</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-class.html">主要插件類別</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lifecycle.html">插件的生命週期</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../injection.html">相依注入</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">實踐</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">最佳實踐</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bad.html">不好的實現</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../optional/index.html">Optionals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../logging.html">記錄與除錯</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text/index.html">文本</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/index.html">插件指令</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../event/index.html">事件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/index.html">設定插件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assets.html">Asset API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data/index.html">Data API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../blocks/index.html">方塊</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../entities/index.html">實體</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../items/index.html">物品</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../trade-offers.html">開設交易</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../effects.html">效果</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../scheduler.html">排程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../services.html">服務</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database.html">資料庫</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../permissions.html">權限</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bans.html">封鎖</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metrics.html">Metrics 收集</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bookview.html">書本閱覽</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../economy/index.html">經濟</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wgen/index.html">世界生成</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manager.html">插件管理器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../game-profile-manager.html">遊戲設定檔管理器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../offline-userplayer-data.html">離線玩家資料</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tab-lists.html">Tab 清單</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-meta.html">插件元數據</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ray-tracing.html">光線追蹤</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../debugging.html">插件除錯</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials.html">教學</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internals/index.html">相依於實作的插件</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ore/index.html">Ore 文件</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/index.html">為 Sponge 貢獻</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">關於 Sponge 專案</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+          <li><a href="../index.html">建立插件</a> &raquo;</li>
+          <li><a href="index.html">實踐</a> &raquo;</li>
+    <li>最佳實踐</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/plugin/practices/best.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="best-practices">
+<h1>最佳實踐<a class="headerlink" href="#best-practices" title="本標題的永久連結">¶</a></h1>
+<p>有許多方法可以創建插件，並有許多陷阱等著粗心的開發者。</p>
+<div class="section" id="plugin-development-guidelines">
+<h2>开发 Sponge 插件需注意<a class="headerlink" href="#plugin-development-guidelines" title="本標題的永久連結">¶</a></h2>
+<p>下面的开发指南针对于 Sponge 插件开发者。这并不是一个明确或全面的列表，因此它存在的意义仅仅是试图说明一些在开发过程中可能出现的问题，以及它们的比较好的解决方案。</p>
+<div class="admonition note">
+<p class="first admonition-title">備註</p>
+<p class="last">我们保留使用 <em>Sponge</em> 用于描述官方 SpongePowered 项目的权利。请不要使用 <em>Sponge</em> 作为您的插件名称的一部分，除非：（1）您的插件主要涉及到 Minecraft 方块“海绵（Sponge）”，（2）您的插件也有依赖其他 API 的版本（在这种情况下， 可以在标题中加入诸如“For Sponge”等字样）。</p>
+</div>
+<div class="section" id="economy-api">
+<h3>经济 API<a class="headerlink" href="#economy-api" title="本標題的永久連結">¶</a></h3>
+<p>經濟API用於連結經濟插件與其他利用經濟的插件(例如商店)。你可以參閱經濟API章節 <a class="reference internal" href="../economy/index.html"><span class="doc">here</span></a>，它列出了所有你需要知道的細節。</p>
+</div>
+<div class="section" id="packets">
+<h3>数据包<a class="headerlink" href="#packets" title="本標題的永久連結">¶</a></h3>
+<p>任何攔截數據包或加入自定義物品、方塊、實體……的行為*不被計畫*成為SpongeAPI的一部分。須注意攔截數據包可能是用錯解決問題的方法，而現有的SpongeAPI可能已經包含解決方案。在一些狀況中，可以在SpongeAPI加入任何所需要的；或者相反地，使用Forge API並創建一個Mod。</p>
+</div>
+<div class="section" id="using-forge-or-nms-classes">
+<h3>使用 Forge 或者 NMS 的类<a class="headerlink" href="#using-forge-or-nms-classes" title="本標題的永久連結">¶</a></h3>
+<p>我們不建議和Forge或Minecraft元程式一起作業，除非其能提供和SpongeAPI的相容性。大部分NMS(<code class="docutils literal notranslate"><span class="pre">net.minecraft.server</span></code>)代碼中的插件沒有很好的錯誤處理，造成除錯非常困難。相較於使用SpongeAPI，維護NMS模組也更加困難。加入SpongeAPI程式碼內部的模組必須寫作特定API來使其可被Sponge插件調用，而並不依賴於底層的Minecraft程式碼。但插件可以創建成能在不同相融環境下載入以和底層實作 (SpongeForge or SpongeVanilla)互動。</p>
+<p>依赖于特定 Minecraft 实现的插件的代码很容易在版本更新后无法正常工作。插件开发者应该标记清楚任何出现不兼容代码的地方。正因如此，这些插件会看起来更像是 「Mod」 。</p>
+</div>
+<div class="section" id="mixins">
+<h3>Mixins<a class="headerlink" href="#mixins" title="本標題的永久連結">¶</a></h3>
+<p>Mixin 是专门用于在其他 Mod 或插件启动前操纵类字节码的工具。FML 将其称为 Coremod，SpongeForge 本身也是一个 Coremod，并且在 Minecraft 启动时使用 Mixin。插件在使用 Mixin 时，需要额外注意可能带来的更高的维护成本。</p>
+<p><strong>与 Mod 的界线</strong></p>
+<p>有着一些 Mixin 代码的 Sponge 插件实际上也可以被称为 Coremod。</p>
+<ul class="simple">
+<li>如果想要在 FML 中使用 Mixin，那么相应的代码必须在一个 Coremod 中。当然相应的 JAR 也可能包含一个 Sponge 插件，所以说实际上插件和 Mod 的界线其实很模糊。</li>
+<li>如果想要在 SpongeVanilla 中使用 Mixin，那么相关的声明必须出现在 Manifest 文件中。SpongeVanilla 从而可以执行 Mixin 中的代码。</li>
+<li>单个 JAR 完全可以在不同的服务端扮演不同的角色（事实上，一个 JAR 可能会包含一个 Tweaker，一个 FML Mod，一个 Bukkit 插件，一个 Sponge 插件，以及/或者一个 LiteMod）。</li>
+</ul>
+<p>这里我们给出一些有助于理解的定义。</p>
+<dl class="docutils">
+<dt>Tweak Mod（又名 Tweaker）</dt>
+<dd>一個次系統級的模組透過LaunchWrapper直接繫結遊戲，通常模組系統(如LiteLoader、FML)和獨立模組(如Optifine)，可以直接和任何遊戲環境互動。基本上跨越每個版本。</dd>
+<dt>Coremod</dt>
+<dd>Coremod 一般有着和 Tweaker Mod 一样的能力修改游戏代码，不过它的加载过程一般被 Mod 加载器包装起来了。Coremod 在任何情况下都会被直接暴露在游戏环境下。Coremod 一般没有办法保证不同 Minecraft 版本的兼容性。</dd>
+<dt>Mod</dt>
+<dd>一般模组只能通过 Mod 加载器和游戏交互。一般模组通常可以直接操作游戏中的对象，然而大部分情况下它们只能通过 Mod 加载器提供的代码修改游戏内容。一般模组通常没有办法在不同的 Minecraft 版本间保持兼容性（具体和模组的性质有关）。广义的 Mod 通常指所有拥有修改游戏行为的代码，不过这里以防混淆我们暂且使用这样的定义。</dd>
+<dt>插件</dt>
+<dd>插件一般通过 API 和游戏交互，因此并不直接和游戏对象交互，而只是操作 API 提供的对象。因此插件一般只会在 API 发生不向前兼容的变动时不再兼容（一些插件甚至可以在 API 发生变动时仍然保持兼容性）。</dd>
+</dl>
+<p>区分这些概念也是很重要的。因为一些 JAR 包含有 Mod，所以它们往往会被归入到 Mod 的类别，因而带来术语上的混淆不清。一些并没有完全和 API 解耦的插件也会被归入 Mod 的类别。这种“插件”在相应的插件 API 还没有完全成熟的时候很常见。</p>
+<p><strong>优势</strong></p>
+<p>如果一个插件不仅仅局限在调用 API，同时担任一个 Mod ，甚至 Coremod 的工作，那么除了显而易见的缺点（难以保证跨版本兼容性）之外，它也可以同时利用 Mod 的优点（可与游戏代码直接交互）以及插件的优势（对游戏机制的高度抽象，及与其他插件的协作）。</p>
+<p>一个主要的优势包括在迁移到更高版本的 Minecraft 时需要的维护成本的降低，因为基于相应的 API 的特性往往会更稳定些。</p>
+<p>這種模組可以用於實作需要超出API能力的插件</p>
+<p>和一些 NMS “插件”不同，这种 Mod 和插件的组合让一切都明朗起来。</p>
+</div>
+</div>
+<div class="section" id="plugin-interoperability">
+<h2>插件之间的交互<a class="headerlink" href="#plugin-interoperability" title="本標題的永久連結">¶</a></h2>
+<p>解释如何与其他插件交互， <em>未完待续</em> 。</p>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="bad.html" class="btn btn-neutral float-right" title="不好的實現" accesskey="n" rel="next">下一頁 <span class="fa fa-angle-right"></span></a>
+        <a href="index.html" class="btn btn-neutral" title="實踐" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> 上一頁</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../../_static/flags/zh_TW.svg"
+         alt="zh-TW" title="繁體中文">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../../_static/jquery.js"></script>      <script type="text/javascript" src="../../_static/underscore.js"></script>      <script type="text/javascript" src="../../_static/doctools.js"></script>      <script type="text/javascript" src="../../_static/language_data.js"></script>      <script type="text/javascript" src="../../_static/translations.js"></script>      <script type="text/javascript" src="../../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

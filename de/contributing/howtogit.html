@@ -1,0 +1,402 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wie man Git(Hub)t &mdash; Sponge 7.2.0 Dokumentation</title>
+
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="Stichwortverzeichnis"
+              href="../genindex.html"/>        <link rel="search" title="Suche" href="../search.html"/>    <link rel="top" title="Sponge 7.2.0 Dokumentation" href="../index.html"/>        <link rel="up" title="Zu Sponge beitragen" href="index.html"/>        <link rel="next" title="Sponge entwickeln" href="implementation/index.html"/>        <link rel="prev" title="Richtlinien für Beiträge" href="guidelines.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../index.html">
+            <img src="../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../server/index.html">Einen Server erstellen</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../versions/index.html">Versionsrichtlinie</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../preparing/index.html">Die Arbeitsumgebung einrichten</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../plugin/index.html">Plugins erstellen</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ore/index.html">Ore Dokumentation</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Zu Sponge beitragen</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="guidelines.html">Richtlinien für Beiträge</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Wie man Git(Hub)t</a></li>
+<li class="toctree-l2"><a class="reference internal" href="implementation/index.html">Sponge entwickeln</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spongedocs.html">SpongeDocs schreiben</a></li>
+<li class="toctree-l2"><a class="reference internal" href="porting.html">Portierung von Sponge auf andere Platformen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="versioning.html">Repository-Branch-Layout</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">Über das Sponge Projekt</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+          <li><a href="index.html">Zu Sponge beitragen</a> &raquo;</li>
+    <li>Wie man Git(Hub)t</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/contributing/howtogit.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="how-to-git-hub">
+<h1>Wie man Git(Hub)t<a class="headerlink" href="#how-to-git-hub" title="Link zu dieser Überschrift">¶</a></h1>
+<p>Wenn du beim programmieren von Sponge mithelfen möchtest, eine großartige Idee für die API hast oder unsere Dokumentation verbessern möchtest, dann musst du dich mit <code class="docutils literal notranslate"><span class="pre">Git</span></code> und GitHub vertraut machen. Wenn du dich bereits mit dem Forken, den Branches, pull-requests und Commits auskennst, dann kannst du diese Seite überspringen. Falls du keine Ahnung hast, was diese Begriffe bedeuten, lies weiter.</p>
+<div class="admonition note">
+<p class="first admonition-title">Bemerkung</p>
+<p class="last">Dieses Tutorial setzt voraus, dass du <a class="reference internal" href="../preparing/git.html"><span class="doc">Git installieren</span></a> gelesen und das du bereits einen Git-Client deiner Wahl installiert hast.</p>
+</div>
+<div class="section" id="the-basic-concept-of-git-and-github">
+<h2>Das Grundkonzept von Git und GitHub<a class="headerlink" href="#the-basic-concept-of-git-and-github" title="Link zu dieser Überschrift">¶</a></h2>
+<p>Git ermöglicht die gleichzeitige, gemeinsame Arbeit von vielen Entwicklern an einem einzigen Stück Software. GitHub ist eine Website auf der Entwickler zusammenarbeiten und ihre Arbeit untereinander teilen können. GitHub beruht auf Git, als Tool für die Verwaltung der Projekte.</p>
+<div class="admonition tip">
+<p class="first admonition-title">Tipp</p>
+<p class="last">Wenn du mit dem Vokabular von Git und GitHub nicht vertraut bist, kannst du einen Blick auf die <a class="reference external" href="https://help.github.com/articles/github-glossary/">Glossar Seite auf GitHub</a> werfen.</p>
+</div>
+<img alt="Repo Overview" src="../_images/repo-overview.svg" /><p>In diesem Fall heißt das Repository <code class="docutils literal notranslate"><span class="pre">SpongePowered</span></code> und beinhaltet die zwei Branches <code class="docutils literal notranslate"><span class="pre">master</span></code> und <code class="docutils literal notranslate"><span class="pre">feature1</span></code> sowie einige Commits in beiden Branches.</p>
+<p>Um diese Begriffe in einen Kontext zu setzen - beginnend mit dem <em>Repostiory</em>: Das Repository (kurz: <em>Repo</em>) ist der Ort, an dem alle Dateien eines Projekts gespeichert sind. Die SpongePowered-Repositories befinden sich bei <a class="reference external" href="https://github.com/SpongePowered">GitHub</a>. Jedoch hat das Repository einige Zugriffseinschränkungen, um es vor unerwünschten oder schädlichen Änderungen zu schützen. Man kann also nicht einfach so selbst Änderungen machen, weil normale Benutzer nur Leserecht für das Repository haben. Jetzt fragen Sie sich vielleicht, wie Sie Vorschläge und Änderungen einreichen sollen. Das ist der Punkt, an dem <em>Forks</em> ins spiel kommen. Sie können einfach eine Kopie der SpongePowered-Repositories machen und dort Ihre Änderungen vornehmen. Wenn Sie fertig sind, öffnen Sie ihr Repository als Pull-Request (<em>PR</em>) bei unserem Repository. Ihre vorgeschlagenen Hinzufügungen und Änderungen können dann angesehen werden und das Personal wird ihnen Bescheid geben, wenn etwas falsch ist oder Verbesserungen benötigt und eventuell sogar den finalen Pull-Request mergen.</p>
+<p>Hier eine kurze Zusammenfassung von dem oben beschriebenen Ablauf, bevor wir ins Detail gehen:</p>
+<ol class="arabic simple">
+<li>„fork“ (deutsch: „aufgabeln“) der Repository deiner Wahl</li>
+<li>Klone es auf deinen lokalen PC</li>
+<li>Erstelle einen neuen Branch</li>
+<li>Mache die gewünschten Änderungen</li>
+<li>Teste, ob alles funktioniert</li>
+<li>Committe die Änderungen</li>
+<li>Synchronisiere alles mit GitHub</li>
+<li>Schlage die Änderungen in einem Pull-Request in einem unserer Repositories vor</li>
+<li>Ändere deinen PR wenn nötig</li>
+<li>Dein PR wird von den Mitarbeitern in den Master-Branch eingefügt</li>
+</ol>
+</div>
+<div class="section" id="details-please">
+<h2>Einzelheiten bitte!<a class="headerlink" href="#details-please" title="Link zu dieser Überschrift">¶</a></h2>
+<div class="section" id="forking-a-repo">
+<h3>1. Ein Repository „forken“<a class="headerlink" href="#forking-a-repo" title="Link zu dieser Überschrift">¶</a></h3>
+<div class="admonition note">
+<p class="first admonition-title">Bemerkung</p>
+<p class="last">Dieser Schritt wird nur benötigt, wenn Sie keine Push-Rechte an dem Repository haben, an dem sie arbeiten. Wenn Sie an Ihrem eigenen Repository arbeiten, wird kein Fork benötigt. Dann können Sie diesen Schritt einfach überspringen und direkt <code class="docutils literal notranslate"><span class="pre">klonen</span></code>. Wenn Sie Änderungen an Sponge vornehmen und <strong>nicht</strong> kein Mitarbeiter sind, ist dieser Schritt notwendig.</p>
+</div>
+<p>Jetzt, da Sie das grundlegene Konzept kennen, werden wir die Details besprechen. Als erstes müssen Sie das Repository forken, an dem Sie Änderungen vornehmen wollen. Dies kann man auf GitHub.com machen, wo Sie einen <code class="docutils literal notranslate"><span class="pre">Fork</span></code>-Button am Anfang der Repository-Seite finden werden. Nachdem Sie ihn gedrückt haben, wird GitHub ein bisschen Arbeit verrichten und ihnen ein Duplikat des Originalrepositorys präsentieren. Sie werden feststellen, dass sich das Duplikat jetzt unter <cite>ÌhrGitHubAccount/NameDesGeklontenRepository`</cite> befindet. Gut, erster Schritt abgeschlossen.</p>
+<div class="admonition note">
+<p class="first admonition-title">Bemerkung</p>
+<p class="last">Alle Branches des orginalen Repositories werden auch geforkt, du wirst ein genaues Abbild der geforkten Repo bekommen.</p>
+</div>
+<img alt="Repo forking" src="../_images/repo-fork.svg" /></div>
+<div class="section" id="cloning-the-fork-to-your-local-machine">
+<h3>2. Den Fork auf den lokalen PC klonen<a class="headerlink" href="#cloning-the-fork-to-your-local-machine" title="Link zu dieser Überschrift">¶</a></h3>
+<p>Nun müssen Sie diesen Fork auf ihr lokales Gerät downloaden, um Änderungen daran vorzunehmen. Um das zu tun, öffnen Sie einen Git-Client Ihrer Wahl (<a class="reference internal" href="../preparing/git.html"><span class="doc">Git installieren</span></a>) und <cite>klonen</cite> Sie den Fork auf ihr lokales Gerät. Der Client wird nach einem Ordner fragen, um alles darin zu speichern. Zweiter Schritt fertig, gut gemacht!</p>
+<div class="admonition note">
+<p class="first admonition-title">Bemerkung</p>
+<p class="last">Due meisten Schritte können über ein GUI deiner Wahl erledigt werden. Falls du mit der Kommandozeile erfahren bist, kannst du sie auch benutzen. Jeder Schritt wird ihnen die benötigten Kommands zeigen, um das gewünschte Ergebnis zu erreichen.</p>
+</div>
+<p>Alternativ kannst du dies über CLI (Command Line Interface, <code class="docutils literal notranslate"><span class="pre">CMD</span></code> oder <code class="docutils literal notranslate"><span class="pre">Powershell</span></code> auf Windows) machen. Beache, dass du den Ordner zuerst erstellen musst, bevor alles zu dir geklont wird, bevor du das Kommando eingibst:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone git://github.com/YourGitHubAccount/ClonedRepoName.git
+</pre></div>
+</div>
+<img alt="Repo cloning" src="../_images/repo-clone.svg" /></div>
+<div class="section" id="creating-a-new-branch">
+<h3>3. Einen neuen Branch erstellen<a class="headerlink" href="#creating-a-new-branch" title="Link zu dieser Überschrift">¶</a></h3>
+<p>Jetzt, da Sie einen lokalen Klon von ihrem Fork haben, ist es an der Zeit, einen Branch zu erstellen, um daran zu arbeiten. Die Branches wurden entworfen, um verschiedene Features oder Ergänzungen gleichzeitig entwickeln und testen zu können, ohne Probleme und Fehler aufgrund von Interferenzen der Zusätze zu verursachen. Es ist streng empfohlen, Änderungen <em>nicht</em> direkt in den <code class="docutils literal notranslate"><span class="pre">master</span></code>-Branch zu machen. Stattdessen erstellen Sie selbst einen neuen Branch (mit einem sinnvollen Namen) und nehmen Sie dort die Änderungen vor.</p>
+<p>Das impliziert, dass wir zuerst einen <code class="docutils literal notranslate"><span class="pre">branch</span></code> erstellen müssen, als los gehts! Sie können das über ihren Client machen (es sollte dort irgendwo einen <code class="docutils literal notranslate"><span class="pre">create</span> <span class="pre">branch</span></code>-Button geben), oder Sie benutzen das CLI mit Git:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git checkout -b <span class="o">[</span>name_of_your_new_branch<span class="o">]</span>
+</pre></div>
+</div>
+<p>Das wird einen <code class="docutils literal notranslate"><span class="pre">Branch</span></code> mit dem Namen deiner Wahl erstellen und auf ihn wechseln. Alle Änderungen, die du jetzt vornimst werden auf deisem Branch gespeichert werden. Wenn sie auf einen anderen Branch (z. B. <code class="docutils literal notranslate"><span class="pre">master</span></code>) wechseln willst, benutze den selben Befehl. Dritter Schritt abgeschlossen! Gute Arbeit bis jetzt! Um eine Übersicht über deine Branches zu bekommen, benutze einfach deinen Git-Client oder:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git branch
+</pre></div>
+</div>
+<img alt="Branches" src="../_images/repo-branch.svg" /><p><strong>Jetzt ist es an der zeit, Änderungen vorzunehmen</strong>. Benutzen Sie den Editor oder die IDE Ihrer Wahl, um das zu tun.</p>
+</div>
+<div class="section" id="test-if-your-changes-work">
+<h3>4. Die Änderungen testen<a class="headerlink" href="#test-if-your-changes-work" title="Link zu dieser Überschrift">¶</a></h3>
+<p>Für die SpongeAPI und die Implementierungen müssen sie <code class="docutils literal notranslate"><span class="pre">gradle</span> <span class="pre">compileJava</span></code> ausführen. Fahren Sie mit dem nächsten Schritt fort, wenn es ohne Fehler ausgeführt wird. Wenn nicht, machen Sie die angemessenen Korrigierungen und versuchen Sie es erneut.</p>
+<p>Für SpongeDocs können Sie einfach ihr PR einreichen. Diese wird automatisch eingefügt und mögliche Fehler enthüllen. Eine andere Möglichkeit ist es, die Docs lokal zu erstellen. Schauen Sie sich die <a class="reference external" href="https://github.com/SpongePowered/SpongeDocs/blob/master/README.md">Readme.md in den Docs</a> für weiterführende Anweisungen an.</p>
+</div>
+<div class="section" id="commit-the-changes">
+<h3>5. Einen Commit der die Änderungen enthält erstellen<a class="headerlink" href="#commit-the-changes" title="Link zu dieser Überschrift">¶</a></h3>
+<p>When you’re done, you need to bundle them into a single package (a <code class="docutils literal notranslate"><span class="pre">commit</span></code>) and get them into the branch. Again, your
+git client will help you out. Add a meaningful name to your commit and a short description if needed. This can be done
+via CLI too:</p>
+<p>Sammeln Sie zuerst alle Dateien, die Sie in einen Commit tun möchten:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git add &lt;file&gt;
+git add &lt;folder&gt;
+</pre></div>
+</div>
+<p>Jetzt, da die Dateien zu Ihrer Liste der Änderungen hinzugefügt sind, die du in den Commit aufgenommen haben willst, tue nur</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git commit
+</pre></div>
+</div>
+<p>Dies wird ein Textfenster öffnen, wo du - falls gewünscht - eine Nachricht hinzufügen kannst. Schau auf das Bild unterhalb. Du wirst bemerken, dass deine Commits immer noch nur lokal gespeichert sind und sich nicht auf dem Fork auf GitHub befinden.</p>
+<div class="admonition note">
+<p class="first admonition-title">Bemerkung</p>
+<p class="last">Du kannst mehrere Commits in einem PR haben. Mach einfach weiter, ändere alles, was du brauchst, und commite die Änderungen. Du kannst alle Commits später in einen einzigen zusammenführen.</p>
+</div>
+<p>Der sechste Schritt ist getan. Fast fertig!</p>
+<img alt="Committing" src="../_images/repo-commit.svg" /></div>
+<div class="section" id="sync-to-github">
+<h3>6. Auf GitHub synchronisieren<a class="headerlink" href="#sync-to-github" title="Link zu dieser Überschrift">¶</a></h3>
+<p>Nun müssen wir die Änderungen auf deinen Fork auf GitHub hochladen. Alles, was du bisher gemacht hast, ist nur lokal gespeichert. Wie immer kannst du deinen Git-Client nutzen (Es gibt einen Button in deinem GUI) oder du kannst es über den CLI tun:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git push &lt;remote&gt; &lt;branch&gt;
+</pre></div>
+</div>
+<p>In diesem Fall sollte es sein:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git push origin feature/YourFeature
+</pre></div>
+</div>
+<img alt="Pushing commits" src="../_images/repo-push.svg" /></div>
+<div class="section" id="propose-the-changes-in-a-pr-to-the-spongepowered-repo">
+<h3>7. Die Änderungen in einem unserer Repositories vorschlagen<a class="headerlink" href="#propose-the-changes-in-a-pr-to-the-spongepowered-repo" title="Link zu dieser Überschrift">¶</a></h3>
+<p>You can either go to your forks page on GitHub.com (there should be a notice at the top of your forks page to
+guide you), or you can use your GitHub client to create a pull-request. The official GitHub for Win client uses the
+top right corner of the window for this.</p>
+<img alt="PRs" src="../_images/repo-pr.svg" /></div>
+<div class="section" id="amend-your-pr-if-necessary">
+<h3>8. Ändere gegebenenfalls deinen PR<a class="headerlink" href="#amend-your-pr-if-necessary" title="Link zu dieser Überschrift">¶</a></h3>
+<p>Wenn du Änderungen an deinem PR machen willst, dann mache einfach mehr Commits zu dem oben erstellten Branch. Weitere Commits werden automatisch zum PR hinzugefügt.</p>
+</div>
+<div class="section" id="your-pr-gets-pulled">
+<h3>9. Dein PR wird gepullt<a class="headerlink" href="#your-pr-gets-pulled" title="Link zu dieser Überschrift">¶</a></h3>
+<p>Das war’s. Jetzt sind wir fertig. Gute Arbeit!</p>
+</div>
+</div>
+<div class="section" id="advanced-git">
+<h2>Fortgeschrittenes Git<a class="headerlink" href="#advanced-git" title="Link zu dieser Überschrift">¶</a></h2>
+<div class="section" id="squashing-with-rebase">
+<h3>Mit Rebase vereinen<a class="headerlink" href="#squashing-with-rebase" title="Link zu dieser Überschrift">¶</a></h3>
+<p>Let’s say you have finished your additions to the repo, and let’s pretend that you made 137 commits while getting it
+done. Your commit history will certainly look cluttered. It would be a shame if they were all recorded into the repo,
+wouldn’t it? Too many trivial commits also clutters the project commit history. Fortunately, Git has a nice tool to
+circumvent this, it’s called a <code class="docutils literal notranslate"><span class="pre">rebase</span></code>. Rebasing can take your 137 small commits and just turn them into one big
+commit. Awesome, isn’t it? Instead of reinventing the wheel, we’ll just pass you a link to a very short and easily
+understandable squashing tutorial:</p>
+<p><a class="reference external" href="http://gitready.com/advanced/2009/02/10/squashing-commits-with-rebase.html">Gitready: Vereinung mit Rebase</a></p>
+<p>Das ist, was es tut, schön visualisiert:</p>
+<img alt="Squashing commits" src="../_images/repo-squash.svg" /></div>
+<div class="section" id="setting-up-a-remote">
+<h3>Einen Remote einrichten<a class="headerlink" href="#setting-up-a-remote" title="Link zu dieser Überschrift">¶</a></h3>
+<p>Naturally the original repo is the direct parent of your fork and your fork is the direct parent of your local clone.
+However, the original repo <strong>isn’t</strong> the direct parent of your clone. This isn’t a problem in the first place, but it
+prevents you from updating your clone to the latest changes on the original repo. If you setup the original repo as a
+remote (read: „parent“) of your clone, you’ll be able to grab all changes made to this repo and apply it to your local
+clone. Look below to see how grabbing and updating works.</p>
+<img alt="Setting up a remote" src="../_images/repo-remote.svg" /><p>Also gut. Dieser Schritt wird durch CLI durchgeführt, da den meisten GUIs diese (eher fortgeschrittene) Funktionalität fehlt:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git remote add upstream https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git
+</pre></div>
+</div>
+<p>Wenn du dir unsicher bist, ob das so funktioniert hat, wie beabsichtigt, oder wenn du prüfen möchtest, welcher Remotes aktuell festgelegt sind, kannst du das darüber überprüfen:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git remote -v
+</pre></div>
+</div>
+<p>Die Aussage sollte folgendermaßen aussehen:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>origin    https://github.com/YOUR_USERNAME/YOUR_FORK.git <span class="o">(</span>fetch<span class="o">)</span>
+origin    https://github.com/YOUR_USERNAME/YOUR_FORK.git <span class="o">(</span>push<span class="o">)</span>
+upstream  https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git <span class="o">(</span>fetch<span class="o">)</span>
+upstream  https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git <span class="o">(</span>push<span class="o">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Bemerkung</p>
+<p class="last">Falls du die Warnung <code class="docutils literal notranslate"><span class="pre">fatal:</span> <span class="pre">The</span> <span class="pre">current</span> <span class="pre">branch</span> <span class="pre">DeinBranchName</span> <span class="pre">has</span> <span class="pre">no</span> <span class="pre">upstream</span> <span class="pre">branch.</span></code> siehst, dann ist der Branch möglicherweise nicht auf dem Online-Remote. Dies passiert meistens, wenn das das erste Mal ist, wenn du einen Commit auf einen neuen Branch pushst. Um den neuen Branch zu pushen und den Remote online zu stellen, benutze <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span> <span class="pre">--set-upstream</span> <span class="pre">origin</span> <span class="pre">DeinBranchName</span></code>.</p>
+</div>
+</div>
+<div class="section" id="rebasing">
+<h3>Rebasing<a class="headerlink" href="#rebasing" title="Link zu dieser Überschrift">¶</a></h3>
+<p>Angenommen du hast ein paar Änderungen an den gewünschten Branch gemacht, aber in der Zwischenzeit hat jemand anderes das Repository geupdated. Das bedeutet, dass dein Fork und dein Klon veraltet sind. Das ist kein großes Problem, um aber Probleme zu vermeiden, wenn du deine Hinzufügungen später mergest, ist es dringend empfohlen, deine Änderungen gegen die aktuellsten Änderungen zu <code class="docutils literal notranslate"><span class="pre">rebasen</span></code>. Wenn du das Remote-Repository noch nicht erstellt hast, mach es, bevor du versuchst zu rebasen.</p>
+<p>Ein erfolgreicher Rebase benötigt mehrere Schritte:</p>
+<div class="section" id="fetch-the-changes-on-the-remote-repo">
+<h4>1. Hol die Änderungen auf das Remote-Repository<a class="headerlink" href="#fetch-the-changes-on-the-remote-repo" title="Link zu dieser Überschrift">¶</a></h4>
+<p>Zuerst müssen die Änderungen auf das Remote-Repository geholt werden. Dies geschieht (wieder) über CLI:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git fetch upstream
+</pre></div>
+</div>
+<p>Das wird alle Änderungen vom Remote <code class="docutils literal notranslate"><span class="pre">upstream</span></code> hinzufügen und sie in einen temporären <code class="docutils literal notranslate"><span class="pre">upstream/master</span></code> Branch stecken.</p>
+</div>
+<div class="section" id="merge-remote-changes-locally">
+<h4>2. Remote-Änderungen lokal zusammenführen<a class="headerlink" href="#merge-remote-changes-locally" title="Link zu dieser Überschrift">¶</a></h4>
+<p>Nun müssen wir den lokalen <code class="docutils literal notranslate"><span class="pre">master</span></code>-Branch auswählen:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git checkout master
+</pre></div>
+</div>
+<p>Danach werden wir die Änderungen, die in <code class="docutils literal notranslate"><span class="pre">upstream/master</span></code> enthalten sind in unseren lokalen <code class="docutils literal notranslate"><span class="pre">master</span></code>-Branch mergen:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git merge upstream/master
+</pre></div>
+</div>
+<p>Okay, das haben wir bisher geschafft:</p>
+<img alt="Rebasing 1" src="../_images/repo-rebase1.svg" /></div>
+<div class="section" id="rebase-local-branch-against-updated-master">
+<h4>3. Den lokalen Branch gegen den aktualisierten Master rebasen<a class="headerlink" href="#rebase-local-branch-against-updated-master" title="Link zu dieser Überschrift">¶</a></h4>
+<p>Als nächstes musst du den lokalen Branch, in dem du arbeitest gegen deinen lokalen <code class="docutils literal notranslate"><span class="pre">master</span></code>-Branch rebasen. Dafür musst du auf deinen bearbeiteten Branch wechsteln (hier: <code class="docutils literal notranslate"><span class="pre">feature\yourfeature</span></code>) und dann einen Rabse ausführen. Das passiert über:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git checkout feature/yourfeature
+git rebase master
+</pre></div>
+</div>
+<p>Das wird deinen Branch zurückspulen, die Commits vom Master-Branch hinzufügen und dann deine eigenen Änderungen wieder anwenden. Das Ergebnis sieht folgendermaßen aus:</p>
+<img alt="Rebasing 2" src="../_images/repo-rebase2.svg" /></div>
+<div class="section" id="push-everything-to-your-fork">
+<h4>4. Alles auf deinen Fork pushen<a class="headerlink" href="#push-everything-to-your-fork" title="Link zu dieser Überschrift">¶</a></h4>
+<p>Die letzte Sache, die wir tun müssen, ist es, alles zum Fork zu pushen. Wenn nu schon ein PR erstellt hast, wird dieser automatisch aktualisiert werden:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git checkout master
+git push -f
+git checkout feature/yourfeature
+git push -f
+</pre></div>
+</div>
+<img alt="Rebasing 3" src="../_images/repo-rebase3.svg" /><p>Du hast es geschafft, super! Gute Arbeit und vielen Dank fürs Rebase-Air fliegen!</p>
+</div>
+</div>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="implementation/index.html" class="btn btn-neutral float-right" title="Sponge entwickeln" accesskey="n" rel="next">Nächste <span class="fa fa-angle-right"></span></a>
+        <a href="guidelines.html" class="btn btn-neutral" title="Richtlinien für Beiträge" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> Vorherige</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../_static/flags/de_DE.svg"
+         alt="de" title="Deutsch">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../_static/jquery.js"></script>      <script type="text/javascript" src="../_static/underscore.js"></script>      <script type="text/javascript" src="../_static/doctools.js"></script>      <script type="text/javascript" src="../_static/language_data.js"></script>      <script type="text/javascript" src="../_static/translations.js"></script>      <script type="text/javascript" src="../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

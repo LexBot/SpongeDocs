@@ -1,0 +1,445 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sponge로 이전하기 &mdash; Sponge 7.2.0 documentation</title>
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="색인"
+              href="../../genindex.html"/>        <link rel="search" title="검색" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 documentation" href="../../index.html"/>        <link rel="up" title="시작하기" href="index.html"/>        <link rel="next" title="구현 프로그램 선택하기" href="implementations/index.html"/>        <link rel="prev" title="Java 설치" href="jre.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../../index.html">
+            <img src="../../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">서버 만들기</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html">Quick Start Guide</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">시작하기</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="jre.html">Java 설치</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Sponge로 이전하기</a></li>
+<li class="toctree-l3"><a class="reference internal" href="implementations/index.html">구현 프로그램 선택하기</a></li>
+<li class="toctree-l3"><a class="reference internal" href="launch-script.html">시작 스크립트 만들기</a></li>
+<li class="toctree-l3"><a class="reference internal" href="port-forward.html">포트 포워딩</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bungeecord.html">Using Sponge with Server Proxies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configuration/index.html">Sponge 설정하기</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../management/index.html">서버 관리</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spongineer/index.html">Sponge 전문가 되기</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../versions/index.html">Versioning Policy</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../preparing/index.html">개발 준비</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../plugin/index.html">플러그인 개발하기</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ore/index.html">Ore 설명 문서</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/index.html">Sponge에 기여하기</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">Sponge 프로젝트에 대하여</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+          <li><a href="../index.html">서버 만들기</a> &raquo;</li>
+          <li><a href="index.html">시작하기</a> &raquo;</li>
+    <li>Sponge로 이전하기</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/server/getting-started/migrating.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="migrating-to-sponge">
+<h1>Sponge로 이전하기<a class="headerlink" href="#migrating-to-sponge" title="제목 주소">¶</a></h1>
+<p>이 부분은 다른 서버 플랫폼에서 Sponge로 옮기고자 하는 서버 관리자를 위해 만들어졌습니다.</p>
+<div class="contents local topic" id="id1">
+<ul class="simple">
+<li><a class="reference internal" href="#id2" id="id6">Sponge로 이전하기</a><ul>
+<li><a class="reference internal" href="#migrating-from-craftbukkit-or-spigot" id="id7">CraftBukkit이나 Spigot에서 이전하기</a></li>
+<li><a class="reference internal" href="#migrating-from-canary" id="id8">Canary에서 이전하기</a></li>
+<li><a class="reference internal" href="#migrating-from-forge" id="id9">Forge에서 이전하기</a></li>
+<li><a class="reference internal" href="#migrating-from-vanilla" id="id10">Vanilla에서 이전하기</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#installing-sponge" id="id11">Sponge 설치하기</a></li>
+</ul>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">경고</p>
+<p class="last">이전하기 <strong>전에</strong> 서버 파일들을 백업해주세요. 무언가가 잘못되었더라도, 다시 원래대로 돌릴 수 있습니다!</p>
+</div>
+<div class="section" id="id2">
+<h2><a class="toc-backref" href="#id6">Sponge로 이전하기</a><a class="headerlink" href="#id2" title="제목 주소">¶</a></h2>
+<p>SpongeForge나 SpongeVanilla로 옮기고자 한다면, 아래 부분을 봐주세요. 지시 사항은 대부분 같지만, 다른 점에 대해서는 따로 설명되어 있습니다.</p>
+<div class="section" id="migrating-from-craftbukkit-or-spigot">
+<h3><a class="toc-backref" href="#id7">CraftBukkit이나 Spigot에서 이전하기</a><a class="headerlink" href="#migrating-from-craftbukkit-or-spigot" title="제목 주소">¶</a></h3>
+<div class="admonition note">
+<p class="first admonition-title">주석</p>
+<p class="last">Spigot은 CraftBukkit의 수정판입니다.</p>
+</div>
+<div class="section" id="worlds">
+<h4>세계<a class="headerlink" href="#worlds" title="제목 주소">¶</a></h4>
+<p>Forge, 즉 SpongeForge (또한 SpongeVanilla) 는 일반 마인크래프트와 동일한 세계 구조를 사용합니다. 일반 마인크래프트는 네더 월드 (일반적으로 <code class="docutils literal notranslate"><span class="pre">world_nether</span></code>) 그리고 엔드 월드 (일반적으로 <code class="docutils literal notranslate"><span class="pre">world_the_end</span></code>) 를 <code class="docutils literal notranslate"><span class="pre">world</span></code> 폴더 내에 배치합니다. 하지만, Bukkit 과 Spigot 은 세계를 저장하기 위해 이 시스템을 <em>사용하지 않으므로</em>, 이전하는 과정이 필요합니다.</p>
+<p>SpongeForge 와 SpongeVanilla 는 월드 전체를 자동으로 변환해주는 스크립트를 제공합니다. 작동시키는 방법:</p>
+<ol class="arabic simple">
+<li>당신의 Bukkit 혹은 Spigot 서버를 닫고 폴더를 완벽히 백업하세요.</li>
+<li>Bukkit 혹은 Spigot 의 jar 파일을 제거하고, SpongeForge 혹은 SpongeVanilla 를 제거한 폴더에 설치하세요. 만약 당신이 어떻게 설치하는지 정확히 모른다면, <a class="reference internal" href="implementations/index.html"><span class="doc">이것을</span></a> 읽으세요.</li>
+<li>Sponge 서버를 실행하면, 자동으로 월드 변환이 진행됩니다.</li>
+<li>The Migrator will look into the <code class="docutils literal notranslate"><span class="pre">bukkit.yml</span></code> for a config key called <code class="docutils literal notranslate"><span class="pre">world-container</span></code> and will search that folder for
+worlds to transfer. If that file isn’t around (or something caused it to fail to read), then the migrator will use
+the <code class="docutils literal notranslate"><span class="pre">root</span></code> folder of the server (which is CraftBukkit standard).</li>
+<li>Now the migration is performed. At this point, worlds are copied over from what we call the <code class="docutils literal notranslate"><span class="pre">world</span> <span class="pre">container</span></code> into
+the folder defined in the <a class="reference external" href="https://minecraft.gamepedia.com/Server.properties">server.properties</a> file via the
+<code class="docutils literal notranslate"><span class="pre">level-name</span></code> key. Note that the original files in the <code class="docutils literal notranslate"><span class="pre">world</span> <span class="pre">container</span></code> remain unchanged, a <em>copy</em> is made during migration.</li>
+<li>Bukkit puts things in weird places (with weird names), thus two important fixes have to be applied. Keep in mind that
+these fixes are based on <em>assumptions</em> (due to Bukkit’s structure).<ul>
+<li>The first fix is to rename any folder whose name starts with <code class="docutils literal notranslate"><span class="pre">level-name</span></code> property and ends with a Vanilla
+dimension name (<code class="docutils literal notranslate"><span class="pre">_nether</span></code>/<code class="docutils literal notranslate"><span class="pre">_the_end</span></code>) to <code class="docutils literal notranslate"><span class="pre">DIM-1</span></code> and <code class="docutils literal notranslate"><span class="pre">DIM1</span></code> respectively.</li>
+<li>The second fix is to migrate up the <code class="docutils literal notranslate"><span class="pre">region</span></code> data within a Bukkit Vanilla nether/the_end. Bukkit puts this data
+into <code class="docutils literal notranslate"><span class="pre">DIM-1\region</span></code> and <code class="docutils literal notranslate"><span class="pre">DIM1\region</span></code> respectively whereas Vanilla/Forge expect <code class="docutils literal notranslate"><span class="pre">region</span></code> to be in the
+<strong>root</strong> of the world’s folder structure.</li>
+</ul>
+</li>
+</ol>
+<p>The migrator can’t provide all needed configuration values. This is the reason why you need to change several parameters
+by hand to make the world work properly upon loading it on SpongeForge or SpongeVanilla. It is strongly advised to use a
+<em>World Management Plugin</em> to set the right parameters and actually load the world.</p>
+<div class="admonition note">
+<p class="first admonition-title">주석</p>
+<p class="last">As already pointed out, we have to deal with several assumptions while migrating your world.
+<strong>Thus Sponge does not load the world directly</strong>, you need to install a plugin to handle this.</p>
+</div>
+<p>The output generated by the migration tool should look like this, if everything went fine:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[17:32:29] [Server thread/INFO] [Sponge]: Checking for worlds that need to be migrated...
+[17:32:29] [Server thread/INFO] [Sponge]: Migrating [world_lol] from [.].
+[17:32:29] [Server thread/INFO] [Sponge]: Migrated world [world_lol] from [.] to [.\world\world_lol]
+[17:32:29] [Server thread/INFO] [Sponge]: Migrating [world_nether] from [.].
+[17:32:29] [Server thread/INFO] [Sponge]: Migrated world [world_nether] from [.] to [.\world\DIM-1]
+[17:32:29] [Server thread/INFO] [Sponge]: Migrating [world_the_end] from [.].
+[17:32:29] [Server thread/INFO] [Sponge]: Migrated world [world_the_end] from [.] to [.\world\DIM1]
+[17:32:29] [Server thread/INFO] [Sponge]: [3] worlds have been migrated back to Vanilla&#39;s format.
+</pre></div>
+</div>
+<p>When this is complete, you should have a copy of the world(s) in a structure that Sponge can load.
+The original world files remain untouched in their original location, in case something went wrong.</p>
+</div>
+<div class="section" id="server-and-world-configuration-files">
+<h4>Server and World Configuration Files<a class="headerlink" href="#server-and-world-configuration-files" title="제목 주소">¶</a></h4>
+<p>CraftBukkit and Sponge both share files that are made available by vanilla Minecraft. These files can thus be reused on
+Sponge, if they are already present in your CraftBukkit installation:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">server.properties</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">banned-ips.json</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">banned-players.json</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">ops.json</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">usercache.json</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">whitelist.json</span></code></li>
+</ul>
+<p>다음의 파일들은 CraftBukkit에서만 사용되고, Sponge는 해당 파일들을 사용하지 않기 때문에 지울 수 있습니다:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">bukkit.yml</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">commands.yml</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">help.yml</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">permissions.yml</span></code></li>
+</ul>
+<p>Users who are migrating from Spigot may wish to compare <code class="docutils literal notranslate"><span class="pre">spigot.yml</span></code> to <code class="docutils literal notranslate"><span class="pre">global.conf</span></code> in Sponge. Some keys in
+<code class="docutils literal notranslate"><span class="pre">spigot.yml</span></code> have counterparts in <code class="docutils literal notranslate"><span class="pre">global.conf</span></code>, and it may be desirable to copy over the values of any keys that
+are present in both files.</p>
+</div>
+<div class="section" id="plugins">
+<h4>플러그인<a class="headerlink" href="#plugins" title="제목 주소">¶</a></h4>
+<p>Sponge has no native support for Bukkit plugins. However, some members of the community are re-implementing the Bukkit
+API within a special Sponge plugin, which may allow Bukkit plugins to function on a Sponge server. This plugin has not
+yet been slated for release.</p>
+<p>Ore is Sponge’s official repository for finding plugins, and it is recommended to download all Sponge plugins from Ore.
+When finding replacements for your Bukkit plugins, there are a few points to keep in mind:</p>
+<ul class="simple">
+<li>Not all Bukkit developers have chosen to port their plugins to Sponge. Over time, however, someone else may create a
+suitable replacement.</li>
+<li>Not all Sponge plugins that are ported from Bukkit will automatically convert configuration files. Individual plugin
+developers make the decision on whether or not to automatically convert configuration files.</li>
+<li>Some Sponge plugins that are ported from Bukkit may change in functionality, or may not even use the same
+configuration structure.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="migrating-from-canary">
+<h3><a class="toc-backref" href="#id8">Canary에서 이전하기</a><a class="headerlink" href="#migrating-from-canary" title="제목 주소">¶</a></h3>
+<div class="section" id="id3">
+<h4>세계<a class="headerlink" href="#id3" title="제목 주소">¶</a></h4>
+<p>Forge, and thus SpongeForge (and also SpongeVanilla), use the same world structure as vanilla Minecraft. Vanilla Minecraft
+places the nether (typically <code class="docutils literal notranslate"><span class="pre">world_nether</span></code>) and the end (typically <code class="docutils literal notranslate"><span class="pre">world_the_end</span></code>) dimensions within the
+<code class="docutils literal notranslate"><span class="pre">world</span></code> folder.</p>
+<p>Canary relocates the nether and end dimensions outside of the <code class="docutils literal notranslate"><span class="pre">world</span></code> folder, which must be remedied if it is desired
+to retain the nether and end dimensions when running Sponge. However, Canary provides an easy method to convert Canary
+worlds to a structure usable by Sponge with the <code class="docutils literal notranslate"><span class="pre">/makevanilla</span></code> command. If the world conversion is successful, the
+output will be placed in the <code class="docutils literal notranslate"><span class="pre">vanilla</span></code> folder.</p>
+</div>
+<div class="section" id="id4">
+<h4>Server and World Configuration Files<a class="headerlink" href="#id4" title="제목 주소">¶</a></h4>
+<p>Sponge uses many files that are made available by vanilla Minecraft, such as <code class="docutils literal notranslate"><span class="pre">server.properties</span></code>. Canary, however,
+does not; the only file it has in common with vanilla Minecraft is <code class="docutils literal notranslate"><span class="pre">usercache.json</span></code>. Thus, <code class="docutils literal notranslate"><span class="pre">usercache.json</span></code> is the
+only file from Canary that can be reused on Sponge.</p>
+<p>Nevertheless, it is possible to manually migrate some Canary configuration files to their Sponge counterparts, which
+have been provided below.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="47%" />
+<col width="53%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Canary file(s)</th>
+<th class="head">Sponge counterpart(s)</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>server.cfg
+&lt;world&gt;_&lt;dimension&gt;.cfg</td>
+<td>server.properties</td>
+</tr>
+<tr class="row-odd"><td>&lt;world&gt;_&lt;dimension&gt;.cfg</td>
+<td>global.conf
+&lt;dimension&gt;/dimension.conf</td>
+</tr>
+<tr class="row-even"><td>ops.cfg</td>
+<td>ops.json</td>
+</tr>
+<tr class="row-odd"><td>db.cfg</td>
+<td>대응 파일 없음</td>
+</tr>
+<tr class="row-even"><td>motd.txt</td>
+<td>대응 파일 없음</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id5">
+<h4>플러그인<a class="headerlink" href="#id5" title="제목 주소">¶</a></h4>
+<p>SpongeVanilla and SpongeForge have no native support for Canary plugins. It may be possible to re-implement the
+Canary API in a special Sponge plugin.</p>
+<p>Ore is Sponge’s official repository for finding plugins, and it is recommended to download all Sponge plugins from Ore.
+When finding replacements for your Canary plugins, there are a few points to keep in mind:</p>
+<ul class="simple">
+<li>Not all Canary developers have chosen to port their plugins to Sponge. Over time, however, someone else may create a
+suitable replacement.</li>
+<li>Not all Sponge plugins that are ported from Canary will automatically convert configuration files. Individual plugin
+developers make the decision on whether or not to automatically convert configuration files.</li>
+<li>Some Sponge plugins that are ported from Canary may change in functionality, or may not even use the same configuration
+structure.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="migrating-from-forge">
+<h3><a class="toc-backref" href="#id9">Forge에서 이전하기</a><a class="headerlink" href="#migrating-from-forge" title="제목 주소">¶</a></h3>
+<p>Migrating from a plain Forge server to a SpongeForge or SpongeVanilla server is a fairly simple process that needs little-to-no
+preparatory work.</p>
+<div class="section" id="migrating-to-spongeforge">
+<h4>SpongeForge로 이전하기<a class="headerlink" href="#migrating-to-spongeforge" title="제목 주소">¶</a></h4>
+<p>You must first ensure you are running a version of Forge that is compatible with the version of SpongeForge your plan to
+use. You may find recommended builds of Forge at <a class="reference external" href="https://files.minecraftforge.net">Forge Downloads</a>. If you are using
+any other mods, they must also be updated.</p>
+<p>When you are ready to install SpongeForge, you may proceed with the following steps:</p>
+<ol class="arabic simple">
+<li>Stop your Forge server if it is running.</li>
+<li>Download SpongeForge from the Sponge website and Forge from MinecraftForge.</li>
+<li><code class="docutils literal notranslate"><span class="pre">mods</span></code> 폴더에 <code class="docutils literal notranslate"><span class="pre">SpongeForge.jar</span></code> 파일을 넣어주세요.</li>
+<li>서버를 시작하고 파티를 즐기세요!</li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">주석</p>
+<p class="last">If SpongeForge is the only mod on your server, players will be able to log in with a vanilla client. Other mods may
+require players to install Forge on their own computers.</p>
+</div>
+</div>
+<div class="section" id="migration-to-spongevanilla">
+<h4>SpongeVanilla로 이전하기<a class="headerlink" href="#migration-to-spongevanilla" title="제목 주소">¶</a></h4>
+<div class="admonition warning">
+<p class="first admonition-title">경고</p>
+<p class="last">If migrating to <strong>SpongeVanilla</strong>:
+You will lose all Forge mod data, blocks and entities as SpongeVanilla can’t run Forge mods.
+Keep that in mind when deciding whether you go with SpongeForge or SpongeVanilla.</p>
+</div>
+<p>The process of migration is almost the same as above:</p>
+<ol class="arabic simple">
+<li>Stop your Forge server if it is still running.</li>
+<li>Download SpongeVanilla and the vanilla server from Mojang.</li>
+<li>Place your worlds and config files in the server folder.</li>
+<li>Run the server by launching the <code class="docutils literal notranslate"><span class="pre">spongevanilla.jar</span></code>.</li>
+</ol>
+</div>
+</div>
+<div class="section" id="migrating-from-vanilla">
+<h3><a class="toc-backref" href="#id10">Vanilla에서 이전하기</a><a class="headerlink" href="#migrating-from-vanilla" title="제목 주소">¶</a></h3>
+<p>Administrators of vanilla Minecraft servers can migrate to Sponge easily because Forge, and thus SpongeForge
+(and SpongeVanilla), use the same world structure as vanilla Minecraft. Sponge also uses the same files used by
+vanilla Minecraft, such as <code class="docutils literal notranslate"><span class="pre">server.properties</span></code>.</p>
+<p>At first you should decide if you want to run SpongeForge or SpongeVanilla.</p>
+<div class="admonition note">
+<p class="first admonition-title">주석</p>
+<p class="last">Both flavors of Sponge are able to serve vanilla clients. Keep in mind that this only applies to SpongeForge as
+long as you don’t install Forge mods which require client modifications.</p>
+</div>
+<ol class="arabic simple">
+<li>Vanilla 서버가 켜져있다면 꺼주세요.</li>
+<li>SpongeVanilla 또는 SpongeForge 를 다운로드하세요.</li>
+<li>Place your worlds and config files in the server folder.</li>
+<li>새로운 서버를 실행하세요.</li>
+</ol>
+</div>
+</div>
+<div class="section" id="installing-sponge">
+<h2><a class="toc-backref" href="#id11">Sponge 설치하기</a><a class="headerlink" href="#installing-sponge" title="제목 주소">¶</a></h2>
+<p>당신이 이전할 때 필요한 Sponge 를 설치하는 방법이 <a class="reference internal" href="implementations/spongeforge.html"><span class="doc">SpongeForge 설치하기</span></a> 와 <a class="reference internal" href="implementations/spongevanilla.html"><span class="doc">SpongeVanilla 설치하기</span></a> 에 제공되어 있습니다.</p>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="implementations/index.html" class="btn btn-neutral float-right" title="구현 프로그램 선택하기" accesskey="n" rel="next">다음 <span class="fa fa-angle-right"></span></a>
+        <a href="jre.html" class="btn btn-neutral" title="Java 설치" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> 이전</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../../_static/flags/ko_KR.svg"
+         alt="ko" title="한국어">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../../_static/jquery.js"></script>      <script type="text/javascript" src="../../_static/underscore.js"></script>      <script type="text/javascript" src="../../_static/doctools.js"></script>      <script type="text/javascript" src="../../_static/language_data.js"></script>      <script type="text/javascript" src="../../_static/translations.js"></script>      <script type="text/javascript" src="../../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

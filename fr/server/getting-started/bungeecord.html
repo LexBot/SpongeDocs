@@ -1,0 +1,237 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Utiliser Sponge avec des Serveurs Proxy &mdash; Documentation Sponge 7.2.0</title>
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>        <link rel="search" title="Recherche" href="../../search.html"/>    <link rel="top" title="Documentation Sponge 7.2.0" href="../../index.html"/>        <link rel="up" title="Premiers pas" href="index.html"/>        <link rel="next" title="Configurer Sponge" href="configuration/index.html"/>        <link rel="prev" title="Redirection de port" href="port-forward.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../../index.html">
+            <img src="../../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Créer un Serveur</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html">Guide de démarrage rapide</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Premiers pas</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="jre.html">Installation de Java</a></li>
+<li class="toctree-l3"><a class="reference internal" href="migrating.html">Passer à Sponge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="implementations/index.html">Choisir une implémentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="launch-script.html">Création d’un script de lancement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="port-forward.html">Redirection de port</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Utiliser Sponge avec des Serveurs Proxy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configuration/index.html">Configurer Sponge</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../management/index.html">Gestion de Serveur</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spongineer/index.html">Devenir un Expert Spongineer</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../versions/index.html">Stratégie de versioning</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../preparing/index.html">Préparation pour le développement</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../plugin/index.html">Création d’un Plugin</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ore/index.html">Documentation d’Ore</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/index.html">Contribuer à Sponge</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">À propos du Projet Sponge</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+          <li><a href="../index.html">Créer un Serveur</a> &raquo;</li>
+          <li><a href="index.html">Premiers pas</a> &raquo;</li>
+    <li>Utiliser Sponge avec des Serveurs Proxy</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/server/getting-started/bungeecord.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="using-sponge-with-server-proxies">
+<h1>Utiliser Sponge avec des Serveurs Proxy<a class="headerlink" href="#using-sponge-with-server-proxies" title="Lien permanent vers ce titre">¶</a></h1>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Alors que SpongeForge et SpongeVanilla offrent la possibilité d’activer l” «&nbsp;IP forwarding&nbsp;» pour se connecter aux serveurs proxy, Sponge ne prend pas officiellement en charge ou ne recommande aucun proxy en particulier. Tout problème avec les proxy doit être réglé avec leur propre communauté.</p>
+</div>
+<p>Les serveurs proxy permettent aux propriétaires de serveurs de relier les serveurs Minecraft ensemble afin que les joueurs puissent sauter entre les serveurs sans avoir à se déconnecter et se reconnecter. L’un des plus connus est BungeeCord, écrit par md_5 de SpigotMC. Bien qu’il existe des forks qui améliorent la compatibilité avec Forge et Sponge, comme Waterfall et Hexacord, Il y a aussi d’autres alternatives, comme Velocity. Les serveurs proxy sont généralement utilisés par les réseaux de serveurs qui offrent de nombreux modes de jeu. Sponge peut fonctionner avec la plupart des serveurs proxy, avec le support de transfert d’informations des joueurs (ou de IP forwarding) pour les serveurs qui prennent en charge l’ajout de marqueurs Forge dans le profil de jeu d’un joueur.</p>
+<div class="section" id="choosing-your-proxy-server-software">
+<h2>Choisir un proxy<a class="headerlink" href="#choosing-your-proxy-server-software" title="Lien permanent vers ce titre">¶</a></h2>
+<p>SpongeVanilla fonctionne avec la plupart des logiciels de serveur proxy. Cependant, les serveurs SpongeForge qui nécessitent des clients moddés <strong>ne fonctionneront pas</strong> avec BungeeCord. Si vous souhaitez lier des serveurs moddés ensemble via un proxy, vous devriez utiliser un fork de BungeeCord (tel que <a class="reference external" href="https://github.com/WaterfallMC/Waterfall/blob/master/README.md#waterfall-">Waterfall</a>) ou une solution proxy différente (telle que <a class="reference external" href="https://velocitypowered.com">Velocity</a>) qui eux prennent en charge Forge.</p>
+</div>
+<div class="section" id="setting-up-your-proxy-server-network">
+<h2>Configurer votre réseau de proxy<a class="headerlink" href="#setting-up-your-proxy-server-network" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="admonition warning">
+<p class="first admonition-title">Avertissement</p>
+<p>Tout d’abord, pour connecter des serveurs à votre proxy, vous devez exécuter vos serveurs en offline mode. En offline mode, il n’y a aucune protection, n’importe qui peut donc se connecter sous n’importe quel pseudo, y compris celui des admins. Assurez-vous donc que votre serveur soit protégé par des pare-feux. Si vous utilisez Linux, il y a un guide sur les IPTables dans le <a class="reference external" href="https://www.spigotmc.org/wiki/firewall-guide/">guide Firewall de SpigotMC</a>, il y a aussi certaines distributions qui viennent avec <a class="reference external" href="https://wiki.ubuntu.com/UncomplicatedFirewall">UncomplicatedFirewall «&nbsp;ufw&nbsp;»</a>.</p>
+<p>Soyez sûr que vous utilisez SSH pour vous assurer que le port 22 est autorisé, sinon vous courez un risque très réel de verrouillage vous-même sur votre serveur !</p>
+<p class="last">Si vous ne vous sentez pas capable de faire du bricolage avec Linux, ou que vous n’êtes pas sûr de savoir comment empêcher des accès non autorisés à vos serveurs, consultez quelqu’un qui a plus d’expérience pour s’occuper de la sécurité de votre serveur.</p>
+</div>
+<p>Pour accepter les connexions depuis un proxy, assurez-vous que le <code class="docutils literal notranslate"><span class="pre">online-mode</span></code> est défini à <code class="docutils literal notranslate"><span class="pre">false</span></code> dans le fichier <code class="docutils literal notranslate"><span class="pre">server.properties</span></code> de votre serveur Sponge - c’est parce que le proxy fera l’authentification pour vous. Suivez la documentation du proxy pour y ajouter votre serveur.</p>
+<p>Même so c’est tout ce que vous avez à faire pour permettre au proxy de se connecter, nous vous recommandons <strong>fortement</strong> d’activer le transfert d’informations du joueur ou le transfert d’IP pour permettre à Sponge de traiter le serveur comme s’il était en mode en ligne.</p>
+</div>
+<div class="section" id="player-information-forwarding-also-known-as-ip-forwarding">
+<h2>Transfert d’informations du joueur (également connu sous le nom de IP forwarding)<a class="headerlink" href="#player-information-forwarding-also-known-as-ip-forwarding" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Les serveurs proxy sont généralement fournis avec un mode connu sous le nom de «&nbsp;Transfert d’informations du joueur&nbsp;» ou «&nbsp;IP forwarding&nbsp;», qui permet au logiciel du serveur proxy de passer l’UUID et l’adresse IP du joueur à n’importe quel serveur connecté, permettant aux serveurs d’agir comme s’ils étaient en mode en ligne. Nous recommandons fortement que ces options soient activées, sur votre proxy et sur Sponge.</p>
+<p>Pour activer la transmission des informations du joueur sur le proxy, consultez la documentation de votre proxy pour savoir comment activer cette option. Il peut être appelé «&nbsp;IP forwarding&nbsp;» sur BungeeCord et ses forks. Si vous utilisez SpongeForge, vous devrez peut-être aussi activer le support de forge sur le proxy. Si vous utilisez Velocity, assurez-vous que vous utilisez l’option <code class="docutils literal notranslate"><span class="pre">LEGACY</span></code> pour le transfert des informations du joueur.</p>
+<p>Pour activer le transfert d’informations sur Sponge, vous devez définir les deux options suivantes dans la configuration de Sponge (<code class="docutils literal notranslate"><span class="pre">config/sponge/global.conf</span></code>) à <code class="docutils literal notranslate"><span class="pre">true</span></code> :</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">modules.bungeecord</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">bungeecord.ip-forwarding</span></code></li>
+</ul>
+<p>Bien que ces options soient nommées d’après BungeeCord, elles fonctionneront pour tout proxy qui utilise le même protocole.</p>
+<p>Une fois défini, vous <strong>devez</strong> redémarrer votre serveur. Vous devez vous assurer que ces options sont activées pour <strong>tous</strong> les serveurs Sponge de votre réseau. Les options équivalentes doivent également être définies sur d’autres serveurs auxquels le proxy aura accès.</p>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="configuration/index.html" class="btn btn-neutral float-right" title="Configurer Sponge" accesskey="n" rel="next">Suivant <span class="fa fa-angle-right"></span></a>
+        <a href="port-forward.html" class="btn btn-neutral" title="Redirection de port" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> Précédent</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../../_static/flags/fr_FR.svg"
+         alt="fr" title="Français">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../../_static/jquery.js"></script>      <script type="text/javascript" src="../../_static/underscore.js"></script>      <script type="text/javascript" src="../../_static/doctools.js"></script>      <script type="text/javascript" src="../../_static/language_data.js"></script>      <script type="text/javascript" src="../../_static/translations.js"></script>      <script type="text/javascript" src="../../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

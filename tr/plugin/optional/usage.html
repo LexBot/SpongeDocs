@@ -1,0 +1,427 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kullanım örnekleri &mdash; Sponge 7.2.0 belgelendirme çalışması</title>
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="Dizin"
+              href="../../genindex.html"/>        <link rel="search" title="Ara" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 belgelendirme çalışması" href="../../index.html"/>        <link rel="up" title="İsteğe bağlı" href="index.html"/>        <link rel="next" title="Günlük Oluşturma ve Hata Giderme" href="../logging.html"/>        <link rel="prev" title="Belirtilen özellikler" href="basic.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../../index.html">
+            <img src="../../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../server/index.html">Bir sunucu oluşturma</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../versions/index.html">Versioning Policy</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../preparing/index.html">Geliştirme için hazırlanıyor</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Bir eklenti oluşturma</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../api-versions.html">API-Versions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../buildsystem.html">Sistem oluşturun</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../workspace/index.html">Çalışma Alanınız Kuruluyor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../project/index.html">Projenizi Ayarlama</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-identifier.html">Eklenti Tanımlayıcıları</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-class.html">Ana eklenti sınıfı</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lifecycle.html">Eklenti Yaşan Döngüsü</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../injection.html">Bağımlılık Enjeksiyonu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../practices/index.html">Alıştırmalar</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">İsteğe bağlı</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="basic.html">Belirtilen özellikler</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Kullanım örnekleri</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../logging.html">Günlük Oluşturma ve Hata Giderme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text/index.html">Metin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/index.html">Plugin Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../event/index.html">Etkinlikler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/index.html">Eklentileri yapılandırma</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assets.html">API öğesi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data/index.html">Veri API’sı</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../blocks/index.html">Bloklar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../entities/index.html">Varlıklar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../items/index.html">Öğeler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../trade-offers.html">Ticaret-Teklifleri</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../effects.html">Efektler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../scheduler.html">Zamanlayıcı</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../services.html">Servisler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database.html">Veritabanları</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../permissions.html">İzinler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bans.html">Yasaklılar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metrics.html">Metrics Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bookview.html">Kitap görünümleri</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../economy/index.html">Ekonomi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wgen/index.html">Dünya oluşturma</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manager.html">Eklenti yöneticisi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../game-profile-manager.html">Oyun Profili Yöneticisi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../offline-userplayer-data.html">Çevrim dışı oyuncu verisi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tab-lists.html">Sekme listeleri</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-meta.html">Eklenti Metaverileri</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ray-tracing.html">Işın izleme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../debugging.html">Eklenti Hata Ayıklama</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials.html">Eğiticiler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internals/index.html">Uygulamaya Bağlı Eklentiler</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ore/index.html">Ore Dökümanları</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/index.html">Sponge’a Katkı Sağlama</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">Sponge Projesi Hakkında</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+          <li><a href="../index.html">Bir eklenti oluşturma</a> &raquo;</li>
+          <li><a href="index.html">İsteğe bağlı</a> &raquo;</li>
+    <li>Kullanım örnekleri</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/plugin/optional/usage.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="usage-examples">
+<h1>Kullanım örnekleri<a class="headerlink" href="#usage-examples" title="Bu başlığın kalıcı bağlantısı">¶</a></h1>
+<p>`` Optional`` s’in neden kullanıldığını öğrendiğimize göre, java’da neler yapabileceğimize bir göz atalım. Bu kod örnekleri (ve Sponge) Java 8’de bulunan`java.util.Optional &lt;<a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html">https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html</a>&gt;`_ sınıfını kullanmaktadır.</p>
+<div class="section" id="obtaining-the-wrapped-value">
+<h2>Sarılmış Değer Alma<a class="headerlink" href="#obtaining-the-wrapped-value" title="Bu başlığın kalıcı bağlantısı">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">get</span> <span class="pre">()</span></code> yöntemi <code class="docutils literal notranslate"><span class="pre">Optional</span></code> dosyasını açar ve paketlenmiş değeri döndürür. Hiçbir değer mevcut değilse, <code class="docutils literal notranslate"><span class="pre">get</span> <span class="pre">()</span></code> çağrısı bir
+<code class="docutils literal notranslate"><span class="pre">NoSuchElementException</span></code> atar, bu nedenle olup olmadığı kontrol edilmelidir.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Optional</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">opt</span> <span class="o">=</span> <span class="n">getOptionalString</span><span class="p">();</span>
+<span class="n">String</span> <span class="n">wrappedString</span> <span class="o">=</span> <span class="n">opt</span><span class="p">.</span><span class="na">get</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="handling-absent-values">
+<h2>Var olmayan Değerlerle Çalışma<a class="headerlink" href="#handling-absent-values" title="Bu başlığın kalıcı bağlantısı">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Optional</span></code> türünün amacı, olabilecek veya olmayabilecek bir değeri temsil eder. Bu nedenle, birçok kullanım durumu, eksik değerleri işleme etrafında döner.</p>
+<div class="section" id="presence-check">
+<h3>Varlık kontrolü<a class="headerlink" href="#presence-check" title="Bu başlığın kalıcı bağlantısı">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">IsPresent</span> <span class="pre">()</span></code> yöntemi, <code class="docutils literal notranslate"><span class="pre">Optional</span></code> de bir değer mevcutsa true değerini döndürür. En temel doğrulamayı sağlayabilir ve klasik bir <code class="docutils literal notranslate"><span class="pre">null</span></code> kontrolüne eşdeğerdir.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Optional</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">opt</span> <span class="o">=</span> <span class="n">getOptionalString</span><span class="p">();</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">opt</span><span class="p">.</span><span class="na">isPresent</span><span class="p">())</span> <span class="p">{</span>
+    <span class="n">String</span> <span class="n">wrappedString</span> <span class="o">=</span> <span class="n">opt</span><span class="p">.</span><span class="na">get</span><span class="p">();</span>
+    <span class="c1">// more code</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-default-values">
+<h3>Varsayılan Değerleri Kullanma<a class="headerlink" href="#using-default-values" title="Bu başlığın kalıcı bağlantısı">¶</a></h3>
+<p>Ortak bir desen mevcut değilse varsayılan değere geri düşüyor. <code class="docutils literal notranslate"><span class="pre">OrElse</span> <span class="pre">()</span></code> yöntemi, <code class="docutils literal notranslate"><span class="pre">Optional</span></code> de ya mevcut değeri ya da sağlanan varsayılan değeri döndürecek tek bir satır ifadesine izin verir.</p>
+<p>Yerine</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Optional</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">optionalString</span> <span class="o">=</span> <span class="n">getOptionalString</span><span class="p">();</span>
+<span class="n">String</span> <span class="n">someString</span><span class="p">;</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">optionalString</span><span class="p">.</span><span class="na">isPresent</span><span class="p">())</span> <span class="p">{</span>
+    <span class="n">someString</span> <span class="o">=</span> <span class="n">optionalString</span><span class="p">.</span><span class="na">get</span><span class="p">();</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="n">someString</span> <span class="o">=</span> <span class="n">DEFAULT_STRING</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>sadece kullan</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">someString</span> <span class="o">=</span> <span class="n">getOptionalString</span><span class="p">().</span><span class="na">orElse</span><span class="p">(</span><span class="n">DEFAULT_STRING</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>In some cases, a default value has to be calculated in a way that has side effects or is particularly expensive. In such
+a case it is desirable to calculate the default value only if needed (<em>lazy evaluation</em>). The <code class="docutils literal notranslate"><span class="pre">orElseGet()</span></code> method
+accepts a <code class="docutils literal notranslate"><span class="pre">Supplier</span></code> instead of a pre-calculated value. If no value is present on the <code class="docutils literal notranslate"><span class="pre">Optional</span></code> itself, the
+<code class="docutils literal notranslate"><span class="pre">Supplier</span></code> will be called. Since <code class="docutils literal notranslate"><span class="pre">Supplier</span></code> is a functional interface, a lambda expression or method reference can
+be passed instead.</p>
+<p>Yerine</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Optional</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">optionalString</span> <span class="o">=</span> <span class="n">getOptionalString</span><span class="p">();</span>
+<span class="n">String</span> <span class="n">someString</span><span class="p">;</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">optionalString</span><span class="p">.</span><span class="na">isPresent</span><span class="p">())</span> <span class="p">{</span>
+    <span class="n">someString</span> <span class="o">=</span> <span class="n">optionalString</span><span class="p">.</span><span class="na">get</span><span class="p">();</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="n">someString</span> <span class="o">=</span> <span class="n">myPlugin</span><span class="p">.</span><span class="na">defaultString</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>sadece kullan</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">someString</span> <span class="o">=</span> <span class="n">getOptionalString</span><span class="p">().</span><span class="na">orElseGet</span><span class="p">(</span><span class="n">myPlugin</span><span class="p">::</span><span class="n">defaultString</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="fail-on-absent-values">
+<h3>Eksik değerler başarısız<a class="headerlink" href="#fail-on-absent-values" title="Bu başlığın kalıcı bağlantısı">¶</a></h3>
+<p>Eksik olan bir değer bir istisnaya neden olursa, varsayılan “NoSuchElementException” a güvenmek yerine özel bir istisna atamak her zaman daha iyidir. <code class="docutils literal notranslate"><span class="pre">VeyaElseThrow</span> <span class="pre">()</span></code> yöntemini bir <code class="docutils literal notranslate"><span class="pre">Supplier</span></code> ile çağırırsanız, sarılmış değeri varsa onu döndürür veya
+<code class="docutils literal notranslate"><span class="pre">Supplier``den</span> <span class="pre">alınan</span> <span class="pre">bir</span> <span class="pre">``Throwable</span></code> atar. Yine, <code class="docutils literal notranslate"><span class="pre">Supplier</span></code> fonksiyonel bir arayüz olduğunda lambda ifadeleri veya yöntem referansları kullanılabilir.</p>
+<p>Yerine</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Optional</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">optionalString</span> <span class="o">=</span> <span class="n">getOptionalString</span><span class="p">();</span>
+<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">optionalString</span><span class="p">.</span><span class="na">isPresent</span><span class="p">())</span> <span class="p">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="n">MyException</span><span class="p">();</span>
+<span class="p">}</span>
+<span class="n">String</span> <span class="n">someString</span> <span class="o">=</span> <span class="n">optionalString</span><span class="p">.</span><span class="na">get</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>sadece kullan</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">someString</span> <span class="o">=</span> <span class="n">getOptionalString</span><span class="p">().</span><span class="na">orElseThrow</span><span class="p">(</span><span class="n">MyException</span><span class="p">::</span><span class="k">new</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Not</p>
+<p class="last">Geliştirici tarafından sağlanan <code class="docutils literal notranslate"><span class="pre">Throwablevv</span></code>, kontrol edilen bir istisna olduğu takdirde, çevredeki işlevin imzasına eklenecektir (örneğin, <code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">void</span> <span class="pre">doStuff()</span> <span class="pre">throws</span> <span class="pre">MyException</span></code>)</p>
+</div>
+</div>
+</div>
+<div class="section" id="conditional-code-execution">
+<h2>Koşullu Kod Yürütme<a class="headerlink" href="#conditional-code-execution" title="Bu başlığın kalıcı bağlantısı">¶</a></h2>
+<p>Varsayılan değer kullanılamazsa, var olan bir değere dayanan kod çalıştırılamaz. Bu basit bir durumda ele alınabilirken, diğer uygun yöntemler vardır.</p>
+<div class="section" id="consuming-values">
+<h3>Tüketilen Değerler<a class="headerlink" href="#consuming-values" title="Bu başlığın kalıcı bağlantısı">¶</a></h3>
+<p>Mevcut değeri işlemek için mantıklı bir <code class="docutils literal notranslate"><span class="pre">Consumer</span></code> ya da tek bir parametre fonksiyonunda yapılandırılıyorsa, <code class="docutils literal notranslate"><span class="pre">ifPresent</span> <span class="pre">()</span> <span class="pre">``</span> <span class="pre">yöntemi</span> <span class="pre">kullanıcı</span> <span class="pre">(veya</span> <span class="pre">bir</span> <span class="pre">yöntem</span> <span class="pre">referansına)</span> <span class="pre">kabul</span> <span class="pre">edecektir.</span> <span class="pre">``Optional</span></code> üzerinde bir değer varsa, kullanıcıya aktarılır.
+<code class="docutils literal notranslate"><span class="pre">Optional</span></code> boşsa, hiçbir şey olmaz.</p>
+<p>Yerine</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Optional</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">optionalString</span> <span class="o">=</span> <span class="n">getOptionalString</span><span class="p">();</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">optionalString</span><span class="p">.</span><span class="na">isPresent</span><span class="p">())</span> <span class="p">{</span>
+    <span class="n">myPlugin</span><span class="p">.</span><span class="na">doSomethingWithString</span><span class="p">(</span><span class="n">optionalString</span><span class="p">.</span><span class="na">get</span><span class="p">());</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>sadece kullan</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Optional</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">optionalString</span> <span class="o">=</span> <span class="n">getOptionalString</span><span class="p">();</span>
+<span class="n">optionalString</span><span class="p">.</span><span class="na">ifPresent</span><span class="p">(</span><span class="n">s</span> <span class="o">-&gt;</span> <span class="n">myPlugin</span><span class="p">.</span><span class="na">doSomethingWithString</span><span class="p">(</span><span class="n">s</span><span class="p">));</span>
+</pre></div>
+</div>
+<p>veya</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">getOptionalString</span><span class="p">().</span><span class="na">ifPresent</span><span class="p">(</span><span class="n">myPlugin</span><span class="p">::</span><span class="n">doSomethingWithString</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="filtering">
+<h3>Filtreleme<a class="headerlink" href="#filtering" title="Bu başlığın kalıcı bağlantısı">¶</a></h3>
+<p>Ayrıca bir “Predicate” iletmek de mümkündür. Bu ‘’ Predicate ‘’ in yalnızca true değerini döndüren değerler korunacaktır. Herhangi bir değer mevcut değilse veya “İstek” terimi “false” ifadesini döndürürse boş bir ‘’ İsteğe bağlı ‘’ döndürülecektir. Bu yöntem isteğe bağlı döndürdüğünden, diğer yöntemlerle zincirleme yapılmasına izin verir.</p>
+<p>Yerine</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Optional</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">optionalString</span> <span class="o">=</span> <span class="n">getOptionalString</span><span class="p">();</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">optionalString</span><span class="p">.</span><span class="na">isPresent</span><span class="p">())</span> <span class="p">{</span>
+    <span class="n">String</span> <span class="n">someString</span> <span class="o">=</span> <span class="n">optionalString</span><span class="p">.</span><span class="na">get</span><span class="p">();</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">stringTester</span><span class="p">.</span><span class="na">isPalindromic</span><span class="p">(</span><span class="n">someString</span><span class="p">))</span> <span class="p">{</span>
+        <span class="n">myPlugin</span><span class="p">.</span><span class="na">doSomethingWithString</span><span class="p">(</span><span class="n">someString</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>sadece kullan</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">getOptionalString</span><span class="p">()</span>
+      <span class="p">.</span><span class="na">filter</span><span class="p">(</span><span class="n">stringTester</span><span class="p">::</span><span class="n">isPalindromic</span><span class="p">)</span>
+      <span class="p">.</span><span class="na">ifPresent</span><span class="p">(</span><span class="n">myPlugin</span><span class="p">::</span><span class="n">doSomethingWithString</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Not</p>
+<p class="last">Ne bu filtreleme işlevi ne de aşağıda açıklanan haritalama işlevleri çağrıldıkları örneği değiştirmez. ‘’ İsteğe bağlı’’ s değişmezdir.</p>
+</div>
+</div>
+<div class="section" id="mapping">
+<h3>Haritalama<a class="headerlink" href="#mapping" title="Bu başlığın kalıcı bağlantısı">¶</a></h3>
+<p>Başka bir zincirlenebilir operasyon potansiyel değerin farklı bir haritalandırılmasıdır. Hiçbir değer mevcut değilse hiçbir şey değişmeyecek. Ancak, varsa, ‘’ map () ‘’ yöntemi, sağlanan “Fonksiyon” tarafından döndürülen değerin bir ‘’ İsteğe bağlı ‘’ döndürür (ya da bu dönüş değeri’ ‘null ‘’).</p>
+<p>Yerine</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Optional</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">optionalString</span> <span class="o">=</span> <span class="n">getOptionalString</span><span class="p">();</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">optionalString</span><span class="p">.</span><span class="na">isPresent</span><span class="p">())</span> <span class="p">{</span>
+    <span class="n">String</span> <span class="n">someString</span> <span class="o">=</span> <span class="n">optionalString</span><span class="p">.</span><span class="na">get</span><span class="p">().</span><span class="na">toLowerCase</span><span class="p">();</span>
+    <span class="n">myPlugin</span><span class="p">.</span><span class="na">doSomethingWithString</span><span class="p">(</span><span class="n">someString</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>sadece kullan</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">getOptionalString</span><span class="p">()</span>
+      <span class="p">.</span><span class="na">map</span><span class="p">(</span><span class="n">s</span> <span class="o">-&gt;</span> <span class="n">s</span><span class="p">.</span><span class="na">toLowerCase</span><span class="p">())</span>
+      <span class="p">.</span><span class="na">ifPresent</span><span class="p">(</span><span class="n">myPlugin</span><span class="p">::</span><span class="n">doSomethingWithString</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">Tüyo</p>
+<p class="last">Haritalama işlevi zaten bir ‘’ İsteğe bağlı ‘’ döndürürse bunun yerine ‘’ flatMap () ‘’ yöntemini kullanın. Haritalama işlevi zaten bir ‘’ İsteğe bağlı ‘’ döndürmesini beklediği ve dolayısıyla sonucu sarmamayacağı hariç, yalnızca ‘’ map () ‘’ gibi davranacaktır.</p>
+</div>
+</div>
+<div class="section" id="combined-example">
+<h3>Kombine Örnek<a class="headerlink" href="#combined-example" title="Bu başlığın kalıcı bağlantısı">¶</a></h3>
+<p>Her oyuncunun bir evcil hayvan izlemesine izin veren bir eklenti düşünün. Aşağıdaki yöntemlerin varlığını varsayalım:</p>
+<ul class="simple">
+<li>‘’ petRegistry.getPetForPlayer () ‘’ kabul etme ‘’ Oynatıcı ‘’ ve ‘’ İsteğe bağlı&lt;Pet&gt; ‘’ dönme. Bu yöntem, belirli bir oyuncuyla ilişkili hayvanı arar</li>
+<li>‘’ petHelper.canSpawn () ‘’ bir ‘’ Pet ‘’ kabul ve ‘’ boolean ‘’ döndürme. Bu yöntem, verilen evcil hayvanların yumurtalandığından emin olmak için gerekli tüm kontrolleri yapar.</li>
+<li>‘’ Pet Helper. Pet () ‘’ Pet ‘’ kabul ve hiçbir şey iade spawn. Bu yöntem, daha önce oluşturulmamış bir hayvan üretir.</li>
+</ul>
+<p>Artık bir yerden (muhtemelen bir komutun yürütülmesi) ‘’ optionalPlayer’’ değişkenine bir ‘’ Optional&lt;Player&gt; ‘’ düzenliyoruz. Şimdi bu oyuncuların evcil hayvanlarını elde etmek, evcil hayvanların üretilip üretilmediğini kontrol etmek ve bunların üretilmediğini kontrol etmek istersek, her bir ‘’ İsteğe bağlı’’ nin gerçekten bir değer içerdiğini kontrol ederken bunu üretmek istiyoruz. Sadece temel ‘’ isPresent() ‘’ ve ‘’ get() ‘’ yöntemlerini kullanan kod gerçekten hızlı bir şekilde kötüleşir.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">optionalPlayer</span><span class="p">.</span><span class="na">isPresent</span><span class="p">())</span> <span class="p">{</span>
+    <span class="n">Player</span> <span class="n">player</span> <span class="o">=</span> <span class="n">optionalPlayer</span><span class="p">.</span><span class="na">get</span><span class="p">();</span>
+    <span class="n">Optional</span><span class="o">&lt;</span><span class="n">Pet</span><span class="o">&gt;</span> <span class="n">optionalPet</span> <span class="o">=</span> <span class="n">petRegistry</span><span class="p">.</span><span class="na">getPetForPlayer</span><span class="p">(</span><span class="n">player</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">optionalPet</span><span class="p">.</span><span class="na">isPresent</span><span class="p">())</span> <span class="p">{</span>
+        <span class="n">Pet</span> <span class="n">pet</span> <span class="o">=</span> <span class="n">optionalPet</span><span class="p">.</span><span class="na">get</span><span class="p">();</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">petHelper</span><span class="p">.</span><span class="na">canSpawn</span><span class="p">(</span><span class="n">pet</span><span class="p">))</span> <span class="p">{</span>
+            <span class="n">petHelper</span><span class="p">.</span><span class="na">spawnPet</span><span class="p">(</span><span class="n">pet</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>However, through the use of <code class="docutils literal notranslate"><span class="pre">Optional</span></code> methods for conditional code execution, all those presence checks are hidden,
+reducing the boilerplate and indentation levels and thus leaving the code much more readable:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">optionalPlayer</span>
+      <span class="p">.</span><span class="na">flatMap</span><span class="p">(</span><span class="n">petRegistry</span><span class="p">::</span><span class="n">getPetForPlayer</span><span class="p">)</span>
+      <span class="p">.</span><span class="na">filter</span><span class="p">(</span><span class="n">petHelper</span><span class="p">::</span><span class="n">canSpawn</span><span class="p">)</span>
+      <span class="p">.</span><span class="na">ifPresent</span><span class="p">(</span><span class="n">petHelper</span><span class="p">::</span><span class="n">spawnPet</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="creating-optionals">
+<h2>Opsiyonlar Oluşturma<a class="headerlink" href="#creating-optionals" title="Bu başlığın kalıcı bağlantısı">¶</a></h2>
+<p>‘’ Null ‘’ değerlerini döndürmek yerine ‘’ Optional’’ kullanarak aynı sözleşmeyi takiben bir API sunmayı seçerseniz, bunları döndürebilmek için ‘’ Optional’’ s oluşturmanız gerekecektir. Bu, üç statik yapıcı yöntemden birini çağırarak yapılır.</p>
+<p>‘’ Optional.empty () ‘’ daima boş bir ‘’ İsteğe bağlı ‘’ dönecektir.</p>
+<p>‘’ Optional.of () ‘’ seçeneği verilen bir değeri sarmalamaya döndürür ve değer ‘’ null’’ ise bir ‘’ NullPointerException’’ değeri yükseltir.</p>
+<p>‘’ Optional.ofNullable () ‘’, verilen değer ” ‘’ null’’ ise boş bir ‘’ İsteğe bağlı ‘’ döndürür, aksi takdirde ‘’ İsteğe bağlı ‘’ değeri sarmaya dönecektir.</p>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../logging.html" class="btn btn-neutral float-right" title="Günlük Oluşturma ve Hata Giderme" accesskey="n" rel="next">İleri <span class="fa fa-angle-right"></span></a>
+        <a href="basic.html" class="btn btn-neutral" title="Belirtilen özellikler" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> Önceki</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../../_static/flags/tr_TR.svg"
+         alt="tr" title="Türkçe">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../../_static/jquery.js"></script>      <script type="text/javascript" src="../../_static/underscore.js"></script>      <script type="text/javascript" src="../../_static/doctools.js"></script>      <script type="text/javascript" src="../../_static/language_data.js"></script>      <script type="text/javascript" src="../../_static/translations.js"></script>      <script type="text/javascript" src="../../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

@@ -1,0 +1,377 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Konfigurasi Node &mdash; dokumentasi Sponge 7.2.0</title>
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="Indeks"
+              href="../../genindex.html"/>        <link rel="search" title="Pencarian" href="../../search.html"/>    <link rel="top" title="dokumentasi Sponge 7.2.0" href="../../index.html"/>        <link rel="up" title="Mengkonfigurasi plugin" href="index.html"/>        <link rel="next" title="Serializing Benda" href="serialization.html"/>        <link rel="prev" title="Konfigurasi Loader" href="loaders.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../../index.html">
+            <img src="../../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../server/index.html">Membuat sebuah server</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../versions/index.html">Versioning Policy</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../preparing/index.html">Mempersiapkan untuk Pengembangan</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Membuat Plugin</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../api-versions.html">API-Versions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../buildsystem.html">Membangun Sistem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../workspace/index.html">Anda mengatur ruang kerja</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../project/index.html">Menyiapkan proyek anda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-identifier.html">Pengenal Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-class.html">Class Plugin utama</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lifecycle.html">Plugin Siklus Hidup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../injection.html">Ketergantungan Injeksi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../practices/index.html">Kebiasaan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../optional/index.html">Pilihan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../logging.html">Penebangan dan Debugging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text/index.html">Teks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/index.html">Plugin Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../event/index.html">Acara</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Mengkonfigurasi plugin</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="loaders.html">Konfigurasi Loader</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Konfigurasi Node</a></li>
+<li class="toctree-l3"><a class="reference internal" href="serialization.html">Serializing Benda</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../assets.html">Aset API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data/index.html">Data API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../blocks/index.html">Blok</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../entities/index.html">Badan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../items/index.html">Item</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../trade-offers.html">Trade-Offers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../effects.html">Hasil</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../scheduler.html">Penjadwalan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../services.html">Layanan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database.html">Basis data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../permissions.html">Hak akses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bans.html">Larang</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metrics.html">Metrics Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bookview.html">Tampilan buku</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../economy/index.html">Ekonomi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wgen/index.html">Generasi dunia</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manager.html">Pengelola Pengaya</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../game-profile-manager.html">Manajer profil game</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../offline-userplayer-data.html">Tidak hidup Data Pemain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tab-lists.html">Daftar tab</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-meta.html">Plugin Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ray-tracing.html">V8 Tracing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../debugging.html">Plugin Debugging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials.html">Tutorial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internals/index.html">Plugin yang tergantung pada pelaksanaan</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ore/index.html">Dokumentasi bijih</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/index.html">Berkontribusi pada Sponge</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">Tentang Sponge Project</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+          <li><a href="../index.html">Membuat Plugin</a> &raquo;</li>
+          <li><a href="index.html">Mengkonfigurasi plugin</a> &raquo;</li>
+    <li>Konfigurasi Node</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/plugin/configuration/nodes.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="configuration-nodes">
+<h1>Konfigurasi Node<a class="headerlink" href="#configuration-nodes" title="Link permanen untuk headline ini">¶</a></h1>
+<p>In memory, the configuration is represented using <a class="reference external" href="https://configurate.aoeu.xyz/apidocs/ninja/leaping/configurate/ConfigurationNode.html">ConfigurationNode</a>s. A <code class="docutils literal notranslate"><span class="pre">ConfigurationNode</span></code> either holds
+a value (like a number, a string or a list) or has child nodes, a tree-like configuration structure. When using a
+<a class="reference external" href="https://configurate.aoeu.xyz/apidocs/ninja/leaping/configurate/loader/ConfigurationLoader.html">ConfigurationLoader</a> to load or create new configurations, it will return the <strong>root node</strong>. We
+recommend that you always keep a reference to that root node stored somewhere, to prevent loading the configuration
+every time you need to access it. As a side effect, this will keep the comments that were present in the file.
+As an alternative, you could store a reference to a <a class="reference internal" href="serialization.html"><span class="doc">serializable config instance</span></a> that holds the
+entire configuration of your plugin.</p>
+<div class="admonition note">
+<p class="first admonition-title">Catatan</p>
+<p class="last">Tergantung pada <code class="docutils literal notranslate"><span class="pre">ConfigurationLoader</span></code> bekas, anda bahkan mungkin mendapatkan <a class="reference external" href="https://configurate.aoeu.xyz/apidocs/ninja/leaping/configurate/commented/CommentedConfigurationNode.html">CommentedConfigurationNode</a>, yang selain normal <code class="docutils literal notranslate"><span class="pre">ConfigurationNode</span></code> perilaku ini dapat mempertahankan komentar yang akan bertahan disimpan pada file konfigurasi.</p>
+</div>
+<div class="section" id="navigating-nodes">
+<h2>Navigasi Node<a class="headerlink" href="#navigating-nodes" title="Link permanen untuk headline ini">¶</a></h2>
+<p>Setiap anak simpul diidentifikasi oleh key, paling sering string. Ketika pergi dari satu node (misalnya simpul akar) untuk spesifik node anak, mungkin perlu untuk bergerak melalui beberapa lapisan node anak. Kunci dari anak node melewati membuat <strong>jalan</strong> dari node target. Dalam contoh berikut, ada node memegang nilai <code class="docutils literal notranslate"><span class="pre">false</span></code> di jalan <code class="docutils literal notranslate"><span class="pre">modules</span></code> <code class="docutils literal notranslate"><span class="pre">blockCheats</span></code> <code class="docutils literal notranslate"><span class="pre">enabled</span></code> (dari simpul akar) berikut HOCON representasi dari config.</p>
+<div class="admonition note">
+<p class="first admonition-title">Catatan</p>
+<p class="last">Ketika menuliskan, jalur yang sering diwakili dengan bergabung tombol bersama-sama dengan separator arang, biasanya <code class="docutils literal notranslate"><span class="pre">.</span></code>. Yang disebutkan di atas jalan yang akan ditulis <code class="docutils literal notranslate"><span class="pre">modules.blockCheats.enabled</span></code>.</p>
+</div>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="err">modules {</span>
+<span class="err">    blockCheats {</span>
+<span class="err">        enabled=true</span>
+<span class="err">    }</span>
+<span class="err">}</span>
+</pre></div>
+</div>
+<p>Di Java, anda bisa mendapatkan node anak untuk jalan menggunakan <code class="docutils literal notranslate"><span class="pre">getNode(...)</span></code> metode. Metode menerima sejumlah argumen, di mana masing-masing argumen adalah salah satu kunci dalam jalur. Jalan <code class="docutils literal notranslate"><span class="pre">modules.blockCheats.enabled</span></code> dari simpul akar adalah diperoleh sebagai berikut.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ninja.leaping.configurate.ConfigurationNode</span><span class="p">;</span>
+
+<span class="n">ConfigurationNode</span> <span class="n">rootNode</span> <span class="o">=</span> <span class="p">...;</span>
+<span class="n">ConfigurationNode</span> <span class="n">targetNode</span> <span class="o">=</span> <span class="n">rootNode</span><span class="p">.</span><span class="na">getNode</span><span class="p">(</span><span class="s">&quot;modules&quot;</span><span class="p">,</span> <span class="s">&quot;blockCheats&quot;</span><span class="p">,</span> <span class="s">&quot;enabled&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Catatan</p>
+<p class="last">Fungsi panggilan <code class="docutils literal notranslate"><span class="pre">node.getNode(&quot;foo&quot;,</span> <span class="pre">&quot;bar&quot;)</span></code> dan <code class="docutils literal notranslate"><span class="pre">node.getNode(&quot;foo&quot;).getNode(&quot;bar&quot;)</span></code> setara.</p>
+</div>
+</div>
+<div class="section" id="values">
+<h2>Nilai<a class="headerlink" href="#values" title="Link permanen untuk headline ini">¶</a></h2>
+<div class="section" id="basic-values">
+<h3>Nilai dasar<a class="headerlink" href="#basic-values" title="Link permanen untuk headline ini">¶</a></h3>
+<p>Nilai dasar jenis seperti <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">double</span></code>, <code class="docutils literal notranslate"><span class="pre">boolean</span></code> atau <code class="docutils literal notranslate"><span class="pre">String</span></code> masing-masing memiliki kenyamanan mereka sendiri getter method yang akan mengembalikan nilai default jika node tidak berisi nilai dari tipe tersebut. Mari kita cek apakah administrator server kami ingin plugin untuk mengaktifkan nya blockCheats modul dengan memeriksa nilai pada <code class="docutils literal notranslate"><span class="pre">modules.blockCheats.enabled</span></code> jalan.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">boolean</span> <span class="n">shouldEnable</span> <span class="o">=</span> <span class="n">rootNode</span><span class="p">.</span><span class="na">getNode</span><span class="p">(</span><span class="s">&quot;modules&quot;</span><span class="p">,</span> <span class="s">&quot;blockCheats&quot;</span><span class="p">,</span> <span class="s">&quot;enabled&quot;</span><span class="p">).</span><span class="na">getBoolean</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Ya, ini benar-benar sesederhana itu. Serupa dengan contoh di atas, metode seperti <a class="reference external" href="https://configurate.aoeu.xyz/apidocs/ninja/leaping/configurate/ConfigurationNode.html#getInt--">ConfigurationNode#getInt()</a>, <a class="reference external" href="https://configurate.aoeu.xyz/apidocs/ninja/leaping/configurate/ConfigurationNode.html#getDouble--">ConfigurationNode#getDouble()</a> atau <a class="reference external" href="https://configurate.aoeu.xyz/apidocs/ninja/leaping/configurate/ConfigurationNode.html#getString--">ConfigurationNode#getString()</a> ada yang memungkinkan anda untuk dengan mudah mengambil nilai dari jenis itu.</p>
+<p>To set a basic value to a node, just use the <a class="reference external" href="https://configurate.aoeu.xyz/apidocs/ninja/leaping/configurate/ConfigurationNode.html#setValue-java.lang.Object-">ConfigurationNode#setValue(Object)</a> method. Don't be confused
+that it accepts an <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html">Object</a> - this means that it can take anything and will determine how to proceed from there
+by itself.</p>
+<p>Bayangkan modul blok Cheast tidak diaktifkan oleh perintah pengguna. Perubahan ini perlu tercermin dalam konfigurasi dan bisa dilakukan sebagai berikut:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">rootNode</span><span class="p">.</span><span class="na">getNode</span><span class="p">(</span><span class="s">&quot;modules&quot;</span><span class="p">,</span> <span class="s">&quot;blockCheats&quot;</span><span class="p">,</span> <span class="s">&quot;enabled&quot;</span><span class="p">).</span><span class="na">setValue</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Peringatan</p>
+<p class="last">Anything other than basic value types cannot be handled by those basic functions, and must instead be read and
+written using the (de)serializing Methods described below. Basic types are those that are natively handled by the
+underlying implementation of the file format used by the <code class="docutils literal notranslate"><span class="pre">ConfigurationLoader</span></code>, but generally include the
+primitive data types, <code class="docutils literal notranslate"><span class="pre">String</span></code>s as well as <code class="docutils literal notranslate"><span class="pre">List</span></code>s and <code class="docutils literal notranslate"><span class="pre">Map</span></code>s of basic types.</p>
+</div>
+</div>
+<div class="section" id="de-serialization">
+<h3>(De)Serialisasi<a class="headerlink" href="#de-serialization" title="Link permanen untuk headline ini">¶</a></h3>
+<p>If you attempt to read or write an object that is not one of the basic types mentioned above, you will need to pass it
+through deserialization first. In the <a class="reference external" href="https://configurate.aoeu.xyz/apidocs/ninja/leaping/configurate/ConfigurationOptions.html">ConfigurationOptions</a> used to create your root <code class="docutils literal notranslate"><span class="pre">ConfigurationNode</span></code>,
+there is a collection of <a class="reference external" href="https://configurate.aoeu.xyz/apidocs/ninja/leaping/configurate/objectmapping/serialize/TypeSerializer.html">TypeSerializer</a>s that Configurate uses to convert your objects to a
+<code class="docutils literal notranslate"><span class="pre">ConfigurationNode</span></code> and vice versa.</p>
+<p>In order to tell Configurate what type it is dealing with, we have to provide a guava <a class="reference external" href="https://google.github.io/guava/releases/17.0/api/docs/com/google/common/reflect/TypeToken.html">TypeToken</a>. Imagine we
+want to read a player <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/util/UUID.html">UUID</a> from the config node <code class="docutils literal notranslate"><span class="pre">towns.aFLARDia.mayor</span></code>. To do so, we need to call the
+<a class="reference external" href="https://configurate.aoeu.xyz/apidocs/ninja/leaping/configurate/ConfigurationNode.html#getValue-com.google.common.reflect.TypeToken-">getValue(...)</a> method while providing a <code class="docutils literal notranslate"><span class="pre">TypeToken</span></code>
+representing the <code class="docutils literal notranslate"><span class="pre">UUID</span></code> class.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">java.util.UUID</span><span class="p">;</span>
+
+<span class="n">UUID</span> <span class="n">mayor</span> <span class="o">=</span> <span class="n">rootNode</span><span class="p">.</span><span class="na">getNode</span><span class="p">(</span><span class="s">&quot;towns&quot;</span><span class="p">,</span> <span class="s">&quot;aFLARDia&quot;</span><span class="p">,</span> <span class="s">&quot;mayor&quot;</span><span class="p">).</span><span class="na">getValue</span><span class="p">(</span><span class="n">TypeToken</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">UUID</span><span class="p">.</span><span class="na">class</span><span class="p">));</span>
+</pre></div>
+</div>
+<p>This prompts Configurate to locate the proper <code class="docutils literal notranslate"><span class="pre">TypeSerializer</span></code> for <code class="docutils literal notranslate"><span class="pre">UUID</span></code>s and then use it to convert the stored
+value into a <code class="docutils literal notranslate"><span class="pre">UUID</span></code>. The <code class="docutils literal notranslate"><span class="pre">TypeSerializer</span></code> (and by extension the above method) may throw an
+<a class="reference external" href="https://configurate.aoeu.xyz/apidocs/ninja/leaping/configurate/objectmapping/ObjectMappingException.html">ObjectMappingException</a> if it encounters incomplete or invalid data.</p>
+<p>Now if we want to write a new <code class="docutils literal notranslate"><span class="pre">UUID</span></code> to that config node, the syntax is very similar. Use the
+<a class="reference external" href="https://configurate.aoeu.xyz/apidocs/ninja/leaping/configurate/ConfigurationNode.html#setValue-com.google.common.reflect.TypeToken-java.lang.Object-">setValue(...)</a>
+method with a <code class="docutils literal notranslate"><span class="pre">TypeToken</span></code> and the object you want to serialize.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">rootNode</span><span class="p">.</span><span class="na">getNode</span><span class="p">(</span><span class="s">&quot;towns&quot;</span><span class="p">,</span><span class="s">&quot;aFLARDia&quot;</span><span class="p">,</span> <span class="s">&quot;mayor&quot;</span><span class="p">).</span><span class="na">setValue</span><span class="p">(</span><span class="n">TypeToken</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">UUID</span><span class="p">.</span><span class="na">class</span><span class="p">),</span> <span class="n">newUuid</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Catatan</p>
+<p class="last">Serialisasi nilai akan membuang <code class="docutils literal notranslate"><span class="pre">ObjectMappingException</span></code> jika tidak ada <code class="docutils literal notranslate"><span class="pre">TypeSerializer</span></code> untuk mengingat <code class="docutils literal notranslate"><span class="pre">TypeToken</span></code> dapat ditemukan.</p>
+</div>
+<p>For simple classes like <code class="docutils literal notranslate"><span class="pre">UUID</span></code>, you can just create a <code class="docutils literal notranslate"><span class="pre">TypeToken</span></code> using the static <a class="reference external" href="https://google.github.io/guava/releases/17.0/api/docs/com/google/common/reflect/TypeToken.html#of-java.lang.Class-">TypeToken#of(Class)</a>
+method. However, <code class="docutils literal notranslate"><span class="pre">UUID</span></code>s and some other types already have a constant for it, such as
+<a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/util/TypeTokens.html#UUID_TOKEN">TypeTokens#UUID_TOKEN</a>, which you should use instead. If the class you want to use has type parameters (like
+<code class="docutils literal notranslate"><span class="pre">Map&lt;String,UUID&gt;</span></code>) and no constant yet exists for it, the syntax gets a bit more complicated. In most cases you will
+know exactly what the type parameters will be at compile time, so you can just create the <code class="docutils literal notranslate"><span class="pre">TypeToken</span></code> as an anonymous
+class: <code class="docutils literal notranslate"><span class="pre">new</span> <span class="pre">TypeToken&lt;Map&lt;String,UUID&gt;&gt;()</span> <span class="pre">{}</span></code>. That way, even generic types can conveniently be written and read.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">lihat juga</p>
+<p class="last">For more information about <code class="docutils literal notranslate"><span class="pre">TypeToken</span></code>s, refer to the <a class="reference external" href="https://github.com/google/guava/wiki/ReflectionExplained">guava documentation</a></p>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">The SpongeAPI provides a <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/util/TypeTokens.html">class</a> with many pre-defined type tokens that you can use.
+If plugin developers need many different or complex <code class="docutils literal notranslate"><span class="pre">TypeToken</span></code>s, or use them frequently, we recommend
+creating a similar class for themselves to improve code readability. (Beware, it is not guaranteed that all of
+those entries have registered <code class="docutils literal notranslate"><span class="pre">TypeSerializer</span></code>s).</p>
+</div>
+<p>You can find a non-exhaustive list of supported types, and ways to add support for new types on the
+<a class="reference internal" href="serialization.html"><span class="doc">the config serialization page</span></a>.</p>
+</div>
+<div class="section" id="defaults">
+<h3>Bawaan<a class="headerlink" href="#defaults" title="Link permanen untuk headline ini">¶</a></h3>
+<p>Unlike SpongeAPI, the Configurate library does not use <code class="docutils literal notranslate"><span class="pre">Optional</span></code> for values that might not be present but null.
+While the getters for primitive methods (like <code class="docutils literal notranslate"><span class="pre">getBoolean()</span></code> or <code class="docutils literal notranslate"><span class="pre">getInt()</span></code>) might return <code class="docutils literal notranslate"><span class="pre">false</span></code> or <code class="docutils literal notranslate"><span class="pre">0</span></code>, those
+that would return an object (like <code class="docutils literal notranslate"><span class="pre">getString()</span></code>) will return <code class="docutils literal notranslate"><span class="pre">null</span></code> if no value is present. If you do not want to
+manually handle those special cases, you can use <em>default values</em>. Every <code class="docutils literal notranslate"><span class="pre">getXXX()</span></code> method discussed above has an
+overloaded form accepting an additional parameter as a default value.</p>
+<p>Mari kita lihat contoh untuk membaca nilai boolean lagi.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">boolean</span> <span class="n">shouldEnable</span> <span class="o">=</span> <span class="n">rootNode</span><span class="p">.</span><span class="na">getNode</span><span class="p">(</span><span class="s">&quot;modules&quot;</span><span class="p">,</span> <span class="s">&quot;blockCheats&quot;</span><span class="p">,</span> <span class="s">&quot;enabled&quot;</span><span class="p">).</span><span class="na">getBoolean</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Panggilan ini akan kembali <cite>palsu</cite> jika salah satu nilai <cite>palsu</cite> disimpan di config atau nilai yang tidak hadir dalam konfigurasi. Sejak dua kasus yang bisa dibedakan kami tidak memiliki cara sederhana untuk menetapkan variabel yang menjadi <cite>palsu</cite> hanya jika itu adalah nilai yang ditentukan pada konfigurasi. Kecuali kita menentukan <cite>benar</cite> sebagai nilai default.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">boolean</span> <span class="n">shouldEnable</span> <span class="o">=</span> <span class="n">rootNode</span><span class="p">.</span><span class="na">getNode</span><span class="p">(</span><span class="s">&quot;modules&quot;</span><span class="p">,</span> <span class="s">&quot;blockCheats&quot;</span><span class="p">,</span> <span class="s">&quot;enabled&quot;</span><span class="p">).</span><span class="na">getBoolean</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Demikian pula, anda dapat menentukan default pada setiap nilai yang anda dapatkan dari config, sehingga menghindari <cite>null</cite> kembali atau <cite>ObjectMappingException</cite> yang disebabkan oleh tidak adanya seluruh nilai. Ia juga bekerja pada deserialisasi <cite>getValue()</cite> metode. Beberapa contoh:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">greeting</span> <span class="o">=</span> <span class="n">rootNode</span><span class="p">.</span><span class="na">getNode</span><span class="p">(</span><span class="s">&quot;messages&quot;</span><span class="p">,</span> <span class="s">&quot;greeting&quot;</span><span class="p">)</span>
+        <span class="p">.</span><span class="na">getString</span><span class="p">(</span><span class="s">&quot;FLARD be with you good man!&quot;</span><span class="p">);</span>
+
+<span class="n">UUID</span> <span class="n">mayor</span> <span class="o">=</span> <span class="n">rootNode</span><span class="p">.</span><span class="na">getNode</span><span class="p">(</span><span class="s">&quot;towns&quot;</span><span class="p">,</span> <span class="s">&quot;aFLARDia&quot;</span><span class="p">,</span> <span class="s">&quot;mayor&quot;</span><span class="p">)</span>
+        <span class="p">.</span><span class="na">getValue</span><span class="p">(</span><span class="n">TypeTokens</span><span class="p">.</span><span class="na">UUID_TOKEN</span><span class="p">,</span> <span class="n">somePlayer</span><span class="p">.</span><span class="na">getUniqueId</span><span class="p">());</span>
+</pre></div>
+</div>
+<p>Another useful application of those defaults is that they can be copied to your configuration if needed. Upon creation
+of your root configuration node, you can create your <code class="docutils literal notranslate"><span class="pre">ConfigurationOptions</span></code> with
+<a class="reference external" href="https://configurate.aoeu.xyz/apidocs/ninja/leaping/configurate/ConfigurationOptions.html#setShouldCopyDefaults-boolean-">setShouldCopyDefaults(true)</a>.
+Subsequently, whenever you provide a default value, Configurate will first check if the value you're trying to get is
+present, and if it is not, it will first write your default value to the node before returning the default value.</p>
+<p>Mari kita asumsi kan plugin anda menjalankan untuk pertama kalinya dan config file belum ada. Anda mencoba untuk memuat dengan <cite>ConfigurationOptions</cite> yang memungkinkan menyalin nilai-nilai default dan mendapatkan kosong config node. Sekarang anda jalankan garis <cite>rootNode.getNode(&quot;modul&quot;, &quot;blockCheats&quot;, &quot;enabled&quot;).getBoolean(yang benar)</cite>. Sebagai node belum ada, configurate menciptakan dan menulis nilai <cite>true</cite> untuk itu sebagai per <cite>ConfigurationOptions</cite> sebelum kembali itu. Ketika config kemudian selesai, nilai <cite>benar</cite> akan bertahan pada node tanpa pernah secara eksplisit diatur.</p>
+</div>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="serialization.html" class="btn btn-neutral float-right" title="Serializing Benda" accesskey="n" rel="next">Selanjutnya <span class="fa fa-angle-right"></span></a>
+        <a href="loaders.html" class="btn btn-neutral" title="Konfigurasi Loader" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> Sebelumnya</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../../_static/flags/id_ID.svg"
+         alt="id" title="Indonesia">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../../_static/jquery.js"></script>      <script type="text/javascript" src="../../_static/underscore.js"></script>      <script type="text/javascript" src="../../_static/doctools.js"></script>      <script type="text/javascript" src="../../_static/language_data.js"></script>      <script type="text/javascript" src="../../_static/translations.js"></script>      <script type="text/javascript" src="../../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

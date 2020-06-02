@@ -1,0 +1,242 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>実例 &mdash; Sponge 7.2.0 ドキュメント</title>
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="索引"
+              href="../../genindex.html"/>        <link rel="search" title="検索" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 ドキュメント" href="../../index.html"/>        <link rel="up" title="プラグインの作成" href="../index.html"/>        <link rel="next" title="ベストプラクティス" href="best.html"/>        <link rel="prev" title="依存性注入" href="../injection.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../../index.html">
+            <img src="../../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../server/index.html">サーバーの作成</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../versions/index.html">Versioning Policy</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../preparing/index.html">開発環境の準備</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">プラグインの作成</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../api-versions.html">APIのバージョン</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../buildsystem.html">ビルドシステム</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../workspace/index.html">ワークスペースのセットアップ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../project/index.html">プロジェクトのセットアップ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-identifier.html">プラグイン ID</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-class.html">主要なプラグインのクラス</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lifecycle.html">プラグインのライフサイクル</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../injection.html">依存性注入</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">実例</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="best.html">ベストプラクティス</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bad.html">悪いやり方</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../optional/index.html">Optional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../logging.html">ロギングとデバッグ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text/index.html">テキスト</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/index.html">プラグインコマンド</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../event/index.html">イベント</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/index.html">プラグインの設定</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assets.html">アセット API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data/index.html">データ API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../blocks/index.html">ブロック</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../entities/index.html">エンティティ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../items/index.html">アイテム</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../trade-offers.html">取引のオファー</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../effects.html">エフェクト</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../scheduler.html">スケジューラ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../services.html">サービス</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database.html">データベース</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../permissions.html">パーミッション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bans.html">BAN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metrics.html">Metrics Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bookview.html">本</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../economy/index.html">Economy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wgen/index.html">ワールド生成</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manager.html">プラグインマネージャ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../game-profile-manager.html">ゲームプロフィールマネージャ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../offline-userplayer-data.html">オフラインのプレイヤーデータ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tab-lists.html">タブリスト</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-meta.html">プラグインのメタデータ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ray-tracing.html">レイトレーシング</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../debugging.html">プラグインのデバッグ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials.html">チュートリアル</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internals/index.html">実装依存のプラグイン</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ore/index.html">Ore ドキュメント</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/index.html">Sponge に貢献する</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">Sponge プロジェクトについて</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+          <li><a href="../index.html">プラグインの作成</a> &raquo;</li>
+    <li>実例</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/plugin/practices/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="practices">
+<h1>実例<a class="headerlink" href="#practices" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>このセクションでは従うべきベストプラクティスと避けるべき悪いやり方を説明します。</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="best.html">ベストプラクティス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bad.html">悪いやり方</a></li>
+</ul>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="best.html" class="btn btn-neutral float-right" title="ベストプラクティス" accesskey="n" rel="next">次へ <span class="fa fa-angle-right"></span></a>
+        <a href="../injection.html" class="btn btn-neutral" title="依存性注入" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> 戻る</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../../_static/flags/ja_JP.svg"
+         alt="ja" title="日本語">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../../_static/jquery.js"></script>      <script type="text/javascript" src="../../_static/underscore.js"></script>      <script type="text/javascript" src="../../_static/doctools.js"></script>      <script type="text/javascript" src="../../_static/language_data.js"></script>      <script type="text/javascript" src="../../_static/translations.js"></script>      <script type="text/javascript" src="../../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

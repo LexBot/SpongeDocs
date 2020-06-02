@@ -1,0 +1,339 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Configuration des Nodes &mdash; Documentation Sponge 7.2.0</title>
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>        <link rel="search" title="Recherche" href="../../search.html"/>    <link rel="top" title="Documentation Sponge 7.2.0" href="../../index.html"/>        <link rel="up" title="Configuration des plugins" href="index.html"/>        <link rel="next" title="Sérialisation d’objets" href="serialization.html"/>        <link rel="prev" title="Loaders de Configuration" href="loaders.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../../index.html">
+            <img src="../../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../server/index.html">Créer un Serveur</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../versions/index.html">Stratégie de versioning</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../preparing/index.html">Préparation pour le développement</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Création d’un Plugin</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../api-versions.html">Versions de l’API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../buildsystem.html">Build Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../workspace/index.html">Mise en Place de votre Espace de Travail</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../project/index.html">Configurer Votre Projet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-identifier.html">Identifiants de Plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-class.html">Classe Principale du Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lifecycle.html">Cycle de vie des Plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../injection.html">Injection de Dépendances</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../practices/index.html">Bonnes Pratiques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../optional/index.html">Optionnels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../logging.html">Journalisation (Logging) et Débogage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text/index.html">Text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/index.html">Commandes de Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../event/index.html">Événements</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Configuration des plugins</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="loaders.html">Loaders de Configuration</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Configuration des Nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="serialization.html">Sérialisation d’objets</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../assets.html">L’API des Ressources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data/index.html">La Data API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../blocks/index.html">Blocs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../entities/index.html">Entités</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../items/index.html">Items</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../trade-offers.html">Trade-Offers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../effects.html">Effets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../scheduler.html">Scheduler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../services.html">Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database.html">Bases de données</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../permissions.html">Permissions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bans.html">Bans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metrics.html">Collection de Metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bookview.html">Views d’un Livre</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../economy/index.html">Économie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wgen/index.html">Génération du monde</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manager.html">Gestionnaire de Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../game-profile-manager.html">Gestionnaire de Profil de Jeu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../offline-userplayer-data.html">Données du Joueur Hors-Ligne</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tab-lists.html">Tab Lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-meta.html">Plugin Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ray-tracing.html">Ray Tracing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../debugging.html">Debugging d’un plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials.html">Tutoriels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internals/index.html">Plugins dépendants des implémentations</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ore/index.html">Documentation d’Ore</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/index.html">Contribuer à Sponge</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">À propos du Projet Sponge</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+          <li><a href="../index.html">Création d’un Plugin</a> &raquo;</li>
+          <li><a href="index.html">Configuration des plugins</a> &raquo;</li>
+    <li>Configuration des Nodes</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/plugin/configuration/nodes.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="configuration-nodes">
+<h1>Configuration des Nodes<a class="headerlink" href="#configuration-nodes" title="Lien permanent vers ce titre">¶</a></h1>
+<p>En mémoire, la configuration est représentée à l’aide de <a class="reference external" href="https://configurate.aoeu.xyz/apidocs/ninja/leaping/configurate/ConfigurationNode.html">ConfigurationNode</a>s. Un <code class="docutils literal notranslate"><span class="pre">ConfigurationNode</span></code> contient soit une valeur (comme un nombre, une chaîne ou une liste), soit un node enfant, ce qui donne une structure en arborescence. Quand vous utilisez un <a class="reference external" href="https://configurate.aoeu.xyz/apidocs/ninja/leaping/configurate/loader/ConfigurationLoader.html">ConfigurationLoader</a> pour charger ou crées de nouvelles configurations, il retournera le <strong>node racine</strong>. Nous recommandons que vous gardiez toujours une référence vers ce node racine stockée quelque part, afin d’éviter de charger la configuration à chaque vous que vous en avez besoin. En effet secondaire, ça va garder les commentaires qui étaient présents dans le fichier. Alternativement, vous pouvez stocker une référence vers une <a class="reference internal" href="serialization.html"><span class="doc">instance de configuration sérialisable</span></a> qui contient la configuration entière de votre plugin.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Selon le <code class="docutils literal notranslate"><span class="pre">ConfigurationLoader</span></code> utilisé, vous pouvez même obtenir un <a class="reference external" href="https://configurate.aoeu.xyz/apidocs/ninja/leaping/configurate/commented/CommentedConfigurationNode.html">CommentedConfigurationNode</a>, qui, en plus du comportement normal du <code class="docutils literal notranslate"><span class="pre">ConfigurationNode</span></code> est capable de conserver un commentaire qui va persister sur le fichier de configuration enregistré.</p>
+</div>
+<div class="section" id="navigating-nodes">
+<h2>Naviguer dans les Nodes<a class="headerlink" href="#navigating-nodes" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Chaque node enfant est identifié par une clé, la plupart du temps c’est une chaîne de caractère. LOrs du passage d’une node (par exemple, la node racine) à un node enfant spécifique, il peut être nécessaire de passer à travers plusieurs niveaux de nodes enfants. Les clés des nodes enfants passés font le <strong>chemin</strong> vers la node cible. Dans l’exemple suivant, il y a une node détenant la valeur <code class="docutils literal notranslate"><span class="pre">false</span></code> au chemin <code class="docutils literal notranslate"><span class="pre">modules</span></code> <code class="docutils literal notranslate"><span class="pre">blockCheats</span></code> <code class="docutils literal notranslate"><span class="pre">enabled</span></code> (depuis la node racine) dans la représentation HOCON suivante d’une configuration.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Quand ils sont écrits, les chemins sont souvent représentés en rejoignant les clés ensemble avec un caractère sépérateur, habituellement <code class="docutils literal notranslate"><span class="pre">.</span></code>. Le chemin mentionné ci-dessus serait écrit <code class="docutils literal notranslate"><span class="pre">modules.blockCheats.enabled</span></code>.</p>
+</div>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="err">modules {</span>
+<span class="err">    blockCheats {</span>
+<span class="err">        enabled=true</span>
+<span class="err">    }</span>
+<span class="err">}</span>
+</pre></div>
+</div>
+<p>En Java, vous pouvez récupérer la node enfant pour un chemin en utilisant la méthode <code class="docutils literal notranslate"><span class="pre">getNode(...)`.</span> <span class="pre">Cette</span> <span class="pre">méthode</span> <span class="pre">accepte</span> <span class="pre">n'importe</span> <span class="pre">quel</span> <span class="pre">nombre</span> <span class="pre">d'arguments,</span> <span class="pre">où</span> <span class="pre">chaque</span> <span class="pre">argument</span> <span class="pre">est</span> <span class="pre">une</span> <span class="pre">clé</span> <span class="pre">dans</span> <span class="pre">le</span> <span class="pre">chemin.</span> <span class="pre">Le</span> <span class="pre">chemin</span> <span class="pre">``modules.blockCheats.enabled</span></code>, depuis une node racine, serait acquit comme suit.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ninja.leaping.configurate.ConfigurationNode</span><span class="p">;</span>
+
+<span class="n">ConfigurationNode</span> <span class="n">rootNode</span> <span class="o">=</span> <span class="p">...;</span>
+<span class="n">ConfigurationNode</span> <span class="n">targetNode</span> <span class="o">=</span> <span class="n">rootNode</span><span class="p">.</span><span class="na">getNode</span><span class="p">(</span><span class="s">&quot;modules&quot;</span><span class="p">,</span> <span class="s">&quot;blockCheats&quot;</span><span class="p">,</span> <span class="s">&quot;enabled&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Les appels de fonctions <code class="docutils literal notranslate"><span class="pre">node.getNode(&quot;foo&quot;,</span> <span class="pre">&quot;bar&quot;)</span></code> et <code class="docutils literal notranslate"><span class="pre">node.getNode(&quot;foo&quot;).getNode(&quot;bar&quot;)</span></code> sont équivalents.</p>
+</div>
+</div>
+<div class="section" id="values">
+<h2>Valeurs<a class="headerlink" href="#values" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="basic-values">
+<h3>Valeurs basiques<a class="headerlink" href="#basic-values" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Les types de valeurs basiques comme les <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">double</span></code>, <code class="docutils literal notranslate"><span class="pre">boolean</span></code> ou <code class="docutils literal notranslate"><span class="pre">String</span></code> ou chacun leur propre méthode getter qui retournera valeur ou une valeur par défaut si la node ne contient pas de valeur de ce type. Vérifions si l’administrateur du serveur veut que le module blockCheats de notre plugin soit activé en vérifiant la valeur au chemin <code class="docutils literal notranslate"><span class="pre">modules.blockCheats.enabled</span></code>.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">boolean</span> <span class="n">shouldEnable</span> <span class="o">=</span> <span class="n">rootNode</span><span class="p">.</span><span class="na">getNode</span><span class="p">(</span><span class="s">&quot;modules&quot;</span><span class="p">,</span> <span class="s">&quot;blockCheats&quot;</span><span class="p">,</span> <span class="s">&quot;enabled&quot;</span><span class="p">).</span><span class="na">getBoolean</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Oui, c’est vraiment aussi simple que cela. Comme dans l’exemple ci-dessus, les méthodes comme <a class="reference external" href="https://configurate.aoeu.xyz/apidocs/ninja/leaping/configurate/ConfigurationNode.html#getInt--">ConfigurationNode#getInt()</a>, <a class="reference external" href="https://configurate.aoeu.xyz/apidocs/ninja/leaping/configurate/ConfigurationNode.html#getDouble--">ConfigurationNode#getDouble()</a> ou <a class="reference external" href="https://configurate.aoeu.xyz/apidocs/ninja/leaping/configurate/ConfigurationNode.html#getString--">ConfigurationNode#getString()</a> existent pour vous permettre de récupérer facilement une valeur de ce type.</p>
+<p>Pour définir une valeur basique à une node, utilisez simplement la méthode <a class="reference external" href="https://configurate.aoeu.xyz/apidocs/ninja/leaping/configurate/ConfigurationNode.html#setValue-java.lang.Object-">ConfigurationNode#setValue(Object)</a>. Ne soyez pas confus par le fait qu’elle accepte un <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html">Object</a> - cela signifie qu’elle peut prendre n’importe quoi et qu’elle va déterminer comment procéder par lui-même.</p>
+<p>Imaginez que le module blockCheats soit désactivé par une commande de l’utilisateur. Ce changement devra être réflété dans la configuration et peut se faire comme suit :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">rootNode</span><span class="p">.</span><span class="na">getNode</span><span class="p">(</span><span class="s">&quot;modules&quot;</span><span class="p">,</span> <span class="s">&quot;blockCheats&quot;</span><span class="p">,</span> <span class="s">&quot;enabled&quot;</span><span class="p">).</span><span class="na">setValue</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Avertissement</p>
+<p class="last">Les autres types que les types de valeurs de base ne peuvent pas être traités par ces fonctions basiques, et doivent à la place être lus et écrits en utilisant la méthode de (dé)sérialisation décrite ci-dessous. Les types basiques sont ceux qui sont gérés nativements par l’implémentation sous-jacente du format de fichier utilisé par le <code class="docutils literal notranslate"><span class="pre">ConfigurationLoader</span></code>, mais généralement incluent les types de données primitifs, les <code class="docutils literal notranslate"><span class="pre">String</span></code>s ainsi que les <code class="docutils literal notranslate"><span class="pre">List</span></code>s et les <code class="docutils literal notranslate"><span class="pre">Map</span></code>s de types basiques.</p>
+</div>
+</div>
+<div class="section" id="de-serialization">
+<h3>(Dé)Sérialisation<a class="headerlink" href="#de-serialization" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Si vous essayez de lire ou d’écrire un objet qui n’est pas un des types de bases mentionnés ci-dessus, vous devrez passer tout d’abord à travers la désérialisation. Dans le <a class="reference external" href="https://configurate.aoeu.xyz/apidocs/ninja/leaping/configurate/ConfigurationOptions.html">ConfigurationOptions</a> utilisé pour créer votre <code class="docutils literal notranslate"><span class="pre">ConfigurationNode</span></code> racine, il y a une collection de <a class="reference external" href="https://configurate.aoeu.xyz/apidocs/ninja/leaping/configurate/objectmapping/serialize/TypeSerializer.html">TypeSerializer</a>s que Configurate utilise pour convertir vos objets en un <code class="docutils literal notranslate"><span class="pre">ConfigurationNode</span></code> et vice versa.</p>
+<p>Afin de dire à Configurate quel type il doit traiter, nous devons fournir un <a class="reference external" href="https://google.github.io/guava/releases/17.0/api/docs/com/google/common/reflect/TypeToken.html">TypeToken</a> de guava. Imaginez que nous voulons lire l”<a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/util/UUID.html">UUID</a> d’un joueur à partir du node de configuration <code class="docutils literal notranslate"><span class="pre">towns.aFLARDia.mayor</span></code>. Pour faire ceci, nous devron appeler la méthode <a class="reference external" href="https://configurate.aoeu.xyz/apidocs/ninja/leaping/configurate/ConfigurationNode.html#getValue-com.google.common.reflect.TypeToken-">getValue(…)</a> tout en fournissant un <code class="docutils literal notranslate"><span class="pre">TypeToken</span></code> représentant la classe <code class="docutils literal notranslate"><span class="pre">UUID</span></code>.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">java.util.UUID</span><span class="p">;</span>
+
+<span class="n">UUID</span> <span class="n">mayor</span> <span class="o">=</span> <span class="n">rootNode</span><span class="p">.</span><span class="na">getNode</span><span class="p">(</span><span class="s">&quot;towns&quot;</span><span class="p">,</span> <span class="s">&quot;aFLARDia&quot;</span><span class="p">,</span> <span class="s">&quot;mayor&quot;</span><span class="p">).</span><span class="na">getValue</span><span class="p">(</span><span class="n">TypeToken</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">UUID</span><span class="p">.</span><span class="na">class</span><span class="p">));</span>
+</pre></div>
+</div>
+<p>Cela demande à Configurate de localiser le bon <code class="docutils literal notranslate"><span class="pre">TypeSerializer</span></code> pour les <code class="docutils literal notranslate"><span class="pre">UUID</span></code>s et de l’utiliser pour convertir la valeur stockée en un <code class="docutils literal notranslate"><span class="pre">UUID</span></code>. Le <code class="docutils literal notranslate"><span class="pre">TypeSerializer</span></code> (et par extension la méthode ci-dessus) peut lever une <a class="reference external" href="https://configurate.aoeu.xyz/apidocs/ninja/leaping/configurate/objectmapping/ObjectMappingException.html">ObjectMappingException</a> si il rencontre des données incomplètes ou invalides.</p>
+<p>Maintenant si nous voulons écrire un nouvel <code class="docutils literal notranslate"><span class="pre">UUID</span></code> vers ce node de configuration, la syntaxe est très similaire. Utilisez la méthode <a class="reference external" href="https://configurate.aoeu.xyz/apidocs/ninja/leaping/configurate/ConfigurationNode.html#setValue-com.google.common.reflect.TypeToken-java.lang.Object-">setValue(…)</a> avec un <code class="docutils literal notranslate"><span class="pre">TypeToken</span></code> et l’objet que vous souhaitez sérialiser.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">rootNode</span><span class="p">.</span><span class="na">getNode</span><span class="p">(</span><span class="s">&quot;towns&quot;</span><span class="p">,</span><span class="s">&quot;aFLARDia&quot;</span><span class="p">,</span> <span class="s">&quot;mayor&quot;</span><span class="p">).</span><span class="na">setValue</span><span class="p">(</span><span class="n">TypeToken</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">UUID</span><span class="p">.</span><span class="na">class</span><span class="p">),</span> <span class="n">newUuid</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Sérialiser une valeur va lever une <code class="docutils literal notranslate"><span class="pre">ObjectMappingException</span></code> si aucun <code class="docutils literal notranslate"><span class="pre">TypeSerializer</span></code> pour le <code class="docutils literal notranslate"><span class="pre">TypeToken</span></code> donné ne peut être trouvé.</p>
+</div>
+<p>Pour des classes simples comme <code class="docutils literal notranslate"><span class="pre">UUID</span></code>, vous pouvez simplement créer un <code class="docutils literal notranslate"><span class="pre">TypeToken</span></code> en utilisant la méthode statique <a class="reference external" href="https://google.github.io/guava/releases/17.0/api/docs/com/google/common/reflect/TypeToken.html#of-java.lang.Class-">TypeToken#of(Class)</a>. Cependant, les <code class="docutils literal notranslate"><span class="pre">UUID</span></code>s et quelques autres types ont déjà une constante pour ça, comme <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/util/TypeTokens.html#UUID_TOKEN">TypeTokens#UUID_TOKEN</a>, que vous devez utiliser à la place. Mais quand la classe que vous voulez utiliser possède ses propres types de paramètres (comme <code class="docutils literal notranslate"><span class="pre">Map&lt;String,UUID&gt;</span></code>), la syntaxe devient un peu plus compliquée. Dans la plupart des cas vous saurez exactement quel types de paramètres ça va être au moment de la compilation, donc vous pouvez juste créer le <code class="docutils literal notranslate"><span class="pre">TypeToken</span></code> en tant que classe anonyme : <code class="docutils literal notranslate"><span class="pre">new</span> <span class="pre">TypeToken&lt;Map&lt;String,</span> <span class="pre">UUID&gt;&gt;()</span> <span class="pre">{}</span></code>. De cette façon, même les types génériques peuvent aisément être écrits et lus.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">Voir aussi</p>
+<p class="last">Pour plus d’informations à propos des <code class="docutils literal notranslate"><span class="pre">TypeToken</span></code>s, référez-vous à la <a class="reference external" href="https://github.com/google/guava/wiki/ReflectionExplained">documentation guava</a></p>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">Astuce</p>
+<p class="last">La SpongeAPI fournit une <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/util/TypeTokens.html">classe</a> avec plusieurs type tokens prédéfinis que vous pouvez utiliser. Si les développeurs de plugins ont besoin de beaucoup ou de complexes <code class="docutils literal notranslate"><span class="pre">TypeToken</span></code>s, ou alors qu’ils les utilisent fréquemment, nous recommandons de créer une classe similaire pour eux-mêmes afin d’améliorer la lisibilité du code. (Attention, il n’est pas garanti que toutes ces entrées ont des <code class="docutils literal notranslate"><span class="pre">TypeSerializer</span></code>s enregistrés).</p>
+</div>
+<p>Vous pouvez trouver une liste non-exhaustive des types supportés, et des façons d’ajouter un support pour de nouveaux types sur la <a class="reference internal" href="serialization.html"><span class="doc">page de configuration de la sérialisation</span></a>.</p>
+</div>
+<div class="section" id="defaults">
+<h3>Par défaut<a class="headerlink" href="#defaults" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Contrairement à SpongeAPI, la librairie Configurate n’utilise pas l”<code class="docutils literal notranslate"><span class="pre">Optional</span></code> pour les valeurs qui pourraient ne pas être présentes, mais plutôt null. Alors que les getters des méthodes primitives (comme <code class="docutils literal notranslate"><span class="pre">getBoolean()</span></code> ou <code class="docutils literal notranslate"><span class="pre">getInt()</span></code>) peuvent retourner <code class="docutils literal notranslate"><span class="pre">false</span></code> ou <code class="docutils literal notranslate"><span class="pre">0</span></code>, ceux qui retournent un objet (comme <code class="docutils literal notranslate"><span class="pre">getString()</span></code>) vont retourner <code class="docutils literal notranslate"><span class="pre">null</span></code> si aucune valeur n’est présente. Si vous ne voulez pas gérer manuellement ces cas spéciaux, vous pouvez utiliser les <em>valeurs par défaut</em>. Chaque méthode <code class="docutils literal notranslate"><span class="pre">getXXX()</span></code> discutée plus haut a une forme surchargée acceptant un paramètre supplémentaire comme valeur par défaut.</p>
+<p>Jetons un coup d’oeil à l’exemple pour la lecture d’une valeur booléenne à nouveau.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">boolean</span> <span class="n">shouldEnable</span> <span class="o">=</span> <span class="n">rootNode</span><span class="p">.</span><span class="na">getNode</span><span class="p">(</span><span class="s">&quot;modules&quot;</span><span class="p">,</span> <span class="s">&quot;blockCheats&quot;</span><span class="p">,</span> <span class="s">&quot;enabled&quot;</span><span class="p">).</span><span class="na">getBoolean</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Cet appel va retourner <code class="docutils literal notranslate"><span class="pre">false</span></code> si la valeur <code class="docutils literal notranslate"><span class="pre">false</span></code> est sauvegardé dans la configuration ou si la valeur n’est pas présente dans la configuration. Étant donné que ces deux cas ne sont pas distinguables nous n’avons pas de moyen simple de définir notre variable à <code class="docutils literal notranslate"><span class="pre">false</span></code> seulement si c’est la valeur spécifiée dans la configuration. Sauf si nous spécifions <code class="docutils literal notranslate"><span class="pre">true</span></code> comme valeur par défaut.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">boolean</span> <span class="n">shouldEnable</span> <span class="o">=</span> <span class="n">rootNode</span><span class="p">.</span><span class="na">getNode</span><span class="p">(</span><span class="s">&quot;modules&quot;</span><span class="p">,</span> <span class="s">&quot;blockCheats&quot;</span><span class="p">,</span> <span class="s">&quot;enabled&quot;</span><span class="p">).</span><span class="na">getBoolean</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>De la même façon, vous pouvez spécifié des valeurs par défaut sur n’importe quelle valeur que vous récupérer depuis la configuration, évitant ainsi les <code class="docutils literal notranslate"><span class="pre">null</span></code> ou les <code class="docutils literal notranslate"><span class="pre">ObjectMappingException</span></code> causés par l’absence de la valeur entière. Cela peut aussi fonctionner sur la désérialisation de la méthode <code class="docutils literal notranslate"><span class="pre">getValue()</span></code>. Quelques exemples :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">greeting</span> <span class="o">=</span> <span class="n">rootNode</span><span class="p">.</span><span class="na">getNode</span><span class="p">(</span><span class="s">&quot;messages&quot;</span><span class="p">,</span> <span class="s">&quot;greeting&quot;</span><span class="p">)</span>
+        <span class="p">.</span><span class="na">getString</span><span class="p">(</span><span class="s">&quot;FLARD be with you good man!&quot;</span><span class="p">);</span>
+
+<span class="n">UUID</span> <span class="n">mayor</span> <span class="o">=</span> <span class="n">rootNode</span><span class="p">.</span><span class="na">getNode</span><span class="p">(</span><span class="s">&quot;towns&quot;</span><span class="p">,</span> <span class="s">&quot;aFLARDia&quot;</span><span class="p">,</span> <span class="s">&quot;mayor&quot;</span><span class="p">)</span>
+        <span class="p">.</span><span class="na">getValue</span><span class="p">(</span><span class="n">TypeTokens</span><span class="p">.</span><span class="na">UUID_TOKEN</span><span class="p">,</span> <span class="n">somePlayer</span><span class="p">.</span><span class="na">getUniqueId</span><span class="p">());</span>
+</pre></div>
+</div>
+<p>Une autre application utile de ces valeurs par défaut, c’est qu’ils peuvent être copiés vers votre configuration si nécessaire. Lors de la création de votre node racine de configuration, vous pouvez créer votre <code class="docutils literal notranslate"><span class="pre">ConfigurationOptions</span></code> avec <a class="reference external" href="https://configurate.aoeu.xyz/apidocs/ninja/leaping/configurate/ConfigurationOptions.html#setShouldCopyDefaults-boolean-">setShouldCopyDefaults(true)</a>. Par la suite, quand vous fournirez une valeur par défaut, Configurate vérifiera d’abord si la valeur que vous essayerez de récupérer est présente, et si elle ne l’est pas, il écrira la valeur par défaut sur la node avant de retourner la valeur par défaut.</p>
+<p>Supposons que votre plugin s’exécute pour la première fois et que le fichier de configuration n’existe pas encore. Vous essayez de le charger avec <code class="docutils literal notranslate"><span class="pre">ConfigurationOptions</span></code> qui permet de copier les valeurs par défaut et de récupérer une node de configuration vide. Maintenant vous exécutez la ligne <code class="docutils literal notranslate"><span class="pre">rootNode.getNode(&quot;modules&quot;,</span> <span class="pre">&quot;blockCheats&quot;,</span> <span class="pre">&quot;enabled&quot;).getBoolean(true)</span></code>. Comme la node n’existe pas encore, Configurate la crée et écrit la valeur <code class="docutils literal notranslate"><span class="pre">true</span></code> dessus selon les directives du <code class="docutils literal notranslate"><span class="pre">ConfigurationOptions</span></code> avant de la retourner. Lorsque la configuration est alors terminée, la valeur <code class="docutils literal notranslate"><span class="pre">true</span></code> va rester sur la node sans jamais être définie explicitement.</p>
+</div>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="serialization.html" class="btn btn-neutral float-right" title="Sérialisation d’objets" accesskey="n" rel="next">Suivant <span class="fa fa-angle-right"></span></a>
+        <a href="loaders.html" class="btn btn-neutral" title="Loaders de Configuration" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> Précédent</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../../_static/flags/fr_FR.svg"
+         alt="fr" title="Français">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../../_static/jquery.js"></script>      <script type="text/javascript" src="../../_static/underscore.js"></script>      <script type="text/javascript" src="../../_static/doctools.js"></script>      <script type="text/javascript" src="../../_static/language_data.js"></script>      <script type="text/javascript" src="../../_static/translations.js"></script>      <script type="text/javascript" src="../../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

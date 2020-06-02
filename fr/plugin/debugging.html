@@ -1,0 +1,378 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Debugging d’un plugin &mdash; Documentation Sponge 7.2.0</title>
+
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="Index"
+              href="../genindex.html"/>        <link rel="search" title="Recherche" href="../search.html"/>    <link rel="top" title="Documentation Sponge 7.2.0" href="../index.html"/>        <link rel="up" title="Création d’un Plugin" href="index.html"/>        <link rel="next" title="Tutoriels" href="tutorials.html"/>        <link rel="prev" title="Ray Tracing" href="ray-tracing.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../index.html">
+            <img src="../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../server/index.html">Créer un Serveur</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../versions/index.html">Stratégie de versioning</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../preparing/index.html">Préparation pour le développement</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Création d’un Plugin</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="api-versions.html">Versions de l’API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="buildsystem.html">Build Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workspace/index.html">Mise en Place de votre Espace de Travail</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project/index.html">Configurer Votre Projet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin-identifier.html">Identifiants de Plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin-class.html">Classe Principale du Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lifecycle.html">Cycle de vie des Plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="injection.html">Injection de Dépendances</a></li>
+<li class="toctree-l2"><a class="reference internal" href="practices/index.html">Bonnes Pratiques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optional/index.html">Optionnels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.html">Journalisation (Logging) et Débogage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="text/index.html">Text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands/index.html">Commandes de Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="event/index.html">Événements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration/index.html">Configuration des plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assets.html">L’API des Ressources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data/index.html">La Data API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/index.html">Blocs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entities/index.html">Entités</a></li>
+<li class="toctree-l2"><a class="reference internal" href="items/index.html">Items</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trade-offers.html">Trade-Offers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="effects.html">Effets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scheduler.html">Scheduler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="services.html">Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="database.html">Bases de données</a></li>
+<li class="toctree-l2"><a class="reference internal" href="permissions.html">Permissions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bans.html">Bans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metrics.html">Collection de Metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bookview.html">Views d’un Livre</a></li>
+<li class="toctree-l2"><a class="reference internal" href="economy/index.html">Économie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wgen/index.html">Génération du monde</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manager.html">Gestionnaire de Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="game-profile-manager.html">Gestionnaire de Profil de Jeu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="offline-userplayer-data.html">Données du Joueur Hors-Ligne</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tab-lists.html">Tab Lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin-meta.html">Plugin Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ray-tracing.html">Ray Tracing</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Debugging d’un plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials.html">Tutoriels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internals/index.html">Plugins dépendants des implémentations</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ore/index.html">Documentation d’Ore</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contributing/index.html">Contribuer à Sponge</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">À propos du Projet Sponge</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+          <li><a href="index.html">Création d’un Plugin</a> &raquo;</li>
+    <li>Debugging d’un plugin</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/plugin/debugging.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="plugin-debugging">
+<h1>Debugging d’un plugin<a class="headerlink" href="#plugin-debugging" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Quand les bugs présents dans le code de votre plugin sont durs à repérer, vous devez vous fatiguer à recompiler chaque changement effectué, ce qui rend le debugging très long et ennuyeux. C’est pourquoi nous allons parler dans cette section de la manière de configurer votre plugin afin qu’il puisse profiter des fonctions de debugging de Java.</p>
+<div class="section" id="preparing-your-workspace">
+<h2>Préparer votre workspace<a class="headerlink" href="#preparing-your-workspace" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Puisque nous voulons faire fonctionner Sponge et votre plugin sur votre IDE, nous aurons besoin d’importer soit <a class="reference external" href="https://github.com/SpongePowered/Sponge">SpongeForge</a>, soit <a class="reference external" href="https://github.com/SpongePowered/SpongeVanilla">SpongeVanilla</a> (à vous de choisir celui que vous voulez utiliser) comme un projet dans votre workspace. Les instructions à suivre sont placées dans leur pages Github respective. Suivez ces instructions avec beaucoup d’attention avant de continuer.</p>
+<p>Maintenant, nous devons nous assurer que le projet de votre plugin est visible depuis le projet <strong>SpongeForge/SpongeVanilla</strong> que vous venez juste de créer. Les étapes suivantes dépendent de votre IDE.</p>
+<div class="section" id="intellij-idea">
+<h3>IntelliJ IDEA<a class="headerlink" href="#intellij-idea" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Dans IntelliJ, chaque projet à son propre workspace. Pour rendre votre projet <strong>Sponge(Vanilla)</strong> visible, vous devez le définir en tant que <em>Module</em>. En supposant que vous avez déjà créé votre projet en ayant suivi les instructions de <a class="reference internal" href="workspace/idea.html"><span class="doc">Configurer IntelliJ IDEA</span></a>, importez le en suivant les étapes suivantes.</p>
+<ul class="simple">
+<li>Ouvrez le projet <code class="docutils literal notranslate"><span class="pre">SpongeVanilla</span></code>/<code class="docutils literal notranslate"><span class="pre">SpongeForge</span></code>.</li>
+<li>Cliquez sur <code class="docutils literal notranslate"><span class="pre">File</span></code>, puis sur <code class="docutils literal notranslate"><span class="pre">New</span></code>, et enfin sur <code class="docutils literal notranslate"><span class="pre">Module</span> <span class="pre">from</span> <span class="pre">Existing</span> <span class="pre">Sources...</span></code>.</li>
+<li>Naviguez vers le projet de votre plugin.<ul>
+<li>Si vous utilisez Gradle, sélectionnez le fichier <code class="docutils literal notranslate"><span class="pre">build.gradle</span></code>, dans le dialogue suivant, cochez <code class="docutils literal notranslate"><span class="pre">Use</span> <span class="pre">auto-import</span></code> puis confirmez.</li>
+<li>Autrement, sélectionnez juste le fichier entier puis cliquez sur <code class="docutils literal notranslate"><span class="pre">Finish</span></code>.</li>
+</ul>
+</li>
+<li>Cliquez sur <code class="docutils literal notranslate"><span class="pre">Finish</span></code>.</li>
+</ul>
+<div class="admonition tip">
+<p class="first admonition-title">Astuce</p>
+<p class="last">Si vous n’avez pas encore créé votre plugin, cliquez sur <code class="docutils literal notranslate"><span class="pre">Module...</span></code> à la place de <code class="docutils literal notranslate"><span class="pre">Module</span> <span class="pre">from</span> <span class="pre">Existing</span> <span class="pre">Sources...</span></code>, puis créez votre projet dans les fenêtres qui apparaissent.</p>
+</div>
+</div>
+<div class="section" id="eclipse">
+<h3>Eclipse<a class="headerlink" href="#eclipse" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Il suffit de créer votre projet comme il l’est expliqué ici: <a class="reference internal" href="workspace/eclipse.html"><span class="doc">Préparation d’Eclipse</span></a>. Tant qu’il est dans le même workspace que celui du projet <code class="docutils literal notranslate"><span class="pre">SpongeVanilla</span></code>/<code class="docutils literal notranslate"><span class="pre">SpongeForge</span></code>, il sera visible.</p>
+</div>
+</div>
+<div class="section" id="adding-plugin-to-sponge-classpath">
+<h2>Ajouter le Plugin au classpath de Sponge<a class="headerlink" href="#adding-plugin-to-sponge-classpath" title="Lien permanent vers ce titre">¶</a></h2>
+<p>L’idée derrière tout ça est de lancer Sponge depuis votre IDE, comme sur un serveur normal. Cependant, il faudra ajouter votre plugin au classpath. Depuis que Sponge charge par défaut tous les plugins trouvés dans le classpath, ajouter le projet de votre plugin dans le classpath de Sponge va vous éviter de reconstruire et de copier l’artifact dans le répertoire de votre serveur après chaque modification.</p>
+<p>Tout d’abord, assurez-vous que votre configuration Run/Debug a bien été définie, comme montré dans le <a class="reference external" href="https://github.com/SpongePowered/SpongeForge/blob/stable-7/README.md#running">README.md</a> Sponge.</p>
+<p>Puis vous devrez éditer votre configuration de Run/Debug afin qu’elle inclus votre projet dans le class path . Comment faire ça ? Eh bien ça dépend encore de votre IDE:</p>
+<div class="section" id="id1">
+<h3>IntelliJ IDEA<a class="headerlink" href="#id1" title="Lien permanent vers ce titre">¶</a></h3>
+<ul class="simple">
+<li>Ouvrez la Structure du Projet.<ul>
+<li>Cliquez sur <code class="docutils literal notranslate"><span class="pre">File</span></code>, suivit de <code class="docutils literal notranslate"><span class="pre">Project</span> <span class="pre">Structure...</span></code>.</li>
+<li>OU, cliquez sur l’icône <code class="docutils literal notranslate"><span class="pre">Project</span> <span class="pre">Structure</span></code>, dans le coin en haut à droite de votre IDE, près de l’icône de recherche.</li>
+</ul>
+</li>
+<li>Cliquez sur <code class="docutils literal notranslate"><span class="pre">Modules</span></code>. Étendez le groupe <code class="docutils literal notranslate"><span class="pre">SpongeForge</span></code> ou <code class="docutils literal notranslate"><span class="pre">SpongeVanilla</span></code> (en fonction de la plateforme que vous avez choisi).</li>
+<li>Assurez-vous que <code class="docutils literal notranslate"><span class="pre">SpongeForge_main</span></code> ou <code class="docutils literal notranslate"><span class="pre">SpongeVanilla_main</span></code> est sélectionné.</li>
+<li>Dans la colonne de droite, sélectionnez l’onglet <code class="docutils literal notranslate"><span class="pre">Dependencies</span></code>.</li>
+<li>Cliquez sur le symbole <code class="docutils literal notranslate"><span class="pre">+</span></code> (<code class="docutils literal notranslate"><span class="pre">Add</span></code>) en bas de la colonne, puis sélectionnez <code class="docutils literal notranslate"><span class="pre">Module</span> <span class="pre">Dependency</span></code>.</li>
+<li>Sélectionnez <code class="docutils literal notranslate"><span class="pre">yourplugin_main</span></code>.</li>
+<li>Ne PAS cocher l’option <code class="docutils literal notranslate"><span class="pre">Export</span></code> du module après l’avoir ajouté à la liste.</li>
+</ul>
+<div class="admonition warning">
+<p class="first admonition-title">Avertissement</p>
+<p>À cause d’un bug dans IntelliJ (<a class="reference external" href="https://youtrack.jetbrains.com/issue/IDEA-194641">IDEA-194641</a>), toutes les dépendances que votre plugin a (ex : le librairie standard Kotlin, ou Gson) <strong>ne</strong> seront <strong>pas</strong> ajoutées au classpath en utilisant la méthode ci-dessus. Cela résulte en un <code class="docutils literal notranslate"><span class="pre">ClassNotFoundException</span></code> quand votre plugin essaie d’accéder à une de ces classes, même si il a compilé correctement avec cette classe.</p>
+<p>Ce problème affecte seulement le lancement de votre plugin à partir d’IntelliJ en tant que module. Le jar du plugin final généré se lancera normalement dans IntelliJ et un serveur de production.</p>
+<p>Si votre plugin possède des dépendances externes, vous aurez besoin de suivre ces étapes afin de les lancer directement depuis IntelliJ :</p>
+<ul class="simple">
+<li>Créez un nouveau module Java avec <code class="docutils literal notranslate"><span class="pre">File</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">New</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">Module...</span></code>. Nommez-le <code class="docutils literal notranslate"><span class="pre">SpongeForgeContainer</span></code>.</li>
+<li>Ouvrez les paramètres du module pour <code class="docutils literal notranslate"><span class="pre">SpongeForgeContainer</span></code> comme décrit ci-dessus</li>
+<li>Dans les paramètres de dépendances pour <code class="docutils literal notranslate"><span class="pre">SpongeForgeContainer</span></code>, ajoutez une dépendance de module sur <code class="docutils literal notranslate"><span class="pre">SpongeForge_main</span></code></li>
+<li>Éditez votre configuration de lancement de serveur. Changez <code class="docutils literal notranslate"><span class="pre">Use</span> <span class="pre">classpath</span> <span class="pre">of</span> <span class="pre">module:</span></code> de <code class="docutils literal notranslate"><span class="pre">SpongeForge_main</span></code> à <code class="docutils literal notranslate"><span class="pre">SpongeForgeContainer</span></code></li>
+</ul>
+<p class="last">Vous pouvez laisser tous vos paramètres inchangés, dont la dépendance de <code class="docutils literal notranslate"><span class="pre">SpongeForge_main</span></code> dans le module de votre plugin. Maintenant, toutes les dépendances de votre plugin devraient être ajoutées au classpath lorsque vous démarrez le serveur.</p>
+</div>
+</div>
+<div class="section" id="id2">
+<h3>Eclipse<a class="headerlink" href="#id2" title="Lien permanent vers ce titre">¶</a></h3>
+<ul class="simple">
+<li>Trouvez votre Configuration Run/Debug<ul>
+<li>Cliquez sur <code class="docutils literal notranslate"><span class="pre">Run</span></code>, suivit de <code class="docutils literal notranslate"><span class="pre">Run</span> <span class="pre">Configurations...</span></code></li>
+<li>OU, cliquez sur le menu déroulant à coté de l’icône de Run/Debug puis sur <code class="docutils literal notranslate"><span class="pre">Run</span> <span class="pre">Configurations...</span></code> ou <code class="docutils literal notranslate"><span class="pre">Debug</span> <span class="pre">Configurations...</span></code>, respectivement.</li>
+</ul>
+</li>
+<li>Sélectionnez votre configuration Run/Debug pour Sponge (Server) sur le coté gauche.</li>
+<li>Allez sur l’onglet <code class="docutils literal notranslate"><span class="pre">Classpath</span></code>.</li>
+<li>Sélectionnez <code class="docutils literal notranslate"><span class="pre">User</span> <span class="pre">Entries</span></code>, puis cliquez sur le bouton``Add Projects…``.</li>
+<li>Sélectionnez le projet approprié à votre plugin.</li>
+<li>Cliquez sur le bouton <code class="docutils literal notranslate"><span class="pre">OK</span></code>.</li>
+<li>Cliquez sur le bouton <code class="docutils literal notranslate"><span class="pre">Apply</span></code> dans le coin en bas à droite.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="running-the-configuration">
+<span id="runconfig"></span><h2>Démarrer la Configuration<a class="headerlink" href="#running-the-configuration" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Après avoir suivi les étapes précédentes, vous devriez être prêt à démarrer le débogage. Si vous démarrez votre serveur depuis votre IDE, son répertoire de travail sera le répertoire <code class="docutils literal notranslate"><span class="pre">run</span></code> de votre projet SpongeForge/SpongeVanilla. Tous les fichiers généralement créés par un serveur (mondes, configs etc.) seront stockés dans ce répertoire <code class="docutils literal notranslate"><span class="pre">run</span></code> et persistent sur les exécutions successives de votre serveur de test local, comme si vous aviez manuellement copié un serveur .jar dans le répertoire <code class="docutils literal notranslate"><span class="pre">run</span></code> et qu’il commençait de là.</p>
+<div class="section" id="id3">
+<h3>IntelliJ IDEA<a class="headerlink" href="#id3" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Plutôt que d’appuyer sur la flèche verte pour démarrer la configuration de Run/Debug, cliquez sur l’icône verte à sa droite, <code class="docutils literal notranslate"><span class="pre">Debug</span></code>.</p>
+</div>
+<div class="section" id="id4">
+<h3>Eclipse<a class="headerlink" href="#id4" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Plutôt que de cliquer sur la flèche verte pour lancer la configuration Run/Debug, cliquez sur la flèche du menu déroulant de l’icône de Debug (celui affichant un insecte) et cliquez sur votre configuration <code class="docutils literal notranslate"><span class="pre">Test</span> <span class="pre">(Server)</span></code>. Si elle n’apparaît pas dans le menu déroulant, cliquez sur <code class="docutils literal notranslate"><span class="pre">Debug</span> <span class="pre">Configurations</span></code>. Sélectionnez la configuration <code class="docutils literal notranslate"><span class="pre">Test</span> <span class="pre">(Server)</span></code> puis appuyez sur le bouton <code class="docutils literal notranslate"><span class="pre">Debug</span></code> en bas à gauche.</p>
+</div>
+</div>
+<div class="section" id="using-the-debugger">
+<span id="usingdebugger"></span><h2>Utiliser le Debugger<a class="headerlink" href="#using-the-debugger" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Maintenant que votre serveur (et votre plugin) fonctionnent dans le Debugger, vous pouvez utiliser toutes les fonctionnalités disponibles. Les plus utilisés sont listés ci-dessous, même si elles ne font pas partie de Sponge mais du Java Debugger que votre IDE possède.</p>
+<div class="section" id="breakpoints">
+<h3>Points d’arrêt<a class="headerlink" href="#breakpoints" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Les points d’arrêt sont un outil très utile pour voir le code de plus près. Un point d’arrêt peut être défini eu début d’une ligne de code ou d’une fonction. Quand vous atteignez le point d’arrêt, le debugger va stopper le code et votre IDE vous permettra d’inspecter le contenu de toutes les variables. Le code ne continuera pas tant que vous n’appuyez pas sur le bouton fonction de la vie debugging de votre IDE.</p>
+<p>Les points d’arrêt peuvent aussi être ajoutés, retirés ou temporairement désactivés quand le debugging est en cours.</p>
+<div class="admonition tip">
+<p class="first admonition-title">Astuce</p>
+<p class="last">Si un tick venait à durer plus longtemps que prévu, le watchdog (chien de garde) considéra que le serveur à crash et le forcera à se stopper. Lorsque vous travaillez avec des breakpoints (points d’arrêt) ou du code s’exécutant en pas à pas cela pourrait se produire, il est donc recommandé que vous éditiez vos fichiers d’environnements de test <code class="docutils literal notranslate"><span class="pre">server.properties</span></code> et que vous définissiez la valeur de <code class="docutils literal notranslate"><span class="pre">max-tick-time</span></code> à un très grand nombre (la quantité de temps qu’un tick pourrait prendre en millisecondes) ou à <code class="docutils literal notranslate"><span class="pre">-1</span></code> (pour complétement désactiver le watchdog).</p>
+</div>
+<div class="section" id="id5">
+<h4>IntelliJ IDEA<a class="headerlink" href="#id5" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Pour ajouter ou supprimer un breakpoint, cliquez-gauche dessus dans l’espace à gauche de l’éditeur.</p>
+<p>Vous pouvez également avoir votre curseur sur la ligne où vous souhaitez placer ou supprimer votre point d’arrêt et cliquez sur <code class="docutils literal notranslate"><span class="pre">Run</span></code> puis sur <code class="docutils literal notranslate"><span class="pre">Toggle</span> <span class="pre">Line</span> <span class="pre">Breakpoint</span></code>.</p>
+</div>
+<div class="section" id="id6">
+<h4>Eclipse<a class="headerlink" href="#id6" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Pour ajouter ou supprimer un breakpoint, cliquez-droit dessus dans l’espace à gauche de l’éditeur et cliquez sur <code class="docutils literal notranslate"><span class="pre">Toggle</span> <span class="pre">Breakpoint</span></code>.</p>
+<p>Vous pouvez également avoir votre curseur sur la ligne où vous souhaitez placer ou supprimer votre point d’arrêt et cliquez sur <code class="docutils literal notranslate"><span class="pre">Run</span></code> puis sur <code class="docutils literal notranslate"><span class="pre">Toggle</span> <span class="pre">Breakpoint</span></code>.</p>
+</div>
+</div>
+<div class="section" id="code-hotswapping">
+<h3>Code Hotswapping<a class="headerlink" href="#code-hotswapping" title="Lien permanent vers ce titre">¶</a></h3>
+<p>L’autre avantage majeur du debugger est que vous n’avez pas à redémarrer votre serveur, même pour une infime modification, grâce au hotswapping. Cela signifie que vous pouvez juste recompilez des portions de votre code tout en utilisant votre debugger. Cependant, il y a quand même des limites, les plus importantes sont:</p>
+<ul>
+<li><p class="first">Vous ne pouvez pas créer ou supprimer de méthodes.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Les changements de méthodes sont limités au code contenu <em>dans</em> la méthode. Vous ne pouvez pas modifier sa signature (donc son nom, son type et leurs paramètres)</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">Vous ne pouvez pas supprimer de classes.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Vous ne pouvez pas modifier le nom d’une classe, superclasse ou la liste des interfaces qu’elle implémente.</li>
+<li>Vous pouvez ajouter des classes. Toutefois, une fois qu’elle est construite et échangée à chaud, la classe suit les règles ci-dessous.</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p>Vous pouvez tester cette fonctionnalité: mettez une simple commande dans votre plugin qui écris juste un mot comme <code class="docutils literal notranslate"><span class="pre">Sponge</span></code>. Sauvegardez-le puis démarrez le serveur comme décrit ci-dessus. Il va afficher <code class="docutils literal notranslate"><span class="pre">Sponge</span></code>. Maintenant, changez la commande pour qu’elle affiche un mot différent à la console, sauvegardez encore le fichier. Après le changement, suivez les étapes ci-dessous pour procéder au hotswap des changements du programme en cours d’exécution:</p>
+<div class="section" id="id7">
+<h4>IntelliJ IDEA<a class="headerlink" href="#id7" title="Lien permanent vers ce titre">¶</a></h4>
+<ul class="simple">
+<li>Ouvrez le menu <code class="docutils literal notranslate"><span class="pre">Run</span></code>, en haut de l’IDE.</li>
+<li>En dessous de la première séparation de catégorie, cliquez sur <code class="docutils literal notranslate"><span class="pre">Reload</span> <span class="pre">Changed</span> <span class="pre">Classes</span></code>.</li>
+</ul>
+</div>
+<div class="section" id="id8">
+<h4>Eclipse<a class="headerlink" href="#id8" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Aucune action n’est requise. Tant que vous avez sauvegardé le fichier, il sera restauré et remplacera automatiquement le debug actuel. Donc tant que vous n’avez pas modifié cette option par défaut, vous n’aurez pas à déclencher un hotswap manuellement.</p>
+</div>
+</div>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="tutorials.html" class="btn btn-neutral float-right" title="Tutoriels" accesskey="n" rel="next">Suivant <span class="fa fa-angle-right"></span></a>
+        <a href="ray-tracing.html" class="btn btn-neutral" title="Ray Tracing" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> Précédent</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../_static/flags/fr_FR.svg"
+         alt="fr" title="Français">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../_static/jquery.js"></script>      <script type="text/javascript" src="../_static/underscore.js"></script>      <script type="text/javascript" src="../_static/doctools.js"></script>      <script type="text/javascript" src="../_static/language_data.js"></script>      <script type="text/javascript" src="../_static/translations.js"></script>      <script type="text/javascript" src="../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

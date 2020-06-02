@@ -1,0 +1,265 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>索引类型 &mdash; Sponge 7.2.0 文档</title>
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="索引"
+              href="../../genindex.html"/>        <link rel="search" title="搜索" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 文档" href="../../index.html"/>        <link rel="up" title="数据 API" href="index.html"/>        <link rel="next" title="使用数据键" href="keys.html"/>        <link rel="prev" title="序列化自定义数据" href="custom/serialization.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../../index.html">
+            <img src="../../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../server/index.html">创建服务器</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../versions/index.html">版本策略</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../preparing/index.html">为开发作准备</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">插件开发</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../api-versions.html">API版本</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../buildsystem.html">构建系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../workspace/index.html">设置开发环境</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../project/index.html">设置你的项目</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-identifier.html">插件标识符</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-class.html">插件的主类</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lifecycle.html">插件的生命周期</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../injection.html">依赖注入</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../practices/index.html">插件开发惯例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../optional/index.html">使用 Optional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../logging.html">日志记录和调试</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text/index.html">文本 API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/index.html">插件命令</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../event/index.html">事件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/index.html">插件配置</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assets.html">使用 Asset API</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">数据 API</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="custom/index.html">自定义数据</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">索引类型</a></li>
+<li class="toctree-l3"><a class="reference internal" href="keys.html">使用数据键</a></li>
+<li class="toctree-l3"><a class="reference internal" href="datamanipulators.html">操作数据</a></li>
+<li class="toctree-l3"><a class="reference internal" href="transactions.html">数据操作记录</a></li>
+<li class="toctree-l3"><a class="reference internal" href="serialization.html">序列化数据</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../blocks/index.html">方块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../entities/index.html">实体</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../items/index.html">物品</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../trade-offers.html">村民交易</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../effects.html">效果</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../scheduler.html">调度器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../services.html">服务</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database.html">数据库</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../permissions.html">权限</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bans.html">黑名单</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metrics.html">Metrics 收集</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bookview.html">成书</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../economy/index.html">经济 API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wgen/index.html">世界生成</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manager.html">插件管理器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../game-profile-manager.html">玩家资料管理器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../offline-userplayer-data.html">离线玩家数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tab-lists.html">玩家列表</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-meta.html">插件的元数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ray-tracing.html">光线追踪</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../debugging.html">调试插件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials.html">教程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internals/index.html">依赖底层实现</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ore/index.html">Ore 文档</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/index.html">向 Sponge 贡献代码</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">关于 Sponge</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+          <li><a href="../index.html">插件开发</a> &raquo;</li>
+          <li><a href="index.html">数据 API</a> &raquo;</li>
+    <li>索引类型</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/plugin/data/catalog-types.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="catalog-types">
+<h1>索引类型<a class="headerlink" href="#catalog-types" title="永久链接至标题">¶</a></h1>
+<p>数据 API 通常会涉及到大量拥有特定含义的数据。在较早的 Minecraft 版本中，某些诸如 <code class="docutils literal notranslate"><span class="pre">1</span></code> 这样的数字在特定上下文中有着特定含义，比如说在 <code class="docutils literal notranslate"><span class="pre">/give</span></code> 命令中代表一块石头。在不断的版本迭代后，Minecraft 不再使用这样的数字，而是使用 <code class="docutils literal notranslate"><span class="pre">minecraft:stone</span></code> 等（含有命名空间的）标识符，使其更有可读性。两大问题随之而来：</p>
+<ol class="arabic simple">
+<li>这些数据如何存储，如何重新加载？</li>
+<li>到底有哪些算得上数据？</li>
+</ol>
+<p>Sponge 使用了一种基于索引类型（ <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/CatalogType.html">CatalogType</a> ）的机制以尝试解决这些问题。</p>
+<p><code class="docutils literal notranslate"><span class="pre">CatalogType</span></code> 引入了两个天才般的设计。</p>
+<p>Sponge 首先为其设计了 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/CatalogType.html#getId--">CatalogType#getId()</a> 方法，以方便开发者获取（与之相对应的）唯一标识符，从而将其存储到配置文件中，也可通过 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/GameRegistry.html#getType-java.lang.Class-java.lang.String-">GameRegistry#getType(Class, String)</a> 方法还原。实际上你通常不需要亲力亲为，因为你大可让 Sponge 帮你完成 <a class="reference internal" href="../configuration/serialization.html"><span class="doc">序列化对象</span></a> 的相关操作。</p>
+<p>唯一标识符有时可读性不佳，因此 Sponge 为 <code class="docutils literal notranslate"><span class="pre">CatalogType</span></code> 设计了另一个方法用于获取可读性较强的名称。你甚至可以检查你的索引类型是否同时是 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/translation/Translatable.html">Translatable</a> 接口的子类型，从而为使用不同语言的玩家提供针对性的名称。</p>
+<div class="section" id="gameregistry">
+<h2>获取索引类型的实例<a class="headerlink" href="#gameregistry" title="永久链接至标题">¶</a></h2>
+<p>通过 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/GameRegistry.html">GameRegistry</a> 类的 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/GameRegistry.html#getAllOf-java.lang.Class-">GameRegistry#getAllOf(Class)</a> 方法，你可以获取同一索引类型下的所有 <code class="docutils literal notranslate"><span class="pre">CatalogType</span></code> 类型的实例。这个类同时还提供了一些和 <code class="docutils literal notranslate"><span class="pre">CatalogType</span></code> 有关的其他方法，甚至还提供了若干方法，用于获取包括但不限于和数据 API 有关的绝大部分类型的生成器。你还可以通过这个类获取其他相关的东西，比如说 <code class="docutils literal notranslate"><span class="pre">VillagerRegistry</span></code> 和配方等。</p>
+</div>
+<div class="section" id="usage-in-commands">
+<h2>在命令中使用索引类型<a class="headerlink" href="#usage-in-commands" title="永久链接至标题">¶</a></h2>
+<p>在和 <a class="reference internal" href="../commands/index.html"><span class="doc">插件命令</span></a> 相关的章节中，和 <code class="docutils literal notranslate"><span class="pre">CatalogType</span></code> 相关的用法已有涉及。只要使用 <code class="docutils literal notranslate"><span class="pre">catalogedElement</span></code> 就可以在命令中支持针对特定索引类型的所有实例的自动补全。请参阅 <a class="reference internal" href="../commands/arguments.html"><span class="doc">参数解析</span></a> 这一部分以了解更多。</p>
+</div>
+<div class="section" id="catalog-classes">
+<h2>直接获取索引类型的实例<a class="headerlink" href="#catalog-classes" title="永久链接至标题">¶</a></h2>
+<p>如果开发者不想通过字符串等方式间接获得 <code class="docutils literal notranslate"><span class="pre">CatalogType</span></code> 的话，比如说在使用默认值等场合，开发者实际上还可以直接引用特定值。不管是 Minecraft 本身还是 Sponge，其代码都提供了直接引用静态字段这一方式。你通常可以在相应的索引类型上找到 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/util/annotation/CatalogedBy.html">CatalogedBy</a> 注解，从而根据其参数值找到相应的静态字段。如果没有找到的话，请检查其父类型及子类型。不过，如果一个索引类型本身包含有太多实例，或者实例本身可以动态增减，那么相应的类可能不会存在。所有可用的索引类型可以在 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/CatalogTypes.html">CatalogTypes</a> 类找到。</p>
+<div class="admonition warning">
+<p class="first admonition-title">警告</p>
+<p class="last">不要在自己的代码中使用静态字段直接引用它们，因为这些存储索引类型实例的静态字段往往会在游戏启动时初始化，因此在初始化前往往还只是某个不可用的值。使用这种不可用的值往往会导致代码抛出异常，从而增大修复代码错误的难度。</p>
+</div>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="keys.html" class="btn btn-neutral float-right" title="使用数据键" accesskey="n" rel="next">下一页 <span class="fa fa-angle-right"></span></a>
+        <a href="custom/serialization.html" class="btn btn-neutral" title="序列化自定义数据" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> 上一页</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../../_static/flags/zh_CN.svg"
+         alt="zh-CN" title="简体中文">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../../_static/jquery.js"></script>      <script type="text/javascript" src="../../_static/underscore.js"></script>      <script type="text/javascript" src="../../_static/doctools.js"></script>      <script type="text/javascript" src="../../_static/language_data.js"></script>      <script type="text/javascript" src="../../_static/translations.js"></script>      <script type="text/javascript" src="../../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

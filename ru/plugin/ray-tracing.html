@@ -1,0 +1,295 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Трассировка лучей &mdash; Документация Sponge 7.2.0</title>
+
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="Алфавитный указатель"
+              href="../genindex.html"/>        <link rel="search" title="Поиск" href="../search.html"/>    <link rel="top" title="Документация Sponge 7.2.0" href="../index.html"/>        <link rel="up" title="Создание плагина" href="index.html"/>        <link rel="next" title="Отладка плагина" href="debugging.html"/>        <link rel="prev" title="Метаданные плагина" href="plugin-meta.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../index.html">
+            <img src="../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../server/index.html">Создание сервера</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../versions/index.html">Versioning Policy</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../preparing/index.html">Подготовка к разработке</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Создание плагина</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="api-versions.html">Версии API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="buildsystem.html">Система сборки</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workspace/index.html">Подготовка рабочего пространства</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project/index.html">Настройка проекта</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin-identifier.html">Идентификаторы плагина</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin-class.html">Основной класс плагина</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lifecycle.html">Жизненный цикл плагина</a></li>
+<li class="toctree-l2"><a class="reference internal" href="injection.html">Внедрение зависимостей</a></li>
+<li class="toctree-l2"><a class="reference internal" href="practices/index.html">Полезные советы</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optional/index.html">Дополнительно</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.html">Ведение логов (журналов) и отладка</a></li>
+<li class="toctree-l2"><a class="reference internal" href="text/index.html">Текст</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands/index.html">Команды</a></li>
+<li class="toctree-l2"><a class="reference internal" href="event/index.html">События</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration/index.html">Настройка плагинов</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assets.html">API ресурсов</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data/index.html">API данных</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/index.html">Блоки</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entities/index.html">Сущности</a></li>
+<li class="toctree-l2"><a class="reference internal" href="items/index.html">Предметы</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trade-offers.html">Торговля</a></li>
+<li class="toctree-l2"><a class="reference internal" href="effects.html">Эффекты</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scheduler.html">Планировщик</a></li>
+<li class="toctree-l2"><a class="reference internal" href="services.html">Сервисы</a></li>
+<li class="toctree-l2"><a class="reference internal" href="database.html">Базы данных</a></li>
+<li class="toctree-l2"><a class="reference internal" href="permissions.html">Разрешения</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bans.html">Баны</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metrics.html">Сбор данных</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bookview.html">Книга просмотров</a></li>
+<li class="toctree-l2"><a class="reference internal" href="economy/index.html">Экономика</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wgen/index.html">Генерация мира</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manager.html">Менеджер плагинов</a></li>
+<li class="toctree-l2"><a class="reference internal" href="game-profile-manager.html">Игровой менеджер профилей</a></li>
+<li class="toctree-l2"><a class="reference internal" href="offline-userplayer-data.html">Данные о вышедших игроках</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tab-lists.html">Таблисты</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin-meta.html">Метаданные плагина</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Трассировка лучей</a></li>
+<li class="toctree-l2"><a class="reference internal" href="debugging.html">Отладка плагина</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials.html">Учебные руководства</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internals/index.html">Implementation-dependent Plugins</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ore/index.html">Документация Ore</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contributing/index.html">Участие в разработке Sponge</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">О проекте Sponge</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+          <li><a href="index.html">Создание плагина</a> &raquo;</li>
+    <li>Трассировка лучей</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/plugin/ray-tracing.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="ray-tracing">
+<h1>Трассировка лучей<a class="headerlink" href="#ray-tracing" title="Ссылка на этот заголовок">¶</a></h1>
+<p>В общем случае трассировка лучей является методом определения траектории частицы через систему координат. В SpongeAPI это реализовано с помощью класса <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/util/blockray/BlockRay.html">BlockRay</a> для обнаружения блоков на пути произвольной линии в пространстве. Частым случаем использования может быть поиск блока, на который смотрит <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/living/player/Player.html">Player</a>.</p>
+<p>Вы можете указать источник луча, используя метод <code class="docutils literal notranslate"><span class="pre">BlockRay#from</span></code>, передавая либо <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/Location.html">Location</a>, <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/extent/Extent.html">Extent</a> и <code class="docutils literal notranslate"><span class="pre">Vector3d</span></code>, либо <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/Entity.html">Entity</a>. Метод вернёт <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/util/blockray/BlockRay.BlockRayBuilder.html">BlockRay.BlockRayBuilder</a>.</p>
+<div class="admonition tip">
+<p class="first admonition-title">Совет</p>
+<p class="last">Если вы указываете начало луча как <code class="docutils literal notranslate"><span class="pre">Entity</span></code>, то направление по умолчанию будет направлением, в которое смотрит <code class="docutils literal notranslate"><span class="pre">Entity</span></code>.</p>
+</div>
+<p>Чтобы указать конечную точку, вы можете использовать метод <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/util/blockray/BlockRay.BlockRayBuilder.html#to-com.flowpowered.math.vector.Vector3d-">BlockRay.BlockRayBuilder#to(Vector3d)</a>, который будет устанавливать как направление, так и конечное положение. В качестве альтернативы вы можете указать направление, используя <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/util/blockray/BlockRay.BlockRayBuilder.html#direction-com.flowpowered.math.vector.Vector3d-">BlockRay.BlockRayBuilder#direction(Vector3d)</a>, а также ограничение по блоку с помощью <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/util/blockray/BlockRay.BlockRayBuilder.html#distanceLimit-double-">BlockRay.BlockRayBuilder#distanceLimit(double)</a>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Примечание</p>
+<p class="last">Ограничение по умолчанию - 1000 блоков в качестве защиты для предотвращения бесконечной итерации. Чтобы отключить ограничение по расстоянию, используйте отрицательное значение в методе <code class="docutils literal notranslate"><span class="pre">BlockRayBuilder#distanceLimit(double)</span></code>.</p>
+</div>
+<div class="section" id="filtering">
+<h2>Filtering<a class="headerlink" href="#filtering" title="Ссылка на этот заголовок">¶</a></h2>
+<p>Filters determine what blocks are accepted by the <code class="docutils literal notranslate"><span class="pre">BlockRay</span></code>. To add a filter, use the <code class="docutils literal notranslate"><span class="pre">BlockRayBuilder#stopFilter</span></code>
+or <code class="docutils literal notranslate"><span class="pre">BlockRayBuilder#skipFilter</span></code> method, passing in one or many <code class="docutils literal notranslate"><span class="pre">Predicate&lt;BlockRayHit&lt;E&gt;&gt;</span></code>s (where <code class="docutils literal notranslate"><span class="pre">E</span></code> extends
+<code class="docutils literal notranslate"><span class="pre">Extent</span></code>). The <code class="docutils literal notranslate"><span class="pre">BlockRayBuilder#stopFilter</span></code> continues the ray cast when it hits a block that passes the given
+filter and the <code class="docutils literal notranslate"><span class="pre">BlockRayBuilder#skipFilter</span></code> skips all blocks that pass the filter. These filters can be chained
+together to create a complex <code class="docutils literal notranslate"><span class="pre">BlockRay</span></code>. For convenience, <code class="docutils literal notranslate"><span class="pre">BlockRay</span></code> contains the following methods for common
+filter use cases:</p>
+<blockquote>
+<div><ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">allFilter</span></code>: возвращает фильтр, принимающий все блоки</li>
+<li><code class="docutils literal notranslate"><span class="pre">onlyAirFilter</span></code>: возвращает фильтр, принимающий только воздух (air)</li>
+<li><code class="docutils literal notranslate"><span class="pre">blockTypeFilter(BlockType)</span></code>: возвращает фильтр, принимающий только указанный <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/block/BlockType.html">BlockType</a></li>
+<li><code class="docutils literal notranslate"><span class="pre">continueAfterFilter(Predicate&lt;BlockRayHit&lt;E&gt;&gt;,</span> <span class="pre">int)</span></code>: возвращает фильтр, который продолжает выполняться после фильтра на указанное количество блоков.</li>
+</ul>
+</div></blockquote>
+<p>Вы также можете написать свой собственный фильтр <code class="docutils literal notranslate"><span class="pre">Predicate&lt;BlockRayHit&lt;E&gt;&gt;</span></code>.</p>
+<p>Наконец, используйте:javadoc:<cite>BlockRay.BlockRayBuilder#build()</cite> для завершения построения <code class="docutils literal notranslate"><span class="pre">BlockRay</span></code>. Пример использования <code class="docutils literal notranslate"><span class="pre">BlockRayBuilder</span></code> для получения первого не пустого блока, на который смотрит <code class="docutils literal notranslate"><span class="pre">Player</span></code>, выглядит следующим образом.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.entity.living.player.Player</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.util.blockray.BlockRay</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.world.World</span><span class="p">;</span>
+
+<span class="n">Player</span> <span class="n">player</span><span class="p">;</span>
+<span class="n">BlockRay</span><span class="o">&lt;</span><span class="n">World</span><span class="o">&gt;</span> <span class="n">blockRay</span> <span class="o">=</span> <span class="n">BlockRay</span><span class="p">.</span><span class="na">from</span><span class="p">(</span><span class="n">player</span><span class="p">)</span>
+    <span class="p">.</span><span class="na">skipFilter</span><span class="p">(</span><span class="n">BlockRay</span><span class="p">.</span><span class="na">onlyAirFilter</span><span class="p">()).</span><span class="na">stopFilter</span><span class="p">(</span><span class="n">BlockRay</span><span class="p">.</span><span class="na">onlyAirFilter</span><span class="p">()).</span><span class="na">build</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Данный код мы можем переписать, чтобы использовать <code class="docutils literal notranslate"><span class="pre">BlockRay#skipFilter(Predicate&lt;BlockRayHit&gt;)</span></code> в дополнение к <code class="docutils literal notranslate"><span class="pre">BlockRay#stopFilter(Predicate&lt;BlockRayHit&gt;)</span></code>. Этот фильтр пропустит все блоки воздуха и остановится в первом блоке не воздуха, в который он попадает.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">BlockRay</span><span class="o">&lt;</span><span class="n">World</span><span class="o">&gt;</span> <span class="n">blockRay</span> <span class="o">=</span> <span class="n">BlockRay</span><span class="p">.</span><span class="na">from</span><span class="p">(</span><span class="n">player</span><span class="p">)</span>
+    <span class="p">.</span><span class="na">skipFilter</span><span class="p">(</span><span class="n">BlockRay</span><span class="p">.</span><span class="na">onlyAirFilter</span><span class="p">()).</span><span class="na">stopFilter</span><span class="p">(</span><span class="n">BlockRay</span><span class="p">.</span><span class="na">allFilter</span><span class="p">()).</span><span class="na">build</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-blockray">
+<h2>Использование BlockRay<a class="headerlink" href="#using-blockray" title="Ссылка на этот заголовок">¶</a></h2>
+<p>Поскольку <code class="docutils literal notranslate"><span class="pre">BlockRay</span></code> реализует <code class="docutils literal notranslate"><span class="pre">Iterator</span></code>, вы можете использовать такие методы, как <code class="docutils literal notranslate"><span class="pre">hasNext</span></code> и <code class="docutils literal notranslate"><span class="pre">next</span></code> (но не <code class="docutils literal notranslate"><span class="pre">remove</span></code>) для итерации через <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/util/blockray/BlockRayHit.html">BlockRayHit</a> сгенерированный с помощью <code class="docutils literal notranslate"><span class="pre">BlockRay</span></code>. Кроме того, вы можете использовать метод <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/util/blockray/BlockRay.html#reset--">BlockRay#reset()</a>, чтобы сбросить итератор в исходное положение. Вместо того, чтобы выполнять итерацию через <code class="docutils literal notranslate"><span class="pre">BlockRayHit</span></code>, вы также можете использовать метод <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/util/blockray/BlockRay.html#end--">BlockRay#end()</a> для отслеживания луча до конца его пути и получить последний блок, принятый фильтром (или none, если был достигнут предел блоков).</p>
+</div>
+<div class="section" id="using-blockrayhit">
+<h2>Использование BlockRayHit<a class="headerlink" href="#using-blockrayhit" title="Ссылка на этот заголовок">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">BlockRayHit</span></code> содержит информацию о каждом блоке, пересекаемом лучом. Он содержит расположение блока, направление луча, координаты <em>пересечения</em> луча и блока и другие подобные данные. В следующем коде используется <code class="docutils literal notranslate"><span class="pre">BlockRay</span></code> из предыдущего примера, чтобы вывести расположение первого блока не воздуха перед игроком.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.util.blockray.BlockRayHit</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Optional</span><span class="p">;</span>
+
+<span class="n">BlockRay</span><span class="o">&lt;</span><span class="n">World</span><span class="o">&gt;</span> <span class="n">blockRay</span> <span class="o">=</span> <span class="p">...;</span>
+<span class="n">Optional</span><span class="o">&lt;</span><span class="n">BlockRayHit</span><span class="o">&lt;</span><span class="n">World</span><span class="o">&gt;&gt;</span> <span class="n">hitOpt</span> <span class="o">=</span> <span class="n">blockRay</span><span class="p">.</span><span class="na">end</span><span class="p">();</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">hitOpt</span><span class="p">.</span><span class="na">isPresent</span><span class="p">())</span> <span class="p">{</span>
+    <span class="n">BlockRayHit</span><span class="o">&lt;</span><span class="n">World</span><span class="o">&gt;</span> <span class="n">hit</span> <span class="o">=</span> <span class="n">hitOpt</span><span class="p">.</span><span class="na">get</span><span class="p">();</span>
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Found &quot;</span> <span class="o">+</span> <span class="n">hit</span><span class="p">.</span><span class="na">getLocation</span><span class="p">().</span><span class="na">getBlockType</span><span class="p">()</span> <span class="o">+</span> <span class="s">&quot; block at &quot;</span>
+        <span class="o">+</span> <span class="n">hit</span><span class="p">.</span><span class="na">getLocation</span><span class="p">()</span> <span class="o">+</span> <span class="s">&quot; with intersection at &quot;</span> <span class="o">+</span> <span class="n">hit</span><span class="p">.</span><span class="na">getPosition</span><span class="p">());</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="debugging.html" class="btn btn-neutral float-right" title="Отладка плагина" accesskey="n" rel="next">Далее <span class="fa fa-angle-right"></span></a>
+        <a href="plugin-meta.html" class="btn btn-neutral" title="Метаданные плагина" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> Назад</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../_static/flags/ru_RU.svg"
+         alt="ru" title="Русский">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../_static/jquery.js"></script>      <script type="text/javascript" src="../_static/underscore.js"></script>      <script type="text/javascript" src="../_static/doctools.js"></script>      <script type="text/javascript" src="../_static/language_data.js"></script>      <script type="text/javascript" src="../_static/translations.js"></script>      <script type="text/javascript" src="../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

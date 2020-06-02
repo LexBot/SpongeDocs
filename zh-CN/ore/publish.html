@@ -1,0 +1,332 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>发布你的插件 &mdash; Sponge 7.2.0 文档</title>
+
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="索引"
+              href="../genindex.html"/>        <link rel="search" title="搜索" href="../search.html"/>    <link rel="top" title="Sponge 7.2.0 文档" href="../index.html"/>        <link rel="up" title="Ore 文档" href="index.html"/>        <link rel="next" title="安全" href="security.html"/>        <link rel="prev" title="Ore 插件发布指南" href="guidelines.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../index.html">
+            <img src="../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../server/index.html">创建服务器</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../versions/index.html">版本策略</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../preparing/index.html">为开发作准备</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../plugin/index.html">插件开发</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Ore 文档</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="guidelines.html">Ore 插件发布指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guidelines.html#projects">项目</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guidelines.html#files">文件</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">发布你的插件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html">安全</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html">Ore Web API</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contributing/index.html">向 Sponge 贡献代码</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">关于 Sponge</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+          <li><a href="index.html">Ore 文档</a> &raquo;</li>
+    <li>发布你的插件</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/ore/publish.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="publishing-your-plugin">
+<h1>发布你的插件<a class="headerlink" href="#publishing-your-plugin" title="永久链接至标题">¶</a></h1>
+<p>作为 Sponge 的正式插件及 Mod 仓库，<a class="reference external" href="http://ore.spongepowered.org">Ore</a> 是一个免费的开源项目，任何人都可以在 Ore 上发布自己的 Sponge 插件或者 Forge MOD。</p>
+<div class="section" id="packaging-your-plugin">
+<h2>打包你的插件<a class="headerlink" href="#packaging-your-plugin" title="永久链接至标题">¶</a></h2>
+<p>Ore 要求任何项目的 JAR 压缩包都要封装一个位于根目录的用作描述符的 <code class="docutils literal notranslate"><span class="pre">mcmod.info</span></code> 文件。此文件用于自动推断一些有关项目的重要细节，使上传过程更容易。如果没有这个文件， Ore 将拒绝您的插件。幸运的是， SpongeAPI 有一个内置注解处理器，在编译时自动创建这个文件，使用你可能已经在插件的主类中的 <code class="docutils literal notranslate"><span class="pre">&#64;Plugin</span></code> 注解中提供的描述。</p>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">有关创建和编译你的第一个插件的详细信息，请参阅 <a class="reference internal" href="../plugin/plugin-class.html"><span class="doc">插件的主类</span></a></p>
+</div>
+<p>这里是一个示例 <code class="docutils literal notranslate"><span class="pre">mcmod.info</span></code> 文件，以供参考︰</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+    <span class="p">{</span>
+        <span class="nt">&quot;modid&quot;</span><span class="p">:</span> <span class="s2">&quot;my-plugin&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;MyPlugin&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;1.0.0&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;My first plugin!&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://spongepowered.org&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;authorList&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;windy&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Zidane&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;gabizou&quot;</span>
+        <span class="p">],</span>
+        <span class="nt">&quot;requiredMods&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;bookotd@1.0.0&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;ore-test@1.0.0&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;worldedit@1.0.0&quot;</span>
+        <span class="p">],</span>
+        <span class="nt">&quot;dependencies&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;bookotd@1.0.0&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;ore-test@1.0.0&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;worldedit@1.0.0&quot;</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>最后，每个 Ore 项目 <em>必须</em> 有 <code class="docutils literal notranslate"><span class="pre">modid</span></code> 、 <code class="docutils literal notranslate"><span class="pre">name</span></code> 、以及 <code class="docutils literal notranslate"><span class="pre">version</span></code> 三个字段。</p>
+</div>
+<div class="section" id="signing-your-plugin">
+<h2>为你的插件签名<a class="headerlink" href="#signing-your-plugin" title="永久链接至标题">¶</a></h2>
+<p>出于安全考虑， Ore 要求任何插件文件（ZIP 或 JAR 格式）在上传时须有 <a class="reference external" href="https://zh.wikipedia.org/zh-cn/%E8%89%AF%E5%A5%BD%E9%9A%B1%E7%A7%81%E5%AF%86%E7%A2%BC%E6%B3%95">良好隐私密码法 (PGP)</a> 产生的签名，此签名须通过与你注册 Sponge 时所用邮箱相关联的公钥的验证。该数字签名将确保文件上传者确为该账户实际持有人。</p>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">数字签名可用于证明文件来源，并提供文件的时间戳。如果该文件此后被以任何方式窜改，签名验证将失败。藉由此，数字签名在起到了传统手写签名的作用的同时，还拥有防窜改的特性。例如，GnuPG 发布源即带有数字签名，这样一来用户便可以验证其是否在打包发布后被二次窜改。</p>
+</div>
+<p>为签名你的插件，你必须首先下载可兼容 PGP 的软件，例如 <a class="reference external" href="https://www.gnupg.org/">GnuPG (GPG)</a> 。GPG 可在所有主流操作系统上运行，其二进制文件可在 <a class="reference external" href="https://www.gnupg.org/download/index.html#sec-1-2">这里</a> 下载。</p>
+<p>在安装 GPG 后你需要先生成你的第一个公钥，然后你需要将其添加至你的帐户上。此步骤可在你的个人资料页面中点击你头像旁的钥匙符号完成。</p>
+<img alt="PGP public key 1" class="align-center" src="../_images/help_1.png" />
+<p>在点击后，页面将提示要在文本框中输入公钥。输入不完整的公钥将会导致签名验证失败。</p>
+<img alt="PGP public key 2" class="align-center" src="../_images/help_2.png" />
+<p>最后，你需要用 <strong>私钥</strong> 来为你构建完成并准备上传的插件签名。你只需要为你上传的文件签名。举个例子，如果你要上传的是一个含有你的插件本体 JAR 文件的 ZIP 压缩包，<strong>只有</strong> 这个压缩包需要签名。最简单的签名方法是使用下列 GPG 命令。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gpg --output myplugin-1.0.0.jar.sig --detach-sig myplugin-1.0.0.jar
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">如果你正在使用诸如 Gradle 或 Maven 这样的构建工具，那么你还可以选择使用各种插件来自动化签署构建的文件这个苦差事。详细信息请参阅 <a class="reference external" href="https://docs.gradle.org/current/userguide/signing_plugin.html">Gradle 文档</a> 或 <a class="reference external" href="https://maven.apache.org/plugins/maven-gpg-plugin/">Maven 文档</a> 。</p>
+</div>
+</div>
+<div class="section" id="uploading-your-plugin">
+<h2>上传你的插件<a class="headerlink" href="#uploading-your-plugin" title="永久链接至标题">¶</a></h2>
+<p>在你的插件 JAR 文件与位于根目录的 <code class="docutils literal notranslate"><span class="pre">mcmod.info</span></code> 打包在一起，并经过你的 PGP 私钥签名，你的插件就可以上传了！首先要在 Ore 上新建一个项目。自然地，你需要有一个已激活的 Sponge 帐户。若没有，可点击右上角的 “Sign up” （注册）按钮注册一个。若已有 Ore 帐户，点击右上角的 “Log in” （登录）按钮来登录 Ore。</p>
+<p>登录后，把鼠标移动到您的头像，在下拉菜单中点击 “New” （新建）选项，或按下C键。</p>
+<p>上传时，新建向导会先要求上传主要文件，然后要求上传公钥。</p>
+</div>
+<div class="section" id="setting-up-your-project-on-ore">
+<h2>在 Ore 上设置你的项目<a class="headerlink" href="#setting-up-your-project-on-ore" title="永久链接至标题">¶</a></h2>
+<p>在上传完插件后，你便可以按你的想法来对项目进行管理。不要担心，所有设定都可以随时在设置面板中修改。在建立你的项目之后，你可以邀请其他 Sponge 用户成为你项目的成员，即使他们从来没有登录过 Ore 也可以。在项目创建完成后，你邀请的用户将会收到通知，他们可选择接受或拒绝你的邀请。项目成员在接受邀请前对外不可见。</p>
+<p>目前你可以将项目成员分成三组：开发者 (Developer) 、编辑者 (Editor) 、以及技术支持 (Support) 。创建项目的用户将自动成为所有者 (Owner) ，其访问该项目时不受任何限制。下面是对各个分组的功能的简介。</p>
+<div class="section" id="owner">
+<h3>所有者<a class="headerlink" href="#owner" title="永久链接至标题">¶</a></h3>
+<p>一个项目只可能有一个所有者，目前不可转让，且是唯一一位拥有指派项目中其他成员权限的人。</p>
+</div>
+<div class="section" id="developers">
+<h3>开发者<a class="headerlink" href="#developers" title="永久链接至标题">¶</a></h3>
+<p>开发人员可以创建/编辑释放渠道、 页面和创建编辑版本。</p>
+</div>
+<div class="section" id="editor">
+<h3>编辑者<a class="headerlink" href="#editor" title="永久链接至标题">¶</a></h3>
+<p>编辑者可编辑页面。</p>
+</div>
+<div class="section" id="support">
+<h3>技术支持<a class="headerlink" href="#support" title="永久链接至标题">¶</a></h3>
+<p>技术支持无任何实质权限，仅用于标记项目成员。</p>
+</div>
+</div>
+<div class="section" id="documenting-your-project-with-pages">
+<h2>使用 Pages 来托管你的项目文档<a class="headerlink" href="#documenting-your-project-with-pages" title="永久链接至标题">¶</a></h2>
+<p>你可以利用 Ore 提供的 Pages 功能来为你的项目提供文档。在你新建项目之初，默认会为你生成一个 ‘Home’ 页面（即主页）。点击 Pages 界面右边的工具条上的 ‘+’ 图标即可新增页面；点击后会弹出一个窗口要求你指定页面名称和上一级页面（但不能在 Home 页的基础上新增页面）。如果你选择了 ‘&lt;None&gt;’，新的页面将会成为根页面，你可以随后在这个页面的基础上追加子页面。如果你指定了上一级页面，这个页面将只会在这个展开时显示。文档的撰写可以使用 <a class="reference external" href="http://commonmark.org/">CommonMark</a>。</p>
+<div class="section" id="linking-pages">
+<h3>页面之间的链接<a class="headerlink" href="#linking-pages" title="永久链接至标题">¶</a></h3>
+<p>如果你的页面有这样的树形结构：</p>
+<ul class="simple">
+<li>Home</li>
+<li><dl class="first docutils">
+<dt>Commands</dt>
+<dd><ul class="first last">
+<li>User</li>
+<li>Admin</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Setup</dt>
+<dd><ul class="first last">
+<li>Config</li>
+<li>Permissions</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p>同时你想在你的主页中提供一个直达 Setup 页面下的 Config 页面的链接，你可以使用 <cite>WikiLinks</cite> 功能来做到这一点。WikiLink 的格式是这样的：<cite>[[Link]]</cite>，也就是说，只要这样写：<cite>[[Setup/Config]]</cite>，就会生成直达 Setup 页面下的 Config 页面的链接了。</p>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">你还可以为链接提供自定义标题，标题与链接之间用管道符号（<code class="docutils literal notranslate"><span class="pre">|</span></code>）分开，即形如 <cite>[[Title|Link]]</cite>，这样产生的链接就会显示为“title”。</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">WikiLinks 只在 Ore 中有效，所以如果你在你的 Pages 主页中使用了 WikiLinks，在论坛里这些链接是无法正确显示的。尽管如此，我们仍然建议使用 WikiLinks 而不是普通链接，这样可以保证你的 Wiki 页面在未来能正常工作。</p>
+</div>
+</div>
+</div>
+<div class="section" id="project-states">
+<h2>项目状态<a class="headerlink" href="#project-states" title="永久链接至标题">¶</a></h2>
+<p>在新建项目后，你会发现一个告知你项目处在“new”状态的状态条。这个状态用于告知用户和管理员：你还没有完全配置好你的项目。如果你已完成了插件的文档，并已确认所有内容均符合指南，点击“publish”按钮以完成配置过程。但是，如果你不手动点击发布的话，你的项目会在创建 24 小时后自动发布。</p>
+<div class="section" id="needs-changes">
+<h3>需要更改（Needs Changes）<a class="headerlink" href="#needs-changes" title="永久链接至标题">¶</a></h3>
+<p>Ore 的工作人员可以隐藏你的项目并要求更改，要求更改的内容会在状态条中列出。这个状态下，其他人不能看到你的项目。更改完成后，你可以发送审核请求。</p>
+</div>
+<div class="section" id="needs-approval">
+<h3>需要审核（Needs Approval）<a class="headerlink" href="#needs-approval" title="永久链接至标题">¶</a></h3>
+<p>在这个状态下，你的项目仍然不对外界可见，工作人员会复查并确认所有要求的更改是否都已达到要求。这个时候请务必耐心等待，因为工作人员通常还身兼数职，不一定有时间。通过审核的项目会自动对外界可见。请务必确保你覆盖到了所有要求更改的点。</p>
+</div>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="security.html" class="btn btn-neutral float-right" title="安全" accesskey="n" rel="next">下一页 <span class="fa fa-angle-right"></span></a>
+        <a href="guidelines.html" class="btn btn-neutral" title="Ore 插件发布指南" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> 上一页</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../_static/flags/zh_CN.svg"
+         alt="zh-CN" title="简体中文">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../_static/jquery.js"></script>      <script type="text/javascript" src="../_static/underscore.js"></script>      <script type="text/javascript" src="../_static/doctools.js"></script>      <script type="text/javascript" src="../_static/language_data.js"></script>      <script type="text/javascript" src="../_static/translations.js"></script>      <script type="text/javascript" src="../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

@@ -1,0 +1,318 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mod 兼容 &mdash; Sponge 7.2.0 文档</title>
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="索引"
+              href="../../genindex.html"/>        <link rel="search" title="搜索" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 文档" href="../../index.html"/>        <link rel="up" title="成为 Sponge 专家" href="index.html"/>        <link rel="next" title="报告问题" href="bugreport.html"/>        <link rel="prev" title="调试" href="debugging.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../../index.html">
+            <img src="../../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">创建服务器</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html">快速入门指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started/index.html">入门指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../management/index.html">管理服务器</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">成为 Sponge 专家</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="commands.html">命令与权限</a></li>
+<li class="toctree-l3"><a class="reference internal" href="troubleshooting.html">故障排查</a></li>
+<li class="toctree-l3"><a class="reference internal" href="logs.html">日志文件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="debugging.html">调试</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Mod 兼容</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bugreport.html">报告问题</a></li>
+<li class="toctree-l3"><a class="reference internal" href="properties.html">属性</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../versions/index.html">版本策略</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../preparing/index.html">为开发作准备</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../plugin/index.html">插件开发</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ore/index.html">Ore 文档</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/index.html">向 Sponge 贡献代码</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">关于 Sponge</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+          <li><a href="../index.html">创建服务器</a> &raquo;</li>
+          <li><a href="index.html">成为 Sponge 专家</a> &raquo;</li>
+    <li>Mod 兼容</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/server/spongineer/incompatible.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="mod-compatibility">
+<h1>Mod 兼容<a class="headerlink" href="#mod-compatibility" title="永久链接至标题">¶</a></h1>
+<p>又名：<strong>“我装了 SpongeForge，但为什么我的服务器崩溃了？”</strong></p>
+<p>SpongeForge 尽全力保证兼容其他 Mod。然而，面对 Mod 开发者们充满无限可能的代码，SpongeForge 其实很难实现这个目标。某些 Mod 在安装了 SpongeForge 后就不能工作，有些只需修改配置文件或使用其他版本就可以兼容，但大多数 Mod 是能和 SpongeForge 在一起相安无事的。有些时候你还能拿到一些告诉你哪里出错了的诊断信息，然而更常见的画风其实是“不知道什么出错了”。</p>
+<p>为了帮你搞清楚哪是哪，并给出可能的解决方案，我们准备了一份“和 SpongeForge 可能有冲突”的 Mod 列表。请注意，尽管我们经常更新这份列表，但 Mod 可能更新得比我们还快，这份列表不一定反映最新情况。你可以在 Discord 或 GitHub 上告诉我们该更新了。</p>
+<div class="section" id="known-incompatibilities">
+<h2>已知不兼容<a class="headerlink" href="#known-incompatibilities" title="永久链接至标题">¶</a></h2>
+<div class="section" id="old-mixins">
+<h3>旧版 Mixin<a class="headerlink" href="#old-mixins" title="永久链接至标题">¶</a></h3>
+<p>首先：如果你的服务器日志里提到了 “old mixin”，你应该做的第一件事是重命名你的 SpongeForge 文件，让它排序靠前一点。一般来说加一个 <code class="docutils literal notranslate"><span class="pre">aaa_</span></code> 这样的前缀就可以，就像这样：<code class="docutils literal notranslate"><span class="pre">aaa_spongeforge-1.12.2-2838-7.2.1-RC4011</span></code>。如此一来 Sponge 自带的 Mixin 就能优先加载，与之有关的问题可以迎刃而解。</p>
+</div>
+<div class="section" id="farseek">
+<h3>FarSeek<a class="headerlink" href="#farseek" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li>依赖关系：Streams Mod 前置</li>
+<li>版本：2.3、2.4</li>
+<li>问题：启动时崩溃、世界生成失败</li>
+<li>解决方案：更新 Farseek 到 2.5。</li>
+</ul>
+</div>
+<div class="section" id="foamfix">
+<h3>FoamFix<a class="headerlink" href="#foamfix" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li>版本：0.10.7 及更旧版本</li>
+<li>问题：启动时崩溃（block collision error）</li>
+<li>解决方案：更新 FoamFix 到 0.10.8 或更新版本，或者在 FoamFix 的配置文件中禁用下列两项：<code class="docutils literal notranslate"><span class="pre">optimizedBlockPos=false</span></code>、<code class="docutils literal notranslate"><span class="pre">patchChunkSerialization=false</span></code>。</li>
+<li><em>注：新版 FoamFix（0.10.8 及更新版本）会自动在检测到 SpongeForge 时禁用上述两个选项，因为 SpongeForge 提供了相同功能。</em></li>
+</ul>
+</div>
+<div class="section" id="hammer-core">
+<h3>Hammer Core<a class="headerlink" href="#hammer-core" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li>依赖项：是很多 Mod 的前置</li>
+<li>版本：2.0.6.1.2 及更新版本</li>
+<li>问题：启动时崩溃。常见错误信息如下：</li>
+</ul>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>org.spongepowered.asm.mixin.injection.throwables.InjectionError: Critical injection failure: Redirector onUpdateTileEntities(Lnet/minecraft/util/ITickable;)V in mixins.common.core.json:world.WorldMixin failed injection check, (0/1) succeeded. Scanned 1 target(s). Using refmap mixins.common.refmap.json
+</pre></div>
+</div>
+<ul class="simple">
+<li>解决方案：找到 <code class="docutils literal notranslate"><span class="pre">/asm/hammercore.xml</span></code>，将 <code class="docutils literal notranslate"><span class="pre">&lt;entry</span> <span class="pre">key=&quot;World.ITickable.Override&quot;&gt;true&lt;/entry&gt;</span></code> 中的 <code class="docutils literal notranslate"><span class="pre">true</span></code> 改为 <code class="docutils literal notranslate"><span class="pre">false</span></code>。</li>
+</ul>
+</div>
+<div class="section" id="icbm-classic">
+<h3>ICBM Classic<a class="headerlink" href="#icbm-classic" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li>Versions: All</li>
+<li>Problem: Missiles stop in midair and appear to lag in place.</li>
+<li>Solution: Add the commented text below to the <code class="docutils literal notranslate"><span class="pre">entity-activation-range/mods</span></code> section of the <code class="docutils literal notranslate"><span class="pre">sponge/global.conf</span></code> file:</li>
+</ul>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>entity-activation-range {
+    mods {
+        # COPY THIS - START
+        icbmclassic {
+            defaults {
+                misc=16
+            }
+            # If &#39;false&#39;, entity activation rules for this mod will be ignored and always tick.
+            enabled=false
+            entities {
+                missile=16
+                seat=16
+            }
+        }
+        # COPY THIS - END
+    }
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="just-enough-ids-jeid">
+<h3>Just Enough IDs (JEID)<a class="headerlink" href="#just-enough-ids-jeid" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li>版本：1.0.3-48 及更旧版本</li>
+<li>问题：启动时崩溃（Mixin 冲突）。</li>
+<li>解决方案：更新 JEID 到 1.0.3-54 或更新版本。</li>
+</ul>
+</div>
+<div class="section" id="laggoggles">
+<h3>LagGoggles<a class="headerlink" href="#laggoggles" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li>版本：比 1.12.2-5.3-113 旧的版本</li>
+<li>问题：启动时崩溃（Mixin 冲突）。</li>
+<li>解决方案：更新 LagGoggles 到 1.12.2-5.3-113 并安装 <em>TickCentral</em> Mod。</li>
+</ul>
+</div>
+<div class="section" id="mystcraft">
+<h3>MystCraft<a class="headerlink" href="#mystcraft" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li>版本：全部（目前）</li>
+<li>问题：启动时崩溃</li>
+<li>解决方案：暂无，只能二选一。</li>
+</ul>
+</div>
+<div class="section" id="open-terrain-generator-otg">
+<h3>Open Terrain Generator (OTG)<a class="headerlink" href="#open-terrain-generator-otg" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li>依赖：OTGcore</li>
+<li>版本：全部（目前）</li>
+<li>问题：启动时崩溃、多世界生成问题</li>
+<li>解决方案：先在没有 SpongeForge 时预生成地图，然后删除 OTG 并安装 SpongeForge。</li>
+</ul>
+</div>
+<div class="section" id="phosphor">
+<h3>Phosphor<a class="headerlink" href="#phosphor" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li>版本：0.2.4 及更旧版本</li>
+<li>问题 1：启动时崩溃</li>
+<li>解决方案：更新 Phosphor 到 0.2.5 或更新版本，兼容 Sponge RC3384。</li>
+<li>问题 2：显示性能差</li>
+<li>解决方案：在 Sponge 配置文件 <code class="docutils literal notranslate"><span class="pre">global.conf</span></code> 中，将 <code class="docutils literal notranslate"><span class="pre">async-lighting</span></code> 设定为 <code class="docutils literal notranslate"><span class="pre">false</span></code>。</li>
+</ul>
+<p>可能还有很多这里没有列出来的问题，请通过 GitHub 来帮助我们维护这份列表！“<a class="reference internal" href="debugging.html"><span class="doc">调试</span></a>”一文对于上文中没有列出的问题也许有帮助。</p>
+</div>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="bugreport.html" class="btn btn-neutral float-right" title="报告问题" accesskey="n" rel="next">下一页 <span class="fa fa-angle-right"></span></a>
+        <a href="debugging.html" class="btn btn-neutral" title="调试" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> 上一页</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../../_static/flags/zh_CN.svg"
+         alt="zh-CN" title="简体中文">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../../_static/jquery.js"></script>      <script type="text/javascript" src="../../_static/underscore.js"></script>      <script type="text/javascript" src="../../_static/doctools.js"></script>      <script type="text/javascript" src="../../_static/language_data.js"></script>      <script type="text/javascript" src="../../_static/translations.js"></script>      <script type="text/javascript" src="../../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

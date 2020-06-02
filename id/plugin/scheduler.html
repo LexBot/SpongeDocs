@@ -1,0 +1,506 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Penjadwalan &mdash; dokumentasi Sponge 7.2.0</title>
+
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="Indeks"
+              href="../genindex.html"/>        <link rel="search" title="Pencarian" href="../search.html"/>    <link rel="top" title="dokumentasi Sponge 7.2.0" href="../index.html"/>        <link rel="up" title="Membuat Plugin" href="index.html"/>        <link rel="next" title="Layanan" href="services.html"/>        <link rel="prev" title="Hasil" href="effects.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../index.html">
+            <img src="../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../server/index.html">Membuat sebuah server</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../versions/index.html">Versioning Policy</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../preparing/index.html">Mempersiapkan untuk Pengembangan</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Membuat Plugin</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="api-versions.html">API-Versions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="buildsystem.html">Membangun Sistem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workspace/index.html">Anda mengatur ruang kerja</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project/index.html">Menyiapkan proyek anda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin-identifier.html">Pengenal Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin-class.html">Class Plugin utama</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lifecycle.html">Plugin Siklus Hidup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="injection.html">Ketergantungan Injeksi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="practices/index.html">Kebiasaan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optional/index.html">Pilihan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.html">Penebangan dan Debugging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="text/index.html">Teks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands/index.html">Plugin Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="event/index.html">Acara</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration/index.html">Mengkonfigurasi plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assets.html">Aset API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data/index.html">Data API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/index.html">Blok</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entities/index.html">Badan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="items/index.html">Item</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trade-offers.html">Trade-Offers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="effects.html">Hasil</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Penjadwalan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="services.html">Layanan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="database.html">Basis data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="permissions.html">Hak akses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bans.html">Larang</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metrics.html">Metrics Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bookview.html">Tampilan buku</a></li>
+<li class="toctree-l2"><a class="reference internal" href="economy/index.html">Ekonomi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wgen/index.html">Generasi dunia</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manager.html">Pengelola Pengaya</a></li>
+<li class="toctree-l2"><a class="reference internal" href="game-profile-manager.html">Manajer profil game</a></li>
+<li class="toctree-l2"><a class="reference internal" href="offline-userplayer-data.html">Tidak hidup Data Pemain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tab-lists.html">Daftar tab</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin-meta.html">Plugin Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ray-tracing.html">V8 Tracing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="debugging.html">Plugin Debugging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials.html">Tutorial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internals/index.html">Plugin yang tergantung pada pelaksanaan</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ore/index.html">Dokumentasi bijih</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contributing/index.html">Berkontribusi pada Sponge</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">Tentang Sponge Project</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+          <li><a href="index.html">Membuat Plugin</a> &raquo;</li>
+    <li>Penjadwalan</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/plugin/scheduler.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="scheduler">
+<h1>Penjadwalan<a class="headerlink" href="#scheduler" title="Link permanen untuk headline ini">¶</a></h1>
+<p>Spons memperlihatkan <a href="#id1"><span class="problematic" id="id2">:javadoc:`Penjadwal`</span></a> untuk memungkinkan anda untuk menunjuk tugas-tugas yang akan dieksekusi di masa depan. Yang <code class="docutils literal notranslate"><span class="pre">Penjadwal</span></code> menyediakan sebuah <a href="#id3"><span class="problematic" id="id4">:javadoc:`Tugas.Pembangun`</span></a> dengan mana anda dapat menentukan properti tugas seperti penundaan, selang, nama, (a)sinkronisitas, dan <code class="docutils literal notranslate"><span class="pre">Runnable</span></code> (lihat <span class="xref std std-ref">tugas-properti</span>).</p>
+<div class="section" id="task-builder">
+<h2>Penyusun Halaman<a class="headerlink" href="#task-builder" title="Link permanen untuk headline ini">¶</a></h2>
+<p>Pertama, mendapatkan contoh dari <code class="docutils literal notranslate"><span class="pre">Tugas.Pembangun</span></code>:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.scheduler.Task</span><span class="p">;</span>
+
+<span class="n">Task</span><span class="p">.</span><span class="na">Builder</span> <span class="n">taskBuilder</span> <span class="o">=</span> <span class="n">Task</span><span class="p">.</span><span class="na">builder</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Satu-satunya diharuskan properti ini adalah <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/lang/Runnable.html">Runnable</a>, yang mana dapat anda tentukan menggunakan <a href="#id1"><span class="problematic" id="id2">:javadoc:`Tugas.Pembangun#menjalankan(Runnable)`</span></a>:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">taskBuilder</span><span class="p">.</span><span class="na">execute</span><span class="p">(</span><span class="k">new</span> <span class="n">Runnable</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">logger</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;Yay! Schedulers!&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>atau menggunakan Java 8 sintaks dengan <code class="docutils literal notranslate"><span class="pre">Tugas.Pembangun#menjalankan(Runnable</span> <span class="pre">runnable)</span></code></p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">taskBuilder</span><span class="p">.</span><span class="na">execute</span><span class="p">(</span>
+    <span class="p">()</span> <span class="o">-&gt;</span> <span class="p">{</span>
+        <span class="n">logger</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;Yay! Schedulers!&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+<p>atau menggunakan java 8 sintaks dengan <code class="docutils literal notranslate"><span class="pre">Tugas.Pembangun#menjalankan(Konsumen&lt;Task&gt;</span> <span class="pre">tugas)</span></code></p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">taskBuilder</span><span class="p">.</span><span class="na">execute</span><span class="p">(</span>
+    <span class="n">task</span> <span class="o">-&gt;</span> <span class="p">{</span>
+        <span class="n">logger</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;Yay! Schedulers! :&quot;</span> <span class="o">+</span> <span class="n">task</span><span class="p">.</span><span class="na">getName</span><span class="p">());</span>
+    <span class="p">}</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+<div class="section" id="task-properties">
+<span id="id1"></span><h3>Blok properti<a class="headerlink" href="#task-properties" title="Link permanen untuk headline ini">¶</a></h3>
+<p>Dengan menggunakan <code class="docutils literal notranslate"><span class="pre">Tugas.Pembangun</span></code>, anda dapat menentukan lain, properti opsional, seperti yang dijelaskan di bawah ini.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="15%" />
+<col width="22%" />
+<col width="64%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Properti</th>
+<th class="head">Motede Dipakai</th>
+<th class="head">Deskripsi</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>tundaan</td>
+<td><p class="first">delayTicks(long delay)</p>
+<dl class="last docutils">
+<dt>delay(long delay,</dt>
+<dd>TimeUnit unit)</dd>
+</dl>
+</td>
+<td><p class="first">Yang opsional jumlah waktu untuk lulus sebelum tugas adalah yang harus menjalankan.</p>
+<p>Waktu ditentukan sebagai jumlah kutu dengan <cite>delayTicks()</cite> metode, atau dapat diberikan sebagai jumlah waktu yang lebih nyaman unit dengan menentukan <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/TimeUnit.html">TimeUnit</a> dengan delay() metode.</p>
+<p class="last"><em>Salah satu metode, tetapi tidak keduanya, dapat ditentukan per tugas.</em></p>
+</td>
+</tr>
+<tr class="row-odd"><td>selang</td>
+<td><dl class="first last docutils">
+<dt>intervalTicks(</dt>
+<dd>rentang blok</dd>
+<dt>interval(long interval,</dt>
+<dd>TimeUnit unit)</dd>
+</dl>
+</td>
+<td><p class="first">Jumlah waktu antara pengulangan tugas. Jika selang waktu tidak ditentukan, tugas tidak akan terulang.</p>
+<p>Waktu ditentukan sebagai jumlah kutu dengan <cite>intervalTicks()</cite> metode, atau dapat diberikan sebagai jumlah waktu yang lebih nyaman unit dengan menentukan <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/TimeUnit.html">TimeUnit</a> dengan interval() metode.</p>
+<p class="last"><em>Salah satu metode, tetapi tidak keduanya, dapat ditentukan per tugas.</em></p>
+</td>
+</tr>
+<tr class="row-even"><td>sinkronisasi</td>
+<td>async()</td>
+<td>Sinkron tugas dijalankan dalam permainan ini loop utama di seri dengan centang siklus. Jika <code class="docutils literal notranslate"><span class="pre">Task.Builder#async</span></code> digunakan, tugas akan berjalan asynchronously. Oleh karena itu, itu akan berjalan di thread sendiri, secara independen dari kutu siklus, dan mungkin tidak aman menggunakan permainan negara. (Lihat <a class="reference internal" href="#asynchronous-tasks">Asynchronous Tasks</a>.)</td>
+</tr>
+<tr class="row-odd"><td>nama</td>
+<td>name(String name)</td>
+<td>Nama tugas. Secara default, nama tugas akan PLUGIN_ID &quot; - &quot; ( &quot;- &quot;|&quot;S-&quot; ) SERIAL_ID. Misalnya, default nama tugas bisa terlihat seperti &quot;fooplugin-A-12&quot;. Ada dua tugas aktif akan memiliki yang sama serial ID yang sama jenis sinkronisasi. Jika nama tugas yang ditentukan, harus deskriptif dan membantu pengguna dalam debugging plugin anda.</td>
+</tr>
+</tbody>
+</table>
+<p>Terakhir, menyerahkan tugas scheduler menggunakan <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/scheduler/Task.Builder.html#submit-java.lang.Object-">Task.Builder#submit(Object)</a>.</p>
+<p>Dan hanya itu! Untuk meringkas, sepenuhnya fungsional tugas terjadwal yang akan berjalan asynchronously setiap 5 menit setelah awal keterlambatan dari 100 milidetik bisa dibangun dan disampaikan dengan menggunakan kode berikut:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">java.util.concurrent.TimeUnit</span><span class="p">;</span>
+
+<span class="n">PluginContainer</span> <span class="n">plugin</span> <span class="o">=</span> <span class="p">...;</span>
+
+<span class="n">Task</span> <span class="n">task</span> <span class="o">=</span> <span class="n">Task</span><span class="p">.</span><span class="na">builder</span><span class="p">().</span><span class="na">execute</span><span class="p">(()</span> <span class="o">-&gt;</span> <span class="n">logger</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;Yay! Schedulers!&quot;</span><span class="p">))</span>
+    <span class="p">.</span><span class="na">async</span><span class="p">().</span><span class="na">delay</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="n">TimeUnit</span><span class="p">.</span><span class="na">MILLISECONDS</span><span class="p">).</span><span class="na">interval</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">TimeUnit</span><span class="p">.</span><span class="na">MINUTES</span><span class="p">)</span>
+    <span class="p">.</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;ExamplePlugin - Fetch Stats from Database&quot;</span><span class="p">).</span><span class="na">submit</span><span class="p">(</span><span class="n">plugin</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Untuk membatalkan tugas, hanya menyebut <a href="#id1"><span class="problematic" id="id2">:javadoc:`Tugas#batal()`</span></a> metode:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">task</span><span class="p">.</span><span class="na">cancel</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>If you need to cancel the task from within the runnable itself, you can instead opt to use a <code class="docutils literal notranslate"><span class="pre">Consumer&lt;Task&gt;</span></code> in
+order to access the task. The below example will schedule a task that will count down from 60 and cancel itself upon
+reaching 0.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Listener</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onGameInit</span><span class="p">(</span><span class="n">GameInitializationEvent</span> <span class="n">event</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">Task</span> <span class="n">task</span> <span class="o">=</span> <span class="n">Task</span><span class="p">.</span><span class="na">builder</span><span class="p">().</span><span class="na">execute</span><span class="p">(</span><span class="k">new</span> <span class="n">CancellingTimerTask</span><span class="p">())</span>
+        <span class="p">.</span><span class="na">interval</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">TimeUnit</span><span class="p">.</span><span class="na">SECONDS</span><span class="p">)</span>
+        <span class="p">.</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;Self-Cancelling Timer Task&quot;</span><span class="p">).</span><span class="na">submit</span><span class="p">(</span><span class="n">plugin</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">private</span> <span class="kd">class</span> <span class="nc">CancellingTimerTask</span> <span class="kd">implements</span> <span class="n">Consumer</span><span class="o">&lt;</span><span class="n">Task</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">seconds</span> <span class="o">=</span> <span class="mi">60</span><span class="p">;</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">accept</span><span class="p">(</span><span class="n">Task</span> <span class="n">task</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">seconds</span><span class="o">--</span><span class="p">;</span>
+        <span class="n">Sponge</span><span class="p">.</span><span class="na">getServer</span><span class="p">()</span>
+            <span class="p">.</span><span class="na">getBroadcastChannel</span><span class="p">()</span>
+            <span class="p">.</span><span class="na">send</span><span class="p">(</span><span class="n">Text</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;Remaining Time: &quot;</span><span class="o">+</span><span class="n">seconds</span><span class="o">+</span><span class="s">&quot;s&quot;</span><span class="p">));</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">seconds</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">task</span><span class="p">.</span><span class="na">cancel</span><span class="p">();</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Peringatan</p>
+<p class="last"><strong>Any</strong> scheduled tasks should either watch the current <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/GameState.html">state</a> of the <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/Game.html">Game</a> or
+should be unregistered if they are no longer needed (e.g. during a <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GameStoppingServerEvent.html">GameStoppingServerEvent</a>). This is of
+particular importance for the client because it can start and stop the server multiple times.</p>
+</div>
+</div>
+<div class="section" id="asynchronous-tasks">
+<h3>Asynchronous Tugas<a class="headerlink" href="#asynchronous-tasks" title="Link permanen untuk headline ini">¶</a></h3>
+<p>Asynchronous tugas yang harus digunakan terutama untuk kode yang dapat mengambil jangka waktu yang signifikan untuk mengeksekusi, yaitu permintaan ke server lain atau database. Jika dilakukan di thread utama, permintaan ke server lain bisa sangat mempengaruhi kinerja dari permainan, karena berikutnya centang tidak bisa dipecat sampai request selesai.</p>
+<p>Since Minecraft is largely single-threaded, there is little you can do in an asynchronous thread. If you must run a
+thread asynchronously, you should execute all of the code that does not use SpongeAPI/affect Minecraft, then register
+another <cite>synchronous</cite> task to handle the code that needs the API. There are a few parts of Minecraft that you can work
+with <cite>asynchronously</cite>, including:</p>
+<ul class="simple">
+<li>Obrolan</li>
+<li>Sponge's built-in Permissions penanganan</li>
+<li>Sponge's scheduler</li>
+</ul>
+<p>Selain itu, ada beberapa operasi lain yang aman untuk melakukan asynchronous:</p>
+<ul class="simple">
+<li>Jaringan independen permintaan</li>
+<li>Filesystem I/O (excluding files used by Sponge)</li>
+</ul>
+<div class="admonition warning">
+<p class="first admonition-title">Peringatan</p>
+<p class="last">Mengakses permainan benda-benda di luar thread utama dapat menyebabkan crash, inkonsistensi dan berbagai masalah lainnya dan harus dihindari. Jika hal ini dilakukan salah, anda bisa mendapatkan <cite>ConcurrentModificationException</cite> dengan atau tanpa kecelakaan server terbaik dan rusak player/dunia/server yang paling buruk.</p>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Peringatan</p>
+<p class="last"><strong>Any</strong> scheduled tasks should either watch the current <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/GameState.html">state</a> of the <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/Game.html">Game</a> or
+should be unregistered if they are no longer needed (e.g. during a <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GameStoppingServerEvent.html">GameStoppingServerEvent</a>). This is of
+particular importance for the client because it can start and stop the server multiple times.</p>
+</div>
+</div>
+</div>
+<div class="section" id="compatibility-with-other-libraries">
+<h2>Kompatibilitas dengan aturan belanja lainnya<a class="headerlink" href="#compatibility-with-other-libraries" title="Link permanen untuk headline ini">¶</a></h2>
+<p>Sebagai plugin anda tumbuh dalam ukuran dan ruang lingkup anda mungkin ingin mulai menggunakan salah satu dari banyak concurrency perpustakaan, tersedia untuk Java dan JVM. Perpustakaan ini memang cenderung mendukung Java <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ExecutorService.html">ExecutorService</a> sebagai sarana untuk mengarahkan di mana benang tugas dijalankan.</p>
+<p>Untuk memungkinkan perpustakaan ini untuk bekerja dengan Spons <code class="docutils literal notranslate"><span class="pre">Scheduler</span></code> metode berikut dapat digunakan:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/scheduler/Scheduler.html#createSyncExecutor-java.lang.Object-">Scheduler#createSyncExecutor(Object)</a> menciptakan :javadoc: <cite>SpongeExecutorService</cite> yang menjalankan tugas-tugas melalui Spons sinkron scheduler.</li>
+<li><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/scheduler/Scheduler.html#createAsyncExecutor-java.lang.Object-">Scheduler#createAsyncExecutor(Object)</a> creates a <code class="docutils literal notranslate"><span class="pre">SpongeExecutorService</span></code> which executes tasks through
+Sponge's asynchronous scheduler. Tasks are subject to the restrictions mentioned in <a class="reference internal" href="#asynchronous-tasks">Asynchronous Tasks</a>.</li>
+</ul>
+<p>Satu hal yang perlu diingat adalah bahwa tugas-tugas yang berinteraksi dengan Sponge di luar interaksi yang terdaftar di <a class="reference internal" href="#asynchronous-tasks">Asynchronous Tugas</a> butuh untuk dieksekusi pada ExecutorService dibuat dengan <cite>Scheduler#createSyncExecutor(Objek)</cite> untuk menjadi thread-safe.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.scheduler.SpongeExecutorService</span><span class="p">;</span>
+
+<span class="n">PluginContainer</span> <span class="n">plugin</span> <span class="o">=</span> <span class="p">...;</span>
+
+<span class="n">SpongeExecutorService</span> <span class="n">minecraftExecutor</span> <span class="o">=</span> <span class="n">Sponge</span><span class="p">.</span><span class="na">getScheduler</span><span class="p">().</span><span class="na">createSyncExecutor</span><span class="p">(</span><span class="n">plugin</span><span class="p">);</span>
+
+<span class="n">minecraftExecutor</span><span class="p">.</span><span class="na">submit</span><span class="p">(()</span> <span class="o">-&gt;</span> <span class="p">{</span> <span class="p">...</span> <span class="p">});</span>
+
+<span class="n">minecraftExecutor</span><span class="p">.</span><span class="na">schedule</span><span class="p">(()</span> <span class="o">-&gt;</span> <span class="p">{</span> <span class="p">...</span> <span class="p">},</span> <span class="mi">10</span><span class="p">,</span> <span class="n">TimeUnit</span><span class="p">.</span><span class="na">SECONDS</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Hampir semua perpustakaan memiliki beberapa cara beradaptasi <code class="docutils literal notranslate"><span class="pre">ExecutorService</span></code> untuk native jadwal tugas. Sebagai contoh paragraf berikut akan menjelaskan bagaimana <code class="docutils literal notranslate"><span class="pre">ExecutorService</span></code> digunakan di sejumlah perpustakaan.</p>
+<div class="section" id="completablefuture-java-8">
+<h3>CompletableFuture (Java 8)<a class="headerlink" href="#completablefuture-java-8" title="Link permanen untuk headline ini">¶</a></h3>
+<p>Dengan Java 8 <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletableFuture.html">CompletableFuture</a> objek ditambahkan ke perpustakaan standar. Dibandingkan dengan ` <cite>masa Depan`</cite> objek, hal ini memungkinkan bagi pengembang untuk menyediakan callback yang disebut ketika selesai masa depan daripada memblokir benang sampai depan akhirnya selesai.</p>
+<p><a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletableFuture.html">CompletableFuture</a> adalah menguasai antarmuka yang biasanya memiliki tiga variasi untuk masing-masing fungsinya:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">CompletableFuture#&lt;function&gt;Async(...,</span> <span class="pre">Executor</span> <span class="pre">ex)</span></code> Executes this function through <code class="docutils literal notranslate"><span class="pre">ex</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">CompletableFuture#&lt;function&gt;Async(...)</span></code> Executes this function through <code class="docutils literal notranslate"><span class="pre">ForkJoinPool.commonPool()</span></code></li>
+<li>`` CompletableFuture # &lt;function&gt; (...) `` Jalankan fungsi ini pada thread apa pun yang sebelumnya `` CompletableFuture`` telah selesai.</li>
+</ul>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">java.util.concurrent.CompletableFuture</span><span class="p">;</span>
+
+<span class="n">PluginContainer</span> <span class="n">plugin</span> <span class="o">=</span> <span class="p">...;</span>
+
+<span class="n">SpongeExecutorService</span> <span class="n">minecraftExecutor</span> <span class="o">=</span> <span class="n">Sponge</span><span class="p">.</span><span class="na">getScheduler</span><span class="p">().</span><span class="na">createSyncExecutor</span><span class="p">(</span><span class="n">plugin</span><span class="p">);</span>
+
+<span class="n">CompletableFuture</span><span class="p">.</span><span class="na">supplyAsync</span><span class="p">(()</span> <span class="o">-&gt;</span> <span class="p">{</span>
+    <span class="c1">// ASYNC: ForkJoinPool.commonPool()</span>
+    <span class="k">return</span> <span class="mi">42</span><span class="p">;</span>
+<span class="p">}).</span><span class="na">thenAcceptAsync</span><span class="p">((</span><span class="n">awesomeValue</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">{</span>
+    <span class="c1">// SYNC: minecraftExecutor</span>
+<span class="p">},</span> <span class="n">minecraftExecutor</span><span class="p">).</span><span class="na">thenRun</span><span class="p">(()</span> <span class="o">-&gt;</span> <span class="p">{</span>
+    <span class="c1">// SYNC: minecraftExecutor</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rxjava">
+<h3>RxJava<a class="headerlink" href="#rxjava" title="Link permanen untuk headline ini">¶</a></h3>
+<p><a href="#id1"><span class="problematic" id="id2">`</span></a>RxJava &lt;<a class="reference external" href="https://github.com/ReactiveX/RxJava">https://github.com/ReactiveX/RxJava</a>&gt; ` _ adalah implementasi dari konsep <a href="#id3"><span class="problematic" id="id4">`</span></a>Reactive Extensions &lt;<a class="reference external" href="http://reactivex.io/">http://reactivex.io/</a>&gt; ` _ untuk JVM.</p>
+<p>Multithreading di Rx dikelola melalui berbagai <cite>Schedulers &lt;http://reactivex.io/documentation/scheduler.html&gt; ` _. Menggunakan `</cite> Penjadwal # dari (Pelaksana Pelaksana) `` fungsi `` Pelaksana` yang disediakan oleh Sponge dapat diubah menjadi Penjadwal `` <a href="#id1"><span class="problematic" id="id2">`</span></a>.</p>
+<p>Seperti <code class="docutils literal notranslate"><span class="pre">CompletableFuture</span></code> secara default tindakan yang dilaksanakan pada benang yang sama yang melengkapi verifikasi identitas sebelumnya bagian dari rantai. Gunakan <cite>yang dapat Diamati#observeOn(Scheduler scheduler)</cite> untuk bergerak di antara benang.</p>
+<p>Salah satu hal yang penting untuk diingat adalah bahwa akar <code class="docutils literal notranslate"><span class="pre">Observable</span></code> akan dipanggil pada apa pun benang <code class="docutils literal notranslate"><span class="pre">Observable#subscribe()``dipanggil.</span> <span class="pre">Jika</span> <span class="pre">akar</span> <span class="pre">dapat</span> <span class="pre">diamati</span> <span class="pre">berinteraksi</span> <span class="pre">dengan</span> <span class="pre">sponge</span> <span class="pre">itu</span> <span class="pre">harus</span> <span class="pre">dipaksa</span> <span class="pre">untuk</span> <span class="pre">berjalan</span> <span class="pre">serempak</span> <span class="pre">menggunakan</span> <span class="pre">``Observable#subscribeOn(Scheduler</span> <span class="pre">scheduler)</span></code>.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">rx.Observable</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">rx.Scheduler</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">rx.schedulers.Schedulers</span><span class="p">;</span>
+
+<span class="n">PluginContainer</span> <span class="n">plugin</span> <span class="o">=</span> <span class="p">...;</span>
+
+<span class="n">SpongeExecutorService</span> <span class="n">executor</span> <span class="o">=</span> <span class="n">Sponge</span><span class="p">.</span><span class="na">getScheduler</span><span class="p">().</span><span class="na">createSyncExecutor</span><span class="p">(</span><span class="n">plugin</span><span class="p">);</span>
+<span class="n">Scheduler</span> <span class="n">minecraftScheduler</span> <span class="o">=</span> <span class="n">Schedulers</span><span class="p">.</span><span class="na">from</span><span class="p">(</span><span class="n">executor</span><span class="p">);</span>
+
+<span class="n">Observable</span><span class="p">.</span><span class="na">defer</span><span class="p">(()</span> <span class="o">-&gt;</span> <span class="n">Observable</span><span class="p">.</span><span class="na">from</span><span class="p">(</span><span class="n">Sponge</span><span class="p">.</span><span class="na">getServer</span><span class="p">().</span><span class="na">getOnlinePlayers</span><span class="p">()))</span>
+          <span class="p">.</span><span class="na">subscribeOn</span><span class="p">(</span><span class="n">minecraftScheduler</span><span class="p">)</span> <span class="c1">// defer -&gt; SYNC: minecraftScheduler</span>
+          <span class="p">.</span><span class="na">observeOn</span><span class="p">(</span><span class="n">Schedulers</span><span class="p">.</span><span class="na">io</span><span class="p">())</span> <span class="c1">// -&gt; ASYNC: Schedulers.io()</span>
+          <span class="p">.</span><span class="na">filter</span><span class="p">(</span><span class="n">player</span> <span class="o">-&gt;</span> <span class="p">{</span>
+              <span class="c1">// ASYNC: Schedulers.io()</span>
+              <span class="k">return</span> <span class="s">&quot;Flards&quot;</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">player</span><span class="p">.</span><span class="na">getName</span><span class="p">());</span>
+          <span class="p">})</span>
+          <span class="p">.</span><span class="na">observeOn</span><span class="p">(</span><span class="n">minecraftScheduler</span><span class="p">)</span> <span class="c1">// -&gt; SYNC: minecraftScheduler</span>
+          <span class="p">.</span><span class="na">subscribe</span><span class="p">(</span><span class="n">player</span> <span class="o">-&gt;</span> <span class="p">{</span>
+              <span class="c1">// SYNC: minecraftScheduler</span>
+              <span class="n">player</span><span class="p">.</span><span class="na">kick</span><span class="p">(</span><span class="n">Text</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;Computer says no&quot;</span><span class="p">));</span>
+          <span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="scala">
+<h3>Scala<a class="headerlink" href="#scala" title="Link permanen untuk headline ini">¶</a></h3>
+<p>Scala comes with a built-in <a class="reference external" href="https://www.scala-lang.org/api/current/#scala.concurrent.Future">Future</a> object which
+a lot of scala framework mirror in design.
+Most methods of the Future accept an
+<a class="reference external" href="https://www.scala-lang.org/api/current/scala/concurrent/ExecutionContext.html">ExecutionContext</a> which
+determined where that part of the operation is executed.
+This is different from the CompletableFuture or RxJava since they default to executing on the same thread on which
+the previous operation ended.</p>
+<p>The fact that all these operations try to implicitly find an <code class="docutils literal notranslate"><span class="pre">ExecutionContext</span></code> means that you can easily use
+the default <code class="docutils literal notranslate"><span class="pre">ExecutionContext.global</span></code> and specifically run the parts that need to be thread-safe on the Sponge
+server thread.</p>
+<p>Untuk menghindari sengaja penjadwalan pekerjaan melalui Sponsge <code class="docutils literal notranslate"><span class="pre">ExecutorContext</span></code> konteks lain harus secara implisit didefinisikan sehingga bertindak sebagai pilihan default. Untuk menjaga keselamatan thread hanya fungsi yang benar-benar berinteraksi dengan Spons akan perlu untuk memiliki Spons pelaksana yang ditentukan.</p>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="k">import</span> <span class="nn">scala.concurrent.ExecutionContext</span>
+
+<span class="k">val</span> <span class="n">executor</span> <span class="k">=</span> <span class="nc">Sponge</span><span class="o">.</span><span class="n">getScheduler</span><span class="o">().</span><span class="n">createSyncExecutor</span><span class="o">(</span><span class="n">plugin</span><span class="o">)</span>
+
+<span class="k">import</span> <span class="nn">ExecutionContext.Implicits.global</span>
+<span class="k">val</span> <span class="n">ec</span> <span class="k">=</span> <span class="nc">ExecutionContext</span><span class="o">.</span><span class="n">fromExecutorService</span><span class="o">(</span><span class="n">executor</span><span class="o">)</span>
+
+<span class="k">val</span> <span class="n">future</span> <span class="k">=</span> <span class="nc">Future</span> <span class="o">{</span>
+    <span class="c1">// ASYNC: ExecutionContext.Implicits.global</span>
+<span class="o">}</span>
+
+<span class="n">future</span> <span class="n">foreach</span> <span class="o">{</span>
+    <span class="k">case</span> <span class="n">value</span> <span class="k">=&gt;</span> <span class="c1">// SYNC: ec</span>
+<span class="o">}(</span><span class="n">ec</span><span class="o">)</span>
+
+<span class="n">future</span> <span class="n">map</span> <span class="o">{</span>
+    <span class="k">case</span> <span class="n">value</span> <span class="k">=&gt;</span> <span class="mi">42</span> <span class="c1">// SYNC: ec</span>
+<span class="o">}(</span><span class="n">ec</span><span class="o">).</span><span class="n">foreach</span> <span class="o">{</span>
+    <span class="k">case</span> <span class="n">value</span> <span class="k">=&gt;</span> <span class="n">println</span><span class="o">(</span><span class="n">value</span><span class="o">)</span> <span class="c1">// ASYNC: ExecutionContext.Implicits.global</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="services.html" class="btn btn-neutral float-right" title="Layanan" accesskey="n" rel="next">Selanjutnya <span class="fa fa-angle-right"></span></a>
+        <a href="effects.html" class="btn btn-neutral" title="Hasil" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> Sebelumnya</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../_static/flags/id_ID.svg"
+         alt="id" title="Indonesia">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../_static/jquery.js"></script>      <script type="text/javascript" src="../_static/underscore.js"></script>      <script type="text/javascript" src="../_static/doctools.js"></script>      <script type="text/javascript" src="../_static/language_data.js"></script>      <script type="text/javascript" src="../_static/translations.js"></script>      <script type="text/javascript" src="../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

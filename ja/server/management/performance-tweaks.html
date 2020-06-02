@@ -1,0 +1,328 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>パフォーマンスの調整 &mdash; Sponge 7.2.0 ドキュメント</title>
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="索引"
+              href="../../genindex.html"/>        <link rel="search" title="検索" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 ドキュメント" href="../../index.html"/>        <link rel="up" title="サーバーの管理" href="index.html"/>        <link rel="next" title="熟練した Spongineer になる" href="../spongineer/index.html"/>        <link rel="prev" title="脆弱性パッチ" href="exploit-patches.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../../index.html">
+            <img src="../../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">サーバーの作成</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html">Quick Start Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started/index.html">はじめに</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">サーバーの管理</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="whitelist.html">ホワイトリストの管理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bans.html">BAN の管理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="permissions.html">Permission の管理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plugins.html">プラグインのインストール</a></li>
+<li class="toctree-l3"><a class="reference internal" href="exploit-patches.html">脆弱性パッチ</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">パフォーマンスの調整</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../spongineer/index.html">熟練した Spongineer になる</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../versions/index.html">Versioning Policy</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../preparing/index.html">開発環境の準備</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../plugin/index.html">プラグインの作成</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ore/index.html">Ore ドキュメント</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/index.html">Sponge に貢献する</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">Sponge プロジェクトについて</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+          <li><a href="../index.html">サーバーの作成</a> &raquo;</li>
+          <li><a href="index.html">サーバーの管理</a> &raquo;</li>
+    <li>パフォーマンスの調整</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/server/management/performance-tweaks.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="performance-tweaks">
+<h1>パフォーマンスの調整<a class="headerlink" href="#performance-tweaks" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>Sponge は高負荷な環境でもラグのないサーバーを運営するためのパフォーマンス改善のオプションを提供します。</p>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p class="last">サーバーのパフォーマンスを向上させようと私たちが取り組んでいるとはいえ、実際のパフォーマンスはあなたの設定に依存します。 Sponge サーバーを最大限活用するためにテストを行いましょう！</p>
+</div>
+<div class="section" id="entity-activation-range">
+<h2>エンティティの有効化範囲<a class="headerlink" href="#entity-activation-range" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>This setting will alter the loading behavior of entities around players. Lowering the value will only load close
+entities, while raising it will also load entities that are far away from the player. Lower this to improve your
+server’s performance, especially with high entity and player counts. To disable activation range for a specific entity
+set its value to <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
+<div class="admonition tip">
+<p class="first admonition-title">ちなみに</p>
+<p class="last"><em>それぞれのモブごとに</em> 有効化範囲を設定できます。 <code class="docutils literal notranslate"><span class="pre">auto-populate</span></code> を <code class="docutils literal notranslate"><span class="pre">true</span></code> に設定すれば、 Sponge はすべての利用可能なモブを有効化範囲リストに追加します。この設定はリストの値を設定したあとに無効化することをおすすめします。ゲームに新たにモブを追加した場合は、同じ手順を踏むことで新たなモブがリストの下部に追加されます。</p>
+</div>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="err">entity-activation-range {</span>
+<span class="err">    # If enabled, newly discovered entities will be added to this config with a default value.</span>
+<span class="err">    auto-populate=false</span>
+<span class="err">    # Default activation ranges used for all entities unless overridden.</span>
+<span class="err">    defaults {</span>
+<span class="err">        ambient=32</span>
+<span class="err">        aquatic=32</span>
+<span class="err">        creature=32</span>
+<span class="err">        misc=16</span>
+<span class="err">        monster=32</span>
+<span class="err">    }</span>
+<span class="err">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="async-lighting">
+<h2>ライトの非同期化<a class="headerlink" href="#async-lighting" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>パフォーマンス向上のため、ライトのチェックを別スレッドにて行うようにします。</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="err">optimizations {</span>
+<span class="err">    # Runs lighting updates async.</span>
+<span class="err">    async-lighting {</span>
+<span class="err">        # If enabled, runs lighting updates async.</span>
+<span class="err">        enabled=true</span>
+<span class="err">        # The amount of threads to dedicate for async lighting updates. (Default: 2)</span>
+<span class="err">        num-threads=2</span>
+<span class="err">    }</span>
+<span class="err">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="cache-tameable-owners">
+<h2>懐いている飼い主のキャッシュ<a class="headerlink" href="#cache-tameable-owners" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>エンティティが懐いている飼い主の UUID をデータウォッチャーの索引に追加します。</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="err">optimizations {</span>
+<span class="err">    # Caches tameable entities owners to avoid constant lookups against data watchers. If mods cause issue, disable.</span>
+<span class="err">    cache-tameable-owners=true</span>
+<span class="err">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="drops-pre-merge">
+<h2>ドロップを事前にまとめる<a class="headerlink" href="#drops-pre-merge" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>スポーン直後にまとめられるであろう余計なエンティティのスポーンを避けるため、前処理を行い暗黙のうちにアイテムをまとめてドロップします。</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="err">optimizations {</span>
+<span class="err">    # If enabled, block item drops are pre-processed to avoid</span>
+<span class="err">    # having to spawn extra entities that will be merged post spawning.</span>
+<span class="err">    # Usually, Sponge is smart enough to determine when to attempt an item pre-merge</span>
+<span class="err">    # and when not to, however, in certain cases, some mods rely on items not being</span>
+<span class="err">    # pre-merged and actually spawned, in which case, the items will flow right through</span>
+<span class="err">    # without being merged.</span>
+<span class="err">    drops-pre-merge=true</span>
+<span class="err">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="panda-redstone">
+<h2>Panda レッドストーン<a class="headerlink" href="#panda-redstone" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>レッドストーン変更時のブロックの更新が減る代替のアルゴリズムを有効にします。</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="err">optimizations {</span>
+<span class="err">    # If enabled, uses Panda4494&#39;s Redstone implementation which improves performance.</span>
+<span class="err">    # See https://bugs.mojang.com/browse/MC-11193 for more information.</span>
+<span class="err">    # Note: This optimization has a few issues which is explained in the bug report. We are not responsible for any issues this may cause.</span>
+<span class="err">    panda-redstone=false</span>
+<span class="err">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="auto-saving-interval-adjustment">
+<h2>自動保存間隔の調整<a class="headerlink" href="#auto-saving-interval-adjustment" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>vanilla の Minecraft ではすべてのチャンクを 900tick (45秒) ごとに保存します。サーバーの <code class="docutils literal notranslate"><span class="pre">global.conf</span></code> ファイルを編集することでこの間隔を変更できます:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="n">world</span> <span class="err">{</span>
+    <span class="o">#</span> <span class="n">The</span> <span class="n">auto</span><span class="o">-</span><span class="n">save</span> <span class="n">tick</span> <span class="nb">interval</span> <span class="n">used</span> <span class="k">when</span> <span class="n">saving</span> <span class="k">global</span> <span class="n">player</span> <span class="k">data</span><span class="p">.</span>
+    <span class="o">#</span> <span class="k">Set</span> <span class="k">to</span> <span class="mi">0</span> <span class="k">to</span> <span class="n">disable</span><span class="p">.</span> <span class="p">(</span><span class="k">Default</span><span class="p">:</span> <span class="mi">900</span><span class="p">)</span> <span class="n">Note</span><span class="p">:</span> <span class="mi">20</span> <span class="n">ticks</span> <span class="k">is</span> <span class="n">equivalent</span> <span class="k">to</span> <span class="mi">1</span> <span class="k">second</span><span class="p">.</span>
+    <span class="n">auto</span><span class="o">-</span><span class="n">player</span><span class="o">-</span><span class="n">save</span><span class="o">-</span><span class="nb">interval</span><span class="o">=</span><span class="mi">900</span>
+
+    <span class="o">#</span> <span class="n">The</span> <span class="n">auto</span><span class="o">-</span><span class="n">save</span> <span class="n">tick</span> <span class="nb">interval</span> <span class="n">used</span> <span class="k">to</span> <span class="n">save</span> <span class="k">all</span> <span class="n">loaded</span> <span class="n">chunks</span> <span class="k">in</span> <span class="n">a</span> <span class="n">world</span><span class="p">.</span>
+    <span class="o">#</span> <span class="k">Set</span> <span class="k">to</span> <span class="mi">0</span> <span class="k">to</span> <span class="n">disable</span><span class="p">.</span> <span class="p">(</span><span class="k">Default</span><span class="p">:</span> <span class="mi">900</span><span class="p">)</span> <span class="n">Note</span><span class="p">:</span> <span class="mi">20</span> <span class="n">ticks</span> <span class="k">is</span> <span class="n">equivalent</span> <span class="k">to</span> <span class="mi">1</span> <span class="k">second</span><span class="p">.</span>
+    <span class="n">auto</span><span class="o">-</span><span class="n">save</span><span class="o">-</span><span class="nb">interval</span><span class="o">=</span><span class="mi">900</span>
+<span class="err">}</span>
+</pre></div>
+</div>
+<p>間隔を狭くすることで CPU やストレージへの負荷を増大させますが、サーバーがロックに陥った場合や停電時のデータ破損が減少します。逆に間隔を広くすればハードウェアへの負荷は小さくなりますが、サーバー障害の際に失われるデータが多くなります。</p>
+</div>
+<div class="section" id="realtime">
+<h2>実時間の利用<a class="headerlink" href="#realtime" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>tick レートが低い場合はこれを有効にすることでより快適にプレイできます。サーバーのパフォーマンスを向上させることにはなりません。エンティティの一部、タイルエンティティ、ワールド時間は更新時に tick の代わりに実時間を利用するようになります。</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="err">modules {</span>
+<span class="err">    # Use real (wall) time instead of ticks as much as possible</span>
+<span class="err">    realtime=false</span>
+<span class="err">}</span>
+</pre></div>
+</div>
+<p>赤ちゃんの動物を例に考えます。これが通常大人になるには20分必要です。しかしながら、サーバーにラグがある場合 tick の速度も減少するため成長にかかる時間が長くなります。この設定はそういった仕組みに tick ではなく実際の経過した時間を適用します。ブロックの破壊にも適用されるので、「同じブロックを何回も壊す」ということがなくなります。</p>
+</div>
+<div class="section" id="deny-chunk-requests">
+<h2>チャンクリクエストの拒否<a class="headerlink" href="#deny-chunk-requests" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="admonition warning">
+<p class="first admonition-title">警告</p>
+<p class="last">パフォーマンス向上のための実験的な設定項目であり、タイルエンティティの読み込みに関する問題が発生した場合やサーバーに MOD を導入している場合は無効にしておくことをおすすめします。</p>
+</div>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="err">world {</span>
+<span class="err">    # If enabled, any request for a chunk not currently loaded will be denied (exceptions apply for things like world gen and player movement).</span>
+<span class="err">    # Note: As this is an experimental setting for performance gain, if you encounter any issues then we recommend disabling it.</span>
+<span class="err">    deny-chunk-requests=false</span>
+<span class="err">}</span>
+</pre></div>
+</div>
+<p>さまざまなタスクを実行するために MOD が行うエリアのロード要求を拒否します。プレイヤーとワールド生成命令のみが新しいチャンクのロードを許可されるようになります。</p>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../spongineer/index.html" class="btn btn-neutral float-right" title="熟練した Spongineer になる" accesskey="n" rel="next">次へ <span class="fa fa-angle-right"></span></a>
+        <a href="exploit-patches.html" class="btn btn-neutral" title="脆弱性パッチ" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> 戻る</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../../_static/flags/ja_JP.svg"
+         alt="ja" title="日本語">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../../_static/jquery.js"></script>      <script type="text/javascript" src="../../_static/underscore.js"></script>      <script type="text/javascript" src="../../_static/doctools.js"></script>      <script type="text/javascript" src="../../_static/language_data.js"></script>      <script type="text/javascript" src="../../_static/translations.js"></script>      <script type="text/javascript" src="../../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

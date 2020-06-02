@@ -1,0 +1,327 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestionnaire de Profil de Jeu &mdash; Documentation Sponge 7.2.0</title>
+
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="Index"
+              href="../genindex.html"/>        <link rel="search" title="Recherche" href="../search.html"/>    <link rel="top" title="Documentation Sponge 7.2.0" href="../index.html"/>        <link rel="up" title="Création d’un Plugin" href="index.html"/>        <link rel="next" title="Données du Joueur Hors-Ligne" href="offline-userplayer-data.html"/>        <link rel="prev" title="Gestionnaire de Plugin" href="manager.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../index.html">
+            <img src="../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../server/index.html">Créer un Serveur</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../versions/index.html">Stratégie de versioning</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../preparing/index.html">Préparation pour le développement</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Création d’un Plugin</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="api-versions.html">Versions de l’API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="buildsystem.html">Build Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workspace/index.html">Mise en Place de votre Espace de Travail</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project/index.html">Configurer Votre Projet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin-identifier.html">Identifiants de Plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin-class.html">Classe Principale du Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lifecycle.html">Cycle de vie des Plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="injection.html">Injection de Dépendances</a></li>
+<li class="toctree-l2"><a class="reference internal" href="practices/index.html">Bonnes Pratiques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optional/index.html">Optionnels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.html">Journalisation (Logging) et Débogage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="text/index.html">Text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands/index.html">Commandes de Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="event/index.html">Événements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration/index.html">Configuration des plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assets.html">L’API des Ressources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data/index.html">La Data API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/index.html">Blocs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entities/index.html">Entités</a></li>
+<li class="toctree-l2"><a class="reference internal" href="items/index.html">Items</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trade-offers.html">Trade-Offers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="effects.html">Effets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scheduler.html">Scheduler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="services.html">Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="database.html">Bases de données</a></li>
+<li class="toctree-l2"><a class="reference internal" href="permissions.html">Permissions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bans.html">Bans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metrics.html">Collection de Metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bookview.html">Views d’un Livre</a></li>
+<li class="toctree-l2"><a class="reference internal" href="economy/index.html">Économie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wgen/index.html">Génération du monde</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manager.html">Gestionnaire de Plugin</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Gestionnaire de Profil de Jeu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="offline-userplayer-data.html">Données du Joueur Hors-Ligne</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tab-lists.html">Tab Lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin-meta.html">Plugin Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ray-tracing.html">Ray Tracing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="debugging.html">Debugging d’un plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials.html">Tutoriels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internals/index.html">Plugins dépendants des implémentations</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ore/index.html">Documentation d’Ore</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contributing/index.html">Contribuer à Sponge</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">À propos du Projet Sponge</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+          <li><a href="index.html">Création d’un Plugin</a> &raquo;</li>
+    <li>Gestionnaire de Profil de Jeu</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/plugin/game-profile-manager.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="game-profile-manager">
+<h1>Gestionnaire de Profil de Jeu<a class="headerlink" href="#game-profile-manager" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Un <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/profile/GameProfile.html">GameProfile</a> représente le profil d’un joueur, y compris les données comme le nom, l”<code class="docutils literal notranslate"><span class="pre">UUID</span></code>, et d’autres données arbitraires, connues en tant que propriétés. SpongeAPI fournit la classe <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/profile/GameProfileManager.html">GameProfileManager</a> pour récupérer, créer, et remplir les <code class="docutils literal notranslate"><span class="pre">GameProfile</span></code>s. Vous pouvez obtenir une instance du <code class="docutils literal notranslate"><span class="pre">GameProfileManager</span></code> en utilisant le code suivant.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.Sponge</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.profile.GameProfileManager</span><span class="p">;</span>
+
+<span class="n">GameProfileManager</span> <span class="n">profileManager</span> <span class="o">=</span> <span class="n">Sponge</span><span class="p">.</span><span class="na">getServer</span><span class="p">().</span><span class="na">getGameProfileManager</span><span class="p">();</span>
+</pre></div>
+</div>
+<div class="section" id="retrieving-gameprofiles">
+<h2>Récupération de GameProfiles<a class="headerlink" href="#retrieving-gameprofiles" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Il est important de noter que Sponge maintient un cache de <code class="docutils literal notranslate"><span class="pre">GameProfile</span></code>s à utiliser comme un remplacement au lieu de faire une requête à l’API de Mojang à chaque fois qu’un <code class="docutils literal notranslate"><span class="pre">GameProfile</span></code> est demandé. Les méthodes pour récupérer des <code class="docutils literal notranslate"><span class="pre">GameProfile</span></code>s offrent un second argument <code class="docutils literal notranslate"><span class="pre">boolean</span></code> qui détermine si le cache doit être utilisé ou non. Par défaut, le cache sera utilisé lorsque cela est possible.</p>
+<p>Un <code class="docutils literal notranslate"><span class="pre">GameProfile</span></code> peut être recherché en utilisant soit un <code class="docutils literal notranslate"><span class="pre">UUID</span></code> ou un pseudo. Notez que le même profil sera toujours retourné quand on recherche avec un <code class="docutils literal notranslate"><span class="pre">UUID</span></code>, mais comme les pseudos peuvent être changés, ça peut ne pas être nécessairement le cas lorsqu’on recherche avec un pseudo.</p>
+<div class="section" id="retrieving-by-username">
+<h3>Récupération par le pseudo<a class="headerlink" href="#retrieving-by-username" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.profile.GameProfile</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.concurrent.CompletableFuture</span><span class="p">;</span>
+
+<span class="n">CompletableFuture</span><span class="o">&lt;</span><span class="n">GameProfile</span><span class="o">&gt;</span> <span class="n">futureGameProfile</span> <span class="o">=</span> <span class="n">profileManager</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">&quot;Notch&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="retrieving-by-uuid">
+<h3>Récupération par l’UUID<a class="headerlink" href="#retrieving-by-uuid" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">java.util.UUID</span><span class="p">;</span>
+
+<span class="n">CompletableFuture</span><span class="o">&lt;</span><span class="n">GameProfile</span><span class="o">&gt;</span> <span class="n">futureGameProfile</span> <span class="o">=</span>
+    <span class="n">profileManager</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">UUID</span><span class="p">.</span><span class="na">fromString</span><span class="p">(</span><span class="s">&quot;069a79f4-44e9-4726-a5be-fca90e38aaf5&quot;</span><span class="p">));</span>
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">Astuce</p>
+<p class="last">Vous pouvez aussi récupérer plusieurs <code class="docutils literal notranslate"><span class="pre">GameProfile</span></code>s à la fois en utilisant <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/profile/GameProfileManager.html#getAllById-java.lang.Iterable-boolean-">GameProfileManager#getAllById(Iterable&lt;UUID&gt;, boolean)</a> ou <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/profile/GameProfileManager.html#getAllByName-java.lang.Iterable-boolean-">GameProfileManager#getAllByName(Iterable&lt;String&gt;, boolean)</a>. Ces deux méthodes retournent un <code class="docutils literal notranslate"><span class="pre">CompletableFuture&lt;Collection&lt;GameProfile&gt;&gt;</span></code>.</p>
+</div>
+<p>Notez que chacune de ces méthodes retournent une sorte de <code class="docutils literal notranslate"><span class="pre">CompletableFuture</span></code>. Cela indique que le <code class="docutils literal notranslate"><span class="pre">GameProfile</span></code> (ou la <code class="docutils literal notranslate"><span class="pre">Collection&lt;GameProfile&gt;</span></code>) peut ne pas être disponible immédiatement en raison des requêtes en attente à l’API de Mojang. La <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletableFuture.html">Javadocs pour les CompletableFuture</a> décrit toutes les fonctionnalités de la classe, mais nous nous concentrerons sur la méthode <code class="docutils literal notranslate"><span class="pre">get</span></code> dans le but de cet article.</p>
+<p>Pour récupérer un <code class="docutils literal notranslate"><span class="pre">GameProfile</span></code> depuis un <code class="docutils literal notranslate"><span class="pre">CompletableFuture&lt;GameProfile&gt;</span></code>, vous pouvez simplement appeler la méthode <code class="docutils literal notranslate"><span class="pre">CompletableFuture#get</span></code>.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">GameProfile</span> <span class="n">gameProfile</span> <span class="o">=</span> <span class="n">futureGameProfile</span><span class="p">.</span><span class="na">get</span><span class="p">();</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Avertissement</p>
+<p class="last">Si le <code class="docutils literal notranslate"><span class="pre">GameProfile</span></code> n’est pas disponible immédiatement (si le cache n’est pas utilisé ou ne contient pas le <code class="docutils literal notranslate"><span class="pre">GameProfile</span></code>), alors <code class="docutils literal notranslate"><span class="pre">get</span></code> va attendre que le future soit complété. Pour cette raison, il n’est pas conseillé de l’utiliser sur le thread principal puisqu’il arrêtera le serveur. Alternativement, vous pouvez utiliser la méthode <code class="docutils literal notranslate"><span class="pre">CompletableFuture#thenAccept(Consumer&lt;?</span> <span class="pre">super</span> <span class="pre">T&gt;)</span></code> pour spécifier un <code class="docutils literal notranslate"><span class="pre">Consumer</span></code> à être exécuté lors de la complétion.</p>
+</div>
+</div>
+</div>
+<div class="section" id="creating-gameprofiles">
+<h2>Création de GameProfiles<a class="headerlink" href="#creating-gameprofiles" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Vous pouvez générer un nouveau <code class="docutils literal notranslate"><span class="pre">GameProfile</span></code> en utilisant <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/profile/GameProfile.html#of-java.util.UUID-java.lang.String-">GameProfile#of(UUID, String)</a>. Notez que le pseudo ne nécessite pas forcément de correspondre à l”<code class="docutils literal notranslate"><span class="pre">UUID</span></code> de ce joueur. De même, l”<code class="docutils literal notranslate"><span class="pre">UUID</span></code> n’a pas besoin d’appartenir à un joueur valide.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">GameProfile</span> <span class="n">gameProfile</span> <span class="o">=</span> <span class="n">GameProfile</span><span class="p">.</span><span class="na">of</span><span class="p">(</span>
+        <span class="n">UUID</span><span class="p">.</span><span class="na">fromString</span><span class="p">(</span><span class="s">&quot;00000000-0000-0000-0000-000000000000&quot;</span><span class="p">),</span>
+        <span class="s">&quot;Herobrine&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Il n’est pas obligatoire de spécifier le nom du <code class="docutils literal notranslate"><span class="pre">GameProfile</span></code> (<code class="docutils literal notranslate"><span class="pre">null</span></code> est un argument valide).</p>
+</div>
+</div>
+<div class="section" id="filling-gameprofiles">
+<h2>Remplissage de GameProfiles<a class="headerlink" href="#filling-gameprofiles" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Remplir un <code class="docutils literal notranslate"><span class="pre">GameProfile</span></code> complète le profile en récupérant les informations comme le skin du player depuis l’API de Mojang. Notez que si de fausses données comme le pseudo sont associées à un certain UUID, il sera remplacé par les données réelles depuis l’API de Mojang.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">GameProfile</span> <span class="n">filledProfile</span> <span class="o">=</span> <span class="n">profileManager</span><span class="p">.</span><span class="na">fill</span><span class="p">(</span><span class="n">gameProfile</span><span class="p">).</span><span class="na">get</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="profileproperties">
+<h2>ProfileProperties<a class="headerlink" href="#profileproperties" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Les <code class="docutils literal notranslate"><span class="pre">GameProfile</span></code>s peuvent être utilisés pour stocker des données arbitraires à propos d’un joueur en utilisant les <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/profile/property/ProfileProperty.html">ProfileProperty</a>s. Toutefois, cela ne peut pas être utilisé comme stockage permanent de données, carles données ne persistent pas à travers les redémarrages du serveur. Nous pouvons récupérer les propriétés d’un <code class="docutils literal notranslate"><span class="pre">GameProfile</span></code> en utilisant la méthode <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/profile/GameProfile.html#getPropertyMap--">GameProfile#getPropertyMap()</a>, qui retourne un <code class="docutils literal notranslate"><span class="pre">Multimap</span></code>. Depuis là, vous pouvez récupérer des <code class="docutils literal notranslate"><span class="pre">ProfileProperty</span></code>s existants ou en stocker de nouveaux, qui sont représentés sous forme d’une pair clé-valeur. Pour générer un nouveau <code class="docutils literal notranslate"><span class="pre">ProfileProperty</span></code>, appelez simplement la méthode <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/profile/property/ProfileProperty.html#of-java.lang.String-java.lang.String-">ProfileProperty#of(String, String)</a>. Le troisième argument (signature) est optionnel. Cependant, une signature valide de Mojang doit être spécifiée pour certaines propriétés.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.profile.property.ProfileProperty</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.Collection</span><span class="p">;</span>
+
+<span class="n">profile</span><span class="p">.</span><span class="na">getPropertyMap</span><span class="p">().</span><span class="na">put</span><span class="p">(</span>
+    <span class="s">&quot;key&quot;</span><span class="p">,</span> <span class="n">ProfileProperty</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;foo&quot;</span><span class="p">,</span> <span class="s">&quot;bar&quot;</span><span class="p">,</span> <span class="kc">null</span><span class="p">));</span>
+<span class="n">Collection</span><span class="o">&lt;</span><span class="n">ProfileProperty</span><span class="o">&gt;</span> <span class="n">customProperties</span> <span class="o">=</span> <span class="n">profile</span><span class="p">.</span><span class="na">getPropertyMap</span><span class="p">().</span><span class="na">get</span><span class="p">(</span><span class="s">&quot;key&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="gameprofilecache">
+<h2>GameProfileCache<a class="headerlink" href="#gameprofilecache" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Vous pouvez également directement accéder au <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/profile/GameProfileCache.html">GameProfileCache</a> utilisé par Sponge pour stocker des <code class="docutils literal notranslate"><span class="pre">GameProfile</span></code>s. Pour faire ceci, appelez simplement la méthode <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/profile/GameProfileManager.html#getCache--">GameProfileManager#getCache()</a>. En utilisant le <code class="docutils literal notranslate"><span class="pre">GameProfileCache</span></code>, vous pouvez rechercher des <code class="docutils literal notranslate"><span class="pre">GameProfile</span></code>s, ajouter des <code class="docutils literal notranslate"><span class="pre">GameProfile</span></code>s nouvellement construits, et remplir les profils avec des données stockées dans le cache.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.profile.GameProfileCache</span><span class="p">;</span>
+
+<span class="n">GameProfile</span> <span class="n">fakeProfile</span> <span class="o">=</span>
+    <span class="n">GameProfile</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">UUID</span><span class="p">.</span><span class="na">fromString</span><span class="p">(</span><span class="s">&quot;00000000-0000-0000-0000-000000000000&quot;</span><span class="p">),</span>
+    <span class="s">&quot;Herobrine&quot;</span><span class="p">);</span>
+<span class="n">GameProfileCache</span> <span class="n">cache</span> <span class="o">=</span> <span class="n">profileManager</span><span class="p">.</span><span class="na">getCache</span><span class="p">();</span>
+<span class="n">cache</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">profile</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">Astuce</p>
+<p class="last"><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/profile/GameProfileCache.html#add-org.spongepowered.api.profile.GameProfile-">GameProfileCache#add(GameProfile)</a> accepte également un second argument <code class="docutils literal notranslate"><span class="pre">boolean</span></code>, qui détermine si les entrées existantes du cache doivent être remplacées, et un troisième argument <code class="docutils literal notranslate"><span class="pre">Date</span></code> qui définit l’expiration du <code class="docutils literal notranslate"><span class="pre">GameProfile</span></code>.</p>
+</div>
+<p>Si vous décidez un jour que vous devez retirer un <code class="docutils literal notranslate"><span class="pre">GameProfile</span></code> du cache, vous pouvez appeler <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/profile/GameProfileCache.html#remove-org.spongepowered.api.profile.GameProfile-">GameProfileCache#remove(GameProfile)</a>. Si vous avez besoin de retirer tous les <code class="docutils literal notranslate"><span class="pre">GameProfile</span></code>s du cache, vous pouvez appeler <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/profile/GameProfileCache.html#clear--">GameProfileCache#clear()</a>.</p>
+<p>Le <code class="docutils literal notranslate"><span class="pre">GameProfileCache</span></code> peut également être défini par des plugins avec la méthode <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/profile/GameProfileManager.html#setCache-org.spongepowered.api.profile.GameProfileCache-">GameProfileManager#setCache(GameProfileCache)</a>. Pour restaurer le cache original, utilisez la même méthode, en passant le résultat de <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/profile/GameProfileManager.html#getDefaultCache--">GameProfileManager#getDefaultCache()</a>.</p>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="offline-userplayer-data.html" class="btn btn-neutral float-right" title="Données du Joueur Hors-Ligne" accesskey="n" rel="next">Suivant <span class="fa fa-angle-right"></span></a>
+        <a href="manager.html" class="btn btn-neutral" title="Gestionnaire de Plugin" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> Précédent</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../_static/flags/fr_FR.svg"
+         alt="fr" title="Français">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../_static/jquery.js"></script>      <script type="text/javascript" src="../_static/underscore.js"></script>      <script type="text/javascript" src="../_static/doctools.js"></script>      <script type="text/javascript" src="../_static/language_data.js"></script>      <script type="text/javascript" src="../_static/translations.js"></script>      <script type="text/javascript" src="../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

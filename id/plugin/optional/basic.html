@@ -1,0 +1,362 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spons-Docs &mdash; dokumentasi Sponge 7.2.0</title>
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="Indeks"
+              href="../../genindex.html"/>        <link rel="search" title="Pencarian" href="../../search.html"/>    <link rel="top" title="dokumentasi Sponge 7.2.0" href="../../index.html"/>        <link rel="up" title="Pilihan" href="index.html"/>        <link rel="next" title="Contoh penggunaan" href="usage.html"/>        <link rel="prev" title="Pilihan" href="index.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../../index.html">
+            <img src="../../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../server/index.html">Membuat sebuah server</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../versions/index.html">Versioning Policy</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../preparing/index.html">Mempersiapkan untuk Pengembangan</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Membuat Plugin</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../api-versions.html">API-Versions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../buildsystem.html">Membangun Sistem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../workspace/index.html">Anda mengatur ruang kerja</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../project/index.html">Menyiapkan proyek anda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-identifier.html">Pengenal Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-class.html">Class Plugin utama</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lifecycle.html">Plugin Siklus Hidup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../injection.html">Ketergantungan Injeksi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../practices/index.html">Kebiasaan</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Pilihan</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Spons-Docs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="usage.html">Contoh penggunaan</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../logging.html">Penebangan dan Debugging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text/index.html">Teks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/index.html">Plugin Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../event/index.html">Acara</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/index.html">Mengkonfigurasi plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assets.html">Aset API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data/index.html">Data API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../blocks/index.html">Blok</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../entities/index.html">Badan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../items/index.html">Item</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../trade-offers.html">Trade-Offers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../effects.html">Hasil</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../scheduler.html">Penjadwalan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../services.html">Layanan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database.html">Basis data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../permissions.html">Hak akses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bans.html">Larang</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metrics.html">Metrics Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bookview.html">Tampilan buku</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../economy/index.html">Ekonomi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wgen/index.html">Generasi dunia</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manager.html">Pengelola Pengaya</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../game-profile-manager.html">Manajer profil game</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../offline-userplayer-data.html">Tidak hidup Data Pemain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tab-lists.html">Daftar tab</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-meta.html">Plugin Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ray-tracing.html">V8 Tracing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../debugging.html">Plugin Debugging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials.html">Tutorial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internals/index.html">Plugin yang tergantung pada pelaksanaan</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ore/index.html">Dokumentasi bijih</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/index.html">Berkontribusi pada Sponge</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">Tentang Sponge Project</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+          <li><a href="../index.html">Membuat Plugin</a> &raquo;</li>
+          <li><a href="index.html">Pilihan</a> &raquo;</li>
+    <li>Spons-Docs</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/plugin/optional/basic.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="optionals-explained">
+<h1>Spons-Docs<a class="headerlink" href="#optionals-explained" title="Link permanen untuk headline ini">¶</a></h1>
+<p>Much of SpongeAPI makes use of Java's <cite>Optional</cite> system on object accessors, but if you've never used <code class="docutils literal notranslate"><span class="pre">Optional</span></code>
+before this might seem like a bit of a peculiar way of doing things. You might be tempted to ask:
+<em>&quot;why do I need to perform an extra step when fetching something from an API object?&quot;</em></p>
+<p>This section gives a brief summary of <code class="docutils literal notranslate"><span class="pre">Optional</span></code> and explains how - and perhaps more importantly why -
+it's used throughout SpongeAPI.</p>
+<p>Mari kita mulai dengan sedikit sejarah, dan perhatikan bagaimana pengakses - khususnya ''getters'' - yang biasanya bekerja ketika tidak menggunakan <code class="docutils literal notranslate"><span class="pre">Optional</span></code>.</p>
+<div class="section" id="implicit-nullable-contracts-and-why-they-suck">
+<h2>1. Implisit Nullable Kontrak dan Mengapa Mereka Menghisap<a class="headerlink" href="#implicit-nullable-contracts-and-why-they-suck" title="Link permanen untuk headline ini">¶</a></h2>
+<p>Anggap saja kita punya objek API yang sederhana <code class="docutils literal notranslate"><span class="pre">Entitas</span></code> dengan metode <code class="docutils literal notranslate"><span class="pre">getFoo()</span></code> yang akan mengembalikan Entititas nya menjadi <code class="docutils literal notranslate"><span class="pre">Foo</span></code>.</p>
+<img alt="../../_images/optionals1.png" src="../../_images/optionals1.png" />
+<p>Di masa dahulu, plugin kami bisa mengambil dan menggunakan <code class="docutils literal notranslate"><span class="pre">Foo</span></code> dari suatu entitas menggunakan <code class="docutils literal notranslate"><span class="pre">getter</span></code> seperti ini:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">someEventHandler</span><span class="p">(</span><span class="n">Entity</span> <span class="n">someEntity</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">Foo</span> <span class="n">entityFoo</span> <span class="o">=</span> <span class="n">someEntity</span><span class="p">.</span><span class="na">getFoo</span><span class="p">();</span>
+    <span class="n">entityFoo</span><span class="p">.</span><span class="na">bar</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Masalah timbul karena - saat mendesain API - kami harus mengandalkan sebuah kontrak <em>implisit</em> pada metode <code class="docutils literal notranslate"><span class="pre">getFoo</span></code> dengan menerima baik metode nya bisa (atau tidak bisa) kembali <code class="docutils literal notranslate"><span class="pre">null</span></code>. <em>implicit contact</em> ini bisa ditentukan dengan dua cara:</p>
+<ul class="simple">
+<li><strong>Di javadoc</strong> - ini adalah buruk karena hal itu bergantung pada plugin penulis membaca javadoc untuk metode, dan kontrak yang mungkin tidak jelas bagi penulis plugin</li>
+<li><strong>Menggunakan nullable anotasi</strong> - ini tidak ideal karena secara umum anotasi ini memerlukan alat yang dapat digunakan, misalnya dengan mengandalkan IDE atau compiler untuk menangani penjelasan.</li>
+</ul>
+<img alt="../../_images/optionals2.png" src="../../_images/optionals2.png" />
+<p>Mari kita asumsikan metode <code class="docutils literal notranslate"><span class="pre">getFoo()</span></code> bisa - sebagai bagian dari kontrak nya - kembali null. Dengan sendirinya ini berarti kode kita diatas tidak aman karena bisa menjadi <code class="docutils literal notranslate"><span class="pre">NullPointerException</span></code> jika <code class="docutils literal notranslate"><span class="pre">entityFoo</span></code> adalah null.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">someEventHandler</span><span class="p">(</span><span class="n">Entity</span> <span class="n">someEntity</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">Foo</span> <span class="n">entityFoo</span> <span class="o">=</span> <span class="n">someEntity</span><span class="p">.</span><span class="na">getFoo</span><span class="p">();</span>
+    <span class="n">entityFoo</span><span class="p">.</span><span class="na">bar</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Mari kita asumsikan pembuat plugin kami faham dengan sifat nullable dari metode <code class="docutils literal notranslate"><span class="pre">getFoo</span></code> kami dan memutuskan untuk memperbaiki masalah dengan pengecekan null. Anggap saja mereka sudah menentukan lokal konstan <code class="docutils literal notranslate"><span class="pre">Foo</span></code>, kode-kode yang dihasilkan akan terlihat seperti ini:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">someEventHandler</span><span class="p">(</span><span class="n">Entity</span> <span class="n">someEntity</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">Foo</span> <span class="n">entityFoo</span> <span class="o">=</span> <span class="n">someEntity</span><span class="p">.</span><span class="na">getFoo</span><span class="p">();</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">entityFoo</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">entityFoo</span> <span class="o">=</span> <span class="n">MyPlugin</span><span class="p">.</span><span class="na">DEFAULT_FOO</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">entityFoo</span><span class="p">.</span><span class="na">bar</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In this example, the plugin author is aware that the method can return null and has a constant available with a
+default instance of <code class="docutils literal notranslate"><span class="pre">Foo</span></code> which can be used instead. Of course, the plugin could just short-circuit the call entirely,
+or it could attempt to fetch <cite>Foo</cite> from somewhere else. The key message is that handling nulls even in simple cases
+can lead to spaghetti code quite quickly, and moreover relies on the plugin author to explicitly visit the method's
+contract to check whether a null check is necessary in the first place.</p>
+<p>Bagaimanapun hal tersebut bukanlah satu-satunya kelemahan. Mari kita pertimbangkan API tersebut untuk jangka panjang dan anggaplah pada saat itu penggubah menuliskan plugin mereka, mereka mengunjungi metode javadoc dan menemukan bahwa metode tersebut telah dijamin tidak akan pernah kembali ke null (karena setiap <cite>Entitas</cite> selalu memiliki <code class="docutils literal notranslate"><span class="pre">Foo</span></code> yang tersedia). Hebat! Tidak ada pemeriksaan null yang rumit yang yang diperlukan!</p>
+<p>Bagaimanapun, mari sekarang kita asumsikan di versi permainan selanjutnya, pengembang permainan menghapus atau mencela konsep <code class="docutils literal notranslate"><span class="pre">Foo</span></code>. Pengunggah API mengupdate API sesuai petunjuk dan menyatakan bahwa mulai dari sekarang metode <code class="docutils literal notranslate"><span class="pre">getFoo()</span></code> <strong>bisa</strong> kembali <code class="docutils literal notranslate"><span class="pre">nul</span></code> dan tuliskan ini kedalam metode javadoc. Sekarang timbul masalah: bahkan penggubah plugin yang rajin sekalipun yang telah mengecek metode kontrak saat pertama sekali mereka menuliskan kode mereka tanpa sengaja mengatur metode dengan tidak tepat: dengan tidak mengecek null dalam menempatkan kode-kode menggunakan <code class="docutils literal notranslate"><span class="pre">Foo</span></code> setelah kembali dari <code class="docutils literal notranslate"><span class="pre">getFoo</span></code> akan meningkatkan NPE.</p>
+<p>Thus, we can see that allowing implicit nullable contracts leaves us with a selection of pretty awful solutions to
+choose from:</p>
+<ul class="simple">
+<li>Penggubah plugin bisa menganggap bahwa <strong>semua</strong> metode akan kembali null dan kode mempertahankan diri karenanya, tetapi kita sudah melihat bahwa hal ini mengarah ke kode spaghetti dengan cukup cepat.</li>
+<li>API penulis dapat menentukan implisit nullable kontrak pada setiap metode API, dalam upaya untuk membuat null penanganan plugin penulis masalah, yang hanya memperburuk pendekatan sebelumnya.</li>
+<li>API penulis dapat menegaskan bahwa setiap implisit nullable kontrak mereka menentukan akan pernah bisa diubah ke depan. Ini berarti bahwa dalam kemungkinan bahwa mereka perlu untuk menangani penghapusan fitur dari permainan dasar maka mereka harus baik:</li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li>Melempar pengecualian - tidak elegan tapi tentu lebih mudah untuk mendiagnosa dari longgar NPE yang mungkin dipicu tempat lain di codebase dan akan sulit untuk melacak</li>
+<li>Objek ''palsu'' kembali atau nilai yang tidak benar - hal ini berarti bahwa konsumsi kode (plugin) akan terus bekerja, tetapi menciptakan beban yang semakin meningkat bagi pengembangan API kedepannya karena setiap ciri yang telah dicela akan membutuhkan pembuatan lebih banyak objek palsu lagi. Hal ini akan segera mengarah pada situasi dimana potongan besar API dipenuhi dengan objek sampah yang tujuanny hanya untuk mendukung bagian dari API yang tidak lagi bekerja.</li>
+</ul>
+</div></blockquote>
+<p>Itu harus cukup jelas sekarang bahwa ada beberapa yang cukup besar sakit kepala yang melekat pada <em>implisit</em> nullable kontrak, membuat semua lebih pedih ketika API yang dimaksud adalah lapisan atas yang sangat tidak stabil dan pilihan produk. Untungnya, ada cara yang lebih baik:</p>
+</div>
+<div class="section" id="optional-and-the-explicit-nullable-contract">
+<h2>2. Opsional dan Eksplisit Nullable Kontrak<a class="headerlink" href="#optional-and-the-explicit-nullable-contract" title="Link permanen untuk headline ini">¶</a></h2>
+<p>As mentioned above, APIs for Minecraft are in a difficult situation. Ultimately, they need to provide a platform with
+a <em>reasonable amount of implied stability</em> atop a platform (the game) with <em>absolutely no amount of implied stability</em>.
+Thus, any API for Minecraft needs to be designed with full awareness that any aspect of the game is liable to change at
+any time for any reason in any way imaginable; up to and including being removed altogether!</p>
+<p>Volatilitas ini adalah apa yang menyebabkan masalah dengan nullable metode kontrak yang dijelaskan di atas.</p>
+<p><cite>Optional</cite> menyelesaikan masalah diatas dengan mengganti <em>kontrak implisit</em> dengan kontrak <em>eksplisit</em>. API tidak pernah mengatakan, <em>''ini adalah objek anda, kthxbai''</em>, tetapi API menghadirkan aksesor dengan <em>''ini adalah kotak yang berisi atau tidak berisi objek yang anda minta, ymmv''</em>.</p>
+<img alt="../../_images/optionals3.png" src="../../_images/optionals3.png" />
+<p>Dengan menyandikan kemungkinan kembali <code class="docutils literal notranslate"><span class="pre">null</span></code> kedalam kontrak eksplisit, kita mengganti konsep dari <em>pemeriksaan null</em> dengan konsep yang lebih bernuansa dari <em>mungkin tidak ada</em>. Kita juga menetapkan kontrak ini <em>dari hari pertama</em>.</p>
+<p>So, what does this mean?</p>
+<p>Singkatnya, penggubah plugin tidak perlu lagi khawatir tentang kemungkinn <code class="docutils literal notranslate"><span class="pre">null</span></code> kembali lagi. Melainkan objek tertentu yang sangat mungkin tidak tersedia menjadi penyandian dengan kode plugin mereka yang sangat terstruktur. Hal ini memiliki level yang sama dengan keamanan yang melekat yang secara terus-menerus melakukan null-cek, tetapi dengan keuntungan yang lebih elegan dan kode yang mudah dibaca untuk melakukan nya.</p>
+<p>Untuk melihat kenapa, mari kita lihat contoh diatas, diubah untuk menggunakan metode <code class="docutils literal notranslate"><span class="pre">getFoo</span></code> yang mengembalikan <code class="docutils literal notranslate"><span class="pre">Optional&lt;Foo&gt;</span></code> sebagai gantinya:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">someEventHandler</span><span class="p">(</span><span class="n">Entity</span> <span class="n">someEntity</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">Optional</span><span class="o">&lt;</span><span class="n">Foo</span><span class="o">&gt;</span> <span class="n">entityFoo</span> <span class="o">=</span> <span class="n">someEntity</span><span class="p">.</span><span class="na">getFoo</span><span class="p">();</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">entityFoo</span><span class="p">.</span><span class="na">isPresent</span><span class="p">())</span> <span class="p">{</span>
+        <span class="n">entityFoo</span><span class="p">.</span><span class="na">get</span><span class="p">().</span><span class="na">bar</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Anda bisa mencatat bahwa contoh ini terlihat sangat serupa dengan null-cek biasa, namun penggunaan <code class="docutils literal notranslate"><span class="pre">Optional</span></code> sebenarnya membawa informasi sediki lebih banyak dengan jumlah kode yang sama. Sebagai contoh, hal ini tidak dibutuhkan untuk seseorang membaca kode di atas untuk memeriksa metode kontrak, hal ini jelas bahwa metode tersebut mungkin tidak mengembalikan nilai, dan penanganan ketiadaan nilai dilakukan secara eksplisit dan jelas.</p>
+<p>Lalu apa? Kontrak eksplisit kami dalam kasus ini menghasilkan pada dasarnya jumlah kode yang sama dengan pemeriksaan null - meskipun dikontraknya di <em>enforced</em> oleh getter. <em>''Whoop de do''</em> anda bilang, <em>''lalu apa?''</em></p>
+<p>Nah <cite>Optional</cite> tinju memungkinkan kita untuk mengambil beberapa tradisional lebih canggung aspek null-memeriksa dan membuat mereka lebih elegan: perhatikan kode berikut:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">someEventHandler</span><span class="p">(</span><span class="n">Entity</span> <span class="n">someEntity</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">Foo</span> <span class="n">entityFoo</span> <span class="o">=</span> <span class="n">someEntity</span><span class="p">.</span><span class="na">getFoo</span><span class="p">().</span><span class="na">orElse</span><span class="p">(</span><span class="n">MyPlugin</span><span class="p">.</span><span class="na">DEFAULT_FOO</span><span class="p">);</span>
+    <span class="n">entityFoo</span><span class="p">.</span><span class="na">bar</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Pegang telepon! Apakah kita hanya mengganti membosankan null-cek-dan-default-tugas dari contoh di atas dengan satu baris kode? Ya memang kita lakukan. Bahkan, untuk kasus penggunaan kita bahkan dapat membuang dengan tugas:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">someEventHandler</span><span class="p">(</span><span class="n">Entity</span> <span class="n">someEntity</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">someEntity</span><span class="p">.</span><span class="na">getFoo</span><span class="p">().</span><span class="na">orElse</span><span class="p">(</span><span class="n">MyPlugin</span><span class="p">.</span><span class="na">DEFAULT_FOO</span><span class="p">).</span><span class="na">bar</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Ini sangatlah aman selama <code class="docutils literal notranslate"><span class="pre">MyPlugin.DEFAULT_FOO</span></code> selalu tersedia.</p>
+<p>Pertimbangkan contoh berikut dengan dua entitas, menggunakan kontrak nullable yang implisit kita ingin menggunakan <code class="docutils literal notranslate"><span class="pre">Foo</span></code> dari entitas yang pertama, atau jika tidak tersedia gunakan <code class="docutils literal notranslate"><span class="pre">Foo</span></code> dari yang kedua <code class="docutils literal notranslate"><span class="pre">entitas</span></code>, dan kembalikan ke default kami jika tidak ada yang tersedia:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">someEventHandler</span><span class="p">(</span><span class="n">Entity</span> <span class="n">someEntity</span><span class="p">,</span> <span class="n">Entity</span> <span class="n">entity2</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">Foo</span> <span class="n">entityFoo</span> <span class="o">=</span> <span class="n">someEntity</span><span class="p">.</span><span class="na">getFoo</span><span class="p">();</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">entityFoo</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">entityFoo</span> <span class="o">=</span> <span class="n">entity2</span><span class="p">.</span><span class="na">getFoo</span><span class="p">();</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">entityFoo</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">entityFoo</span> <span class="o">=</span> <span class="n">MyPlugin</span><span class="p">.</span><span class="na">DEFAULT_FOO</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">entityFoo</span><span class="p">.</span><span class="na">bar</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Menggunakan <code class="docutils literal notranslate"><span class="pre">Optional</span></code> kita bisa menyandi ini jauh lebih bersih sebagai:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">someEventHandler</span><span class="p">(</span><span class="n">Entity</span> <span class="n">someEntity</span><span class="p">,</span> <span class="n">Entity</span> <span class="n">entity2</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">someEntity</span><span class="p">.</span><span class="na">getFoo</span><span class="p">().</span><span class="na">orElse</span><span class="p">(</span><span class="n">entity2</span><span class="p">.</span><span class="na">getFoo</span><span class="p">().</span><span class="na">orElse</span><span class="p">(</span><span class="n">MyPlugin</span><span class="p">.</span><span class="na">DEFAULT_FOO</span><span class="p">)).</span><span class="na">bar</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This is merely the tip of the <code class="docutils literal notranslate"><span class="pre">Optional</span></code> iceberg. In java 8 <code class="docutils literal notranslate"><span class="pre">Optional</span></code> also supports the <code class="docutils literal notranslate"><span class="pre">Consumer</span></code> and
+<code class="docutils literal notranslate"><span class="pre">Supplier</span></code> interfaces, allowing lambdas to be used for <em>absent</em> failover. Usage examples for those can be found on the
+<a class="reference internal" href="usage.html"><span class="doc">Contoh penggunaan</span></a> page.</p>
+<div class="admonition note">
+<p class="first admonition-title">Catatan</p>
+<p class="last">Penjelasan lain yang rasional dibalik menghindari referensi null bisa ditemukan di <cite>Guava: Penjelasan Menggunakan Dan Menghindari Null &lt;https://github.com/google/guava/wiki/UsingAndAvoidingNullExplained/&gt;._. Hati-hati kelas ``Optional`</cite> guava yang disebutkan didalam artikel terkait berbeda dari kelas java <code class="docutils literal notranslate"><span class="pre">java.util.Optional</span></code> dan oleh sebab itu akan memiliki nama metode yang berbeda dari yang dipergunakan disini.</p>
+</div>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="usage.html" class="btn btn-neutral float-right" title="Contoh penggunaan" accesskey="n" rel="next">Selanjutnya <span class="fa fa-angle-right"></span></a>
+        <a href="index.html" class="btn btn-neutral" title="Pilihan" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> Sebelumnya</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../../_static/flags/id_ID.svg"
+         alt="id" title="Indonesia">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../../_static/jquery.js"></script>      <script type="text/javascript" src="../../_static/underscore.js"></script>      <script type="text/javascript" src="../../_static/doctools.js"></script>      <script type="text/javascript" src="../../_static/language_data.js"></script>      <script type="text/javascript" src="../../_static/translations.js"></script>      <script type="text/javascript" src="../../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

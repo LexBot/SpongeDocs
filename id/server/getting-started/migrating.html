@@ -1,0 +1,405 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Migrasi ke Sponge &mdash; dokumentasi Sponge 7.2.0</title>
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="Indeks"
+              href="../../genindex.html"/>        <link rel="search" title="Pencarian" href="../../search.html"/>    <link rel="top" title="dokumentasi Sponge 7.2.0" href="../../index.html"/>        <link rel="up" title="Memulai" href="index.html"/>        <link rel="next" title="Memilih sebuah Implementasi" href="implementations/index.html"/>        <link rel="prev" title="Menginstalasi Java" href="jre.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../../index.html">
+            <img src="../../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Membuat sebuah server</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html">Quick Start Guide</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Memulai</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="jre.html">Menginstalasi Java</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Migrasi ke Sponge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="implementations/index.html">Memilih sebuah Implementasi</a></li>
+<li class="toctree-l3"><a class="reference internal" href="launch-script.html">Menciptakan Peluncuran Script</a></li>
+<li class="toctree-l3"><a class="reference internal" href="port-forward.html">Meneruskan Pangkalan</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bungeecord.html">Using Sponge with Server Proxies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configuration/index.html">Konfigurasi Spons</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../management/index.html">Manajemen server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spongineer/index.html">Menjadi seorang ahli Spongineer</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../versions/index.html">Versioning Policy</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../preparing/index.html">Mempersiapkan untuk Pengembangan</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../plugin/index.html">Membuat Plugin</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ore/index.html">Dokumentasi bijih</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/index.html">Berkontribusi pada Sponge</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">Tentang Sponge Project</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+          <li><a href="../index.html">Membuat sebuah server</a> &raquo;</li>
+          <li><a href="index.html">Memulai</a> &raquo;</li>
+    <li>Migrasi ke Sponge</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/server/getting-started/migrating.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="migrating-to-sponge">
+<h1>Migrasi ke Sponge<a class="headerlink" href="#migrating-to-sponge" title="Link permanen untuk headline ini">¶</a></h1>
+<p>Tujuan dari artikel-artikel dalam bagian ini adalah untuk membantu server saat ini pemilik untuk bermigrasi dari platform server untuk Sponge.</p>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><a class="reference internal" href="#id1" id="id5">Migrasi ke Sponge</a><ul>
+<li><a class="reference internal" href="#migrating-from-craftbukkit-or-spigot" id="id6">Migrasi dari CraftBukkit atau Spigot</a></li>
+<li><a class="reference internal" href="#migrating-from-canary" id="id7">Migrasi dari Canary</a></li>
+<li><a class="reference internal" href="#migrating-from-forge" id="id8">Migrasi dari Forge</a></li>
+<li><a class="reference internal" href="#migrating-from-vanilla" id="id9">Migrasi dari Vanilla</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#installing-sponge" id="id10">Menginstal Sponge</a></li>
+</ul>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Peringatan</p>
+<p class="last">Silahkan backup file server anda <strong>sebelum</strong> migrasi. Dalam kasus sesuatu yang tidak beres, anda masih punya backup!</p>
+</div>
+<div class="section" id="id1">
+<h2><a class="toc-backref" href="#id5">Migrasi ke Sponge</a><a class="headerlink" href="#id1" title="Link permanen untuk headline ini">¶</a></h2>
+<p>Untuk bermigrasi ke SpongeForge atau SpongeVanilla, lihat bagian di bawah ini. Sebagian besar petunjuk yang identik untuk kedua, perbedaan yang dinyatakan di bawah ini.</p>
+<div class="section" id="migrating-from-craftbukkit-or-spigot">
+<h3><a class="toc-backref" href="#id6">Migrasi dari CraftBukkit atau Spigot</a><a class="headerlink" href="#migrating-from-craftbukkit-or-spigot" title="Link permanen untuk headline ini">¶</a></h3>
+<div class="admonition note">
+<p class="first admonition-title">Catatan</p>
+<p class="last">Spigot merupakan modifikasi dari garpu CraftBukkit.</p>
+</div>
+<div class="section" id="worlds">
+<h4>Dunia<a class="headerlink" href="#worlds" title="Link permanen untuk headline ini">¶</a></h4>
+<p>Forge, and thus SpongeForge (and also SpongeVanilla), use the same world structure as vanilla Minecraft. Vanilla Minecraft
+places the nether (typically <code class="docutils literal notranslate"><span class="pre">world_nether</span></code>) and the end (typically <code class="docutils literal notranslate"><span class="pre">world_the_end</span></code>) dimensions within the
+<code class="docutils literal notranslate"><span class="pre">world</span></code> folder. However, Bukkit and Spigot <em>don't</em> use this system to save the worlds, thus migration is needed.</p>
+<p>SpongeForge dan SpongeVanilla memberikan sepenuhnya otomatis skrip konversi yang mengubah dunia anda untuk anda. Ini adalah cara kerjanya:</p>
+<ol class="arabic simple">
+<li>Shutdown Bukkit anda atau Spigot server dan Backup seluruh folder.</li>
+<li>Menginstal SpongeForge atau SpongeVanilla dalam folder di mana anda berlari server lama anda, menghapus Bukkit atau Spigot jars. Jika anda tidak yakin bagaimana anda seharusnya untuk menginstal SpongeForge atau SpongeVanilla tepat, baca <a class="reference internal" href="implementations/index.html"><span class="doc">ini</span></a>.</li>
+<li>Mulai Sponge server, yang migrator akan dimuat secara otomatis.</li>
+<li>Yang Migrator akan melihat ke dalam <code class="docutils literal notranslate"><span class="pre">bukkit.yml</span></code> untuk kunci konfigurasi yang disebut <code class="docutils literal notranslate"><span class="pre">world-container</span></code> dan akan mencari folder itu untuk dunia untuk transfer. Jika file tersebut tidak ada (atau sesuatu yang menyebabkan ia gagal untuk membaca), maka migrator akan menggunakan <code class="docutils literal notranslate"><span class="pre">root</span></code> folder dari server (yang mana CraftBukkit standar).</li>
+<li>Now the migration is performed. At this point, worlds are copied over from what we call the <code class="docutils literal notranslate"><span class="pre">world</span> <span class="pre">container</span></code> into
+the folder defined in the <a class="reference external" href="https://minecraft.gamepedia.com/Server.properties">server.properties</a> file via the
+<code class="docutils literal notranslate"><span class="pre">level-name</span></code> key. Note that the original files in the <code class="docutils literal notranslate"><span class="pre">world</span> <span class="pre">container</span></code> remain unchanged, a <em>copy</em> is made during migration.</li>
+<li>Bukkit menempatkan hal-hal di tempat-tempat aneh (dengan nama aneh), dengan demikian dua perbaikan penting harus diterapkan. Perlu diingat bahwa perbaikan ini didasarkan pada <em>asumsi</em> (disebabkan karena Bukkit struktur).<ul>
+<li>Fix pertama adalah untuk mengganti nama folder yang namanya dimulai dengan <code class="docutils literal notranslate"><span class="pre">tingkat-nama</span></code> properti dan berakhir dengan Vanili dimensi nama (<code class="docutils literal notranslate"><span class="pre">_nether</span></code>/<code class="docutils literal notranslate"><span class="pre">_the_end</span></code>) untuk <code class="docutils literal notranslate"><span class="pre">DIM-1</span></code> dan <code class="docutils literal notranslate"><span class="pre">DIM1</span></code> masing-masing.</li>
+<li>Kedua memperbaiki adalah untuk bermigrasi sampai <code class="docutils literal notranslate"><span class="pre">wilayah</span></code> data hanya Bukkit Vanilla nether/the_end. Bukkit menempatkan data tersebut ke dalam <code class="docutils literal notranslate"><span class="pre">DIM-1\region</span></code> dan <code class="docutils literal notranslate"><span class="pre">DIM1\region</span></code> sedangkan masing-masing Vanilla/Forge berharap <code class="docutils literal notranslate"><span class="pre">wilayah</span></code> untuk berada di <strong>root</strong> dunia struktur folder.</li>
+</ul>
+</li>
+</ol>
+<p>Yang migrator tidak bisa memberikan semua yang dibutuhkan konfigurasi nilai-nilai. Ini adalah alasan mengapa anda perlu mengubah beberapa parameter dengan tangan untuk membuat dunia bekerja dengan baik pada saat loading SpongeForge atau SpongeVanilla. Hal ini sangat disarankan untuk menggunakan <em>Dunia Manajemen Plugin</em> untuk mengatur parameter yang tepat dan benar-benar beban dunia.</p>
+<div class="admonition note">
+<p class="first admonition-title">Catatan</p>
+<p class="last">Seperti telah ditunjukkan, kita harus berurusan dengan beberapa asumsi sementara migrasi dunia. <strong>Demikian Sponge tidak memuat dunia secara langsung</strong>, anda perlu menginstal sebuah plugin untuk menangani hal ini.</p>
+</div>
+<p>Keluaran yang dihasilkan oleh alat migrasi harus terlihat seperti ini, jika semuanya berjalan baik-baik saja:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[17:32:29] [Server thread/INFO] [Sponge]: Checking for worlds that need to be migrated...
+[17:32:29] [Server thread/INFO] [Sponge]: Migrating [world_lol] from [.].
+[17:32:29] [Server thread/INFO] [Sponge]: Migrated world [world_lol] from [.] to [.\world\world_lol]
+[17:32:29] [Server thread/INFO] [Sponge]: Migrating [world_nether] from [.].
+[17:32:29] [Server thread/INFO] [Sponge]: Migrated world [world_nether] from [.] to [.\world\DIM-1]
+[17:32:29] [Server thread/INFO] [Sponge]: Migrating [world_the_end] from [.].
+[17:32:29] [Server thread/INFO] [Sponge]: Migrated world [world_the_end] from [.] to [.\world\DIM1]
+[17:32:29] [Server thread/INFO] [Sponge]: [3] worlds have been migrated back to Vanilla&#39;s format.
+</pre></div>
+</div>
+<p>Ketika ini selesai, anda harus memiliki salinan dari dunia(s) dalam sebuah struktur yang Sponge dapat memuat. Asli dunia file tetap tak tersentuh di lokasi asli mereka, dalam kasus sesuatu yang tidak beres.</p>
+</div>
+<div class="section" id="server-and-world-configuration-files">
+<h4>Server dan Dunia file-File Konfigurasi<a class="headerlink" href="#server-and-world-configuration-files" title="Link permanen untuk headline ini">¶</a></h4>
+<p>CraftBukkit dan Sponge keduanya berbagi file yang dibuat tersedia oleh vanilla Minecraft. File-file ini sehingga dapat digunakan kembali pada Sponge, jika mereka sudah hadir di CraftBukkit instalasi:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">server.properties</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">banned-ips.json</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">banned-players.json</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">ops.json</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">usercache.json</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">whitelist.json</span></code></li>
+</ul>
+<p>Berikut file-file yang digunakan oleh CraftBukkit hanya, dan dapat dihapus karena Sponge tidak menggunakan mereka:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">bukkit.yml</span></code></li>
+<li>`` commands.yml``</li>
+<li>`` help.yml``</li>
+<li>`` permissions.yml``</li>
+</ul>
+<p>Para pengguna yang bermigrasi dari Spigot mungkin ingin membandingkan <code class="docutils literal notranslate"><span class="pre">spigot.yml</span></code> pada <code class="docutils literal notranslate"><span class="pre">global.conf</span></code> di Sponge. Beberapa tombol di <code class="docutils literal notranslate"><span class="pre">spigot.yml</span></code> memiliki rekan-rekan di <code class="docutils literal notranslate"><span class="pre">global.conf</span></code>, dan mungkin diinginkan untuk menyalin nilai dari setiap tombol yang terdapat pada kedua file.</p>
+</div>
+<div class="section" id="plugins">
+<h4>Plugin<a class="headerlink" href="#plugins" title="Link permanen untuk headline ini">¶</a></h4>
+<p>Sponge tidak memiliki dukungan asli untuk Bukkit plugin. Namun, beberapa anggota komunitas adalah re-implementasi Bukkit API hanya khusus Sponge plugin, yang dapat memungkinkan Bukkit plugin untuk fungsi pada Sponge server. Plugin ini belum dijadwalkan untuk rilis.</p>
+<p>Bijih adalah Sponge's resmi repositori untuk menemukan plugin, dan dianjurkan untuk men-download semua Sponge plugin dari Bijih. Ketika mencari pengganti untuk anda Bukkit plugin, ada beberapa poin yang perlu diingat:</p>
+<ul class="simple">
+<li>Tidak semua Bukkit pengembang telah memilih untuk port plugin mereka untuk Sponge. Seiring waktu, bagaimanapun, orang lain dapat membuat pengganti yang cocok.</li>
+<li>Tidak semua Sponge plugin yang di porting dari Bukkit secara otomatis akan mengkonversi file-file konfigurasi. Individu plugin pengembang membuat keputusan tentang apakah atau tidak untuk secara otomatis mengkonversi file-file konfigurasi.</li>
+<li>Beberapa Sponge plugin yang di porting dari Bukkit mungkin perubahan dalam fungsi, atau bahkan mungkin tidak menggunakan konfigurasi yang sama struktur.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="migrating-from-canary">
+<h3><a class="toc-backref" href="#id7">Migrasi dari Canary</a><a class="headerlink" href="#migrating-from-canary" title="Link permanen untuk headline ini">¶</a></h3>
+<div class="section" id="id2">
+<h4>Dunia<a class="headerlink" href="#id2" title="Link permanen untuk headline ini">¶</a></h4>
+<p>Meniru, dan dengan demikian SpongeForge (dan juga SpongeVanilla), sama-sama menggunakan dunia struktur seperti Minecraft vanilla. Minecraft Vanilla-tempat nether (biasanya <cite>world_nether</cite>) dan akhir (biasanya <cite>world_the_end</cite>) dimensi dalam <cite>dunia</cite> folder.</p>
+<p>Canary berpindah nether dan akhir dimensi luar <code class="docutils literal notranslate"><span class="pre">dunia</span></code> folder, yang harus diperbaiki jika diinginkan untuk mempertahankan nether dan akhir dimensi ketika berjalan Sponge. Namun, Canary menyediakan metode yang mudah untuk mengkonversi Canary dunia untuk sebuah struktur yang dapat digunakan oleh Sponge dengan <code class="docutils literal notranslate"><span class="pre">/makevanilla</span></code> perintah. Jika dunia konversi berhasil, keluaran yang akan ditempatkan di <code class="docutils literal notranslate"><span class="pre">vanilla</span></code> folder.</p>
+</div>
+<div class="section" id="id3">
+<h4>Server dan Dunia file-File Konfigurasi<a class="headerlink" href="#id3" title="Link permanen untuk headline ini">¶</a></h4>
+<p>Sponge menggunakan banyak file yang dibuat tersedia oleh vanili Minecraft, seperti <code class="docutils literal notranslate"><span class="pre">server.properties</span></code>. Canary, bagaimanapun, tidak; satu-satunya file yang memiliki kesamaan dengan vanili Minecraft is <code class="docutils literal notranslate"><span class="pre">usercache.json</span></code>. Demikian, <code class="docutils literal notranslate"><span class="pre">usercache.json</span></code> adalah satu-satunya file dari Canary yang dapat digunakan kembali pada Sponge.</p>
+<p>Namun demikian, adalah mungkin untuk secara manual bermigrasi beberapa Canary file-file konfigurasi untuk mereka Sponge rekan-rekan, yang telah disediakan di bawah ini.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="47%" />
+<col width="53%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">File Canary</th>
+<th class="head">Rekan spons</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>server.cfg &lt;world&gt; _ &lt;dimension&gt;.cfg</td>
+<td>server.properties</td>
+</tr>
+<tr class="row-odd"><td>&lt;world&gt; _ &lt;dimension&gt;.cfg</td>
+<td>global.conf &lt;dimension&gt; /dimension.conf</td>
+</tr>
+<tr class="row-even"><td>ops.cfg</td>
+<td>ops.json</td>
+</tr>
+<tr class="row-odd"><td>db.cfg</td>
+<td>Tidak ada rekan</td>
+</tr>
+<tr class="row-even"><td>motd.txt</td>
+<td>Tidak ada rekan</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id4">
+<h4>Plugin<a class="headerlink" href="#id4" title="Link permanen untuk headline ini">¶</a></h4>
+<p>SpongeVanilla dan SpongeForge tidak memiliki dukungan asli untuk Canary plugin. Itu mungkin untuk kembali melaksanakan Canary API di Sponge khusus plugin.</p>
+<p>Bijih adalah Sponge resmi repositori untuk menemukan plugin, dan dianjurkan untuk men-download semua Sponge plugin dari Bijih. Ketika mencari pengganti untuk anda Canary plugin, ada beberapa poin yang perlu diingat:</p>
+<ul class="simple">
+<li>Tidak semua Canary pengembang telah memilih untuk port plugin mereka untuk Sponge. Seiring waktu, bagaimanapun, orang lain dapat membuat pengganti yang cocok.</li>
+<li>Tidak semua Sponge plugin yang di porting dari Canary secara otomatis akan mengkonversi file-file konfigurasi. Individu plugin pengembang membuat keputusan tentang apakah atau tidak untuk secara otomatis mengkonversi file-file konfigurasi.</li>
+<li>Beberapa Sponge plugin yang di porting dari Canary mungkin perubahan dalam fungsi, atau bahkan mungkin tidak menggunakan konfigurasi yang sama struktur.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="migrating-from-forge">
+<h3><a class="toc-backref" href="#id8">Migrasi dari Forge</a><a class="headerlink" href="#migrating-from-forge" title="Link permanen untuk headline ini">¶</a></h3>
+<p>Migrasi dari dataran Forge server ke SpongeForge atau SpongeVanilla server adalah proses yang cukup sederhana dan membutuhkan sedikit-untuk-tidak ada pekerjaan persiapan.</p>
+<div class="section" id="migrating-to-spongeforge">
+<h4>Migrasi ke SpongeForge<a class="headerlink" href="#migrating-to-spongeforge" title="Link permanen untuk headline ini">¶</a></h4>
+<p>Anda harus terlebih dahulu memastikan bahwa anda menjalankan versi Forge yang kompatibel dengan versi SpongeForge anda berencana untuk menggunakan. Anda mungkin menemukan dianjurkan membangun Bengkel di <a class="reference external" href="https://files.minecraftforge.net">Forge Downloads</a>. Jika anda menggunakan mods lain, mereka juga harus diperbarui.</p>
+<p>Bila anda sudah siap untuk memasang SpongForge, anda dapat melanjutkannya dengan mengikuti langkah-langkah berikut:</p>
+<ol class="arabic simple">
+<li>Matikan peladen Forge anda jika sedang berjalan.</li>
+<li>Unduh SpongeForge dari laman Sponge dan Forge dari MinecraftForge.</li>
+<li>Tempatkan <code class="docutils literal notranslate"><span class="pre">SpongeForge.jar</span></code> kedalam pelipat <code class="docutils literal notranslate"><span class="pre">mods</span></code> anda.</li>
+<li>Jalankan peladen dan pesta!</li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">Catatan</p>
+<p class="last">Jika SpongeForge merupakan satu-satunya mod didalam peladen anda, para pengguna akan bisa masuk dengan vanilla klien. Mod yang lain akan meminta pengguna untuk memasang Forge pada komputer mereka masing-masing.</p>
+</div>
+</div>
+<div class="section" id="migration-to-spongevanilla">
+<h4>Migrasi ke SpongeVanilla<a class="headerlink" href="#migration-to-spongevanilla" title="Link permanen untuk headline ini">¶</a></h4>
+<div class="admonition warning">
+<p class="first admonition-title">Peringatan</p>
+<p class="last">Jika bermigrasi ke <strong>SpongeVanilla</strong>: Anda akan kehilangan semua data Forge mod, blok dan entitas karena SpongeVanilla tidak bisa menjalankan Forge mods. Tolong diingat hal tersebut saat memutuskan apakah anda akan menggunakan SpongeForge atau SpongeVanilla.</p>
+</div>
+<p>Proses migrasi hampir sama dengan proses yang diatas:</p>
+<ol class="arabic simple">
+<li>Matikan peladen Forge anda jika masih berjalan.</li>
+<li>Unduh SpongeVanilla dan peladen vanilla dari Mojang.</li>
+<li>Tempatkan dunia anda dan konfigurasi berkas didalam lipatan peladen.</li>
+<li>Jalankan peladen dengan menjalankan <code class="docutils literal notranslate"><span class="pre">spongevanilla.jar</span></code>.</li>
+</ol>
+</div>
+</div>
+<div class="section" id="migrating-from-vanilla">
+<h3><a class="toc-backref" href="#id9">Migrasi dari Vanilla</a><a class="headerlink" href="#migrating-from-vanilla" title="Link permanen untuk headline ini">¶</a></h3>
+<p>Administrator dari peladen vanilla Minecraft bisa bermigrasi ke Sponge dengan mudah karena Forge, dan demikian juga SpongeForge (dan SpongeVanilla), menggunakan struktur dunia yang sama seperti vanilla Minecraft. Sponge juga menggunakan berkas yang sama yang dipergunakan oleh vanilla Minecraft, seperti <code class="docutils literal notranslate"><span class="pre">peladen.propertis</span></code>.</p>
+<p>Pertama-tama anda harus memutuskan apakah menjalankan SpongeForge atau SpongeVanilla.</p>
+<div class="admonition note">
+<p class="first admonition-title">Catatan</p>
+<p class="last">Both flavors of Sponge are able to serve vanilla clients. Keep in mind that this only applies to SpongeForge as
+long as you don't install Forge mods which require client modifications.</p>
+</div>
+<ol class="arabic simple">
+<li>Matikan peladen Vanilla anda jika masih berjalan</li>
+<li>Unduh SpongeVanilla atau SpongeForge.</li>
+<li>Tempatkan dunia anda dan konfigurasi berkas didalam lipatan peladen.</li>
+<li>Jalankan peladen baru anda.</li>
+</ol>
+</div>
+</div>
+<div class="section" id="installing-sponge">
+<h2><a class="toc-backref" href="#id10">Menginstal Sponge</a><a class="headerlink" href="#installing-sponge" title="Link permanen untuk headline ini">¶</a></h2>
+<p>Panduan di <span class="xref std std-doc">implementasi/spongeforge</span> dan <span class="xref std std-doc">implementasi/spongevanilla</span> memberikan petunjuk untuk menginstal Sponge saat anda sedang bermigrasi.</p>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="implementations/index.html" class="btn btn-neutral float-right" title="Memilih sebuah Implementasi" accesskey="n" rel="next">Selanjutnya <span class="fa fa-angle-right"></span></a>
+        <a href="jre.html" class="btn btn-neutral" title="Menginstalasi Java" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> Sebelumnya</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../../_static/flags/id_ID.svg"
+         alt="id" title="Indonesia">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../../_static/jquery.js"></script>      <script type="text/javascript" src="../../_static/underscore.js"></script>      <script type="text/javascript" src="../../_static/doctools.js"></script>      <script type="text/javascript" src="../../_static/language_data.js"></script>      <script type="text/javascript" src="../../_static/translations.js"></script>      <script type="text/javascript" src="../../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

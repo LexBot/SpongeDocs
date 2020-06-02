@@ -1,0 +1,385 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sponge 文件 &mdash; Sponge 7.2.0 說明文件</title>
+
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="索引"
+              href="genindex.html"/>        <link rel="search" title="搜尋" href="search.html"/>    <link rel="top" title="Sponge 7.2.0 說明文件" href="#"/>        <link rel="next" title="建立伺服器" href="server/index.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="#">
+            <img src="_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="server/index.html">建立伺服器</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="versions/index.html">版本控制方針</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="preparing/index.html">準備開發</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="plugin/index.html">建立插件</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ore/index.html">Ore 文件</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="contributing/index.html">為 Sponge 貢獻</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="about/index.html">關於 Sponge 專案</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="#">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="#">Docs</a> &raquo;</li>
+    <li>Sponge 文件</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="sponge-documentation">
+<h1>Sponge 文件<a class="headerlink" href="#sponge-documentation" title="本標題的永久連結">¶</a></h1>
+<div class="section" id="introduction">
+<h2>簡介<a class="headerlink" href="#introduction" title="本標題的永久連結">¶</a></h2>
+<p>歡迎來到 SpongeDocs，開源專案 <a class="reference external" href="https://www.spongepowered.org">Sponge</a> 的官方文件。</p>
+<p>SpongeAPI is your all new plugin API for Minecraft: Java Edition. You can run it on a plain vanilla server (as
+SpongeVanilla) or on your fully modded MinecraftForge server (as SpongeForge). Check out our <a class="reference internal" href="versions/index.html"><span class="doc">版本控制方針</span></a> to
+understand selecting a file and grab your copy from our <a class="reference external" href="https://www.spongepowered.org/downloads/">downloads page</a>.</p>
+<p>不確定想找什麼嗎？試著閱讀 <a class="reference internal" href="about/index.html"><span class="doc">關於 Sponge 專案</span></a> ，其中包含了一段 <a class="reference internal" href="about/introduction.html"><span class="doc">簡介</span></a> 、我們的 <a class="reference internal" href="about/faq.html"><span class="doc">常見問題</span></a> ，以及一篇關於 <a class="reference internal" href="about/structure.html"><span class="doc">Sponge 專案的結構</span></a> 的文章。</p>
+<p>伺服器擁有者應閱讀我們在 <a class="reference internal" href="server/index.html"><span class="doc">建立伺服器</span></a> 中的提醒和說明，包括如何安裝、執行並維護基於 Sponge 的伺服器。</p>
+<p>Sponge 專案分成了幾個主要的部份。欲瞭解更多有關專案的結構，請到 <a class="reference internal" href="about/structure.html"><span class="doc">這裡</span></a> 或是前往 GitHub 儲存庫︰</p>
+<p><a class="reference external" href="https://github.com/spongepowered/spongeforge">SpongeForge</a> |
+<a class="reference external" href="https://github.com/spongepowered/spongevanilla">SpongeVanilla</a> | <a class="reference external" href="https://github.com/spongepowered/spongeapi">SpongeAPI</a> |
+<a class="reference external" href="https://github.com/spongepowered/spongedocs">SpongeDocs</a> | <a class="reference external" href="https://github.com/SpongePowered/SpongeHome">SpongeHome</a> |
+<a class="reference external" href="https://github.com/SpongePowered/Mixin">Mixin</a> |  <a class="reference external" href="https://github.com/SpongePowered/Ore">Ore</a> |
+<a class="reference external" href="https://github.com/SpongePowered/SpongeAuth">SpongeAuth</a></p>
+<div class="admonition note">
+<p class="first admonition-title">備註</p>
+<p class="last">Sponge development is ongoing. Stable and Experimental builds of both SpongeForge and SpongeVanilla are currently
+available for <a class="reference external" href="https://www.spongepowered.org/downloads/">download</a>.</p>
+</div>
+</div>
+<div class="section" id="contents">
+<h2>目錄<a class="headerlink" href="#contents" title="本標題的永久連結">¶</a></h2>
+<div class="section" id="creating-a-server">
+<h3>建立伺服器<a class="headerlink" href="#creating-a-server" title="本標題的永久連結">¶</a></h3>
+<p>這個章節是針對已經擁有或有興趣建立 Sponge 伺服器的使用者。</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="server/index.html">建立伺服器</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="server/quickstart.html">快速入門指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="server/getting-started/index.html">開始使用</a></li>
+<li class="toctree-l2"><a class="reference internal" href="server/management/index.html">伺服器管理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="server/spongineer/index.html">成為專業的 Spongineer</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="versioning-policy">
+<h3>版本控制方針<a class="headerlink" href="#versioning-policy" title="本標題的永久連結">¶</a></h3>
+<p>這章節描述 Sponge 如何管理版本。</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="versions/index.html">版本控制方針</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="versions/versioning.html">版本规范</a></li>
+<li class="toctree-l2"><a class="reference internal" href="versions/filenames.html">檔案名稱說明</a></li>
+<li class="toctree-l2"><a class="reference internal" href="versions/legacy-versions.html">旧版 SpongeForge 版本策略</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="preparing-for-development">
+<h3>準備開發<a class="headerlink" href="#preparing-for-development" title="本標題的永久連結">¶</a></h3>
+<p>讓你和你的機器準備好開發 Sponge 或是你自己的插件！請在開始閱讀 <a class="reference internal" href="plugin/index.html"><span class="doc">建立插件</span></a> 與 <a class="reference internal" href="contributing/index.html"><span class="doc">為 Sponge 貢獻</span></a> 之前先閱讀本章節。</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="preparing/index.html">準備開發</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="preparing/jdk.html">安裝 JDK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="preparing/ide.html">安裝 IDE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="preparing/text.html">安裝文字編輯器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="preparing/git.html">安裝 Git</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="creating-plugins">
+<h3>建立插件<a class="headerlink" href="#creating-plugins" title="本標題的永久連結">¶</a></h3>
+<p>在使用 SpongeAPI 編寫你的插件時需要更多的資訊？下面的內容會對你有所幫助。</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="plugin/index.html">建立插件</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="plugin/api-versions.html">API版本</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin/buildsystem.html">建置系統</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin/workspace/index.html">建立你的工作空間</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin/project/index.html">建立你的專案</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin/plugin-identifier.html">插件識別碼</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin/plugin-class.html">主要插件類別</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin/lifecycle.html">插件的生命週期</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin/injection.html">相依注入</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin/practices/index.html">實踐</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin/optional/index.html">Optionals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin/logging.html">記錄與除錯</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin/text/index.html">文本</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin/commands/index.html">插件指令</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin/event/index.html">事件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin/configuration/index.html">設定插件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin/assets.html">Asset API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin/data/index.html">Data API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin/blocks/index.html">方塊</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin/entities/index.html">實體</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin/items/index.html">物品</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin/trade-offers.html">開設交易</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin/effects.html">效果</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin/scheduler.html">排程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin/services.html">服務</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin/database.html">資料庫</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin/permissions.html">權限</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin/bans.html">封鎖</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin/metrics.html">Metrics 收集</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin/bookview.html">書本閱覽</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin/economy/index.html">經濟</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin/wgen/index.html">世界生成</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin/manager.html">插件管理器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin/game-profile-manager.html">遊戲設定檔管理器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin/offline-userplayer-data.html">離線玩家資料</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin/tab-lists.html">Tab 清單</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin/plugin-meta.html">插件元數據</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin/ray-tracing.html">光線追蹤</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin/debugging.html">插件除錯</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin/tutorials.html">教學</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin/internals/index.html">相依於實作的插件</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="id1">
+<h3>Ore<a class="headerlink" href="#id1" title="本標題的永久連結">¶</a></h3>
+<p>瞭解如何利用我們特製的插件託管方案，Ore 來發佈、安裝、瀏覽並使用我們的 Web API。</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ore/index.html">Ore 文件</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ore/guidelines.html">Ore 插件提交指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ore/guidelines.html#projects">專案</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ore/guidelines.html#files">檔案</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ore/publish.html">發佈你的插件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ore/security.html">安全性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ore/api.html">Ore Web API</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="contributing-to-sponge">
+<h3>為 Sponge 貢獻<a class="headerlink" href="#contributing-to-sponge" title="本標題的永久連結">¶</a></h3>
+<p>如果想讓 Sponge 變得更好，可以看看這裡，讓 Spongie 感到驕傲！</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="contributing/index.html">為 Sponge 貢獻</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="contributing/guidelines.html">貢獻指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributing/howtogit.html">如何 Git(hub)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributing/implementation/index.html">開發 Sponge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributing/spongedocs.html">SpongeDocs 文件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributing/porting.html">將 Sponge 移植到其他平台</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributing/versioning.html">專案分支布局</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="about-sponge">
+<h3>關於 Sponge<a class="headerlink" href="#about-sponge" title="本標題的永久連結">¶</a></h3>
+<p>此章節包含有關本專案的基本資訊。如果你對 Sponge、其各部分或是我們的目標感到困惑，你可以看看這裡。</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="about/index.html">關於 Sponge 專案</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="about/introduction.html">簡介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="about/faq.html">常見問題</a></li>
+<li class="toctree-l2"><a class="reference internal" href="about/structure.html">Sponge 專案的結構</a></li>
+<li class="toctree-l2"><a class="reference internal" href="about/future.html">未來的計畫</a></li>
+<li class="toctree-l2"><a class="reference internal" href="about/license.html">授權協議</a></li>
+<li class="toctree-l2"><a class="reference internal" href="about/posting.html">論壇發佈指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="about/rules.html">论坛、Discord 及 IRC 守则</a></li>
+<li class="toctree-l2"><a class="reference internal" href="about/tos.html">服務條款</a></li>
+<li class="toctree-l2"><a class="reference internal" href="about/privacy.html">隱私權政策</a></li>
+<li class="toctree-l2"><a class="reference internal" href="about/staff.html">工作人員</a></li>
+<li class="toctree-l2"><a class="reference internal" href="about/glossary.html">Sponge 術語</a></li>
+<li class="toctree-l2"><a class="reference internal" href="about/assets.html">美術資產</a></li>
+<li class="toctree-l2"><a class="reference internal" href="about/history.html">Sponge 的歷史</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="acknowledgements">
+<h3>致謝<a class="headerlink" href="#acknowledgements" title="本標題的永久連結">¶</a></h3>
+<img alt="_images/yklogo.png" src="_images/yklogo.png" />
+<p>SpongePowered 團隊十分感謝 <em>YourKit</em> 免費向開源專案提供其全功能的 Java 效能分析器。 YourKit, LLC 是 <a class="reference external" href="https://www.yourkit.com/java/profiler/index.jsp">YourKit Java Profiler</a> 與 <a class="reference external" href="https://www.yourkit.com/.net/profiler/index.jsp">YourKit .NET Profiler</a> 這兩個創新且智慧的 Java 與 .NET 分析工具的作者。</p>
+</div>
+</div>
+<div class="section" id="links">
+<h2>連結<a class="headerlink" href="#links" title="本標題的永久連結">¶</a></h2>
+<div class="toctree-wrapper compound">
+</div>
+<ul class="simple">
+<li><a class="reference external" href="https://www.spongepowered.org">Sponge 首頁</a></li>
+<li><a class="reference external" href="https://forums.spongepowered.org">Sponge 論壇</a></li>
+<li><a class="reference external" href="https://discord.gg/sponge">Sponge Discord</a></li>
+<li><a class="reference external" href="https://www.spongepowered.org/downloads/">Sponge Downloads</a></li>
+<li><a class="reference external" href="https://github.com/SpongePowered/SpongeAPI/issues?q=">SpongeAPI 問題追蹤器</a></li>
+<li><a class="reference external" href="https://jd.spongepowered.org">SpongeAPI Javadocs</a></li>
+<li><a class="reference external" href="https://twitter.com/SpongePowered">Sponge Twitter</a></li>
+<li><a class="reference external" href="https://www.reddit.com/r/spongeproject">Sponge Subreddit</a></li>
+<li><a class="reference external" href="https://github.com/SpongePowered">Sponge GitHub</a></li>
+<li><a class="reference external" href="https://www.patreon.com/Sponge">Sponge Patreon 贊助頁面</a></li>
+</ul>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="server/index.html" class="btn btn-neutral float-right" title="建立伺服器" accesskey="n" rel="next">下一頁 <span class="fa fa-angle-right"></span></a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="_static/flags/zh_TW.svg"
+         alt="zh-TW" title="繁體中文">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="_static/jquery.js"></script>      <script type="text/javascript" src="_static/underscore.js"></script>      <script type="text/javascript" src="_static/doctools.js"></script>      <script type="text/javascript" src="_static/language_data.js"></script>      <script type="text/javascript" src="_static/translations.js"></script>      <script type="text/javascript" src="_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

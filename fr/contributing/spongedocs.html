@@ -1,0 +1,286 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Écrire pour SpongeDocs &mdash; Documentation Sponge 7.2.0</title>
+
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="Index"
+              href="../genindex.html"/>        <link rel="search" title="Recherche" href="../search.html"/>    <link rel="top" title="Documentation Sponge 7.2.0" href="../index.html"/>        <link rel="up" title="Contribuer à Sponge" href="index.html"/>        <link rel="next" title="Faire un Portage de Sponge vers d’autres Plateformes" href="porting.html"/>        <link rel="prev" title="Implémenter des DataManipulators" href="implementation/datamanipulator.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../index.html">
+            <img src="../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../server/index.html">Créer un Serveur</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../versions/index.html">Stratégie de versioning</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../preparing/index.html">Préparation pour le développement</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../plugin/index.html">Création d’un Plugin</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ore/index.html">Documentation d’Ore</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Contribuer à Sponge</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="guidelines.html">Lignes directrices des contributions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="howtogit.html">Comment utiliser Git(Hub)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="implementation/index.html">Développer Sponge</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Écrire pour SpongeDocs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="porting.html">Faire un Portage de Sponge vers d’autres Plateformes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="versioning.html">Organisation des branches du dépôt</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">À propos du Projet Sponge</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+          <li><a href="index.html">Contribuer à Sponge</a> &raquo;</li>
+    <li>Écrire pour SpongeDocs</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/contributing/spongedocs.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="spongedocs-writing">
+<h1>Écrire pour SpongeDocs<a class="headerlink" href="#spongedocs-writing" title="Lien permanent vers ce titre">¶</a></h1>
+<p>La documentation de Sponge, également appelée «&nbsp;SpongeDocs&nbsp;», est la documentation officielle du projet Sponge. Le but de SpongeDocs est de:</p>
+<ul class="simple">
+<li>Aider les utilisateurs a configurer leurs propres serveurs basés sur une implémentation de Sponge.</li>
+<li>Fournir aux développeurs des informations sur comment contribuer au projet Sponge.</li>
+<li>Fournir aux développeurs des informations sur comment commencer a développer un plugin.</li>
+</ul>
+<div class="section" id="reporting-problems">
+<h2>Signaler les Problèmes<a class="headerlink" href="#reporting-problems" title="Lien permanent vers ce titre">¶</a></h2>
+<p>It may always occur that a page gets outdated, an error sneaks in or you just look at a page and think «&nbsp;Well, there is a
+better way of explaining this.&nbsp;» If that is the case and you are for some reason not able to provide a fix yourself,
+there are four ways of making us aware of the problem:</p>
+<ol class="arabic simple">
+<li>Créer un <a class="reference external" href="https://github.com/SpongePowered/SpongeDocs/issues">Ticket sur le GitHub de SpongeDocs</a></li>
+<li>Créer un post sur la <a class="reference external" href="https://forums.spongepowered.org/c/sponge-docs">catégorie SpongeDocs des Forums</a></li>
+<li>Rencontrez-nous sur le <a class="reference external" href="ircs://irc.esper.net:6697/#spongedocs">channel #spongedocs sur irc.esper.net</a> (vous devez être inscrit)</li>
+<li>Visit us on our <a class="reference external" href="https://discord.gg/sponge">Discord Server</a>, namely the <code class="docutils literal notranslate"><span class="pre">#docs</span></code> channel.</li>
+</ol>
+</div>
+<div class="section" id="writing-the-docs">
+<h2>Écrire la Doc<a class="headerlink" href="#writing-the-docs" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Tout changements et additions à SpongeDocs doit être soumis en pull request sur le <a class="reference external" href="https://github.com/SpongePowered/SpongeDocs">repository SpongeDocs de GitHub</a>.Nous ne demandons pas quelque chose de parfait la première fois et il est courant qu’une requête soit retouchée durant le processus de revue. Les explications incomplètes sont également les bienvenues, ne soyez pas timides si vous ne comprenez pas certaines parties . Il y aura toujours quelqu’un qui pourra combler les lacunes.</p>
+<p>The Docs are written in reStructuredText (reST), if you’re familiar with Markdown (md) the step to reST shouldn’t be too
+hard. If you’re having issues with it we suggest that you join our <a class="reference external" href="ircs://irc.esper.net:6697/#spongedocs">#spongedocs on irc.esper.net</a>
+and ask for help there, or join our <a class="reference external" href="https://discord.gg/sponge">Discord Server</a> and post on the <code class="docutils literal notranslate"><span class="pre">#docs</span></code> channel.
+Discord and IRC are linked, so you’ll get the same support irrespective of the platform you choose.
+Alternatively, you can post on our <a class="reference external" href="https://forums.spongepowered.org/">forums</a> if you think it is more apropriate.</p>
+<p>La Documentation de Sponge est sous la licence <a class="reference external" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons - Share-Alike license</a>. Les assets d’art sont sous la <a class="reference external" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons - Non Commercial, No Derivatives license</a>. Les contributions acceptent implicitement les termes de cette licence.</p>
+</div>
+<div class="section" id="style-guide">
+<h2>Guide de Style<a class="headerlink" href="#style-guide" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Pour être sûr d’avoir un format cohérent sur l’ensemble de SpongeDocs, nous avons écrit ci-dessous des règles d’écriture pour la documentation de Sponge. Cette liste est susceptible de subir des ajouts (ou d’être modifiée) au fur et à mesure que la documentation grossira.</p>
+<ol class="arabic simple">
+<li>Les Titres Devraient Être en Case de Titre (&lt;- exemple) [sauf si la règle n°8 s’applique].</li>
+<li>Les titres de page doivent être significatifs (le titre s’affiche comme un lien).</li>
+<li>Program code should be contained in <a class="reference external" href="https://docutils.sourceforge.io/docs/ref/rst/roles.html#literal">inline literals</a>
+or code blocks.</li>
+</ol>
+<blockquote>
+<div><ol class="lowerroman simple">
+<li>Évitez de mettre trop de texte dans les blocs de code, puisqu’ils ne peuvent pas être traduits. Les contributeurs ne devraient pas commenter dans les blocs de code tant que possible. Un simple placeholder peut être nécessaire dans quelques exemples. Idéalement, les exemples dans les blocs de code sont courts, et sont suivis d’un explication pour chaque exemple dans le corps du texte. Bien sûr, il peut y avoir certains concepts qui ne peuvent pas être illustrés avec un exemple court.</li>
+<li>Utilisez le type de blocs de code suivant pour les blocs de code particuliers:</li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li>Groovy/Gradle-Files -&gt; <code class="docutils literal notranslate"><span class="pre">groovy</span></code></li>
+<li>Hocon-Config -&gt; <code class="docutils literal notranslate"><span class="pre">guess</span></code> (hocon n’est pas encore supporté)</li>
+<li>In-Game/Server Console Command -&gt; <code class="docutils literal notranslate"><span class="pre">none</span></code></li>
+<li>Java-Code -&gt; <code class="docutils literal notranslate"><span class="pre">java</span></code></li>
+<li>Json-Config -&gt; <code class="docutils literal notranslate"><span class="pre">json</span></code></li>
+<li>Linux-Terminal -&gt; <code class="docutils literal notranslate"><span class="pre">bash</span></code></li>
+<li>Logs -&gt; <code class="docutils literal notranslate"><span class="pre">none</span></code></li>
+<li>Text -&gt; <code class="docutils literal notranslate"><span class="pre">text</span></code></li>
+<li>Windows-Console -&gt; <code class="docutils literal notranslate"><span class="pre">bat</span></code></li>
+</ul>
+</div></blockquote>
+</div></blockquote>
+<ol class="arabic simple" start="4">
+<li>Garder des espaces différents pour les Utilisateurs, les Développeurs de plugin et les Développeurs Sponge.</li>
+<li>Éviter les répétitions en partageant les pages lorsque c’est possible.</li>
+<li>Fournissez un lien vers une ressource plutôt que de la recopier.</li>
+</ol>
+<blockquote>
+<div><ol class="lowerroman simple">
+<li>Quelques exceptions sont faites à des fins de traduction.</li>
+</ol>
+</div></blockquote>
+<ol class="arabic simple" start="7">
+<li>Distinguer SpongeForge, SpongeVanilla et SpongeAPI.</li>
+<li>Si cela semble horrible de votre langue, inventez vos propres règles.</li>
+<li>Sponge est le Titre du Projet et NE devrait PAS être traduit.</li>
+</ol>
+<blockquote>
+<div><ol class="lowerroman simple">
+<li>Il serait préférable, pour certaines langues, d’utiliser une traduction phonétique, ce qui est aussi correct.</li>
+</ol>
+</div></blockquote>
+<ol class="arabic simple" start="10">
+<li>Les traductions automatiques (comme Google Translate) sont fortement déconseillées. Souvent, elles contiennent des erreurs graves et sont très souvent rejetées.</li>
+<li>Les Titres de page et les En-têtes de Section doivent être en texte brut, c’est à dire avec les blocs littérales et autres mises en forme.</li>
+<li>Les références à du code ont des majuscules dans la documentation source et n’ont aucuns espaces (par exemple blockState (un nom de champ) ou BlockState (un nom de classe), plutôt que <em>état du bloc</em>). Ils devraient également être formatés comme un littéral à l’aide de doubles apostrophes inverses (par exemple <code class="docutils literal notranslate"><span class="pre">blockState</span></code> ) dans le corps du texte.</li>
+<li>La longueur maximale des lignes doit être de 120 caractères.</li>
+<li>Les importations doivent être écrits dans les blocs de code la première fois qu’ils sont référencés dans chaque article, mais pas les fois d’après.</li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Comme une Sponge est encore dans un état de flux, un manque de documentation de développement doit être attendu. Jusqu’à la sortie officielle de Sponge, il y a sûrement beaucoup de sujets vides. Néanmoins, SpongeDocs est une documentation évolutive, toujours susceptible d’être modifiée. Elle ne sera jamais parfaite, mais répondra aux besoins aussi bien dans la forme que dans le fond.</p>
+</div>
+<p><em>Contribuer, suggérer et corriger est toujours apprécié.</em></p>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="porting.html" class="btn btn-neutral float-right" title="Faire un Portage de Sponge vers d’autres Plateformes" accesskey="n" rel="next">Suivant <span class="fa fa-angle-right"></span></a>
+        <a href="implementation/datamanipulator.html" class="btn btn-neutral" title="Implémenter des DataManipulators" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> Précédent</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../_static/flags/fr_FR.svg"
+         alt="fr" title="Français">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../_static/jquery.js"></script>      <script type="text/javascript" src="../_static/underscore.js"></script>      <script type="text/javascript" src="../_static/doctools.js"></script>      <script type="text/javascript" src="../_static/language_data.js"></script>      <script type="text/javascript" src="../_static/translations.js"></script>      <script type="text/javascript" src="../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

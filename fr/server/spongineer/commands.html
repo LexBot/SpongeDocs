@@ -1,0 +1,592 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Commandes et permissions &mdash; Documentation Sponge 7.2.0</title>
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>        <link rel="search" title="Recherche" href="../../search.html"/>    <link rel="top" title="Documentation Sponge 7.2.0" href="../../index.html"/>        <link rel="up" title="Devenir un Expert Spongineer" href="index.html"/>        <link rel="next" title="Dépannage" href="troubleshooting.html"/>        <link rel="prev" title="Devenir un Expert Spongineer" href="index.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../../index.html">
+            <img src="../../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Créer un Serveur</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html">Guide de démarrage rapide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started/index.html">Premiers pas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../management/index.html">Gestion de Serveur</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Devenir un Expert Spongineer</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Commandes et permissions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="troubleshooting.html">Dépannage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="logs.html">Fichiers Log</a></li>
+<li class="toctree-l3"><a class="reference internal" href="debugging.html">Debugging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="incompatible.html">Mod Compatibility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bugreport.html">Rapporter des bugs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="properties.html">Propriétés</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../versions/index.html">Stratégie de versioning</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../preparing/index.html">Préparation pour le développement</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../plugin/index.html">Création d’un Plugin</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ore/index.html">Documentation d’Ore</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/index.html">Contribuer à Sponge</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">À propos du Projet Sponge</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+          <li><a href="../index.html">Créer un Serveur</a> &raquo;</li>
+          <li><a href="index.html">Devenir un Expert Spongineer</a> &raquo;</li>
+    <li>Commandes et permissions</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/server/spongineer/commands.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="commands-and-permissions">
+<h1>Commandes et permissions<a class="headerlink" href="#commands-and-permissions" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Les commandes sont une des méthodes utilisées par les administrateurs pour gérer leur serveur, mais aussi par les joueurs pour interagir avec le serveur.</p>
+<p>Dans Sponge, les commandes suivent un système de <a class="reference internal" href="../../plugin/permissions.html"><span class="doc">Permissions</span></a>. Les permissions permettent aux administrateurs de contrôler qui peut accéder à quelle commande. Par défaut, toutes les commandes sont disponibles aux administrateurs. Les joueurs sans le statut d’administrateur n’ont pas accès aux commandes réservés aux administrateurs, ou qui requièrent une permission spécifique. Un administrateur peut gérer l’accès aux commandes en ajoutant/retirant une permission à un joueur via un plugin de permission.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Sponge ne gère pas nativement les permissions. Pour ajouter ou retirer des permissions à un joueur spécifique, ou à un groupe de joueur, vous devez installer un plugin de permission.</p>
+</div>
+<div class="section" id="operator-commands">
+<h2>Commandes d’administrateur<a class="headerlink" href="#operator-commands" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Ces commandes, en plus des commandes des joueurs normaux, sont disponibles pour les administrateurs.</p>
+<div class="section" id="sponge">
+<h3>Sponge<a class="headerlink" href="#sponge" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Les commandes suivantes sont disponibles pour les joueurs avec le statut d’administrateur (ou la permission adéquate) sur les serveurs utilisant Sponge.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="24%" />
+<col width="45%" />
+<col width="32%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Commande</th>
+<th class="head">Description</th>
+<th class="head">Permission</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>/sponge audit</td>
+<td>Force le chargement des classes non chargées pour permettre le débuggage des mixins.</td>
+<td>sponge.command.audit</td>
+</tr>
+<tr class="row-odd"><td>/sponge blockinfo</td>
+<td>Affiche le type et quelques informations supplémentaires à propos du bloc que vous regardez.</td>
+<td>sponge.command.blockinfo</td>
+</tr>
+<tr class="row-even"><td>/sponge chunks</td>
+<td>Envoie dans le chat les données des chunks pour un monde, une dimension ou le serveur entier.</td>
+<td>sponge.command.chunks</td>
+</tr>
+<tr class="row-odd"><td>/sponge config</td>
+<td>Modifie une configuration globale, de monde ou de dimension.</td>
+<td>sponge.command.config</td>
+</tr>
+<tr class="row-even"><td>/sponge entityinfo</td>
+<td>Affiche le type et quelques informations supplémentaires à propos de l’entité que vous regardez.</td>
+<td>sponge.command.entityinfo</td>
+</tr>
+<tr class="row-odd"><td>/sponge heap</td>
+<td>Envoie le heap de la JVM.</td>
+<td>sponge.command.heap</td>
+</tr>
+<tr class="row-even"><td>/sponge metrics</td>
+<td>Affiche ou définit si un plugin en particulier peut collecter des métriques (statistiques) sur votre serveur.</td>
+<td>sponge.command.metrics</td>
+</tr>
+<tr class="row-odd"><td>/sponge mods</td>
+<td>Liste les mods forge installés. (SpongeForge seulement)</td>
+<td>sponge.command.mods</td>
+</tr>
+<tr class="row-even"><td>/sponge plugins</td>
+<td>Liste les plugins Sponge installés.</td>
+<td>sponge.command.plugins</td>
+</tr>
+<tr class="row-odd"><td>/sponge plugins reload</td>
+<td>Demande aux plugins de déclencher leur propre procédure de rechargement.</td>
+<td>sponge.command.plugins.reload</td>
+</tr>
+<tr class="row-even"><td>/sponge reload</td>
+<td>Recharge la configuration globale, d’un monde, ou d’une dimension.</td>
+<td>sponge.command.reload</td>
+</tr>
+<tr class="row-odd"><td>/sponge save</td>
+<td>Sauvegarde la configuration globale, d’un monde, ou d’une dimension.</td>
+<td>sponge.command.save</td>
+</tr>
+<tr class="row-even"><td>/sponge timings</td>
+<td>La commande principale du module timings.</td>
+<td>sponge.command.timings</td>
+</tr>
+<tr class="row-odd"><td>/sponge tps</td>
+<td>Affiche le nombre de ticks par seconde pour chaque monde</td>
+<td>sponge.command.tps</td>
+</tr>
+<tr class="row-even"><td>/sponge version</td>
+<td>Renvoie la version de Sponge/SpongeAPI dans la console.</td>
+<td>sponge.command.version</td>
+</tr>
+<tr class="row-odd"><td>/sponge which</td>
+<td>Indique à quel plugin appartient la commande, ses alias et ses alternatifs.</td>
+<td>sponge.command.which</td>
+</tr>
+<tr class="row-even"><td>/sponge:callback</td>
+<td>Utilisée en interne pour gérer les retours des <code class="docutils literal notranslate"><span class="pre">Text</span></code>s (pour la pagination par exemple). Ne devrait pas être utilisée manuellement.</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>/sponge:help</td>
+<td>Affiche les informations sur les commandes disponibles sur le serveur.</td>
+<td>sponge.command.help</td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><strong>Paramètres des commandes Sponge</strong></p>
+<ul class="simple">
+<li>/sponge chunks [-g] [-d dim] [-w world]</li>
+<li>/sponge config [-g] [-d dim] [-w world] key value</li>
+<li>/sponge save [-g] [-d dim|*] [-w world|*]</li>
+<li>/sponge reload [-g] [-d dim|*] [-w world|*]</li>
+</ul>
+<p><strong>Conflits de commandes</strong></p>
+<p>En cas de conflit, Sponge fournit un mécanisme d’alias simple pour décider quelle commande utiliser. Par exemple, Minecraft fournit une commande <a class="reference external" href="https://minecraft.gamepedia.com/Commands#Summary_of_commands">reload</a> and Sponge <a class="reference external" href="https://docs.spongepowered.org/stable/en/server/spongineer/commands.html">reload</a>. Pour décider de la commande à utiliser, préfixez-la avec <code class="docutils literal notranslate"><span class="pre">minecraft</span></code> ou <code class="docutils literal notranslate"><span class="pre">sponge</span></code> puis d’un <code class="docutils literal notranslate"><span class="pre">:</span></code>. Vous pourrez donc utiliser la commande de Sponge en écrivant <code class="docutils literal notranslate"><span class="pre">/sponge:reload</span></code>. Vous pouvez procéder de la même manière avec les conflits entre mods/plugins. Pour ce faire, utiliser l’ID du mod ou du plugin suivit d’un <code class="docutils literal notranslate"><span class="pre">:</span></code>. Par exemple <code class="docutils literal notranslate"><span class="pre">/examplemodid:tp</span></code>.</p>
+<p>De plus, ce système d’alias peut être utilisé pour éviter les incompatibilités. Disons qu’un plugin enregistre une commande, mais cette commande est incompatible avec votre mod. Si vous configurez votre mod pour utiliser une commande native de Minecraft ou d’un plugin, vous pouvez restaurer le comportement attendu ou empêcher un comportement non désiré.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">La commande <code class="docutils literal notranslate"><span class="pre">/sponge</span> <span class="pre">audit</span></code> force le chargement de toutes les classes qui n’ont pu être chargées correctement, permettant d’accéder à l’ensemble des variables d’environnement des mixins qui sont nécessaires au déboggage. Cela requiert aussi que la variable mixins.checks soit activée. Voir le <a class="reference external" href="https://github.com/SpongePowered/Mixin/wiki/Mixin-Java-System-Properties">wiki sur les Mixins</a> pour plus d’informations.</p>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">Astuce</p>
+<p>Voici quelques exemple simples de l’utilisation de la commande de configuration de Sponge. Sachez qu’au moins un flag doit être précisé. Une explication plus détaillée se trouve sur la page <a class="reference internal" href="../getting-started/configuration/index.html"><span class="doc">Configurer Sponge</span></a>.</p>
+<ol class="loweralpha simple">
+<li><code class="docutils literal notranslate"><span class="pre">/sponge</span> <span class="pre">config</span> <span class="pre">-d</span> <span class="pre">minecraft:nether</span> <span class="pre">logging.chunk-load</span> <span class="pre">true</span></code></li>
+</ol>
+<p>Puisqu’une dimension est spécifiée (le nether dans cet exemple), ce sera la configuration du nether qui sera modifiée (et donc tous les mondes du nether).</p>
+<ol class="loweralpha simple" start="2">
+<li><code class="docutils literal notranslate"><span class="pre">/sponge</span> <span class="pre">config</span> <span class="pre">-w</span> <span class="pre">DIM1</span> <span class="pre">logging.chunk-load</span> <span class="pre">true</span></code></li>
+</ol>
+<p class="last">Celle-ci modifiera la configuration d’un monde nommé DIM1.</p>
+</div>
+<p>Sponge offre deux permissions pour faites pour débugger:</p>
+<ul class="simple">
+<li>Permet d’utiliser les message channels des blocs et des entités suivies de Sponge: <code class="docutils literal notranslate"><span class="pre">sponge.debug.block-tracking</span></code>. Ce channel est utilisé par le client (si SpongeForge est installé) pour afficher les owners et notifiers des blocs et entités dans la vue de debug.</li>
+<li>Permet d’afficher les stacktraces en survolant le message d’erreur envoyé quand une commande n’a pas pu être exécutée correctement: <code class="docutils literal notranslate"><span class="pre">sponge.debug.hover-stacktrace</span></code></li>
+</ul>
+</div>
+<div class="section" id="timings">
+<h3>Timings<a class="headerlink" href="#timings" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Timings est un outil intégré à Sponge qui permet aux administrateurs de surveiller les performances de leur serveur. Timings collecte des informations sur le serveur, un rapport sera généré avec ces données. Les informations enregistrées par timings sont le motd, la version, le temps de disponibilité (uptime), la mémoire, les plugins installés, le tps, le pourcentage de perte de tps, le nombre de joueurs, les tile entities, les entités et les chunks. Une liste de toutes les sous-commandes de <code class="docutils literal notranslate"><span class="pre">/sponge</span> <span class="pre">timings</span></code> se situe ci-dessous:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="38%" />
+<col width="63%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Commande</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>/sponge timings on</td>
+<td>Active le timings. Notez que cela va également réinitialiser les données de l’ancien timings.</td>
+</tr>
+<tr class="row-odd"><td>/sponge timings off</td>
+<td>Désactive le timings. Notez que la plupart des autres sous-commandes ne fonctionneront pas et que le timings n’enregistrera plus rien s’il est désactivé.</td>
+</tr>
+<tr class="row-even"><td>/sponge timings reset</td>
+<td>Réinitialise les données du timings et commence à enregistrer les données dès que la commande a été effectuée.</td>
+</tr>
+<tr class="row-odd"><td>/sponge timings report</td>
+<td>Générez votre rapport de performance pour votre serveur à <a class="reference external" href="https://timings.aikar.co">https://timings.aikar.co</a>.</td>
+</tr>
+<tr class="row-even"><td>/sponge timings verbon</td>
+<td>Active la surveillance du timings à un niveau verbal élevé.</td>
+</tr>
+<tr class="row-odd"><td>/sponge timings verboff</td>
+<td>Désactive la surveillance du timings à un niveau verbal élevé. Notez que le timings à haute fréquence ne sera pas disponible.</td>
+</tr>
+<tr class="row-even"><td>/sponge timings cost</td>
+<td>Obtenez le coût de l’utilisation du timings.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="forge">
+<h3>Forge<a class="headerlink" href="#forge" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Les commandes suivantes ne sont disponibles que si vous utilisez SpongeForge. Les autres implémentations de SpongeAPI, comme SpongeVanilla, n’incluent pas ces commandes.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="50%" />
+<col width="25%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Commande</th>
+<th class="head">Description</th>
+<th class="head">Permission</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>/forge tps</td>
+<td>Affiche le nombre de ticks par seconde pour chaque monde</td>
+<td>forge.command.forge</td>
+</tr>
+<tr class="row-odd"><td>/forge track</td>
+<td>Active le suivi des entités</td>
+<td>forge.command.forge</td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>Pour tous les mods Forge qui utilisent l’API vanilla des commandes, les permissions de commandes sont sous la forme <code class="docutils literal notranslate"><span class="pre">&lt;modid&gt;.command.&lt;commandname&gt;</span></code>.</p>
+</div>
+<div class="section" id="vanilla">
+<h3>Vanilla<a class="headerlink" href="#vanilla" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Il y a plusieurs commandes intégrées à Minecraft Vanilla qui sont également disponibles sur les serveurs basés sur Sponge. La liste ci-dessous n’est pas exhaustive, mais elle inclut les commandes les plus couramment utilisées. Ces commandes sont disponibles pour les joueurs avec le statut d’opérateur (ou le permission appropriée). En général, les autorisations pour les commandes de Minecraft Vanilla sur un serveur Sponge sont présentées sous la forme <code class="docutils literal notranslate"><span class="pre">minecraft.command.&lt;command&gt;</span></code>, comme indiqué ci-dessous.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="43%" />
+<col width="35%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Commande</th>
+<th class="head">Description</th>
+<th class="head">Permission</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>/ban</td>
+<td>Bannit le joueur du serveur</td>
+<td>minecraft.command.ban</td>
+</tr>
+<tr class="row-odd"><td>/ban-ip</td>
+<td>Banni l’adresse IP du joueur.</td>
+<td>minecraft.command.ban-ip</td>
+</tr>
+<tr class="row-even"><td>/banlist</td>
+<td>Affiche la liste des bannis</td>
+<td>minecraft.command.banlist</td>
+</tr>
+<tr class="row-odd"><td>/clear</td>
+<td>Vide l’inventaire du joueur.</td>
+<td>minecraft.command.clear</td>
+</tr>
+<tr class="row-even"><td>/deop</td>
+<td>Révoque le statut d’opérateur du joueur</td>
+<td>minecraft.command.deop</td>
+</tr>
+<tr class="row-odd"><td>/difficulty</td>
+<td>Change la difficulté du monde.</td>
+<td>minecraft.command.difficulty</td>
+</tr>
+<tr class="row-even"><td>/gamemode</td>
+<td>Définit le mode de jeu du joueur.</td>
+<td>minecraft.command.gamemode</td>
+</tr>
+<tr class="row-odd"><td>/gamerule</td>
+<td>Configure une règle.</td>
+<td>minecraft.command.gamerule</td>
+</tr>
+<tr class="row-even"><td>/give</td>
+<td>Donne un objet à un joueur.</td>
+<td>minecraft.command.give</td>
+</tr>
+<tr class="row-odd"><td>/kill</td>
+<td>Tue un joueur ou une entité.</td>
+<td>minecraft.command.kill</td>
+</tr>
+<tr class="row-even"><td>/op</td>
+<td>Donne le statut d’administrateur à un joueur.</td>
+<td>minecraft.command.op</td>
+</tr>
+<tr class="row-odd"><td>/pardon</td>
+<td>Retirer un joueur de la liste des bannis.</td>
+<td>minecraft.command.pardon</td>
+</tr>
+<tr class="row-even"><td>/save-all</td>
+<td>Force la sauvegarde la carte du serveur.</td>
+<td>minecraft.command.save-all</td>
+</tr>
+<tr class="row-odd"><td>/save-off</td>
+<td>Désactive la sauvegarde automatique de la carte du serveur.</td>
+<td>minecraft.command.save-off</td>
+</tr>
+<tr class="row-even"><td>/save-on</td>
+<td>Active la sauvegarde automatique de la carte du serveur.</td>
+<td>minecraft.command.save-on</td>
+</tr>
+<tr class="row-odd"><td>/setidletimeout</td>
+<td>Définit combien de temps les joueurs peuvent être absents avant d’être kické.</td>
+<td>minecraft.command.setidletimeout</td>
+</tr>
+<tr class="row-even"><td>/setworldspawn</td>
+<td>Définit l’emplacement du spawn des joueurs.</td>
+<td>minecraft.command.setworldspawn</td>
+</tr>
+<tr class="row-odd"><td>/stop</td>
+<td>Arrête le serveur.</td>
+<td>minecraft.command.stop</td>
+</tr>
+<tr class="row-even"><td>/toggledownfall</td>
+<td>Change le temps de la carte. S’il pleut, alors le beau temps arrive, et vice-versa.</td>
+<td>minecraft.command.toggledownfall</td>
+</tr>
+<tr class="row-odd"><td>/tp</td>
+<td>Téléporte les joueurs et les entités.</td>
+<td>minecraft.command.tp</td>
+</tr>
+<tr class="row-even"><td>/weather</td>
+<td>Change la météo.</td>
+<td>minecraft.command.weather</td>
+</tr>
+<tr class="row-odd"><td>/whitelist</td>
+<td>Modifier la whitelist du serveur.</td>
+<td>minecraft.command.whitelist</td>
+</tr>
+<tr class="row-even"><td>/worldborder</td>
+<td>Modifie la limite de la carte.</td>
+<td>minecraft.command.worldborder</td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>Sponge crée également des permissions pour ces fonctionnalités de Minecraft:</p>
+<ul class="simple">
+<li>Permet au joueur d’utiliser les sélecteurs d’entités dans les commandes: <code class="docutils literal notranslate"><span class="pre">minecraft.selector</span></code></li>
+<li>Permet au joueur d’ignorer la protection du spawn sur tous les mondes: <code class="docutils literal notranslate"><span class="pre">minecraft.spawn-protection.override</span></code></li>
+<li>Permet au joueur d’ignorer la protection du spawn sur tous les mondes: <code class="docutils literal notranslate"><span class="pre">minecraft.spawn-protection.override</span></code></li>
+<li>Permet d’éditer un commandblock ordinaire avec un nom donné: <code class="docutils literal notranslate"><span class="pre">minecraft.commandblock.edit.block.&lt;name&gt;</span></code></li>
+<li>Permet d’éditer un minecart commandblock avec un nom donné: <code class="docutils literal notranslate"><span class="pre">minecraft.commandblock.edit.minecart.&lt;name&gt;</span></code></li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Ces permissions utilisent le vrai <em>nom</em> du commandblock, qui est <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> par défaut normalement.</p>
+</div>
+<p>Il y a aussi des permissions gérant l’accès au serveur:</p>
+<ul class="simple">
+<li>Considère le joueur comme whitelisté: <code class="docutils literal notranslate"><span class="pre">minecraft.login.bypass-whitelist</span></code></li>
+<li>Paermet à l’utilisateur d’ignorer la limite de joueur: <code class="docutils literal notranslate"><span class="pre">minecraft.login.bypass-player-limit</span></code></li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Sponge offre un support amélioré pour le multi-monde, comme par exemple des bordures par monde. Par défaut, Sponge change seulement la bordure (ou d’autres options du monde) du monde dans lequel le joueur se situe. Vous pouvez restaurer le comportement vanilla en définissant <code class="docutils literal notranslate"><span class="pre">sponge.commands.multi-world-patches.worldborder</span></code> (ou l’entrée correspondante) sur <code class="docutils literal notranslate"><span class="pre">false</span></code> dans la configuration globale. Consultez <a class="reference internal" href="../getting-started/configuration/sponge-conf.html"><span class="doc">global.conf</span></a> pour plus de détails. Sponge part du principe que les plugins multi-mondes proposent aussi des commandes de configuration pour ces options et ne fournissent pas leurs propres variantes.</p>
+</div>
+</div>
+</div>
+<div class="section" id="player-commands">
+<h2>Commandes des joueurs<a class="headerlink" href="#player-commands" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Les commandes suivantes sont disponibles par défaut dans Minecraft vanilla pour pouvoir être exécutées sans le statut d’administrateur.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="24%" />
+<col width="49%" />
+<col width="27%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Commande</th>
+<th class="head">Description</th>
+<th class="head">Permission</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>/help</td>
+<td>Vois les informations des commandes utilisées sur le serveur, par défaut la commande Sponge sera utilisée!</td>
+<td>minecraft.command.help</td>
+</tr>
+<tr class="row-odd"><td>/me</td>
+<td>Dites à tout le monde ce que vous faites.</td>
+<td>minecraft.command.me</td>
+</tr>
+<tr class="row-even"><td>/say</td>
+<td>Affiche un message à tous les joueurs. (Ou, si vous utilisez des canaux de chat spécifiques, aux joueurs visés.)</td>
+<td>minecraft.command.say</td>
+</tr>
+<tr class="row-odd"><td>/tell</td>
+<td>Envoie un message privé à un autre joueur.</td>
+<td>minecraft.command.tell</td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>Une liste complète des commandes vanilla peut être trouvée ici : <a class="reference external" href="https://minecraft.gamepedia.com/Commands#List_of_commands">https://minecraft.gamepedia.com/Commands#List_of_commands</a>. Les permissions pour les commandes Minecraft vanilla sur un serveur Sponge sont formées de la manière suivante <code class="docutils literal notranslate"><span class="pre">minecraft.command.&lt;command&gt;</span></code>.</p>
+</div>
+<div class="section" id="command-features">
+<h2>Fonctionnalités des commandes<a class="headerlink" href="#command-features" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Sponge et la plupart des plugins Sponge supportent des fonctionnalités supplémentaires pour les commandes comme l’auto-complétion et les textes survolables. L’image ci-dessous montre la sortie en utilisant la commande <code class="docutils literal notranslate"><span class="pre">/sponge</span> <span class="pre">plugins</span></code> (boîte jaune). Les éléments dans cette liste peuvent être survolés pour voir plus d’informations comme la version installée (boîte rouge). Quelque éléments dans cet exemple ont d’autres actions. Par exemple, les entrées dans cette liste peuvent être cliquées pour montrer plus d’informations (boîte violette) à propos du plugin. C’est équivalent à utiliser la commande <code class="docutils literal notranslate"><span class="pre">/sponge</span> <span class="pre">plugins</span> <span class="pre">&lt;pluginId&gt;</span></code>. L’auto-complétion peut être utilisée en appuyant sur TAB. Entrer <code class="docutils literal notranslate"><span class="pre">/sponge</span> <span class="pre">plugins</span> <span class="pre">﻿</span></code> (avec un espace supplémentaire) puis appuyer sur TAB va montrer une liste de toutes les valeurs possibles (boite turquoise) qui peuvent être utilisées dans ce contexte. Continuer à appuyer sut TAB va proposer la possibilité suivante s’il y en a. Il est théoriquement possible d’écrire la plupart des commandes en n’utilisant que des TABs et des espaces (et peut être aussi la première lettre de chaque segment).</p>
+<img alt="command features" class="align-center" src="../../_images/command-features.png" />
+<div class="admonition tip">
+<p class="first admonition-title">Astuce</p>
+<p class="last">Si vous êtes un développeur de plugin et que vous souhaitez utiliser des textes survolables et des actions de texte dans votre plugin, rendez vous sur notre <a class="reference internal" href="../../plugin/text/text.html"><span class="doc">documentation sur le Text</span></a>.</p>
+</div>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="troubleshooting.html" class="btn btn-neutral float-right" title="Dépannage" accesskey="n" rel="next">Suivant <span class="fa fa-angle-right"></span></a>
+        <a href="index.html" class="btn btn-neutral" title="Devenir un Expert Spongineer" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> Précédent</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../../_static/flags/fr_FR.svg"
+         alt="fr" title="Français">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../../_static/jquery.js"></script>      <script type="text/javascript" src="../../_static/underscore.js"></script>      <script type="text/javascript" src="../../_static/doctools.js"></script>      <script type="text/javascript" src="../../_static/language_data.js"></script>      <script type="text/javascript" src="../../_static/translations.js"></script>      <script type="text/javascript" src="../../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

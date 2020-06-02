@@ -1,0 +1,280 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>开发文档 &mdash; Sponge 7.2.0 文档</title>
+
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="索引"
+              href="../genindex.html"/>        <link rel="search" title="搜索" href="../search.html"/>    <link rel="top" title="Sponge 7.2.0 文档" href="../index.html"/>        <link rel="up" title="向 Sponge 贡献代码" href="index.html"/>        <link rel="next" title="将 Sponge 移植到其他平台" href="porting.html"/>        <link rel="prev" title="实现数据操纵器" href="implementation/datamanipulator.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../index.html">
+            <img src="../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../server/index.html">创建服务器</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../versions/index.html">版本策略</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../preparing/index.html">为开发作准备</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../plugin/index.html">插件开发</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ore/index.html">Ore 文档</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">向 Sponge 贡献代码</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="guidelines.html">贡献指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="howtogit.html">如何使用 Git/GitHub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="implementation/index.html">参与到 Sponge 的开发工作来</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">开发文档</a></li>
+<li class="toctree-l2"><a class="reference internal" href="porting.html">将 Sponge 移植到其他平台</a></li>
+<li class="toctree-l2"><a class="reference internal" href="versioning.html">仓库分支布局策略</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">关于 Sponge</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+          <li><a href="index.html">向 Sponge 贡献代码</a> &raquo;</li>
+    <li>开发文档</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/contributing/spongedocs.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="spongedocs-writing">
+<h1>开发文档<a class="headerlink" href="#spongedocs-writing" title="永久链接至标题">¶</a></h1>
+<p>SpongeDocs 是 Sponge 项目的官方文档。本文档旨在：</p>
+<ul class="simple">
+<li>帮助服主们建立他们自己的服务器。</li>
+<li>为有意向 Sponge 贡献代码的开发者指明方向。</li>
+<li>为开发者提供关于 Sponge 插件开发的相关信息。</li>
+</ul>
+<div class="section" id="reporting-problems">
+<h2>报告问题<a class="headerlink" href="#reporting-problems" title="永久链接至标题">¶</a></h2>
+<p>然而，文档难免会有疏漏，诸如过期内容，或是错别字，抑或你觉得“某个地方这样说更好”。如果你遇到了这样的情况，但你因为种种原因无法直接为我们提供帮助，我们仍然留有四条反馈的途径：</p>
+<ol class="arabic simple">
+<li>在 <a class="reference external" href="https://github.com/SpongePowered/SpongeDocs/issues">SpongeDocs 位于 GitHub 的问题追踪器</a> 中反馈</li>
+<li>在 <a class="reference external" href="https://forums.spongepowered.org/c/sponge-docs">论坛中的 SpongeDocs 版块</a> 下发贴求助</li>
+<li>你可以通过加入 IRC 频道 <a class="reference external" href="ircs://irc.esper.net:6697/#spongedocs">#spongedocs（位于 irc.esper.net）</a> 联系我们（你需要先注册）</li>
+<li>你可以在我们的 <a class="reference external" href="https://discord.gg/sponge">Discord</a> 上找到我们，具体来说是 <code class="docutils literal notranslate"><span class="pre">#docs</span></code> 频道。</li>
+</ol>
+</div>
+<div class="section" id="writing-the-docs">
+<h2>撰写文档<a class="headerlink" href="#writing-the-docs" title="永久链接至标题">¶</a></h2>
+<p>对 SpongeDocs 任何形式的变动都应当通过 <a class="reference external" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs 位于 GitHub 的仓库</a> 完成。我们并不期望你的 Pull Request 从一开始就是完美的，毕竟人无完人，金无足赤，绝大部分Pull Request也都会在复核时得到进一步完善；甚至我们还欢迎不完整的解释，所以——不要因为你有地方搞不明白而感到害怕；总会有人协助填补空白的。</p>
+<p>SpongeDocs 使用 reStructuredText（reST）格式，如果你熟悉 Markdown（md），上手 reST 对你来说不会很难。如果你遇到了问题，我们建议你在 <a class="reference external" href="ircs://irc.esper.net:6697/#spongedocs">irc.esper.net 的 #spongedocs 频道</a> 或我们的 <a class="reference external" href="https://discord.gg/sponge">Discord 服务器</a> 的 <code class="docutils literal notranslate"><span class="pre">#docs</span></code> 上联系我们。这两个地方是互联的，所以选哪个都没有区别。此外，你还可以在我们的<a class="reference external" href="https://forums.spongepowered.org/">论坛</a>上联系我们。</p>
+<p>全部 Sponge 文档均使用<a class="reference external" href="https://creativecommons.org/licenses/by-sa/4.0/">知识共享-署名-相同方式共享 4.0 国际许可协议</a>（<a class="reference external" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh">中文版</a>）进行许可；所有艺术资源仍使用<a class="reference external" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享-署名-非商业性使用-禁止演绎 4.0 国际许可协议</a>（<a class="reference external" href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh">中文版</a>）进行许可。对本项目的贡献均视作同意将贡献内容按此授权许可发布。</p>
+</div>
+<div class="section" id="style-guide">
+<h2>文档规范指南<a class="headerlink" href="#style-guide" title="永久链接至标题">¶</a></h2>
+<p>为确保所有 SpongeDocs 页面的排版一致性，我们在此规定了一套文档规范。随着文档的扩张，规范的内容也可能会有更新或变动。</p>
+<ol class="arabic simple">
+<li>标题应首字母大写（例如： Lorem Ipsum Dolor Sit Amet ），适用第八条的情况除外</li>
+<li>应当使用有意义标题。（标题将会以链接形式出现）</li>
+<li>Program code should be contained in <a class="reference external" href="https://docutils.sourceforge.io/docs/ref/rst/roles.html#literal">inline literals</a>
+or code blocks.</li>
+</ol>
+<blockquote>
+<div><ol class="lowerroman simple">
+<li>尽量避免代码块中有大量文本注释，因为代码块不能被标记翻译。我们建议贡献者尽量避免代码块内的代码注释。简单的占位文本不受此建议影响。最理想的状态应该是：简练的代码示范，紧接着详细的解释。当然，不是所有的概念都能用几行代码解释清楚，所以还请量力而为。</li>
+<li>在遇到特定类型的代码块时，应使用下列代码：</li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li>Groovy/Gradle 文件 -&gt; <code class="docutils literal notranslate"><span class="pre">groovy</span></code></li>
+<li>HOCON 配置文件 -&gt; <code class="docutils literal notranslate"><span class="pre">guess</span></code>（暂不支持 HOCON 语法高亮）</li>
+<li>游戏内或服务器终端命令 -&gt; <code class="docutils literal notranslate"><span class="pre">none</span></code></li>
+<li>Java 代码 -&gt; <code class="docutils literal notranslate"><span class="pre">java</span></code></li>
+<li>Json 格式的配置文件 -&gt; <code class="docutils literal notranslate"><span class="pre">json</span></code></li>
+<li>Linux 终端命令 -&gt; <code class="docutils literal notranslate"><span class="pre">bash</span></code></li>
+<li>日志 -&gt; <code class="docutils literal notranslate"><span class="pre">none</span></code></li>
+<li>纯文本 -&gt; <code class="docutils literal notranslate"><span class="pre">text</span></code></li>
+<li>Windows 命令行 -&gt; <code class="docutils literal notranslate"><span class="pre">bat</span></code></li>
+</ul>
+</div></blockquote>
+</div></blockquote>
+<ol class="arabic simple" start="4">
+<li>面向用户、插件开发者和 Sponge 开发者的内容应区别对待。</li>
+<li>避免重复解释同一内容——请尽量使用超链接。</li>
+<li>对于外部资料，请给出链接，不要直接复制。</li>
+</ol>
+<blockquote>
+<div><ol class="lowerroman simple">
+<li>对于翻译项目，会有些许例外。</li>
+</ol>
+</div></blockquote>
+<ol class="arabic simple" start="7">
+<li>区分 SpongeForge、SpongeVanilla 和 SpongeAPI。</li>
+<li>若翻译后的文本在你的语言中看起来不通顺，你可以自行确立新的规则。</li>
+<li>Sponge 作为项目的名称，不应被翻译。</li>
+</ol>
+<blockquote>
+<div><ol class="lowerroman simple">
+<li>某些语言可选择使用译音。</li>
+</ol>
+</div></blockquote>
+<ol class="arabic simple" start="10">
+<li>我们强烈不建议使用诸如谷歌翻译之类的机翻工具。机翻往往有大量语义错误，通常也会被直接拒绝。</li>
+<li>页标题和段落标题应以纯文本出现，不应出现纯文本块或其它形式的排版。</li>
+<li>代码名应保持原样（例如作为实例字段（Field）存在的 blockState ，或是作为类名存在的 BlockState ，这两个就不能转写为 <em>block state</em> ）。同时，正文中的代码名应当以纯文本形式出现（例如， <code class="docutils literal notranslate"><span class="pre">blockState</span></code> ）。</li>
+<li>每行最多120个字符。</li>
+<li>导入应在文章中第一次需要导入的代码块中声明，此后毋需重复声明导入。</li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">有鉴于 Sponge 仍在不断变化，我们可以预见到 SpongeDocs 的编纂工作将陷入间歇性的低谷。可以肯定，在 Sponge 正式发布之前，很多资料将仍是空白。尽管如此，SpongeDocs 作为一个仍处于活跃状态的文档来说，仍然会有更新。在有生之年，它或许不会完美，但定将愈加完善。</p>
+</div>
+<p><em>我们随时欢迎各种贡献、建议及斧正。</em></p>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="porting.html" class="btn btn-neutral float-right" title="将 Sponge 移植到其他平台" accesskey="n" rel="next">下一页 <span class="fa fa-angle-right"></span></a>
+        <a href="implementation/datamanipulator.html" class="btn btn-neutral" title="实现数据操纵器" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> 上一页</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../_static/flags/zh_CN.svg"
+         alt="zh-CN" title="简体中文">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../_static/jquery.js"></script>      <script type="text/javascript" src="../_static/underscore.js"></script>      <script type="text/javascript" src="../_static/doctools.js"></script>      <script type="text/javascript" src="../_static/language_data.js"></script>      <script type="text/javascript" src="../_static/translations.js"></script>      <script type="text/javascript" src="../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

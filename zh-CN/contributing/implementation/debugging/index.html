@@ -1,0 +1,257 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>调试 Sponge &mdash; Sponge 7.2.0 文档</title>
+
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../../../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="索引"
+              href="../../../genindex.html"/>        <link rel="search" title="搜索" href="../../../search.html"/>    <link rel="top" title="Sponge 7.2.0 文档" href="../../../index.html"/>        <link rel="up" title="参与到 Sponge 的开发工作来" href="../index.html"/>        <link rel="next" title="Git" href="git.html"/>        <link rel="prev" title="提交拉取请求" href="../pr.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../../../index.html">
+            <img src="../../../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../../../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../server/index.html">创建服务器</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../versions/index.html">版本策略</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../preparing/index.html">为开发作准备</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../plugin/index.html">插件开发</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../ore/index.html">Ore 文档</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">向 Sponge 贡献代码</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../guidelines.html">贡献指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../howtogit.html">如何使用 Git/GitHub</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">参与到 Sponge 的开发工作来</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../codestyle.html">代码规范</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../git-implementation.html">Sponge API 及其实现的 Git 工作流程</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pr.html">提交拉取请求</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">调试 Sponge</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="git.html">Git</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ide.html">在 IDE 中调试 Sponge</a></li>
+<li class="toctree-l4"><a class="reference internal" href="testing.html">测试插件或 Mod</a></li>
+<li class="toctree-l4"><a class="reference internal" href="issues.html">调试中的常见问题。</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mixin.html">调试 Mixin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tools.html">调试工具</a></li>
+<li class="toctree-l4"><a class="reference internal" href="more.html">更多信息</a></li>
+<li class="toctree-l4"><a class="reference internal" href="faq.html">常见问题及解答</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../mixins.html">Mixin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../datamanipulator.html">实现数据操纵器</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../spongedocs.html">开发文档</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../porting.html">将 Sponge 移植到其他平台</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../versioning.html">仓库分支布局策略</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/index.html">关于 Sponge</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index.html">Docs</a> &raquo;</li>
+          <li><a href="../../index.html">向 Sponge 贡献代码</a> &raquo;</li>
+          <li><a href="../index.html">参与到 Sponge 的开发工作来</a> &raquo;</li>
+    <li>调试 Sponge</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/contributing/implementation/debugging/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="debugging-sponge">
+<h1>调试 Sponge<a class="headerlink" href="#debugging-sponge" title="永久链接至标题">¶</a></h1>
+<div class="admonition tip">
+<p class="first admonition-title">小技巧</p>
+<p class="last">如果你是想调试插件，请移步“<a class="reference internal" href="../../../plugin/debugging.html"><span class="doc">调试插件</span></a>”一文。“<a class="reference internal" href="../../../plugin/debugging.html#usingdebugger"><span class="std std-ref">使用调试器</span></a>”一小节也有关于调试插件的有用信息。</p>
+</div>
+<p>本文是关于调试 Sponge 它自己的。不论你是要调试 SpongeForge、SpongeVanilla、SpongeCommon 还是 SpongeAPI，首先你需要的是一个 SpongeForge 或者 SpongeVanilla 的环境。SpongeCommon 和 SpongeAPI 的调试过程是在具体的实现（即 SpongeForge 或 SpongeVanilla）中完成的。</p>
+<p>参阅“<a class="reference internal" href="../../../about/structure.html"><span class="doc">Sponge 项目的架构</span></a>”一文了解更多信息。</p>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">在开始整个调试过程之前，请务必阅读并理解“<a class="reference internal" href="../../howtogit.html"><span class="doc">如何使用 Git/GitHub</span></a>”、“<a class="reference internal" href="../../versioning.html"><span class="doc">仓库分支布局策略</span></a>”以及“<a class="reference internal" href="../index.html"><span class="doc">参与到 Sponge 的开发工作来</span></a>”这些文章中的所有内容。</p>
+</div>
+<div class="section" id="setup-the-workspace">
+<span id="setupworkspace"></span><h2>部署工作环境<a class="headerlink" href="#setup-the-workspace" title="永久链接至标题">¶</a></h2>
+<p>如果你还没有部署过工作环境，请按以下步骤操作：</p>
+<ol class="arabic simple">
+<li>Clone 目标实现的仓库。</li>
+<li>在本地仓库进行修改（比如如果你需要修改些什么，新建一个新分支）。</li>
+<li>部署目标实现的工作环境。</li>
+<li>构建目标实现。</li>
+<li>运行目标实现。</li>
+</ol>
+<p>若严格按照流程进行操作，且中途没有报错的话，你现在已经可以将项目导入 IDE 中了。</p>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">以上只是列出了部署工作环境的大体流程。关于所有部署工作环境的操作细节（克隆仓库、部署、构建及运行等），请参阅 <a class="reference external" href="https://github.com/SpongePowered/SpongeForge">SpongeForge</a> 或 <a class="reference external" href="https://github.com/SpongePowered/SpongeVanilla">SpongeVanilla</a> 对应的 GitHub 页面。</p>
+</div>
+</div>
+<div class="section" id="contents">
+<h2>目录<a class="headerlink" href="#contents" title="永久链接至标题">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="git.html">Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ide.html">在 IDE 中调试 Sponge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testing.html">测试插件或 Mod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="issues.html">调试中的常见问题。</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mixin.html">调试 Mixin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">调试工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="more.html">更多信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">常见问题及解答</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="git.html" class="btn btn-neutral float-right" title="Git" accesskey="n" rel="next">下一页 <span class="fa fa-angle-right"></span></a>
+        <a href="../pr.html" class="btn btn-neutral" title="提交拉取请求" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> 上一页</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../../../_static/flags/zh_CN.svg"
+         alt="zh-CN" title="简体中文">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../../../_static/jquery.js"></script>      <script type="text/javascript" src="../../../_static/underscore.js"></script>      <script type="text/javascript" src="../../../_static/doctools.js"></script>      <script type="text/javascript" src="../../../_static/language_data.js"></script>      <script type="text/javascript" src="../../../_static/translations.js"></script>      <script type="text/javascript" src="../../../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

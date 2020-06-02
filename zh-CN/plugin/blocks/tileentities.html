@@ -1,0 +1,325 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>方块的 Tile Entity &mdash; Sponge 7.2.0 文档</title>
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="索引"
+              href="../../genindex.html"/>        <link rel="search" title="搜索" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 文档" href="../../index.html"/>        <link rel="up" title="方块" href="index.html"/>        <link rel="next" title="虚拟方块更改" href="virtualblock.html"/>        <link rel="prev" title="修改方块" href="modifying.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../../index.html">
+            <img src="../../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../server/index.html">创建服务器</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../versions/index.html">版本策略</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../preparing/index.html">为开发作准备</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">插件开发</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../api-versions.html">API版本</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../buildsystem.html">构建系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../workspace/index.html">设置开发环境</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../project/index.html">设置你的项目</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-identifier.html">插件标识符</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-class.html">插件的主类</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lifecycle.html">插件的生命周期</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../injection.html">依赖注入</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../practices/index.html">插件开发惯例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../optional/index.html">使用 Optional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../logging.html">日志记录和调试</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text/index.html">文本 API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/index.html">插件命令</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../event/index.html">事件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/index.html">插件配置</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assets.html">使用 Asset API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data/index.html">数据 API</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">方块</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="concepts.html">概念</a></li>
+<li class="toctree-l3"><a class="reference internal" href="accessing.html">访问方块</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modifying.html">修改方块</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">方块的 Tile Entity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="virtualblock.html">虚拟方块更改</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../entities/index.html">实体</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../items/index.html">物品</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../trade-offers.html">村民交易</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../effects.html">效果</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../scheduler.html">调度器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../services.html">服务</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database.html">数据库</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../permissions.html">权限</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bans.html">黑名单</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metrics.html">Metrics 收集</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bookview.html">成书</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../economy/index.html">经济 API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wgen/index.html">世界生成</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manager.html">插件管理器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../game-profile-manager.html">玩家资料管理器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../offline-userplayer-data.html">离线玩家数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tab-lists.html">玩家列表</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-meta.html">插件的元数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ray-tracing.html">光线追踪</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../debugging.html">调试插件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials.html">教程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internals/index.html">依赖底层实现</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ore/index.html">Ore 文档</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/index.html">向 Sponge 贡献代码</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">关于 Sponge</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+          <li><a href="../index.html">插件开发</a> &raquo;</li>
+          <li><a href="index.html">方块</a> &raquo;</li>
+    <li>方块的 Tile Entity</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/plugin/blocks/tileentities.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="tile-entities">
+<h1>方块的 Tile Entity<a class="headerlink" href="#tile-entities" title="永久链接至标题">¶</a></h1>
+<p>Tile entity 是可以执行诸如自动合成一类的附加操作 (熔炉和炼药台)，或者提供特殊效果 (例如信标和音符盒) 的方块。它们也保存诸如物品栏或者文字一类的附加数据 (例如箱子、告示牌或命令方块)。</p>
+<div class="section" id="identifying-tile-entities-and-their-type">
+<h2>确定 Tile Entity 和它们的类型<a class="headerlink" href="#identifying-tile-entities-and-their-type" title="永久链接至标题">¶</a></h2>
+<p>我们再一次从 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/Location.html">Location</a> 开始。这一名为 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/Location.html#getTileEntity--">Location#getTileEntity()</a> 的方法返回一个方块对应的 Tile Entity。如果对应的方块没有 Tile Entity，它将返回一个 <code class="docutils literal notranslate"><span class="pre">Optional.empty()</span></code> 。</p>
+<blockquote>
+<div><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.world.Location</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.world.World</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isTileEntity</span><span class="p">(</span><span class="n">Location</span><span class="o">&lt;</span><span class="n">World</span><span class="o">&gt;</span> <span class="n">blockLoc</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">blockLoc</span><span class="p">.</span><span class="na">getTileEntity</span><span class="p">().</span><span class="na">isPresent</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>一个 Tile Entity 的类型可以通过 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/block/tileentity/TileEntity.html#getType--">TileEntity#getType()</a> 方法返回的 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/block/tileentity/TileEntityType.html">TileEntityType</a> 获取。它和 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/block/BlockType.html">BlockType</a> 十分相似。在检查完 Tile Entity 的类型之后我们就可以安全地转换将其为 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/block/tileentity/TileEntity.html">TileEntity</a> 的相应子类。</p>
+<blockquote>
+<div><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.block.tileentity.Jukebox</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.block.tileentity.TileEntity</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.block.tileentity.TileEntityTypes</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isJukebox</span><span class="p">(</span><span class="n">TileEntity</span> <span class="n">entity</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">entity</span><span class="p">.</span><span class="na">getType</span><span class="p">().</span><span class="na">equals</span><span class="p">(</span><span class="n">TileEntityTypes</span><span class="p">.</span><span class="na">JUKEBOX</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">ejectDiscFromJukebox</span><span class="p">(</span><span class="n">TileEntity</span> <span class="n">entity</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">isJukebox</span><span class="p">(</span><span class="n">entity</span><span class="p">))</span> <span class="p">{</span>
+        <span class="n">Jukebox</span> <span class="n">jukebox</span> <span class="o">=</span> <span class="p">(</span><span class="n">Jukebox</span><span class="p">)</span> <span class="n">entity</span><span class="p">;</span>
+        <span class="n">jukebox</span><span class="p">.</span><span class="na">ejectRecord</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>在进行一个类型转换之后，各个子接口提供的方法就可以被访问了（在示例中是 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/block/tileentity/Jukebox.html#ejectRecord--">Jukebox#ejectRecord()</a> 方法）。关于 <code class="docutils literal notranslate"><span class="pre">TileEntity</span></code> 的子类及其各自的方法的更多信息可以去 API 中的 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/block/tileentity/package-summary.html">org.spongepowered.api.block.tileentity</a> 包（ <code class="docutils literal notranslate"><span class="pre">Package</span></code> ）和其子包（ <code class="docutils literal notranslate"><span class="pre">Subpackage</span></code> ）中查看。</p>
+</div>
+<div class="section" id="accessing-and-modifying-a-tile-entity-s-data">
+<h2>Tile Entity 数据的访问和修改<a class="headerlink" href="#accessing-and-modifying-a-tile-entity-s-data" title="永久链接至标题">¶</a></h2>
+<p>和方块状态类似，在 Tile Entity 中存储的数据都可以通过一个 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/manipulator/DataManipulator.html">DataManipulator</a> 来访问。既然通过使用 <code class="docutils literal notranslate"><span class="pre">DataManipulator</span></code> 可以完整地描述数据的类型，所有的数据操作都可以仅使用 <code class="docutils literal notranslate"><span class="pre">TileEntity</span></code> 接口完成而不需要强制类型转换。</p>
+<p>接下来的例子包含了两个修改告示牌的数据的方法。第一个方法 (在可能时) 读取第一行的内容，第二个尝试去设置它并且返回一个布尔值代表操作的成功与否。</p>
+<blockquote>
+<div><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.data.manipulator.mutable.tileentity.SignData</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.text.Text</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.Optional</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="n">Optional</span><span class="o">&lt;</span><span class="n">Text</span><span class="o">&gt;</span> <span class="nf">getFirstLine</span><span class="p">(</span><span class="n">TileEntity</span> <span class="n">entity</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">Optional</span><span class="o">&lt;</span><span class="n">SignData</span><span class="o">&gt;</span> <span class="n">data</span> <span class="o">=</span> <span class="n">entity</span><span class="p">.</span><span class="na">getOrCreate</span><span class="p">(</span><span class="n">SignData</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">data</span><span class="p">.</span><span class="na">isPresent</span><span class="p">())</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">Optional</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">data</span><span class="p">.</span><span class="na">get</span><span class="p">().</span><span class="na">lines</span><span class="p">().</span><span class="na">get</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">Optional</span><span class="p">.</span><span class="na">empty</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">setFirstLine</span><span class="p">(</span><span class="n">TileEntity</span> <span class="n">entity</span><span class="p">,</span> <span class="n">Text</span> <span class="n">line</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">entity</span><span class="p">.</span><span class="na">supports</span><span class="p">(</span><span class="n">SignData</span><span class="p">.</span><span class="na">class</span><span class="p">))</span> <span class="p">{</span>
+        <span class="n">SignData</span> <span class="n">sign</span> <span class="o">=</span> <span class="n">entity</span><span class="p">.</span><span class="na">getOrCreate</span><span class="p">(</span><span class="n">SignData</span><span class="p">.</span><span class="na">class</span><span class="p">).</span><span class="na">get</span><span class="p">();</span>
+        <span class="n">sign</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="n">sign</span><span class="p">.</span><span class="na">lines</span><span class="p">().</span><span class="na">set</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">line</span><span class="p">));</span>
+        <span class="n">entity</span><span class="p">.</span><span class="na">offer</span><span class="p">(</span><span class="n">sign</span><span class="p">);</span>
+        <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>和使用 <code class="docutils literal notranslate"><span class="pre">BlockState</span></code> 的主要区别，是 Tile Entity 是一个可变的 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/DataHolder.html">DataHolder</a> ，而和不可变的 <code class="docutils literal notranslate"><span class="pre">BlockState</span></code> 不同。</p>
+</div>
+<div class="section" id="accessing-inventories">
+<h2>访问物品栏<a class="headerlink" href="#accessing-inventories" title="永久链接至标题">¶</a></h2>
+<p>很大一部分的 Tile Entity 都带有它们自己的物品栏（ Inventory ），最值得注意的是箱子和熔炉。物品栏不能直接通过 <code class="docutils literal notranslate"><span class="pre">TileEntity</span></code> 接口获得，所以有必要执行一个强制类型转换。既然所有包含一个物品栏的 Tile Entity 都继承自 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/block/tileentity/carrier/TileEntityCarrier.html">TileEntityCarrier</a> 接口，只需要强制类型转换到它就已经足够了，正如接下来的例子所示。</p>
+<blockquote>
+<div><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.block.tileentity.carrier.TileEntityCarrier</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.item.inventory.Inventory</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">useInventory</span><span class="p">(</span><span class="n">TileEntity</span> <span class="n">entity</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">entity</span> <span class="k">instanceof</span> <span class="n">TileEntityCarrier</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">TileEntityCarrier</span> <span class="n">carrier</span> <span class="o">=</span> <span class="p">(</span><span class="n">TileEntityCarrier</span><span class="p">)</span> <span class="n">entity</span><span class="p">;</span>
+        <span class="n">Inventory</span> <span class="n">inventory</span> <span class="o">=</span> <span class="n">carrier</span><span class="p">.</span><span class="na">getInventory</span><span class="p">();</span>
+        <span class="o">[</span><span class="p">...</span><span class="o">]</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>请参阅操作物品栏（Inventory）的相关文档。</p>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="virtualblock.html" class="btn btn-neutral float-right" title="虚拟方块更改" accesskey="n" rel="next">下一页 <span class="fa fa-angle-right"></span></a>
+        <a href="modifying.html" class="btn btn-neutral" title="修改方块" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> 上一页</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../../_static/flags/zh_CN.svg"
+         alt="zh-CN" title="简体中文">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../../_static/jquery.js"></script>      <script type="text/javascript" src="../../_static/underscore.js"></script>      <script type="text/javascript" src="../../_static/doctools.js"></script>      <script type="text/javascript" src="../../_static/language_data.js"></script>      <script type="text/javascript" src="../../_static/translations.js"></script>      <script type="text/javascript" src="../../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

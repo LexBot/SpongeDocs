@@ -1,0 +1,375 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>改变世界生成 &mdash; Sponge 7.2.0 文档</title>
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="索引"
+              href="../../genindex.html"/>        <link rel="search" title="搜索" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 文档" href="../../index.html"/>        <link rel="up" title="世界生成" href="index.html"/>        <link rel="next" title="插件管理器" href="../manager.html"/>        <link rel="prev" title="世界生成修改器" href="modifiers.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../../index.html">
+            <img src="../../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../server/index.html">创建服务器</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../versions/index.html">版本策略</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../preparing/index.html">为开发作准备</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">插件开发</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../api-versions.html">API版本</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../buildsystem.html">构建系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../workspace/index.html">设置开发环境</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../project/index.html">设置你的项目</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-identifier.html">插件标识符</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-class.html">插件的主类</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lifecycle.html">插件的生命周期</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../injection.html">依赖注入</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../practices/index.html">插件开发惯例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../optional/index.html">使用 Optional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../logging.html">日志记录和调试</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text/index.html">文本 API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/index.html">插件命令</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../event/index.html">事件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/index.html">插件配置</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assets.html">使用 Asset API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data/index.html">数据 API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../blocks/index.html">方块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../entities/index.html">实体</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../items/index.html">物品</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../trade-offers.html">村民交易</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../effects.html">效果</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../scheduler.html">调度器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../services.html">服务</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database.html">数据库</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../permissions.html">权限</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bans.html">黑名单</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metrics.html">Metrics 收集</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bookview.html">成书</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../economy/index.html">经济 API</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">世界生成</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="modifiers.html">世界生成修改器</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">改变世界生成</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../manager.html">插件管理器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../game-profile-manager.html">玩家资料管理器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../offline-userplayer-data.html">离线玩家数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tab-lists.html">玩家列表</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-meta.html">插件的元数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ray-tracing.html">光线追踪</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../debugging.html">调试插件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials.html">教程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internals/index.html">依赖底层实现</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ore/index.html">Ore 文档</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/index.html">向 Sponge 贡献代码</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">关于 Sponge</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+          <li><a href="../index.html">插件开发</a> &raquo;</li>
+          <li><a href="index.html">世界生成</a> &raquo;</li>
+    <li>改变世界生成</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/plugin/wgen/customwgen.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="modifying-world-generation">
+<h1>改变世界生成<a class="headerlink" href="#modifying-world-generation" title="永久链接至标题">¶</a></h1>
+<ul class="simple">
+<li>改变原版世界生成</li>
+<li>创建自定义地形</li>
+<li>创建自定义 GenerationPopulator</li>
+<li>创建自定义 Populator</li>
+<li>创建自定义生物群落</li>
+</ul>
+<div class="section" id="modifying-vanilla-generation">
+<h2>改变原版世界生成<a class="headerlink" href="#modifying-vanilla-generation" title="永久链接至标题">¶</a></h2>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">该部分假设读者已经对 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/gen/WorldGeneratorModifier.html">WorldGeneratorModifier</a> 足够熟悉，如果并非如此，请先阅读 <a class="reference internal" href="modifiers.html"><span class="doc">世界生成修改器</span></a> 部分。</p>
+</div>
+<p>Sponge 提供了大量的原版世界生成的接口用于进行各种操作。目前，世界生成过程中唯一 <em>易于</em> 操作的阶段是 Population 阶段。</p>
+<p>作为一个简单的示例，我们来看看我们如何修改沙漠中生成的仙人掌以使其高一些。</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.world.biome.BiomeGenerationSettings</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.world.biome.BiomeTypes</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.world.gen.Populator</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.world.gen.populator.Cactus</span><span class="p">;</span>
+
+<span class="nd">@Override</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">modifyWorldGenerator</span><span class="p">(</span><span class="n">WorldProperties</span> <span class="n">world</span><span class="p">,</span> <span class="n">DataContainer</span> <span class="n">settings</span><span class="p">,</span> <span class="n">WorldGenerator</span> <span class="n">worldGenerator</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">BiomeGenerationSettings</span> <span class="n">desertSettings</span> <span class="o">=</span> <span class="n">worldGenerator</span><span class="p">.</span><span class="na">getBiomeSettings</span><span class="p">(</span><span class="n">BiomeTypes</span><span class="p">.</span><span class="na">DESERT</span><span class="p">);</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">Cactus</span> <span class="n">populator</span> <span class="p">:</span> <span class="n">desertSettings</span><span class="p">.</span><span class="na">getPopulators</span><span class="p">(</span><span class="n">Cactus</span><span class="p">.</span><span class="na">class</span><span class="p">))</span> <span class="p">{</span>
+        <span class="n">populator</span><span class="p">.</span><span class="na">setHeight</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>首先我们从获取沙漠生物群落对应的 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/biome/BiomeGenerationSettings.html">BiomeGenerationSettings</a> 开始。该对象保存了所有有关于该生物群落的世界生成的配置。然后我们需要找到用于仙人掌的世界生成，也就是所有的 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/gen/populator/Cactus.html">Cactus</a> ，并将其高度设置为五。换句话说，我们设置了所有世界生成中的仙人掌的高度为五。</p>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last"><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/gen/populator/Cactus.html#setHeight-int-">Cactus#setHeight(int)</a> 以及众多类似的方法同时可以接受一个 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/util/weighted/VariableAmount.html">VariableAmount</a> 作为参数以允许开发者自定义高度为一个范围或其他自定义值。</p>
+</div>
+<p>这是一个如何修改现有世界生成的简单示例。让我们来看看我们如何添加一个新的世界生成。这一次，我们将在所有的世界生成中添加，这意味着它将不考虑特定生物群落而应用于所有地方。让我们在所有的世界生成中添加南瓜的生成，使南瓜散布到世界各地。</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.world.gen.populator.Pumpkin</span><span class="p">;</span>
+
+<span class="nd">@Override</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">modifyWorldGenerator</span><span class="p">(</span><span class="n">WorldProperties</span> <span class="n">world</span><span class="p">,</span> <span class="n">DataContainer</span> <span class="n">settings</span><span class="p">,</span> <span class="n">WorldGenerator</span> <span class="n">worldGenerator</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">Pumpkin</span> <span class="n">pumpkinPopulator</span> <span class="o">=</span> <span class="n">Pumpkin</span><span class="p">.</span><span class="na">builder</span><span class="p">().</span><span class="na">perChunk</span><span class="p">(</span><span class="mi">12</span><span class="p">).</span><span class="na">build</span><span class="p">();</span>
+    <span class="n">worldGenerator</span><span class="p">.</span><span class="na">getPopulators</span><span class="p">().</span><span class="na">add</span><span class="p">(</span><span class="n">pumpkinPopulator</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>和上面的示例恰恰相反，这一次你正在定义全新的世界生成。首先你需要一个生成器（Builder）。然后你把你想要的设置设置进去——这里我们会在一个区块生成一打，也就是十二个南瓜。最后我们让全世界都知道我们要生成南瓜了。</p>
+<p>啊哈！现在遍地都是南瓜。</p>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">在这个例子中，我们把把关于南瓜的世界生成添加到了列表的最后，需要注意的一点是，这个列表是有序的。所以如果你想要在 Population 阶段比其他世界生成更早进行，比如生成森林，你应该将你的世界生成添加到列表的开头。</p>
+</div>
+<p>这两个例子应该帮助了你熟悉原版的世界生成。不过这里我们只介绍了一点点皮毛。若要获取相关的完整列表，请参阅 JavaDocs。</p>
+</div>
+<div class="section" id="creating-custom-base-terrain">
+<h2>创建自定义地形<a class="headerlink" href="#creating-custom-base-terrain" title="永久链接至标题">¶</a></h2>
+<p>通过修改世界的基础 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/gen/GenerationPopulator.html">GenerationPopulator</a> 你可以自定义世界的地形生成。一个 <code class="docutils literal notranslate"><span class="pre">GenerationPopulator</span></code> 将粗略地遵循使用种子和生物群落信息来生成一系列噪声图的过程，由此形成地形。在修改的 <code class="docutils literal notranslate"><span class="pre">GenerationPopulator</span></code> 中创建的地形应当仅由石块组成，以允许生物群落适当地替换用于特定生物群落的覆盖方块。</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">SinusoidalGenerator</span> <span class="kd">implements</span> <span class="n">GenerationPopulator</span> <span class="p">{</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">populate</span><span class="p">(</span><span class="n">World</span> <span class="n">world</span><span class="p">,</span> <span class="n">MutableBlockVolume</span> <span class="n">buffer</span><span class="p">,</span> <span class="n">ImmutableBiomeVolume</span> <span class="n">biomes</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="n">buffer</span><span class="p">.</span><span class="na">getBlockMin</span><span class="p">().</span><span class="na">getX</span><span class="p">();</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">buffer</span><span class="p">.</span><span class="na">getBlockMax</span><span class="p">().</span><span class="na">getX</span><span class="p">();</span> <span class="n">x</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">z</span> <span class="o">=</span> <span class="n">buffer</span><span class="p">.</span><span class="na">getBlockMin</span><span class="p">().</span><span class="na">getZ</span><span class="p">();</span> <span class="n">z</span> <span class="o">&lt;</span> <span class="n">buffer</span><span class="p">.</span><span class="na">getBlockMax</span><span class="p">().</span><span class="na">getZ</span><span class="p">();</span> <span class="n">z</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">BiomeType</span> <span class="n">biome</span> <span class="o">=</span> <span class="n">biomes</span><span class="p">.</span><span class="na">getBiome</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="n">z</span><span class="p">);</span>
+                <span class="kt">int</span> <span class="n">height</span> <span class="o">=</span> <span class="n">getHeight</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">world</span><span class="p">.</span><span class="na">getWorldGenerator</span><span class="p">().</span><span class="na">getBiomeSettings</span><span class="p">(</span><span class="n">biome</span><span class="p">));</span>
+                <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="n">height</span> <span class="o">||</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="mi">64</span><span class="p">;</span> <span class="n">y</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="k">if</span><span class="p">(</span><span class="n">y</span> <span class="o">&lt;</span> <span class="n">height</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="n">buffer</span><span class="p">.</span><span class="na">setBlockType</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">BlockTypes</span><span class="p">.</span><span class="na">STONE</span><span class="p">);</span>
+                    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                        <span class="n">buffer</span><span class="p">.</span><span class="na">setBlockType</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">BlockTypes</span><span class="p">.</span><span class="na">WATER</span><span class="p">);</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="kd">private</span> <span class="kt">int</span> <span class="nf">getHeight</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">z</span><span class="p">,</span> <span class="n">BiomeGenerationSettings</span> <span class="n">biome</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">double</span> <span class="n">sx</span> <span class="o">=</span> <span class="n">Math</span><span class="p">.</span><span class="na">sin</span><span class="p">(</span><span class="n">x</span> <span class="o">/</span> <span class="mi">64</span><span class="n">d</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="kt">double</span> <span class="n">sz</span> <span class="o">=</span> <span class="n">Math</span><span class="p">.</span><span class="na">sin</span><span class="p">(</span><span class="n">z</span> <span class="o">/</span> <span class="mi">64</span><span class="n">d</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="kt">double</span> <span class="n">value</span> <span class="o">=</span> <span class="p">(</span><span class="n">sx</span> <span class="o">+</span> <span class="n">sz</span><span class="p">)</span> <span class="o">/</span> <span class="mf">4d</span><span class="p">;</span>
+        <span class="kt">double</span> <span class="n">heightRange</span> <span class="o">=</span> <span class="n">biome</span><span class="p">.</span><span class="na">getMaxHeight</span><span class="p">()</span> <span class="o">-</span> <span class="n">biome</span><span class="p">.</span><span class="na">getMinHeight</span><span class="p">();</span>
+        <span class="kt">double</span> <span class="n">height</span> <span class="o">=</span> <span class="n">heightRange</span> <span class="o">*</span> <span class="n">value</span> <span class="o">/</span> <span class="n">biome</span><span class="p">.</span><span class="na">getMinHeight</span><span class="p">();</span>
+        <span class="k">return</span> <span class="n">GenericMath</span><span class="p">.</span><span class="na">floor</span><span class="p">(</span><span class="n">height</span> <span class="o">*</span> <span class="mi">256</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>这是一个相当简单的基础地形生成器的例子（如果你看一看计算高度的数学方法的话）。对于缓冲区域中的每一列，我们要计算一个高度值，然后用石头填充下面的所有内容，并将上面的所有内容作为空气（如果低于海平面，则为水）。</p>
+</div>
+<div class="section" id="creating-custom-generationpopulators">
+<h2>创建自定义 GenerationPopulator<a class="headerlink" href="#creating-custom-generationpopulators" title="永久链接至标题">¶</a></h2>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">因为 Sponge 团队的拖延症，所以不仅这一节什么都没有，相关的 API 及其实现都没有完成。所以读者请耐心等待这一节的完成。</p>
+</div>
+</div>
+<div class="section" id="creating-custom-populators">
+<h2>创建自定义 Populator<a class="headerlink" href="#creating-custom-populators" title="永久链接至标题">¶</a></h2>
+<p>自定义的 Populator 可用于添加各种自定义功能。要创建自定义的 Populator 你只需创建一个实现 Populator 接口的类，并将其添加到附加到生物群组的对应列表中，或者添加到世界生成修改器（如果你希望应用于全局）中。</p>
+<p>你的 Populator 将被传递一个地域（Extent）。一个地域是一个覆盖了你的 Populator 应该应用其上的区域的世界的视图。建议您不要对该范围的大小或位置做出任何假设，因为对于诸如重新生成区块的操作，它可能大于或小于你的预期。</p>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">为了使你的 Populator 和区块边界重叠，你的 Populator 允许扩展到边界外的八个方块。</p>
+</div>
+</div>
+<div class="section" id="creating-custom-biomes">
+<h2>创建自定义生物群落<a class="headerlink" href="#creating-custom-biomes" title="永久链接至标题">¶</a></h2>
+<p>虽然在 Sponge 中并不能新添加生物群落，不过你可以通过实现 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/gen/BiomeGenerator.html">BiomeGenerator</a> 接口来替代世界原有的生成系统同时将其设置成自己的。</p>
+<p>下面是一个在 X 坐标和 Z 坐标均为零的地方生成一个大岛屿的示例。</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">IslandBiomeGen</span> <span class="kd">implements</span> <span class="n">BiomeGenerator</span> <span class="p">{</span>
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">double</span> <span class="n">ISLAND_SIZE</span> <span class="o">=</span> <span class="mi">200</span><span class="n">f</span><span class="p">;</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">double</span> <span class="n">BEACH_RADIUS</span> <span class="o">=</span> <span class="n">ISLAND_SIZE</span> <span class="o">*</span> <span class="n">ISLAND_SIZE</span><span class="p">;</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">double</span> <span class="n">FOREST_SIZE</span> <span class="o">=</span> <span class="n">ISLAND_SIZE</span> <span class="o">-</span> <span class="mi">7</span><span class="p">;</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">double</span> <span class="n">FOREST_RADIUS</span> <span class="o">=</span> <span class="n">FOREST_SIZE</span> <span class="o">*</span> <span class="n">FOREST_SIZE</span><span class="p">;</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">double</span> <span class="n">HILLS_SIZE</span> <span class="o">=</span> <span class="n">FOREST_SIZE</span> <span class="o">-</span> <span class="mi">120</span><span class="p">;</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">double</span> <span class="n">HILLS_RADIUS</span> <span class="o">=</span> <span class="n">HILLS_SIZE</span> <span class="o">*</span> <span class="n">HILLS_SIZE</span><span class="p">;</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">generateBiomes</span><span class="p">(</span><span class="n">MutableBiomeVolume</span> <span class="n">buffer</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">Vector3i</span> <span class="n">min</span> <span class="o">=</span> <span class="n">buffer</span><span class="p">.</span><span class="na">getBiomeMin</span><span class="p">();</span>
+        <span class="n">Vector3i</span> <span class="n">max</span> <span class="o">=</span> <span class="n">buffer</span><span class="p">.</span><span class="na">getBiomeMax</span><span class="p">();</span>
+
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="n">min</span><span class="p">.</span><span class="na">getX</span><span class="p">();</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="n">max</span><span class="p">.</span><span class="na">getX</span><span class="p">();</span> <span class="n">x</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">z</span> <span class="o">=</span> <span class="n">min</span><span class="p">.</span><span class="na">getZ</span><span class="p">();</span> <span class="n">z</span> <span class="o">&lt;=</span> <span class="n">max</span><span class="p">.</span><span class="na">getZ</span><span class="p">();</span> <span class="n">z</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">z</span> <span class="o">*</span> <span class="n">z</span> <span class="o">&lt;</span> <span class="n">HILLS_RADIUS</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="n">buffer</span><span class="p">.</span><span class="na">setBiome</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">BiomeTypes</span><span class="p">.</span><span class="na">EXTREME_HILLS</span><span class="p">);</span>
+                <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">z</span> <span class="o">*</span> <span class="n">z</span> <span class="o">&lt;</span> <span class="n">FOREST_RADIUS</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="n">buffer</span><span class="p">.</span><span class="na">setBiome</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">BiomeTypes</span><span class="p">.</span><span class="na">FOREST</span><span class="p">);</span>
+                <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">z</span> <span class="o">*</span> <span class="n">z</span> <span class="o">&lt;</span> <span class="n">BEACH_RADIUS</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="n">buffer</span><span class="p">.</span><span class="na">setBiome</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">BiomeTypes</span><span class="p">.</span><span class="na">BEACH</span><span class="p">);</span>
+                <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                    <span class="n">buffer</span><span class="p">.</span><span class="na">setBiome</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">BiomeTypes</span><span class="p">.</span><span class="na">OCEAN</span><span class="p">);</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../manager.html" class="btn btn-neutral float-right" title="插件管理器" accesskey="n" rel="next">下一页 <span class="fa fa-angle-right"></span></a>
+        <a href="modifiers.html" class="btn btn-neutral" title="世界生成修改器" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> 上一页</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../../_static/flags/zh_CN.svg"
+         alt="zh-CN" title="简体中文">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../../_static/jquery.js"></script>      <script type="text/javascript" src="../../_static/underscore.js"></script>      <script type="text/javascript" src="../../_static/doctools.js"></script>      <script type="text/javascript" src="../../_static/language_data.js"></script>      <script type="text/javascript" src="../../_static/translations.js"></script>      <script type="text/javascript" src="../../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

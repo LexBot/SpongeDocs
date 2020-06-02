@@ -1,0 +1,294 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>版本号 &mdash; Sponge 7.2.0 文档</title>
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="索引"
+              href="../../genindex.html"/>        <link rel="search" title="搜索" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 文档" href="../../index.html"/>        <link rel="up" title="设置你的项目" href="index.html"/>        <link rel="next" title="插件标识符" href="../plugin-identifier.html"/>        <link rel="prev" title="设置 Maven" href="maven.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../../index.html">
+            <img src="../../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../server/index.html">创建服务器</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../versions/index.html">版本策略</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../preparing/index.html">为开发作准备</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">插件开发</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../api-versions.html">API版本</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../buildsystem.html">构建系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../workspace/index.html">设置开发环境</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">设置你的项目</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="gradle.html">设置 Gradle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="maven.html">设置 Maven</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">版本号</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-identifier.html">插件标识符</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-class.html">插件的主类</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lifecycle.html">插件的生命周期</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../injection.html">依赖注入</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../practices/index.html">插件开发惯例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../optional/index.html">使用 Optional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../logging.html">日志记录和调试</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text/index.html">文本 API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/index.html">插件命令</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../event/index.html">事件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/index.html">插件配置</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assets.html">使用 Asset API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data/index.html">数据 API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../blocks/index.html">方块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../entities/index.html">实体</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../items/index.html">物品</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../trade-offers.html">村民交易</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../effects.html">效果</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../scheduler.html">调度器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../services.html">服务</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database.html">数据库</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../permissions.html">权限</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bans.html">黑名单</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metrics.html">Metrics 收集</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bookview.html">成书</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../economy/index.html">经济 API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wgen/index.html">世界生成</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manager.html">插件管理器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../game-profile-manager.html">玩家资料管理器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../offline-userplayer-data.html">离线玩家数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tab-lists.html">玩家列表</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-meta.html">插件的元数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ray-tracing.html">光线追踪</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../debugging.html">调试插件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials.html">教程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internals/index.html">依赖底层实现</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ore/index.html">Ore 文档</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/index.html">向 Sponge 贡献代码</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">关于 Sponge</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+          <li><a href="../index.html">插件开发</a> &raquo;</li>
+          <li><a href="index.html">设置你的项目</a> &raquo;</li>
+    <li>版本号</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/plugin/project/version-numbers.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="version-numbers">
+<h1>版本号<a class="headerlink" href="#version-numbers" title="永久链接至标题">¶</a></h1>
+<p>你的插件应当有一个独一无二的版本号，这样其他人在下载时就可以判断哪个是新版哪个是旧版。你可以在当前流行的多种版本号规范中选一个来用。下文中将讨论这些不同规范之间的优势与劣势。</p>
+<p>Sponge 推荐使用用 <code class="docutils literal notranslate"><span class="pre">.</span></code> 分割的 2～3 个数字，及连字符 <code class="docutils literal notranslate"><span class="pre">-</span></code> 连接的标签作为版本号，比如 <code class="docutils literal notranslate"><span class="pre">3.1</span></code> 或者 <code class="docutils literal notranslate"><span class="pre">1.0.3-API7</span></code>，这样的版本号看起来和 SemVer 相近。你的插件准备好发布的时候，版本号应从 <code class="docutils literal notranslate"><span class="pre">1.x</span></code> 开始。如果你的插件还很不稳定，或者没有准备发布，应从 <code class="docutils literal notranslate"><span class="pre">0.x</span></code> 开始。</p>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">尽管 Sponge 推荐使用上述的版本号方案，但插件作者可以使用任何一种方案。惟需注意，用户可能需要面对各种五花八门的版本号，所以还请使用简单的版本号方案。</p>
+</div>
+<div class="section" id="semver">
+<h2>语义化版本（SemVer）<a class="headerlink" href="#semver" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="https://semver.org/">语义化版本（SemVer）</a> 是一种常用的语义化版本号规范。它由三个由点（<code class="docutils literal notranslate"><span class="pre">.</span></code>）分割的数字部分，及由连字符（<code class="docutils literal notranslate"><span class="pre">-</span></code>）连接的额外标签组成。三个数字部分分别是 <code class="docutils literal notranslate"><span class="pre">MAJOR</span></code>、<code class="docutils literal notranslate"><span class="pre">MINOR</span></code> 和 <code class="docutils literal notranslate"><span class="pre">PATCH</span></code> 版本号。</p>
+<ul class="simple">
+<li>对 <strong>MAJOR</strong> 版本号变更代表你对 API 进行了不兼容的改动。大规模重写，或完全重写整个插件也算入此列。</li>
+<li>对 <strong>MINOR</strong> 版本号的变更代表你新增了某种功能，但仍然保持了向后兼容。</li>
+<li>对 <strong>PATCH</strong> 版本号变更代表你进行了 bug 修复。</li>
+</ul>
+<p>标签可用于标记预发布版本，或用来标记构建的元数据，比如支持的 Minecraft 版本这样的信息。如果某一个版本数字递增了 1，那么其后面的部分都应重置为 0。使用这套策略你可以判断哪一个版本是最新的版本，但它并不能透露任何关于发布时间的信息，比如 <code class="docutils literal notranslate"><span class="pre">1.0.9</span></code> 版本可能会在 <code class="docutils literal notranslate"><span class="pre">1.0.8</span></code> 版本之后发布，但此时  <code class="docutils literal notranslate"><span class="pre">1.1.0</span></code> 版本可能在这之前或之后发布，甚至是与 <code class="docutils literal notranslate"><span class="pre">1.0.9</span></code> 版本同时发布。</p>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">SpongeAPI 使用 SemVer。</p>
+</div>
+<p><strong>示例</strong></p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">0.1.0</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">1.0.0</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">1.1.0-SNAPSHOT</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">3.12.21-API7</span></code></li>
+</ul>
+<p><strong>优势</strong></p>
+<ul class="simple">
+<li>易读易懂</li>
+</ul>
+<p><strong>劣势</strong></p>
+<ul class="simple">
+<li>这套规范是 API 导向的；如果你的插件根本不提供 API，这套规范并不好使。</li>
+</ul>
+</div>
+<div class="section" id="timestamp">
+<h2>时间戳<a class="headerlink" href="#timestamp" title="永久链接至标题">¶</a></h2>
+<p>这是一种少见的版本号规范，但也是一种非常简单的规范，因为它不包含任何多余信息。分隔符的选择、包含的时间与日期范围也没有限制。然而，我们建议你使用形如 <code class="docutils literal notranslate"><span class="pre">YYYY-MM-DD</span></code> 的形式。如果你按照字母顺序对文件排序，请确认排序后的结果和版本号顺序一致。版本号后可以包括构建类型或构建号。</p>
+<p><strong>示例</strong></p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">18.01.31</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">v2018-05-29.1</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">2018.01.13-SNAPHOT</span></code></li>
+</ul>
+<p><strong>优势</strong></p>
+<ul class="simple">
+<li>易读易懂</li>
+</ul>
+<p><strong>劣势</strong></p>
+<ul class="simple">
+<li>不包含任何关于兼容性的信息。</li>
+</ul>
+</div>
+<div class="section" id="other">
+<h2>其他<a class="headerlink" href="#other" title="永久链接至标题">¶</a></h2>
+<p>关于软件版本号和版本号规范的更多内容可通过<cite>这里 &lt;https://en.wikipedia.org/wiki/Software_versioning&gt;</cite>了解。</p>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../plugin-identifier.html" class="btn btn-neutral float-right" title="插件标识符" accesskey="n" rel="next">下一页 <span class="fa fa-angle-right"></span></a>
+        <a href="maven.html" class="btn btn-neutral" title="设置 Maven" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> 上一页</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../../_static/flags/zh_CN.svg"
+         alt="zh-CN" title="简体中文">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../../_static/jquery.js"></script>      <script type="text/javascript" src="../../_static/underscore.js"></script>      <script type="text/javascript" src="../../_static/doctools.js"></script>      <script type="text/javascript" src="../../_static/language_data.js"></script>      <script type="text/javascript" src="../../_static/translations.js"></script>      <script type="text/javascript" src="../../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

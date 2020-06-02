@@ -1,0 +1,267 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spawnen eines Entitys &mdash; Sponge 7.2.0 Dokumentation</title>
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="Stichwortverzeichnis"
+              href="../../genindex.html"/>        <link rel="search" title="Suche" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 Dokumentation" href="../../index.html"/>        <link rel="up" title="Entities" href="index.html"/>        <link rel="next" title="Bearbeiten einer Entität" href="modifying.html"/>        <link rel="prev" title="Entities" href="index.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../../index.html">
+            <img src="../../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../server/index.html">Einen Server erstellen</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../versions/index.html">Versionsrichtlinie</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../preparing/index.html">Die Arbeitsumgebung einrichten</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Plugins erstellen</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../api-versions.html">API-Versionen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../buildsystem.html">Build Systeme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../workspace/index.html">Den Arbeitsbereich einrichten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../project/index.html">Das Projekt einrichten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-identifier.html">Plugin Identifiers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-class.html">Hauptklasse des Plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lifecycle.html">Der Plugin-Lebenszyklus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../injection.html">Dependency Injection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../practices/index.html">Vorgehensweisen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../optional/index.html">Optionals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../logging.html">Loggen und Debugging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text/index.html">Text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/index.html">Plugin Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../event/index.html">Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/index.html">Plugins konfigurieren</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assets.html">Die Dateianhang API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data/index.html">The Data API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../blocks/index.html">Blöcke</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Entities</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Spawnen eines Entitys</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modifying.html">Bearbeiten einer Entität</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ai.html">Entity AI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="custom-ai.html">Implement Your Own AITasks</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../items/index.html">Gegenstände</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../trade-offers.html">Trade-Offers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../effects.html">Effekte</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../scheduler.html">Scheduler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../services.html">Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database.html">Datenbanken</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../permissions.html">Permissions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bans.html">Banne</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metrics.html">Metrics Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bookview.html">Bücher</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../economy/index.html">Wirtschaft</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wgen/index.html">Weltgenerierung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manager.html">Plugin-Manager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../game-profile-manager.html">Game Profile Manager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../offline-userplayer-data.html">Offline Player Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tab-lists.html">Tab Lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-meta.html">Plugin Metadaten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ray-tracing.html">Ray Tracing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../debugging.html">Plugins Debuggen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials.html">Tutorials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internals/index.html">Implementation-dependent Plugins</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ore/index.html">Ore Dokumentation</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/index.html">Zu Sponge beitragen</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">Über das Sponge Projekt</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+          <li><a href="../index.html">Plugins erstellen</a> &raquo;</li>
+          <li><a href="index.html">Entities</a> &raquo;</li>
+    <li>Spawnen eines Entitys</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/plugin/entities/spawning.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="spawning-an-entity">
+<h1>Spawnen eines Entitys<a class="headerlink" href="#spawning-an-entity" title="Link zu dieser Überschrift">¶</a></h1>
+<p>Wenn du ein <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/Entity.html">Entity</a> spawnen möchtest, benötigst du drei Dinge: Eine <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/Location.html">Location</a>, ein <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/extent/Extent.html">Extent</a> und einen <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/EntityType.html">EntityType</a>. Der Weg all dies zu bekommen, ist recht einfach, du musst nur eine <code class="docutils literal notranslate"><span class="pre">Location</span></code> irgendwo in deinem Plugin Code auftreiben und den Typ der <code class="docutils literal notranslate"><span class="pre">Entity</span></code> auswählen, den du spawnen möchtest.</p>
+<p>Zum Beispiel könnten wir versuchen einen Creeper zu spawnen:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.entity.Entity</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.entity.EntityTypes</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.event.CauseStackManager.StackFrame</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.event.cause.entity.spawn.SpawnTypes</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.world.Location</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.world.World</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.Optional</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">spawnEntity</span><span class="p">(</span><span class="n">Location</span><span class="o">&lt;</span><span class="n">World</span><span class="o">&gt;</span> <span class="n">spawnLocation</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">World</span> <span class="n">world</span> <span class="o">=</span> <span class="n">spawnLocation</span><span class="p">.</span><span class="na">getExtent</span><span class="p">();</span>
+
+    <span class="n">Entity</span> <span class="n">creeper</span> <span class="o">=</span> <span class="n">world</span><span class="p">.</span><span class="na">createEntity</span><span class="p">(</span><span class="n">EntityTypes</span><span class="p">.</span><span class="na">CREEPER</span><span class="p">,</span> <span class="n">spawnLocation</span><span class="p">.</span><span class="na">getPosition</span><span class="p">());</span>
+
+    <span class="c1">// We need to push a new cause StackFrame to the stack so we can add our own causes</span>
+    <span class="c1">// In previous versions of the API you had to submit a Cause parameter</span>
+    <span class="c1">// that would often not contain the real root cause</span>
+    <span class="c1">// By default the current plugin&#39;s PluginContainer is already pushed to the stack.</span>
+    <span class="k">try</span> <span class="p">(</span><span class="n">StackFrame</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">Sponge</span><span class="p">.</span><span class="na">getCauseStackManager</span><span class="p">().</span><span class="na">pushCauseFrame</span><span class="p">())</span> <span class="p">{</span>
+        <span class="n">frame</span><span class="p">.</span><span class="na">addContext</span><span class="p">(</span><span class="n">EventContextKeys</span><span class="p">.</span><span class="na">SPAWN_TYPE</span><span class="p">,</span> <span class="n">SpawnTypes</span><span class="p">.</span><span class="na">PLUGIN</span><span class="p">);</span>
+        <span class="n">world</span><span class="p">.</span><span class="na">spawnEntity</span><span class="p">(</span><span class="n">creeper</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Dies holt die Welt von deiner <code class="docutils literal notranslate"><span class="pre">Location</span></code>, die wir für den eigentlichen Spawn-Prozess benötigen. Als nächstes verwenden wir <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/extent/EntityUniverse.html#createEntity-org.spongepowered.api.entity.EntityType-com.flowpowered.math.vector.Vector3d-">EntityUniverse#createEntity(EntityType, Vector3d)</a> um die Entity zu überzeugen. Bitte beachte, dass dies die Entity noch nicht in der Welt spawnt, sondern nur erzeugt. Wir müssen hierfür die Art der <code class="docutils literal notranslate"><span class="pre">Entity</span></code> angeben, die wie spawnen möchten, sowie die Koordinaten unserer <cite>Location`</cite>.</p>
+<p>Sobald wir eine <code class="docutils literal notranslate"><span class="pre">Entity</span></code> erstellt haben, können wir die Welt benutzen um die <code class="docutils literal notranslate"><span class="pre">Entity</span></code> zu spawnen. Für das Spawnen sollten wir zudem einen Grund (<code class="docutils literal notranslate"><span class="pre">Cause</span></code>) angeben, sodass andere Plugins entsprechend reagieren können. Zum Spawnen von `` Entity``s ist es am Besten, wenn einen <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/cause/entity/spawn/SpawnType.html">SpawnType</a> als Teil des Kontextes angeben. In diesem Beispiel geben wir an, dass unsere Entity durch ein Plugin gespawnt wurde, aber wir können hier jeglichen Grund angeben, der am Besten beschreibt, warum wir diese spawnen, beispielsweise ein Monsterspawner (Siehe <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/cause/entity/spawn/SpawnTypes.html#MOB_SPAWNER">SpawnTypes#MOB_SPAWNER</a>), oder ein Spawnei (Siehe <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/cause/entity/spawn/SpawnTypes.html#SPAWN_EGG">SpawnTypes#SPAWN_EGG</a>).</p>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="modifying.html" class="btn btn-neutral float-right" title="Bearbeiten einer Entität" accesskey="n" rel="next">Nächste <span class="fa fa-angle-right"></span></a>
+        <a href="index.html" class="btn btn-neutral" title="Entities" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> Vorherige</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../../_static/flags/de_DE.svg"
+         alt="de" title="Deutsch">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../../_static/jquery.js"></script>      <script type="text/javascript" src="../../_static/underscore.js"></script>      <script type="text/javascript" src="../../_static/doctools.js"></script>      <script type="text/javascript" src="../../_static/language_data.js"></script>      <script type="text/javascript" src="../../_static/translations.js"></script>      <script type="text/javascript" src="../../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

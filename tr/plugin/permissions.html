@@ -1,0 +1,656 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>İzinler &mdash; Sponge 7.2.0 belgelendirme çalışması</title>
+
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="Dizin"
+              href="../genindex.html"/>        <link rel="search" title="Ara" href="../search.html"/>    <link rel="top" title="Sponge 7.2.0 belgelendirme çalışması" href="../index.html"/>        <link rel="up" title="Bir eklenti oluşturma" href="index.html"/>        <link rel="next" title="Yasaklılar" href="bans.html"/>        <link rel="prev" title="Veritabanları" href="database.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../index.html">
+            <img src="../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../server/index.html">Bir sunucu oluşturma</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../versions/index.html">Versioning Policy</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../preparing/index.html">Geliştirme için hazırlanıyor</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Bir eklenti oluşturma</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="api-versions.html">API-Versions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="buildsystem.html">Sistem oluşturun</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workspace/index.html">Çalışma Alanınız Kuruluyor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project/index.html">Projenizi Ayarlama</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin-identifier.html">Eklenti Tanımlayıcıları</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin-class.html">Ana eklenti sınıfı</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lifecycle.html">Eklenti Yaşan Döngüsü</a></li>
+<li class="toctree-l2"><a class="reference internal" href="injection.html">Bağımlılık Enjeksiyonu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="practices/index.html">Alıştırmalar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optional/index.html">İsteğe bağlı</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.html">Günlük Oluşturma ve Hata Giderme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="text/index.html">Metin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands/index.html">Plugin Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="event/index.html">Etkinlikler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration/index.html">Eklentileri yapılandırma</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assets.html">API öğesi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data/index.html">Veri API’sı</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/index.html">Bloklar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entities/index.html">Varlıklar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="items/index.html">Öğeler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trade-offers.html">Ticaret-Teklifleri</a></li>
+<li class="toctree-l2"><a class="reference internal" href="effects.html">Efektler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scheduler.html">Zamanlayıcı</a></li>
+<li class="toctree-l2"><a class="reference internal" href="services.html">Servisler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="database.html">Veritabanları</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">İzinler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bans.html">Yasaklılar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metrics.html">Metrics Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bookview.html">Kitap görünümleri</a></li>
+<li class="toctree-l2"><a class="reference internal" href="economy/index.html">Ekonomi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wgen/index.html">Dünya oluşturma</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manager.html">Eklenti yöneticisi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="game-profile-manager.html">Oyun Profili Yöneticisi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="offline-userplayer-data.html">Çevrim dışı oyuncu verisi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tab-lists.html">Sekme listeleri</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin-meta.html">Eklenti Metaverileri</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ray-tracing.html">Işın izleme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="debugging.html">Eklenti Hata Ayıklama</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials.html">Eğiticiler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internals/index.html">Uygulamaya Bağlı Eklentiler</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ore/index.html">Ore Dökümanları</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contributing/index.html">Sponge’a Katkı Sağlama</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">Sponge Projesi Hakkında</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+          <li><a href="index.html">Bir eklenti oluşturma</a> &raquo;</li>
+    <li>İzinler</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/plugin/permissions.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="permissions">
+<h1>İzinler<a class="headerlink" href="#permissions" title="Bu başlığın kalıcı bağlantısı">¶</a></h1>
+<p>If you are interested in the permissions that are used in vanilla commands have a look at
+<a class="reference internal" href="../server/spongineer/commands.html"><span class="doc">this page</span></a>. For customizing the permission levels refer to the
+<a class="reference internal" href="../server/management/permissions.html"><span class="doc">server permissions</span></a> page or your permission plugin’s documentation.</p>
+<div class="section" id="permission">
+<h2>İzin<a class="headerlink" href="#permission" title="Bu başlığın kalıcı bağlantısı">¶</a></h2>
+<p>İzin, büyük/küçük harf duyarlı olmayan bir konunun belirli bir işlemi yapıp yapamayacağını belirlemek için kullanılan, hiyerarşik bir dize anahtarıdır. Dize, ayrı parçalara nokta karakterini kullanarak bölünür. İzinler şu şekilde planlanmalıdır.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&lt;PluginID&gt;.&lt;MainGroup&gt;.&lt;Subgroup1&gt;...
+</pre></div>
+</div>
+<p>İzin verilen karakterler:</p>
+<ul class="simple">
+<li>“A” - “Z”</li>
+<li>“a” - “z”</li>
+<li>“0” - “9”</li>
+<li>“_”</li>
+<li>“-“</li>
+<li>“.”</li>
+</ul>
+<div class="section" id="inheritance">
+<h3>Kalıtım<a class="headerlink" href="#inheritance" title="Bu başlığın kalıcı bağlantısı">¶</a></h3>
+<p>Bir kullanıcının izni varsa <code class="docutils literal notranslate"><span class="pre">myplugin.commands``bunlar</span> <span class="pre">gibi</span> <span class="pre">otomatik</span> <span class="pre">olarak</span> <span class="pre">tüm</span> <span class="pre">alt</span> <span class="pre">izinlere</span> <span class="pre">sahip</span> <span class="pre">olurlar</span>
+<span class="pre">``myplugin.commands.teleport</span></code> izinler açıkça kaldırılmadığı sürece.</p>
+<div class="admonition note">
+<p class="first admonition-title">Not</p>
+<p class="last"><a href="#id1"><span class="problematic" id="id2">`</span></a>myplugin.commands.*``vahşi kart izni diye bir şey yoktur. Bunun için <a href="#id3"><span class="problematic" id="id4">``</span></a>myplugin.commands``ı kullanınız.</p>
+</div>
+</div>
+<div class="section" id="structure-example">
+<h3>Yapı-Örnek<a class="headerlink" href="#structure-example" title="Bu başlığın kalıcı bağlantısı">¶</a></h3>
+<p>Aşağıdaki örnek, izinleri yapılandırmanın olası bir yolunu göstermektedir, ancak bu yapıyı izlemek hiç gerekli değildir.</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">myplugin</span></code></dt>
+<dd><ul class="first last">
+<li>Grantların tüm eklenti izinlerine erişimleri vardır.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><cite>myplugin.commands`</cite></dt>
+<dd><ul class="first last">
+<li>Grantların tüm eklenti komutlarına erişimi vardır.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">myplugin.commands.teleport.execute</span></code></dt>
+<dd><ul class="first last">
+<li>Only grants the user the permission to execute the command. Without this permission he is not able to execute the
+command even if he has other <cite>teleport</cite> permissions.
+(With this permission alone, the user would only be able to teleport himself to others in his current world.)</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">myplugin.commands.teleport.all</span></code></dt>
+<dd><ul class="first last">
+<li>Kullanıcıya sadece tek seferde tüm oyuncuları ışınlama iznini verir.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">myplugin.commands.teleport.worlds</span></code></dt>
+<dd><ul class="first last">
+<li>Kullanıcıya sadece tüm dünyalara ışınlanabilme izni verir.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">myplugin.commands.teleport.worlds.mynetherworld</span></code></dt>
+<dd><ul class="first last">
+<li>Kullanıcıya sadece <em>mynetherworld</em>’e ışınlanabilme izni verir.</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="permissiondescription">
+<h2>PermissionDescription<a class="headerlink" href="#permissiondescription" title="Bu başlığın kalıcı bağlantısı">¶</a></h2>
+<p>:javadoc:<a href="#id1"><span class="problematic" id="id2">`</span></a>PermissionDescription belli bir izinde detaylı bir sunucu sağlamayı amaçlayan bir hizmet programı yazılımıdır. <a href="#id3"><span class="problematic" id="id4">``</span></a>PermissionDescription``ları bir :javadoc:<a href="#id5"><span class="problematic" id="id6">`</span></a>PermissionService`in sağlayabileceği opsiyonel bir özelliktir. Bir PermissionDescription oluşturmanın iznin var olup olmadığı,kimin erişimi olduğu veya varsayılan değerinin ne olduğuna hiç bir etkisi <strong>yoktur</strong>.</p>
+<p>Açıklamanın içeriği:</p>
+<ul class="simple">
+<li>hedef izin kimliği</li>
+<li>Bir metin açıklaması</li>
+<li>bir veya daha fazla atanan rol</li>
+<li>sahip olma eklentisi</li>
+</ul>
+<p>Eğer <code class="docutils literal notranslate"><span class="pre">World</span></code> veya <code class="docutils literal notranslate"><span class="pre">ItemType</span></code> gibi dinamik bir öğeniz varsa, o halde <code class="docutils literal notranslate"><span class="pre">&lt;TemplateParts&gt;</span></code> kullanabilirsiniz.</p>
+<div class="section" id="usage-example">
+<h3>Kullanım örnekleri<a class="headerlink" href="#usage-example" title="Bu başlığın kalıcı bağlantısı">¶</a></h3>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.service.permission.PermissionDescription</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.service.permission.PermissionDescription.Builder</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.service.permission.PermissionService</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.text.Text</span><span class="p">;</span>
+
+<span class="n">PluginContainer</span> <span class="n">plugin</span> <span class="o">=</span> <span class="p">...;</span>
+<span class="n">Builder</span> <span class="n">builder</span> <span class="o">=</span> <span class="n">permissionService</span><span class="p">.</span><span class="na">newDescriptionBuilder</span><span class="p">(</span><span class="n">plugin</span><span class="p">);</span>
+
+<span class="n">builder</span><span class="p">.</span><span class="na">id</span><span class="p">(</span><span class="s">&quot;myplugin.commands.teleport.execute&quot;</span><span class="p">)</span>
+       <span class="p">.</span><span class="na">description</span><span class="p">(</span><span class="n">Text</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;Allows the user to execute the teleport command.&quot;</span><span class="p">))</span>
+       <span class="p">.</span><span class="na">assign</span><span class="p">(</span><span class="n">PermissionDescription</span><span class="p">.</span><span class="na">ROLE_STAFF</span><span class="p">,</span> <span class="kc">true</span><span class="p">)</span>
+       <span class="p">.</span><span class="na">register</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="simple-result">
+<h3>Basit-Sonuç<a class="headerlink" href="#simple-result" title="Bu başlığın kalıcı bağlantısı">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>myplugin.commands.teleport.execute
+
+Description: Allows the user to execute the teleport command.
+Role: user
+Owner: MyPlugin v1.2.3
+</pre></div>
+</div>
+</div>
+<div class="section" id="template-result">
+<h3>Basit-Sonuç<a class="headerlink" href="#template-result" title="Bu başlığın kalıcı bağlantısı">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>myplugin.commands.teleport.worlds.&lt;World&gt;
+
+Description: Allows the user to teleport to the world &lt;World&gt;.
+Role: staff
+Owner: MyPlugin v1.2.3
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">Tüyo</p>
+<p class="last">Anlamı yalnızca izin yapısı olan ve tanımlanmış alt yetki türetilebileceğinden “myPlugin.commands.teleport.worlds` veya” myPlugin.commands ” gibi bazı üst izin gruplarına yönelik açıklamaları atlayabilirsiniz.</p>
+</div>
+</div>
+</div>
+<div class="section" id="subject">
+<h2>Başlık<a class="headerlink" href="#subject" title="Bu başlığın kalıcı bağlantısı">¶</a></h2>
+<p>A <a href="#id1"><span class="problematic" id="id2">:javadoc:`Subject`atanan izinlerin tutucusudur. ``PermissionService``den :javadoc:`SubjectCollection`ları yoluyla alınabilir.:javadoc:`Player`</span></a> gibi  :javadoc:<a href="#id3"><span class="problematic" id="id4">`</span></a>CommandSource`lar varsayılan olarak``Subject``lerdir ama daha başka bir çok türde  <a href="#id5"><span class="problematic" id="id6">``</span></a>Subject``ler vardır. İzne sahip olan her şey sadece sınırlı Subject kontrollerini temsil etse bile bir Subject’dir. Subjecte izinler verilebilir veya reddedilebilir.Eğer izin ne verilmiş ne reddedilmişse ayarları bir başkası için devredilir.Inheritance’a bakın.Subject’ler belli bir izinleri olup olmadığını kontrol etmek için yöntemler sunarlar.Bu yöntemi kullanan eklentiler sadece kontrol etmek istedikleri belli başlı izinleri sorgulamalıdır.</p>
+<div class="section" id="example">
+<h3>Örnek<a class="headerlink" href="#example" title="Bu başlığın kalıcı bağlantısı">¶</a></h3>
+<p>Aşağıdaki örnek, Player’ın teleport komutu yürütmesine izin verilip verilmediğini kontrol etmek için kullanılabilir.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.entity.living.player.Player</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.world.World</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">canTeleport</span><span class="p">(</span><span class="n">Player</span> <span class="n">subject</span><span class="p">,</span> <span class="n">World</span> <span class="n">targetWorld</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">subject</span><span class="p">.</span><span class="na">hasPermission</span><span class="p">(</span><span class="s">&quot;myplugin.command.teleport.execute&quot;</span><span class="p">)</span>
+            <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">subject</span><span class="p">.</span><span class="na">getWorld</span><span class="p">()</span> <span class="o">==</span> <span class="n">targetWorld</span>
+                    <span class="o">||</span> <span class="n">subject</span><span class="p">.</span><span class="na">hasPermission</span><span class="p">(</span><span class="s">&quot;myplugin.command.teleport.&quot;</span> <span class="o">+</span> <span class="n">targetWorld</span><span class="p">.</span><span class="na">getName</span><span class="p">()));</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id1">
+<h3>Kalıtım<a class="headerlink" href="#id1" title="Bu başlığın kalıcı bağlantısı">¶</a></h3>
+<p>Eğer bir <code class="docutils literal notranslate"><span class="pre">Subject``e</span> <span class="pre">atanmış</span> <span class="pre">bir</span> <span class="pre">izin</span> <span class="pre">varsa,</span> <span class="pre">o</span> <span class="pre">değeri</span> <span class="pre">kullanacaktır.</span> <span class="pre">Aksi</span> <span class="pre">halde,</span> <span class="pre">herhangi</span> <span class="pre">bir</span> <span class="pre">kaynak</span> <span class="pre">``Subject</span></code>’ten devralınacaktır. Hangi tür kaynağın (örneğin, grup veya oyuncu) <code class="docutils literal notranslate"><span class="pre">Subject</span></code> olabileceği önemli değildir.</p>
+<p>Ne özne ne de ebeveynlerin herhangi biri, izin vermez veya reddederse, o zaman varsayılan olarak``Subject``alınacaktır. Her <code class="docutils literal notranslate"><span class="pre">SubjectCollection</span></code> kendi varsayılanına sahiptir. Küresel ve en zayıf varsayılan tema <code class="docutils literal notranslate"><span class="pre">PermissionService</span></code>’den alınabilir Her başlatma işlemi esnasında eklentiler <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/permission/SubjectData.html">SubjectData</a> ile kendi izinlerinin varsayılan öntanımlı olarak atayabilir. Sunucu sahiplerinin varsayılan olarak kalıcı <code class="docutils literal notranslate"><span class="pre">SubjectData</span></code> kullanarak ihtiyaçlarına göre eklentiler tarafından tanımlanan varsayılanların üzerine yazmalarını sağlar. Sunucu sahipleri için bir yapılandırma rehberi sunmak isterseniz bunun yerine <code class="docutils literal notranslate"><span class="pre">PermissionDescription</span></code>’ın rol şablonlarını kullanın.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Uyarı</p>
+<p class="last">You should think carefully before granting default permissions to users. By granting the permissions you are
+assuming that all server owners will want these defaults (at least the first time the plugin runs) and that
+exceptions will require server owners to explicitly deny the permissions (which can’t even be done without a custom
+permissions service implementation). This should roughly correspond to a guest on a single player lan world without
+cheats. For example, a chat plugin would allow sending chat messages by default to imitate vanilla game behavior
+for features that were changed by the plugin.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Not</p>
+<p class="last">Varsayılan <a href="#id1"><span class="problematic" id="id2">``</span></a>Subject``lerin kalıcı <a href="#id3"><span class="problematic" id="id4">``</span></a>SubjectData``larının geçici olanlara göre önceliği vardır. Diğer tüm  <a href="#id5"><span class="problematic" id="id6">``</span></a>Subject``ler için ise geçici <a href="#id7"><span class="problematic" id="id8">``</span></a>SubjectData``nın kalıcı olanlara göre üstünlüğü vardır.</p>
+</div>
+<p>Eğer ne konu ne de konunun kaynaklarının hiçbiri veya varsayılanlar bir izne bir değer atamazsa izin otomatik olarak reddedilir.</p>
+<div class="admonition note">
+<p class="first admonition-title">Not</p>
+<p>Azalan sırayla öncelik sırası:</p>
+<ul class="last simple">
+<li><dl class="first docutils">
+<dt>Konunun kendisi</dt>
+<dd><ul class="first last">
+<li>Geçici</li>
+<li>Kalıcı</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Ana konular</dt>
+<dd><ul class="first last">
+<li>Geçici</li>
+<li>Kalıcı</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Konu Koleksiyonu Varsayılanları</dt>
+<dd><ul class="first last">
+<li>Kalıcı</li>
+<li>Geçici</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>İzin Servis Varsayılanları</dt>
+<dd><ul class="first last">
+<li>Kalıcı</li>
+<li>Geçici</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li>Izin vermeyi reddet</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="subjectcollections">
+<h2>SubjectCollections<a class="headerlink" href="#subjectcollections" title="Bu başlığın kalıcı bağlantısı">¶</a></h2>
+<p>İsme göre bir Konu elde etmek için kullanılabilecek konular için bir konteyner. Bunlar varsayılan Konu Koleksiyonları:</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>Kullanıcı</dt>
+<dd><ul class="first last">
+<li>Bütün çevrimiçi <a href="#id1"><span class="problematic" id="id2">``</span></a>Player``ları ve bütün çevrimdışı <a href="#id3"><span class="problematic" id="id4">``</span></a>User``ları (en azından varsayılan ayarlı olmayanlar) içerir.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Grup</dt>
+<dd><ul class="first last">
+<li>Bütün <code class="docutils literal notranslate"><span class="pre">Subject</span></code> gruplarını içerir. Gruplar adlandırılmış <a href="#id1"><span class="problematic" id="id2">``</span></a>Subject``leri kullanan kalıtım ağacı <a href="#id3"><span class="problematic" id="id4">``</span></a>Subject``lerini oluşturmanın basit bir yoludur. Gruplar eğer belli bir <a href="#id5"><span class="problematic" id="id6">``</span></a>Subject``alt kümesinin takım, grup veya görev gibi fazladan izni varsa kullanılmalıdır.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Sistem</dt>
+<dd><ul class="first last">
+<li>Contains other <code class="docutils literal notranslate"><span class="pre">Subject</span></code>s used by the server such as the console and possible remote consoles.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Komut bloğu</dt>
+<dd><ul class="first last">
+<li>Komut engeli için tüm <code class="docutils literal notranslate"><span class="pre">Subject``leri</span> <span class="pre">içerir.Bunlar</span> <span class="pre">eğer</span> <span class="pre">sadece</span> <span class="pre">oluşturucunun</span> <span class="pre">izniyle</span> <span class="pre">bir</span> <span class="pre">``CommandBlock</span></code> çalıştırmak isterseniz faydalıdır.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Rol şablonu</dt>
+<dd><ul class="first last">
+<li>`` PermissionDescription`` s’de kullanılan tüm rol şablonu konularını içerir. Bir kullanıcı için önerilen tüm izinleri bulmakta kullanışlıdır. Bunlar devralma için kullanılmamalıdır.</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Not</p>
+<p class="last"><code class="docutils literal notranslate"><span class="pre">SubjectCollection``lar</span> <span class="pre">bir</span> <span class="pre">``Subject</span></code> için sorgulandığında eğer çoktan mevcut değillerse otomatik olarak oluşturulacaklardır. Ancak varsayılan olmayan değerler ayarlanmadığı takdirde kesin olarak``getAllSubjects()``de görünmeyebilirler.</p>
+</div>
+</div>
+<div class="section" id="subjectdata">
+<h2>SubjectData<a class="headerlink" href="#subjectdata" title="Bu başlığın kalıcı bağlantısı">¶</a></h2>
+<p>SubjectData, konuya bağlı olan gerçek bir izin deposudur. İki tür konu mağazası vardır:</p>
+<ul class="simple">
+<li>Geçici = Sadece oturumun süresi boyunca sürer, hiçbir zaman kaydedilmez</li>
+<li>Düzenli (sürekli) = Bir yere kaydedilmiş ve bu yüzden depolamayı sürdürmüş ve sonsuza kadar var olmuş olabilir. Bu kalıcı bi belleğe uygulamak amacıyla <code class="docutils literal notranslate"><span class="pre">PermissionService</span></code> için önerilir ancak bu bir gereklilik değildir. Bu konunun türüne de bağlı olabilir. Eğer kalıcılık yoksa o zaman geçici bellek her iki yöntemle de geri dönmüş olacaktır.</li>
+</ul>
+<p>Eklenti yazarları, aralarında seçim yaparken bir değeri sürdürmeye gerek olup olmadığını düşünmelidir.</p>
+<ul class="simple">
+<li>Kısa bir süre için (ör. Bir minigame sırasında) ise, geçici olanını kullanın.</li>
+<li>Eğer uzun süredir veya sonsuza kadar sürecekse (örn. VIP için bir promosyon) normal (sürekli) olanı kullanılır.</li>
+</ul>
+<p>Geçici ve sürekli <a href="#id1"><span class="problematic" id="id2">``</span></a>SubjectData``ların kalıtım özelliği ve önceliği ile ilgili daha fazla bilgiye sahip olmak istiyorsanız lütfen Kalıtım Özelliği bölümüne bakın.</p>
+<div class="section" id="id2">
+<h3>Örnek<a class="headerlink" href="#id2" title="Bu başlığın kalıcı bağlantısı">¶</a></h3>
+<p>The following example could be used to give a player a permission with global context and a true value</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.entity.living.player.Player</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">setPermission</span><span class="p">(</span><span class="n">Player</span> <span class="n">player</span><span class="p">,</span> <span class="n">String</span> <span class="n">permission</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">player</span><span class="p">.</span><span class="na">hasPermission</span><span class="p">(</span><span class="n">permission</span><span class="p">)</span>
+        <span class="n">player</span><span class="p">.</span><span class="na">getSubjectData</span><span class="p">().</span><span class="na">setPermission</span><span class="p">(</span><span class="n">SubjectData</span><span class="p">.</span><span class="na">GLOBAL_CONTEXT</span><span class="p">,</span> <span class="n">permission</span><span class="p">,</span> <span class="n">Tristate</span><span class="p">.</span><span class="na">TRUE</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Not</p>
+<p class="last">In the above example <code class="docutils literal notranslate"><span class="pre">Tristate.TRUE</span></code> was used but you can also use <code class="docutils literal notranslate"><span class="pre">Tristate.FALSE</span></code> for a false permission and
+<code class="docutils literal notranslate"><span class="pre">Tristate.UNDEFINED</span></code> to unset the permission entirely.</p>
+</div>
+</div>
+</div>
+<div class="section" id="subject-options">
+<h2>Konu Seçenekleri<a class="headerlink" href="#subject-options" title="Bu başlığın kalıcı bağlantısı">¶</a></h2>
+<p>Konular ayrıca satır seçeneklerini saklamak için olanak sağlar. Bunlar basit olarak atanabilen ve devralınabilen anahtar değer çiftleridir. İzin satırlarının aksine, anahtarlar hiyerarşik değildir ve herhangi bir devretme mekanizması sağlamazlar, ancak anahtar değer çiftlerinin kendileri, izinlerin verildiği şekilde <code class="docutils literal notranslate"><span class="pre">Subject</span></code>s’ den devralınır.</p>
+</div>
+<div class="section" id="contexts">
+<h2>Bağlamlar<a class="headerlink" href="#contexts" title="Bu başlığın kalıcı bağlantısı">¶</a></h2>
+<p>Eğer siz her izni ayrıcalık veya birşey yapabilme kabiliyeti olarak düşünürseniz, bir <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/context/Context.html">Context</a> bu ayrıcalıkların kullanılabilir olduğu koşullardır.</p>
+<p>Bir şeyler yapmak için bir <code class="docutils literal notranslate"><span class="pre">Subject``izni</span> <span class="pre">vermek</span> <span class="pre">isteyebilirsiniz</span> <span class="pre">yalnız</span> <span class="pre">sadece</span> <span class="pre">``Subject</span></code> belli bir dünyada veya belli bir bölgede olduğunda yapabilirsiniz.</p>
+<p>İçerikler <code class="docutils literal notranslate"><span class="pre">Subject</span></code> tarafından biriktirilir ve sonra <code class="docutils literal notranslate"><span class="pre">Subject``in</span> <span class="pre">ayrıcalığı</span> <span class="pre">olup</span> <span class="pre">olmadığına</span> <span class="pre">karar</span> <span class="pre">vermek</span> <span class="pre">için</span> <span class="pre">``PermissionService</span></code> tarafından kullanılır.</p>
+<p>Sponge bir takım  varsayılan içerikler sağlar ama genel olarak <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/context/ContextCalculator.html">ContextCalculator</a> kanalıyla PermissionService’e ek içerikler sağlamak için diğer eklentilerin altındadır.</p>
+<p>Eğer bu içerikler paylaşılmak isteniyorsa lütfen kendi eklentilerinizi oluştururken diğer eklentilerle çakışmasından kaçının (Örneğin eklenti kimliğinizle birlikte içerik anahtarını önüne ekleyerek.).</p>
+<div class="admonition note">
+<p class="first admonition-title">Not</p>
+<p class="last">Please make sure that your <code class="docutils literal notranslate"><span class="pre">ContextCalculator</span></code> responds as <strong>fast</strong> as possible as it will get called frequently.</p>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Uyarı</p>
+<p class="last"><code class="docutils literal notranslate"><span class="pre">ContextCalculator</span></code> implementations must be <strong>thread safe</strong>, because they may be called from outside of the main
+thread, or even called in parallel. For to this reason, all non-name or non-uuid based <code class="docutils literal notranslate"><span class="pre">ContextCalculator</span></code>s
+(such as location-based ones) have to utilize a cache and must be to be updated using event listeners or
+synchronized schedulers.</p>
+</div>
+<div class="section" id="id3">
+<h3>Örnek<a class="headerlink" href="#id3" title="Bu başlığın kalıcı bağlantısı">¶</a></h3>
+<p><a href="#id1"><span class="problematic" id="id2">``</span></a>ContextCalculator``ınız böyle görünebilir:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.command.CommandSource</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.service.context.Context</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.service.context.ContextCalculator</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.service.permission.Subject</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.HashMap</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Map</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Set</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.UUID</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ExampleCalculator</span> <span class="kd">implements</span> <span class="n">ContextCalculator</span><span class="o">&lt;</span><span class="n">Subject</span><span class="o">&gt;</span> <span class="p">{</span>
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">Context</span> <span class="n">IN_ANY_ARENA</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Context</span><span class="p">(</span><span class="s">&quot;myarenaplugin-inAnyArena&quot;</span><span class="p">,</span> <span class="s">&quot;true&quot;</span><span class="p">);</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">Context</span> <span class="n">NOT_ANY_ARENA</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Context</span><span class="p">(</span><span class="s">&quot;myarenaplugin-inAnyArena&quot;</span><span class="p">,</span> <span class="s">&quot;false&quot;</span><span class="p">);</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">ARENA_KEY</span> <span class="o">=</span> <span class="s">&quot;myarenaplugin-arena&quot;</span><span class="p">;</span>
+
+    <span class="kd">private</span> <span class="kd">final</span> <span class="n">Map</span><span class="o">&lt;</span><span class="n">UUID</span><span class="p">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">playerArenas</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">accumulateContexts</span><span class="p">(</span><span class="n">Subject</span> <span class="n">calculable</span><span class="p">,</span> <span class="n">Set</span><span class="o">&lt;</span><span class="n">Context</span><span class="o">&gt;</span> <span class="n">accumulator</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">final</span> <span class="n">Optional</span><span class="o">&lt;</span><span class="n">CommandSource</span><span class="o">&gt;</span> <span class="n">commandSource</span> <span class="o">=</span> <span class="n">calculable</span><span class="p">.</span><span class="na">getCommandSource</span><span class="p">();</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">commandSource</span><span class="p">.</span><span class="na">isPresent</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="n">commandSource</span><span class="p">.</span><span class="na">get</span><span class="p">()</span> <span class="k">instanceof</span> <span class="n">Player</span><span class="p">)</span> <span class="p">{</span>
+            <span class="kd">final</span> <span class="n">Player</span> <span class="n">player</span> <span class="o">=</span> <span class="p">(</span><span class="n">Player</span><span class="p">)</span> <span class="n">commandSource</span><span class="p">.</span><span class="na">get</span><span class="p">();</span>
+
+            <span class="kd">final</span> <span class="n">UUID</span> <span class="n">uuid</span> <span class="o">=</span> <span class="n">player</span><span class="p">.</span><span class="na">getUniqueId</span><span class="p">();</span>
+            <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">playerArenas</span><span class="p">.</span><span class="na">containsKey</span><span class="p">(</span><span class="n">uuid</span><span class="p">))</span> <span class="p">{</span>
+                <span class="n">accumulator</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">IN_ANY_ARENA</span><span class="p">);</span>
+                <span class="n">accumulator</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span> <span class="n">Context</span><span class="p">(</span><span class="n">ARENA_KEY</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="na">playerArenas</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">uuid</span><span class="p">)));</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="n">accumulator</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">NOT_ANY_ARENA</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">matches</span><span class="p">(</span><span class="n">Context</span> <span class="n">context</span><span class="p">,</span> <span class="n">Subject</span> <span class="n">subject</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">context</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">IN_ANY_ARENA</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">context</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">NOT_ANY_ARENA</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">context</span><span class="p">.</span><span class="na">getKey</span><span class="p">().</span><span class="na">equals</span><span class="p">(</span><span class="n">ARENA_KEY</span><span class="p">))</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="kd">final</span> <span class="n">Optional</span><span class="o">&lt;</span><span class="n">CommandSource</span><span class="o">&gt;</span> <span class="n">commandSource</span> <span class="o">=</span> <span class="n">subject</span><span class="p">.</span><span class="na">getCommandSource</span><span class="p">();</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">commandSource</span><span class="p">.</span><span class="na">isPresent</span><span class="p">()</span> <span class="o">||</span> <span class="o">!</span><span class="p">(</span><span class="n">commandSource</span><span class="p">.</span><span class="na">get</span><span class="p">()</span> <span class="k">instanceof</span> <span class="n">Player</span><span class="p">))</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="kd">final</span> <span class="n">Player</span> <span class="n">player</span> <span class="o">=</span> <span class="p">(</span><span class="n">Player</span><span class="p">)</span> <span class="n">commandSource</span><span class="p">.</span><span class="na">get</span><span class="p">();</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">context</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">IN_ANY_ARENA</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="na">playerArenas</span><span class="p">.</span><span class="na">containsKey</span><span class="p">(</span><span class="n">player</span><span class="p">.</span><span class="na">getUniqueId</span><span class="p">()))</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">context</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">NOT_ANY_ARENA</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="k">this</span><span class="p">.</span><span class="na">playerArenas</span><span class="p">.</span><span class="na">containsKey</span><span class="p">(</span><span class="n">player</span><span class="p">.</span><span class="na">getUniqueId</span><span class="p">()))</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">context</span><span class="p">.</span><span class="na">getKey</span><span class="p">().</span><span class="na">equals</span><span class="p">(</span><span class="n">ARENA_KEY</span><span class="p">))</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="na">playerArenas</span><span class="p">.</span><span class="na">containsKey</span><span class="p">(</span><span class="n">player</span><span class="p">.</span><span class="na">getUniqueId</span><span class="p">()))</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+            <span class="p">}</span>
+
+            <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="na">playerArenas</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">player</span><span class="p">.</span><span class="na">getUniqueId</span><span class="p">()).</span><span class="na">equals</span><span class="p">(</span><span class="n">context</span><span class="p">.</span><span class="na">getValue</span><span class="p">()))</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">ContextCalculator</span></code> şu yollarla kaydedilebilir:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">permissionService</span><span class="p">.</span><span class="na">registerContextCalculator</span><span class="p">(</span><span class="n">contextCalculator</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="for-forge-mods">
+<h2>Modları Düzenlemek İçin<a class="headerlink" href="#for-forge-mods" title="Bu başlığın kalıcı bağlantısı">¶</a></h2>
+<p>Bir Forge modunun yazarıysanız ve yeni Forge PermissionsAPI’sini kullanmıyorsanız, ancak OP kontrollerini yapıyorsanız, o zaman Sponge’ın izinleri alması için zaten doğru yoldasınız demektir.</p>
+<p>SpongeAPI’ye bağlı olmayan Forge modunda bir Sponge izni oluşturmak için en basit yol, `` ICommandSender`` içindeki Vanilla Minecraft kodunun sağladığı yöntemi kullanmaktır, yani `` ICommandSender.canCommandSenderUseCommand (int permLevel, String commandName) <a href="#id1"><span class="problematic" id="id2">``</span></a>. Bu metoda geçirilen dize, Vanilla Forge ortamında hiç bir kullanıma sahip değildir, ancak SpongeForge eklendiğinde otomatik olarak o dizeyi alır ve bir çalışma iznine dönüştürür.</p>
+<div class="section" id="id4">
+<h3>Örnek<a class="headerlink" href="#id4" title="Bu başlığın kalıcı bağlantısı">¶</a></h3>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">AwesomeBlock</span> <span class="kd">extends</span> <span class="n">Block</span> <span class="p">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">onBlockActivated</span><span class="p">(</span><span class="n">World</span> <span class="n">world</span><span class="p">,</span> <span class="n">BlockPos</span> <span class="n">pos</span><span class="p">,</span> <span class="n">IBlockState</span> <span class="n">state</span><span class="p">,</span>
+            <span class="n">EntityPlayer</span> <span class="n">player</span><span class="p">,</span> <span class="n">EnumHand</span> <span class="n">hand</span><span class="p">,</span> <span class="n">EnumFacing</span> <span class="n">facing</span><span class="p">,</span> <span class="kt">float</span> <span class="n">hitX</span><span class="p">,</span> <span class="kt">float</span> <span class="n">hitY</span><span class="p">,</span> <span class="kt">float</span> <span class="n">hitZ</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">player</span><span class="p">.</span><span class="na">canUseCommand</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="s">&quot;examplemod.awesomeblock.interact&quot;</span><span class="p">))</span> <span class="p">{</span>
+            <span class="c1">// Do cool stuff</span>
+            <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Görebildiğiniz gibi OP seviyesini kontrol ettik ve Sponge kullanıldığında izin olarak kullanmak istediğiniz rastgele bir Dize’yi gönderiyoruz. Forge kendi başına kullanıldığında, oyuncu sadece OP seviyesini gerektirir, bu nedenle 0 değeri geçmek tüm kullanıcıların blokla etkileşime girmesine izin verir, ancak SpongeForge eklendiğinde `` examplemod.awesomeblock.interact`` izin düğümünü gerektirir.. Yukarıda açıklandığı gibi izin yapısına uyulması önerilir. İzin devralma bu kontroller için de geçerlidir.</p>
+<div class="admonition note">
+<p class="first admonition-title">Not</p>
+<p class="last">Bu yöntem için SRG adı <code class="docutils literal notranslate"><span class="pre">func_70003_b</span></code>.</p>
+</div>
+</div>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="bans.html" class="btn btn-neutral float-right" title="Yasaklılar" accesskey="n" rel="next">İleri <span class="fa fa-angle-right"></span></a>
+        <a href="database.html" class="btn btn-neutral" title="Veritabanları" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> Önceki</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../_static/flags/tr_TR.svg"
+         alt="tr" title="Türkçe">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../_static/jquery.js"></script>      <script type="text/javascript" src="../_static/underscore.js"></script>      <script type="text/javascript" src="../_static/doctools.js"></script>      <script type="text/javascript" src="../_static/language_data.js"></script>      <script type="text/javascript" src="../_static/translations.js"></script>      <script type="text/javascript" src="../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

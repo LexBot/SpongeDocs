@@ -1,0 +1,660 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>實作 DataManipulators &mdash; Sponge 7.2.0 說明文件</title>
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="索引"
+              href="../../genindex.html"/>        <link rel="search" title="搜尋" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 說明文件" href="../../index.html"/>        <link rel="up" title="開發 Sponge" href="index.html"/>        <link rel="next" title="SpongeDocs 文件" href="../spongedocs.html"/>        <link rel="prev" title="Mixins" href="mixins.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../../index.html">
+            <img src="../../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../server/index.html">建立伺服器</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../versions/index.html">版本控制方針</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../preparing/index.html">準備開發</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../plugin/index.html">建立插件</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ore/index.html">Ore 文件</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">為 Sponge 貢獻</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../guidelines.html">貢獻指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../howtogit.html">如何 Git(hub)</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">開發 Sponge</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="codestyle.html">程式碼風格</a></li>
+<li class="toctree-l3"><a class="reference internal" href="git-implementation.html">API 與實作的 Git 工作流程</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pr.html">發送 Pull Request</a></li>
+<li class="toctree-l3"><a class="reference internal" href="debugging/index.html">调试 Sponge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mixins.html">Mixins</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">實作 DataManipulators</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../spongedocs.html">SpongeDocs 文件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../porting.html">將 Sponge 移植到其他平台</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../versioning.html">專案分支布局</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">關於 Sponge 專案</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+          <li><a href="../index.html">為 Sponge 貢獻</a> &raquo;</li>
+          <li><a href="index.html">開發 Sponge</a> &raquo;</li>
+    <li>實作 DataManipulators</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/contributing/implementation/datamanipulator.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="implementing-datamanipulators">
+<h1>實作 DataManipulators<a class="headerlink" href="#implementing-datamanipulators" title="本標題的永久連結">¶</a></h1>
+<p>這是一個為希望透過建立 DataManipulators 來説明 Data API 實作的貢獻者提供的指南。可以在 <a class="reference external" href="https://github.com/SpongePowered/SpongeCommon/issues/8">SpongeCommon Issue #8</a> 中找到要實現的 DataManipulators 更新清單。</p>
+<p>要完全實作一個 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/manipulator/DataManipulator.html">DataManipulator</a>，必須遵循以下步驟：</p>
+<ol class="arabic simple">
+<li>實作 <code class="docutils literal notranslate"><span class="pre">DataManipulator</span></code> 本身</li>
+<li>實作 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/manipulator/ImmutableDataManipulator.html">ImmutableDataManipulator</a></li>
+</ol>
+<p>當這些步驟完成後，還必須完成以下的步驟：</p>
+<ol class="arabic simple" start="3">
+<li>在 <code class="docutils literal notranslate"><span class="pre">KeyRegistryModule</span></code> 中註冊 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/key/Key.html">Key</a>。</li>
+<li>實作 <code class="docutils literal notranslate"><span class="pre">DataProcessor</span></code></li>
+<li>为每个表示 <code class="docutils literal notranslate"><span class="pre">DataManipulator</span></code> 的值（<a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/value/mutable/Value.html">Value</a>）实现数据值处理器（ <code class="docutils literal notranslate"><span class="pre">ValueProcessor</span></code> ）</li>
+</ol>
+<p>若有數據適用於某個塊，則還必須將多個方法混合到該塊中。</p>
+<div class="admonition note">
+<p class="first admonition-title">備註</p>
+<p class="last">請確保您遵循我們的 <a class="reference internal" href="../guidelines.html"><span class="doc">貢獻指南</span></a>。</p>
+</div>
+<p>下面这个代码片段展示了 SpongeCommon 中的几个类的 import，你在实际操作中也会需要导入这些类：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.common.data.DataProcessor</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.common.data.ValueProcessor</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.common.data.manipulator.immutable.entity.ImmutableSpongeHealthData</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.common.data.manipulator.mutable.common.AbstractData</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.common.data.manipulator.mutable.entity.SpongeHealthData</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.common.data.processor.common.AbstractEntityDataProcessor</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.common.util.Constants</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.common.data.util.NbtDataUtil</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.common.registry.type.data.KeyRegistryModule</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="section" id="implement-the-datamanipulator">
+<h2>1. 實作 DataManipulator<a class="headerlink" href="#implement-the-datamanipulator" title="本標題的永久連結">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">DataManipulator</span></code> 的实现的约定是把它们加上 <code class="docutils literal notranslate"><span class="pre">Sponge</span></code> 的前缀。也就是说，为了实现 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/manipulator/mutable/entity/HealthData.html">HealthData</a> 接口，我们在合适的包创建了一个名为 <code class="docutils literal notranslate"><span class="pre">SpongeHealthData</span></code> 的类。为了实现 <code class="docutils literal notranslate"><span class="pre">DataManipulator</span></code> 的一部分内容，我们先在 <code class="docutils literal notranslate"><span class="pre">org.spongepowered.common.data.manipulator.mutable.common</span></code> 中新建了一个合适的抽象类。最常用的一般是 <code class="docutils literal notranslate"><span class="pre">AbstractData</span></code> ，不过我们还有一些抽象类可以大大减少不必要的代码，甚至我们为一些特殊情况，如只包含有一个数据的 <code class="docutils literal notranslate"><span class="pre">DataManipulator</span></code> 提供了抽象。</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">SpongeHealthData</span> <span class="kd">extends</span> <span class="n">AbstractData</span><span class="o">&lt;</span><span class="n">HealthData</span><span class="p">,</span> <span class="n">ImmutableHealthData</span><span class="o">&gt;</span> <span class="kd">implements</span> <span class="n">HealthData</span> <span class="p">{</span>
+    <span class="o">[</span><span class="p">...</span><span class="o">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>AbstractData class 有兩個類型的引數。第一個是由這個 class 實作的介面，第二個是由對應的 <code class="docutils literal notranslate"><span class="pre">ImmutableDataManipulator</span></code> 實作的介面。</p>
+<div class="section" id="the-constructor">
+<h3>建構子<a class="headerlink" href="#the-constructor" title="本標題的永久連結">¶</a></h3>
+<p>大部分的情況下，實作一個抽象的 <code class="docutils literal notranslate"><span class="pre">DataManipulator</span></code> 會需要有兩個建構子：</p>
+<ul class="simple">
+<li>第一個建構子沒有引數，而它會呼叫第二個建構子，並傳入「預設」值。</li>
+<li>第二個構造子需要傳入所有它支援的值。</li>
+</ul>
+<p>第二個構造子必須</p>
+<ul class="simple">
+<li>呼叫 <code class="docutils literal notranslate"><span class="pre">AbstractData</span></code> 建構子，為被實作的介面傳遞 class 參照。</li>
+<li>要確保傳遞的值都是有效的</li>
+<li>呼叫 <code class="docutils literal notranslate"><span class="pre">registerGettersAndSetters()</span></code> 方法</li>
+</ul>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import static</span> <span class="nn">com.google.common.base.Preconditions.checkArgument</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SpongeHealthData</span> <span class="kd">extends</span> <span class="n">AbstractData</span><span class="o">&lt;</span><span class="n">HealthData</span><span class="p">,</span> <span class="n">ImmutableHealthData</span><span class="o">&gt;</span> <span class="kd">implements</span> <span class="n">HealthData</span> <span class="p">{</span>
+
+    <span class="kd">private</span> <span class="kt">double</span> <span class="n">health</span><span class="p">;</span>
+    <span class="kd">private</span> <span class="kt">double</span> <span class="n">maxHealth</span><span class="p">;</span>
+
+    <span class="kd">public</span> <span class="nf">SpongeHealthData</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">(</span><span class="mi">20</span><span class="n">D</span><span class="p">,</span> <span class="mi">20</span><span class="n">D</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="nf">SpongeHealthData</span><span class="p">(</span><span class="kt">double</span> <span class="n">health</span><span class="p">,</span> <span class="kt">double</span> <span class="n">maxHealth</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">super</span><span class="p">(</span><span class="n">HealthData</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+        <span class="n">checkArgument</span><span class="p">(</span><span class="n">maxHealth</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">health</span> <span class="o">=</span> <span class="n">health</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">maxHealth</span> <span class="o">=</span> <span class="n">maxHealth</span><span class="p">;</span>
+        <span class="n">registerGettersAndSetters</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="o">[</span><span class="p">...</span><span class="o">]</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>因为我们知道，不管是生命值，还是最大生命值，都有着上下限，所以我们要确保传入的值不会超出上下限。我们可以使用 Guava 的 <code class="docutils literal notranslate"><span class="pre">Preconditions</span></code> 类，并把其中的若干方法以静态方式导入（译者注：import static）。</p>
+<div class="admonition note">
+<p class="first admonition-title">備註</p>
+<p class="last">永远不要在你的代码中使用魔数（Magic Number，如任意数字、布尔值等）。请使用 <code class="docutils literal notranslate"><span class="pre">DataConstants</span></code> 中提供的常数——或者在需要的时候自己创建一个。</p>
+</div>
+</div>
+<div class="section" id="accessors-defined-by-the-interface">
+<h3>介面定義的存取器<a class="headerlink" href="#accessors-defined-by-the-interface" title="本標題的永久連結">¶</a></h3>
+<p>我们实现的接口定义了若干个方法用于访问数据值（<a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/value/mutable/Value.html">Value</a>）对象。对于 <code class="docutils literal notranslate"><span class="pre">HealthData</span></code> 来说，我们有 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/manipulator/mutable/entity/HealthData.html#health--">HealthData#health()</a> 和 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/manipulator/mutable/entity/HealthData.html#maxHealth--">HealthData#maxHealth()</a> 两个方法。每一次对相关方法的调用都应该生成一份新的 <code class="docutils literal notranslate"><span class="pre">Value</span></code> 。</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="n">MutableBoundedValue</span><span class="o">&lt;</span><span class="n">Double</span><span class="o">&gt;</span> <span class="nf">health</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">SpongeValueFactory</span><span class="p">.</span><span class="na">boundedBuilder</span><span class="p">(</span><span class="n">Keys</span><span class="p">.</span><span class="na">HEALTH</span><span class="p">)</span>
+        <span class="p">.</span><span class="na">minimum</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="p">.</span><span class="na">maximum</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">maxHealth</span><span class="p">)</span>
+        <span class="p">.</span><span class="na">defaultValue</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">maxHealth</span><span class="p">)</span>
+        <span class="p">.</span><span class="na">actualValue</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">health</span><span class="p">)</span>
+        <span class="p">.</span><span class="na">build</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">小訣竅</p>
+<p class="last">由於 <code class="docutils literal notranslate"><span class="pre">Double``是一個</span> <span class="pre">``Comparable</span></code>，所以我們不需要明確指定一個comparator。</p>
+</div>
+<p>如果当前值没有指定，那么调用 <code class="docutils literal notranslate"><span class="pre">Value</span></code> 类的 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/value/BaseValue.html#get--">BaseValue#get()</a> 将返回默认值。</p>
+</div>
+<div class="section" id="copying-and-serialization">
+<h3>複製和序列化<a class="headerlink" href="#copying-and-serialization" title="本標題的永久連結">¶</a></h3>
+<p>实现 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/manipulator/DataManipulator.html#copy--">DataManipulator#copy()</a> 和 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/manipulator/DataManipulator.html#asImmutable--">DataManipulator#asImmutable()</a> 两个方法并不需要做太多的工作，你只需要根据现有的数据，分别创建对应的可变的和不可变的数据操纵器副本就可以了。</p>
+<p><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/DataSerializable.html#toContainer--">DataSerializable#toContainer()</a> 方法用于序列化。请使用 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/DataContainer.html#createNew--">DataContainer#createNew()</a> 作为返回值并把相关的数据放进去。一个 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/DataContainer.html">DataContainer</a> 本身可以看做 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/DataQuery.html">DataQuery</a> 到对应值的映射。因为每个 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/key/Key.html">Key</a> 都有对应的 <code class="docutils literal notranslate"><span class="pre">DataQuery</span></code> ，所有只需要直接传入相应的 <code class="docutils literal notranslate"><span class="pre">Key</span></code> 就可以获得对应的值了。</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="n">DataContainer</span> <span class="nf">toContainer</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="kd">super</span><span class="p">.</span><span class="na">toContainer</span><span class="p">()</span>
+        <span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="n">Keys</span><span class="p">.</span><span class="na">HEALTH</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="na">health</span><span class="p">)</span>
+        <span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="n">Keys</span><span class="p">.</span><span class="na">MAX_HEALTH</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="na">maxHealth</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="registergettersandsetters">
+<h3><code class="docutils literal notranslate"><span class="pre">registerGettersAndSetters()</span></code> 方法<a class="headerlink" href="#registergettersandsetters" title="本標題的永久連結">¶</a></h3>
+<p>一个 <code class="docutils literal notranslate"><span class="pre">DataManipulator</span></code> 同时提供了方法用于根据数据键获取和设置数据。当然，我们的 <code class="docutils literal notranslate"><span class="pre">AbstractData</span></code> 提供了相关实现，不过我们必须告诉它我们怎么获取数据，以及获取的是什么数据。因此，我们需要在 <code class="docutils literal notranslate"><span class="pre">registerGettersAndSetters()</span></code> 方法的实现中为我们的每一个数据值做下面几件事：</p>
+<ul class="simple">
+<li>注册一个 <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/util/function/Supplier.html">Supplier</a> 用于直接获取数据</li>
+<li>注册一个 <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/util/function/Consumer.html">Consumer</a> 用于直接设置数据</li>
+<li>注册一个 <code class="docutils literal notranslate"><span class="pre">Supplie&lt;Value&gt;</span></code> 用于获取可变的 <code class="docutils literal notranslate"><span class="pre">Value</span></code></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">Supplier</span></code> 和 <code class="docutils literal notranslate"><span class="pre">Consumer</span></code> 都可以使用 Java8 的 Lambda 表达式。</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">private</span> <span class="n">SpongeHealthData</span> <span class="nf">setCurrentHealthIfValid</span><span class="p">(</span><span class="kt">double</span> <span class="n">value</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">value</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">value</span> <span class="o">&lt;=</span> <span class="p">(</span><span class="kt">double</span><span class="p">)</span> <span class="n">Float</span><span class="p">.</span><span class="na">MAX_VALUE</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">health</span> <span class="o">=</span> <span class="n">value</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="k">throw</span> <span class="k">new</span> <span class="n">IllegalArgumentException</span><span class="p">(</span><span class="s">&quot;Invalid value for current health&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">private</span> <span class="n">SpongeHealthData</span> <span class="nf">setMaximumHealthIfValid</span><span class="p">(</span><span class="kt">double</span> <span class="n">value</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">value</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">value</span> <span class="o">&lt;=</span> <span class="p">(</span><span class="kt">double</span><span class="p">)</span> <span class="n">Float</span><span class="p">.</span><span class="na">MAX_VALUE</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">maxHealth</span> <span class="o">=</span> <span class="n">value</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="k">throw</span> <span class="k">new</span> <span class="n">IllegalArgumentException</span><span class="p">(</span><span class="s">&quot;Invalid value for maximum health&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">private</span> <span class="kt">void</span> <span class="nf">registerGettersAndSetters</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">registerFieldGetter</span><span class="p">(</span><span class="n">Keys</span><span class="p">.</span><span class="na">HEALTH</span><span class="p">,</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="k">this</span><span class="p">.</span><span class="na">health</span><span class="p">);</span>
+    <span class="n">registerFieldSetter</span><span class="p">(</span><span class="n">Keys</span><span class="p">.</span><span class="na">HEALTH</span><span class="p">,</span> <span class="k">this</span><span class="p">::</span><span class="n">setCurrentHealthIfValid</span><span class="p">);</span>
+    <span class="n">registerKeyValue</span><span class="p">(</span><span class="n">Keys</span><span class="p">.</span><span class="na">HEALTH</span><span class="p">,</span> <span class="k">this</span><span class="p">::</span><span class="n">health</span><span class="p">);</span>
+
+    <span class="n">registerFieldGetter</span><span class="p">(</span><span class="n">Keys</span><span class="p">.</span><span class="na">MAX_HEALTH</span><span class="p">,</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="k">this</span><span class="p">.</span><span class="na">maxHealth</span><span class="p">);</span>
+    <span class="n">registerFieldSetter</span><span class="p">(</span><span class="n">Keys</span><span class="p">.</span><span class="na">MAX_HEALTH</span><span class="p">,</span> <span class="k">this</span><span class="p">::</span><span class="n">setMaximumHealthIfValid</span><span class="p">);</span>
+    <span class="n">registerKeyValue</span><span class="p">(</span><span class="n">Keys</span><span class="p">.</span><span class="na">MAX_HEALTH</span><span class="p">,</span> <span class="k">this</span><span class="p">::</span><span class="n">maxHealth</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>作为设置值的手段， <code class="docutils literal notranslate"><span class="pre">Consumer</span></code> 必须在试图设置值时进行一定的检查。尤其是当有些 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/DataHolder.html">DataHolder</a> 不接受负数值的时候。所以如果传入的值不合法，该 <code class="docutils literal notranslate"><span class="pre">Consumer</span></code> 应该直接抛出一个 <code class="docutils literal notranslate"><span class="pre">IllegalArgumentException</span></code> 。</p>
+<div class="admonition tip">
+<p class="first admonition-title">小訣竅</p>
+<p class="last">对应的设置值时的要求标准应与其分别的 <code class="docutils literal notranslate"><span class="pre">Value</span></code> 对象相一致。所以你可以试着把 <code class="docutils literal notranslate"><span class="pre">this.health().set()</span></code> 方法传入的值检查部分隔离成另一个方法，然后直接执行 <code class="docutils literal notranslate"><span class="pre">this.health</span> <span class="pre">=</span> <span class="pre">value</span></code> ，如果之前的检查没有抛出异常的话。</p>
+</div>
+<p>一切就绪。你设计的 <code class="docutils literal notranslate"><span class="pre">DataManipulator</span></code> 的所有工作已经全部完成了。</p>
+</div>
+</div>
+<div class="section" id="implement-the-immutabledatamanipulator">
+<h2>2. 实现不可变数据操纵器（ImmutableDataManipulator）<a class="headerlink" href="#implement-the-immutabledatamanipulator" title="本標題的永久連結">¶</a></h2>
+<p>实现 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/manipulator/ImmutableDataManipulator.html">ImmutableDataManipulator</a> 的过程和实现可变的数据操纵器类似。</p>
+<p>区别：</p>
+<ul class="simple">
+<li>对应的可变的 <code class="docutils literal notranslate"><span class="pre">DataManipulator</span></code> 的类名前缀变成了 <code class="docutils literal notranslate"><span class="pre">ImmutableSponge</span></code></li>
+<li>继承的是 <code class="docutils literal notranslate"><span class="pre">ImmutableAbstractData</span></code></li>
+<li>不存在 <code class="docutils literal notranslate"><span class="pre">registerGettersAndSetters()</span></code> 方法，你只需要关心的是 <code class="docutils literal notranslate"><span class="pre">registerGetters()</span></code> 方法</li>
+</ul>
+<p>当创建不可变数据访问器（ <code class="docutils literal notranslate"><span class="pre">ImmutableDataHolder</span></code> ）或者不可变数据值（ <code class="docutils literal notranslate"><span class="pre">ImmutableValue</span></code> ）时，你可以通过 <code class="docutils literal notranslate"><span class="pre">ImmutableDataCachingUtil</span></code> 来检查它是否有意义。比如一个 <code class="docutils literal notranslate"><span class="pre">WetData</span></code> 只会存储一个布尔值，所以你完全可以只存储两个 <code class="docutils literal notranslate"><span class="pre">ImmutableWetData</span></code> 作为缓存——每个 <code class="docutils literal notranslate"><span class="pre">ImmutableWetData</span></code> 对应着布尔值的一种情况。不过对于可能有很多值的情况（如 <code class="docutils literal notranslate"><span class="pre">SignData</span></code> ），缓存数据值和数据操纵器的成本似乎就太高了些。</p>
+<div class="admonition tip">
+<p class="first admonition-title">小訣竅</p>
+<p class="last">你应该把 <code class="docutils literal notranslate"><span class="pre">ImmutableDataManipulator</span></code> 中的字段都声明为 <code class="docutils literal notranslate"><span class="pre">final</span></code> 以防止你可能产生的代码问题。</p>
+</div>
+</div>
+<div class="section" id="register-the-key-in-the-keyregistrymodule">
+<h2>3. 在 KeyRegistryModule 中注册数据键（Key）<a class="headerlink" href="#register-the-key-in-the-keyregistrymodule" title="本標題的永久連結">¶</a></h2>
+<p>接下来你应该使用 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/key/Keys.html">Keys</a> 注册 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/key/Key.html">Key</a>。因此，请找到 <code class="docutils literal notranslate"><span class="pre">KeyRegistryModule</span></code> 类的 <code class="docutils literal notranslate"><span class="pre">registerDefaults()</span></code> 方法。然后，在该方法里添加一行用于（创建和）注册的新代码。</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import static</span> <span class="nn">org.spongepowered.api.data.DataQuery.of</span><span class="p">;</span>
+
+<span class="k">this</span><span class="p">.</span><span class="na">register</span><span class="p">(</span><span class="s">&quot;health&quot;</span><span class="p">,</span> <span class="n">Key</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
+        <span class="p">.</span><span class="na">type</span><span class="p">(</span><span class="n">TypeTokens</span><span class="p">.</span><span class="na">BOUNDED_DOUBLE_VALUE_TOKEN</span><span class="p">)</span>
+        <span class="p">.</span><span class="na">id</span><span class="p">(</span><span class="s">&quot;health&quot;</span><span class="p">)</span>
+        <span class="p">.</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;Health&quot;</span><span class="p">)</span>
+        <span class="p">.</span><span class="na">query</span><span class="p">(</span><span class="n">of</span><span class="p">(</span><span class="s">&quot;Health&quot;</span><span class="p">))</span>
+        <span class="p">.</span><span class="na">build</span><span class="p">());</span>
+<span class="k">this</span><span class="p">.</span><span class="na">register</span><span class="p">(</span><span class="s">&quot;max_health&quot;</span><span class="p">,</span> <span class="n">Key</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
+        <span class="p">.</span><span class="na">type</span><span class="p">(</span><span class="n">TypeTokens</span><span class="p">.</span><span class="na">BOUNDED_DOUBLE_VALUE_TOKEN</span><span class="p">)</span>
+        <span class="p">.</span><span class="na">id</span><span class="p">(</span><span class="s">&quot;max_health&quot;</span><span class="p">)</span>
+        <span class="p">.</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;Max Health&quot;</span><span class="p">)</span>
+        <span class="p">.</span><span class="na">query</span><span class="p">(</span><span class="n">of</span><span class="p">(</span><span class="s">&quot;MaxHealth&quot;</span><span class="p">))</span>
+        <span class="p">.</span><span class="na">build</span><span class="p">());</span>
+</pre></div>
+</div>
+<p>调用 <code class="docutils literal notranslate"><span class="pre">register(Key)</span></code> 方法，注册所有的 <code class="docutils literal notranslate"><span class="pre">Key</span></code> 以便后续之用。注册时使用的 ID 应为 <code class="docutils literal notranslate"><span class="pre">Keys</span></code> 类中相应字段的小写形式。你应使用 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/key/Key.html#builder--">Key#builder()</a> 的返回值，也就是 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/key/Key.Builder.html">Key.Builder</a> 构造一个对应的 <code class="docutils literal notranslate"><span class="pre">Key</span></code> 的实例。你需要分别设置相应的 <code class="docutils literal notranslate"><span class="pre">TypeToken</span></code>、<code class="docutils literal notranslate"><span class="pre">id</span></code>、有一定可读性的 <code class="docutils literal notranslate"><span class="pre">name</span></code>，和一个 <code class="docutils literal notranslate"><span class="pre">DataQuery</span></code>。<code class="docutils literal notranslate"><span class="pre">DataQuery</span></code> 用于序列化。你应使用 <code class="docutils literal notranslate"><span class="pre">DataQuery.of()</span></code> 方法并传入一个字符串获取相应的实例。传入的字符串值和字段名称类似，不过应去除下划线并使用大写驼峰式。</p>
+</div>
+<div class="section" id="implement-the-dataprocessors">
+<h2>4. 实现数据处理器（DataProcessor）<a class="headerlink" href="#implement-the-dataprocessors" title="本標題的永久連結">¶</a></h2>
+<p>现在我们着手解决数据处理器（ <code class="docutils literal notranslate"><span class="pre">DataProcessor</span></code> ）。一个 <code class="docutils literal notranslate"><span class="pre">DataProcessor</span></code> 负责联结 <code class="docutils literal notranslate"><span class="pre">DataManipulator</span></code> 和原版 Minecraft 的对象。当 <code class="docutils literal notranslate"><span class="pre">DataHolder</span></code> 需要处理原版 Minecraft 中的数据时， <code class="docutils literal notranslate"><span class="pre">DataProcessor</span></code> 或 <code class="docutils literal notranslate"><span class="pre">ValueProcessor</span></code> 将负责解决这些最底层的事情。</p>
+<p>对于你的类名而言，你应该使用你在 <code class="docutils literal notranslate"><span class="pre">DataManipulator</span></code> 的实现中使用的名字，并附加上 <code class="docutils literal notranslate"><span class="pre">Processor</span></code> 的后缀。因此，对于 <code class="docutils literal notranslate"><span class="pre">HealthData</span></code> 而言，我们会使用 <code class="docutils literal notranslate"><span class="pre">HealthDataProcessor</span></code> 作为类名。</p>
+<p>为了减少不必要的代码，你的 <code class="docutils literal notranslate"><span class="pre">DataProcessor</span></code> 应该实现 <code class="docutils literal notranslate"><span class="pre">org.spongepowered.common.data.processor.common</span></code> 中的合适的抽象类。因为只有部分实体拥有生命值和最大生命值，因此我们可以使用基于 <code class="docutils literal notranslate"><span class="pre">net.minecraft.entity.Entity</span></code> 的实体专用的 <code class="docutils literal notranslate"><span class="pre">AbstractEntityDataProcessor</span></code> 。一般情况下，通过 <code class="docutils literal notranslate"><span class="pre">AbstractEntityDataProcessor</span></code> 我们还可以减少一些不必要的工作，不过对于基于有着多个数据的 <code class="docutils literal notranslate"><span class="pre">HealthData</span></code> 的数据处理器而言不行。</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">HealthDataProcessor</span>
+        <span class="kd">extends</span> <span class="n">AbstractEntityDataProcessor</span><span class="o">&lt;</span><span class="n">EntityLivingBase</span><span class="p">,</span> <span class="n">HealthData</span><span class="p">,</span> <span class="n">ImmutableHealthData</span><span class="o">&gt;</span> <span class="p">{</span>
+
+    <span class="kd">public</span> <span class="nf">HealthDataProcessor</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kd">super</span><span class="p">(</span><span class="n">EntityLivingBase</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="o">[</span><span class="p">...</span><span class="o">]</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>根据你使用的抽象类，你需要实现的方法也大不相同，具体取决于你使用的抽象类的实现程度。不过通常情况下，方法是有着分类的。</p>
+<div class="admonition tip">
+<p class="first admonition-title">小訣竅</p>
+<p class="last">你可以为同一种数据创建多个 <code class="docutils literal notranslate"><span class="pre">DataProcessor</span></code>。如果针对的 <code class="docutils literal notranslate"><span class="pre">DataHolder</span></code> 并不相同（如 <code class="docutils literal notranslate"><span class="pre">TileEntity</span></code> 和 <code class="docutils literal notranslate"><span class="pre">ItemStack</span></code>），你往往应该为不同的 <code class="docutils literal notranslate"><span class="pre">DataHolder</span></code> 分别使用不同的数据处理器的抽象类，以充分复用已有的代码。当然你要注意一下针对物品、Tile Entity、和实体的不同的 Java 包结构。</p>
+</div>
+<div class="section" id="validation-methods">
+<h3>验证方法<a class="headerlink" href="#validation-methods" title="本標題的永久連結">¶</a></h3>
+<p>一定要返回一个 boolean 值。如果有 <code class="docutils literal notranslate"><span class="pre">supports(target)</span></code> 调用，它应当进行一次普通检查，以确认给定的 target 是否支持你的 <code class="docutils literal notranslate"><span class="pre">DataProcessor</span></code> 所处理的数据。根据你抽象化程度的不同，如果你已经需要实现某个最明确的版本，那么你就没有必要实现这个方法，因为更宽泛的版本会将实现代理过去。</p>
+<p>对于我们的 <code class="docutils literal notranslate"><span class="pre">HealthDataProcessor</span></code> 来说， <code class="docutils literal notranslate"><span class="pre">supports()</span></code> 方法已经被 <code class="docutils literal notranslate"><span class="pre">AbstractEntityDataProcessor</span></code> 实现了。默认情况下，它会根据 <code class="docutils literal notranslate"><span class="pre">super()</span></code> 构造方法传入的 Class 对象判断传入的参数是否是该 Class 对象对应的类的子类并在是时返回 true。</p>
+<p>相反，我们需要提供一个名为 <code class="docutils literal notranslate"><span class="pre">doesDataExist()</span></code> 的方法。因为我们使用的抽象类并不知道如何获取到数据，所以我们需要实现它定义的这么一个方法。正如该方法名称所述，这个方法检查数据是否在支持的数据访问器上存在。对于 <code class="docutils literal notranslate"><span class="pre">HealthDataProcessor</span></code> 而言，这个方法总是返回 true，因为每一种实体生物都有生命值和最大生命值。</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Override</span>
+<span class="kd">protected</span> <span class="kt">boolean</span> <span class="nf">doesDataExist</span><span class="p">(</span><span class="n">EntityLivingBase</span> <span class="n">entity</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="setter-methods">
+<h3>设置方法<a class="headerlink" href="#setter-methods" title="本標題的永久連結">¶</a></h3>
+<p>一个设置方法（Setter）接收一个 <code class="docutils literal notranslate"><span class="pre">DataHolder</span></code> 和若干需要使用的数据（如果有的话）作为参数。</p>
+<p><code class="docutils literal notranslate"><span class="pre">DataProcessor</span></code> 接口定义了一个名为 <code class="docutils literal notranslate"><span class="pre">set()</span></code> 的方法。该方法需要一个 <code class="docutils literal notranslate"><span class="pre">DataHolder</span></code> 和一个 <code class="docutils literal notranslate"><span class="pre">DataManipulator</span></code> 并返回一个 <code class="docutils literal notranslate"><span class="pre">DataTransactionResult</span></code> 。根据不同的抽象类实现，你可能不需要实现这一方法，因为抽象类已经帮你实现好了。</p>
+<p>在这种情况下， <code class="docutils literal notranslate"><span class="pre">AbstractEntityDataProcessor</span></code> 解决了大部分的问题，并只需要一个方法用于设置数据，同时在设置成功时返回 <code class="docutils literal notranslate"><span class="pre">true</span></code> 否则返回 <code class="docutils literal notranslate"><span class="pre">false</span></code> 。所有关于 <code class="docutils literal notranslate"><span class="pre">DataHolder</span></code> 是否支持该 <code class="docutils literal notranslate"><span class="pre">Data</span></code> 的问题该抽象类都已解决，同时该抽象类只是创建了一个把 <code class="docutils literal notranslate"><span class="pre">DataManipulator</span></code> 的每个 <code class="docutils literal notranslate"><span class="pre">Key</span></code> 和其值相对应的映射，并由此创建一个 <code class="docutils literal notranslate"><span class="pre">DataTransactionResult</span></code> ，该 <code class="docutils literal notranslate"><span class="pre">DataTransactionResult</span></code> 决定操作是否成功。</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Override</span>
+<span class="kd">protected</span> <span class="kt">boolean</span> <span class="nf">set</span><span class="p">(</span><span class="n">EntityLivingBase</span> <span class="n">entity</span><span class="p">,</span> <span class="n">Map</span><span class="o">&lt;</span><span class="n">Key</span><span class="o">&lt;?&gt;</span><span class="p">,</span> <span class="n">Object</span><span class="o">&gt;</span> <span class="n">keyValues</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">entity</span><span class="p">.</span><span class="na">getEntityAttribute</span><span class="p">(</span><span class="n">SharedMonsterAttributes</span><span class="p">.</span><span class="na">MAX_HEALTH</span><span class="p">)</span>
+            <span class="p">.</span><span class="na">setBaseValue</span><span class="p">(((</span><span class="n">Double</span><span class="p">)</span> <span class="n">keyValues</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">Keys</span><span class="p">.</span><span class="na">MAX_HEALTH</span><span class="p">)).</span><span class="na">floatValue</span><span class="p">());</span>
+    <span class="kt">float</span> <span class="n">health</span> <span class="o">=</span> <span class="p">((</span><span class="n">Double</span><span class="p">)</span> <span class="n">keyValues</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">Keys</span><span class="p">.</span><span class="na">HEALTH</span><span class="p">)).</span><span class="na">floatValue</span><span class="p">();</span>
+    <span class="n">entity</span><span class="p">.</span><span class="na">setHealth</span><span class="p">(</span><span class="n">health</span><span class="p">);</span>
+    <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">小訣竅</p>
+<p class="last">要了解 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/DataTransactionResult.html">DataTransactionResult</a>，请点击 <a class="reference internal" href="../../plugin/data/transactions.html"><span class="doc">对应的文档页面</span></a>，以及参考 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/DataTransactionResult.Builder.html">DataTransactionResult.Builder</a> 的相关文档以了解如何创建。</p>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">警告</p>
+<p class="last">当你进行 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/item/inventory/ItemStack.html">ItemStack</a> 的相关操作时，你可能尤其需要处理有关于 <code class="docutils literal notranslate"><span class="pre">NBTTagCompound</span></code> 的数据。很多的 NBT 标签名称已经在 <code class="docutils literal notranslate"><span class="pre">NbtDataUtil</span></code> 类中给出定义了，如果你想要的名称不存在，你应该在其中添加上你想要的名称，以防止代码中出现硬编码的魔数。</p>
+</div>
+</div>
+<div class="section" id="removal-method">
+<h3>移除方法<a class="headerlink" href="#removal-method" title="本標題的永久連結">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">remove()</span></code> 方法用于把 <code class="docutils literal notranslate"><span class="pre">DataHolder</span></code> 中的对应数据移除并返回一个 <code class="docutils literal notranslate"><span class="pre">DataTransactionResult</span></code> 。</p>
+<p>我们的任何 <code class="docutils literal notranslate"><span class="pre">DataProcessor</span></code> 的抽象类实现都没有去实现移除方法，因为我们也不知道相应的 <code class="docutils literal notranslate"><span class="pre">DataHolder</span></code> （如 <code class="docutils literal notranslate"><span class="pre">WetData</span></code> 或 <code class="docutils literal notranslate"><span class="pre">HealthData</span></code> ）应该怎么移除数据，以及这个数据到底存在不存在（如 <code class="docutils literal notranslate"><span class="pre">LoreData</span></code> ）。如果数据本应总是存在，那么相应的 <code class="docutils literal notranslate"><span class="pre">remove()</span></code> 方法应该总是失败，如果它可能存在可能不存在，那么相应的 <code class="docutils literal notranslate"><span class="pre">remove()</span></code> 方法就应该移除它。</p>
+<p>因为实体生物一定有生命值，所以 <code class="docutils literal notranslate"><span class="pre">HealthData</span></code> 总是存在的，也不应该支持移除。因此我们只需要返回 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/DataTransactionResult.html#failNoData--">DataTransactionResult#failNoData()</a> 方法的返回值。</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Override</span>
+<span class="kd">public</span> <span class="n">DataTransactionResult</span> <span class="nf">remove</span><span class="p">(</span><span class="n">DataHolder</span> <span class="n">dataHolder</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">DataTransactionResult</span><span class="p">.</span><span class="na">failNoData</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="getter-methods">
+<h3>获取方法<a class="headerlink" href="#getter-methods" title="本標題的永久連結">¶</a></h3>
+<p>一个获取方法（Getter）从一个 <code class="docutils literal notranslate"><span class="pre">DataHolder</span></code> 获取数据并返回一个可选的（Optional） <code class="docutils literal notranslate"><span class="pre">DataManipulator</span></code> 。 <code class="docutils literal notranslate"><span class="pre">DataProcessor</span></code> 接口定义了 <code class="docutils literal notranslate"><span class="pre">from()</span></code> 和 <code class="docutils literal notranslate"><span class="pre">createFrom()</span></code> 方法，它们两者的区别在于前者会在数据访问器支持该类型的数据，但数据不存在时返回 <code class="docutils literal notranslate"><span class="pre">Optional.empty()</span></code> ，而后者会在不存在的情况下提供 <code class="docutils literal notranslate"><span class="pre">DataManipulator</span></code> 的默认值。</p>
+<p>再一次地，我们的 <code class="docutils literal notranslate"><span class="pre">AbstractEntityDataProcessor</span></code> 会提供相关的大部分实现，并仅仅需要实现获取 <code class="docutils literal notranslate"><span class="pre">DataHolder</span></code> 的实际值的方法。这个方法会仅在 <code class="docutils literal notranslate"><span class="pre">supports()</span></code> 和 <code class="docutils literal notranslate"><span class="pre">doesDataExist()</span></code> 两个方法都返回 true 时调用，也就是说调用时已经假定数据存在了。</p>
+<div class="admonition warning">
+<p class="first admonition-title">警告</p>
+<p class="last">如果相应的 <code class="docutils literal notranslate"><span class="pre">DataHolder</span></code> 不存在数据，如调用 <code class="docutils literal notranslate"><span class="pre">remove()</span></code> 成功（见上），那么你有必要实现 <code class="docutils literal notranslate"><span class="pre">doesDataExist()</span></code> 方法，并在数据存在时返回 <code class="docutils literal notranslate"><span class="pre">true</span></code> 否则返回 <code class="docutils literal notranslate"><span class="pre">false</span></code> 。</p>
+</div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Override</span>
+<span class="kd">protected</span> <span class="n">Map</span><span class="o">&lt;</span><span class="n">Key</span><span class="o">&lt;?&gt;</span><span class="p">,</span> <span class="o">?&gt;</span> <span class="n">getValues</span><span class="p">(</span><span class="n">EntityLivingBase</span> <span class="n">entity</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">final</span> <span class="kt">double</span> <span class="n">health</span> <span class="o">=</span> <span class="n">entity</span><span class="p">.</span><span class="na">getHealth</span><span class="p">();</span>
+    <span class="kd">final</span> <span class="kt">double</span> <span class="n">maxHealth</span> <span class="o">=</span> <span class="n">entity</span><span class="p">.</span><span class="na">getMaxHealth</span><span class="p">();</span>
+    <span class="k">return</span> <span class="n">ImmutableMap</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">Keys</span><span class="p">.</span><span class="na">HEALTH</span><span class="p">,</span> <span class="n">health</span><span class="p">,</span> <span class="n">Keys</span><span class="p">.</span><span class="na">MAX_HEALTH</span><span class="p">,</span> <span class="n">maxHealth</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="filler-methods">
+<h3>過濾方法<a class="headerlink" href="#filler-methods" title="本標題的永久連結">¶</a></h3>
+<p>一个填充方法（Filler）和获取方法不同，因为它接收一个 <code class="docutils literal notranslate"><span class="pre">DataManipulator</span></code> 用于填充数据。这种数据可能由 <code class="docutils literal notranslate"><span class="pre">DataHolder</span></code> 提供，也可能由 <code class="docutils literal notranslate"><span class="pre">DataContainer</span></code> 反序列化得到。这一方法将在该 <code class="docutils literal notranslate"><span class="pre">DataHolder</span></code> 不支持该种数据时返回 <code class="docutils literal notranslate"><span class="pre">Optional.empty()</span></code> 。</p>
+<p>我们的 <code class="docutils literal notranslate"><span class="pre">AbstractEntityDataProcessor</span></code> 同样通过从数据访问器创建 <code class="docutils literal notranslate"><span class="pre">DataManipulator</span></code> 并与已有数据操纵器合并的方式实现了相应的填充方法，不过我们可没有办法帮你包办 <code class="docutils literal notranslate"><span class="pre">DataContainer</span></code> 的反序列化操作。</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Override</span>
+<span class="kd">public</span> <span class="n">Optional</span><span class="o">&lt;</span><span class="n">HealthData</span><span class="o">&gt;</span> <span class="nf">fill</span><span class="p">(</span><span class="n">DataContainer</span> <span class="n">container</span><span class="p">,</span> <span class="n">HealthData</span> <span class="n">healthData</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">container</span><span class="p">.</span><span class="na">contains</span><span class="p">(</span><span class="n">Keys</span><span class="p">.</span><span class="na">MAX_HEALTH</span><span class="p">.</span><span class="na">getQuery</span><span class="p">())</span> <span class="o">||</span> <span class="o">!</span><span class="n">container</span><span class="p">.</span><span class="na">contains</span><span class="p">(</span><span class="n">Keys</span><span class="p">.</span><span class="na">HEALTH</span><span class="p">.</span><span class="na">getQuery</span><span class="p">()))</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">Optional</span><span class="p">.</span><span class="na">empty</span><span class="p">();</span>
+    <span class="p">}</span>
+    <span class="n">healthData</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="n">Keys</span><span class="p">.</span><span class="na">MAX_HEALTH</span><span class="p">,</span> <span class="n">getData</span><span class="p">(</span><span class="n">container</span><span class="p">,</span> <span class="n">Keys</span><span class="p">.</span><span class="na">MAX_HEALTH</span><span class="p">));</span>
+    <span class="n">healthData</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="n">Keys</span><span class="p">.</span><span class="na">HEALTH</span><span class="p">,</span> <span class="n">getData</span><span class="p">(</span><span class="n">container</span><span class="p">,</span> <span class="n">Keys</span><span class="p">.</span><span class="na">HEALTH</span><span class="p">));</span>
+    <span class="k">return</span> <span class="n">Optional</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">healthData</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">fill()</span></code> 方法将返回一个包含有额外的 <code class="docutils literal notranslate"><span class="pre">healthData</span></code> 的 <code class="docutils literal notranslate"><span class="pre">Optional</span></code> ，当且仅当相应的 <code class="docutils literal notranslate"><span class="pre">DataContainer</span></code> 存在相应的数据。</p>
+</div>
+<div class="section" id="other-methods">
+<h3>其它方法<a class="headerlink" href="#other-methods" title="本標題的永久連結">¶</a></h3>
+<p>根据实现的不同抽象父类，你可能需要实现一些其他的方法。例如， <code class="docutils literal notranslate"><span class="pre">AbstractEntityDataProcessor</span></code> 需要在不同的地方创建 <code class="docutils literal notranslate"><span class="pre">DataManipulator</span></code> ，如果它既不知道子类的 Class 实例，也不知道使用的构造方法，它就没有办法做到这一点。因此它利用了一个应该被实现为 final 的抽象方法。实现这个方法只需要创建一个含有默认值的 <code class="docutils literal notranslate"><span class="pre">DataManipulator</span></code> 就可以了。</p>
+<p>如果你按照我们推荐的方式实现了你的 <code class="docutils literal notranslate"><span class="pre">DataManipulator</span></code> ，你只需要使用没有参数的构造方法就可以了。</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Override</span>
+<span class="kd">protected</span> <span class="n">HealthData</span> <span class="nf">createManipulator</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="n">SpongeHealthData</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="implement-the-valueprocessors">
+<h2>5. 实现数据值处理器（ValueProcessor）<a class="headerlink" href="#implement-the-valueprocessors" title="本標題的永久連結">¶</a></h2>
+<p>不只是 <code class="docutils literal notranslate"><span class="pre">DataManipulator</span></code> 需要处理有关 <code class="docutils literal notranslate"><span class="pre">DataHolder</span></code> 的事情， <code class="docutils literal notranslate"><span class="pre">Value</span></code> 也要做类似的事。因此，你需要为每个你的 <code class="docutils literal notranslate"><span class="pre">DataManipulator</span></code> 的 <code class="docutils literal notranslate"><span class="pre">Key</span></code> 提供相应的至少一个 <code class="docutils literal notranslate"><span class="pre">ValueProcessor</span></code> 。一个 <code class="docutils literal notranslate"><span class="pre">ValueProcessor</span></code> 被命名为其对应的 <code class="docutils literal notranslate"><span class="pre">Keys</span></code> 类里的 <code class="docutils literal notranslate"><span class="pre">Key</span></code> 的常量值，和相应的 <code class="docutils literal notranslate"><span class="pre">DataQuery</span></code> 类似。常量值应把小划线形式变成大写驼峰式，同时后面添加上名为 <code class="docutils literal notranslate"><span class="pre">ValueProcessor</span></code> 的后缀。</p>
+<p>一个 <code class="docutils literal notranslate"><span class="pre">ValueProcessor</span></code> 应该总是继承 <code class="docutils literal notranslate"><span class="pre">AbstractSpongeValueProcessor</span></code> ，因为它已经处理了基于 <code class="docutils literal notranslate"><span class="pre">DataHolder</span></code> 类型的 <code class="docutils literal notranslate"><span class="pre">supports()</span></code> 方法检查。对于 <code class="docutils literal notranslate"><span class="pre">Keys.HEALTH</span></code> 来说，我们会创建对应的 <code class="docutils literal notranslate"><span class="pre">HealthValueProcessor</span></code> ，如下所示。</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">HealthValueProcessor</span>
+        <span class="kd">extends</span> <span class="n">AbstractSpongeValueProcessor</span><span class="o">&lt;</span><span class="n">EntityLivingBase</span><span class="p">,</span> <span class="n">Double</span><span class="p">,</span> <span class="n">MutableBoundedValue</span><span class="o">&lt;</span><span class="n">Double</span><span class="o">&gt;&gt;</span> <span class="p">{</span>
+
+    <span class="kd">public</span> <span class="nf">HealthValueProcessor</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kd">super</span><span class="p">(</span><span class="n">EntityLivingBase</span><span class="p">.</span><span class="na">class</span><span class="p">,</span> <span class="n">Keys</span><span class="p">.</span><span class="na">HEALTH</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="o">[</span><span class="p">...</span><span class="o">]</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>我们的 <code class="docutils literal notranslate"><span class="pre">AbstractSpongeValueProcessor</span></code> 可以减轻对于值是否支持的检查，这里我们已经假设对应的 <code class="docutils literal notranslate"><span class="pre">ValueContainer</span></code> 同时也是 <code class="docutils literal notranslate"><span class="pre">EntityLivingBase</span></code> 了。</p>
+<div class="admonition tip">
+<p class="first admonition-title">小訣竅</p>
+<p class="last">对于什么样的 <code class="docutils literal notranslate"><span class="pre">EntityLivingBase</span></code> 可以支持的更细粒度的控制，我们可以覆写 <code class="docutils literal notranslate"><span class="pre">supports(EntityLivingBase)</span></code> 方法。</p>
+</div>
+<p>同样，我们已经完成了实现的大部分工作。我们只需要实现两个方法用于创建 <code class="docutils literal notranslate"><span class="pre">Value</span></code> 和其对应的不可变对象，以及对应的三个获取、设置、及移除方法。</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Override</span>
+<span class="kd">protected</span> <span class="n">MutableBoundedValue</span><span class="o">&lt;</span><span class="n">Double</span><span class="o">&gt;</span> <span class="nf">constructValue</span><span class="p">(</span><span class="n">Double</span> <span class="n">health</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">SpongeValueFactory</span><span class="p">.</span><span class="na">boundedBuilder</span><span class="p">(</span><span class="n">Keys</span><span class="p">.</span><span class="na">HEALTH</span><span class="p">)</span>
+        <span class="p">.</span><span class="na">minimum</span><span class="p">(</span><span class="mf">0D</span><span class="p">)</span>
+        <span class="p">.</span><span class="na">maximum</span><span class="p">(((</span><span class="n">Float</span><span class="p">)</span> <span class="n">Float</span><span class="p">.</span><span class="na">MAX_VALUE</span><span class="p">).</span><span class="na">doubleValue</span><span class="p">())</span>
+        <span class="p">.</span><span class="na">defaultValue</span><span class="p">(</span><span class="mi">20</span><span class="n">D</span><span class="p">)</span>
+        <span class="p">.</span><span class="na">actualValue</span><span class="p">(</span><span class="n">health</span><span class="p">)</span>
+        <span class="p">.</span><span class="na">build</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="nd">@Override</span>
+<span class="kd">protected</span> <span class="n">ImmutableBoundedValue</span><span class="o">&lt;</span><span class="n">Double</span><span class="o">&gt;</span> <span class="nf">constructImmutableValue</span><span class="p">(</span><span class="n">Double</span> <span class="n">value</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">constructValue</span><span class="p">(</span><span class="n">value</span><span class="p">).</span><span class="na">asImmutable</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Override</span>
+<span class="kd">protected</span> <span class="n">Optional</span><span class="o">&lt;</span><span class="n">Double</span><span class="o">&gt;</span> <span class="nf">getVal</span><span class="p">(</span><span class="n">EntityLivingBase</span> <span class="n">container</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">Optional</span><span class="p">.</span><span class="na">of</span><span class="p">((</span><span class="kt">double</span><span class="p">)</span> <span class="n">container</span><span class="p">.</span><span class="na">getHealth</span><span class="p">());</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>因为不存在不拥有生命值和最大生命值的 <code class="docutils literal notranslate"><span class="pre">EntityLivingBase</span></code> ，所以这个方法也永远不会返回一个 <code class="docutils literal notranslate"><span class="pre">Optional.empty()</span></code> 。</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Override</span>
+<span class="kd">protected</span> <span class="kt">boolean</span> <span class="nf">set</span><span class="p">(</span><span class="n">EntityLivingBase</span> <span class="n">container</span><span class="p">,</span> <span class="n">Double</span> <span class="n">value</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">value</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">value</span> <span class="o">&lt;=</span> <span class="p">(</span><span class="kt">double</span><span class="p">)</span> <span class="n">Float</span><span class="p">.</span><span class="na">MAX_VALUE</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">container</span><span class="p">.</span><span class="na">setHealth</span><span class="p">(</span><span class="n">value</span><span class="p">.</span><span class="na">floatValue</span><span class="p">());</span>
+        <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">set()</span></code> 方法将返回一个布尔值，用于指示相应的值是否已被成功设置。相应的实现会对越界的值进行检查，我们之前在设计数据值的构造方法时也这么做过。</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Override</span>
+<span class="kd">public</span> <span class="n">DataTransactionResult</span> <span class="nf">removeFrom</span><span class="p">(</span><span class="n">ValueContainer</span><span class="o">&lt;?&gt;</span> <span class="n">container</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">DataTransactionResult</span><span class="p">.</span><span class="na">failNoData</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>因为数据总是存在，所以对其的移除操作总是失败的。</p>
+</div>
+<div class="section" id="register-processors">
+<h2>6. 注册处理器<a class="headerlink" href="#register-processors" title="本標題的永久連結">¶</a></h2>
+<p>为使 Sponge 可以使用我们的数据操纵器、数据处理器等，我们需要注册它们。 <code class="docutils literal notranslate"><span class="pre">DataRegistrar</span></code> 类负责的就是这个。其中的 <code class="docutils literal notranslate"><span class="pre">setupSerialization()</span></code> 方法有两大块用于注册，我们也应把注册的工作添加于此处。</p>
+<div class="section" id="dataprocessors">
+<h3>数据处理器<a class="headerlink" href="#dataprocessors" title="本標題的永久連結">¶</a></h3>
+<p>一个 <code class="docutils literal notranslate"><span class="pre">DataProcessor</span></code> 和它对应的接口及和 <code class="docutils literal notranslate"><span class="pre">DataManipulator</span></code> 对应的实现类一起注册。对于任何一对可变和不可变的 <code class="docutils literal notranslate"><span class="pre">DataManipulator</span></code> ，相应的 <code class="docutils literal notranslate"><span class="pre">DataProcessor</span></code> 必须至少注册一个。</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">DataUtil</span><span class="p">.</span><span class="na">registerDataProcessorAndImpl</span><span class="p">(</span><span class="n">HealthData</span><span class="p">.</span><span class="na">class</span><span class="p">,</span> <span class="n">SpongeHealthData</span><span class="p">.</span><span class="na">class</span><span class="p">,</span>
+        <span class="n">ImmutableHealthData</span><span class="p">.</span><span class="na">class</span><span class="p">,</span> <span class="n">ImmutableSpongeHealthData</span><span class="p">.</span><span class="na">class</span><span class="p">,</span>
+        <span class="k">new</span> <span class="n">HealthDataProcessor</span><span class="p">());</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="valueprocessors">
+<h3>数据值处理器<a class="headerlink" href="#valueprocessors" title="本標題的永久連結">¶</a></h3>
+<p>数据值处理器以完全相同的方法底部注册。对于每一个 <code class="docutils literal notranslate"><span class="pre">Key</span></code> 都会有一串对于 <code class="docutils literal notranslate"><span class="pre">registerValueProcessor()</span></code> 方法的调用以注册这些数据值处理吕。</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">DataUtil</span><span class="p">.</span><span class="na">registerValueProcessor</span><span class="p">(</span><span class="n">Keys</span><span class="p">.</span><span class="na">HEALTH</span><span class="p">,</span> <span class="k">new</span> <span class="n">HealthValueProcessor</span><span class="p">());</span>
+<span class="n">DataUtil</span><span class="p">.</span><span class="na">registerValueProcessor</span><span class="p">(</span><span class="n">Keys</span><span class="p">.</span><span class="na">MAX_HEALTH</span><span class="p">,</span> <span class="k">new</span> <span class="n">MaxHealthValueProcessor</span><span class="p">());</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="implementing-block-data">
+<h2>实现方块数据<a class="headerlink" href="#implementing-block-data" title="本標題的永久連結">¶</a></h2>
+<p>方块数据和其他类型的数据不同：它是通过混入方块底层实现的。实现方块数据时，需要覆写 <code class="docutils literal notranslate"><span class="pre">org.spongepowered.mixin.core.block.MixinBlock</span></code> 下的若干方法。</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Mixin</span><span class="p">(</span><span class="n">BlockHorizontal</span><span class="p">.</span><span class="na">class</span><span class="p">)</span>
+<span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">MixinBlockHorizontal</span> <span class="kd">extends</span> <span class="n">MixinBlock</span> <span class="p">{</span>
+
+    <span class="o">[</span><span class="p">...</span><span class="o">]</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>当传入的 <code class="docutils literal notranslate"><span class="pre">Class</span></code> 对象，或传入的 <code class="docutils literal notranslate"><span class="pre">Class</span></code> 的超类，可以直接转换为 <code class="docutils literal notranslate"><span class="pre">ImmutableDataManipulator</span></code> 时， <code class="docutils literal notranslate"><span class="pre">supports()</span></code> 应返回 <code class="docutils literal notranslate"><span class="pre">true</span></code> 。</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Override</span>
+<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">supports</span><span class="p">(</span><span class="n">Class</span><span class="o">&lt;?</span> <span class="kd">extends</span> <span class="n">ImmutableDataManipulator</span><span class="o">&lt;?</span><span class="p">,</span> <span class="o">?&gt;&gt;</span> <span class="n">immutable</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="kd">super</span><span class="p">.</span><span class="na">supports</span><span class="p">(</span><span class="n">immutable</span><span class="p">)</span> <span class="o">||</span> <span class="n">ImmutableDirectionalData</span><span class="p">.</span><span class="na">class</span><span class="p">.</span><span class="na">isAssignableFrom</span><span class="p">(</span><span class="n">immutable</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">getStateWithData()</span></code> should return a new <code class="docutils literal notranslate"><span class="pre">BlockState</span></code> with the data from the <code class="docutils literal notranslate"><span class="pre">ImmutableDataManipulator</span></code> applied
+to it. If the manipulator is not directly supported, the method should delegate to the superclass.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Override</span>
+<span class="kd">public</span> <span class="n">Optional</span><span class="o">&lt;</span><span class="n">BlockState</span><span class="o">&gt;</span> <span class="nf">getStateWithData</span><span class="p">(</span><span class="n">IBlockState</span> <span class="n">blockState</span><span class="p">,</span> <span class="n">ImmutableDataManipulator</span><span class="o">&lt;?</span><span class="p">,</span> <span class="o">?&gt;</span> <span class="n">manipulator</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">manipulator</span> <span class="k">instanceof</span> <span class="n">ImmutableDirectionalData</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">final</span> <span class="n">Direction</span> <span class="n">direction</span> <span class="o">=</span> <span class="p">((</span><span class="n">ImmutableDirectionalData</span><span class="p">)</span> <span class="n">manipulator</span><span class="p">).</span><span class="na">direction</span><span class="p">().</span><span class="na">get</span><span class="p">();</span>
+        <span class="kd">final</span> <span class="n">EnumFacing</span> <span class="n">facing</span> <span class="o">=</span> <span class="n">DirectionResolver</span><span class="p">.</span><span class="na">getFor</span><span class="p">(</span><span class="n">direction</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">Optional</span><span class="p">.</span><span class="na">of</span><span class="p">((</span><span class="n">BlockState</span><span class="p">)</span> <span class="n">blockState</span><span class="p">.</span><span class="na">withProperty</span><span class="p">(</span><span class="n">BlockHorizontal</span><span class="p">.</span><span class="na">FACING</span><span class="p">,</span> <span class="n">facing</span><span class="p">));</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="kd">super</span><span class="p">.</span><span class="na">getStateWithData</span><span class="p">(</span><span class="n">blockState</span><span class="p">,</span> <span class="n">manipulator</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">getStateWithValue()</span></code> 等价于 <code class="docutils literal notranslate"><span class="pre">getStateWithData()</span></code>，但可以用在单一 <code class="docutils literal notranslate"><span class="pre">Key</span></code> 上。</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Override</span>
+<span class="kd">public</span> <span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span> <span class="n">Optional</span><span class="o">&lt;</span><span class="n">BlockState</span><span class="o">&gt;</span> <span class="nf">getStateWithValue</span><span class="p">(</span><span class="n">IBlockState</span> <span class="n">blockState</span><span class="p">,</span> <span class="n">Key</span><span class="o">&lt;?</span> <span class="kd">extends</span> <span class="n">BaseValue</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;&gt;</span> <span class="n">key</span><span class="p">,</span> <span class="n">E</span> <span class="n">value</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">key</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">Keys</span><span class="p">.</span><span class="na">DIRECTION</span><span class="p">))</span> <span class="p">{</span>
+        <span class="kd">final</span> <span class="n">Direction</span> <span class="n">direction</span> <span class="o">=</span> <span class="p">(</span><span class="n">Direction</span><span class="p">)</span> <span class="n">value</span><span class="p">;</span>
+        <span class="kd">final</span> <span class="n">EnumFacing</span> <span class="n">facing</span> <span class="o">=</span> <span class="n">DirectionResolver</span><span class="p">.</span><span class="na">getFor</span><span class="p">(</span><span class="n">direction</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">Optional</span><span class="p">.</span><span class="na">of</span><span class="p">((</span><span class="n">BlockState</span><span class="p">)</span> <span class="n">blockState</span><span class="p">.</span><span class="na">withProperty</span><span class="p">(</span><span class="n">BlockHorizontal</span><span class="p">.</span><span class="na">FACING</span><span class="p">,</span> <span class="n">facing</span><span class="p">));</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="kd">super</span><span class="p">.</span><span class="na">getStateWithValue</span><span class="p">(</span><span class="n">blockState</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>最后， <code class="docutils literal notranslate"><span class="pre">getManipulators()</span></code> 应返回连同当前 <code class="docutils literal notranslate"><span class="pre">IBlockState</span></code> 所代表的具体数据在内的，所有该方块所支持的 <code class="docutils literal notranslate"><span class="pre">ImmutalbeDataManipulator</span></code> 的列表。超类所支持的 <code class="docutils literal notranslate"><span class="pre">ImmutableDataManipulator</span></code> 也应包含在此列表中。</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Override</span>
+<span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">ImmutableDataManipulator</span><span class="o">&lt;?</span><span class="p">,</span> <span class="o">?&gt;&gt;</span> <span class="n">getManipulators</span><span class="p">(</span><span class="n">IBlockState</span> <span class="n">blockState</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">ImmutableList</span><span class="p">.</span><span class="o">&lt;</span><span class="n">ImmutableDataManipulator</span><span class="o">&lt;?</span><span class="p">,</span> <span class="o">?&gt;&gt;</span><span class="n">builder</span><span class="p">()</span>
+            <span class="p">.</span><span class="na">addAll</span><span class="p">(</span><span class="kd">super</span><span class="p">.</span><span class="na">getManipulators</span><span class="p">(</span><span class="n">blockState</span><span class="p">))</span>
+            <span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span> <span class="n">ImmutableSpongeDirectionalData</span><span class="p">(</span><span class="n">DirectionResolver</span><span class="p">.</span><span class="na">getFor</span><span class="p">(</span><span class="n">blockState</span><span class="p">.</span><span class="na">getValue</span><span class="p">(</span><span class="n">BlockHorizontal</span><span class="p">.</span><span class="na">FACING</span><span class="p">))))</span>
+            <span class="p">.</span><span class="na">build</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="further-information">
+<h2>更多信息<a class="headerlink" href="#further-information" title="本標題的永久連結">¶</a></h2>
+<p>Sponge 中的 <code class="docutils literal notranslate"><span class="pre">Data</span></code> 是一个相当抽象的概念。我们也很难给出从原版 Minecraft 类获取需要的数据的一般指示。在实现相应的接口之前先看看其他的相关类是如何实现的是很有帮助的，它会加深你对 Sponge 的数据系统如何工作的理解。</p>
+<p>如果你遇到困难或有无法解决的问题，请通过 <code class="docutils literal notranslate"><span class="pre">#spongedev</span></code> IRC 频道、我们 Discord 的 <code class="docutils literal notranslate"><span class="pre">#dev</span></code> 频道、论坛或 GitHub 的 Issue 联系我们。记得检查 <a class="reference external" href="https://github.com/SpongePowered/SpongeCommon/issues/8">Data Processor Implementation Checklist</a> 以确定我们需要什么样的贡献。</p>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../spongedocs.html" class="btn btn-neutral float-right" title="SpongeDocs 文件" accesskey="n" rel="next">下一頁 <span class="fa fa-angle-right"></span></a>
+        <a href="mixins.html" class="btn btn-neutral" title="Mixins" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> 上一頁</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../../_static/flags/zh_TW.svg"
+         alt="zh-TW" title="繁體中文">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../../_static/jquery.js"></script>      <script type="text/javascript" src="../../_static/underscore.js"></script>      <script type="text/javascript" src="../../_static/doctools.js"></script>      <script type="text/javascript" src="../../_static/language_data.js"></script>      <script type="text/javascript" src="../../_static/translations.js"></script>      <script type="text/javascript" src="../../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

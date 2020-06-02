@@ -1,0 +1,284 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Koncepcje &mdash; Sponge 7.2.0 - dokumentacja</title>
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="Indeks"
+              href="../../genindex.html"/>        <link rel="search" title="Szukaj" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 - dokumentacja" href="../../index.html"/>        <link rel="up" title="Bloki" href="index.html"/>        <link rel="next" title="Wejście do Block-ów" href="accessing.html"/>        <link rel="prev" title="Bloki" href="index.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../../index.html">
+            <img src="../../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../server/index.html">Tworzenie serwera</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../versions/index.html">Versioning Policy</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../preparing/index.html">Przygotowanie do tworzenia</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Tworzenie pluginu</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../api-versions.html">API-Versions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../buildsystem.html">Systemy budowania</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../workspace/index.html">Przygotowywanie obszaru roboczego</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../project/index.html">Konfigurowanie twojego projektu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-identifier.html">Identyfikatory Pluginów</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-class.html">Główna Klasa Pluginu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lifecycle.html">Cykl działania wtyczki</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../injection.html">Wstrzykiwanie zależności</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../practices/index.html">Praktyki</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../optional/index.html">Optionals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../logging.html">Logowanie i Debugowanie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text/index.html">Tekst</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/index.html">Plugin Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../event/index.html">Wydarzenia</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/index.html">Konfiguracja Pluginów</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assets.html">Dostępne API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data/index.html">API Danych</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Bloki</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Koncepcje</a></li>
+<li class="toctree-l3"><a class="reference internal" href="accessing.html">Wejście do Block-ów</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modifying.html">Modyfikacja Block-ów</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tileentities.html">Tile Entites - Płytki</a></li>
+<li class="toctree-l3"><a class="reference internal" href="virtualblock.html">Zmiany wirtualnego bloku</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../entities/index.html">Obiekty</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../items/index.html">Przedmioty</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../trade-offers.html">Oferty Sprzedaży</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../effects.html">Efekty</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../scheduler.html">Harmonogram</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../services.html">Usługi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database.html">Baza danych</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../permissions.html">Zezwolenia</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bans.html">Zablokowanie konta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metrics.html">Metrics Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bookview.html">Wyświetlenia książki</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../economy/index.html">Gospodarka</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wgen/index.html">Generowanie Świata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manager.html">Menadżer wtyczek</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../game-profile-manager.html">Menadżer Profilu Gry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../offline-userplayer-data.html">Dane gracza offline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tab-lists.html">Listy kart</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-meta.html">Metadane Wtyczek</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ray-tracing.html">Śledzenie Promieniowe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../debugging.html">Debugowanie wtyczek</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials.html">Samouczki</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internals/index.html">Pluginy zależne do implementacji</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ore/index.html">Dokumentacja Ore</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/index.html">Twój wkład w Sponge</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">Czym jest projekt Sponge?</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+          <li><a href="../index.html">Tworzenie pluginu</a> &raquo;</li>
+          <li><a href="index.html">Bloki</a> &raquo;</li>
+    <li>Koncepcje</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/plugin/blocks/concepts.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="concepts">
+<h1>Koncepcje<a class="headerlink" href="#concepts" title="Stały odnośnik do tego nagłówka">¶</a></h1>
+<div class="section" id="properties">
+<h2>Właściwości<a class="headerlink" href="#properties" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<p>Wszystkie bloki mają <em>podstawowy typ</em>. Przykłady podstawowych typów to ziemia, schody i liście. Jednak aby dalej zróżnicować te podstawowe typy, każdy blok ma zestaw różnych właściwości, z których każda może przyjąć jedną z ustalonych wartości (np. <em>bielica</em> ziemia, <em>ceglane</em> schody, <em>dębowe</em> liście) Blok może mieć wiele właściwości (takich jak <em>zwrócone na wschód</em>, <em>ceglane</em> schody).</p>
+<p><strong>Examples of block properties</strong></p>
+<blockquote>
+<div><div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">minecraft</span><span class="p">:</span><span class="n">dirt</span><span class="p">[</span><span class="n">snowy</span><span class="o">=</span><span class="n">false</span><span class="p">,</span><span class="n">variant</span><span class="o">=</span><span class="n">default</span><span class="p">]</span>
+<span class="n">minecraft</span><span class="p">:</span><span class="n">dirt</span><span class="p">[</span><span class="n">snowy</span><span class="o">=</span><span class="n">true</span><span class="p">,</span><span class="n">variant</span><span class="o">=</span><span class="n">default</span><span class="p">]</span>
+<span class="n">minecraft</span><span class="p">:</span><span class="n">dirt</span><span class="p">[</span><span class="n">snowy</span><span class="o">=</span><span class="n">false</span><span class="p">,</span><span class="n">variant</span><span class="o">=</span><span class="n">grassless</span><span class="p">]</span>
+<span class="n">minecraft</span><span class="p">:</span><span class="n">dirt</span><span class="p">[</span><span class="n">snowy</span><span class="o">=</span><span class="n">true</span><span class="p">,</span><span class="n">variant</span><span class="o">=</span><span class="n">grassless</span><span class="p">]</span>
+<span class="n">minecraft</span><span class="p">:</span><span class="n">planks</span><span class="p">[</span><span class="n">variant</span><span class="o">=</span><span class="n">oak</span><span class="p">]</span>
+<span class="n">minecraft</span><span class="p">:</span><span class="n">planks</span><span class="p">[</span><span class="n">variant</span><span class="o">=</span><span class="n">spruce</span><span class="p">]</span>
+<span class="n">minecraft</span><span class="p">:</span><span class="n">planks</span><span class="p">[</span><span class="n">variant</span><span class="o">=</span><span class="n">birch</span><span class="p">]</span>
+<span class="n">minecraft</span><span class="p">:</span><span class="n">redstone_wire</span><span class="p">[</span><span class="n">east</span><span class="o">=</span><span class="n">up</span><span class="p">,</span><span class="n">north</span><span class="o">=</span><span class="n">up</span><span class="p">,</span><span class="n">power</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">south</span><span class="o">=</span><span class="n">up</span><span class="p">,</span><span class="n">west</span><span class="o">=</span><span class="n">up</span><span class="p">]</span>
+<span class="n">minecraft</span><span class="p">:</span><span class="n">redstone_wire</span><span class="p">[</span><span class="n">east</span><span class="o">=</span><span class="n">side</span><span class="p">,</span><span class="n">north</span><span class="o">=</span><span class="n">up</span><span class="p">,</span><span class="n">power</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">south</span><span class="o">=</span><span class="n">up</span><span class="p">,</span><span class="n">west</span><span class="o">=</span><span class="n">up</span><span class="p">]</span>
+<span class="n">minecraft</span><span class="p">:</span><span class="n">redstone_wire</span><span class="p">[</span><span class="n">east</span><span class="o">=</span><span class="n">none</span><span class="p">,</span><span class="n">north</span><span class="o">=</span><span class="n">up</span><span class="p">,</span><span class="n">power</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">south</span><span class="o">=</span><span class="n">up</span><span class="p">,</span><span class="n">west</span><span class="o">=</span><span class="n">up</span><span class="p">]</span>
+<span class="n">minecraft</span><span class="p">:</span><span class="n">redstone_wire</span><span class="p">[</span><span class="n">east</span><span class="o">=</span><span class="n">up</span><span class="p">,</span><span class="n">north</span><span class="o">=</span><span class="n">side</span><span class="p">,</span><span class="n">power</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">south</span><span class="o">=</span><span class="n">up</span><span class="p">,</span><span class="n">west</span><span class="o">=</span><span class="n">up</span><span class="p">]</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>Niektóre właściwości są <em>efemeryczne</em> – istnieją tylko wtedy, gdy gra jest uruchomiona. Ich wartości nie są wpisane do zapisywania pliku bo ich wartości mogą być wykrywane automatycznie. Na przykład z przewodu Redstone, czy zasilane są lub mogą być wykrute na podstawie środowiska (jest tam dźwignia włączona?). W takim przypadku <code class="docutils literal notranslate"><span class="pre">power</span></code>  właściwość <code class="docutils literal notranslate"><span class="pre">minecraft:redstone_wire</span></code> jak pokazano powyżej jest właściwością ulotną.</p>
+<p>W momencie pisania, Minecraft nadal przechowuje dane Block-u do starego formatu z 12 bitów typu podstawowego (4096 możliwe typy podstawowe) i 4 bity na „metadane” (16 możliwych wartości jako typ podstawowy). Jednakże właściwości nie są mapowane bezpośrednio do metadata ze starszych względów: na przykład Block piec składa się z dwóch typów podstawowych (w trakcie wytapiania i nie wytapiania), każdy nie wykorzystując metadata w ogóle. Z drugiej strony logi do wykorzystania w metadata, ale ponieważ połączenie przekracza właściwości 16 możliwych wartości (w myśli typ trzewka i kierunku), logi należy podzielić na  dwa podstawowe typy.</p>
+<p>In the future, there will only be one 16-bit number (65536 possible combinations of base type + properties). Blocks will
+be assigned an ID automatically and this assignment will be stored in the world save file. This is illustrated below:</p>
+<blockquote>
+<div>0 =&gt; minecraft:dirt[snowy=false,variant=default]
+1 =&gt; minecraft:dirt[snowy=true,variant=default]
+2 =&gt; minecraft:dirt[snowy=false,variant=grassless]
+3 =&gt; minecraft:dirt[snowy=true,variant=grassless]
+4 =&gt; minecraft:planks[variant=oak]
+5 =&gt; minecraft:planks[variant=spruce]
+etc.</div></blockquote>
+</div>
+<div class="section" id="tile-entity-data">
+<h2>Dane Tile Entity<a class="headerlink" href="#tile-entity-data" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<p>Z 65536 możliwymi kombinacjami nie jest możliwe przechowanie wielu informacji takich jak ekwipunek, więc istnieje inny sposób na przechowywanie danych przez <em>niektóre</em> bloki: tile entity.</p>
+<p>Tile entities themselves are Java objects (like a <cite>Chest</cite> class). Normally, Minecraft code would access data in a tile
+entity by getting its instance and then calling it methods or fields, like a regular object
+(<code class="docutils literal notranslate"><span class="pre">world.getTileEntity(position).getInventory()</span></code>). When tile entities need to be written to the save file, they are
+stored in the <a class="reference external" href="https://minecraft.gamepedia.com/NBT_format">NBT format</a>.</p>
+<div class="admonition tip">
+<p class="first admonition-title">Wskazówka</p>
+<p>Niektórze rzeczy, takie jak np. obrazy są w rzeczywistości typu entity.</p>
+<p class="last">Jednak podmiotami Płytek również można zastąpić renderowanie, więc nie wyglądają jak regularne Block-i, chociaż zazwyczaj jest to nieefektywne i powoduje w kliencie gracza spadek FPS.</p>
+</div>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="accessing.html" class="btn btn-neutral float-right" title="Wejście do Block-ów" accesskey="n" rel="next">Dalej <span class="fa fa-angle-right"></span></a>
+        <a href="index.html" class="btn btn-neutral" title="Bloki" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> Poprzedni</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../../_static/flags/pl_PL.svg"
+         alt="pl" title="Polski">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../../_static/jquery.js"></script>      <script type="text/javascript" src="../../_static/underscore.js"></script>      <script type="text/javascript" src="../../_static/doctools.js"></script>      <script type="text/javascript" src="../../_static/language_data.js"></script>      <script type="text/javascript" src="../../_static/translations.js"></script>      <script type="text/javascript" src="../../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

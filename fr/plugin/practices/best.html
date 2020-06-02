@@ -1,0 +1,290 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meilleures Pratiques &mdash; Documentation Sponge 7.2.0</title>
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>        <link rel="search" title="Recherche" href="../../search.html"/>    <link rel="top" title="Documentation Sponge 7.2.0" href="../../index.html"/>        <link rel="up" title="Bonnes Pratiques" href="index.html"/>        <link rel="next" title="Mauvaises Pratiques" href="bad.html"/>        <link rel="prev" title="Bonnes Pratiques" href="index.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../../index.html">
+            <img src="../../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../server/index.html">Créer un Serveur</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../versions/index.html">Stratégie de versioning</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../preparing/index.html">Préparation pour le développement</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Création d’un Plugin</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../api-versions.html">Versions de l’API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../buildsystem.html">Build Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../workspace/index.html">Mise en Place de votre Espace de Travail</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../project/index.html">Configurer Votre Projet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-identifier.html">Identifiants de Plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-class.html">Classe Principale du Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lifecycle.html">Cycle de vie des Plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../injection.html">Injection de Dépendances</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Bonnes Pratiques</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Meilleures Pratiques</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bad.html">Mauvaises Pratiques</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../optional/index.html">Optionnels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../logging.html">Journalisation (Logging) et Débogage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text/index.html">Text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/index.html">Commandes de Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../event/index.html">Événements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/index.html">Configuration des plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assets.html">L’API des Ressources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data/index.html">La Data API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../blocks/index.html">Blocs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../entities/index.html">Entités</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../items/index.html">Items</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../trade-offers.html">Trade-Offers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../effects.html">Effets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../scheduler.html">Scheduler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../services.html">Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database.html">Bases de données</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../permissions.html">Permissions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bans.html">Bans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metrics.html">Collection de Metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bookview.html">Views d’un Livre</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../economy/index.html">Économie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wgen/index.html">Génération du monde</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manager.html">Gestionnaire de Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../game-profile-manager.html">Gestionnaire de Profil de Jeu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../offline-userplayer-data.html">Données du Joueur Hors-Ligne</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tab-lists.html">Tab Lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-meta.html">Plugin Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ray-tracing.html">Ray Tracing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../debugging.html">Debugging d’un plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials.html">Tutoriels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internals/index.html">Plugins dépendants des implémentations</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ore/index.html">Documentation d’Ore</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/index.html">Contribuer à Sponge</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">À propos du Projet Sponge</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+          <li><a href="../index.html">Création d’un Plugin</a> &raquo;</li>
+          <li><a href="index.html">Bonnes Pratiques</a> &raquo;</li>
+    <li>Meilleures Pratiques</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/plugin/practices/best.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="best-practices">
+<h1>Meilleures Pratiques<a class="headerlink" href="#best-practices" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Il y a plusieurs manières de créer un plugin et plusieurs pièges pour un développeur imprudent. Nous décrivons ici les pratiques pour développer un plugin qui feront les plus de SpongeAPI, en fixant des limites raisonnables au profit de la compatibilité. Ces informations pourront changer et être étendues au fur et à mesure que le projet Sponge gagnera en maturité.</p>
+<div class="section" id="plugin-development-guidelines">
+<h2>Les recommandations pour le développement de plugin<a class="headerlink" href="#plugin-development-guidelines" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Les recommandations suivantes ont été préparées pour aider les développeurs de plugins Sponge. Ce n’est pas une liste définitive et exhaustive, plutôt une tentative pour détailler les problèmes qui sont susceptibles de se poser durant le développement d’un plugin, et de proposer nos meilleures solutions.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Nous réservons l’utilisation de <em>Sponge</em> pour les travaux officiels de SpongePowered. Merci de ne pas utiliser <em>Sponge</em> à l’intérieur du nom de votre plugin, sauf (1) si votre plugin concerne principalement le bloc de Minecraft «&nbsp;Éponge&nbsp;», ou (2) si votre plugin possède également des versions pour d’autres APIs (auquel cas vous pouvez ajouter «&nbsp;for Sponge&nbsp;» au titre).</p>
+</div>
+<div class="section" id="economy-api">
+<h3>API d’économie<a class="headerlink" href="#economy-api" title="Lien permanent vers ce titre">¶</a></h3>
+<p>La Economy API est utilisée comme point commun à tous les plugins d’économie ainsi qu’aux plugins utilisant ces économies (comme les shops). Vous pouvez en savoir plus sur la Economy API <a class="reference internal" href="../economy/index.html"><span class="doc">ici</span></a>, qui détaille tout ce que vous devrez savoir sur cette API.</p>
+</div>
+<div class="section" id="packets">
+<h3>Packets<a class="headerlink" href="#packets" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Tout ce qui concerne l’interception de packets, ou l’introduction d’objets/blocs/entités/etc.. personnalisés <em>ne</em> sont <em>pas</em> prévus de faire partie de SpongeAPI. Notez que l’utilisation de packets peut être la mauvaise réponse à un problème et qu’il peut y avoir une solution réalisable avec SpongeAPI. Dans certains cas, il peut être possible d’ajouter tout ce qui est nécessaire avec SpongeAPI; autrement, l’alternative est d’utiliser l’API Forge et de créer un Mod à la place.</p>
+</div>
+<div class="section" id="using-forge-or-nms-classes">
+<h3>Utiliser Forge ou les Classes NMS<a class="headerlink" href="#using-forge-or-nms-classes" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Nous recommandons de ne pas de travailler du tout avec les classes de base de Forge et de Minecraft, à moins que ce soit pour fournir une compatibilité avec un mod à SpongeAPI. La plupart des utilisations de code NMS (<code class="docutils literal notranslate"><span class="pre">net.minecraft.server</span></code>) dans les plugins ne finissent pas proprement, rendant les diagnostics difficiles. Maintenir à jour les modifications NMS est également plus difficile que d’utiliser SpongeAPI. Les Mods qui ajoutent à SpongeAPI l’utilisation de code interne devront spécifiquement écrire une API, qui ne repose pas sur le code sous-jacent de Minecraft, pour être utilisable par les plugins Sponge. Cependant, des plugins peuvent être créés pour charger des modules de «&nbsp;compatibilité&nbsp;» pour interagir avec l’implémentation sous-jacente (SpongeForge ou SpongeVanilla).</p>
+<p>Les plugins utilisant du code spécifique à une implémentation sont très susceptibles de se casser entre deux versions, et devraient être clairement étiquetés comme tels partout où ils sont hébergés. Ceux-ci devraient plus convenablement être étiquetés comme «&nbsp;Mods&nbsp;».</p>
+</div>
+<div class="section" id="mixins">
+<h3>Mixins<a class="headerlink" href="#mixins" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Les Mixins sont spécialement utilisés pour transformer les classes avant que d’autres mods/plugins démarrent. ForgeModLoader appelle ces mods «&nbsp;Coremods&nbsp;». SpongeForge est un Coremod et déploie des mixins au démarrage. Les Mixins peuvent être utilisés par les plugins, mais soyez conscient des complexités additionnelles impliquées.</p>
+<p><strong>Mods Hybrides</strong></p>
+<p>Les plugins Sponge qui exploitent les mixins peuvent également être considérés comme des mods core, selon leur contenu.</p>
+<ul class="simple">
+<li>Pour utiliser les mixins dans FML, il doit être un coremod. Le jar doit également contenir un plugin Sponge, donc à proprement parler, le conteneur est un «&nbsp;mod hybride&nbsp;».</li>
+<li>Pour utiliser les mixins dans SpongeVanilla, les intentions doivent être déclarées dans le manifest. SpongeVanilla injecte alors les mixins.</li>
+<li>Avoir les deux types dans un seul jar est entièrement possible. (En effet, un seul jar peut facilement contenir un tweaker, mod FML, coremod, plugin Bukkit, plugin Sponge, et/ou litemod.)</li>
+</ul>
+<p>Certaines définitions peuvent être utiles ici.</p>
+<dl class="docutils">
+<dt>Tweak Mod (alias Tweaker)</dt>
+<dd>un mod au niveau du sous-système se raccorde directement au jeu en utilisant LaunchWrapper, habituellement utilisé pour des ModSystems (ex : LiteLoader, FML) et les mods autonomes (ex : Optifine). Peut interagir directement avec n’importe quel aspect de l’environnement du jeu. Ne fonctionne généralement plus à chaque version.</dd>
+<dt>Core Mod</dt>
+<dd>dispose presque de l’équivalent du pouvoir d’un Tweak Mod mais doit être amorcé par un ModSystem. Peut interagir avec n’importe quel aspect de l’environnement du jeu directement. Ne fonctionne généralement plus à chaque nouvelle version du jeu.</dd>
+<dt>Mod</dt>
+<dd>interagit avec le jeu seulement via un ModSystem, le mod est exposé aux objets du jeu directement mais va généralement seulement s’attacher au jeu via les hooks fournits par le ModSystem. Se casse généralement à chaque version majeure du jeu (selon les fonctionnalités utilisées). Le terme mod est également utilisé comme un terme générique pour tout ce qui modifie le jeu, mais par souci de clarté, nous allons utiliser cette définition.</dd>
+<dt>Plugin</dt>
+<dd>interagit avec le jeu uniquement via une API, n’interagit pas directement avec les objets du jeu en quelconque façon, s’appuie seulement sur les objets exposés par l’API. Ne fonctionne généralement plus seulement lorsque l’API est révisée (et même pas, parfois).</dd>
+</dl>
+<p>Il est également important de distinguer le conteneur du contenu. Les problèmes avec la terminologie tendent à survenir parce qu’un jar contenant un mod tend à se référer en tant que «&nbsp;mod&nbsp;». N’importe quel plugin qui n’est pas entièrement découplé via l’API se met dans la catégorie des Mods. Ce type de «&nbsp;plugin&nbsp;» peut être répandu lorsqu’il existe des lacunes dans une API.</p>
+<p><strong>Avantages des Mods Hybrides</strong></p>
+<p>Un mod hybride s’appuie sur un composant de plugin qui interagit via l’API, et un mod (ou même coremeod) dans un même package. Il présente les inconvénients d’un mod (ne fonctionne plus à chaque version) mais également la puissance d’un mod (peut interagir directemenet avec le jeu) couplé avec certains des avantages d’un Plugin (accès haut-niveau au jeu, et peut également interagir avec d’autrers plugins en tant que pair).</p>
+<p>Le principal avantage de ce système est que la charge de la maintenance est réduite lors de la mise à jour du mod, car toutes les fonctionnalités accédées via l’API sont susceptibles d’être beaucoup plus stables.</p>
+<p>Ce type de mod peut être utilisé pour implémenter des plugins qui ont besoin de déborder les capacités de l’API (dans le cas d’un plugin qui a besoin d’exploiter les mixins pour une fonctionnalité particulière); mais il peut également être utilisé pour les mods qui veulent tirer parti des services offerts par l’API (ex : un mod qui veut fournir un support direct pour les permissions ou les canaux de chat).</p>
+<p>Contrairrement aux «&nbsp;plugins&nbsp;» qui exploitent les NMS, un mod hybride clarifie sa nature.</p>
+</div>
+</div>
+<div class="section" id="plugin-interoperability">
+<h2>Interopérabilité des Plugins<a class="headerlink" href="#plugin-interoperability" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Une explication de comment communiquer avec les autres plugins, <em>à être annoncé</em>.</p>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="bad.html" class="btn btn-neutral float-right" title="Mauvaises Pratiques" accesskey="n" rel="next">Suivant <span class="fa fa-angle-right"></span></a>
+        <a href="index.html" class="btn btn-neutral" title="Bonnes Pratiques" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> Précédent</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../../_static/flags/fr_FR.svg"
+         alt="fr" title="Français">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../../_static/jquery.js"></script>      <script type="text/javascript" src="../../_static/underscore.js"></script>      <script type="text/javascript" src="../../_static/doctools.js"></script>      <script type="text/javascript" src="../../_static/language_data.js"></script>      <script type="text/javascript" src="../../_static/translations.js"></script>      <script type="text/javascript" src="../../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

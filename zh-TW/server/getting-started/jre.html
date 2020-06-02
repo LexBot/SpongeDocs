@@ -1,0 +1,235 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>安裝 Java &mdash; Sponge 7.2.0 說明文件</title>
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="索引"
+              href="../../genindex.html"/>        <link rel="search" title="搜尋" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 說明文件" href="../../index.html"/>        <link rel="up" title="開始使用" href="index.html"/>        <link rel="next" title="轉移至 Sponge" href="migrating.html"/>        <link rel="prev" title="開始使用" href="index.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../../index.html">
+            <img src="../../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">建立伺服器</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html">快速入門指南</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">開始使用</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">安裝 Java</a></li>
+<li class="toctree-l3"><a class="reference internal" href="migrating.html">轉移至 Sponge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="implementations/index.html">選擇實作</a></li>
+<li class="toctree-l3"><a class="reference internal" href="launch-script.html">建立啟動腳本</a></li>
+<li class="toctree-l3"><a class="reference internal" href="port-forward.html">連接埠轉送</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bungeecord.html">在 Sponge 上使用服务器代理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configuration/index.html">設定 Sponge</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../management/index.html">伺服器管理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spongineer/index.html">成為專業的 Spongineer</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../versions/index.html">版本控制方針</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../preparing/index.html">準備開發</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../plugin/index.html">建立插件</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ore/index.html">Ore 文件</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/index.html">為 Sponge 貢獻</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">關於 Sponge 專案</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+          <li><a href="../index.html">建立伺服器</a> &raquo;</li>
+          <li><a href="index.html">開始使用</a> &raquo;</li>
+    <li>安裝 Java</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/server/getting-started/jre.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="installing-java">
+<h1>安裝 Java<a class="headerlink" href="#installing-java" title="本標題的永久連結">¶</a></h1>
+<p>執行 Sponge 和 Minecraft: Java Edition 都需要 Java。你應該已經安裝過了，但可能需要更新。</p>
+<p>目前 Sponge 必須使用 Java 8（更明確的說法是 <code class="docutils literal notranslate"><span class="pre">1.8.0_20</span></code> 或更高版本）。舊版的 Java 已被棄用，無法用於 Sponge。Java 的主要版本（6、7、8）間的差異甚大，故較舊的版本無法正常執行 Sponge。目前 Sponge 亦無法以高於 Java 8 的版本執行。</p>
+<div class="section" id="id1">
+<h2>安裝 Java<a class="headerlink" href="#id1" title="本標題的永久連結">¶</a></h2>
+<p>如果你的電腦使用 Windows 或 macOS，你可以 <a class="reference external" href="https://java.com/en/download/manual.jsp">從官網下載 Java</a>。</p>
+<p>Linux 使用者可以透過他們的套件管理器來安裝 OpenJDK。OpenJDK 是開源版本的 Oracle Java，OpenJDK 應該會跟 Oracle Java 一樣正常運作。然而你依然可以 <a class="reference external" href="https://www.oracle.com/technetwork/java/javase/downloads/index.html">下載 Linux 專用的 Oracle 版本</a>，但請留意，很多依賴 Java 的 Linux 套件依然會安裝 OpenJDK。</p>
+<p>你可能需要自行設定你的 JRE/JDK 路徑</p>
+<ul class="simple">
+<li>啟動器使用 <code class="docutils literal notranslate"><span class="pre">Profile</span></code>（<code class="docutils literal notranslate"><span class="pre">Advanced</span> <span class="pre">Options</span></code>）-&gt; <code class="docutils literal notranslate"><span class="pre">&lt;你的設定檔&gt;</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">Java-Executable</span></code>（<code class="docutils literal notranslate"><span class="pre">.../java.exe</span></code>）</li>
+<li>伺服器使用 <code class="docutils literal notranslate"><span class="pre">PATH</span></code> 變數或使用 Java 執行檔的完整路徑</li>
+</ul>
+<div class="section" id="bit-vs-64-bit">
+<h3>32 位元 vs. 64 位元<a class="headerlink" href="#bit-vs-64-bit" title="本標題的永久連結">¶</a></h3>
+<p>在您電腦支援的情況下你應該盡可能選擇使用 64 位元的 Java。<a class="reference external" href="https://java.com/zh_TW/download/">這個網站上</a>的 Java 安裝程式應該會檢測您的電腦是否準備好使用 64 位元。然而自動檢測有時也會出錯（如果您無法確定，請嘗試使用不同的瀏覽器）。</p>
+<p>你也可以從系統資訊視窗中找到這個。</p>
+<ul class="simple">
+<li>Windows：按下 <code class="docutils literal notranslate"><span class="pre">&lt;Win&gt;</span></code> + <code class="docutils literal notranslate"><span class="pre">&lt;Pause&gt;</span></code> 或從 <code class="docutils literal notranslate"><span class="pre">系統資訊</span></code> 查看您的 <code class="docutils literal notranslate"><span class="pre">系統類型</span></code>。</li>
+<li>Linux：開啟一個終端機並輸入 <code class="docutils literal notranslate"><span class="pre">arch</span></code> 或是 <code class="docutils literal notranslate"><span class="pre">uname</span> <span class="pre">-m</span></code>。<code class="docutils literal notranslate"><span class="pre">i686</span></code> -&gt; 32 位元。<code class="docutils literal notranslate"><span class="pre">x86_64</span></code> -&gt; 64 位元。</li>
+<li>Mac：反正也只有一種下載…</li>
+</ul>
+<p>如果您很確定自己的系統類型，可以自行<a class="reference external" href="https://java.com/zh_TW/download/manual.jsp">手動選擇</a>正確的安裝程式。</p>
+<p>由於 64 位元版的 Java 運作得更好，而且可以使用超過 3GB 的 RAM（記憶體），所以我們一直都推薦用它來取代 32 位元版。</p>
+<p>現代的電腦大部分都能支援 64 位元。</p>
+</div>
+<div class="section" id="jdk-vs-jre">
+<h3>JDK vs. JRE<a class="headerlink" href="#jdk-vs-jre" title="本標題的永久連結">¶</a></h3>
+<p>JRE（Java Runtime Environment）用於執行 Java 應用程式。上方的下載頁面連結提供的是 JRE。</p>
+<p>JDK（Java Development Kit）是用來建立 Java 應用程式的，除非你打算撰寫 Sponge 插件或是開發 Sponge，否則你不需要它。然而在某些狀況中，你可能需要 JDK 來診斷 Java 應用程式（例如 Sponge）。你可以在<a class="reference external" href="https://www.oracle.com/technetwork/java/javase/downloads/index.html">另一個網站中</a>下載 JDK。</p>
+</div>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="migrating.html" class="btn btn-neutral float-right" title="轉移至 Sponge" accesskey="n" rel="next">下一頁 <span class="fa fa-angle-right"></span></a>
+        <a href="index.html" class="btn btn-neutral" title="開始使用" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> 上一頁</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../../_static/flags/zh_TW.svg"
+         alt="zh-TW" title="繁體中文">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../../_static/jquery.js"></script>      <script type="text/javascript" src="../../_static/underscore.js"></script>      <script type="text/javascript" src="../../_static/doctools.js"></script>      <script type="text/javascript" src="../../_static/language_data.js"></script>      <script type="text/javascript" src="../../_static/translations.js"></script>      <script type="text/javascript" src="../../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

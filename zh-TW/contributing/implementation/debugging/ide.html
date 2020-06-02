@@ -1,0 +1,274 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>在 IDE 中對 Sponge 除錯 &mdash; Sponge 7.2.0 說明文件</title>
+
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../../../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="索引"
+              href="../../../genindex.html"/>        <link rel="search" title="搜尋" href="../../../search.html"/>    <link rel="top" title="Sponge 7.2.0 說明文件" href="../../../index.html"/>        <link rel="up" title="调试 Sponge" href="index.html"/>        <link rel="next" title="测试插件或 Mod" href="testing.html"/>        <link rel="prev" title="Git" href="git.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../../../index.html">
+            <img src="../../../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../../../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../server/index.html">建立伺服器</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../versions/index.html">版本控制方針</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../preparing/index.html">準備開發</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../plugin/index.html">建立插件</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../ore/index.html">Ore 文件</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">為 Sponge 貢獻</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../guidelines.html">貢獻指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../howtogit.html">如何 Git(hub)</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">開發 Sponge</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../codestyle.html">程式碼風格</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../git-implementation.html">API 與實作的 Git 工作流程</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pr.html">發送 Pull Request</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">调试 Sponge</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="git.html">Git</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">在 IDE 中對 Sponge 除錯</a></li>
+<li class="toctree-l4"><a class="reference internal" href="testing.html">测试插件或 Mod</a></li>
+<li class="toctree-l4"><a class="reference internal" href="issues.html">调试中的常见问题。</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mixin.html">调试 Mixin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tools.html">调试工具</a></li>
+<li class="toctree-l4"><a class="reference internal" href="more.html">更多信息</a></li>
+<li class="toctree-l4"><a class="reference internal" href="faq.html">常見問題</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../mixins.html">Mixins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../datamanipulator.html">實作 DataManipulators</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../spongedocs.html">SpongeDocs 文件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../porting.html">將 Sponge 移植到其他平台</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../versioning.html">專案分支布局</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/index.html">關於 Sponge 專案</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index.html">Docs</a> &raquo;</li>
+          <li><a href="../../index.html">為 Sponge 貢獻</a> &raquo;</li>
+          <li><a href="../index.html">開發 Sponge</a> &raquo;</li>
+          <li><a href="index.html">调试 Sponge</a> &raquo;</li>
+    <li>在 IDE 中對 Sponge 除錯</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/contributing/implementation/debugging/ide.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="debugging-sponge-within-the-ide">
+<h1>在 IDE 中對 Sponge 除錯<a class="headerlink" href="#debugging-sponge-within-the-ide" title="本標題的永久連結">¶</a></h1>
+<div class="admonition note">
+<p class="first admonition-title">備註</p>
+<p>关于设置 IDE 和依赖的信息可参考：“<a class="reference internal" href="../../../plugin/workspace/index.html"><span class="doc">建立你的工作空間</span></a>”、“<a class="reference internal" href="../../../plugin/project/index.html"><span class="doc">建立你的專案</span></a>”。</p>
+<p>关于在 IDE 中调试插件的信息可参考“调试插件”一文中的“<a class="reference internal" href="../../../plugin/debugging.html#runconfig"><span class="std std-ref">运行你的配置</span></a>”和“<a class="reference internal" href="../../../plugin/debugging.html#usingdebugger"><span class="std std-ref">使用调试器</span></a>”两小节。</p>
+<p class="last">本文目前基于 IntelliJ IDEA 编写。如果你是 Eclipse 用户，且能写出这篇文章的 Eclipse 版本，我们欢迎你直接向<a class="reference external" href="https://github.com/spongepowered/spongedocs">我们的 GitHub 仓库</a> 发起 PR。</p>
+</div>
+<p>使用 IDE 调试 Sponge 比较简单，基本上就是在你<a class="reference internal" href="index.html#setupworkspace"><span class="std std-ref">部署工作环境</span></a>后将 <code class="docutils literal notranslate"><span class="pre">build.gradle</span></code> 导入 IDE 中。请确保你已安装了 JDK 8 且已令 IDE 使用 JDK 8，以及将项目以<strong>一个 Gradle 项目</strong>的身份导入 IDE。在此之后你就可以运行代码并进行测试了。</p>
+<div class="section" id="key-settings">
+<h2>关键设置<a class="headerlink" href="#key-settings" title="本標題的永久連結">¶</a></h2>
+<p>下文列出了一些经常出现问题的设置：</p>
+<div class="section" id="gradle-plugin">
+<h3>Gradle 插件<a class="headerlink" href="#gradle-plugin" title="本標題的永久連結">¶</a></h3>
+<p>确认 Gradle 插件已启用。请依次打开 <code class="docutils literal notranslate"><span class="pre">File</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">Settings</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">Plugins</span></code>，在打开的窗口中找到 <code class="docutils literal notranslate"><span class="pre">Installed</span></code> 标签，确认是否有一名为 <code class="docutils literal notranslate"><span class="pre">Gradle</span></code> 的插件，且该插件名字旁有一个代表已启用的对勾。如果你找不到这个插件，请在 <code class="docutils literal notranslate"><span class="pre">Marketplace</span></code> 标签中搜索并安装。</p>
+</div>
+<div class="section" id="project-sdk">
+<h3>Project SDK<a class="headerlink" href="#project-sdk" title="本標題的永久連結">¶</a></h3>
+<p>Project SDK（项目使用的 SDK）一项应为 <code class="docutils literal notranslate"><span class="pre">1.8.0_20</span></code> 或更高版本。项目的 Language Level（编译等级）应为 <code class="docutils literal notranslate"><span class="pre">8</span> <span class="pre">-</span> <span class="pre">Lambdas,</span> <span class="pre">type</span> <span class="pre">annotations</span> <span class="pre">etc.</span></code>。</p>
+</div>
+<div class="section" id="run-debug-configurations">
+<h3>Run/Debug 配置<a class="headerlink" href="#run-debug-configurations" title="本標題的永久連結">¶</a></h3>
+<p>Gradle 任务 <code class="docutils literal notranslate"><span class="pre">genIntelliJRuns</span></code> 会帮你创建合适的 Run 及 Debug 配置，只需在项目根目录执行 <code class="docutils literal notranslate"><span class="pre">./gradlew</span> <span class="pre">genIntelliJRuns</span></code> 即可。务必在打开 IDE <strong>之前</strong>执行此命令。如果你已经打开了 IDE，你可以选择在执行完此命令后重启 IDE。若一切无误，此时你应当能在 Application Configuration 中找到 <code class="docutils literal notranslate"><span class="pre">Minecraft</span> <span class="pre">Client</span></code> 和 <code class="docutils literal notranslate"><span class="pre">Minecraft</span> <span class="pre">Server</span></code> 两项，以及在 Gradle Configuration 中找到 <code class="docutils literal notranslate"><span class="pre">SpongeForge</span> <span class="pre">[jar]</span></code> 和 <code class="docutils literal notranslate"><span class="pre">SpongeForge</span> <span class="pre">[clean]</span></code> 两项。</p>
+</div>
+<div class="section" id="coremods">
+<h3>Coremods<a class="headerlink" href="#coremods" title="本標題的永久連結">¶</a></h3>
+<div class="admonition note">
+<p class="first admonition-title">備註</p>
+<p class="last">Coremod 不属于 SpongeVanilla 的一部分。参考 <a class="reference internal" href="../../../about/glossary.html"><span class="doc">Sponge 術語</span></a>了解 Coremod 的具体定义。</p>
+</div>
+<p>Gradle 及其他 Sponge 提供的自动化工具不会配置除了 Sponge 它自己用的 Coremod 以外的其他 Coremod，因此你需要手动配置。配置的方法是在 VM 选项中加入 <code class="docutils literal notranslate"><span class="pre">-Dfml.coreMods.load</span></code> 一项，它的值是逗号分割的 Coremod 类名。VM 选项需要在 Run/Debug 配置中指定。</p>
+<div class="admonition tip">
+<p class="first admonition-title">小訣竅</p>
+<p>“<a class="reference internal" href="../../../plugin/practices/best.html"><span class="doc">最佳實踐</span></a>”一文的 <strong>Mixin</strong> 一节讨论了 Mixin、Coremod 及其他底层概念的定义。</p>
+<p class="last">“<a class="reference internal" href="mixin.html"><span class="doc">调试 Mixin</span></a>”一文的“输出”一小节也讨论了其他有用的 VM 选项。</p>
+</div>
+</div>
+<div class="section" id="classpath">
+<h3>Classpath<a class="headerlink" href="#classpath" title="本標題的永久連結">¶</a></h3>
+<p>在 Run/Debug 配置的窗口中，检查 <code class="docutils literal notranslate"><span class="pre">Use</span> <span class="pre">classpath</span> <span class="pre">of</span> <span class="pre">module:</span></code> 是否已经正确设置。如果它当前仍是 <code class="docutils literal notranslate"><span class="pre">&lt;no</span> <span class="pre">module&gt;</span></code>，请在该选项的下拉菜单中选择那个名字以 <code class="docutils literal notranslate"><span class="pre">_main</span></code> 结尾的 module。</p>
+<div class="admonition tip">
+<p class="first admonition-title">小訣竅</p>
+<p class="last">如果还是不确定，请直接选择你要用的那一个。比如说如果你要调试 SpongeForge，那就选 <code class="docutils literal notranslate"><span class="pre">SpongeForge_main</span></code>，如果是 SpongeVanilla 那就是 <code class="docutils literal notranslate"><span class="pre">SpongeVanilla_main</span></code>。</p>
+</div>
+</div>
+</div>
+<div class="section" id="using-your-ide">
+<h2>使用 IDE 进行调试<a class="headerlink" href="#using-your-ide" title="本標題的永久連結">¶</a></h2>
+<p>现在你已经正确配置所有东西了，你可以像往常一样在 IDE 中设置断点、单步执行代码、检查某个变量的值或者解析任意表达式了。自然地，你也可以使用诸如命令和日志输出这样的游戏特性。</p>
+<div class="section" id="debugging-with-mods-and-plugins">
+<h3>与 Mod 和插件一起调试<a class="headerlink" href="#debugging-with-mods-and-plugins" title="本標題的永久連結">¶</a></h3>
+<p>若你需要调试某个 Mod 或插件，你应当将那个 Mod 或插件复制到 <code class="docutils literal notranslate"><span class="pre">run/mods</span></code> 目录下。IDE 允许你检查其代码并设定断点，但你必须首先将该目录指定为库文件目录。</p>
+<p>只需在 <code class="docutils literal notranslate"><span class="pre">Project</span> <span class="pre">Settings</span></code> 中找到 <code class="docutils literal notranslate"><span class="pre">Libraries</span></code> 组件，点击中间一栏上方的 <code class="docutils literal notranslate"><span class="pre">+</span></code>，然后选择 <code class="docutils literal notranslate"><span class="pre">Java</span></code>，并在打开的窗口中找到 <code class="docutils literal notranslate"><span class="pre">mods</span></code> 目录并点击 <code class="docutils literal notranslate"><span class="pre">OK</span></code>，即可。此时你应当可以在 IDE 中浏览 Mod 或插件的代码并设定断点了。</p>
+<div class="admonition warning">
+<p class="first admonition-title">警告</p>
+<p class="last">使用此特性时，请务必确认已遵守所有版权提示及许可协议。</p>
+</div>
+</div>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="testing.html" class="btn btn-neutral float-right" title="测试插件或 Mod" accesskey="n" rel="next">下一頁 <span class="fa fa-angle-right"></span></a>
+        <a href="git.html" class="btn btn-neutral" title="Git" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> 上一頁</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../../../_static/flags/zh_TW.svg"
+         alt="zh-TW" title="繁體中文">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../../../_static/jquery.js"></script>      <script type="text/javascript" src="../../../_static/underscore.js"></script>      <script type="text/javascript" src="../../../_static/doctools.js"></script>      <script type="text/javascript" src="../../../_static/language_data.js"></script>      <script type="text/javascript" src="../../../_static/translations.js"></script>      <script type="text/javascript" src="../../../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

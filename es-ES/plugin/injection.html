@@ -1,0 +1,372 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inyección de Dependencia &mdash; documentación de Sponge - 7.2.0</title>
+
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="Índice"
+              href="../genindex.html"/>        <link rel="search" title="Búsqueda" href="../search.html"/>    <link rel="top" title="documentación de Sponge - 7.2.0" href="../index.html"/>        <link rel="up" title="Creando un Plugin" href="index.html"/>        <link rel="next" title="Prácticas" href="practices/index.html"/>        <link rel="prev" title="Ciclo de vida del Plugin" href="lifecycle.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../index.html">
+            <img src="../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../server/index.html">Creando un Servidor</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../versions/index.html">Versioning Policy</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../preparing/index.html">Preparándose para el Desarrollo</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Creando un Plugin</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="api-versions.html">API-Versions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="buildsystem.html">Sistemas de Compilación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workspace/index.html">Configuración de su Espacio de Trabajo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project/index.html">Configurando Su Proyecto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin-identifier.html">Identificadores de Complementos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin-class.html">Clase de Plug-in Principal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lifecycle.html">Ciclo de vida del Plugin</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Inyección de Dependencia</a></li>
+<li class="toctree-l2"><a class="reference internal" href="practices/index.html">Prácticas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optional/index.html">Opcionales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.html">Registro y Depuración</a></li>
+<li class="toctree-l2"><a class="reference internal" href="text/index.html">Texto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands/index.html">Plugin Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="event/index.html">Eventos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration/index.html">Configurando Extensiones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assets.html">La API de Activos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data/index.html">La API de Datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/index.html">Bloques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entities/index.html">Entidades</a></li>
+<li class="toctree-l2"><a class="reference internal" href="items/index.html">Articulos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trade-offers.html">Ofertas de Intercambio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="effects.html">Efectos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scheduler.html">Programador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="services.html">Servicios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="database.html">Bases de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="permissions.html">Permisos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bans.html">Baneos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metrics.html">Metrics Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bookview.html">Vistas del Libro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="economy/index.html">Economía</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wgen/index.html">Generación de Mundo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manager.html">Administrador de Complementos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="game-profile-manager.html">Administrador de Perfiles del Juego</a></li>
+<li class="toctree-l2"><a class="reference internal" href="offline-userplayer-data.html">Datos del Jugador Fuera de Línea</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tab-lists.html">Listas de Tabulaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin-meta.html">Metadatos del Complemento</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ray-tracing.html">Trazado de Rayos (Ray Tracing)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="debugging.html">Depuración de Complemento</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials.html">Tutoriales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internals/index.html">Implementation-dependent Plugins</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ore/index.html">Documentación Ore</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contributing/index.html">Contribuyendo a Sponge</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">Acerca del proyecto Sponge</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+          <li><a href="index.html">Creando un Plugin</a> &raquo;</li>
+    <li>Inyección de Dependencia</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/plugin/injection.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="dependency-injection">
+<h1>Inyección de Dependencia<a class="headerlink" href="#dependency-injection" title="Enlazar permanentemente con este título">¶</a></h1>
+<p>Sponge usa inyecciones de dependencia para proveer a los plugins de ciertas instancias de API. Las inyecciones de dependencia permiten a los plugins designar algunos tipos de API que serán inyectados después de la construcción.</p>
+<div class="section" id="temporary-list-of-injected-types">
+<h2>Lista Temporal de Tipos Inyectados<a class="headerlink" href="#temporary-list-of-injected-types" title="Enlazar permanentemente con este título">¶</a></h2>
+<dl class="docutils">
+<dt><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/config/ConfigDir.html">ConfigDir</a> (anotación en Ruta o Archivo)</dt>
+<dd>Usado para inyectar el directorio de configuración del complemento: <code class="docutils literal notranslate"><span class="pre">./Config/</span></code> O <code class="docutils literal notranslate"><span class="pre">./config/&lt;Plugin#id&gt;/</span></code> dependiendo de <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/config/ConfigDir.html#sharedRoot--">ConfigDir#sharedRoot()</a></dd>
+<dt><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/config/DefaultConfig.html">DefaultConfig</a> (anotación en Path, ConfigurationLoader o File)</dt>
+<dd>Se usa para inyectar el archivo de configuración específico del complemento: <code class="docutils literal notranslate"><span class="pre">&lt;Plugin#id&gt;.conf</span></code></dd>
+<dt><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/asset/AssetId.html">AssetId</a> (annotation on Asset)</dt>
+<dd>Used to inject a <code class="docutils literal notranslate"><span class="pre">Asset</span></code> from the asset folder of the plugin</dd>
+<dt><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/scheduler/AsynchronousExecutor.html">AsynchronousExecutor</a> (annotation on SpongeExecutorService)</dt>
+<dd>Used to inject the plugin’s specific AsynchronousExecutor</dd>
+<dt><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/scheduler/SynchronousExecutor.html">SynchronousExecutor</a> (annotation on SpongeExecutorService)</dt>
+<dd>Used to inject the plugin’s specific SynchronousExecutor</dd>
+<dt><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/network/ChannelId.html">ChannelId</a> (annotation on ChannelBinding.IndexedMessageChannel or ChannelBinding.RawDataChannel)</dt>
+<dd>Used to inject a <code class="docutils literal notranslate"><span class="pre">ChannelBinding</span></code> with the given channel id</dd>
+<dt><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/asset/Asset.html">Asset</a></dt>
+<dd>Must be annotated with <code class="docutils literal notranslate"><span class="pre">&#64;AssetId</span></code>.</dd>
+<dt><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/scheduler/SpongeExecutorService.html">SpongeExecutorService</a></dt>
+<dd>Must be annotated with either <code class="docutils literal notranslate"><span class="pre">&#64;AsynchronousExecutor</span></code> or <code class="docutils literal notranslate"><span class="pre">&#64;SynchronousExecutor</span></code>.
+Depending on the annotation given this will contain a reference to the plugin’s specific
+Asynchronous or Synchronous Executor.</dd>
+<dt><a class="reference external" href="https://configurate.aoeu.xyz/apidocs/ninja/leaping/configurate/loader/ConfigurationLoader.html">ConfigurationLoader&lt;CommentedConfigurationNode&gt;</a></dt>
+<dd>Debe estar anotado con <code class="docutils literal notranslate"><span class="pre">&#64;DefaultConfig</span></code>. Se usa para inyectar un <code class="docutils literal notranslate"><span class="pre">ConfigurationLoader</span></code> pregenerado para el <code class="docutils literal notranslate"><span class="pre">File</span></code> de la misma anotación.</dd>
+<dt><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/EventManager.html">EventManager</a></dt>
+<dd>Administra el registro de los controladores de eventos y el envío de eventos.</dd>
+<dt>Archivo</dt>
+<dd>Debe anotarse con <code class="docutils literal notranslate"><span class="pre">&#64;DefaultConfig</span></code> o <code class="docutils literal notranslate"><span class="pre">&#64;ConfigDir</span></code>. Dependiendo de la anotación dada, esto contendrá una referencia de archivo al archivo de configuración por defecto de los complementos o al directorio utilizado para almacenar los archivos de configuración. Sin embargo, la Ruta (ver a continuación) debe ser preferida.</dd>
+<dt><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/Game.html">Game</a></dt>
+<dd>The <code class="docutils literal notranslate"><span class="pre">Game</span></code> object is the core accessor of SpongeAPI.</dd>
+<dt><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/GameRegistry.html">GameRegistry</a></dt>
+<dd>Proporciona una manera fácil de recuperar tipos provenientes de un <code class="docutils literal notranslate"><span class="pre">Game</span></code>.</dd>
+<dt><a class="reference external" href="https://configurate.aoeu.xyz/apidocs/ninja/leaping/configurate/objectmapping/GuiceObjectMapperFactory.html">GuiceObjectMapperFactory</a></dt>
+<dd>Una herramienta proporcionada por Configurate para permitir un mapeo más fácil de los objetos a los nodos de configuración. Ver <a class="reference internal" href="configuration/serialization.html"><span class="doc">Serializando Objetos</span></a> para su uso.</dd>
+<dt>Inyector</dt>
+<dd><code class="docutils literal notranslate"><span class="pre">com.google.inject.Injector</span></code> está disponible desde Guice, es el inyector que se usó para inyectar las dependencias de su plugin. Usted puede usarlo para crear un inyector hijo con su propio módulo para inyectar sus propias clases con las dependencias provistas por Sponge listadas en esta página, o configurar sus propias clases</dd>
+<dt>Logger</dt>
+<dd>Se usa para identificar el complemento desde el cual son enviados los mensajes registrados.</dd>
+<dt>Ruta</dt>
+<dd>Debe anotarse con <code class="docutils literal notranslate"><span class="pre">&#64;DefaultConfig</span></code> o <code class="docutils literal notranslate"><span class="pre">&#64;ConfigDir</span></code>. Dependiendo de la anotación dada, esto contendrá una referencia de ruta al archivo de configuración por defecto de los complementos o al directorio utilizado para almacenar los archivos de configuración.</dd>
+<dt><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/plugin/PluginContainer.html">PluginContainer</a></dt>
+<dd>Un envoltorio de clase <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/plugin/Plugin.html">Plugin</a>, utilizado para recuperar información de la anotación para facilitar su uso.</dd>
+<dt><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/plugin/PluginManager.html">PluginManager</a></dt>
+<dd>Administra los complementos cargados por la implementación. Puede recuperar otro <code class="docutils literal notranslate"><span class="pre">PluginContainer</span></code> del complemento.</dd>
+</dl>
+</div>
+<div class="section" id="injection-examples">
+<h2>Ejemplos de Inyección<a class="headerlink" href="#injection-examples" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Hay algunas referencias que son difíciles de obtener -o, en algunos casos, imposibles - sin inyección. Si bien estos pueden no ser absolutamente vitales para cada complemento, se utilizan con bastante frecuencia.</p>
+<div class="admonition note">
+<p class="first admonition-title">Nota</p>
+<p class="last">Recuerde que es <em>casi siempre</em> la mejor práctica para inyectar sus objetos dentro de la clase principal, ya que es instanciado con el inyector Guice cuando el complemento es cargado.</p>
+</div>
+<div class="section" id="logger">
+<h3>Logger<a class="headerlink" href="#logger" title="Enlazar permanentemente con este título">¶</a></h3>
+<div class="admonition tip">
+<p class="first admonition-title">Truco</p>
+<p class="last">Vea <a class="reference internal" href="logging.html"><span class="doc">Registro y Depuración</span></a> para obtener una guía completa, específicamente para Logger.</p>
+</div>
+</div>
+<div class="section" id="game">
+<h3>Juego<a class="headerlink" href="#game" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">Game</span></code> object is the opening for many of the internal functions of SpongeAPI, from the <code class="docutils literal notranslate"><span class="pre">EventManager</span></code> to the
+<a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/Server.html">Server</a> and even the Sync/Async <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/scheduler/Scheduler.html">Scheduler</a>.</p>
+<p>Si bien es completamente posible recuperar el objeto <code class="docutils literal notranslate"><span class="pre">Game</span></code> a través de <code class="docutils literal notranslate"><span class="pre">Sponge.getGame</span> <span class="pre">()</span></code>, es obtenido comúnmente a través de una inyección.</p>
+<p><strong>Ejemplo - Campo</strong></p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">com.google.inject.Inject</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.Game</span><span class="p">;</span>
+
+<span class="nd">@Inject</span>
+<span class="kd">private</span> <span class="n">Game</span> <span class="n">game</span><span class="p">;</span>
+</pre></div>
+</div>
+<p><strong>Ejemplo - Método</strong></p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">private</span> <span class="n">Game</span> <span class="n">game</span><span class="p">;</span>
+
+<span class="nd">@Inject</span>
+<span class="kd">private</span> <span class="kt">void</span> <span class="nf">setGame</span><span class="p">(</span><span class="n">Game</span> <span class="n">game</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">game</span> <span class="o">=</span> <span class="n">game</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Ejemplo - Constructor</strong></p>
+<blockquote>
+<div><em>Para el propósito de este tutorial, «Apple» es el nombre de la clase.</em></div></blockquote>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">private</span> <span class="n">Game</span> <span class="n">game</span><span class="p">;</span>
+
+<span class="nd">@Inject</span>
+<span class="kd">public</span> <span class="nf">Apple</span><span class="p">(</span><span class="n">Game</span> <span class="n">game</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">game</span> <span class="o">=</span> <span class="n">game</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="config-directory">
+<h3>Directorio de Configuración<a class="headerlink" href="#config-directory" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>La forma recomendada de obtener su archivo de configuración es a través de Guice, junto con la anotación <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/config/ConfigDir.html">ConfigDir</a>.</p>
+<div class="admonition tip">
+<p class="first admonition-title">Truco</p>
+<p class="last">Si usted configura <code class="docutils literal notranslate"><span class="pre">sharedRoot</span></code> como `` true``, su <code class="docutils literal notranslate"><span class="pre">ConfigDir</span></code> será el mismo directorio que -potencialmente- albergue la configuración de otros complementos. En la mayoría de los casos donde se requiere el <code class="docutils literal notranslate"><span class="pre">ConfigDir</span></code>, esto debería ser <code class="docutils literal notranslate"><span class="pre">falso</span></code>.</p>
+</div>
+<p><strong>Ejemplo - Campo</strong></p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.config.ConfigDir</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">java.nio.file.Path</span><span class="p">;</span>
+
+<span class="nd">@Inject</span>
+<span class="nd">@ConfigDir</span><span class="p">(</span><span class="n">sharedRoot</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span>
+<span class="kd">private</span> <span class="n">Path</span> <span class="n">configDir</span><span class="p">;</span>
+</pre></div>
+</div>
+<p><strong>Ejemplo - Método</strong></p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">private</span> <span class="n">Path</span> <span class="n">configDir</span><span class="p">;</span>
+
+<span class="nd">@Inject</span>
+<span class="kd">private</span> <span class="kt">void</span> <span class="nf">setConfigDir</span><span class="p">(</span><span class="nd">@ConfigDir</span><span class="p">(</span><span class="n">sharedRoot</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span> <span class="n">Path</span> <span class="n">configDir</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">configDir</span> <span class="o">=</span> <span class="n">configDir</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Ejemplo - Constructor</strong></p>
+<blockquote>
+<div><em>Para los fines de este tutorial, «Orange» es el nombre de la clase.</em></div></blockquote>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">private</span> <span class="n">Path</span> <span class="n">configDir</span><span class="p">;</span>
+
+<span class="nd">@Inject</span>
+<span class="kd">public</span> <span class="nf">Orange</span><span class="p">(</span><span class="nd">@ConfigDir</span><span class="p">(</span><span class="n">sharedRoot</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span> <span class="n">Path</span> <span class="n">configDir</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">configDir</span> <span class="o">=</span> <span class="n">configDir</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="defaultconfig">
+<h3>Configuración Predeterminada<a class="headerlink" href="#defaultconfig" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>La forma en que funciona <code class="docutils literal notranslate"><span class="pre">&#64;DefaultConfig</span></code> es muy similar a <code class="docutils literal notranslate"><span class="pre">&#64;ConfigDir</span></code>. La mayor diferencia es que <code class="docutils literal notranslate"><span class="pre">&#64;DefaultConfig</span></code> se refiere a un archivo específico, mientras que <code class="docutils literal notranslate"><span class="pre">&#64;ConfigDir</span></code> se refiere a un directorio.</p>
+<div class="admonition tip">
+<p class="first admonition-title">Truco</p>
+<p class="last">Vea <a class="reference internal" href="configuration/index.html"><span class="doc">Configurando Extensiones</span></a> para obtener una guía completa, específicamente para``&#64;DefaultConfig``.</p>
+</div>
+</div>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="practices/index.html" class="btn btn-neutral float-right" title="Prácticas" accesskey="n" rel="next">Siguiente <span class="fa fa-angle-right"></span></a>
+        <a href="lifecycle.html" class="btn btn-neutral" title="Ciclo de vida del Plugin" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> Previo</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../_static/flags/es_ES.svg"
+         alt="es" title="Español">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../_static/jquery.js"></script>      <script type="text/javascript" src="../_static/underscore.js"></script>      <script type="text/javascript" src="../_static/doctools.js"></script>      <script type="text/javascript" src="../_static/language_data.js"></script>      <script type="text/javascript" src="../_static/translations.js"></script>      <script type="text/javascript" src="../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

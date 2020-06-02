@@ -1,0 +1,372 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>플러그인 개발하기 &mdash; Sponge 7.2.0 documentation</title>
+
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="색인"
+              href="../genindex.html"/>        <link rel="search" title="검색" href="../search.html"/>    <link rel="top" title="Sponge 7.2.0 documentation" href="../index.html"/>        <link rel="next" title="API 버전" href="api-versions.html"/>        <link rel="prev" title="Git 설치하기" href="../preparing/git.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../index.html">
+            <img src="../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../server/index.html">서버 만들기</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../versions/index.html">Versioning Policy</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../preparing/index.html">개발 준비</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">플러그인 개발하기</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api-versions.html">API 버전</a></li>
+<li class="toctree-l2"><a class="reference internal" href="buildsystem.html">빌드 시스템</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workspace/index.html">작업 공간 준비하기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project/index.html">프로젝트 준비하기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin-identifier.html">플러그인 식별자</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin-class.html">메인 플러그인 클래스</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lifecycle.html">플러그인 생명 주기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="injection.html">의존성 주입</a></li>
+<li class="toctree-l2"><a class="reference internal" href="practices/index.html">관행</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optional/index.html">Optional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.html">로그 및 디버그</a></li>
+<li class="toctree-l2"><a class="reference internal" href="text/index.html">텍스트</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands/index.html">플러그인 명령어</a></li>
+<li class="toctree-l2"><a class="reference internal" href="event/index.html">이벤트</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration/index.html">플러그인 설정</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assets.html">자산 API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data/index.html">자료 API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/index.html">블록</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entities/index.html">개체</a></li>
+<li class="toctree-l2"><a class="reference internal" href="items/index.html">아이템</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trade-offers.html">거래 제안</a></li>
+<li class="toctree-l2"><a class="reference internal" href="effects.html">효과</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scheduler.html">스케줄러</a></li>
+<li class="toctree-l2"><a class="reference internal" href="services.html">서비스</a></li>
+<li class="toctree-l2"><a class="reference internal" href="database.html">데이터베이스</a></li>
+<li class="toctree-l2"><a class="reference internal" href="permissions.html">권한</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bans.html">차단</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metrics.html">Metrics Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bookview.html">책 View</a></li>
+<li class="toctree-l2"><a class="reference internal" href="economy/index.html">경제</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wgen/index.html">세계 생성</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manager.html">플러그인 관리자</a></li>
+<li class="toctree-l2"><a class="reference internal" href="game-profile-manager.html">게임 프로필 관리자</a></li>
+<li class="toctree-l2"><a class="reference internal" href="offline-userplayer-data.html">오프라인 플레이어 데이터</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tab-lists.html">탭 목록</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin-meta.html">플러그인 메타데이터</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ray-tracing.html">광선 추적</a></li>
+<li class="toctree-l2"><a class="reference internal" href="debugging.html">플러그인 디버그</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials.html">튜토리얼</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internals/index.html">구현 의존 플러그인</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ore/index.html">Ore 설명 문서</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contributing/index.html">Sponge에 기여하기</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">Sponge 프로젝트에 대하여</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+    <li>플러그인 개발하기</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/plugin/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="creating-a-plugin">
+<h1>플러그인 개발하기<a class="headerlink" href="#creating-a-plugin" title="제목 주소">¶</a></h1>
+<p>이 섹션은 SpongeAPI를 사용한 플러그인을 개발하려는 개발자분들을 위하여 작성되었습니다. 아래 문서들은 SpongeAPI의 다양한 개념과 측면에 대해 다룹니다. 굳이 모든 개념을 이해하려 하지 마시고 SpongeAPI를 시작하려는 분들께 도움을 드리려는 의도를 이해하시는 것이 중요합니다. Javadoc (프로그래밍 도움말) &lt;<a class="reference external" href="https://jd.spongepowered.org/">https://jd.spongepowered.org/</a>&gt; 로 API를 좀 더 면밀히 이해하실 수 있습니다.</p>
+<div class="admonition note">
+<p class="first admonition-title">주석</p>
+<p class="last">이전에 Java를 이용한 개발을 한 경험이 있으시면 더 도움이 됩니다. SpongeAPI와 관련된 여러 문서에서 이해가 안되고, 작동이 안될 것만 같은 예시 코드를 Ctrl+C Ctrl+V하여 수. 정. 하. 지. 말. 고 실험해보는 것을 매우 추천드립니다^^</p>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">참고</p>
+<p class="last">Cookbook (자세한 설명서) &lt;<a class="reference external" href="https://github.com/SpongePowered/Cookbook">https://github.com/SpongePowered/Cookbook</a>&gt; 는 SpongeAPI의 파트별로 완전 기능적인☆ 예시 플러그인 모음입니다. 이 플러그인을 만드는 《레시피》는 독립적(standalone)이고 Gradle또는 Maven으로 컴파일할 수 있습니다. 그 모음 중 일부는 Scala, Kotlin과 같은 JVM 언어들로 플러그인을 만들 수 있음을 예시로 보여줍니다.
+※ 최신 버전의 API에 대한 일부 예제는 업데이트되지 않았을 수 있음을 공지합니다.</p>
+</div>
+<div class="section" id="contents">
+<h2>내용<a class="headerlink" href="#contents" title="제목 주소">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api-versions.html">API 버전</a></li>
+<li class="toctree-l1"><a class="reference internal" href="buildsystem.html">빌드 시스템</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workspace/index.html">작업 공간 준비하기</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="workspace/idea.html">IntelliJ IDEA 설정하기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workspace/eclipse.html">Eclipse 설정하기</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="project/index.html">프로젝트 준비하기</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="project/gradle.html">Gradle 설치하기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project/maven.html">Maven 설치하기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project/version-numbers.html">Version Numbers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="plugin-identifier.html">플러그인 식별자</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugin-class.html">메인 플러그인 클래스</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lifecycle.html">플러그인 생명 주기</a></li>
+<li class="toctree-l1"><a class="reference internal" href="injection.html">의존성 주입</a></li>
+<li class="toctree-l1"><a class="reference internal" href="practices/index.html">관행</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="practices/best.html">좋은 관행</a></li>
+<li class="toctree-l2"><a class="reference internal" href="practices/bad.html">잘못된 관행</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="optional/index.html">Optional</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="optional/basic.html">Optional 설명</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optional/usage.html">사용 예제</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="logging.html">로그 및 디버그</a></li>
+<li class="toctree-l1"><a class="reference internal" href="text/index.html">텍스트</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="text/text.html">텍스트 만들기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="text/representations/index.html">텍스트 직렬 변환기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="text/pagination.html">페이지 매기기 서비스</a></li>
+<li class="toctree-l2"><a class="reference internal" href="text/messagechannels.html">메시지 채널</a></li>
+<li class="toctree-l2"><a class="reference internal" href="text/templates.html">TextTemplate</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="commands/index.html">플러그인 명령어</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="commands/creating.html">명령어 만들기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands/arguments.html">인자 파싱</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands/flags.html">명령어 플래그</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands/childcommands.html">자식 명령어</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands/service.html">명령어 관리자</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands/commandcallable.html">저수준 명령어 API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="event/index.html">이벤트</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="event/listeners.html">이벤트 리스너</a></li>
+<li class="toctree-l2"><a class="reference internal" href="event/causes.html">이벤트 원인</a></li>
+<li class="toctree-l2"><a class="reference internal" href="event/filters.html">이벤트 필터</a></li>
+<li class="toctree-l2"><a class="reference internal" href="event/custom.html">사용자 지정 이벤트</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="configuration/index.html">플러그인 설정</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="configuration/loaders.html">설정 로더</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration/nodes.html">설정 노드</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration/serialization.html">객체 직렬화하기</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="assets.html">자산 API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data/index.html">자료 API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="data/custom/index.html">사용자 지정 자료</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data/catalog-types.html">Catalog Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data/keys.html">키 사용하기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data/datamanipulators.html">자료 처리자</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data/transactions.html">처리</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data/serialization.html">자료 직렬화하기</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="blocks/index.html">블록</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="blocks/concepts.html">개념</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/accessing.html">블록 접근하기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/modifying.html">블록 변경하기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/tileentities.html">타일 개체</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/virtualblock.html">가상 블록 변경</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="entities/index.html">개체</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="entities/spawning.html">개체 생성하기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entities/modifying.html">개체 변경하기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entities/ai.html">Entity AI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entities/custom-ai.html">AITasks 직접 만들기</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="items/index.html">아이템</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="items/usage.html">기본 아이템 사용</a></li>
+<li class="toctree-l2"><a class="reference internal" href="items/creating.html">ItemStack 만들기</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="trade-offers.html">거래 제안</a></li>
+<li class="toctree-l1"><a class="reference internal" href="effects.html">효과</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scheduler.html">스케줄러</a></li>
+<li class="toctree-l1"><a class="reference internal" href="services.html">서비스</a></li>
+<li class="toctree-l1"><a class="reference internal" href="database.html">데이터베이스</a></li>
+<li class="toctree-l1"><a class="reference internal" href="permissions.html">권한</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bans.html">차단</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metrics.html">Metrics Collection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bookview.html">책 View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="economy/index.html">경제</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="economy/basics.html">기본 개념</a></li>
+<li class="toctree-l2"><a class="reference internal" href="economy/using.html">경제 API 사용</a></li>
+<li class="toctree-l2"><a class="reference internal" href="economy/practices.html">경제 API 좋은 관행</a></li>
+<li class="toctree-l2"><a class="reference internal" href="economy/implementing.html">경제 API 구현하기</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="wgen/index.html">세계 생성</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="wgen/modifiers.html">WorldGeneratorModifier</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wgen/customwgen.html">세계 생성 변경하기</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="manager.html">플러그인 관리자</a></li>
+<li class="toctree-l1"><a class="reference internal" href="game-profile-manager.html">게임 프로필 관리자</a></li>
+<li class="toctree-l1"><a class="reference internal" href="offline-userplayer-data.html">오프라인 플레이어 데이터</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tab-lists.html">탭 목록</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugin-meta.html">플러그인 메타데이터</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ray-tracing.html">광선 추적</a></li>
+<li class="toctree-l1"><a class="reference internal" href="debugging.html">플러그인 디버그</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials.html">튜토리얼</a></li>
+<li class="toctree-l1"><a class="reference internal" href="internals/index.html">구현 의존 플러그인</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="internals/mcp.html">MCP (Mod Coder Pack)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internals/mcp-setup.html">플러그인에서 MCP 사용하기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internals/access-transformers.html">접근 변형자</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internals/mixins.html">플러그인 Mixin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internals/implementation.html">내부 Sponge 클래스</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="api-versions.html" class="btn btn-neutral float-right" title="API 버전" accesskey="n" rel="next">다음 <span class="fa fa-angle-right"></span></a>
+        <a href="../preparing/git.html" class="btn btn-neutral" title="Git 설치하기" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> 이전</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../_static/flags/ko_KR.svg"
+         alt="ko" title="한국어">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../_static/jquery.js"></script>      <script type="text/javascript" src="../_static/underscore.js"></script>      <script type="text/javascript" src="../_static/doctools.js"></script>      <script type="text/javascript" src="../_static/language_data.js"></script>      <script type="text/javascript" src="../_static/translations.js"></script>      <script type="text/javascript" src="../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

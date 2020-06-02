@@ -1,0 +1,375 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modification de la génération du monde &mdash; Documentation Sponge 7.2.0</title>
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>        <link rel="search" title="Recherche" href="../../search.html"/>    <link rel="top" title="Documentation Sponge 7.2.0" href="../../index.html"/>        <link rel="up" title="Génération du monde" href="index.html"/>        <link rel="next" title="Gestionnaire de Plugin" href="../manager.html"/>        <link rel="prev" title="WorldGeneratorModifiers" href="modifiers.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../../index.html">
+            <img src="../../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../server/index.html">Créer un Serveur</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../versions/index.html">Stratégie de versioning</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../preparing/index.html">Préparation pour le développement</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Création d’un Plugin</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../api-versions.html">Versions de l’API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../buildsystem.html">Build Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../workspace/index.html">Mise en Place de votre Espace de Travail</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../project/index.html">Configurer Votre Projet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-identifier.html">Identifiants de Plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-class.html">Classe Principale du Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lifecycle.html">Cycle de vie des Plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../injection.html">Injection de Dépendances</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../practices/index.html">Bonnes Pratiques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../optional/index.html">Optionnels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../logging.html">Journalisation (Logging) et Débogage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text/index.html">Text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/index.html">Commandes de Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../event/index.html">Événements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/index.html">Configuration des plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assets.html">L’API des Ressources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data/index.html">La Data API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../blocks/index.html">Blocs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../entities/index.html">Entités</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../items/index.html">Items</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../trade-offers.html">Trade-Offers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../effects.html">Effets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../scheduler.html">Scheduler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../services.html">Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database.html">Bases de données</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../permissions.html">Permissions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bans.html">Bans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metrics.html">Collection de Metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bookview.html">Views d’un Livre</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../economy/index.html">Économie</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Génération du monde</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="modifiers.html">WorldGeneratorModifiers</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Modification de la génération du monde</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../manager.html">Gestionnaire de Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../game-profile-manager.html">Gestionnaire de Profil de Jeu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../offline-userplayer-data.html">Données du Joueur Hors-Ligne</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tab-lists.html">Tab Lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-meta.html">Plugin Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ray-tracing.html">Ray Tracing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../debugging.html">Debugging d’un plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials.html">Tutoriels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internals/index.html">Plugins dépendants des implémentations</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ore/index.html">Documentation d’Ore</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/index.html">Contribuer à Sponge</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">À propos du Projet Sponge</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+          <li><a href="../index.html">Création d’un Plugin</a> &raquo;</li>
+          <li><a href="index.html">Génération du monde</a> &raquo;</li>
+    <li>Modification de la génération du monde</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/plugin/wgen/customwgen.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="modifying-world-generation">
+<h1>Modification de la génération du monde<a class="headerlink" href="#modifying-world-generation" title="Lien permanent vers ce titre">¶</a></h1>
+<ul class="simple">
+<li>Modification de la Génération de base</li>
+<li>Créer une Base de Terrain Customisée</li>
+<li>Créer des GenerationPopulators Customisés</li>
+<li>Création de Populateurs Personnalisés</li>
+<li>Création de Biomes Personnalisés</li>
+</ul>
+<div class="section" id="modifying-vanilla-generation">
+<h2>Modification de la Génération de base<a class="headerlink" href="#modifying-vanilla-generation" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Cette page assume que vous êtes familier avec le paramétrage de votre <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/gen/WorldGeneratorModifier.html">WorldGeneratorModifier</a>. Si ce n’est pas le cas, merci de lire l’article sur le paramétrage de votre modificateur à <a class="reference internal" href="modifiers.html"><span class="doc">WorldGeneratorModifiers</span></a>.</p>
+</div>
+<p>Sponge expose une grande partie de la génération de mondes de base, qui peut être manipulée à travers les différentes interfaces. Actuellement, les seuls éléments du processus de génération qui sont <em>facilement</em> exposés à la manipulation sont les populateurs.</p>
+<p>Pour un petit exemple, regardons comment nous pourrions changer les cactus qui apparaissent dans les déserts pour les rendre plus grands.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.world.biome.BiomeGenerationSettings</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.world.biome.BiomeTypes</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.world.gen.Populator</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.world.gen.populator.Cactus</span><span class="p">;</span>
+
+<span class="nd">@Override</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">modifyWorldGenerator</span><span class="p">(</span><span class="n">WorldProperties</span> <span class="n">world</span><span class="p">,</span> <span class="n">DataContainer</span> <span class="n">settings</span><span class="p">,</span> <span class="n">WorldGenerator</span> <span class="n">worldGenerator</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">BiomeGenerationSettings</span> <span class="n">desertSettings</span> <span class="o">=</span> <span class="n">worldGenerator</span><span class="p">.</span><span class="na">getBiomeSettings</span><span class="p">(</span><span class="n">BiomeTypes</span><span class="p">.</span><span class="na">DESERT</span><span class="p">);</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">Cactus</span> <span class="n">populator</span> <span class="p">:</span> <span class="n">desertSettings</span><span class="p">.</span><span class="na">getPopulators</span><span class="p">(</span><span class="n">Cactus</span><span class="p">.</span><span class="na">class</span><span class="p">))</span> <span class="p">{</span>
+        <span class="n">populator</span><span class="p">.</span><span class="na">setHeight</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Commeencez par récupérer le <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/biome/BiomeGenerationSettings.html">BiomeGenerationSettings</a> pour le biome désert. Cet objet est un conteneur pour tous les paramètres de génération relatifs à ce biome. Ensuite, itérez à travers la liste de tous les populateurs <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/gen/populator/Cactus.html">Cactus</a> et définissez la hauteur à 5, ce qui signifie qu’il peut seulement générer des cactus de 5 blocs de hauteur.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last"><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/gen/populator/Cactus.html#setHeight-int-">Cactus#setHeight(int)</a>, et beaucoup d’autres méthodes similaires sur d’autres populateurs, prennent également un <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/util/weighted/VariableAmount.html">VariableAmount</a> qui peut être utilisé pour spécifier la hauteur comme une plage ou une autre valeur personnalisée.</p>
+</div>
+<p>Ça a été un exemple simple sur comment modifier un populateur existant. Regardons comment nous pouvons ajouter une nouvelle instance d’un populateur de base. Cette fois le populateur va être ajouté globalement, ce qui signifie qu’il va être appliqués à tous les chunks, peu importe le biome. Ajoutons un populateur de citrouilles globalement, éparpillant des citrouilles un peu partout dans le monde entier.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.world.gen.populator.Pumpkin</span><span class="p">;</span>
+
+<span class="nd">@Override</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">modifyWorldGenerator</span><span class="p">(</span><span class="n">WorldProperties</span> <span class="n">world</span><span class="p">,</span> <span class="n">DataContainer</span> <span class="n">settings</span><span class="p">,</span> <span class="n">WorldGenerator</span> <span class="n">worldGenerator</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">Pumpkin</span> <span class="n">pumpkinPopulator</span> <span class="o">=</span> <span class="n">Pumpkin</span><span class="p">.</span><span class="na">builder</span><span class="p">().</span><span class="na">perChunk</span><span class="p">(</span><span class="mi">12</span><span class="p">).</span><span class="na">build</span><span class="p">();</span>
+    <span class="n">worldGenerator</span><span class="p">.</span><span class="na">getPopulators</span><span class="p">().</span><span class="na">add</span><span class="p">(</span><span class="n">pumpkinPopulator</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Contrairement à l’exemple précédent, cette fois vous créez un tout nouveau populateur. Pour faire ceci, vous devez tout d’abord récupérer un builder pour ce populateur. Puis définissez vos paramètres souhaités pour le populateur à l’intérieur de celui-ci - dans ce cas, nous voulons une douzaine de citrouilles à faire apparaître pour chaque morceau. Finalement, ajoutez votre nouveau populateur à la liste des populateurs qui sont appliqués globalement dans le monde.</p>
+<p>Voilà, nous avons maintenant des citrouilles partout.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Dans cet exemple, nous avons ajouté un populateur de citrouilles à la fin de la liste des populateurs, mais il est à noter que cette liste est dépendante de l’ordre. Donc si vous voulez que votre populateur soit appelé plus tôt que les autres populateurs, comme c’est généralement une bonne idée avec les populateurs de forêts, alors vous devrez ajouter votre populateur au début de la liste.</p>
+</div>
+<p>Ces deux exemples devraient servir à vous aider à vous familiariser avec le domaine du travail avec les populateurs de base. Cela ne touche qu’à la surface de ce qui est possible. Voir les javadocs pour une liste complète des populateurs disponibles et leurs propriétés.</p>
+</div>
+<div class="section" id="creating-custom-base-terrain">
+<h2>Créer une Base de Terrain Customisée<a class="headerlink" href="#creating-custom-base-terrain" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Modifier le <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/gen/GenerationPopulator.html">GenerationPopulator</a> de base d’un générateur de mondes vous permet de changer la génération de la forme de base du terrain dans le monde. Un populateur générateur suivra à peu près la procédure d’utilisation des informations de la seed et du biome pour seed et générer une série de cartes de bruit, depuis laquelle le terrain est formé. Le terrain créé dans un populateur générateur de base modifié devrait uniquement se composer de blocs de pierre, afin de permettre aux biomes de remplacer correctement les blocs pour la couverture du sol spécifique au biome.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">SinusoidalGenerator</span> <span class="kd">implements</span> <span class="n">GenerationPopulator</span> <span class="p">{</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">populate</span><span class="p">(</span><span class="n">World</span> <span class="n">world</span><span class="p">,</span> <span class="n">MutableBlockVolume</span> <span class="n">buffer</span><span class="p">,</span> <span class="n">ImmutableBiomeVolume</span> <span class="n">biomes</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="n">buffer</span><span class="p">.</span><span class="na">getBlockMin</span><span class="p">().</span><span class="na">getX</span><span class="p">();</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">buffer</span><span class="p">.</span><span class="na">getBlockMax</span><span class="p">().</span><span class="na">getX</span><span class="p">();</span> <span class="n">x</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">z</span> <span class="o">=</span> <span class="n">buffer</span><span class="p">.</span><span class="na">getBlockMin</span><span class="p">().</span><span class="na">getZ</span><span class="p">();</span> <span class="n">z</span> <span class="o">&lt;</span> <span class="n">buffer</span><span class="p">.</span><span class="na">getBlockMax</span><span class="p">().</span><span class="na">getZ</span><span class="p">();</span> <span class="n">z</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">BiomeType</span> <span class="n">biome</span> <span class="o">=</span> <span class="n">biomes</span><span class="p">.</span><span class="na">getBiome</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="n">z</span><span class="p">);</span>
+                <span class="kt">int</span> <span class="n">height</span> <span class="o">=</span> <span class="n">getHeight</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">world</span><span class="p">.</span><span class="na">getWorldGenerator</span><span class="p">().</span><span class="na">getBiomeSettings</span><span class="p">(</span><span class="n">biome</span><span class="p">));</span>
+                <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="n">height</span> <span class="o">||</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="mi">64</span><span class="p">;</span> <span class="n">y</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="k">if</span><span class="p">(</span><span class="n">y</span> <span class="o">&lt;</span> <span class="n">height</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="n">buffer</span><span class="p">.</span><span class="na">setBlockType</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">BlockTypes</span><span class="p">.</span><span class="na">STONE</span><span class="p">);</span>
+                    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                        <span class="n">buffer</span><span class="p">.</span><span class="na">setBlockType</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">BlockTypes</span><span class="p">.</span><span class="na">WATER</span><span class="p">);</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="kd">private</span> <span class="kt">int</span> <span class="nf">getHeight</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">z</span><span class="p">,</span> <span class="n">BiomeGenerationSettings</span> <span class="n">biome</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">double</span> <span class="n">sx</span> <span class="o">=</span> <span class="n">Math</span><span class="p">.</span><span class="na">sin</span><span class="p">(</span><span class="n">x</span> <span class="o">/</span> <span class="mi">64</span><span class="n">d</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="kt">double</span> <span class="n">sz</span> <span class="o">=</span> <span class="n">Math</span><span class="p">.</span><span class="na">sin</span><span class="p">(</span><span class="n">z</span> <span class="o">/</span> <span class="mi">64</span><span class="n">d</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="kt">double</span> <span class="n">value</span> <span class="o">=</span> <span class="p">(</span><span class="n">sx</span> <span class="o">+</span> <span class="n">sz</span><span class="p">)</span> <span class="o">/</span> <span class="mf">4d</span><span class="p">;</span>
+        <span class="kt">double</span> <span class="n">heightRange</span> <span class="o">=</span> <span class="n">biome</span><span class="p">.</span><span class="na">getMaxHeight</span><span class="p">()</span> <span class="o">-</span> <span class="n">biome</span><span class="p">.</span><span class="na">getMinHeight</span><span class="p">();</span>
+        <span class="kt">double</span> <span class="n">height</span> <span class="o">=</span> <span class="n">heightRange</span> <span class="o">*</span> <span class="n">value</span> <span class="o">/</span> <span class="n">biome</span><span class="p">.</span><span class="na">getMinHeight</span><span class="p">();</span>
+        <span class="k">return</span> <span class="n">GenericMath</span><span class="p">.</span><span class="na">floor</span><span class="p">(</span><span class="n">height</span> <span class="o">*</span> <span class="mi">256</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Cet un exemple assez simple d’un populateur de génération de terrain de base (au moins, si vous ne regardez pas les maths pour calculer la hauteur). Pour chaque colonne dans la zone en tampon nous voulons calculer une valeur de hauteur, et ensuite remplir tout ce qui est en dessous de cette hauteur avec de la pierre et laisser tout ce qui est au dessus en air (ou en eau si on est toujours sous le niveau de la mer).</p>
+</div>
+<div class="section" id="creating-custom-generationpopulators">
+<h2>Créer des GenerationPopulators Customisés<a class="headerlink" href="#creating-custom-generationpopulators" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">L’API pour les GenerationPopulators personnalisés n’est pas encore terminée. Cette section sera élargie à l’avenir.</p>
+</div>
+</div>
+<div class="section" id="creating-custom-populators">
+<h2>Création de Populateurs Personnalisés<a class="headerlink" href="#creating-custom-populators" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Les populateurs personnalisés peuvent être utilisés poru ajouter une grande variété de fonctionnalités personnalisées. Pour créer un populateur personnalisé vous avez seulement besoin de créer une classe qui implémente l’interface Populator et de l’ajouter à la liste des populateurs attachés à un biome, ou à un générateur de mondes si vous voulez l’appliquer globalement.</p>
+<p>Un <code class="docutils literal notranslate"><span class="pre">Extent</span></code> sera passé à votre populateur personnalisé qui est une vue sur le monde qui couvre la zone sur laquelle vous devriez appliquer votre populateur. Il est recommandé de ne pas faire d’hypothèses quant à la taille attendue ou de la position de cet extent, car il peut être plus large ou plus petit pour des opérations comme la régénération d’un chunk.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Pour permettre à votre populateur de chevaucher les limites du chunk, votre populateur est autorisé à s’étendre jusqu’à 8 blocs en dehors des limites de l’extent.</p>
+</div>
+</div>
+<div class="section" id="creating-custom-biomes">
+<h2>Création de Biomes Personnalisés<a class="headerlink" href="#creating-custom-biomes" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Alors qu’il n’est actuellement pas possible de créer entièrement de nouveaux biomes avec Sponge, vous pouvez remplacer le système qui les dispose dans le monde en implémentant l’interface <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/gen/BiomeGenerator.html">BiomeGenerator</a> et en définissant votre générateur de biomes personnalisé sur un WorldGenerator.</p>
+<p>Voici un exemple d’un générateur de biomes qui crée une grande île centrée autour de (0, 0).</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">IslandBiomeGen</span> <span class="kd">implements</span> <span class="n">BiomeGenerator</span> <span class="p">{</span>
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">double</span> <span class="n">ISLAND_SIZE</span> <span class="o">=</span> <span class="mi">200</span><span class="n">f</span><span class="p">;</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">double</span> <span class="n">BEACH_RADIUS</span> <span class="o">=</span> <span class="n">ISLAND_SIZE</span> <span class="o">*</span> <span class="n">ISLAND_SIZE</span><span class="p">;</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">double</span> <span class="n">FOREST_SIZE</span> <span class="o">=</span> <span class="n">ISLAND_SIZE</span> <span class="o">-</span> <span class="mi">7</span><span class="p">;</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">double</span> <span class="n">FOREST_RADIUS</span> <span class="o">=</span> <span class="n">FOREST_SIZE</span> <span class="o">*</span> <span class="n">FOREST_SIZE</span><span class="p">;</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">double</span> <span class="n">HILLS_SIZE</span> <span class="o">=</span> <span class="n">FOREST_SIZE</span> <span class="o">-</span> <span class="mi">120</span><span class="p">;</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">double</span> <span class="n">HILLS_RADIUS</span> <span class="o">=</span> <span class="n">HILLS_SIZE</span> <span class="o">*</span> <span class="n">HILLS_SIZE</span><span class="p">;</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">generateBiomes</span><span class="p">(</span><span class="n">MutableBiomeVolume</span> <span class="n">buffer</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">Vector3i</span> <span class="n">min</span> <span class="o">=</span> <span class="n">buffer</span><span class="p">.</span><span class="na">getBiomeMin</span><span class="p">();</span>
+        <span class="n">Vector3i</span> <span class="n">max</span> <span class="o">=</span> <span class="n">buffer</span><span class="p">.</span><span class="na">getBiomeMax</span><span class="p">();</span>
+
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="n">min</span><span class="p">.</span><span class="na">getX</span><span class="p">();</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="n">max</span><span class="p">.</span><span class="na">getX</span><span class="p">();</span> <span class="n">x</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">z</span> <span class="o">=</span> <span class="n">min</span><span class="p">.</span><span class="na">getZ</span><span class="p">();</span> <span class="n">z</span> <span class="o">&lt;=</span> <span class="n">max</span><span class="p">.</span><span class="na">getZ</span><span class="p">();</span> <span class="n">z</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">z</span> <span class="o">*</span> <span class="n">z</span> <span class="o">&lt;</span> <span class="n">HILLS_RADIUS</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="n">buffer</span><span class="p">.</span><span class="na">setBiome</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">BiomeTypes</span><span class="p">.</span><span class="na">EXTREME_HILLS</span><span class="p">);</span>
+                <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">z</span> <span class="o">*</span> <span class="n">z</span> <span class="o">&lt;</span> <span class="n">FOREST_RADIUS</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="n">buffer</span><span class="p">.</span><span class="na">setBiome</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">BiomeTypes</span><span class="p">.</span><span class="na">FOREST</span><span class="p">);</span>
+                <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">z</span> <span class="o">*</span> <span class="n">z</span> <span class="o">&lt;</span> <span class="n">BEACH_RADIUS</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="n">buffer</span><span class="p">.</span><span class="na">setBiome</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">BiomeTypes</span><span class="p">.</span><span class="na">BEACH</span><span class="p">);</span>
+                <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                    <span class="n">buffer</span><span class="p">.</span><span class="na">setBiome</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">BiomeTypes</span><span class="p">.</span><span class="na">OCEAN</span><span class="p">);</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../manager.html" class="btn btn-neutral float-right" title="Gestionnaire de Plugin" accesskey="n" rel="next">Suivant <span class="fa fa-angle-right"></span></a>
+        <a href="modifiers.html" class="btn btn-neutral" title="WorldGeneratorModifiers" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> Précédent</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../../_static/flags/fr_FR.svg"
+         alt="fr" title="Français">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../../_static/jquery.js"></script>      <script type="text/javascript" src="../../_static/underscore.js"></script>      <script type="text/javascript" src="../../_static/doctools.js"></script>      <script type="text/javascript" src="../../_static/language_data.js"></script>      <script type="text/javascript" src="../../_static/translations.js"></script>      <script type="text/javascript" src="../../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

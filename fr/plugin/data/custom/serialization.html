@@ -1,0 +1,351 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sérialiser des Données Customisées &mdash; Documentation Sponge 7.2.0</title>
+
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../../../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>        <link rel="search" title="Recherche" href="../../../search.html"/>    <link rel="top" title="Documentation Sponge 7.2.0" href="../../../index.html"/>        <link rel="up" title="Données Customisées" href="index.html"/>        <link rel="next" title="Catalog Types" href="../catalog-types.html"/>        <link rel="prev" title="DataHolders Customisés" href="dataholders.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../../../index.html">
+            <img src="../../../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../../../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../server/index.html">Créer un Serveur</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../versions/index.html">Stratégie de versioning</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../preparing/index.html">Préparation pour le développement</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Création d’un Plugin</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../api-versions.html">Versions de l’API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../buildsystem.html">Build Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../workspace/index.html">Mise en Place de votre Espace de Travail</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../project/index.html">Configurer Votre Projet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../plugin-identifier.html">Identifiants de Plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../plugin-class.html">Classe Principale du Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lifecycle.html">Cycle de vie des Plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../injection.html">Injection de Dépendances</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../practices/index.html">Bonnes Pratiques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../optional/index.html">Optionnels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../logging.html">Journalisation (Logging) et Débogage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../text/index.html">Text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../commands/index.html">Commandes de Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../event/index.html">Événements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../configuration/index.html">Configuration des plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../assets.html">L’API des Ressources</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">La Data API</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Données Customisées</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="datamanipulators.html">DataManipulators Customisés</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dataholders.html">DataHolders Customisés</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Sérialiser des Données Customisées</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../catalog-types.html">Catalog Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../keys.html">Utilisation des Clés</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../datamanipulators.html">Manipulateurs de données</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../transactions.html">Transactions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../serialization.html">Sérialisation de données</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../blocks/index.html">Blocs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../entities/index.html">Entités</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../items/index.html">Items</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../trade-offers.html">Trade-Offers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../effects.html">Effets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../scheduler.html">Scheduler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../services.html">Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../database.html">Bases de données</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../permissions.html">Permissions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../bans.html">Bans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../metrics.html">Collection de Metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../bookview.html">Views d’un Livre</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../economy/index.html">Économie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../wgen/index.html">Génération du monde</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../manager.html">Gestionnaire de Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../game-profile-manager.html">Gestionnaire de Profil de Jeu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../offline-userplayer-data.html">Données du Joueur Hors-Ligne</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tab-lists.html">Tab Lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../plugin-meta.html">Plugin Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ray-tracing.html">Ray Tracing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../debugging.html">Debugging d’un plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials.html">Tutoriels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../internals/index.html">Plugins dépendants des implémentations</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../ore/index.html">Documentation d’Ore</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing/index.html">Contribuer à Sponge</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/index.html">À propos du Projet Sponge</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index.html">Docs</a> &raquo;</li>
+          <li><a href="../../index.html">Création d’un Plugin</a> &raquo;</li>
+          <li><a href="../index.html">La Data API</a> &raquo;</li>
+          <li><a href="index.html">Données Customisées</a> &raquo;</li>
+    <li>Sérialiser des Données Customisées</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/plugin/data/custom/serialization.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="serializing-custom-data">
+<h1>Sérialiser des Données Customisées<a class="headerlink" href="#serializing-custom-data" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Sans méthode de sérialisation et de désérialisation, vos données ne persisteront pas à travers les redémarrages. Sponge dispose de quelques moyens pour sérializer/désérialiser des données selon le type de données :</p>
+<ul class="simple">
+<li>Les <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/DataSerializable.html">DataSerializable</a>s implémentent une interface pour effectuer la sérialisation, et utilisent le <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/persistence/DataBuilder.html">DataBuilder</a> pour la désérialisation et la création</li>
+<li>Les <a class="reference internal" href="../datamanipulators.html"><span class="doc">DataManipulators</span></a> implémentent également <code class="docutils literal notranslate"><span class="pre">DataSerializable</span></code>, mais utilisent plutôt un <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/manipulator/DataManipulatorBuilder.html">DataManipulatorBuilder</a> pour la désérialisation et la création</li>
+<li>Les objets qui n’implémentent pas ou ne peuvent pas implémenter <code class="docutils literal notranslate"><span class="pre">DataSerializable</span></code> utilisent <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/persistence/DataTranslator.html">DataTranslator</a> pour la sérialisation et la désérialisation</li>
+</ul>
+<p>Cela signifie que partiquement n’importe quel objet en Java peut être sauvegardé sur le disque si il a été enregistré !</p>
+<div class="section" id="reading-dataviews">
+<h2>Lire les DataViews<a class="headerlink" href="#reading-dataviews" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Chaque fois que vous lisez un objet sérialisé, il est tentant de lire toutes les valeurs individuelles vous-même afin de créer manuellement tous les objets requis (et leurs paramètres) pour vos données. Toutefois, selon les données enregistrées dans le contenu, il y a quelques moyens qui sont bien plus pratiques :</p>
+<ul class="simple">
+<li>Les types communs de Java tels que les <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">String</span></code>, <code class="docutils literal notranslate"><span class="pre">double</span></code>, <code class="docutils literal notranslate"><span class="pre">List</span></code> et <code class="docutils literal notranslate"><span class="pre">Map</span></code> peuvent être récupérés à l’aide des méthodes intégrées <code class="docutils literal notranslate"><span class="pre">getInt(DataQuery)</span></code>, <code class="docutils literal notranslate"><span class="pre">getString(DataQuery)</span></code>, etc… Les listes de ces types peuvent aussi être récupérées de la même façon, par exemple <code class="docutils literal notranslate"><span class="pre">getStringList(DataQuery)</span></code>.</li>
+<li>Les objets <code class="docutils literal notranslate"><span class="pre">DataSerializable</span></code> peuvent être récupérés en utilisant <code class="docutils literal notranslate"><span class="pre">getSerializable(DataQuery,</span> <span class="pre">Class)</span></code> ou <code class="docutils literal notranslate"><span class="pre">getSerializableList(DataQuery,</span> <span class="pre">Class)</span></code>. Avec le chemin, vous devez spécifier la <code class="docutils literal notranslate"><span class="pre">Class</span></code> des types sérialisables, comme <code class="docutils literal notranslate"><span class="pre">Home.class</span></code>.</li>
+<li>Les objets avec un <code class="docutils literal notranslate"><span class="pre">DataTranslator</span></code> enregistré peuvent être récupérés en utilisant <code class="docutils literal notranslate"><span class="pre">getObject(DataQuery,</span> <span class="pre">Class)</span></code> ou <code class="docutils literal notranslate"><span class="pre">getObjectList(DataQuery,</span> <span class="pre">Class)</span></code>. Une liste complète des classes qui sont supportées par défaut peut être trouvée dans <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/persistence/DataTranslators.html">DataTranslators</a>.</li>
+</ul>
+<p>Dans tous les cas vous avez besoin de spécifier un chemin en utilisant un <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/DataQuery.html">DataQuery</a>. Si vos données ont une <code class="docutils literal notranslate"><span class="pre">Key</span></code> correspondante c’est aussi simple que d’appeler <code class="docutils literal notranslate"><span class="pre">key.getQuery()</span></code>. Sinon, la façon la plus simple de le faire est avec <code class="docutils literal notranslate"><span class="pre">DataQuery.of(&quot;name&quot;)</span></code>.</p>
+<div class="admonition tip">
+<p class="first admonition-title">Astuce</p>
+<p class="last">Les DataQueries peuvent être utilisés pour référencer les données de plusieurs nodes dans une arborescence en utilisant, par exemple, <code class="docutils literal notranslate"><span class="pre">DataQuery.of(&quot;my&quot;,</span> <span class="pre">&quot;custom&quot;,</span> <span class="pre">&quot;data&quot;)</span></code>.</p>
+</div>
+</div>
+<div class="section" id="databuilders">
+<span id="custom-data-builders"></span><h2>Les DataBuilders<a class="headerlink" href="#databuilders" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Pour rendre un objet sérialisable, assurez-vous d’abord qu’il implémente <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/DataSerializable.html">DataSerializable</a>. Vous devez seulement implémenter deux méthodes :</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">getContentVersion()</span></code> - Cela définit la version actuelle de vos données.</li>
+<li><code class="docutils literal notranslate"><span class="pre">toContainer()</span></code> - C’est ce qui sera donné à votre builder lorsque vous essayerez de désérialiser un objet. Vous pouvez stocker ce que vous voulez dans le <code class="docutils literal notranslate"><span class="pre">DataContainer</span></code> retourné, du tant que c’est aussi sérialisable en utilisant une des méthodes ci-dessus. Utilisez simplement la méthode <code class="docutils literal notranslate"><span class="pre">set(DataQuery,</span> <span class="pre">Object)</span></code> pour sauvegarder vos données au chemin donné.</li>
+</ul>
+<div class="admonition tip">
+<p class="first admonition-title">Astuce</p>
+<p class="last">Il est recommendé d’enregistrer la version de vos données vers le conteneur ainsi que d’utiliser <code class="docutils literal notranslate"><span class="pre">Queries.CONTENT_VERSION</span></code> comme requête. Cela permettra de faire de la gestion de versions avec <a class="reference internal" href="#content-updaters"><span class="std std-ref">Les DataContentUpdaters</span></a>.</p>
+</div>
+<p><strong>Exemple de Code : Implémenter toContainer</strong></p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.data.DataContainer</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.data.DataQuery</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.data.Queries</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.data.MemoryDataContainer</span><span class="p">;</span>
+
+<span class="kd">private</span> <span class="n">String</span> <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;Spongie&quot;</span><span class="p">;</span>
+
+<span class="nd">@Override</span>
+<span class="kd">public</span> <span class="n">DataContainer</span> <span class="nf">toContainer</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">DataContainer</span><span class="p">.</span><span class="na">createNew</span><span class="p">()</span>
+            <span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="n">DataQuery</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;Name&quot;</span><span class="p">),</span> <span class="k">this</span><span class="p">.</span><span class="na">name</span><span class="p">)</span>
+            <span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="n">Queries</span><span class="p">.</span><span class="na">CONTENT_VERSION</span><span class="p">,</span> <span class="n">getContentVersion</span><span class="p">());</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>La prochaine partie consiste à implémenter un <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/persistence/DataBuilder.html">DataBuilder</a>. Il est recommendé d’hériter <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/persistence/AbstractDataBuilder.html">AbstractDataBuilder</a> puisqu’il va essayer de mettre à jour vos données si la version est inférieure à la version actuelle. Il y a une seule méthode que vous avez besoin d’implémenter - <code class="docutils literal notranslate"><span class="pre">build(DataView)`,</span> <span class="pre">ou</span> <span class="pre">``buildContent(DataView)</span></code> si vous utilisez <code class="docutils literal notranslate"><span class="pre">AbstractDataBuilder</span></code>.</p>
+<p>Vous voudrez vérifier que toutes les requêtes que vous voulez récupérer sont présentes en utilisant <code class="docutils literal notranslate"><span class="pre">DataView.contains(Key...)</span></code>. Si non, les données sont probablemement incomplètes et vous devez retourner <code class="docutils literal notranslate"><span class="pre">Optional.empty()</span></code>.</p>
+<p>Si tout semble être présent, utilisez les méthodes ` getX`` pour construire des valeurs et retourner un nouvel objet créé en <code class="docutils literal notranslate"><span class="pre">Optional</span></code>.</p>
+</div>
+<div class="section" id="datacontentupdaters">
+<span id="content-updaters"></span><h2>Les DataContentUpdaters<a class="headerlink" href="#datacontentupdaters" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Que se passe-t-il si vous changer la disposition des données dans une nouvelle version ? Les <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/persistence/DataContentUpdater.html">DataContentUpdater</a>s résolvent ce problème. Si l’objet sérialisé est inférieure à la version actuelle, un <code class="docutils literal notranslate"><span class="pre">AbstractDataBuilder</span></code> va essayer de mettre à jour les données avant de le passer au builder.</p>
+<p>Chaque updater a une version d’entrée et une version de sortie. Vous devez prendre les anciennes données et changer tout ce qui est nécessaire pour mettre à jour vers une nouvelle disposition. Si c’est impossible de convertir en raison de données manquantes, il est possible de fournir à la place une valeur par défaut qui est interprétée ailleurs - comme par le builder principal ou l’objet lui-même.</p>
+<p>Finalement, vous devez vous assurez que tous les <code class="docutils literal notranslate"><span class="pre">DataContentUpdater</span></code>s sont enregistrés avec <code class="docutils literal notranslate"><span class="pre">DataManager#registerContentUpdater()</span></code> en référançant la classe de données principale - cela leur permettra d’être découverts par le builder.</p>
+<p><strong>Exemple de Code : Implémenter un DataContentUpdater</strong></p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.data.persistence.DataContentUpdater</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.text.Text</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">NameUpdater</span> <span class="kd">implements</span> <span class="n">DataContentUpdater</span> <span class="p">{</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getInputVersion</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getOutputVersion</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">DataView</span> <span class="nf">update</span><span class="p">(</span><span class="n">DataView</span> <span class="n">content</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">String</span> <span class="n">name</span> <span class="o">=</span> <span class="n">content</span><span class="p">.</span><span class="na">getString</span><span class="p">(</span><span class="n">DataQuery</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;Name&quot;</span><span class="p">)).</span><span class="na">get</span><span class="p">();</span>
+
+        <span class="c1">// For example, version 2 uses a text for the name</span>
+        <span class="k">return</span> <span class="n">content</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="n">DataQuery</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;Name&quot;</span><span class="p">),</span> <span class="n">Text</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">name</span><span class="p">));</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="datamanipulatorbuilders">
+<h2>Les DataManipulatorBuilders<a class="headerlink" href="#datamanipulatorbuilders" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Un <code class="docutils literal notranslate"><span class="pre">DataManipulatorBuilder</span></code> est très similaire au <code class="docutils literal notranslate"><span class="pre">DataBuilder</span></code>, mais il ajoute quelques méthodes directement associées à la désérialisation des manipulators :</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">create()</span></code> doit retourner un nouveau manipulator avec les valeurs par défaut</li>
+<li><code class="docutils literal notranslate"><span class="pre">createFrom(DataHolder)</span></code> est similaire à la méthode build, mais à la place, les valeurs doivent être prises sur le <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/DataHolder.html">DataHolder</a>. Si il n’y a aucune donnée à récupérer depuis le holder, retournez juste la sortie de <code class="docutils literal notranslate"><span class="pre">create()</span></code>. Si les données sont incompatibles avec le <code class="docutils literal notranslate"><span class="pre">DataHolder</span></code>, vous devez retourner un <code class="docutils literal notranslate"><span class="pre">Optional.empty()</span></code> à la place.</li>
+</ul>
+<p>Comme le <code class="docutils literal notranslate"><span class="pre">DataBuilder</span></code>, vous devez lire et retourner votre manipulator dans la méthode <code class="docutils literal notranslate"><span class="pre">build</span></code> appropriée.</p>
+<p>Les <code class="docutils literal notranslate"><span class="pre">DataManipulatorBuilder</span></code>s peuvent faire usage des <a class="reference internal" href="#content-updaters"><span class="std std-ref">Les DataContentUpdaters</span></a> aussi, du temps que vous implémentez <code class="docutils literal notranslate"><span class="pre">AbstractDataBuilder</span></code>.</p>
+<p>Enregistrer un <code class="docutils literal notranslate"><span class="pre">DataManipulatorBuilder</span></code> est également semblable au <code class="docutils literal notranslate"><span class="pre">DataBuilder</span></code> mais utilise la méthode <code class="docutils literal notranslate"><span class="pre">register()</span></code>. Vous devez référencer vos deux classes mutables et immuables dans la méthode, en plus d’une instance de votre builder.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Vous <strong>devez</strong> référencer les classes d’implémentation si vous avez divisé l’API de l’implémentation.</p>
+</div>
+</div>
+<div class="section" id="datatranslators">
+<h2>Les DataTranslators<a class="headerlink" href="#datatranslators" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Souvent les objets que vous voulez sérialiser ne sont pas des objets qui implémentent <code class="docutils literal notranslate"><span class="pre">DataSerializable</span></code>, comme <code class="docutils literal notranslate"><span class="pre">Vector3d</span></code> ou <code class="docutils literal notranslate"><span class="pre">Date</span></code>. Pour autoriser ces objets vous devez implémenter un <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/persistence/DataTranslator.html">DataTranslator</a> qui gère <em>à la fois</em> la sérialisation et la désérialisation de l’objet.</p>
+<p>L’implémentation de <code class="docutils literal notranslate"><span class="pre">translate</span></code> est identique à <code class="docutils literal notranslate"><span class="pre">toContainer()</span></code> et <code class="docutils literal notranslate"><span class="pre">build(DataView)</span></code> pour un <code class="docutils literal notranslate"><span class="pre">DataSerializable</span></code> comme montré ci-dessus, excepté qu’une <code class="docutils literal notranslate"><span class="pre">InvalidDataException</span></code> est levée si les données sont manquantes à la place de retourner un <code class="docutils literal notranslate"><span class="pre">Optional</span></code>.</p>
+<p>As with other data, ensure that you register the translator during <code class="docutils literal notranslate"><span class="pre">GameRegistryEvent.Register&lt;DataTranslator&lt;?&gt;&gt;</span></code>.</p>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../catalog-types.html" class="btn btn-neutral float-right" title="Catalog Types" accesskey="n" rel="next">Suivant <span class="fa fa-angle-right"></span></a>
+        <a href="dataholders.html" class="btn btn-neutral" title="DataHolders Customisés" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> Précédent</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../../../_static/flags/fr_FR.svg"
+         alt="fr" title="Français">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../../../_static/jquery.js"></script>      <script type="text/javascript" src="../../../_static/underscore.js"></script>      <script type="text/javascript" src="../../../_static/doctools.js"></script>      <script type="text/javascript" src="../../../_static/language_data.js"></script>      <script type="text/javascript" src="../../../_static/translations.js"></script>      <script type="text/javascript" src="../../../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

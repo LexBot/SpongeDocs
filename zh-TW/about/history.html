@@ -1,0 +1,246 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sponge 的歷史 &mdash; Sponge 7.2.0 說明文件</title>
+
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="索引"
+              href="../genindex.html"/>        <link rel="search" title="搜尋" href="../search.html"/>    <link rel="top" title="Sponge 7.2.0 說明文件" href="../index.html"/>        <link rel="up" title="關於 Sponge 專案" href="index.html"/>        <link rel="prev" title="美術資產" href="assets.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../index.html">
+            <img src="../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../server/index.html">建立伺服器</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../versions/index.html">版本控制方針</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../preparing/index.html">準備開發</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../plugin/index.html">建立插件</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ore/index.html">Ore 文件</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contributing/index.html">為 Sponge 貢獻</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">關於 Sponge 專案</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="introduction.html">簡介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html">常見問題</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structure.html">Sponge 專案的結構</a></li>
+<li class="toctree-l2"><a class="reference internal" href="future.html">未來的計畫</a></li>
+<li class="toctree-l2"><a class="reference internal" href="license.html">授權協議</a></li>
+<li class="toctree-l2"><a class="reference internal" href="posting.html">論壇發佈指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rules.html">论坛、Discord 及 IRC 守则</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tos.html">服務條款</a></li>
+<li class="toctree-l2"><a class="reference internal" href="privacy.html">隱私權政策</a></li>
+<li class="toctree-l2"><a class="reference internal" href="staff.html">工作人員</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html">Sponge 術語</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assets.html">美術資產</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Sponge 的歷史</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+          <li><a href="index.html">關於 Sponge 專案</a> &raquo;</li>
+    <li>Sponge 的歷史</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/about/history.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="the-history-of-sponge">
+<h1>Sponge 的歷史<a class="headerlink" href="#the-history-of-sponge" title="本標題的永久連結">¶</a></h1>
+<dl class="docutils">
+<dt>此頁面主要分成兩個部份：</dt>
+<dd><ul class="first last simple">
+<li>專案本身的歷史</li>
+<li>我們心愛的吉祥物 Spongie 的歷史</li>
+</ul>
+</dd>
+</dl>
+<div class="section" id="the-history-of-the-project">
+<h2>專案的歷史<a class="headerlink" href="#the-history-of-the-project" title="本標題的永久連結">¶</a></h2>
+<p>Sponge 成立於2014年9月，在當時眾多的 API 之中的一個更好的選擇。 Sponge <a class="reference internal" href="staff.html"><span class="doc">工作人員</span></a> 是由不同社群的成員組成，來自Spout/Spoutcraft、Forge、Cauldron 以及其他地方。</p>
+<p>Bukkit 與 Cauldron 開發的無預警中止震驚了整個 Minecraft 社群。來自上述社群的幾位開發人員聚集在 Esper.NET 的 #nextstep 上討論 Minecraft modding 的未來。結論是確實需要一個新的 API，因為 CraftBukkit（和 Cauldron 的）儲存庫已經被刪除了。</p>
+<dl class="docutils">
+<dt>新的 API 有幾項應要達成的目標：</dt>
+<dd><ul class="first last simple">
+<li>一致性</li>
+<li>橫跨 Minecraft 更新的穩定性</li>
+<li>易於使用</li>
+<li>遵守 Mojang EULA</li>
+<li>保護不被 DMCA 下架</li>
+</ul>
+</dd>
+</dl>
+<p>當目標逐漸明確時，方向卻還沒有決定。即將問世的專案還沒有名字。Firehead94 在9月6日首次為這個項目提出了 Sponge 這個名稱。顯然名稱就這麼定下來了。</p>
+<p>2014年9月7日和8日，Sponge Project 領導人之一的 Zidane 提交了 SpongeAPI 和 SpongeForge 的第一行程式碼 。這是 SpongeAPI 和 SpongeForge（當時名為 Sponge）的開端。</p>
+<p>2014年9月7日，基於原版 Minecraft 的 API，Granite，開始了第一項提交。Granite 剛開始時是一個獨立的專案，準備實作自己的 API 以及 SpongeAPI。在2015年4月20日前 Granite 和 SpongeForge 同時進行 。</p>
+<p>SpongeForge 和 API 的開發順勢在2014年12月1日釋出了第一個 API。然而這個版本功能尚未完善，僅釋出了 API，意味著當時沒有任何可用的官方實作。</p>
+<p>2014年12月26日，Granite 團隊決定讓 Granite 只使用 SpongeAPI。 這使得 Granite 成為 Vanilla Minecraft 的第一個非官方 Sponge 實作。 3月26日，Granite 團隊終於加入了 Sponge 團隊，而 Granite 變成了 SpongeVanilla，專為 Vanilla Minecraft 的官方 SpongeAPI 實作。 大約在一個月後，Granite 和 SpongeForge 資料庫的統整為 SpongeCommon。 SpongeCommon 是用來掌管兩個實作之間的所有共享程式碼，而專屬個別實作的程式碼依然留在 SpongeVanilla 與 SpongeForge 中。</p>
+<p>2015年4月21日，SpongeAPI 2.0 終於發佈了。2015年4月25日，SpongeForge（#428，Inspired Wallaroo）的開發版本終於釋出。第一個 alpha 版本的 SpongeVanilla（DEV#17）則是在2015年9月13日發佈。</p>
+<p>2015年12月31日，SpongeAPI 3.0.0 發佈了，連同 SpongeForge（#1000）和 SpongeVanilla（#129）一起進入了 beta 階段。</p>
+</div>
+<div class="section" id="spongie-our-mascot">
+<h2>Spongie - 我們的吉祥物<a class="headerlink" href="#spongie-our-mascot" title="本標題的永久連結">¶</a></h2>
+<p>Spongie 是我們友善、樂於助人、而且有點潮的吉祥物。不要讓她哭，因為她是一個非常敏感的人。</p>
+<div class="section" id="the-history-of-spongie">
+<h3>Spongie 的歷史<a class="headerlink" href="#the-history-of-spongie" title="本標題的永久連結">¶</a></h3>
+<p>Spongie first appeared in #Sponge on Esper.NET around September 2014. She was created and posted by
+<a class="reference external" href="https://www.deviantart.com/dragonspainter">DragonsPainter</a>. Strad, another user, felt that Spongie would look better
+with a moogle-like antenna, a Forge furnace instead of a Cauldron and replaced the Spigot with Spout. An anonymous user
+then removed all labels and introduced her as the icon and background logo for the Sponge reddit section.</p>
+<p>可惜的是這個舊版的 Spongie 不可作為的向量圖形使用。因此 Sponge 工作人員決定建立一個新的向量圖版本。然後在 <a class="reference external" href="https://forums.spongepowered.org/t/state-of-spongie-wip/6194">State of Spongie</a> 張貼了兩個新草稿。當前使用的資產位於 <a class="reference internal" href="assets.html"><span class="doc">這裡</span></a> 。</p>
+</div>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="assets.html" class="btn btn-neutral" title="美術資產" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> 上一頁</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../_static/flags/zh_TW.svg"
+         alt="zh-TW" title="繁體中文">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../_static/jquery.js"></script>      <script type="text/javascript" src="../_static/underscore.js"></script>      <script type="text/javascript" src="../_static/doctools.js"></script>      <script type="text/javascript" src="../_static/language_data.js"></script>      <script type="text/javascript" src="../_static/translations.js"></script>      <script type="text/javascript" src="../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

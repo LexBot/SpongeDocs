@@ -1,0 +1,337 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>設置 Eclipse &mdash; Sponge 7.2.0 說明文件</title>
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="索引"
+              href="../../genindex.html"/>        <link rel="search" title="搜尋" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 說明文件" href="../../index.html"/>        <link rel="up" title="建立你的工作空間" href="index.html"/>        <link rel="next" title="建立你的專案" href="../project/index.html"/>        <link rel="prev" title="設置 IntelliJ IDEA" href="idea.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../../index.html">
+            <img src="../../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../server/index.html">建立伺服器</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../versions/index.html">版本控制方針</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../preparing/index.html">準備開發</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">建立插件</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../api-versions.html">API版本</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../buildsystem.html">建置系統</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">建立你的工作空間</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="idea.html">設置 IntelliJ IDEA</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">設置 Eclipse</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../project/index.html">建立你的專案</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-identifier.html">插件識別碼</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-class.html">主要插件類別</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lifecycle.html">插件的生命週期</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../injection.html">相依注入</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../practices/index.html">實踐</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../optional/index.html">Optionals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../logging.html">記錄與除錯</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text/index.html">文本</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/index.html">插件指令</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../event/index.html">事件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/index.html">設定插件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assets.html">Asset API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data/index.html">Data API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../blocks/index.html">方塊</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../entities/index.html">實體</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../items/index.html">物品</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../trade-offers.html">開設交易</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../effects.html">效果</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../scheduler.html">排程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../services.html">服務</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database.html">資料庫</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../permissions.html">權限</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bans.html">封鎖</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metrics.html">Metrics 收集</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bookview.html">書本閱覽</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../economy/index.html">經濟</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wgen/index.html">世界生成</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manager.html">插件管理器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../game-profile-manager.html">遊戲設定檔管理器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../offline-userplayer-data.html">離線玩家資料</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tab-lists.html">Tab 清單</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-meta.html">插件元數據</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ray-tracing.html">光線追蹤</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../debugging.html">插件除錯</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials.html">教學</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internals/index.html">相依於實作的插件</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ore/index.html">Ore 文件</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/index.html">為 Sponge 貢獻</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">關於 Sponge 專案</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+          <li><a href="../index.html">建立插件</a> &raquo;</li>
+          <li><a href="index.html">建立你的工作空間</a> &raquo;</li>
+    <li>設置 Eclipse</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/plugin/workspace/eclipse.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="setting-up-eclipse">
+<h1>設置 Eclipse<a class="headerlink" href="#setting-up-eclipse" title="本標題的永久連結">¶</a></h1>
+<p>这一部分介绍了如何为开发基于 SpongeAPI 的插件，设置你的 <strong>Eclipse</strong> 工作目录，并 <a class="reference internal" href="../buildsystem.html"><span class="doc">使用一些诸如 Maven 或 Gradle 的构建系统</span></a> 。</p>
+<div class="admonition note">
+<p class="first admonition-title">備註</p>
+<p class="last">一个由 Mumfrey 创建的<a class="reference external" href="https://www.youtube.com/watch?v=R8NcakQtHVI">教程</a> 展示了使用 Eclipse 设置 Sponge 插件开发环境的方式，同时，这一教程使用了 Buildship 和 ForgeGradle 的新特性。</p>
+</div>
+<div class="section" id="gradle">
+<h2>Gradle<a class="headerlink" href="#gradle" title="本標題的永久連結">¶</a></h2>
+<div class="section" id="preparing-gradle">
+<h3>使用 Gradle 前的准备工作<a class="headerlink" href="#preparing-gradle" title="本標題的永久連結">¶</a></h3>
+<div class="admonition note">
+<p class="first admonition-title">備註</p>
+<p class="last">从 Eclipse 的 Neon 版本（于 2016 年 6 月 22 日发布）开始，Eclipse 已经集成了 Gradle 的支持。下面这些步骤只适用于旧版本。</p>
+</div>
+<p>你首先必须安装 <strong>Gradle Integration Plugin</strong> ，然后才能在 Eclipse 中使用 Gradle 。这只需要你在创建项目的时候去做这件事就可以了。</p>
+<div class="admonition tip">
+<p class="first admonition-title">小訣竅</p>
+<p class="last">通常情况下，你并不需要随这个 Eclipse 插件一起分发的 Spring 模块，所以你可以在安装的过程中取消勾选它们。</p>
+</div>
+<ul class="simple">
+<li>打开 <strong>Eclipse</strong> 。</li>
+<li>点击 <code class="docutils literal notranslate"><span class="pre">Help</span> <span class="pre">&gt;</span> <span class="pre">Eclipse</span> <span class="pre">Marketplace</span></code> 。</li>
+<li>搜索 <code class="docutils literal notranslate"><span class="pre">Gradle</span> <span class="pre">Integration</span> <span class="pre">Plugin</span></code> 。</li>
+<li>安装 <strong>Gradle Integration Plugin</strong> 。</li>
+</ul>
+</div>
+<div class="section" id="creating-your-project">
+<h3>创建你的项目<a class="headerlink" href="#creating-your-project" title="本標題的永久連結">¶</a></h3>
+<ul class="simple">
+<li>打开 <strong>Eclipse</strong> 。</li>
+<li>点击 <code class="docutils literal notranslate"><span class="pre">File</span> <span class="pre">&gt;</span> <span class="pre">New</span> <span class="pre">&gt;</span> <span class="pre">Other</span></code> 。</li>
+<li>选中 <code class="docutils literal notranslate"><span class="pre">Gradle</span> <span class="pre">&gt;</span> <span class="pre">Gradle</span> <span class="pre">Project</span></code> 。</li>
+<li>点击 <code class="docutils literal notranslate"><span class="pre">Next</span></code> 。</li>
+<li>输入项目的名称，然后点击 <code class="docutils literal notranslate"><span class="pre">Finish</span></code> 。</li>
+</ul>
+</div>
+<div class="section" id="editing-the-build-script">
+<h3>编辑构建脚本<a class="headerlink" href="#editing-the-build-script" title="本標題的永久連結">¶</a></h3>
+<ul class="simple">
+<li>在 Navigator 中打开 <code class="docutils literal notranslate"><span class="pre">build.gradle</span></code> 。</li>
+<li>可以根据 <a class="reference internal" href="../project/gradle.html"><span class="doc">設定 Gradle</span></a> 的内容编辑构建脚本。</li>
+<li>右键点击你的项目，并选择 <code class="docutils literal notranslate"><span class="pre">Gradle</span> <span class="pre">&gt;</span> <span class="pre">Refresh</span> <span class="pre">Gradle</span> <span class="pre">Project</span></code> 。</li>
+</ul>
+</div>
+<div class="section" id="importing-your-project">
+<h3>导入你的项目<a class="headerlink" href="#importing-your-project" title="本標題的永久連結">¶</a></h3>
+<p>如果你已经开始你的项目开发工作了，而且想要稍后在 IDE 中打开它，那么你需要去直接导入它而不是在 IDE 中再次创建。</p>
+<ul class="simple">
+<li>点击 <code class="docutils literal notranslate"><span class="pre">File</span> <span class="pre">&gt;</span> <span class="pre">Import</span></code></li>
+<li>选中 <code class="docutils literal notranslate"><span class="pre">Gradle</span> <span class="pre">&gt;</span> <span class="pre">Gradle</span> <span class="pre">Project</span></code></li>
+<li>定位至你的项目的根目录</li>
+<li>点击 Finish</li>
+</ul>
+</div>
+</div>
+<div class="section" id="maven">
+<h2>Maven<a class="headerlink" href="#maven" title="本標題的永久連結">¶</a></h2>
+<div class="section" id="id1">
+<h3>创建你的项目<a class="headerlink" href="#id1" title="本標題的永久連結">¶</a></h3>
+<ul class="simple">
+<li>打开 <strong>Eclipse</strong> 。</li>
+<li>点击 <code class="docutils literal notranslate"><span class="pre">File</span> <span class="pre">&gt;</span> <span class="pre">New</span> <span class="pre">&gt;</span> <span class="pre">Other</span></code> 。</li>
+<li>在左侧边栏选中 <code class="docutils literal notranslate"><span class="pre">Maven</span></code> ，然后在右侧边栏选中 <code class="docutils literal notranslate"><span class="pre">Maven</span> <span class="pre">Project</span></code> 。</li>
+<li>点击 <code class="docutils literal notranslate"><span class="pre">Next</span></code> 。</li>
+<li>选中 <code class="docutils literal notranslate"><span class="pre">Create</span> <span class="pre">a</span> <span class="pre">simple</span> <span class="pre">project</span></code> ，除非你需要更高级的设置。</li>
+<li>输入你的 <strong>Group ID</strong> ， <strong>Artifact ID</strong> ， <strong>Version</strong> ， 项目名称，以及项目描述。<ul>
+<li>你的 <strong>Group ID</strong> 通常应和你的 Java 包名相一致。详见 <a class="reference internal" href="../plugin-class.html"><span class="doc">主要插件類別</span></a> 。</li>
+<li>你的 <strong>Artifact ID</strong> 通常应该和你的 <strong>plugin ID</strong> 一致，如 <code class="docutils literal notranslate"><span class="pre">myplugin</span></code> 。</li>
+<li><strong>版本号</strong>由你来决定。参阅<a class="reference internal" href="../project/version-numbers.html"><span class="doc">版本號</span></a>了解更多信息。</li>
+</ul>
+</li>
+<li>点击 <code class="docutils literal notranslate"><span class="pre">Finish</span></code> 。</li>
+</ul>
+<div class="admonition tip">
+<p class="first admonition-title">小訣竅</p>
+<p class="last">Eclipse 经常不能在创建新的项目后打开它们。如果发生这种情况，请尝试先把 Eclipse 欢迎屏幕关掉，您的项目随后应该就可以开启。</p>
+</div>
+</div>
+<div class="section" id="editing-the-project-configuration">
+<h3>修改项目配置<a class="headerlink" href="#editing-the-project-configuration" title="本標題的永久連結">¶</a></h3>
+<ul class="simple">
+<li>在 Navigator 中打开 <code class="docutils literal notranslate"><span class="pre">pom.xml</span></code> 。</li>
+<li>可以根据 <a class="reference internal" href="../project/maven.html"><span class="doc">設定 Maven</span></a> 的内容编辑构建配置。</li>
+<li>刷新你的 Maven 项目。</li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h3>导入你的项目<a class="headerlink" href="#id2" title="本標題的永久連結">¶</a></h3>
+<p>如果你已经开始你的项目开发工作了，而且想要稍后在 IDE 中打开它，那么你需要去直接导入它而不是在 IDE 中再次创建。</p>
+<ul class="simple">
+<li>点击 <code class="docutils literal notranslate"><span class="pre">File</span> <span class="pre">&gt;</span> <span class="pre">Import</span></code></li>
+<li>选中 <code class="docutils literal notranslate"><span class="pre">Maven</span> <span class="pre">&gt;</span> <span class="pre">Existing</span> <span class="pre">Maven</span> <span class="pre">Projects</span></code></li>
+<li>定位至你的项目的根目录</li>
+<li>点击 Finish</li>
+</ul>
+</div>
+</div>
+<div class="section" id="git-integration">
+<h2>Git 集成<a class="headerlink" href="#git-integration" title="本標題的永久連結">¶</a></h2>
+<p>Ecipse Foundation 提供了 EGit 插件的使用文档：</p>
+<p><a class="reference external" href="https://www.eclipse.org/egit/documentation/">https://www.eclipse.org/egit/documentation/</a></p>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../project/index.html" class="btn btn-neutral float-right" title="建立你的專案" accesskey="n" rel="next">下一頁 <span class="fa fa-angle-right"></span></a>
+        <a href="idea.html" class="btn btn-neutral" title="設置 IntelliJ IDEA" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> 上一頁</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../../_static/flags/zh_TW.svg"
+         alt="zh-TW" title="繁體中文">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../../_static/jquery.js"></script>      <script type="text/javascript" src="../../_static/underscore.js"></script>      <script type="text/javascript" src="../../_static/doctools.js"></script>      <script type="text/javascript" src="../../_static/language_data.js"></script>      <script type="text/javascript" src="../../_static/translations.js"></script>      <script type="text/javascript" src="../../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

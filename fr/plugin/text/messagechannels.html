@@ -1,0 +1,399 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Message Channels &mdash; Documentation Sponge 7.2.0</title>
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>        <link rel="search" title="Recherche" href="../../search.html"/>    <link rel="top" title="Documentation Sponge 7.2.0" href="../../index.html"/>        <link rel="up" title="Text" href="index.html"/>        <link rel="next" title="TextTemplates" href="templates.html"/>        <link rel="prev" title="Le Service de Pagination" href="pagination.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../../index.html">
+            <img src="../../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../server/index.html">Créer un Serveur</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../versions/index.html">Stratégie de versioning</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../preparing/index.html">Préparation pour le développement</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Création d’un Plugin</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../api-versions.html">Versions de l’API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../buildsystem.html">Build Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../workspace/index.html">Mise en Place de votre Espace de Travail</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../project/index.html">Configurer Votre Projet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-identifier.html">Identifiants de Plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-class.html">Classe Principale du Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lifecycle.html">Cycle de vie des Plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../injection.html">Injection de Dépendances</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../practices/index.html">Bonnes Pratiques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../optional/index.html">Optionnels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../logging.html">Journalisation (Logging) et Débogage</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Text</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="text.html">Création de Text</a></li>
+<li class="toctree-l3"><a class="reference internal" href="representations/index.html">Sérialiseurs de Texte</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pagination.html">Le Service de Pagination</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Message Channels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="templates.html">TextTemplates</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/index.html">Commandes de Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../event/index.html">Événements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/index.html">Configuration des plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assets.html">L’API des Ressources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data/index.html">La Data API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../blocks/index.html">Blocs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../entities/index.html">Entités</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../items/index.html">Items</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../trade-offers.html">Trade-Offers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../effects.html">Effets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../scheduler.html">Scheduler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../services.html">Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database.html">Bases de données</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../permissions.html">Permissions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bans.html">Bans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metrics.html">Collection de Metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bookview.html">Views d’un Livre</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../economy/index.html">Économie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wgen/index.html">Génération du monde</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manager.html">Gestionnaire de Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../game-profile-manager.html">Gestionnaire de Profil de Jeu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../offline-userplayer-data.html">Données du Joueur Hors-Ligne</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tab-lists.html">Tab Lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-meta.html">Plugin Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ray-tracing.html">Ray Tracing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../debugging.html">Debugging d’un plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials.html">Tutoriels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internals/index.html">Plugins dépendants des implémentations</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ore/index.html">Documentation d’Ore</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/index.html">Contribuer à Sponge</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">À propos du Projet Sponge</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+          <li><a href="../index.html">Création d’un Plugin</a> &raquo;</li>
+          <li><a href="index.html">Text</a> &raquo;</li>
+    <li>Message Channels</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/plugin/text/messagechannels.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="message-channels">
+<h1>Message Channels<a class="headerlink" href="#message-channels" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Dans Sponge, tous les objets auxquels des messages peuvent être envoyés implémentent l’interface <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/channel/MessageReceiver.html">MessageReceiver</a>. Un <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/channel/MessageChannel.html">MessageChannel</a> est un dispositif qui peut envoyer des messages à un nombre arbitraire de <code class="docutils literal notranslate"><span class="pre">MessageReceiver</span></code>s et même effectuer des actions tels que des mises en forme spécifiques au destinataire du message.</p>
+<div class="section" id="selecting-message-recipients">
+<h2>Sélectionner les Destinataires du Message<a class="headerlink" href="#selecting-message-recipients" title="Lien permanent vers ce titre">¶</a></h2>
+<p>À l’intérieur de l’interface <code class="docutils literal notranslate"><span class="pre">MessageChannel</span></code> il y a des constantes et des méthodes statiques qui peuvent être utilisées pour obtenir ou créer des canaux couramment utilisés. Il y a également d’autres classes et interfaces qui peuvent être utilisées pour créer un <code class="docutils literal notranslate"><span class="pre">MessageChannel</span></code>, comme <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/channel/AbstractMutableMessageChannel.html">AbstractMutableMessageChannel</a> et <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/channel/MutableMessageChannel.html">MutableMessageChannel</a>. Une liste complète peut être trouvée dans <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/channel/package-summary.html">org.spongepowered.api.text.channel</a> et ses sous-packages.</p>
+<div class="section" id="broadcasting">
+<h3>Diffusion<a class="headerlink" href="#broadcasting" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Le canal le plus courant sera le canal de diffusion. Il peut être obtenu soit depuis le <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/Server.html">Server</a> via la méthode <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/Server.html#getBroadcastChannel--">Server#getBroadcastChannel()</a> ou soit depuis les constantes <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/channel/MessageChannel.html#TO_PLAYERS">MessageChannel#TO_PLAYERS</a> ou <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/channel/MessageChannel.html#TO_ALL">MessageChannel#TO_ALL</a>. La seule différence est que <code class="docutils literal notranslate"><span class="pre">TO_ALL</span></code> n’inclut pas seulement tous les joueurs connectés au serveur mais aussi la <code class="docutils literal notranslate"><span class="pre">Console</span></code> du serveur.</p>
+<p>Le canal retourné par <code class="docutils literal notranslate"><span class="pre">getBroadcastsChannel()</span></code> sera généralement le canal <code class="docutils literal notranslate"><span class="pre">MessageChannel.TO_ALL</span></code>, cependant un canal différent peut être défini en utilisant la méthode <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/Server.html#setBroadcastChannel-org.spongepowered.api.text.channel.MessageChannel-">Server#setBroadcastChannel(MessageChannel)</a>.</p>
+</div>
+<div class="section" id="sending-to-a-fixed-list-of-messagereceivers">
+<h3>Envoyer à une liste fixe de MessageReceivers<a class="headerlink" href="#sending-to-a-fixed-list-of-messagereceivers" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Il est également possible d’envoyer un message non pas à tous les joueurs connectés, mais à un nombre de destinataires sélectionnés à la main. Cela peut être fait en passant la liste des destinataires voulus à la méthode <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/channel/MessageChannel.html#fixed-org.spongepowered.api.text.channel.MessageReceiver...-">MessageChannel#fixed(MessageReceiver…)</a>. Contrairement à la plupart des autres canaux, la liste des destinataires ne sera pas générée dynamiquement chaque fois que quelque chose est envoyé à travers le canal, mais reste statique pour le reste de son existence. Cependant, les références gardées sont <em>faibles</em>. Cela signifie que si par exemple un joueur se déconnecte et que l’objet <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/living/player/Player.html">Player</a> correspondant est supprimé par le <em>garbage collector</em> de Java, ce joueur va aussi disparaître de la liste de destinaires des canaux.</p>
+</div>
+<div class="section" id="permission-based-selection">
+<h3>Sélection basée sur les Permissions<a class="headerlink" href="#permission-based-selection" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Il est également possible de créer un canal qui envoie à tous les destinataires qui détiennent une permission spécifique. Le canal est obtenu à partir de la méthode <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/channel/MessageChannel.html#permission-java.lang.String-">MessageChannel#permission(String)</a> avec la permission à vérifier en argument. Quand un message est alors envoyé par ce canal, il obtiendra tous les sujets depuis le <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/permission/PermissionService.html">PermissionService</a> qui possèdent la permission donnée.</p>
+</div>
+<div class="section" id="combining-channels">
+<h3>Combiner des Canaux<a class="headerlink" href="#combining-channels" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Il est également possible de combiner plusieurs canaux en un seul. Cela peut être fait en passant tous les canaux dans la méthode <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/channel/MessageChannel.html#combined-org.spongepowered.api.text.channel.MessageChannel...-">MessageChannel#combined(MessageChannel…)</a>. Le canal qui en résulte va relayer les messages à chaque destinataire qui est ciblé par au moins un des canaux combinés.</p>
+</div>
+</div>
+<div class="section" id="sending-messages">
+<h2>Envoyer des Messages<a class="headerlink" href="#sending-messages" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Une fois que vous avez obtenus un <code class="docutils literal notranslate"><span class="pre">MessageChannel</span></code> vous pouvez envoyer un message via lui grâce à la méthode <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/channel/MessageChannel.html#send-java.lang.Object-org.spongepowered.api.text.Text-">MessageChannel#send(Object, Text)</a>. Cette méthode est préférable à la méthode <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/channel/MessageChannel.html#send-org.spongepowered.api.text.Text-">MessageChannel#send(Text)</a>, puisque l”<code class="docutils literal notranslate"><span class="pre">Object</span></code> peut être utilisé pour l’identification ou pour effectuer d’autres actions diverses. Alternativement, vous pouvez utiliser un <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/chat/ChatType.html">ChatType</a> pour spécifier où est-ce que le message sera envoyé. Utiliser la méthode <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/channel/MessageChannel.html#send-java.lang.Object-org.spongepowered.api.text.Text-org.spongepowered.api.text.chat.ChatType-">MessageChannel#send(Object, Text, ChatType)</a> vous permettra d’y parvenir. Le canal transformera alors le message pour chaque destinataire et enverra le message transformé.</p>
+<div class="section" id="extended-application-chat-channels">
+<h3>Application étendue: Canaux de discussion<a class="headerlink" href="#extended-application-chat-channels" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Les message channels ont une application très utile, puisqu’ils peuvent être utilisés pour établir des canaux de discussion. Par exemple, vous pouvez établir un message channel pour chaque canal de discussion que vous souhaitez avoir. Ensuite, quand un <code class="docutils literal notranslate"><span class="pre">MessageReceiver</span></code> rejoint un canal, comme avec <code class="docutils literal notranslate"><span class="pre">/join</span> <span class="pre">&lt;nom</span> <span class="pre">du</span> <span class="pre">canal&gt;</span></code>, définissez simplement le <code class="docutils literal notranslate"><span class="pre">MessageChannel</span></code> des <code class="docutils literal notranslate"><span class="pre">MessageReceiver</span></code>s au canal approprié en utilisant <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/channel/MessageReceiver.html#setMessageChannel-org.spongepowered.api.text.channel.MessageChannel-">MessageReceiver#setMessageChannel(MessageChannel)</a>. Cela va faire que tous les messages envoyés <em>depuis</em> le <code class="docutils literal notranslate"><span class="pre">MessageReceiver</span></code> seront passés au <code class="docutils literal notranslate"><span class="pre">MessageChannel</span></code> donné plutôt qu’à celui par défaut. Alternativement, vous pouvez écouter le <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/message/MessageChannelEvent.html">MessageChannelEvent</a>, et définir le <code class="docutils literal notranslate"><span class="pre">MessageChannel</span></code> approprié en utilisant <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/message/MessageChannelEvent.html#setChannel-org.spongepowered.api.text.channel.MessageChannel-">MessageChannelEvent#setChannel(MessageChannel)</a>. Passer <code class="docutils literal notranslate"><span class="pre">null</span></code> à cette méthode va désinitialiser tous les canaux personnalisés, ce qui va faire que le message sera envoyé au MessageChannel original à la place.</p>
+</div>
+</div>
+<div class="section" id="transforming-messages">
+<h2>Transformer les Messages<a class="headerlink" href="#transforming-messages" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Vous pouvez appliquer un filtre à tous les <code class="docutils literal notranslate"><span class="pre">Text</span></code>s qui passent à travers un <code class="docutils literal notranslate"><span class="pre">MessageChannel</span></code> pour changer le message comme bon vous semble. C’est possible en héritant <code class="docutils literal notranslate"><span class="pre">MessageChannel</span></code> et en réécrivant la méthode <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/channel/MessageChannel.html#transformMessage-java.lang.Object-org.spongepowered.api.text.channel.MessageReceiver-org.spongepowered.api.text.Text-org.spongepowered.api.text.chat.ChatType-">MessageChannel#transformMessage(Object, MessageReceiver, Text, ChatType)</a> comme montré ci-dessous.</p>
+<p><strong>Exemple : Transformer les Messages</strong></p>
+<p>L’extrait de code suivant définit une classe <code class="docutils literal notranslate"><span class="pre">AdminMessageChannel</span></code> qui réécrit la méthode par défaut <code class="docutils literal notranslate"><span class="pre">transformMessage</span></code>. La nouvelle méthode <code class="docutils literal notranslate"><span class="pre">transformMessage</span></code> va prendre le message original et ajouter un tag rouge <code class="docutils literal notranslate"><span class="pre">[Admin]</span></code> au début du message.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">java.util.Collection</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Collections</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Optional</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.text.Text</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.text.channel.MessageChannel</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.text.channel.MessageReceiver</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.text.chat.ChatType</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.text.format.TextColors</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">AdminMessageChannel</span> <span class="kd">implements</span> <span class="n">MessageChannel</span> <span class="p">{</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">Optional</span><span class="o">&lt;</span><span class="n">Text</span><span class="o">&gt;</span> <span class="nf">transformMessage</span><span class="p">(</span><span class="n">Object</span> <span class="n">sender</span><span class="p">,</span> <span class="n">MessageReceiver</span> <span class="n">recipient</span><span class="p">,</span>
+                <span class="n">Text</span> <span class="n">original</span><span class="p">,</span> <span class="n">ChatType</span> <span class="n">type</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">Text</span> <span class="n">text</span> <span class="o">=</span> <span class="n">original</span><span class="p">;</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">Text</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">TextColors</span><span class="p">.</span><span class="na">RED</span><span class="p">,</span> <span class="s">&quot;[Admin]&quot;</span><span class="p">,</span> <span class="n">TextColors</span><span class="p">.</span><span class="na">RESET</span><span class="p">,</span> <span class="n">text</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">Optional</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">text</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">Collection</span><span class="o">&lt;</span><span class="n">MessageReceiver</span><span class="o">&gt;</span> <span class="nf">getMembers</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">Collections</span><span class="p">.</span><span class="na">emptyList</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Notez que nous ne souhaitons pas définir d’autres récipients, nous retournons donc une collection vide dans la méthode <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/channel/MessageChannel.html#getMembers--">MessageChannel#getMembers()</a>.</p>
+<p>Grâce aux capacités des <code class="docutils literal notranslate"><span class="pre">MessageChannel</span></code>s combinés, nous pouvez combiner nos <code class="docutils literal notranslate"><span class="pre">AdminMessageChannel</span></code> nouvellement créés avec n’importe quel autre <code class="docutils literal notranslate"><span class="pre">MessageChannel</span></code>. Maintenant si un player rejoint avec la permission <code class="docutils literal notranslate"><span class="pre">myplugin.admin</span></code>, nous obtiendront le <code class="docutils literal notranslate"><span class="pre">MessageChannel</span></code> auquel ses messages sont envoyés, le combiner avec un <code class="docutils literal notranslate"><span class="pre">AdminMessageChannel</span></code> et définir le canal combiné au joueur. De cette manière tous ces messages seront envoyés à tous les joueurs spécifiés dans le canal original, mais en raison de l’ajout du <code class="docutils literal notranslate"><span class="pre">AdminMessageChannel</span></code>, il sera préfixé d’un tag rouge <code class="docutils literal notranslate"><span class="pre">[Admin]</span></code>.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.entity.living.player.Player</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.event.Listener</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.event.network.ClientConnectionEvent</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.text.channel.MessageChannel</span><span class="p">;</span>
+
+<span class="kd">private</span> <span class="n">AdminMessageChannel</span> <span class="n">adminChannel</span> <span class="o">=</span> <span class="k">new</span> <span class="n">AdminMessageChannel</span><span class="p">();</span>
+
+<span class="nd">@Listener</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onClientConnectionJoin</span><span class="p">(</span><span class="n">ClientConnectionEvent</span><span class="p">.</span><span class="na">Join</span> <span class="n">event</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">Player</span> <span class="n">player</span> <span class="o">=</span> <span class="n">event</span><span class="p">.</span><span class="na">getTargetEntity</span><span class="p">();</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">player</span><span class="p">.</span><span class="na">hasPermission</span><span class="p">(</span><span class="s">&quot;myplugin.admin&quot;</span><span class="p">))</span> <span class="p">{</span>
+        <span class="n">MessageChannel</span> <span class="n">originalChannel</span> <span class="o">=</span> <span class="n">event</span><span class="p">.</span><span class="na">getOriginalChannel</span><span class="p">();</span>
+        <span class="n">MessageChannel</span> <span class="n">newChannel</span> <span class="o">=</span> <span class="n">MessageChannel</span><span class="p">.</span><span class="na">combined</span><span class="p">(</span><span class="n">originalChannel</span><span class="p">,</span>
+            <span class="n">adminChannel</span><span class="p">);</span>
+        <span class="n">player</span><span class="p">.</span><span class="na">setMessageChannel</span><span class="p">(</span><span class="n">newChannel</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Notez que cela va préfixer <cite>tous</cite> les messages se rapportant à un joueur. Cela inclut les messages de mort, les message de déconnexion, etc… Si vous souhaitez seulement préfixer les messages de <cite>chat</cite>, vous devrez écouter à l’événement <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/message/MessageChannelEvent.Chat.html">MessageChannelEvent.Chat</a> et définir le canal à l’événement et non au joueur. Cela se fait en utilisant <code class="docutils literal notranslate"><span class="pre">event.setChannel(newChannel)</span></code> sur l’événement <code class="docutils literal notranslate"><span class="pre">MessageChannelEvent.Chat</span></code>. Pour récupérer le joueur depuis l’événement pour vérifier les permissions, vous aurez besoin de récupérer un <code class="docutils literal notranslate"><span class="pre">Player</span></code> depuis la <code class="docutils literal notranslate"><span class="pre">Cause</span></code> de l’événement. C’est illustré ci-dessous :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Optional</span><span class="o">&lt;</span><span class="n">Player</span><span class="o">&gt;</span> <span class="n">playerOptional</span> <span class="o">=</span> <span class="n">event</span><span class="p">.</span><span class="na">getCause</span><span class="p">().</span><span class="o">&lt;</span><span class="n">Player</span><span class="o">&gt;</span><span class="n">first</span><span class="p">(</span><span class="n">Player</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Plus d’informations sur les causes peuvent être trouvées sur la <a class="reference internal" href="../event/causes.html"><span class="doc">page des causes</span></a>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">En combinant plusieurs <code class="docutils literal notranslate"><span class="pre">MessageChannel</span></code>s en définissant différentes transformations de messages, le <code class="docutils literal notranslate"><span class="pre">Text</span></code> sera transformé dans l’ordre dans lequel les <code class="docutils literal notranslate"><span class="pre">MessageChannel</span></code>s sont passés à la méthode <code class="docutils literal notranslate"><span class="pre">MessageChannel#combined(MessageChannel...</span> <span class="pre">channels)</span></code>. Notez que toutes les transformations résultant en un <code class="docutils literal notranslate"><span class="pre">Optional</span></code> vide seront ignorées sauf si elles sont effectuées par le dernier canal de la chaîne.</p>
+</div>
+</div>
+<div class="section" id="mutable-message-channels">
+<h2>Message Channels Muables<a class="headerlink" href="#mutable-message-channels" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Un <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/channel/MutableMessageChannel.html">MutableMessageChannel</a> contient des méthodes permettant de modifier qui peut recevoir les messages envoyés à travers notre canal. Par conséquent, nous devons implémenter des méthodes pour effectuer des actions qui modifient nos membres. Pour faire ceci, nous allons simplement créer une classe nommée <code class="docutils literal notranslate"><span class="pre">MutableAdminMessageChannel</span></code> qui va implémenter un <code class="docutils literal notranslate"><span class="pre">MutableMessageChannel</span></code>.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">java.util.Collection</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Collections</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Optional</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Set</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.WeakHashMap</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.text.Text</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.text.channel.MessageReceiver</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.text.channel.MutableMessageChannel</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.text.chat.ChatType</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.text.format.TextColors</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MutableAdminMessageChannel</span> <span class="kd">implements</span> <span class="n">MutableMessageChannel</span> <span class="p">{</span>
+
+    <span class="kd">private</span> <span class="n">Set</span><span class="o">&lt;</span><span class="n">MessageReceiver</span><span class="o">&gt;</span> <span class="n">members</span><span class="p">;</span>
+
+    <span class="kd">public</span> <span class="nf">MutableAdminMessageChannel</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">(</span><span class="n">Collections</span><span class="p">.</span><span class="na">emptySet</span><span class="p">());</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="nf">MutableAdminMessageChannel</span><span class="p">(</span><span class="n">Collection</span><span class="o">&lt;</span><span class="n">MessageReceiver</span><span class="o">&gt;</span> <span class="n">members</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">members</span> <span class="o">=</span> <span class="n">Collections</span><span class="p">.</span><span class="na">newSetFromMap</span><span class="p">(</span><span class="k">new</span> <span class="n">WeakHashMap</span><span class="o">&lt;&gt;</span><span class="p">());</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">members</span><span class="p">.</span><span class="na">addAll</span><span class="p">(</span><span class="n">members</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">Collection</span><span class="o">&lt;</span><span class="n">MessageReceiver</span><span class="o">&gt;</span> <span class="nf">getMembers</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">Collections</span><span class="p">.</span><span class="na">unmodifiableSet</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">members</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">addMember</span><span class="p">(</span><span class="n">MessageReceiver</span> <span class="n">member</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">members</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">member</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">removeMember</span><span class="p">(</span><span class="n">MessageReceiver</span> <span class="n">member</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">members</span><span class="p">.</span><span class="na">remove</span><span class="p">(</span><span class="n">member</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">clearMembers</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">members</span><span class="p">.</span><span class="na">clear</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">Optional</span><span class="o">&lt;</span><span class="n">Text</span><span class="o">&gt;</span> <span class="nf">transformMessage</span><span class="p">(</span><span class="n">Object</span> <span class="n">sender</span><span class="p">,</span> <span class="n">MessageReceiver</span> <span class="n">recipient</span><span class="p">,</span>
+                <span class="n">Text</span> <span class="n">original</span><span class="p">,</span> <span class="n">ChatType</span> <span class="n">type</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">Text</span> <span class="n">text</span> <span class="o">=</span> <span class="n">original</span><span class="p">;</span>
+        <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">members</span><span class="p">.</span><span class="na">contains</span><span class="p">(</span><span class="n">recipient</span><span class="p">))</span> <span class="p">{</span>
+            <span class="n">text</span> <span class="o">=</span> <span class="n">Text</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">TextColors</span><span class="p">.</span><span class="na">RED</span><span class="p">,</span> <span class="s">&quot;[Admin]&quot;</span><span class="p">,</span> <span class="n">TextColors</span><span class="p">.</span><span class="na">RESET</span><span class="p">,</span> <span class="n">text</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">Optional</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">text</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>La différence principale entre notre <code class="docutils literal notranslate"><span class="pre">AdminMessageChannel</span></code> et notre nouveau <code class="docutils literal notranslate"><span class="pre">MutableAdminMessageChannel</span></code> est que nous vérifions si le destinataire est dans la liste des membres avant de transformer le message. Si il y est, alors nous pouvons altérer le message qui est envoyé, en ajoutant le tag rouge <code class="docutils literal notranslate"><span class="pre">[Admin]</span></code>. Dans notre méthode <code class="docutils literal notranslate"><span class="pre">getMembers()</span></code> nous retournons un set immuable, pour que le set puisse seulement être modifié par les méthodes appropriées dans notre <code class="docutils literal notranslate"><span class="pre">MutableAdminMessageChannel</span></code>.</p>
+<p>Notez qu’une implémentation abstraite pour les <code class="docutils literal notranslate"><span class="pre">MutableMessageChannel</span></code>s existe dans SpongeAPI en tant qu”<code class="docutils literal notranslate"><span class="pre">AbstractMutableMessageChannel</span></code>. Notez également que nos membres ne persistent pas. Si un joueur devait quitter le serveur, alors il serait enlevé du set.</p>
+<div class="section" id="modifying-the-members">
+<h3>Modification des Membres<a class="headerlink" href="#modifying-the-members" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Pour tirer pleinement parti de nos <code class="docutils literal notranslate"><span class="pre">MutableAdminMessageChannel</span></code>, nous devons être capable d’ajouter et d’enlever des membres du canal. Pour faire ceci, nous pouvons simplement appeler nos méthodes <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/channel/MutableMessageChannel.html#addMember-org.spongepowered.api.text.channel.MessageReceiver-">MutableMessageChannel#addMember(MessageReceiver)</a> et <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/channel/MutableMessageChannel.html#removeMember-org.spongepowered.api.text.channel.MessageReceiver-">MutableMessageChannel#removeMember(MessageReceiver)</a> que nous avons implémentées précédemment lorsque nous avons besoin d’ajouter ou d’enlever un membre du set.</p>
+</div>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="templates.html" class="btn btn-neutral float-right" title="TextTemplates" accesskey="n" rel="next">Suivant <span class="fa fa-angle-right"></span></a>
+        <a href="pagination.html" class="btn btn-neutral" title="Le Service de Pagination" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> Précédent</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../../_static/flags/fr_FR.svg"
+         alt="fr" title="Français">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../../_static/jquery.js"></script>      <script type="text/javascript" src="../../_static/underscore.js"></script>      <script type="text/javascript" src="../../_static/doctools.js"></script>      <script type="text/javascript" src="../../_static/language_data.js"></script>      <script type="text/javascript" src="../../_static/translations.js"></script>      <script type="text/javascript" src="../../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

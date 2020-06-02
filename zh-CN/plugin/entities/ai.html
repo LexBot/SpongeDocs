@@ -1,0 +1,356 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>实体 AI &mdash; Sponge 7.2.0 文档</title>
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="索引"
+              href="../../genindex.html"/>        <link rel="search" title="搜索" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 文档" href="../../index.html"/>        <link rel="up" title="实体" href="index.html"/>        <link rel="next" title="实现自定义 AITask" href="custom-ai.html"/>        <link rel="prev" title="修改一个实体" href="modifying.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../../index.html">
+            <img src="../../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../server/index.html">创建服务器</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../versions/index.html">版本策略</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../preparing/index.html">为开发作准备</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">插件开发</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../api-versions.html">API版本</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../buildsystem.html">构建系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../workspace/index.html">设置开发环境</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../project/index.html">设置你的项目</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-identifier.html">插件标识符</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-class.html">插件的主类</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lifecycle.html">插件的生命周期</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../injection.html">依赖注入</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../practices/index.html">插件开发惯例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../optional/index.html">使用 Optional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../logging.html">日志记录和调试</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text/index.html">文本 API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/index.html">插件命令</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../event/index.html">事件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/index.html">插件配置</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assets.html">使用 Asset API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data/index.html">数据 API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../blocks/index.html">方块</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">实体</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="spawning.html">生成一个实体</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modifying.html">修改一个实体</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">实体 AI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="custom-ai.html">实现自定义 <code class="docutils literal notranslate"><span class="pre">AITask</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../items/index.html">物品</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../trade-offers.html">村民交易</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../effects.html">效果</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../scheduler.html">调度器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../services.html">服务</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database.html">数据库</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../permissions.html">权限</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bans.html">黑名单</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metrics.html">Metrics 收集</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bookview.html">成书</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../economy/index.html">经济 API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wgen/index.html">世界生成</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manager.html">插件管理器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../game-profile-manager.html">玩家资料管理器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../offline-userplayer-data.html">离线玩家数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tab-lists.html">玩家列表</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-meta.html">插件的元数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ray-tracing.html">光线追踪</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../debugging.html">调试插件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials.html">教程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internals/index.html">依赖底层实现</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ore/index.html">Ore 文档</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/index.html">向 Sponge 贡献代码</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">关于 Sponge</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+          <li><a href="../index.html">插件开发</a> &raquo;</li>
+          <li><a href="index.html">实体</a> &raquo;</li>
+    <li>实体 AI</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/plugin/entities/ai.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="entity-ai">
+<h1>实体 AI<a class="headerlink" href="#entity-ai" title="永久链接至标题">¶</a></h1>
+<p>实体 AI （和现实中的 AI 不同）控制执行类实体（Agent）的行为。它包含目标（例如击败敌人）和更小的任务（例如靠近敌人和用武器攻击）。下面阐述实体 AI 中目标、任务和其他的部分，也会介绍如何改变实体的行为和如何写自定义 AI。</p>
+<div class="section" id="agents">
+<h2>执行类实体（Agent）<a class="headerlink" href="#agents" title="永久链接至标题">¶</a></h2>
+<p>一个执行类实体（<a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/living/Agent.html">Agent</a>）是一种有 AI 和生命的:javadoc:<cite>Entity</cite>，可以执行一般生物的行为。要检查一个``Entity``是否为``Agent``可以直接强转。</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.entity.living.Agent</span><span class="p">;</span>
+
+<span class="n">World</span> <span class="n">world</span> <span class="o">=</span> <span class="p">...;</span>
+<span class="n">UUID</span> <span class="n">uuid</span> <span class="o">=</span> <span class="p">...;</span>
+
+<span class="n">Agent</span> <span class="n">entity</span> <span class="o">=</span> <span class="p">(</span><span class="n">Agent</span><span class="p">)</span> <span class="n">world</span><span class="p">.</span><span class="na">getEntity</span><span class="p">(</span><span class="n">uuid</span><span class="p">).</span><span class="na">get</span><span class="p">();</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">entity</span><span class="p">.</span><span class="na">getAgentData</span><span class="p">().</span><span class="na">aiEnabled</span><span class="p">().</span><span class="na">get</span><span class="p">())</span> <span class="p">{</span>
+    <span class="n">configureAI</span><span class="p">(</span><span class="n">entity</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>在强转后，我们还可以检查 AI 是否启用。一些插件禁用 AI 来制作雕像、守卫、商店和其他 NPC。</p>
+</div>
+<div class="section" id="goals">
+<h2>目标<a class="headerlink" href="#goals" title="永久链接至标题">¶</a></h2>
+<p>在原版 Minecraft 中有两 :javadoc:` GoalTypes {种}` :javadoc:` Goal {目标}`。</p>
+<p>第一个是默认的 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/ai/GoalTypes.html#NORMAL">NORMAL</a>。AI 的这一部分控制实体的行为。这个目标的任务有使用近战或远程武器攻击一个目标和在周围没有敌人时闲逛。如果我们想要覆盖或修改这类 AI, 我们通常会改动这个目标及其任务。</p>
+<p>第二个目标是 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/ai/GoalTypes.html#TARGET">TARGET</a>，适合敌对生物。 这个目标里面的任务让实体选择敌人，然后实体会使用正常目标攻击敌人。TARGET 目标包含诸如选择最近可攻击目标和选择攻击您的敌人以反击的任务。</p>
+<p>下面的代码从实体获取 <code class="docutils literal notranslate"><span class="pre">NORMAL</span></code> 目标并清除其中任务。</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.entity.ai.Goal</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.entity.ai.GoalTypes</span><span class="p">;</span>
+
+<span class="n">Agent</span> <span class="n">entity</span> <span class="o">=</span> <span class="p">...;</span>
+
+<span class="n">Optional</span><span class="o">&lt;</span><span class="n">Goal</span><span class="o">&lt;</span><span class="n">Agent</span><span class="o">&gt;&gt;</span> <span class="n">normalGoal</span> <span class="o">=</span> <span class="n">entity</span><span class="p">.</span><span class="na">getGoal</span><span class="p">(</span><span class="n">GoalTypes</span><span class="p">.</span><span class="na">NORMAL</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">normalGoal</span><span class="p">.</span><span class="na">isPresent</span><span class="p">())</span> <span class="p">{</span>
+    <span class="n">normalGoal</span><span class="p">.</span><span class="na">get</span><span class="p">().</span><span class="na">clear</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>只有一个空的目标的实体是不会自己移动的，但它会首先完成当前的动作（或移动）并进入“待机状态”（比如直直地盯着前面看）。AI 不受任何实体随机播放的音效的影响。</p>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">请注意，直接修改目标或目标下的 <code class="docutils literal notranslate"><span class="pre">AITask</span></code> 会直接修改目标实体，这一点和其他 API 中需要重新将返回的复本应用回目标上不一样。这也意味着你不能直接将 <code class="docutils literal notranslate"><span class="pre">AITask</span></code> 从一个实体转移到另一实体上。</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">服务器重启后（或实体卸载后），所有对实体 AI 的修改都会消失。</p>
+</div>
+</div>
+<div class="section" id="tasks">
+<h2>任务<a class="headerlink" href="#tasks" title="永久链接至标题">¶</a></h2>
+<p>很多不同种实体的行为其实是相近的。有鉴于此，实体 AI 被拆分成了大量零碎的 AI，每一个小部分都可以复用，这样一个小部分便是一个 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/ai/task/AITask.html">AITask</a>。每一个 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/ai/task/AITask.html">AITask</a> 都代表了实体的某一类行为，比如说 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/ai/task/AITaskTypes.html#WATCH_CLOSEST">WATCH_CLOSEST</a> 会令实体盯着最近的某一个匹配中的实体看，而 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/ai/task/AITaskTypes.html#AVOID_ENTITY">AVOID_ENTITY</a> 会令实体避开所有匹配中的实体。</p>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">原版 Minecraft 提供了大量 <code class="docutils literal notranslate"><span class="pre">AITask</span></code>，但绝大多数还无法通过 API 访问。</p>
+</div>
+<div class="section" id="adding-additional-aitasks">
+<h3>添加 AI 任务<a class="headerlink" href="#adding-additional-aitasks" title="永久链接至标题">¶</a></h3>
+<p>将 <code class="docutils literal notranslate"><span class="pre">AITask</span></code> 添加到 <code class="docutils literal notranslate"><span class="pre">Entity</span></code> 的目标是相当容易的。我们从创建一个简单的``AITask``开始。</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.entity.ai.task.builtin.WatchClosestAITask</span><span class="p">;</span>
+
+<span class="n">Agent</span> <span class="n">entity</span> <span class="o">=</span> <span class="p">...;</span>
+<span class="n">Goal</span><span class="o">&lt;</span><span class="n">Agent</span><span class="o">&gt;</span> <span class="n">goal</span> <span class="o">=</span> <span class="p">...;</span>
+
+<span class="n">WatchClosestAITask</span> <span class="n">watchClosestAiTask</span> <span class="o">=</span> <span class="n">WatchClosestAITask</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
+        <span class="p">.</span><span class="na">chance</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="p">.</span><span class="na">maxDistance</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
+        <span class="p">.</span><span class="na">watch</span><span class="p">(</span><span class="n">Player</span><span class="p">.</span><span class="na">class</span><span class="p">)</span>
+        <span class="p">.</span><span class="na">build</span><span class="p">(</span><span class="n">entity</span><span class="p">);</span>
+<span class="n">goal</span><span class="p">.</span><span class="na">addTask</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">watchClosestAiTask</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>在这个例子中，我们使用了对应的 builder 来创建 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/ai/task/builtin/WatchClosestAITask.html">WatchClosestAITask</a> 对象，其中我们定义触发该目标的概率是 100%。因此，这个实体会看着距离其 30 格内最近的 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/living/player/Player.html">Player</a>。我们为其赋予的优先级是 0，它代表最高优先级，因此它会先于所有其他 <code class="docutils literal notranslate"><span class="pre">AITask</span></code> 执行。</p>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">Minecraft 的优先值里，小数值优先。默认情况下, Minecraft 使用从 0 到 10 的优先级。</p>
+</div>
+</div>
+<div class="section" id="removing-certain-aitasks">
+<h3>移除 AI 任务<a class="headerlink" href="#removing-certain-aitasks" title="永久链接至标题">¶</a></h3>
+<p>移除``AITask``会比较困难，有模组实体和自定义 AI 时会雪上加霜。Sponge API 有一种方法让插件辨别 AI 任务。呼叫 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/ai/task/AITask.html#getType--">AITask#getType()</a> 会返回 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/ai/task/AITaskType.html">AITaskType</a>，能够让插件辨别 AI 任务种类。</p>
+<p>我们先试试看没有其它插件或模组影响时进行移除：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Goal</span><span class="o">&lt;</span><span class="n">Zombie</span><span class="o">&gt;</span> <span class="n">goal</span> <span class="o">=</span> <span class="p">...;</span>
+
+<span class="n">AITask</span><span class="o">&lt;</span><span class="n">Zombie</span><span class="o">&gt;</span> <span class="n">attackTask</span> <span class="o">=</span> <span class="p">(</span><span class="n">AITask</span><span class="o">&lt;</span><span class="n">Zombie</span><span class="o">&gt;</span><span class="p">)</span> <span class="n">goal</span><span class="p">.</span><span class="na">getTasks</span><span class="p">().</span><span class="na">get</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span> <span class="c1">// EntityAIZombieAttack</span>
+<span class="n">goal</span><span class="p">.</span><span class="na">removeTask</span><span class="p">(</span><span class="n">attackTask</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>在这个例子中，我们直接假定在 Minecraft 1.12.2 中 <code class="docutils literal notranslate"><span class="pre">Zombie</span></code> 的第二个 <code class="docutils literal notranslate"><span class="pre">AITask</span></code> 是 <code class="docutils literal notranslate"><span class="pre">EntityAIZombieAttack</span></code>。在此之后你就不用担心僵尸会来打你了。你也应该已经意识到了，这样操作存在诸多缺陷，比如假定 <code class="docutils literal notranslate"><span class="pre">Zombie</span></code> 的 <code class="docutils literal notranslate"><span class="pre">AITask</span></code> 是按某种顺序排列的。</p>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">请勿从:javadoc:<cite>Goal#getTasks()`返回的列表中移除``AITask`</cite>；那个列表不可改动。</p>
+</div>
+<p>另一种更简单但功能稍弱的方式是按类型移除。如果你不需要依赖 <code class="docutils literal notranslate"><span class="pre">AITask</span></code> 的内部信息以精确确定要移除的 AI 的话，你应当优先使用这个方式。</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">goal</span><span class="p">.</span><span class="na">removeTasks</span><span class="p">(</span><span class="n">AITaskTypes</span><span class="p">.</span><span class="na">WANDER</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>在这个例子中，我们移除了所有类型是 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/ai/task/AITaskTypes.html#WANDER">WANDER</a> 的 <code class="docutils literal notranslate"><span class="pre">AITask</span></code>。</p>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">有鉴于目前 <code class="docutils literal notranslate"><span class="pre">AITaskType</span></code> 的 API 支持还不完整，这个方法的局限非常大。</p>
+</div>
+<p>如果你想移除所有的 <code class="docutils literal notranslate"><span class="pre">AITask</span></code> 然后从零开始定义实体 AI，你可以调用 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/ai/Goal.html#clear--">Goal#clear()</a>。</p>
+</div>
+<div class="section" id="implement-your-own-aitask">
+<h3>编写自定义 AI 任务<a class="headerlink" href="#implement-your-own-aitask" title="永久链接至标题">¶</a></h3>
+<p>我们也可以实现自己的 <code class="docutils literal notranslate"><span class="pre">AITask</span></code>。“<a class="reference internal" href="custom-ai.html"><span class="doc">实现自定义 AITask</span></a>”一文描述了实现 <code class="docutils literal notranslate"><span class="pre">AITask</span></code> 的过程及中途可能会遇到的问题。</p>
+</div>
+<div class="section" id="events">
+<h3>事件<a class="headerlink" href="#events" title="永久链接至标题">¶</a></h3>
+<p>AI API 和 SpongeAPI 其他部分一样用到了事件。关于事件系统的详细描述可参考<a class="reference internal" href="../event/index.html"><span class="doc">这里</span></a>。</p>
+<p>AI API 是用来下列三个事件：</p>
+<ul class="simple">
+<li><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/entity/ai/AITaskEvent.Add.html">AITaskEvent.Add</a></li>
+<li><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/entity/ai/AITaskEvent.Remove.html">AITaskEvent.Remove</a></li>
+<li><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/entity/ai/SetAITargetEvent.html">SetAITargetEvent</a></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">AITaskEvent.Add</span></code> 事件会在新的 <code class="docutils literal notranslate"><span class="pre">AITask</span></code> 加入 <code class="docutils literal notranslate"><span class="pre">Goal</span></code> 时发布；相应的，<code class="docutils literal notranslate"><span class="pre">AITaskEvent.Remove</span></code> 事件会在某一 <code class="docutils literal notranslate"><span class="pre">AITask</span></code> 移除时发布。</p>
+<p><code class="docutils literal notranslate"><span class="pre">SetAITargetEvent</span></code> 在 <code class="docutils literal notranslate"><span class="pre">Agent</span></code> 每次选择新针对实体（一般是攻击目标）或者清除针对实体时触发。</p>
+<p>这些事件都可以取消。这样，我们可以避免第三方改动自定义实体的 AI。</p>
+</div>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="custom-ai.html" class="btn btn-neutral float-right" title="实现自定义 AITask" accesskey="n" rel="next">下一页 <span class="fa fa-angle-right"></span></a>
+        <a href="modifying.html" class="btn btn-neutral" title="修改一个实体" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> 上一页</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../../_static/flags/zh_CN.svg"
+         alt="zh-CN" title="简体中文">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../../_static/jquery.js"></script>      <script type="text/javascript" src="../../_static/underscore.js"></script>      <script type="text/javascript" src="../../_static/doctools.js"></script>      <script type="text/javascript" src="../../_static/language_data.js"></script>      <script type="text/javascript" src="../../_static/translations.js"></script>      <script type="text/javascript" src="../../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

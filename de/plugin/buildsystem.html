@@ -1,0 +1,267 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Build Systeme &mdash; Sponge 7.2.0 Dokumentation</title>
+
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="Stichwortverzeichnis"
+              href="../genindex.html"/>        <link rel="search" title="Suche" href="../search.html"/>    <link rel="top" title="Sponge 7.2.0 Dokumentation" href="../index.html"/>        <link rel="up" title="Plugins erstellen" href="index.html"/>        <link rel="next" title="Den Arbeitsbereich einrichten" href="workspace/index.html"/>        <link rel="prev" title="API-Versionen" href="api-versions.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../index.html">
+            <img src="../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../server/index.html">Einen Server erstellen</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../versions/index.html">Versionsrichtlinie</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../preparing/index.html">Die Arbeitsumgebung einrichten</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Plugins erstellen</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="api-versions.html">API-Versionen</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Build Systeme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workspace/index.html">Den Arbeitsbereich einrichten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project/index.html">Das Projekt einrichten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin-identifier.html">Plugin Identifiers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin-class.html">Hauptklasse des Plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lifecycle.html">Der Plugin-Lebenszyklus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="injection.html">Dependency Injection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="practices/index.html">Vorgehensweisen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optional/index.html">Optionals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.html">Loggen und Debugging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="text/index.html">Text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands/index.html">Plugin Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="event/index.html">Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration/index.html">Plugins konfigurieren</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assets.html">Die Dateianhang API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data/index.html">The Data API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/index.html">Blöcke</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entities/index.html">Entities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="items/index.html">Gegenstände</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trade-offers.html">Trade-Offers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="effects.html">Effekte</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scheduler.html">Scheduler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="services.html">Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="database.html">Datenbanken</a></li>
+<li class="toctree-l2"><a class="reference internal" href="permissions.html">Permissions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bans.html">Banne</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metrics.html">Metrics Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bookview.html">Bücher</a></li>
+<li class="toctree-l2"><a class="reference internal" href="economy/index.html">Wirtschaft</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wgen/index.html">Weltgenerierung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manager.html">Plugin-Manager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="game-profile-manager.html">Game Profile Manager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="offline-userplayer-data.html">Offline Player Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tab-lists.html">Tab Lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin-meta.html">Plugin Metadaten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ray-tracing.html">Ray Tracing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="debugging.html">Plugins Debuggen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials.html">Tutorials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internals/index.html">Implementation-dependent Plugins</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ore/index.html">Ore Dokumentation</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contributing/index.html">Zu Sponge beitragen</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">Über das Sponge Projekt</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+          <li><a href="index.html">Plugins erstellen</a> &raquo;</li>
+    <li>Build Systeme</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/plugin/buildsystem.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="build-systems">
+<h1>Build Systeme<a class="headerlink" href="#build-systems" title="Link zu dieser Überschrift">¶</a></h1>
+<p>Build Systeme wie <a class="reference external" href="https://gradle.org/">Gradle</a> oder <a class="reference external" href="https://maven.apache.org/">Maven</a> können den Build-Prozess von einem Projekt verwalten. Als ein von der IDE unabhängiges Tool kannst du diese nutzen um die Abhängigkeiten von der SpongeAPI oder anderen Plugins zu verwalten und anderen einen einfachen Weg zu bieten dein Plugin aus dem Quellcode zu erstellen.</p>
+<div class="admonition note">
+<p class="first admonition-title">Bemerkung</p>
+<p class="last">Die SpongeAPI verlangt <strong>kein</strong> Build-System um Plugins zu erstellen, es ist allerdings empfohlen eines zu verwenden. Die folgenden Abschnitte, mit Ausnahme des Abschnitts <a class="reference internal" href="#creating-a-plugin-without-a-build-system">Ein Plugin ohne Build-System erstellen</a>, gehen davon aus, dass ein Build-System verwendet wird, welches die Abhängigkeiten verwaltet.</p>
+</div>
+<p>Im Allgemeinen kannst du jedes Build-System benutzen, das <em>Maven Abhängigkeiten</em> unterstützt, welches ein Standard ist, der von der Mehrheit der Build Systeme für Java unterstützt wird. Die folgenden Abschnitte werden sich auf <a class="reference external" href="https://gradle.org/">Gradle</a> und <a class="reference external" href="https://maven.apache.org/">Maven</a> fokussieren, welche die zwei meist verwendeten Build-Systeme sind. Wenn du unsicher bist, für welches du dich entscheiden sollst, empfehlen wir dir die Benutzung von <a class="reference external" href="https://gradle.org/">Gradle</a>, da dies auch für die Sponge Projekte verwendet wird und die beste Integration für Sponge Plugins bietet.</p>
+<div class="section" id="gradle">
+<span id="gradle-setup"></span><h2>Gradle<a class="headerlink" href="#gradle" title="Link zu dieser Überschrift">¶</a></h2>
+<p><a class="reference external" href="https://gradle.org/">Gradle</a> verwendet <a class="reference external" href="https://www.groovy-lang.org/">Groovy</a>- oder <a class="reference external" href="https://kotlinlang.org/">Kotlin</a>-basierte Skripts für die Konfiguration von Projekten. Ein <a class="reference external" href="https://gradle.org/">Gradle</a> Projekt besteht typischerweise aus einer <code class="docutils literal notranslate"><span class="pre">build.gradle</span></code>-Datei im Stammverzeichnis Ihres Projekts, die <a class="reference external" href="https://gradle.org/">Gradle</a> erklärt, wie das Projekt gebaut werden soll.</p>
+<div class="admonition tip">
+<p class="first admonition-title">Tipp</p>
+<p class="last">Beziehe dich auf das <a class="reference external" href="https://docs.gradle.org/current/userguide/userguide.html">Gradle User Guide</a> für die Installation und eine allgemeine Einführung in das Konzept von <a class="reference external" href="https://gradle.org/">Gradle</a>. Wenn du nur an der Verwendung von <a class="reference external" href="https://gradle.org/">Gradle</a> für einfache Java Projekte interessiert bist, wäre der <a class="reference external" href="https://docs.gradle.org/current/userguide/building_java_projects.html">Gradle Java Quickstart</a> ein guter Einstieg.</p>
+</div>
+<p>Richte deine Arbeitsumgebung ein wie in <a class="reference internal" href="workspace/index.html"><span class="doc">Den Arbeitsbereich einrichten</span></a> erklärt, folge dann <a class="reference internal" href="project/gradle.html"><span class="doc">Gradle einrichten</span></a>.</p>
+</div>
+<div class="section" id="maven">
+<h2>Maven<a class="headerlink" href="#maven" title="Link zu dieser Überschrift">¶</a></h2>
+<p><a class="reference external" href="https://maven.apache.org/">Maven</a> verwendet eine XML-basierte Konfiguration namens <a class="reference external" href="https://maven.apache.org/guides/introduction/introduction-to-the-pom.html">Project Object Model</a> (oder <em>POM</em>) für die Konfiguration von Projekten. Ein <a class="reference external" href="https://maven.apache.org/">Maven</a>-Projekt enthält in der Regel eine <code class="docutils literal notranslate"><span class="pre">pom.xml</span></code> Datei im Stammverzeichnis des Projekts, die <a class="reference external" href="https://maven.apache.org/">Maven</a> erklärt, wie das Projekt gebaut werden soll.</p>
+<div class="admonition tip">
+<p class="first admonition-title">Tipp</p>
+<p class="last">Beziehe dich auf das <a class="reference external" href="https://maven.apache.org/users/index.html">Maven Users Centre</a> für die Installation und eine allgemeine Einführung in das Konzept von <a class="reference external" href="https://maven.apache.org/">Maven</a>. Wenn du nur an der Verwendung von <a class="reference external" href="https://maven.apache.org/">Maven</a> für einfache Java Projekte interessiert bist, wäre <a class="reference external" href="https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html">Maven in 5 Minutes</a> ein guter Einstieg.</p>
+</div>
+<p>Richte deine Arbeitsumgebung ein wie in <a class="reference internal" href="workspace/index.html"><span class="doc">Den Arbeitsbereich einrichten</span></a> erklärt, folge dann <a class="reference internal" href="project/maven.html"><span class="doc">Maven einrichten</span></a>.</p>
+</div>
+<div class="section" id="creating-a-plugin-without-a-build-system">
+<h2>Ein Plugin ohne Build-System erstellen<a class="headerlink" href="#creating-a-plugin-without-a-build-system" title="Link zu dieser Überschrift">¶</a></h2>
+<p>Es ist auch möglich Sponge Plugins ohne den Einsatz eines Build Systems, nur mit den mitgelieferten Werkzeugen in deiner IDE zu erstellen.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warnung</p>
+<p class="last"><strong>Wir sprechen uns deutlich gegen die Verwendung der SpongeAPI ohne Build-System aus.</strong> Auf lange Sichte vereinfacht die Verwendung eines Build-Systems den Entwicklungsprozess für dich und andere, die zu deinem Projekt beitragen möchten. Diese Methode der Entwicklung von Plugins wird nicht aktiv vom Sponge Team getestet.</p>
+</div>
+<p>For developing plugins without a build system, you need to download the SpongeAPI dependency manually from the
+<a class="reference external" href="https://www.spongepowered.org/downloads/spongeapi/">SpongeAPI Download Page</a>. For developing without a build system, we provide the <code class="docutils literal notranslate"><span class="pre">shaded</span></code> artifact which bundles all
+dependencies that would normally be automatically downloaded by the build system.</p>
+<p>Nachdem du das <code class="docutils literal notranslate"><span class="pre">shaded</span></code> Artefakt heruntergeladen hast und es in der IDE dem Projekt hinzugefügt hast, kannst du die Entwicklung an deinem Plugin beginnen. Fahre fort mit <a class="reference internal" href="plugin-identifier.html"><span class="doc">Plugin Identifiers</span></a>, um eine Identifizierung für dein Projekt zu wählen, und anschließen mit <a class="reference internal" href="plugin-class.html"><span class="doc">Hauptklasse des Plugins</span></a>.</p>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="workspace/index.html" class="btn btn-neutral float-right" title="Den Arbeitsbereich einrichten" accesskey="n" rel="next">Nächste <span class="fa fa-angle-right"></span></a>
+        <a href="api-versions.html" class="btn btn-neutral" title="API-Versionen" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> Vorherige</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../_static/flags/de_DE.svg"
+         alt="de" title="Deutsch">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../_static/jquery.js"></script>      <script type="text/javascript" src="../_static/underscore.js"></script>      <script type="text/javascript" src="../_static/doctools.js"></script>      <script type="text/javascript" src="../_static/language_data.js"></script>      <script type="text/javascript" src="../_static/translations.js"></script>      <script type="text/javascript" src="../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

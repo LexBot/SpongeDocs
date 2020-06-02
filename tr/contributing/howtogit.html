@@ -1,0 +1,409 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GitHub nasıl kullanılır &mdash; Sponge 7.2.0 belgelendirme çalışması</title>
+
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="Dizin"
+              href="../genindex.html"/>        <link rel="search" title="Ara" href="../search.html"/>    <link rel="top" title="Sponge 7.2.0 belgelendirme çalışması" href="../index.html"/>        <link rel="up" title="Sponge’a Katkı Sağlama" href="index.html"/>        <link rel="next" title="Sponge Geliştirme" href="implementation/index.html"/>        <link rel="prev" title="Katkı Kuralları" href="guidelines.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../index.html">
+            <img src="../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../server/index.html">Bir sunucu oluşturma</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../versions/index.html">Versioning Policy</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../preparing/index.html">Geliştirme için hazırlanıyor</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../plugin/index.html">Bir eklenti oluşturma</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ore/index.html">Ore Dökümanları</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Sponge’a Katkı Sağlama</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="guidelines.html">Katkı Kuralları</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">GitHub nasıl kullanılır</a></li>
+<li class="toctree-l2"><a class="reference internal" href="implementation/index.html">Sponge Geliştirme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spongedocs.html">SpongeDocs’un Yazıları</a></li>
+<li class="toctree-l2"><a class="reference internal" href="porting.html">Sponge’un diğer platformlara taşınması</a></li>
+<li class="toctree-l2"><a class="reference internal" href="versioning.html">Repository Branch Layout</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">Sponge Projesi Hakkında</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+          <li><a href="index.html">Sponge’a Katkı Sağlama</a> &raquo;</li>
+    <li>GitHub nasıl kullanılır</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/contributing/howtogit.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="how-to-git-hub">
+<h1>GitHub nasıl kullanılır<a class="headerlink" href="#how-to-git-hub" title="Bu başlığın kalıcı bağlantısı">¶</a></h1>
+<p>Sponge’un oluşturulmasına yardımcı olmak mı istiyorsunuz? API’ye harika bir eklentiniz mi var? veya Google Dokümanlarımızı iyileştirmek mi istiyorsunuz? <code class="docutils literal notranslate"><span class="pre">git</span></code> ve GitHub konusunda bilgi sahibi olmanız gerekir. Zincirleme, dallar, sorun, çekme isteği ve işleme hakkında zaten bilginiz varsa, o zaman bu konuyu atlayın. Ne hakkında konuştuğumuzu bilmiyorsanız okumaya devam edin.</p>
+<div class="admonition note">
+<p class="first admonition-title">Not</p>
+<p class="last">This guide assumes that you’ve read <a class="reference internal" href="../preparing/git.html"><span class="doc">Git’i kurmak</span></a> and that you’ve already setup your machine with a Git
+client of your choice.</p>
+</div>
+<div class="section" id="the-basic-concept-of-git-and-github">
+<h2>Git ve GitHub’un Temel Kavramı<a class="headerlink" href="#the-basic-concept-of-git-and-github" title="Bu başlığın kalıcı bağlantısı">¶</a></h2>
+<p>Git birçok farklı geliştiricinin aynı anda tek bir yazılım geliştirmesine olanak tanır. GitHub, geliştiricilerin ortak çalışma yapabilecekleri ve çalışmalarını başkalarıyla paylaşabilecekleri bir web sitesidir. GitHub söz konusu çalışmanın yönetimi için Git’e güveniyor.</p>
+<div class="admonition tip">
+<p class="first admonition-title">Tüyo</p>
+<p class="last">Git ve GitHub kelime dağarcıklarını bilmiyorsanız, GitHub’daki <a class="reference external" href="https://help.github.com/articles/github-glossary/">sözlük sayfasına</a> bir göz atın.</p>
+</div>
+<img alt="Repo Overview" src="../_images/repo-overview.svg" /><p>Bu durumda repo “SpongePowered” olarak adlandırılır, “master” ve “feature 1” isimli iki şubeye sahiptir ve bazıları her iki şubeye de taahhüt eder.</p>
+<p>Bu şartları bağlam içine koyalım - <em>depo * ile başlayalım-. Depo (kısa: * repo *), bir projenin dosyalarını depoladığı yerdir. SpongePowered depoları `GitHub &lt;https://github.com/SpongePowered&gt;` __ adresinde bulunur. Bununla birlikte, bu repo’nun istenmeyen veya kötü amaçlı değişikliklerden korunması için bazı erişim kısıtlamaları var. Repo, normal kullanıcılar için salt okunur olduğundan, kendi kendinize basitçe değişiklik yapamazsınız. Şimdi, teklif ve değişiklikleri nasıl yapmanız gerektiğini merak ediyorsunuzdur. İşte, burada *çatallar</em> devreye giriyor. SpongePowered repolarının bir kopyasını alabilir ve orada değişiklikleri yapabilirsiniz. İşiniz bittiğinde depomuzda bir çekme isteği (<em>PR</em>) olarak açarsınız. Önerilen eklemeleriniz ve değişiklikleriniz daha sonra incelenebilir ve personel, bir şeyler yanlış ise veya iyileştirme ihtiyacı duyuluyorsa size söyleyecek ve sonuçta son PR’yi birleştirecektir.</p>
+<p>Aşağıda, ayrıntılara girmeden önce açıklanan yordamın kısa bir özetini bulabilirsiniz:</p>
+<ol class="arabic simple">
+<li>İstediğin repoyu çatalla</li>
+<li>Yerel makinenize kopyalayın</li>
+<li>Yeni bir şube oluştur</li>
+<li>İstediğiniz değişiklikleri yapın</li>
+<li>Her şeyin yolunda olup olmadığını test edin</li>
+<li>Değişiklikleri uygula</li>
+<li>Onları GitHub’a senkronize et</li>
+<li>PR’deki değişiklikleri SpongePowered Repo’ya önerin</li>
+<li>Gerekirse PR’nize değiştirin</li>
+<li>PR’ın senin profilin üzerinden yöneticiye ilet</li>
+</ol>
+</div>
+<div class="section" id="details-please">
+<h2>Detaylar lütfen!<a class="headerlink" href="#details-please" title="Bu başlığın kalıcı bağlantısı">¶</a></h2>
+<div class="section" id="forking-a-repo">
+<h3>1. Bir Repo çatallanıyor<a class="headerlink" href="#forking-a-repo" title="Bu başlığın kalıcı bağlantısı">¶</a></h3>
+<div class="admonition note">
+<p class="first admonition-title">Not</p>
+<p class="last">Bu adım, yalnızca değişiklik yaptığınız repo üzerinde itme haklarınız yoksa gereklidir. Kendi reponuz üzerinde çalışıyorsanız, çatala gerek yoktur. Bu adımı atlayın ve doğrudan <code class="docutils literal notranslate"><span class="pre">clone</span></code> yapın. Sponge değişikliği yapıyorsanız ve <strong>personel</strong> değilseniz, bu adım gereklidir.</p>
+</div>
+<p>Artık temel konsepti bildiğinize göre ayrıntıları tartışacağız. Öncelikle, değişiklik yapmak istediğiniz depoyu çatallamanız gerekir. Bu GitHub.com’da, depolar sayfasının üst kısmında bulabileceğiniz bir yerde “Çatal” butonuyla yapılabilir. Tıkladıktan sonra, GitHub biraz iş yapacak ve orijinal repo kopyasını size sunacak. Klonun şimdi `` YourGitHubAccount / ClonedRepoName`` konumunda bulunduğunu göreceksiniz. Tamam, ilk adım tamamlandı.</p>
+<div class="admonition note">
+<p class="first admonition-title">Not</p>
+<p class="last">All branches from the original repository will get forked too, you receive an exact clone of the forked repo.</p>
+</div>
+<img alt="Repo forking" src="../_images/repo-fork.svg" /></div>
+<div class="section" id="cloning-the-fork-to-your-local-machine">
+<h3>2. Çatalın Yerel Makinenize Klonlanması<a class="headerlink" href="#cloning-the-fork-to-your-local-machine" title="Bu başlığın kalıcı bağlantısı">¶</a></h3>
+<p>Now you need to get this fork to your local machine to make your changes. Open the Git Client of your choice
+(<a class="reference internal" href="../preparing/git.html"><span class="doc">Git’i kurmak</span></a>) and <code class="docutils literal notranslate"><span class="pre">clone</span></code> your fork to your local machine. The client will ask you for a folder to store
+everything in. Second step finished, well done!</p>
+<div class="admonition note">
+<p class="first admonition-title">Not</p>
+<p class="last">Most steps can be done via GUI of your choice. If you’re experienced with a command line interface, then you can use
+it too. Each step will show you the required commands to achieve the desired result.</p>
+</div>
+<p>Alternatively, you can do this via CLI (command line interface, <code class="docutils literal notranslate"><span class="pre">CMD</span></code> or <code class="docutils literal notranslate"><span class="pre">powershell</span></code> on windows). Note
+that you need to create the folder everything is getting cloned to yourself before typing this command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone git://github.com/YourGitHubAccount/ClonedRepoName.git
+</pre></div>
+</div>
+<img alt="Repo cloning" src="../_images/repo-clone.svg" /></div>
+<div class="section" id="creating-a-new-branch">
+<h3>3. Yeni Şube Oluşturma<a class="headerlink" href="#creating-a-new-branch" title="Bu başlığın kalıcı bağlantısı">¶</a></h3>
+<p>Çatalınızın yerel bir kopyasına sahip olduğunuza göre, üzerinde çalışılacak bir dal oluşturmanın zamanı geldi. dallar, eklemelerin müdahalelerinden kaynaklanan sorunlara ve hatalara neden olmaksızın aynı anda farklı özellikler veya eklemeler geliştirebilmek ve/veya test edebilmek için tasarlandı. Yaptığınız değişikliklerin <code class="docutils literal notranslate"><span class="pre">master</span></code> üzerinde <strong>yapılmaması</strong> önerilir. Bunun yerine kendiniz yeni bir dal oluşturun (mantıklı bir adla) ve değişiklikleri oradan yapın.</p>
+<p>Bu ilk olarak bir <code class="docutils literal notranslate"><span class="pre">bölüm</span></code> oluşturmamız gerektiğini belirtir, o zaman hadi başlayalım! Bunu kullanıcı yoluyla yapabilirsin (burada bir yerde <code class="docutils literal notranslate"><span class="pre">bölüm</span> <span class="pre">oluştur</span></code> tuşu olmalı), ve ya gir ile CLI kullanabilirsin:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git checkout -b <span class="o">[</span>name_of_your_new_branch<span class="o">]</span>
+</pre></div>
+</div>
+<p>This will create a <code class="docutils literal notranslate"><span class="pre">branch</span></code> with the name of your choice and switch to it. All changes you’re about to make will be
+on this branch. If you need to switch to another branch (for example <code class="docutils literal notranslate"><span class="pre">master</span></code>), just reuse this command. Third step
+done! Good job so far! To get an overview of your branches, just have a look at your git client or use:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git branch
+</pre></div>
+</div>
+<img alt="Branches" src="../_images/repo-branch.svg" /><p><strong>Şimdi değişikliklerini yapma zamanı</strong>. Kendi isteğine bağlı bir düzenleyici yada IDE kullan.</p>
+</div>
+<div class="section" id="test-if-your-changes-work">
+<h3>4. Değişikliklerinin çalışıp çalışmadığını kontrol et<a class="headerlink" href="#test-if-your-changes-work" title="Bu başlığın kalıcı bağlantısı">¶</a></h3>
+<p>SpongeAPI ve çalıştırman gereken uygulamalar için <code class="docutils literal notranslate"><span class="pre">gradle</span> <span class="pre">compileJava</span></code>. Eğer hatasız bitti ise sonraki adıma geç. Eğer bitmedi ise, uygun düzeltmeleri yap ve tekrar dene.</p>
+<p>SpongeDocs için sadece PR’ını gönderebilirsin. O otomatik kurulmuş olacak ve olası hataları ortaya çıkaracak. Başka bir seçenek ise dökümanları yerel olarak kurmaktır. Daha fazla bilgi için <a href="#id1"><span class="problematic" id="id2">`&lt;https://githup.com/SpongePowered/SpongeDocs/blob/master/README.md&gt; üzerindeki Readme.md`_</span></a> dökümanına göz at.</p>
+</div>
+<div class="section" id="commit-the-changes">
+<h3>5. Değişiklikleri uygula<a class="headerlink" href="#commit-the-changes" title="Bu başlığın kalıcı bağlantısı">¶</a></h3>
+<p>When you’re done, you need to bundle them into a single package (a <code class="docutils literal notranslate"><span class="pre">commit</span></code>) and get them into the branch. Again, your
+git client will help you out. Add a meaningful name to your commit and a short description if needed. This can be done
+via CLI too:</p>
+<p>İlk olarak bir tamamlama işlemine koymak istediğiniz tüm dosyaları ve klasörleri toplayın:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git add &lt;file&gt;
+git add &lt;folder&gt;
+</pre></div>
+</div>
+<p>Şimdi dosyalar senin işlemde bulunmasını istediğin değişiklik listesine eklendiğine göre, sadece yap</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git commit
+</pre></div>
+</div>
+<p>Arzu ederseniz mesaj ekleyebileceğiniz bir metin penceresi açılır. Aşağıdaki resme bir göz atın. İşlerinizin hala GitHub’da değil, yerel olarak saklandığını farkedeceksiniz.</p>
+<div class="admonition note">
+<p class="first admonition-title">Not</p>
+<p class="last">Bir PR’da çeşitli işlemlere sahip olabilirsin. Sadece devam et ve değiştirmen gereken her şeyi değiştir ve değişiklikleri kaydet. İşlemleri daha sonra tek bir işlem üzerinde birleştirebilirsin.</p>
+</div>
+<p>Böylece, altıncı adım tamamlandı. Neredeyse işlem bitmek üzere!</p>
+<img alt="Committing" src="../_images/repo-commit.svg" /></div>
+<div class="section" id="sync-to-github">
+<h3>GitHub’u senkronize et<a class="headerlink" href="#sync-to-github" title="Bu başlığın kalıcı bağlantısı">¶</a></h3>
+<p>Şimdi değişiklikleri GitHub üzerindeki yere almamız gerekiyor. Şimdiye kadar yaptığın her şey sadece yerel olarak depolandı. Her zamanki gibi, git hesabını kullanabilirsin bunu yapmak için (senin GUI’nde bir tuş var), yada işlemini CLI yardımıyla yapabilirsin:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git push &lt;remote&gt; &lt;branch&gt;
+</pre></div>
+</div>
+<p>Bu durumda olmalı:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git push origin feature/YourFeature
+</pre></div>
+</div>
+<img alt="Pushing commits" src="../_images/repo-push.svg" /></div>
+<div class="section" id="propose-the-changes-in-a-pr-to-the-spongepowered-repo">
+<h3>7. PR’deki değişiklikleri SpongePowered hesabına gönderin<a class="headerlink" href="#propose-the-changes-in-a-pr-to-the-spongepowered-repo" title="Bu başlığın kalıcı bağlantısı">¶</a></h3>
+<p>You can either go to your forks page on GitHub.com (there should be a notice at the top of your forks page to
+guide you), or you can use your GitHub client to create a pull-request. The official GitHub for Win client uses the
+top right corner of the window for this.</p>
+<img alt="PRs" src="../_images/repo-pr.svg" /></div>
+<div class="section" id="amend-your-pr-if-necessary">
+<h3>8. PR’ını gerekli ise düzelt<a class="headerlink" href="#amend-your-pr-if-necessary" title="Bu başlığın kalıcı bağlantısı">¶</a></h3>
+<p>Eğer biz senin PR’ına değişiklik yapılmasını istiyorsak, yukarıda oluşturulan bölüme daha fazla işlem yapman gerekir. Yapılan işlemler otomatik olarak PR’ına eklenmiş olacaktır.</p>
+</div>
+<div class="section" id="your-pr-gets-pulled">
+<h3>9. senin PR çekti<a class="headerlink" href="#your-pr-gets-pulled" title="Bu başlığın kalıcı bağlantısı">¶</a></h3>
+<p>İşte böyle. Her şey ayarlandı! Büyük iş!</p>
+</div>
+</div>
+<div class="section" id="advanced-git">
+<h2>İleri Git<a class="headerlink" href="#advanced-git" title="Bu başlığın kalıcı bağlantısı">¶</a></h2>
+<div class="section" id="squashing-with-rebase">
+<h3>Rebase ile araştırmak<a class="headerlink" href="#squashing-with-rebase" title="Bu başlığın kalıcı bağlantısı">¶</a></h3>
+<p>Let’s say you have finished your additions to the repo, and let’s pretend that you made 137 commits while getting it
+done. Your commit history will certainly look cluttered. It would be a shame if they were all recorded into the repo,
+wouldn’t it? Too many trivial commits also clutters the project commit history. Fortunately, Git has a nice tool to
+circumvent this, it’s called a <code class="docutils literal notranslate"><span class="pre">rebase</span></code>. Rebasing can take your 137 small commits and just turn them into one big
+commit. Awesome, isn’t it? Instead of reinventing the wheel, we’ll just pass you a link to a very short and easily
+understandable squashing tutorial:</p>
+<p>‘ Gitready: Rebase ile &lt; <a class="reference external" href="http://gitready.com/advanced/2009/02/10/squashing-commits-with-rebase.html">http://gitready.com/advanced/2009/02/10/squashing-commits-with-rebase.html</a> &gt; ezici ‘ _</p>
+<p>Bu ne, güzel görüntülenir.</p>
+<img alt="Squashing commits" src="../_images/repo-squash.svg" /></div>
+<div class="section" id="setting-up-a-remote">
+<h3>Bir uzaktan kurma<a class="headerlink" href="#setting-up-a-remote" title="Bu başlığın kalıcı bağlantısı">¶</a></h3>
+<p>Naturally the original repo is the direct parent of your fork and your fork is the direct parent of your local clone.
+However, the original repo <strong>isn’t</strong> the direct parent of your clone. This isn’t a problem in the first place, but it
+prevents you from updating your clone to the latest changes on the original repo. If you setup the original repo as a
+remote (read: “parent”) of your clone, you’ll be able to grab all changes made to this repo and apply it to your local
+clone. Look below to see how grabbing and updating works.</p>
+<img alt="Setting up a remote" src="../_images/repo-remote.svg" /><p>Tamam. Çoğu GUI’leri (oldukça gelişmiş) bu işlevi eksik gibi bu adımı CLI yapılır:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git remote add upstream https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git
+</pre></div>
+</div>
+<p>Bunun planlandığı gibi çalışıp çalışmadığından emin değilseniz veya şu anda hangi uzaktan kumandanın ayarlandığını kontrol etmek isterseniz şu yollarla kontrol edebilirsiniz:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git remote -v
+</pre></div>
+</div>
+<p>çıkış gibi görünmelidir:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>origin    https://github.com/YOUR_USERNAME/YOUR_FORK.git <span class="o">(</span>fetch<span class="o">)</span>
+origin    https://github.com/YOUR_USERNAME/YOUR_FORK.git <span class="o">(</span>push<span class="o">)</span>
+upstream  https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git <span class="o">(</span>fetch<span class="o">)</span>
+upstream  https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git <span class="o">(</span>push<span class="o">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Not</p>
+<p class="last">Uyarıyı görürseniz ‘’ ölümcül: Geçerli dalı YourBranchName ters yönde hiçbir şube. vardır ‘’, şube ters yönde uzaktan kumandanızda olmayabilir sonra. Bu bu ilk defa ise yeni dal için bir yürütme bastırıyorlar ortaya çıkabilir. Geçerli dalı itmek ve Uzaktan akış yukarı olarak ayarlamak için ‘’ git itme–kümesi ters yönde kökenli YourBranchName’’ kullanın.</p>
+</div>
+</div>
+<div class="section" id="rebasing">
+<h3>Tekrar kur<a class="headerlink" href="#rebasing" title="Bu başlığın kalıcı bağlantısı">¶</a></h3>
+<p>İstediğiniz dalda bazı değişiklikler yaptınız ama bu arada depo’da başka biri tarafından güncellendi. Bu, çatalınız ve klonunuzun modası geçmiş olduğu anlamına gelir. Bu büyük bir sorun değil, ancak eklemelerinizi daha sonra birleştireceğinizde sorunlardan kaçınmak için, orijinal repo üzerindeki en son değişikliklere karşı yaptığınız değişiklikleri <code class="docutils literal notranslate"><span class="pre">rebase</span></code>’lemek şiddetle tavsiye edilir. Uzak depo’yu daha henüz kurmadıysanız, rebase’e başlamadan önce yapın.</p>
+<p>A successful rebase requires several steps:</p>
+<div class="section" id="fetch-the-changes-on-the-remote-repo">
+<h4>1. Değişiklikleri Remote Repo içinde kaydet<a class="headerlink" href="#fetch-the-changes-on-the-remote-repo" title="Bu başlığın kalıcı bağlantısı">¶</a></h4>
+<p>İlk olarak değişiklikleri uzak depo üzerine getirmen gerekiyor. Bu da (yine) CLI yöntemiyle tamamlanır:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git fetch upstream
+</pre></div>
+</div>
+<p>Bu uygulama <code class="docutils literal notranslate"><span class="pre">upstream</span></code> den bütün değişiklikleri ekleyecek ve onları geçici olarak <code class="docutils literal notranslate"><span class="pre">upstream/master</span></code> deposu içinde saklayacak.</p>
+</div>
+<div class="section" id="merge-remote-changes-locally">
+<h4>2. uzaktan değişiklikleri yerel olarak Birleştir<a class="headerlink" href="#merge-remote-changes-locally" title="Bu başlığın kalıcı bağlantısı">¶</a></h4>
+<p>Artık yerel ‘’ ana ‘’ şubemiz seçmeniz gerekir:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git checkout master
+</pre></div>
+</div>
+<p>Ondan sonra biz ‘’ ters yönde/ana ‘’ yerel ‘’ ana ‘’ şubemiz dahil edilen değişiklikleri birleştirmek:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git merge upstream/master
+</pre></div>
+</div>
+<p>Tamam, bu defa yaptığımız şeyi.</p>
+<img alt="Rebasing 1" src="../_images/repo-rebase1.svg" /></div>
+<div class="section" id="rebase-local-branch-against-updated-master">
+<h4>3. Yerel şube Güncellenme Zamanı Master karşı rebase<a class="headerlink" href="#rebase-local-branch-against-updated-master" title="Bu başlığın kalıcı bağlantısı">¶</a></h4>
+<p>Sonraki kadar yerel ‘’ ana ‘’ karşı çalıştığınız Yerel şube rebasing. Senin çalışma şube geçmeniz gerekir (burada: ‘’ özelliği/yourfeature”) ve bir rebase gerçekleştirin. Bu üzerinden yapılır:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git checkout feature/yourfeature
+git rebase master
+</pre></div>
+</div>
+<p>Bu senin şube geri sarma, iptalleri ustadan eklemek ve kendi değişikliklerinizi yeniden uygulayın. Sonuç şuna benzer:</p>
+<img alt="Rebasing 2" src="../_images/repo-rebase2.svg" /></div>
+<div class="section" id="push-everything-to-your-fork">
+<h4>4. Çatalınıza Herşeyi İtin<a class="headerlink" href="#push-everything-to-your-fork" title="Bu başlığın kalıcı bağlantısı">¶</a></h4>
+<p>Yapmamız gereken son şey her şey için çatal bas etmektir. Bir PR zaten oluşturduysanız, bu otomatik olarak güncel:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git checkout master
+git push -f
+git checkout feature/yourfeature
+git push -f
+</pre></div>
+</div>
+<img alt="Rebasing 3" src="../_images/repo-rebase3.svg" /><p>Başardın, harika! İyi bir iş ve iyi yapılmış ve Rebase-hava uçtuğunuz için teşekkürler!</p>
+</div>
+</div>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="implementation/index.html" class="btn btn-neutral float-right" title="Sponge Geliştirme" accesskey="n" rel="next">İleri <span class="fa fa-angle-right"></span></a>
+        <a href="guidelines.html" class="btn btn-neutral" title="Katkı Kuralları" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> Önceki</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../_static/flags/tr_TR.svg"
+         alt="tr" title="Türkçe">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../_static/jquery.js"></script>      <script type="text/javascript" src="../_static/underscore.js"></script>      <script type="text/javascript" src="../_static/doctools.js"></script>      <script type="text/javascript" src="../_static/language_data.js"></script>      <script type="text/javascript" src="../_static/translations.js"></script>      <script type="text/javascript" src="../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

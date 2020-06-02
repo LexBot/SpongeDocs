@@ -1,0 +1,259 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Système de version &mdash; Documentation Sponge 7.2.0</title>
+
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="Index"
+              href="../genindex.html"/>        <link rel="search" title="Recherche" href="../search.html"/>    <link rel="top" title="Documentation Sponge 7.2.0" href="../index.html"/>        <link rel="up" title="Stratégie de versioning" href="index.html"/>        <link rel="next" title="Lire le nom du fichier en téléchargement" href="filenames.html"/>        <link rel="prev" title="Stratégie de versioning" href="index.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../index.html">
+            <img src="../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../server/index.html">Créer un Serveur</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Stratégie de versioning</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Système de version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="filenames.html">Lire le nom du fichier en téléchargement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="legacy-versions.html">Anciennes Versions de SpongeForge</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../preparing/index.html">Préparation pour le développement</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../plugin/index.html">Création d’un Plugin</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ore/index.html">Documentation d’Ore</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contributing/index.html">Contribuer à Sponge</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">À propos du Projet Sponge</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+          <li><a href="index.html">Stratégie de versioning</a> &raquo;</li>
+    <li>Système de version</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/versions/versioning.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="versioning">
+<h1>Système de version<a class="headerlink" href="#versioning" title="Lien permanent vers ce titre">¶</a></h1>
+<div class="admonition tip" id="sem-ver">
+<p class="first admonition-title">Astuce</p>
+<p class="last">Sponge suit les spécifications SemVer pour ses projets. Vous pouvez lire le guide général sur SemVer à cette adresse <a class="reference external" href="https://semver.org/">https://semver.org/</a>.</p>
+</div>
+<p>Les deux implémentations de SongeAPI (SpongeForge/SpongeVanilla) suivent des politiques différentes. Comprendre nos versions revient à interpréter la chaine de version SemVer. SpongeAPI utilise les <em>Majeur</em> et <em>Mineur</em> dans la chaine de version SemVer alors que les implémentations utilisent <em>Majeur</em>, <em>Mineur</em> et <em>Correction</em>.</p>
+<div class="section" id="api">
+<h2>API<a class="headerlink" href="#api" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Les développeurs qui créent des plugins le font pour des versions particulières de SpongeAPI, comme <code class="docutils literal notranslate"><span class="pre">7.0</span></code>, <code class="docutils literal notranslate"><span class="pre">7.3</span></code>, ou <code class="docutils literal notranslate"><span class="pre">7.9</span></code> ; ce qui signifie que le plugin fonctionne dans cette version spécifique. Les versions sont incrémentées reflétant les ajouts, suppressions et modifications. Les changements de versions peuvent affecter les plugins et leur fonctionnement.</p>
+<div class="section" id="major">
+<h3>Majeur<a class="headerlink" href="#major" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Un changement majeur de numéro (<strong>X</strong>.Y.Z) indique que des changements ont cassé certains comportements de l’API. Les plugins <em>peuvent</em> alors ne plus correctement fonctionner dans cette version. Par exemple, un plugin conçut pour fonctionner en 6.9 <em>pourrait</em> ne pas fonctionner avec la version 7.0.</p>
+</div>
+<div class="section" id="minor">
+<h3>Mineur<a class="headerlink" href="#minor" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Un changement mineur de nombre (X.**Y**.Z) indique que des changements ont été opérés sur l’API mais que les plugins qui fonctionnaient dans la version mineure précédente sont toujours garantis de fonctionner. Par exemple, un plugin conçut pour fonctionner en <code class="docutils literal notranslate"><span class="pre">7.3</span></code> fonctionnera toujours en <code class="docutils literal notranslate"><span class="pre">7.4</span></code> ou <code class="docutils literal notranslate"><span class="pre">7.5</span></code>. Cependant, ce n’est pas <em>nécessairement</em> vrai dans le sens inverse. Un plugin pour la version <code class="docutils literal notranslate"><span class="pre">7.4</span></code> n’est pas garanti de fonctionner en <code class="docutils literal notranslate"><span class="pre">7.3</span></code>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Le nombre <em>mineur</em> est toujours remis à zéro lors d’un changement du nombre <em>majeur</em>.</p>
+</div>
+<p>Des exemples de chaines de version pour SpongeAPI sont <code class="docutils literal notranslate"><span class="pre">spongeapi-7.1.0</span></code> ou encore <cite>spongeapi-7.2.0`</cite>.</p>
+</div>
+</div>
+<div class="section" id="implementations">
+<h2>Implémentation<a class="headerlink" href="#implementations" title="Lien permanent vers ce titre">¶</a></h2>
+<p>La chaine de version de l’implémentation de Sponge inclut la version de Minecraft cible ainsi que la version de SpongeAPI. L’implémentation SpongeForge inclut également la <strong>version recommandée</strong> pour laquelle elle est garantie d’être compatible.</p>
+<div class="section" id="patch">
+<h3>Correction<a class="headerlink" href="#patch" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Un changement du numéro de patch (X.Y. <strong>Z</strong>) se produit avec les versions d’implémentation. Ces versions contiennent des corrections de bugs, des améliorations de performances, des changements de configuration, et d’autres changement qui ne sont pas liés à l’API. Lorsque un numéro de patch est seulement composé d’un nombre, cette version est une <strong>version recommandée</strong>. Tout plugin développé pour la version de SpongeAPI notée dans la chaîne, ou qui est compatible avec cette version, est garanti de fonctionner.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Le nombre <em>patch</em> est toujours remis à zéro lors d’un changement du nombre <em>mineur</em>.</p>
+</div>
+<p>Exemples de chaînes de version d’implémentation : <code class="docutils literal notranslate"><span class="pre">spongevanilla-1.12.2-7.1.5</span></code> et <code class="docutils literal notranslate"><span class="pre">spongeforge-1.12.2-2768-7.1.5</span></code>.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Avertissement</p>
+<p class="last">Les développeurs de plugins peuvent choisir de développeur leur plugin pour une implémentation particulière. La page Ore du plugin devrait afficher cette décision avec un tag de la version. Sponge ne garantie pas la compatibilité du plugin.</p>
+</div>
+</div>
+</div>
+<div class="section" id="recommended-version">
+<h2>Version Recommandée<a class="headerlink" href="#recommended-version" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Les Versions Recommandées sont aussi connues sont le nom de Builds ou Releases Recommandées. Ce sont des versions de qualité raisonnable dont les implémentations peuvent utiliser pleinement les fonctionnalités disponibles dans SpongeAPI, et les plugins compatibles avec l’API sont garantis de fonctionner comme prévu.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Avertissement</p>
+<p class="last">Les informations suivantes sont destinées aux développeurs Sponge. Les développeurs de plugins et les administrateurs de serveurs doivent seulement utiliser les <strong>Versions Recommandées</strong> pour le développement et l’installation de serveurs. Utiliser une version non-recommandée introduit de l’instabilité et garantit quasiment des problèmes. Nous décourageons vivement l’utilisation des versions non-recommandées pour les développeurs de plugins et les administrateurs de serveurs.</p>
+</div>
+</div>
+<div class="section" id="snapshot">
+<h2>Version instantanée<a class="headerlink" href="#snapshot" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Une version qui possède le label <code class="docutils literal notranslate"><span class="pre">-SNAPSHOT</span></code> représente la prochaine version en développement de l’API. Par exemple, <code class="docutils literal notranslate"><span class="pre">7.2.0-SNAPHOT</span></code> signifie que la <code class="docutils literal notranslate"><span class="pre">7.2.0</span></code> est en développement. Un autre exemple est <code class="docutils literal notranslate"><span class="pre">8.0.0-SNAPSHOT</span></code>, qui signifie que la prochaine version <em>majeure</em> (<code class="docutils literal notranslate"><span class="pre">8.0.0</span></code>) est en développement. Les nouvelles fonctionnalités ajoutées dans les snapshots peuvent ne plus fonctionner à tout moment.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>Si la version mineure est zéro (par exemple, <code class="docutils literal notranslate"><span class="pre">8.0-SNAPSHOT</span></code>), <strong>tout</strong> peut casser avant que la version sorte, et les plugins ne peuvent pas attendre de stabilité. Si la version mineure est plus grande que zéro (par exemple, <code class="docutils literal notranslate"><span class="pre">7.2-SNAPSHOT</span></code>), tout ce qui fonctionnait dans la version mineure précédente est garanti de fonctionner (dans ce cas, <code class="docutils literal notranslate"><span class="pre">7.1</span></code>). Cependant, tout ce qui est ajouté depuis <strong>peut ne pas fonctionner</strong> et l’instabilité est probable.</p>
+<p>Quand les numéros de version mineur et patch sont zéro, et que le label <code class="docutils literal notranslate"><span class="pre">-SNAPSHOT</span></code> est attaché, les versions sont des builds <code class="docutils literal notranslate"><span class="pre">bleeding</span></code> seulement pour tester la prochaine version de SpongeAPI et peuvent mal fonctionner à tout moment.</p>
+<p class="last">L’étiquette <code class="docutils literal notranslate"><span class="pre">-SNAPSHOT</span></code> sur un fichier SpongeCommon indique que l’implémentation est presque complète mais pas encore dans une version stable. Plus important encore, Gradle détermine si oui ou non il ajoute le <em>-RC{build number}</em> à la chaine de version en fonction de la présence de l’étiquette.</p>
+</div>
+</div>
+<div class="section" id="release-candidate">
+<h2>Version candidate<a class="headerlink" href="#release-candidate" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Tout push fait vers GitHub qui n’est pas une <em>Version Recommandée</em> est une <em>Version Candidate</em> (RC). Ça peut devenir une version recommandée après plus de tests. Il est également possible qu’une version candidate ne fonctionne pas correctement.</p>
+<div class="admonition tip">
+<p class="first admonition-title">Astuce</p>
+<p class="last"><em>SNAPSHOT</em> apparaît dans les chaînes de version de SpongeAPI et SpongeCommon alors que <em>RC</em> apparaît dans les chaînes de version des implémentations.</p>
+</div>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="filenames.html" class="btn btn-neutral float-right" title="Lire le nom du fichier en téléchargement" accesskey="n" rel="next">Suivant <span class="fa fa-angle-right"></span></a>
+        <a href="index.html" class="btn btn-neutral" title="Stratégie de versioning" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> Précédent</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../_static/flags/fr_FR.svg"
+         alt="fr" title="Français">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../_static/jquery.js"></script>      <script type="text/javascript" src="../_static/underscore.js"></script>      <script type="text/javascript" src="../_static/doctools.js"></script>      <script type="text/javascript" src="../_static/language_data.js"></script>      <script type="text/javascript" src="../_static/translations.js"></script>      <script type="text/javascript" src="../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

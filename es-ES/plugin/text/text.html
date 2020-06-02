@@ -1,0 +1,352 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Creación de Texto &mdash; documentación de Sponge - 7.2.0</title>
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="Índice"
+              href="../../genindex.html"/>        <link rel="search" title="Búsqueda" href="../../search.html"/>    <link rel="top" title="documentación de Sponge - 7.2.0" href="../../index.html"/>        <link rel="up" title="Texto" href="index.html"/>        <link rel="next" title="Serializadores de Texto" href="representations/index.html"/>        <link rel="prev" title="Texto" href="index.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../../index.html">
+            <img src="../../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../server/index.html">Creando un Servidor</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../versions/index.html">Versioning Policy</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../preparing/index.html">Preparándose para el Desarrollo</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Creando un Plugin</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../api-versions.html">API-Versions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../buildsystem.html">Sistemas de Compilación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../workspace/index.html">Configuración de su Espacio de Trabajo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../project/index.html">Configurando Su Proyecto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-identifier.html">Identificadores de Complementos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-class.html">Clase de Plug-in Principal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lifecycle.html">Ciclo de vida del Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../injection.html">Inyección de Dependencia</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../practices/index.html">Prácticas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../optional/index.html">Opcionales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../logging.html">Registro y Depuración</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Texto</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Creación de Texto</a></li>
+<li class="toctree-l3"><a class="reference internal" href="representations/index.html">Serializadores de Texto</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pagination.html">El Servicio de Paginación</a></li>
+<li class="toctree-l3"><a class="reference internal" href="messagechannels.html">Canales de Mensajes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="templates.html">TextTemplates</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/index.html">Plugin Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../event/index.html">Eventos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/index.html">Configurando Extensiones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assets.html">La API de Activos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data/index.html">La API de Datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../blocks/index.html">Bloques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../entities/index.html">Entidades</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../items/index.html">Articulos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../trade-offers.html">Ofertas de Intercambio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../effects.html">Efectos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../scheduler.html">Programador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../services.html">Servicios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database.html">Bases de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../permissions.html">Permisos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bans.html">Baneos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metrics.html">Metrics Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bookview.html">Vistas del Libro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../economy/index.html">Economía</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wgen/index.html">Generación de Mundo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manager.html">Administrador de Complementos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../game-profile-manager.html">Administrador de Perfiles del Juego</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../offline-userplayer-data.html">Datos del Jugador Fuera de Línea</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tab-lists.html">Listas de Tabulaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-meta.html">Metadatos del Complemento</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ray-tracing.html">Trazado de Rayos (Ray Tracing)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../debugging.html">Depuración de Complemento</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials.html">Tutoriales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internals/index.html">Implementation-dependent Plugins</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ore/index.html">Documentación Ore</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/index.html">Contribuyendo a Sponge</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">Acerca del proyecto Sponge</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+          <li><a href="../index.html">Creando un Plugin</a> &raquo;</li>
+          <li><a href="index.html">Texto</a> &raquo;</li>
+    <li>Creación de Texto</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/plugin/text/text.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="creating-text">
+<h1>Creación de Texto<a class="headerlink" href="#creating-text" title="Enlazar permanentemente con este título">¶</a></h1>
+<p>El Texto API se utiliza para crear el texto con formato, que se puede enviar a los jugadores en los mensajes de chat, y puede también ser utilizado en lugares como libros y carteles.</p>
+<div class="section" id="unformatted-text">
+<h2>Texto Sin Formato<a class="headerlink" href="#unformatted-text" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>A menudo, todo lo que necesita es texto sin formato. El texto sin formato no requiere la utilización de un generador de texto, y es la forma más simple de crear un texto.</p>
+<div class="section" id="example">
+<h3>Ejemplo:<a class="headerlink" href="#example" title="Enlazar permanentemente con este título">¶</a></h3>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.text.Text</span><span class="p">;</span>
+
+<span class="n">Text</span> <span class="n">unformattedText</span> <span class="o">=</span> <span class="n">Text</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;Hey! This is unformatted text!&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>El fragmento de código ilustrado anteriormente devolverá texto sin color, el texto sin formato sin <a class="reference internal" href="#text-actions"><span class="std std-ref">acciones de texto</span></a> configuradas.</p>
+</div>
+</div>
+<div class="section" id="text-builder">
+<h2>Generador de Texto<a class="headerlink" href="#text-builder" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>La interfaz del generador de texto permite la creación de un texto con formato en un estilo de «building-block».</p>
+<div class="admonition tip">
+<p class="first admonition-title">Truco</p>
+<p class="last">Leer este <a class="reference external" href="https://en.wikipedia.org/wiki/Builder_pattern">Artículo de Wikipedia</a> para ayudar a entender el propósito del patrón de generador en el diseño del software.</p>
+</div>
+<div class="section" id="colors">
+<h3>Colores<a class="headerlink" href="#colors" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Un uso del generador de texto es la adición de color al texto, como se ilustra a continuación.</p>
+</div>
+<div class="section" id="example-colored-text">
+<h3>Ejemplo: Texto con Color<a class="headerlink" href="#example-colored-text" title="Enlazar permanentemente con este título">¶</a></h3>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.text.format.TextColors</span><span class="p">;</span>
+
+<span class="n">Text</span> <span class="n">coloredText</span> <span class="o">=</span> <span class="n">Text</span><span class="p">.</span><span class="na">builder</span><span class="p">(</span><span class="s">&quot;Woot! Golden text is golden.&quot;</span><span class="p">).</span><span class="na">color</span><span class="p">(</span><span class="n">TextColors</span><span class="p">.</span><span class="na">GOLD</span><span class="p">).</span><span class="na">build</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Cualquier color especificado dentro de la clase <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/format/TextColors.html">TextColors</a> puede ser utilizado para colorear el texto. Colores múltiples se pueden utilizar en el texto al agregar textos adicionales con diferentes colores:</p>
+</div>
+<div class="section" id="example-multi-colored-text">
+<h3>Ejemplo: Texto Multicolor<a class="headerlink" href="#example-multi-colored-text" title="Enlazar permanentemente con este título">¶</a></h3>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Text</span> <span class="n">multiColoredText</span> <span class="o">=</span> <span class="n">Text</span><span class="p">.</span><span class="na">builder</span><span class="p">(</span><span class="s">&quot;Sponges are &quot;</span><span class="p">).</span><span class="na">color</span><span class="p">(</span><span class="n">TextColors</span><span class="p">.</span><span class="na">YELLOW</span><span class="p">).</span><span class="na">append</span><span class="p">(</span>
+        <span class="n">Text</span><span class="p">.</span><span class="na">builder</span><span class="p">(</span><span class="s">&quot;invincible!&quot;</span><span class="p">).</span><span class="na">color</span><span class="p">(</span><span class="n">TextColors</span><span class="p">.</span><span class="na">RED</span><span class="p">).</span><span class="na">build</span><span class="p">()).</span><span class="na">build</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="styling">
+<h3>Estilo<a class="headerlink" href="#styling" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>El generador puede también utilizarse para el estilo de texto, incluyendo subrayado, cursiva, etc.</p>
+</div>
+<div class="section" id="example-styled-text">
+<h3>Ejemplo: Texto con Estilo<a class="headerlink" href="#example-styled-text" title="Enlazar permanentemente con este título">¶</a></h3>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.text.format.TextStyles</span><span class="p">;</span>
+
+<span class="n">Text</span> <span class="n">styledText</span> <span class="o">=</span> <span class="n">Text</span><span class="p">.</span><span class="na">builder</span><span class="p">(</span><span class="s">&quot;Yay! Styled text!&quot;</span><span class="p">).</span><span class="na">style</span><span class="p">(</span><span class="n">TextStyles</span><span class="p">.</span><span class="na">ITALIC</span><span class="p">).</span><span class="na">build</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Al igual que con los colores, pueden ser utilizados múltiples estilos encadenando estilos separados de textos.</p>
+</div>
+<div class="section" id="example-multi-styled-text">
+<h3>Ejemplo: Texto con Múltiples Estilos<a class="headerlink" href="#example-multi-styled-text" title="Enlazar permanentemente con este título">¶</a></h3>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Text</span> <span class="n">multiStyledText</span> <span class="o">=</span> <span class="n">Text</span><span class="p">.</span><span class="na">builder</span><span class="p">(</span><span class="s">&quot;I&#39;m italicized! &quot;</span><span class="p">).</span><span class="na">style</span><span class="p">(</span><span class="n">TextStyles</span><span class="p">.</span><span class="na">ITALIC</span><span class="p">)</span>
+        <span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="n">Text</span><span class="p">.</span><span class="na">builder</span><span class="p">(</span><span class="s">&quot;I&#39;m bold!&quot;</span><span class="p">).</span><span class="na">style</span><span class="p">(</span><span class="n">TextStyles</span><span class="p">.</span><span class="na">BOLD</span><span class="p">).</span><span class="na">build</span><span class="p">()).</span><span class="na">build</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="coloring-styling-shortcut">
+<h3>Acceso Directo de Color y Estilo<a class="headerlink" href="#coloring-styling-shortcut" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>El método <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/Text.html#of-java.lang.Object...-">Text#of(Object…)</a> proporciona una manera simple de agregar color y estilo a su texto de una manera mucho más concisa.</p>
+</div>
+<div class="section" id="example-color-style-shortcut">
+<h3>Ejemplo: Acceso Directo de Color y Estilo<a class="headerlink" href="#example-color-style-shortcut" title="Enlazar permanentemente con este título">¶</a></h3>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Text</span> <span class="n">colorAndStyleText</span> <span class="o">=</span> <span class="n">Text</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">TextColors</span><span class="p">.</span><span class="na">RED</span><span class="p">,</span> <span class="n">TextStyles</span><span class="p">.</span><span class="na">ITALIC</span><span class="p">,</span> <span class="s">&quot;Shortcuts for the win!&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="text-actions">
+<span id="id1"></span><h3>Acciones de Texto<a class="headerlink" href="#text-actions" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>El generador de texto también ofrece la posibilidad de crear acciones de texto. Cualquier acción especificada dentro de la clase :javadoc:<a href="#id1"><span class="problematic" id="id2">`</span></a>TextActions`puede ser utilizada al crear acciones de texto para texto. El método a continuación es un pequeño ejemplo de lo que las acciones de texto pueden hacer.</p>
+</div>
+<div class="section" id="example-text-with-an-action">
+<h3>Ejemplo: Texto con una Acción<a class="headerlink" href="#example-text-with-an-action" title="Enlazar permanentemente con este título">¶</a></h3>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.text.action.TextActions</span><span class="p">;</span>
+
+<span class="n">Text</span> <span class="n">clickableText</span> <span class="o">=</span> <span class="n">Text</span><span class="p">.</span><span class="na">builder</span><span class="p">(</span><span class="s">&quot;Click here!&quot;</span><span class="p">).</span><span class="na">onClick</span><span class="p">(</span><span class="n">TextActions</span><span class="p">.</span><span class="na">runCommand</span><span class="p">(</span><span class="s">&quot;tell Spongesquad I&#39;m ready!&quot;</span><span class="p">)).</span><span class="na">build</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>En el método anterior, los jugadores pueden hacer clic al texto «¡Haga click aquí!» para ejecutar el comando especificado.</p>
+<div class="admonition note">
+<p class="first admonition-title">Nota</p>
+<p class="last">Algunas acciones de texto, como <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/action/TextActions.html#changePage-int-">TextActions#changePage(int)</a>, sólo pueden utilizarse con los elementos del libro.</p>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">Truco</p>
+<p class="last">Al igual que con los colores, múltiples acciones pueden ser añadidas al texto. Las acciones de texto pueden ser utilizadas junto con los colores debido a la interfaz de patrón del generador.</p>
+</div>
+</div>
+<div class="section" id="selectors">
+<h3>Selectores<a class="headerlink" href="#selectors" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Los selectores de objetivos pueden ser utilizados para apuntar a jugadores o entidades que cumplan un criterio especificado. Los selectores de objetivos son particularmente útiles al crear complementos de minijuegos, pero tienen una amplia gama de aplicaciones.</p>
+<div class="admonition tip">
+<p class="first admonition-title">Truco</p>
+<p class="last">Leer este <a class="reference external" href="https://minecraft.gamepedia.com/Commands#Target_selectors">Artículo del wiki Minecraft</a> que ayuda a entender que selectores de objetivos están en Minecraft, y como pueden utilizarse.</p>
+</div>
+<p>Para utilizar selectores en texto, debe usar la interfaz <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/selector/Selector.Builder.html">Selector.Builder</a>. Esto es ilustrado en el ejemplo a continuación.</p>
+</div>
+<div class="section" id="example-selector-generated-text">
+<h3>Ejemplo: Texto Generado por Selector<a class="headerlink" href="#example-selector-generated-text" title="Enlazar permanentemente con este título">¶</a></h3>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.text.selector.Selector</span><span class="p">;</span>
+
+<span class="n">Text</span> <span class="n">adventurers</span> <span class="o">=</span> <span class="n">Text</span><span class="p">.</span><span class="na">builder</span><span class="p">(</span><span class="s">&quot;These players are in adventure mode: &quot;</span><span class="p">).</span><span class="na">append</span><span class="p">(</span>
+        <span class="n">Text</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">Selector</span><span class="p">.</span><span class="na">parse</span><span class="p">(</span><span class="s">&quot;@a[m=2]&quot;</span><span class="p">))</span>
+<span class="p">).</span><span class="na">build</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>En este ejemplo, el selector de objetivo <code class="docutils literal notranslate"><span class="pre">&#64;a[m=2]</span></code> se dirige a cada jugador en línea que está en modo aventura. Cuando el método es llamado, se devolverá un texto que contiene los nombres de usuario de cada jugador en línea que está en modo aventura.</p>
+</div>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="representations/index.html" class="btn btn-neutral float-right" title="Serializadores de Texto" accesskey="n" rel="next">Siguiente <span class="fa fa-angle-right"></span></a>
+        <a href="index.html" class="btn btn-neutral" title="Texto" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> Previo</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../../_static/flags/es_ES.svg"
+         alt="es" title="Español">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../../_static/jquery.js"></script>      <script type="text/javascript" src="../../_static/underscore.js"></script>      <script type="text/javascript" src="../../_static/doctools.js"></script>      <script type="text/javascript" src="../../_static/language_data.js"></script>      <script type="text/javascript" src="../../_static/translations.js"></script>      <script type="text/javascript" src="../../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

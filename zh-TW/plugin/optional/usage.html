@@ -1,0 +1,419 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>用法示例 &mdash; Sponge 7.2.0 說明文件</title>
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="索引"
+              href="../../genindex.html"/>        <link rel="search" title="搜尋" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 說明文件" href="../../index.html"/>        <link rel="up" title="Optionals" href="index.html"/>        <link rel="next" title="記錄與除錯" href="../logging.html"/>        <link rel="prev" title="Optionals 的解釋" href="basic.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../../index.html">
+            <img src="../../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../server/index.html">建立伺服器</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../versions/index.html">版本控制方針</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../preparing/index.html">準備開發</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">建立插件</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../api-versions.html">API版本</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../buildsystem.html">建置系統</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../workspace/index.html">建立你的工作空間</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../project/index.html">建立你的專案</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-identifier.html">插件識別碼</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-class.html">主要插件類別</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lifecycle.html">插件的生命週期</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../injection.html">相依注入</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../practices/index.html">實踐</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Optionals</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="basic.html">Optionals 的解釋</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">用法示例</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../logging.html">記錄與除錯</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text/index.html">文本</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/index.html">插件指令</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../event/index.html">事件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/index.html">設定插件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assets.html">Asset API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data/index.html">Data API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../blocks/index.html">方塊</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../entities/index.html">實體</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../items/index.html">物品</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../trade-offers.html">開設交易</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../effects.html">效果</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../scheduler.html">排程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../services.html">服務</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database.html">資料庫</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../permissions.html">權限</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bans.html">封鎖</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metrics.html">Metrics 收集</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bookview.html">書本閱覽</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../economy/index.html">經濟</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wgen/index.html">世界生成</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manager.html">插件管理器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../game-profile-manager.html">遊戲設定檔管理器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../offline-userplayer-data.html">離線玩家資料</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tab-lists.html">Tab 清單</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-meta.html">插件元數據</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ray-tracing.html">光線追蹤</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../debugging.html">插件除錯</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials.html">教學</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internals/index.html">相依於實作的插件</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ore/index.html">Ore 文件</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/index.html">為 Sponge 貢獻</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">關於 Sponge 專案</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+          <li><a href="../index.html">建立插件</a> &raquo;</li>
+          <li><a href="index.html">Optionals</a> &raquo;</li>
+    <li>用法示例</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/plugin/optional/usage.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="usage-examples">
+<h1>用法示例<a class="headerlink" href="#usage-examples" title="本標題的永久連結">¶</a></h1>
+<p>现在我们已经学习了为何需要使用 <code class="docutils literal notranslate"><span class="pre">Optional</span></code> ，我们来看看我们在 Java 中可以做什么。这些代码示例（和 Sponge）使用 Java 8 中提供的 <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html">java.util.Optional</a> 类。</p>
+<div class="section" id="obtaining-the-wrapped-value">
+<h2>获取被包装的值<a class="headerlink" href="#obtaining-the-wrapped-value" title="本標題的永久連結">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">get()</span></code> 方法将解除 <code class="docutils literal notranslate"><span class="pre">Optional</span></code> 的包装并返回被包装的值。如果没有值，调用 <code class="docutils literal notranslate"><span class="pre">get()</span></code> 方法会抛出一个 <code class="docutils literal notranslate"><span class="pre">NoSuchElementException</span></code> ，所以一般情况下应首先进行一次检查。</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Optional</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">opt</span> <span class="o">=</span> <span class="n">getOptionalString</span><span class="p">();</span>
+<span class="n">String</span> <span class="n">wrappedString</span> <span class="o">=</span> <span class="n">opt</span><span class="p">.</span><span class="na">get</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="handling-absent-values">
+<h2>处理值不在时的情况<a class="headerlink" href="#handling-absent-values" title="本標題的永久連結">¶</a></h2>
+<p>使用 <code class="docutils literal notranslate"><span class="pre">Optional</span></code> 的目的就是处理可能存在也可能不存在的值。因此，许多使用案例都是围绕着处理不存在的值的。</p>
+<div class="section" id="presence-check">
+<h3>检查是否存在<a class="headerlink" href="#presence-check" title="本標題的永久連結">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">isPresent()</span></code> 方法将在 <code class="docutils literal notranslate"><span class="pre">Optional</span></code> 的值存在时返回 true，这和一个经典的 <code class="docutils literal notranslate"><span class="pre">null</span></code> 检查类似。</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Optional</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">opt</span> <span class="o">=</span> <span class="n">getOptionalString</span><span class="p">();</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">opt</span><span class="p">.</span><span class="na">isPresent</span><span class="p">())</span> <span class="p">{</span>
+    <span class="n">String</span> <span class="n">wrappedString</span> <span class="o">=</span> <span class="n">opt</span><span class="p">.</span><span class="na">get</span><span class="p">();</span>
+    <span class="c1">// more code</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-default-values">
+<h3>使用默认值<a class="headerlink" href="#using-default-values" title="本標題的永久連結">¶</a></h3>
+<p>使用默认值是当值不存在时的常见行为。 <code class="docutils literal notranslate"><span class="pre">orElse()</span></code> 方法允许传入一个默认值以使得在 <code class="docutils literal notranslate"><span class="pre">Optional</span></code> 中的值不存在时返回默认值。</p>
+<p>旧做法：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Optional</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">optionalString</span> <span class="o">=</span> <span class="n">getOptionalString</span><span class="p">();</span>
+<span class="n">String</span> <span class="n">someString</span><span class="p">;</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">optionalString</span><span class="p">.</span><span class="na">isPresent</span><span class="p">())</span> <span class="p">{</span>
+    <span class="n">someString</span> <span class="o">=</span> <span class="n">optionalString</span><span class="p">.</span><span class="na">get</span><span class="p">();</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="n">someString</span> <span class="o">=</span> <span class="n">DEFAULT_STRING</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>新做法：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">someString</span> <span class="o">=</span> <span class="n">getOptionalString</span><span class="p">().</span><span class="na">orElse</span><span class="p">(</span><span class="n">DEFAULT_STRING</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>在某些情况下，默认值会有着副作用或者特别昂贵的计算成本。在这种情况下，开发者希望仅在需要时计算默认值（ <em>惰性计算</em> ）。方法 <code class="docutils literal notranslate"><span class="pre">orElseGet()</span></code> 接受一个 <code class="docutils literal notranslate"><span class="pre">Supplier</span></code> 而不是预先计算的值作为参数。如果 <code class="docutils literal notranslate"><span class="pre">Optional</span></code> 本身没有值，则将调用 <code class="docutils literal notranslate"><span class="pre">Supplier</span></code> 。可以直接向 <code class="docutils literal notranslate"><span class="pre">Supplier</span></code> 传递 Lambda 表达式或方法引用。</p>
+<p>旧做法：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Optional</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">optionalString</span> <span class="o">=</span> <span class="n">getOptionalString</span><span class="p">();</span>
+<span class="n">String</span> <span class="n">someString</span><span class="p">;</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">optionalString</span><span class="p">.</span><span class="na">isPresent</span><span class="p">())</span> <span class="p">{</span>
+    <span class="n">someString</span> <span class="o">=</span> <span class="n">optionalString</span><span class="p">.</span><span class="na">get</span><span class="p">();</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="n">someString</span> <span class="o">=</span> <span class="n">myPlugin</span><span class="p">.</span><span class="na">defaultString</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>新做法：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">someString</span> <span class="o">=</span> <span class="n">getOptionalString</span><span class="p">().</span><span class="na">orElseGet</span><span class="p">(</span><span class="n">myPlugin</span><span class="p">::</span><span class="n">defaultString</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="fail-on-absent-values">
+<h3>在不存在值时抛出异常<a class="headerlink" href="#fail-on-absent-values" title="本標題的永久連結">¶</a></h3>
+<p>如果一个值不存在应该导致一个异常的抛出，一般情况下总是最好抛出一个自定义异常，而不是依赖于默认的 <code class="docutils literal notranslate"><span class="pre">NoSuchElementException</span></code> 。 如果你把一个 <code class="docutils literal notranslate"><span class="pre">Supplier</span></code> 传入 <code class="docutils literal notranslate"><span class="pre">orElseThrow()</span></code> 方法并加以调用，那么它会在 <code class="docutils literal notranslate"><span class="pre">Optional</span></code> 包含的值存在时返回该值，值不存在时抛出一个 <code class="docutils literal notranslate"><span class="pre">Supplier</span></code> 决定的 <code class="docutils literal notranslate"><span class="pre">Throwable</span></code> 。同样，你可以直接在 <code class="docutils literal notranslate"><span class="pre">Supplier</span></code> 中使用 Lambda 表达式或方法引用。</p>
+<p>旧做法：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Optional</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">optionalString</span> <span class="o">=</span> <span class="n">getOptionalString</span><span class="p">();</span>
+<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">optionalString</span><span class="p">.</span><span class="na">isPresent</span><span class="p">())</span> <span class="p">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="n">MyException</span><span class="p">();</span>
+<span class="p">}</span>
+<span class="n">String</span> <span class="n">someString</span> <span class="o">=</span> <span class="n">optionalString</span><span class="p">.</span><span class="na">get</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>新做法：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">someString</span> <span class="o">=</span> <span class="n">getOptionalString</span><span class="p">().</span><span class="na">orElseThrow</span><span class="p">(</span><span class="n">MyException</span><span class="p">::</span><span class="k">new</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">備註</p>
+<p class="last">如果方法参数提供的 <code class="docutils literal notranslate"><span class="pre">Throwable</span></code> 是一个需要被检查的异常，那么它也必须包含在被调用方法的签名（Signature）中（例如 <code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">void</span> <span class="pre">doStuff()</span> <span class="pre">throws</span> <span class="pre">MyException</span></code> ）。</p>
+</div>
+</div>
+</div>
+<div class="section" id="conditional-code-execution">
+<h2>条件代码执行<a class="headerlink" href="#conditional-code-execution" title="本標題的永久連結">¶</a></h2>
+<p>如果没有默认值可以使用，那么对应的不存在情况下的代码往往就不应执行。虽然一个简单的条件判断就可以解决问题，不过我们还有一些其他的方法。</p>
+<div class="section" id="consuming-values">
+<h3>传入方法参数<a class="headerlink" href="#consuming-values" title="本標題的永久連結">¶</a></h3>
+<p>如果你已经把处理当前值的逻辑封装在了 <code class="docutils literal notranslate"><span class="pre">Consumer</span></code> 或者单参数函数中，那么 <code class="docutils literal notranslate"><span class="pre">ifPresent()</span></code> 方法将接受它（或方法引用）作为参数。如果一个值出现在 <code class="docutils literal notranslate"><span class="pre">Optional</span></code> 上，它将被传递给该方法的参数。如果 <code class="docutils literal notranslate"><span class="pre">Optional</span></code> 是空的，那么，除了安全，什么都不会发生。</p>
+<p>旧做法：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Optional</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">optionalString</span> <span class="o">=</span> <span class="n">getOptionalString</span><span class="p">();</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">optionalString</span><span class="p">.</span><span class="na">isPresent</span><span class="p">())</span> <span class="p">{</span>
+    <span class="n">myPlugin</span><span class="p">.</span><span class="na">doSomethingWithString</span><span class="p">(</span><span class="n">optionalString</span><span class="p">.</span><span class="na">get</span><span class="p">());</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>新做法：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Optional</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">optionalString</span> <span class="o">=</span> <span class="n">getOptionalString</span><span class="p">();</span>
+<span class="n">optionalString</span><span class="p">.</span><span class="na">ifPresent</span><span class="p">(</span><span class="n">s</span> <span class="o">-&gt;</span> <span class="n">myPlugin</span><span class="p">.</span><span class="na">doSomethingWithString</span><span class="p">(</span><span class="n">s</span><span class="p">));</span>
+</pre></div>
+</div>
+<p>或</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">getOptionalString</span><span class="p">().</span><span class="na">ifPresent</span><span class="p">(</span><span class="n">myPlugin</span><span class="p">::</span><span class="n">doSomethingWithString</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="filtering">
+<h3>過濾<a class="headerlink" href="#filtering" title="本標題的永久連結">¶</a></h3>
+<p>你也可以传入一个 <code class="docutils literal notranslate"><span class="pre">Predicate</span></code> 。只有使得 <code class="docutils literal notranslate"><span class="pre">Predicate</span></code> 返回 true 的值才会被保留，也就是说，如果值本身并不存在，或者 <code class="docutils literal notranslate"><span class="pre">Predicate</span></code> 返回了 false，那么我们就会得到不包含值的 <code class="docutils literal notranslate"><span class="pre">Optional</span></code> 。因为这个方法返回一个 <code class="docutils literal notranslate"><span class="pre">Optional</span></code> ，所以这允许开发者使用链式的方式将它和其他方法在同一行代码中调用。</p>
+<p>旧做法：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Optional</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">optionalString</span> <span class="o">=</span> <span class="n">getOptionalString</span><span class="p">();</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">optionalString</span><span class="p">.</span><span class="na">isPresent</span><span class="p">())</span> <span class="p">{</span>
+    <span class="n">String</span> <span class="n">someString</span> <span class="o">=</span> <span class="n">optionalString</span><span class="p">.</span><span class="na">get</span><span class="p">();</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">stringTester</span><span class="p">.</span><span class="na">isPalindromic</span><span class="p">(</span><span class="n">someString</span><span class="p">))</span> <span class="p">{</span>
+        <span class="n">myPlugin</span><span class="p">.</span><span class="na">doSomethingWithString</span><span class="p">(</span><span class="n">someString</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>新做法：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">getOptionalString</span><span class="p">()</span>
+      <span class="p">.</span><span class="na">filter</span><span class="p">(</span><span class="n">stringTester</span><span class="p">::</span><span class="n">isPalindromic</span><span class="p">)</span>
+      <span class="p">.</span><span class="na">ifPresent</span><span class="p">(</span><span class="n">myPlugin</span><span class="p">::</span><span class="n">doSomethingWithString</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">備註</p>
+<p class="last">这个作为筛选器的函数和下面描述的映射（Map）函数都不会修改它们被调用的实例。也就是说 <code class="docutils literal notranslate"><span class="pre">Optional</span></code> 总是不可变的。</p>
+</div>
+</div>
+<div class="section" id="mapping">
+<h3>映射<a class="headerlink" href="#mapping" title="本標題的永久連結">¶</a></h3>
+<p>另一个可以进行链式调用的操作是将包含的值映射到不同的值。如果没有值，则任何值都不会改变。但是如果它存在，那么方法将返回一个给定 <code class="docutils literal notranslate"><span class="pre">Function</span></code> 的返回值（或在返回值是 <code class="docutils literal notranslate"><span class="pre">null</span></code> 时返回一个空 <code class="docutils literal notranslate"><span class="pre">Optional</span></code> ）。</p>
+<p>旧做法：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Optional</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">optionalString</span> <span class="o">=</span> <span class="n">getOptionalString</span><span class="p">();</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">optionalString</span><span class="p">.</span><span class="na">isPresent</span><span class="p">())</span> <span class="p">{</span>
+    <span class="n">String</span> <span class="n">someString</span> <span class="o">=</span> <span class="n">optionalString</span><span class="p">.</span><span class="na">get</span><span class="p">().</span><span class="na">toLowerCase</span><span class="p">();</span>
+    <span class="n">myPlugin</span><span class="p">.</span><span class="na">doSomethingWithString</span><span class="p">(</span><span class="n">someString</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>新做法：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">getOptionalString</span><span class="p">()</span>
+      <span class="p">.</span><span class="na">map</span><span class="p">(</span><span class="n">s</span> <span class="o">-&gt;</span> <span class="n">s</span><span class="p">.</span><span class="na">toLowerCase</span><span class="p">())</span>
+      <span class="p">.</span><span class="na">ifPresent</span><span class="p">(</span><span class="n">myPlugin</span><span class="p">::</span><span class="n">doSomethingWithString</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">小訣竅</p>
+<p class="last">如果你的映射函数已经返回一个 <code class="docutils literal notranslate"><span class="pre">Optional</span></code> 了，那么请使用 <code class="docutils literal notranslate"><span class="pre">flatMap()</span></code> 方法。该方法的行为就像 <code class="docutils literal notranslate"><span class="pre">map()</span></code> 一样，仅有的区别就是它的返回值已经是一个 <code class="docutils literal notranslate"><span class="pre">Optional</span></code> 了，也就是说不需要再包装返回值。</p>
+</div>
+</div>
+<div class="section" id="combined-example">
+<h3>結合範例<a class="headerlink" href="#combined-example" title="本標題的永久連結">¶</a></h3>
+<p>想象一个插件允许每个玩家有宠物跟随。假设存在以下方法：</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">petRegistry.getPetForPlayer()</span></code> 需要传入一个 <code class="docutils literal notranslate"><span class="pre">Player</span></code> 作为参数并返回 <code class="docutils literal notranslate"><span class="pre">Optional&lt;Pet&gt;</span></code> 。该方法查找与给定玩家相关联的宠物。</li>
+<li><code class="docutils literal notranslate"><span class="pre">petHelper.canSpawn()</span></code> 需要传入一个 <code class="docutils literal notranslate"><span class="pre">Pet</span></code> 作为参数并返回一个 <code class="docutils literal notranslate"><span class="pre">boolean</span></code> 。此方法执行所有必要的检查，以确保给定的宠物可以产生。</li>
+<li><code class="docutils literal notranslate"><span class="pre">petHelper.spawnPet()</span></code> 需要传入一个 <code class="docutils literal notranslate"><span class="pre">Pet</span></code> 作为参数并没有返回值。此方法将产生一个之前不存在的宠物。</li>
+</ul>
+<p>现在从某处（可能是执行一个命令），我们得到了 <code class="docutils literal notranslate"><span class="pre">optionalPlayer</span></code> 变量，它保存着一个 <code class="docutils literal notranslate"><span class="pre">Optional&lt;Player&gt;</span></code> 。我们现在想要获得这个玩家的宠物，检查宠物是否能够被产生，如果它不被产生则产生，同时执行相应的检查，这些操作都将在每一个 <code class="docutils literal notranslate"><span class="pre">Optional</span></code> 实际上包含一个值的情况下发生。只使用基本的 <code class="docutils literal notranslate"><span class="pre">isPresent()</span></code> 和 <code class="docutils literal notranslate"><span class="pre">get()</span></code> 方法产生的代码在效率上的确很高。</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">optionalPlayer</span><span class="p">.</span><span class="na">isPresent</span><span class="p">())</span> <span class="p">{</span>
+    <span class="n">Player</span> <span class="n">player</span> <span class="o">=</span> <span class="n">optionalPlayer</span><span class="p">.</span><span class="na">get</span><span class="p">();</span>
+    <span class="n">Optional</span><span class="o">&lt;</span><span class="n">Pet</span><span class="o">&gt;</span> <span class="n">optionalPet</span> <span class="o">=</span> <span class="n">petRegistry</span><span class="p">.</span><span class="na">getPetForPlayer</span><span class="p">(</span><span class="n">player</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">optionalPet</span><span class="p">.</span><span class="na">isPresent</span><span class="p">())</span> <span class="p">{</span>
+        <span class="n">Pet</span> <span class="n">pet</span> <span class="o">=</span> <span class="n">optionalPet</span><span class="p">.</span><span class="na">get</span><span class="p">();</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">petHelper</span><span class="p">.</span><span class="na">canSpawn</span><span class="p">(</span><span class="n">pet</span><span class="p">))</span> <span class="p">{</span>
+            <span class="n">petHelper</span><span class="p">.</span><span class="na">spawnPet</span><span class="p">(</span><span class="n">pet</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>然而，通过使用 <code class="docutils literal notranslate"><span class="pre">Optional</span></code> 的一些方法来执行条件代码，我们可以隐藏所有的这些存在检查，减少了不必要的代码和缩进级别，从而使代码可读性得到了提高：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">optionalPlayer</span>
+      <span class="p">.</span><span class="na">flatMap</span><span class="p">(</span><span class="n">petRegistry</span><span class="p">::</span><span class="n">getPetForPlayer</span><span class="p">)</span>
+      <span class="p">.</span><span class="na">filter</span><span class="p">(</span><span class="n">petHelper</span><span class="p">::</span><span class="n">canSpawn</span><span class="p">)</span>
+      <span class="p">.</span><span class="na">ifPresent</span><span class="p">(</span><span class="n">petHelper</span><span class="p">::</span><span class="n">spawnPet</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="creating-optionals">
+<h2>创建 Optional<a class="headerlink" href="#creating-optionals" title="本標題的永久連結">¶</a></h2>
+<p>如果你选择提供一个 API ，遵循使用 <code class="docutils literal notranslate"><span class="pre">Optional</span></code> 而不是返回可能出现的 <code class="docutils literal notranslate"><span class="pre">null</span></code> 值，那么你需要首先创建 <code class="docutils literal notranslate"><span class="pre">Optional</span></code> 然后才能返回它们。通过调用三个静态构造方法中的一个，我们可以完成这一点。</p>
+<p><code class="docutils literal notranslate"><span class="pre">Optional.empty()</span></code> 将总是返回一个不存在任何值的 <code class="docutils literal notranslate"><span class="pre">Optional</span></code> 。</p>
+<p><code class="docutils literal notranslate"><span class="pre">Optional.of()</span></code> 将返回一个包含有给定参数的 <code class="docutils literal notranslate"><span class="pre">Optional</span></code> ，并且在给定参数为 <code class="docutils literal notranslate"><span class="pre">null</span></code> 时抛出 <code class="docutils literal notranslate"><span class="pre">NullPointerException</span></code> 异常。</p>
+<p><code class="docutils literal notranslate"><span class="pre">Optional.ofNullable()</span></code> 将在给定的参数为 <code class="docutils literal notranslate"><span class="pre">null</span></code> 时返回一个不包含有任何值的 <code class="docutils literal notranslate"><span class="pre">Optional</span></code> ，在给定的参数存在值时返回一个包含有该值的 <code class="docutils literal notranslate"><span class="pre">Optional</span></code> 。</p>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../logging.html" class="btn btn-neutral float-right" title="記錄與除錯" accesskey="n" rel="next">下一頁 <span class="fa fa-angle-right"></span></a>
+        <a href="basic.html" class="btn btn-neutral" title="Optionals 的解釋" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> 上一頁</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../../_static/flags/zh_TW.svg"
+         alt="zh-TW" title="繁體中文">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../../_static/jquery.js"></script>      <script type="text/javascript" src="../../_static/underscore.js"></script>      <script type="text/javascript" src="../../_static/doctools.js"></script>      <script type="text/javascript" src="../../_static/language_data.js"></script>      <script type="text/javascript" src="../../_static/translations.js"></script>      <script type="text/javascript" src="../../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

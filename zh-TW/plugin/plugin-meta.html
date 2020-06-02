@@ -1,0 +1,307 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>插件元數據 &mdash; Sponge 7.2.0 說明文件</title>
+
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="索引"
+              href="../genindex.html"/>        <link rel="search" title="搜尋" href="../search.html"/>    <link rel="top" title="Sponge 7.2.0 說明文件" href="../index.html"/>        <link rel="up" title="建立插件" href="index.html"/>        <link rel="next" title="光線追蹤" href="ray-tracing.html"/>        <link rel="prev" title="Tab 清單" href="tab-lists.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../index.html">
+            <img src="../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../server/index.html">建立伺服器</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../versions/index.html">版本控制方針</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../preparing/index.html">準備開發</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">建立插件</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="api-versions.html">API版本</a></li>
+<li class="toctree-l2"><a class="reference internal" href="buildsystem.html">建置系統</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workspace/index.html">建立你的工作空間</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project/index.html">建立你的專案</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin-identifier.html">插件識別碼</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin-class.html">主要插件類別</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lifecycle.html">插件的生命週期</a></li>
+<li class="toctree-l2"><a class="reference internal" href="injection.html">相依注入</a></li>
+<li class="toctree-l2"><a class="reference internal" href="practices/index.html">實踐</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optional/index.html">Optionals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.html">記錄與除錯</a></li>
+<li class="toctree-l2"><a class="reference internal" href="text/index.html">文本</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands/index.html">插件指令</a></li>
+<li class="toctree-l2"><a class="reference internal" href="event/index.html">事件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration/index.html">設定插件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assets.html">Asset API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data/index.html">Data API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/index.html">方塊</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entities/index.html">實體</a></li>
+<li class="toctree-l2"><a class="reference internal" href="items/index.html">物品</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trade-offers.html">開設交易</a></li>
+<li class="toctree-l2"><a class="reference internal" href="effects.html">效果</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scheduler.html">排程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="services.html">服務</a></li>
+<li class="toctree-l2"><a class="reference internal" href="database.html">資料庫</a></li>
+<li class="toctree-l2"><a class="reference internal" href="permissions.html">權限</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bans.html">封鎖</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metrics.html">Metrics 收集</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bookview.html">書本閱覽</a></li>
+<li class="toctree-l2"><a class="reference internal" href="economy/index.html">經濟</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wgen/index.html">世界生成</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manager.html">插件管理器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="game-profile-manager.html">遊戲設定檔管理器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="offline-userplayer-data.html">離線玩家資料</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tab-lists.html">Tab 清單</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">插件元數據</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ray-tracing.html">光線追蹤</a></li>
+<li class="toctree-l2"><a class="reference internal" href="debugging.html">插件除錯</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials.html">教學</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internals/index.html">相依於實作的插件</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ore/index.html">Ore 文件</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contributing/index.html">為 Sponge 貢獻</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">關於 Sponge 專案</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+          <li><a href="index.html">建立插件</a> &raquo;</li>
+    <li>插件元數據</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/plugin/plugin-meta.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="plugin-metadata">
+<h1>插件元數據<a class="headerlink" href="#plugin-metadata" title="本標題的永久連結">¶</a></h1>
+<p>添加插件的元数据（Metadata）可以通过给予他们在运行时检查插件的名称、 版本、 描述、甚至插件的作者的能力帮助用户更容易地识别你的插件。插件的元数据也会用在一些发布插件的地方比如 <a class="reference external" href="https://github.com/SpongePowered/Ore">Ore</a> 。</p>
+<p>目前，Sponge 支持以下类型的插件的元数据︰</p>
+<ul class="simple">
+<li>插件 ID、 插件名称、以及版本</li>
+<li>說明</li>
+<li>網址（例如：網站）</li>
+<li>開發者：</li>
+<li>插件依赖</li>
+</ul>
+<div class="section" id="plugin-annotation">
+<h2>插件注解<a class="headerlink" href="#plugin-annotation" title="本標題的永久連結">¶</a></h2>
+<p>你可以为你的插件的 <code class="docutils literal notranslate"><span class="pre">&#64;Plugin</span></code> 注解提供额外（非必须）的元数据。尽管只有 id 是必填项，你仍然可以显式指定所有的信息。一个使用了 <code class="docutils literal notranslate"><span class="pre">&#64;Plugin</span></code> 中所有的字段的注解看起来像是这样：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.plugin.Plugin</span><span class="p">;</span>
+
+<span class="nd">@Plugin</span><span class="p">(</span><span class="n">id</span> <span class="o">=</span> <span class="s">&quot;myplugin&quot;</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;My Plugin&quot;</span><span class="p">,</span> <span class="n">version</span> <span class="o">=</span> <span class="s">&quot;1.0&quot;</span><span class="p">,</span>
+    <span class="n">description</span> <span class="o">=</span> <span class="s">&quot;This is a very cool plugin I made for me&quot;</span><span class="p">,</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="s">&quot;http://example.com&quot;</span><span class="p">,</span>
+    <span class="n">authors</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;Spongie&quot;</span><span class="p">,</span> <span class="s">&quot;FLARD&quot;</span><span class="p">},</span>
+    <span class="n">dependencies</span> <span class="o">=</span> <span class="p">{</span><span class="nd">@Dependency</span><span class="p">(</span><span class="n">id</span> <span class="o">=</span> <span class="s">&quot;otherplugin&quot;</span><span class="p">,</span> <span class="n">optional</span> <span class="o">=</span> <span class="kc">true</span><span class="p">)})</span>
+</pre></div>
+</div>
+<p>你指定的每一个 <code class="docutils literal notranslate"><span class="pre">&#64;Dependency</span></code> 都可以带有符合 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/plugin/Dependency.html#version--">Dependency#version()</a> 说明的指定适用版本范围 <code class="docutils literal notranslate"><span class="pre">version</span></code> 属性。此外，<code class="docutils literal notranslate"><span class="pre">optional</span></code> 属性代表插件在缺失此依赖项目时也能加载。默认，不明确指定为 <code class="docutils literal notranslate"><span class="pre">optional</span></code> 的依赖项目均为硬性依赖；缺失这些依赖会导致插件不能加载。</p>
+<div class="admonition note">
+<p class="first admonition-title">備註</p>
+<p class="last">对于 <code class="docutils literal notranslate"><span class="pre">authors</span></code> 和 <code class="docutils literal notranslate"><span class="pre">dependencies</span></code> 两个属性来说，花括号可以在只有一个元素的情况下省略不写，比如上文示例中的 <code class="docutils literal notranslate"><span class="pre">dependencies</span> <span class="pre">=</span> <span class="pre">&#64;Dependency(id</span> <span class="pre">=</span> <span class="pre">&quot;otherplugin&quot;,</span> <span class="pre">optional</span> <span class="pre">=</span> <span class="pre">true)</span></code>。</p>
+</div>
+</div>
+<div class="section" id="file-metadata">
+<h2>文件元數據<a class="headerlink" href="#file-metadata" title="本標題的永久連結">¶</a></h2>
+<p>对于插件注解中额外添加的元数据，我们也同时建议在 JAR 的一个额外的文件中包含元数据，这样的优点有：</p>
+<ul class="simple">
+<li>易于在构建系统中集成（例如在构建系统中添加版本进插件的元数据）</li>
+<li>易于用于发布插件的网站识别（不需要解析插件的字节码文件）</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">備註</p>
+<p class="last"><strong>我们强烈建议在对外公开的插件中包含文件元数据</strong> 。一些插件托管平台（如 <a class="reference external" href="https://github.com/SpongePowered/Ore">Ore</a> ）需要文件元数据。有关生成它的简单方法，请参见 <a class="reference internal" href="#using-the-annotation-processor">使用注解处理器</a> 这一部分。如果插件缺少文件元数据，在某些场合可能会打印警告。</p>
+</div>
+<div class="section" id="the-mcmod-info-format">
+<h3>mcmod.info類型<a class="headerlink" href="#the-mcmod-info-format" title="本標題的永久連結">¶</a></h3>
+<p>对于 Sponge 插件来说，我们使用一个名为 <code class="docutils literal notranslate"><span class="pre">mcmod.info</span></code> 的文件，它位于插件 JAR 的根目录中。该格式起源于 Forge 并已被 Minecraft 社区中的多个项目使用，因此我们选择使用它。</p>
+<p><code class="docutils literal notranslate"><span class="pre">mcmod.info</span></code> 基本上是一个非常简单的 <a class="reference external" href="https://en.wikipedia.org/wiki/JSON">JSON</a> 文件，它将插件元数据定义为若干简单的字段。下面是一个可以供 Sponge 插件使用的示例文件：</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[{</span>
+    <span class="nt">&quot;modid&quot;</span><span class="p">:</span> <span class="s2">&quot;myplugin&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;My Plugin&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;This is a very cool plugin I made for me&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;authorList&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;Spongie&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;FLARD&quot;</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;dependencies&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;otherplugin&quot;</span>
+    <span class="p">]</span>
+<span class="p">}]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-the-annotation-processor">
+<h3>使用注解处理器<a class="headerlink" href="#using-the-annotation-processor" title="本標題的永久連結">¶</a></h3>
+<p>多一个文件等于多一份维护工作；但幸运的是，你大可不必为此头疼。SpongeAPI 能在编译期根据你在 <code class="docutils literal notranslate"><span class="pre">&#64;Plugin</span></code> 注解中提供的信息自动生成这个文件。</p>
+<div class="section" id="enabling">
+<h4>啟用<a class="headerlink" href="#enabling" title="本標題的永久連結">¶</a></h4>
+<p>如果你使用一个构建系统，如 Gradle 或 Maven 等，同时你并没有声明禁用注解处理器，那么你什么都不用做。默认情况下，注解处理器将自动运行并基于 <code class="docutils literal notranslate"><span class="pre">&#64;Plugin</span></code> 注解的内容生成一个 <code class="docutils literal notranslate"><span class="pre">mcmod.info</span></code> 文件。</p>
+<p>如果你没有在使用构建系统的话，那么你需要手动启用注解处理器。</p>
+</div>
+<div class="section" id="build-system-integration">
+<h4>构建系统兼容<a class="headerlink" href="#build-system-integration" title="本標題的永久連結">¶</a></h4>
+<p>如果你使用 Gradle ，那么 <a class="reference external" href="https://github.com/SpongePowered/SpongeGradle">SpongeGradle</a> 将提供针对 Gradle 和插件元数据的额外集成。例如它会自动将 Gradle 构建脚本中定义的项目版本包含在插件元数据中。请参阅 <a class="reference internal" href="project/gradle.html"><span class="doc">設定 Gradle</span></a> 以进一步了解相关内容。</p>
+<div class="admonition note">
+<p class="first admonition-title">備註</p>
+<p class="last">如果你使用 NetBeans IDE，请确认你取消勾选了 <em>Project Properties &gt; Build &gt; Compile</em> 菜单下的 <em>Compile On Save</em> 的选项，这样 mcmod.info 才能正确生成。</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="ray-tracing.html" class="btn btn-neutral float-right" title="光線追蹤" accesskey="n" rel="next">下一頁 <span class="fa fa-angle-right"></span></a>
+        <a href="tab-lists.html" class="btn btn-neutral" title="Tab 清單" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> 上一頁</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../_static/flags/zh_TW.svg"
+         alt="zh-TW" title="繁體中文">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../_static/jquery.js"></script>      <script type="text/javascript" src="../_static/underscore.js"></script>      <script type="text/javascript" src="../_static/doctools.js"></script>      <script type="text/javascript" src="../_static/language_data.js"></script>      <script type="text/javascript" src="../_static/translations.js"></script>      <script type="text/javascript" src="../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

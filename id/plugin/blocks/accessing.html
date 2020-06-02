@@ -1,0 +1,388 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mengakses Blokir &mdash; dokumentasi Sponge 7.2.0</title>
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="Indeks"
+              href="../../genindex.html"/>        <link rel="search" title="Pencarian" href="../../search.html"/>    <link rel="top" title="dokumentasi Sponge 7.2.0" href="../../index.html"/>        <link rel="up" title="Blok" href="index.html"/>        <link rel="next" title="Memodifikasi Blok" href="modifying.html"/>        <link rel="prev" title="Konsep" href="concepts.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../../index.html">
+            <img src="../../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../server/index.html">Membuat sebuah server</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../versions/index.html">Versioning Policy</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../preparing/index.html">Mempersiapkan untuk Pengembangan</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Membuat Plugin</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../api-versions.html">API-Versions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../buildsystem.html">Membangun Sistem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../workspace/index.html">Anda mengatur ruang kerja</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../project/index.html">Menyiapkan proyek anda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-identifier.html">Pengenal Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-class.html">Class Plugin utama</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lifecycle.html">Plugin Siklus Hidup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../injection.html">Ketergantungan Injeksi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../practices/index.html">Kebiasaan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../optional/index.html">Pilihan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../logging.html">Penebangan dan Debugging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text/index.html">Teks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/index.html">Plugin Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../event/index.html">Acara</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/index.html">Mengkonfigurasi plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assets.html">Aset API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data/index.html">Data API</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Blok</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="concepts.html">Konsep</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Mengakses Blokir</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modifying.html">Memodifikasi Blok</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tileentities.html">Genteng Badan</a></li>
+<li class="toctree-l3"><a class="reference internal" href="virtualblock.html">Virtual Blok Perubahan</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../entities/index.html">Badan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../items/index.html">Item</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../trade-offers.html">Trade-Offers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../effects.html">Hasil</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../scheduler.html">Penjadwalan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../services.html">Layanan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database.html">Basis data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../permissions.html">Hak akses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bans.html">Larang</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metrics.html">Metrics Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bookview.html">Tampilan buku</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../economy/index.html">Ekonomi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wgen/index.html">Generasi dunia</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manager.html">Pengelola Pengaya</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../game-profile-manager.html">Manajer profil game</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../offline-userplayer-data.html">Tidak hidup Data Pemain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tab-lists.html">Daftar tab</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-meta.html">Plugin Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ray-tracing.html">V8 Tracing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../debugging.html">Plugin Debugging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials.html">Tutorial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internals/index.html">Plugin yang tergantung pada pelaksanaan</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ore/index.html">Dokumentasi bijih</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/index.html">Berkontribusi pada Sponge</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">Tentang Sponge Project</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+          <li><a href="../index.html">Membuat Plugin</a> &raquo;</li>
+          <li><a href="index.html">Blok</a> &raquo;</li>
+    <li>Mengakses Blokir</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/plugin/blocks/accessing.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="accessing-blocks">
+<h1>Mengakses Blokir<a class="headerlink" href="#accessing-blocks" title="Link permanen untuk headline ini">¶</a></h1>
+<div class="section" id="basic-information">
+<h2>Informasi dasar<a class="headerlink" href="#basic-information" title="Link permanen untuk headline ini">¶</a></h2>
+<p>Blok paling sering diidentifikasi dan diakses oleh mereka :javadoc: <cite>Location</cite>. Lokasi ini menunjuk ke koordinat tertentu dalam sebuah :javadoc: <cite>Extent</cite>. Dalam kebanyakan kasus a :javadoc: <cite>World</cite> akan digunakan sebagai` <cite>Extent`</cite>.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.Sponge</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.world.Location</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.world.World</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="n">Location</span><span class="o">&lt;</span><span class="n">World</span><span class="o">&gt;</span> <span class="nf">getBlockAt</span><span class="p">(</span><span class="n">String</span> <span class="n">worldName</span><span class="p">,</span> <span class="kt">int</span> <span class="n">posX</span><span class="p">,</span> <span class="kt">int</span> <span class="n">posY</span><span class="p">,</span> <span class="kt">int</span> <span class="n">posZ</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">World</span> <span class="n">world</span> <span class="o">=</span> <span class="n">Sponge</span><span class="p">.</span><span class="na">getServer</span><span class="p">().</span><span class="na">getWorld</span><span class="p">(</span><span class="n">worldName</span><span class="p">).</span><span class="na">get</span><span class="p">();</span>
+    <span class="n">Location</span><span class="o">&lt;</span><span class="n">World</span><span class="o">&gt;</span> <span class="n">blockLoc</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Location</span><span class="o">&lt;</span><span class="n">World</span><span class="o">&gt;</span><span class="p">(</span><span class="n">world</span><span class="p">,</span> <span class="n">posX</span><span class="p">,</span> <span class="n">posY</span><span class="p">,</span> <span class="n">posZ</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">blockLoc</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Peringatan</p>
+<p class="last">Perhatikan bahwa contoh di atas tidak memeriksa apakah dunia ada. <a href="#id1"><span class="problematic" id="id2">``</span></a>getWorld (worldName).get ()``akan gagal jika tidak ada dunia dengan nama itu yang dimuat.</p>
+</div>
+<p>Dengan objek `` Lokasi` ini Anda kemudian dapat memperoleh informasi lebih lanjut tentang blok tersebut. Kode berikut memeriksa apakah blok yang direferensikan adalah jenis spanduk dengan memeriksa jenis blok.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.block.BlockType</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.block.BlockTypes</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isBanner</span><span class="p">(</span><span class="n">Location</span><span class="o">&lt;</span><span class="n">World</span><span class="o">&gt;</span> <span class="n">blockLoc</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">BlockType</span> <span class="n">type</span> <span class="o">=</span> <span class="n">blockLoc</span><span class="p">.</span><span class="na">getBlock</span><span class="p">().</span><span class="na">getType</span><span class="p">();</span>
+    <span class="k">return</span> <span class="n">type</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">BlockTypes</span><span class="p">.</span><span class="na">STANDING_BANNER</span><span class="p">)</span>
+            <span class="o">||</span> <span class="n">type</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">BlockTypes</span><span class="p">.</span><span class="na">WALL_BANNER</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">Fungsi `` == `` dapat digunakan di tempat `` sama dengan () `` karena hanya ada satu :javadoc: <cite>instance BlockType</cite> untuk setiap blok, namun umumnya disarankan untuk menggunakan` <cite>sama dengan ()</cite> <a href="#id1"><span class="problematic" id="id2">`</span></a>.</p>
+</div>
+</div>
+<div class="section" id="block-data-manipulators">
+<h2>Blokir Manipulator Data<a class="headerlink" href="#block-data-manipulators" title="Link permanen untuk headline ini">¶</a></h2>
+<p>Data dari sebuah blok dipegang sebagai <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/manipulator/DataManipulator.html">DataManipulator</a>, mirip dengan bagian API lainnya. Ini adalah wadah yang menyimpan informasi tentang komponen blok kita seperti orientasi blok, tipe tertentu (batu vs. granit), dan sebagainya. Memeriksa nilai manipulator ini mudah dilakukan, Anda hanya perlu memeriksa arah blok
+<a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/manipulator/mutable/block/DirectionalData.html">DirectionalData</a>.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.data.key.Keys</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.data.manipulator.mutable.block.DirectionalData</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isFacingNorth</span><span class="p">(</span><span class="n">Location</span><span class="o">&lt;</span><span class="n">World</span><span class="o">&gt;</span> <span class="n">blockLoc</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">Optional</span><span class="o">&lt;</span><span class="n">DirectionalData</span><span class="o">&gt;</span> <span class="n">optionalData</span> <span class="o">=</span> <span class="n">blockLoc</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">DirectionalData</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">optionalData</span><span class="p">.</span><span class="na">isPresent</span><span class="p">())</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">DirectionalData</span> <span class="n">data</span> <span class="o">=</span> <span class="n">optionalData</span><span class="p">.</span><span class="na">get</span><span class="p">();</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">data</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">Keys</span><span class="p">.</span><span class="na">DIRECTION</span><span class="p">).</span><span class="na">get</span><span class="p">().</span><span class="na">equals</span><span class="p">(</span><span class="n">Direction</span><span class="p">.</span><span class="na">NORTH</span><span class="p">))</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Pertama, kita perlu tahu mana sub-interface <cite>DataManipulator</cite> yang kita butuhkan. Mereka yang berlaku untuk blok ditemukan di
+:javadoc: <cite>org.spongepowered.api.data.manipulator.mutable</cite> dan
+:javadoc:` org.spongepowered.api.data.manipulator.mutable.block` packages. Kemudian, kita bisa melewati kelas itu ke metode `` get (DataManipulator) `` `` Location`` yang akan mengembalikan `` Opsional``. Kita kemudian harus memeriksa apakah 'DataManipulator` kita benar-benar ada untuk blok kita dengan memeriksa `` ifPresent () <a href="#id1"><span class="problematic" id="id2">``</span></a>. Jika ada, maka kita bisa menggunakannya.</p>
+<p>Lebih lanjut tentang <cite>DataManipulator`</cite> s dapat ditemukan di :doc:` dokumentasi data &lt;../ data / datamanipulators&gt; <a href="#id1"><span class="problematic" id="id2">`</span></a>.</p>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">Jika blok tidak akan pernah berhenti mendukung <cite>DataManipulator</cite> tertentu, seperti` <cite>DirectionalData`</cite> dengan tangga, maka tidak perlu memeriksa` <cite>isPresent ()</cite> <cite>. Hapus saja pilihan di sekitar `DataManipulator</cite> dan ambil data non-opsional dengan menambahkan` <cite>.get ()</cite> <cite>ke akhir pernyataan. Perhatikan, bahwa ini akan menyebabkan `</cite> NullPointerException`` jika satu blok berhenti mendukung <cite>DataManipulator</cite> tertentu.</p>
+</div>
+</div>
+<div class="section" id="block-states">
+<h2>Blok negara<a class="headerlink" href="#block-states" title="Link permanen untuk headline ini">¶</a></h2>
+<p>A :javadoc: <cite>BlockState</cite> berisi :javadoc:` BlockType`, <cite>DataManipulator`</cite> dan properti yang diaplikasikan pada blok, dan ada pula :javadoc:` BlockTrait` s untuk satu blok. Ini menyimpan semua nilai abadi untuk blok tertentu. Salah satu penggunaan ini adalah mendapatkan
+:javadoc: <cite>ImmutableDataManipulator</cite>, seperti yang ditunjukkan di bawah ini:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.block.BlockState</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.data.manipulator.immutable.ImmutableWetData</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isWet</span><span class="p">(</span><span class="n">Location</span> <span class="n">blockLoc</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">BlockState</span> <span class="n">sponge</span> <span class="o">=</span> <span class="n">blockLoc</span><span class="p">.</span><span class="na">getBlock</span><span class="p">();</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">sponge</span><span class="p">.</span><span class="na">getType</span><span class="p">().</span><span class="na">equals</span><span class="p">(</span><span class="n">BlockTypes</span><span class="p">.</span><span class="na">SPONGE</span><span class="p">))</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">Optional</span><span class="o">&lt;</span><span class="n">ImmutableWetData</span><span class="o">&gt;</span> <span class="n">wetness</span> <span class="o">=</span> <span class="n">sponge</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">ImmutableWetData</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">wetness</span><span class="p">.</span><span class="na">isPresent</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Informasi lebih lanjut tentang DataManipulator yang bisa berubah dan tidak berubah dapat ditemukan di :doc: <cite>dokumentasi data &lt;../ data / datamanipulators&gt;</cite>.</p>
+</div>
+<div class="section" id="block-properties">
+<h2>Blok properti<a class="headerlink" href="#block-properties" title="Link permanen untuk headline ini">¶</a></h2>
+<p>Blok bisa berisi properti tertentu. Properti adalah nilai yang telah ditetapkan yang mendefinisikan logika permainan dari blok tersebut. Misalnya, blok dapat berisi nilai tahan-ledakan yang telah ditentukan sebelumnya yang dapat digunakan untuk menentukan apa yang Anda kerjakan, tanpa benar-benar memeriksa jenis blok itu bisa satu per satu. Misalnya, jika kita ingin mendapatkan perlawanan ledakan dari sebuah blok dan memeriksa apakah itu lebih besar dari atau sama dengan satu, maka akan dilakukan seperti ini:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.data.Property</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.data.property.DoubleProperty</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.data.property.block.BlastResistanceProperty</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">blastResistanceGreaterThanOne</span><span class="p">(</span><span class="n">Location</span><span class="o">&lt;</span><span class="n">World</span><span class="o">&gt;</span> <span class="n">blockLoc</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">Optional</span><span class="o">&lt;</span><span class="n">BlastResistanceProperty</span><span class="o">&gt;</span> <span class="n">optional</span> <span class="o">=</span>
+        <span class="n">blockLoc</span><span class="p">.</span><span class="na">getProperty</span><span class="p">(</span><span class="n">BlastResistanceProperty</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="n">optional</span><span class="p">.</span><span class="na">isPresent</span><span class="p">())</span> <span class="p">{</span>
+        <span class="n">BlastResistanceProperty</span> <span class="n">resistance</span> <span class="o">=</span> <span class="n">optional</span><span class="p">.</span><span class="na">get</span><span class="p">();</span>
+        <span class="n">DoubleProperty</span> <span class="n">one</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DoubleProperty</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">Property</span><span class="p">.</span><span class="na">Operator</span><span class="p">.</span><span class="na">GEQUAL</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">one</span><span class="p">.</span><span class="na">matches</span><span class="p">(</span><span class="n">resistance</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This will get the blast resistance of our block and compare it to a new <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/property/DoubleProperty.html">DoubleProperty</a>, as
+<a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/property/block/BlastResistanceProperty.html">BlastResistanceProperty</a> inherits from <code class="docutils literal notranslate"><span class="pre">DoubleProperty</span></code>. The method will then return if the blast
+resistance of our block is greater than one, the value in placed <code class="docutils literal notranslate"><span class="pre">matches()</span></code>. If we wanted to see if it was less than
+two, we would replace the property operator in the <code class="docutils literal notranslate"><span class="pre">DoubleProperty</span></code> ctor  with <code class="docutils literal notranslate"><span class="pre">Property.Operator.LESS</span></code>.</p>
+<p>Jika kita membandingkan dua properti yang sudah ada sebelumnya, maka akan mengambil `` Operator`` dari nilai pertama kita, yang kita buat sebagai properti ganda. Jika `` Operator` `` <cite>DELEGATE`</cite>, yang merupakan operator none, maka akan mengambil` <cite>Operator`</cite> dari nilai kedua, yang di` <cite>cocok ()</cite> <cite>. Perbandingan akan kembali salah jika keduanya `</cite> DELEGATE``. Contoh membandingkan dua
+:javadoc: <cite>PoweredProperty</cite> s, a :javadoc:` BooleanProperty`, dapat dilihat di bawah ini:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.data.property.BooleanProperty</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.data.property.block.PoweredProperty</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">areBlocksPowered</span><span class="p">(</span><span class="n">Location</span><span class="o">&lt;</span><span class="n">World</span><span class="o">&gt;</span> <span class="n">blockLoc</span><span class="p">,</span> <span class="n">Location</span><span class="o">&lt;</span><span class="n">World</span><span class="o">&gt;</span> <span class="n">blockLoc2</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">Optional</span><span class="o">&lt;</span><span class="n">PoweredProperty</span><span class="o">&gt;</span> <span class="n">optional</span> <span class="o">=</span> <span class="n">blockLoc</span><span class="p">.</span><span class="na">getProperty</span><span class="p">(</span><span class="n">PoweredProperty</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+    <span class="n">Optional</span><span class="o">&lt;</span><span class="n">PoweredProperty</span><span class="o">&gt;</span> <span class="n">optional2</span> <span class="o">=</span> <span class="n">blockLoc2</span><span class="p">.</span><span class="na">getProperty</span><span class="p">(</span><span class="n">PoweredProperty</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="n">optional</span><span class="p">.</span><span class="na">isPresent</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="n">optional2</span><span class="p">.</span><span class="na">isPresent</span><span class="p">())</span> <span class="p">{</span>
+        <span class="n">PoweredProperty</span> <span class="n">property1</span> <span class="o">=</span> <span class="n">optional2</span><span class="p">.</span><span class="na">get</span><span class="p">();</span>
+        <span class="n">PoweredProperty</span> <span class="n">property2</span> <span class="o">=</span> <span class="n">optional2</span><span class="p">.</span><span class="na">get</span><span class="p">();</span>
+        <span class="n">BooleanProperty</span> <span class="n">booleanProperty</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BooleanProperty</span><span class="p">(</span><span class="kc">true</span><span class="p">,</span> <span class="n">Property</span><span class="p">.</span><span class="na">Operator</span><span class="p">.</span><span class="na">EQUAL</span><span class="p">);</span>
+
+        <span class="k">if</span><span class="p">(</span><span class="n">booleanProperty</span><span class="p">.</span><span class="na">matches</span><span class="p">(</span><span class="n">property1</span><span class="p">))</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="n">property1</span><span class="p">.</span><span class="na">matches</span><span class="p">(</span><span class="n">property2</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Cek kedua `` if`` memeriksa apakah salah satu propertinya benar. Jika benar dan keduanya sama, maka kedua nilai itu pasti benar. Karena itu, hilangkan kebutuhan untuk mengecek nilai kedua. Sekarang kita tahu bahwa kedua blok itu didukung.</p>
+<p>A list of possible block properties can be found in the <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/property/block/package-summary.html">org.spongepowered.api.data.property.block</a> package.</p>
+</div>
+<div class="section" id="block-traits">
+<h2>Sifat blok<a class="headerlink" href="#block-traits" title="Link permanen untuk headline ini">¶</a></h2>
+<p>Sifat blok adalah nilai tertentu pada keadaan blok saat ini. Blok mungkin atau mungkin tidak mengandung sifat-sifat blok, tergantung pada jenis bloknya. Misalnya, tempat tidur memiliki <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/block/trait/BooleanTrait.html">BooleanTrait</a> bernama` <cite>BED_OCCUPIED`</cite>.Sebagai boolean hanya dapat memiliki dua nilai, benar dan salah, karakter `` BED_OCCUPIED`` hanya bisa benar atau salah. Memeriksa nilai ini sederhana, cukup hubungi metode <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/block/BlockState.html#getTraitValue-org.spongepowered.api.block.trait.BlockTrait-">BlockState#getTraitValue(BlockTrait)</a>. Contohnya dengan tempat tidur ditunjukkan di bawah ini:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.block.trait.BooleanTraits</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isBedOccupied</span><span class="p">(</span><span class="n">Location</span><span class="o">&lt;</span><span class="n">World</span><span class="o">&gt;</span> <span class="n">blockLoc</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">blockLoc</span><span class="p">.</span><span class="na">getBlock</span><span class="p">().</span><span class="na">getType</span><span class="p">().</span><span class="na">equals</span><span class="p">(</span><span class="n">BlockTypes</span><span class="p">.</span><span class="na">BED</span><span class="p">))</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">blockLoc</span><span class="p">.</span><span class="na">getBlock</span><span class="p">().</span><span class="na">getTraitValue</span><span class="p">(</span><span class="n">BooleanTraits</span><span class="p">.</span><span class="na">BED_OCCUPIED</span><span class="p">).</span><span class="na">get</span><span class="p">();</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Peringatan</p>
+<p class="last">Jika memungkinkan, disarankan untuk menggunakan <cite>DataManipulator`</cite> di tempat` BlockTrait`` jika memungkinkan karena hanya dimaksudkan sebagai pengganti untuk kompatibilitas modded.</p>
+</div>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="modifying.html" class="btn btn-neutral float-right" title="Memodifikasi Blok" accesskey="n" rel="next">Selanjutnya <span class="fa fa-angle-right"></span></a>
+        <a href="concepts.html" class="btn btn-neutral" title="Konsep" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> Sebelumnya</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../../_static/flags/id_ID.svg"
+         alt="id" title="Indonesia">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../../_static/jquery.js"></script>      <script type="text/javascript" src="../../_static/underscore.js"></script>      <script type="text/javascript" src="../../_static/doctools.js"></script>      <script type="text/javascript" src="../../_static/language_data.js"></script>      <script type="text/javascript" src="../../_static/translations.js"></script>      <script type="text/javascript" src="../../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

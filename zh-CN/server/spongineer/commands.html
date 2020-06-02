@@ -1,0 +1,592 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>命令与权限 &mdash; Sponge 7.2.0 文档</title>
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="索引"
+              href="../../genindex.html"/>        <link rel="search" title="搜索" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 文档" href="../../index.html"/>        <link rel="up" title="成为 Sponge 专家" href="index.html"/>        <link rel="next" title="故障排查" href="troubleshooting.html"/>        <link rel="prev" title="成为 Sponge 专家" href="index.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../../index.html">
+            <img src="../../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">创建服务器</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html">快速入门指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started/index.html">入门指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../management/index.html">管理服务器</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">成为 Sponge 专家</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">命令与权限</a></li>
+<li class="toctree-l3"><a class="reference internal" href="troubleshooting.html">故障排查</a></li>
+<li class="toctree-l3"><a class="reference internal" href="logs.html">日志文件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="debugging.html">调试</a></li>
+<li class="toctree-l3"><a class="reference internal" href="incompatible.html">Mod 兼容</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bugreport.html">报告问题</a></li>
+<li class="toctree-l3"><a class="reference internal" href="properties.html">属性</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../versions/index.html">版本策略</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../preparing/index.html">为开发作准备</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../plugin/index.html">插件开发</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ore/index.html">Ore 文档</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/index.html">向 Sponge 贡献代码</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">关于 Sponge</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+          <li><a href="../index.html">创建服务器</a> &raquo;</li>
+          <li><a href="index.html">成为 Sponge 专家</a> &raquo;</li>
+    <li>命令与权限</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/server/spongineer/commands.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="commands-and-permissions">
+<h1>命令与权限<a class="headerlink" href="#commands-and-permissions" title="永久链接至标题">¶</a></h1>
+<p>服务器管理员可以使用命令来控制自己的服务器，玩家们也可以通过命令来与服务器交互。</p>
+<p>在 Sponge 中，命令的执行受<a class="reference internal" href="../../plugin/permissions.html"><span class="doc">权限</span></a>的控制。权限系统可以让服务器管理员控制每一名玩家可以使用的命令。默认，有 OP 权限的玩家可使用所有的命令。没有 OP 权限的玩家无法使用服务器维护相关的命令及那些需要特殊权限节点的命令。服务器管理员可以利用某种权限插件来精确控制玩家可使用的每一个命令。</p>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">Sponge 自身不是权限管理插件。若需添加或取消特定玩家或组的权限，你需要使用某种权限管理插件。</p>
+</div>
+<div class="section" id="operator-commands">
+<h2>管理员命令<a class="headerlink" href="#operator-commands" title="永久链接至标题">¶</a></h2>
+<p>这些额外于普通玩家命令的命令对服务器管理员可用</p>
+<div class="section" id="sponge">
+<h3>Sponge<a class="headerlink" href="#sponge" title="永久链接至标题">¶</a></h3>
+<p>有管理员权限，或有该命令权限节点的玩家可以使用这些命令来控制 Sponge 的运行。</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="24%" />
+<col width="45%" />
+<col width="32%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">命令</th>
+<th class="head">说明</th>
+<th class="head"><code class="docutils literal notranslate"><span class="pre">Permission</span></code> 字符串</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>/sponge audit</td>
+<td>强制装载未装载的类，以便于启用 Mixin 调试。</td>
+<td>sponge.command.audit</td>
+</tr>
+<tr class="row-odd"><td>/sponge blockinfo</td>
+<td>显示你当前正在看着的方块的类型及附加信息。</td>
+<td>sponge.command.blockinfo</td>
+</tr>
+<tr class="row-even"><td>/sponge chunks</td>
+<td>输出某个世界、某个维度或全局的区块信息。</td>
+<td>sponge.command.chunks</td>
+</tr>
+<tr class="row-odd"><td>/sponge config</td>
+<td>修改全局、某个世界或某个维度的配置。</td>
+<td>sponge.command.config</td>
+</tr>
+<tr class="row-even"><td>/sponge entityinfo</td>
+<td>显示你当前正在看的实体的类型及附加信息。</td>
+<td>sponge.command.entityinfo</td>
+</tr>
+<tr class="row-odd"><td>/sponge heap</td>
+<td>导出 JVM 堆内存信息。</td>
+<td>sponge.command.heap</td>
+</tr>
+<tr class="row-even"><td>/sponge metrics</td>
+<td>获取或设定是否为指定插件启用 metric（又称服务器统计）数据收集。</td>
+<td>sponge.command.metrics</td>
+</tr>
+<tr class="row-odd"><td>/sponge mods</td>
+<td>列出当前已安装的 Forge mod（仅限 SpongeForge）。</td>
+<td>sponge.command.mods</td>
+</tr>
+<tr class="row-even"><td>/sponge plugins</td>
+<td>列出当前已安装的 Sponge 插件。</td>
+<td>sponge.command.plugins</td>
+</tr>
+<tr class="row-odd"><td>/sponge plugins reload</td>
+<td>请求插件执行它们自己的重载操作。</td>
+<td>sponge.command.plugins.reload</td>
+</tr>
+<tr class="row-even"><td>/sponge reload</td>
+<td>重新加载全局、 世界或维度的配置。</td>
+<td>sponge.command.reload</td>
+</tr>
+<tr class="row-odd"><td>/sponge save</td>
+<td>保存全局、世界、或维度的配置</td>
+<td>sponge.command.save</td>
+</tr>
+<tr class="row-even"><td>/sponge timings</td>
+<td>计时模块的主命令。</td>
+<td>sponge.command.timings</td>
+</tr>
+<tr class="row-odd"><td>/sponge tps</td>
+<td>显示每个世界的每秒游戏刻数量（TPS）。</td>
+<td>sponge.command.tps</td>
+</tr>
+<tr class="row-even"><td>/sponge version</td>
+<td>在控制台中输出 Sponge/SpongeAPI 的版本。</td>
+<td>sponge.command.version</td>
+</tr>
+<tr class="row-odd"><td>/sponge which</td>
+<td>输出目标指令的所属插件、别名及替代品。</td>
+<td>sponge.command.which</td>
+</tr>
+<tr class="row-even"><td>/sponge:callback</td>
+<td>内部命令，用于分页等情况下 <code class="docutils literal notranslate"><span class="pre">Text</span></code> 对象的回调动作。不应手动调用。</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>/sponge:help</td>
+<td>查看服务器上可使用命令的信息。</td>
+<td>sponge.command.help</td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><strong>Sponge 命令参数</strong></p>
+<ul class="simple">
+<li>/sponge chunks [-g] [-d dim] [-w world]</li>
+<li>/sponge config [-g] [-d dim] [-w world] key value</li>
+<li>/sponge save [-g] [-d dim|*] [-w world|*]</li>
+<li>/sponge reload [-g] [-d dim|*] [-w world|*]</li>
+</ul>
+<p><strong>命令冲突</strong></p>
+<p>当遇到重名命令时，可使用 Sponge 的主要别名机制来指定具体要执行哪一个命令。例如，Minecraft 和 Sponge 都提供了名为 <code class="docutils literal notranslate"><span class="pre">reload</span></code> 的命令。若要指明具体执行哪一个版本的 <code class="docutils literal notranslate"><span class="pre">reload</span></code> 命令，可以使用前缀 <code class="docutils literal notranslate"><span class="pre">minecraft</span></code> 或 <code class="docutils literal notranslate"><span class="pre">sponge</span></code>，并用 <code class="docutils literal notranslate"><span class="pre">:</span></code> 分隔。换言之，可以输入 <code class="docutils literal notranslate"><span class="pre">/sponge:reload</span></code> 来执行 Sponge 的 <code class="docutils literal notranslate"><span class="pre">reload</span></code>。对于其他 Mod 或插件的命令也可以采用类似的做法，只需要在 <code class="docutils literal notranslate"><span class="pre">:</span></code> 前加上对应的 mod id 或者插件 id 即可，比如 <code class="docutils literal notranslate"><span class="pre">/examplemodid:tp</span></code>。</p>
+<p>另外，主要别名机制还可以用来避免兼容问题。假设有一个插件注册了一个和你的 Mod 不兼容的命令。你只需要将你的 Mod 修改为调用 Minecraft 的原生命令或者兼容的其他插件的命令，就可以避开未定义行为了。</p>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last"><code class="docutils literal notranslate"><span class="pre">/sponge</span> <span class="pre">audit</span></code> 指令强制装载所有未被装载的类，并允许采集完整的 Mixin 调试环境的变量的输出。这同时需要 mixins.checks 变量，请参见 <a class="reference external" href="https://github.com/SpongePowered/Mixin/wiki/Mixin-Java-System-Properties">Mixin wiki</a> 以获得更多信息。</p>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">小技巧</p>
+<p>这里有若干简单的 Sponge 配置命令例子，注意你需要指定至少一个目标。参阅“<a class="reference internal" href="../getting-started/configuration/index.html"><span class="doc">配置 Sponge</span></a>”获取详细说明。</p>
+<ol class="loweralpha simple">
+<li><code class="docutils literal notranslate"><span class="pre">/sponge</span> <span class="pre">config</span> <span class="pre">-d</span> <span class="pre">minecraft:nether</span> <span class="pre">logging.chunk-load</span> <span class="pre">true</span></code></li>
+</ol>
+<p>由于指定了世界类型，这将改变下界世界配置 （和所有的下界类型世界）。</p>
+<ol class="loweralpha simple" start="2">
+<li><code class="docutils literal notranslate"><span class="pre">/sponge</span> <span class="pre">config</span> <span class="pre">-w</span> <span class="pre">DIM1</span> <span class="pre">logging.chunk-load</span> <span class="pre">true</span></code></li>
+</ol>
+<p class="last">这将改变名为 DIM1 的世界的配置。</p>
+</div>
+<p>Sponge 提供两个调试相关的权限：</p>
+<ul class="simple">
+<li>允许使用 Sponge 的方块与实体追踪信道：<code class="docutils literal notranslate"><span class="pre">sponge.debug.block-tracking</span></code>。这个信道（在装有 SpongeForge 的情况下）用于在客户端侧的调试模式下显示方块和实体的所有者及 notifier 信息。</li>
+<li>允许鼠标悬浮在命令执行错误提示上时显示栈帧：<code class="docutils literal notranslate"><span class="pre">sponge.debug.hover-stacktrace</span></code></li>
+</ul>
+</div>
+<div class="section" id="timings">
+<h3>Timings<a class="headerlink" href="#timings" title="永久链接至标题">¶</a></h3>
+<p>Timings 是 Sponge 内置的允许服务器管理员监视服务器运行状况的工具。Timings 将收集有关服务器的信息以便生成一个报告。由 Timings 记录的信息包括服务器 motd、版本、运行时间、内存、安装的插件、tps 以及 tps 损失百分比，玩家数量、TileEntity 、实体和区块。下面是 <code class="docutils literal notranslate"><span class="pre">/sponge</span> <span class="pre">timings</span></code> 的子命令列表：</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="38%" />
+<col width="63%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">命令</th>
+<th class="head">说明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>/sponge timings on</td>
+<td>启用 Timings。请注意，这将会重置 Timings 数据。</td>
+</tr>
+<tr class="row-odd"><td>/sponge timings off</td>
+<td>禁用 Timings。请注意在禁用时，大部分 Timings 指令将会无法使用，并且 Timings 将不会进行记录工作。</td>
+</tr>
+<tr class="row-even"><td>/sponge timings reset</td>
+<td>重设所有 Timings 数据，并在此命令结束后开始记录 Timings 数据。</td>
+</tr>
+<tr class="row-odd"><td>/sponge timings report</td>
+<td>在 <a class="reference external" href="https://timings.aikar.co">https://timings.aikar.co</a> 生成服务器性能的 Timings 报告。</td>
+</tr>
+<tr class="row-even"><td>/sponge timings verbon</td>
+<td>设置计时报告的监测记录为详细模式。</td>
+</tr>
+<tr class="row-odd"><td>/sponge timings verboff</td>
+<td>取消设置计时报告的监测记录为详细模式。注意这会使得高频计时不可用。</td>
+</tr>
+<tr class="row-even"><td>/sponge timings cost</td>
+<td>获取使用计时监测的成本。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="forge">
+<h3>Forge<a class="headerlink" href="#forge" title="永久链接至标题">¶</a></h3>
+<p>下面的命令只在使用了 SpongeForge 的 Forge 服务器上可用。其他 SpongeAPI 的实现（例如 SpongeVanilla）上不能使用这些命令。</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="50%" />
+<col width="25%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">命令</th>
+<th class="head">说明</th>
+<th class="head"><code class="docutils literal notranslate"><span class="pre">Permission</span></code> 字符串</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>/forge tps</td>
+<td>显示每个世界的每秒游戏刻数量（TPS）。</td>
+<td>forge.command.forge</td>
+</tr>
+<tr class="row-odd"><td>/forge track</td>
+<td>开启Tile Entity跟踪。</td>
+<td>forge.command.forge</td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>对于基于 Forge 的 Mod 来说，它们在原版命令系统中追加的新命令均有如下格式的权限节点：<code class="docutils literal notranslate"><span class="pre">&lt;modid&gt;.command.&lt;commandname&gt;</span></code>。</p>
+</div>
+<div class="section" id="vanilla">
+<h3>原版指令<a class="headerlink" href="#vanilla" title="永久链接至标题">¶</a></h3>
+<p>下面几个命令基于原版的 Minecraft ，不过在 Sponge 服务器上也能够使用。列表没有列出所有命令，但它包含了最常用的命令。有管理员权限（或对应权限节点）的玩家可以使用这些命令。一般情况下，Sponge 服务器上使用原版命令的权限名称为诸如 <code class="docutils literal notranslate"><span class="pre">minecraft.command.&lt;command&gt;</span></code> 的形式，如下所述。</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="43%" />
+<col width="35%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">命令</th>
+<th class="head">说明</th>
+<th class="head"><code class="docutils literal notranslate"><span class="pre">Permission</span></code> 字符串</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>/ban</td>
+<td>封禁指定玩家。</td>
+<td>minecraft.command.ban</td>
+</tr>
+<tr class="row-odd"><td>/ban-ip</td>
+<td>封禁指定玩家的 IP 地址。</td>
+<td>minecraft.command.ban-ip</td>
+</tr>
+<tr class="row-even"><td>/banlist</td>
+<td>显示封禁玩家清单。</td>
+<td>minecraft.command.banlist</td>
+</tr>
+<tr class="row-odd"><td>/clear</td>
+<td>清空物品栏。</td>
+<td>minecraft.command.clear</td>
+</tr>
+<tr class="row-even"><td>/deop</td>
+<td>取消指定玩家的管理员权限。</td>
+<td>minecraft.command.deop</td>
+</tr>
+<tr class="row-odd"><td>/difficulty</td>
+<td>设定游戏难度。</td>
+<td>minecraft.command.difficulty</td>
+</tr>
+<tr class="row-even"><td>/gamemode</td>
+<td>设置指定玩家的游戏模式（生存／创造／冒险等）。</td>
+<td>minecraft.command.gamemode</td>
+</tr>
+<tr class="row-odd"><td>/gamerule</td>
+<td>设置游戏规则。</td>
+<td>minecraft.command.gamerule</td>
+</tr>
+<tr class="row-even"><td>/give</td>
+<td>给予玩家物品。</td>
+<td>minecraft.command.give</td>
+</tr>
+<tr class="row-odd"><td>/kill</td>
+<td>杀死指定玩家或实体。</td>
+<td>minecraft.command.kill</td>
+</tr>
+<tr class="row-even"><td>/op</td>
+<td>给予指定玩家管理员权限。</td>
+<td>minecraft.command.op</td>
+</tr>
+<tr class="row-odd"><td>/pardon</td>
+<td>解封指定玩家。</td>
+<td>minecraft.command.pardon</td>
+</tr>
+<tr class="row-even"><td>/save-all</td>
+<td>保存服务器地图。</td>
+<td>minecraft.command.save-all</td>
+</tr>
+<tr class="row-odd"><td>/save-off</td>
+<td>关闭服务器自动保存。</td>
+<td>minecraft.command.save-off</td>
+</tr>
+<tr class="row-even"><td>/save-on</td>
+<td>启动服务器自动保存。</td>
+<td>minecraft.command.save-on</td>
+</tr>
+<tr class="row-odd"><td>/setidletimeout</td>
+<td>设定玩家挂机踢出延迟。</td>
+<td>minecraft.command.setidletimeout</td>
+</tr>
+<tr class="row-even"><td>/setworldspawn</td>
+<td>设置指定世界的出生点。</td>
+<td>minecraft.command.setworldspawn</td>
+</tr>
+<tr class="row-odd"><td>/stop</td>
+<td>关闭服务器。</td>
+<td>minecraft.command.stop</td>
+</tr>
+<tr class="row-even"><td>/toggledownfall</td>
+<td>切换天气（晴天、雨天等）。</td>
+<td>minecraft.command.toggledownfall</td>
+</tr>
+<tr class="row-odd"><td>/tp</td>
+<td>传送玩家或实体。</td>
+<td>minecraft.command.tp</td>
+</tr>
+<tr class="row-even"><td>/weather</td>
+<td>设定天气。</td>
+<td>minecraft.command.weather</td>
+</tr>
+<tr class="row-odd"><td>/whitelist</td>
+<td>管理服务器白名单。</td>
+<td>minecraft.command.whitelist</td>
+</tr>
+<tr class="row-even"><td>/worldborder</td>
+<td>管理世界边界。</td>
+<td>minecraft.command.worldborder</td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>Sponge 还为这些 Minecraft 特性创建了权限：</p>
+<ul class="simple">
+<li>允许玩家在命令中使用实体选择器：<code class="docutils literal notranslate"><span class="pre">minecraft.selector</span></code></li>
+<li>允许玩家在所有世界中不受出生点保护的限制：<code class="docutils literal notranslate"><span class="pre">minecraft.spawn-protection.override</span></code></li>
+<li>允许玩家在所有世界中不受强制指定游戏模式的限制：<code class="docutils literal notranslate"><span class="pre">minecraft.force-gamemode.override</span></code></li>
+<li>允许玩家编辑特定名称的命令方块： <code class="docutils literal notranslate"><span class="pre">minecraft.commandblock.edit.block.&lt;name&gt;</span></code></li>
+<li>允许玩家编辑特定名称的命令方块矿车： <code class="docutils literal notranslate"><span class="pre">minecraft.commandblock.edit.minecart.&lt;name&gt;</span></code></li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">这些权限使用命令方块的实际<strong>名称</strong>，默认为 <code class="docutils literal notranslate"><span class="pre">&#64;</span></code>。</p>
+</div>
+<p>还有若干其他管理服务器访问权限的权限：</p>
+<ul class="simple">
+<li>将用户视作已加入白名单：<code class="docutils literal notranslate"><span class="pre">minecraft.login.bypass-whitelist</span></code></li>
+<li>允许用户不受服务器玩家数上限限制：<code class="docutils literal notranslate"><span class="pre">minecraft.login.bypass-player-limit</span></code></li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">Sponge 为多世界提供了更好支持，比如允许每个世界拥有各自的世界边界等。默认，Sponge 只会更改当前玩家所在的世界的相关配置。原版的行为（即世界设定将影响所有维度）可通过将全局配置文件中的 <code class="docutils literal notranslate"><span class="pre">sponge.commands.multi-world-patches.worldborder``（或对应条目）的值设定为</span> <span class="pre">``false</span></code> 来恢复。参阅 <a class="reference internal" href="../getting-started/configuration/sponge-conf.html"><span class="doc">global.conf 文件</span></a> 获得更多信息。Sponge 默认多世界插件也会提供类似的针对多世界优化的配置命令，所以不会在 Sponge 中内置相关命令。</p>
+</div>
+</div>
+</div>
+<div class="section" id="player-commands">
+<h2>玩家命令<a class="headerlink" href="#player-commands" title="永久链接至标题">¶</a></h2>
+<p>下面的命令均为原版 Minecraft 自带，且玩家无需管理员权限即可使用。</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="24%" />
+<col width="49%" />
+<col width="27%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">命令</th>
+<th class="head">说明</th>
+<th class="head"><code class="docutils literal notranslate"><span class="pre">Permission</span></code> 字符串</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>/help</td>
+<td>查看服务器可用命令的信息。注意：默认使用 Sponge 的命令！</td>
+<td>minecraft.command.help</td>
+</tr>
+<tr class="row-odd"><td>/me</td>
+<td>告诉所有人你在做什么。</td>
+<td>minecraft.command.me</td>
+</tr>
+<tr class="row-even"><td>/say</td>
+<td>给所有人（或者指定玩家）发送一条消息。</td>
+<td>minecraft.command.say</td>
+</tr>
+<tr class="row-odd"><td>/tell</td>
+<td>私信另一名玩家。</td>
+<td>minecraft.command.tell</td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>原版命令的完整列表可在<a class="reference external" href="https://minecraft-zh.gamepedia.com/%E5%91%BD%E4%BB%A4#.E5.91.BD.E4.BB.A4.E5.88.97.E8.A1.A8">这里</a>。在 Sponge 服务器中，原版 Minecraft 命令有着形如 <code class="docutils literal notranslate"><span class="pre">minecraft.command.&lt;command&gt;</span></code> 的权限节点。</p>
+</div>
+<div class="section" id="command-features">
+<h2>命令特性<a class="headerlink" href="#command-features" title="永久链接至标题">¶</a></h2>
+<p>Sponge 和大部分 Sponge 插件都支持诸如自动补全和悬浮提示文本这样的附加特性。下图展示了使用 <code class="docutils literal notranslate"><span class="pre">/sponge</span> <span class="pre">plugins</span></code> 命令后的输出（黄框部分）。将鼠标悬浮在列表中的某一项上后可以获得相关的详细信息，例如当前版本号（红框部分）；某些项点击后还会有特殊行为，比如点击某个插件的 ID 后可以查看关于该插件的详细信息（紫框部分），这个行为等价于使用 <code class="docutils literal notranslate"><span class="pre">sponge</span> <span class="pre">plugins</span> <span class="pre">&lt;pluginid&gt;</span></code> 命令。自动补全可用 Tab 触发，比如输入 <code class="docutils literal notranslate"><span class="pre">/sponge</span> <span class="pre">plugins</span> <span class="pre">﻿</span></code> （结尾带一空格）后再按 Tab 可以显示一系列当前可能补全的值（青绿色框部分），此时再次按 Tab 可在各个值之间循环。理论上，你完全可以只用 Tab 和空格来输入任何命令（有时可能需要输入每一节的第一个字母）。</p>
+<img alt="command features" class="align-center" src="../../_images/command-features.png" />
+<div class="admonition tip">
+<p class="first admonition-title">小技巧</p>
+<p class="last">如果你是插件开发者，且想使用带悬浮框或额外动作的文本，请参阅：<a class="reference internal" href="../../plugin/text/text.html"><span class="doc">Text 文档</span></a>。</p>
+</div>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="troubleshooting.html" class="btn btn-neutral float-right" title="故障排查" accesskey="n" rel="next">下一页 <span class="fa fa-angle-right"></span></a>
+        <a href="index.html" class="btn btn-neutral" title="成为 Sponge 专家" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> 上一页</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../../_static/flags/zh_CN.svg"
+         alt="zh-CN" title="简体中文">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../../_static/jquery.js"></script>      <script type="text/javascript" src="../../_static/underscore.js"></script>      <script type="text/javascript" src="../../_static/doctools.js"></script>      <script type="text/javascript" src="../../_static/language_data.js"></script>      <script type="text/javascript" src="../../_static/translations.js"></script>      <script type="text/javascript" src="../../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

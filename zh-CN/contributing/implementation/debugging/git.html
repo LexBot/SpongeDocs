@@ -1,0 +1,265 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Git &mdash; Sponge 7.2.0 文档</title>
+
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../../../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="索引"
+              href="../../../genindex.html"/>        <link rel="search" title="搜索" href="../../../search.html"/>    <link rel="top" title="Sponge 7.2.0 文档" href="../../../index.html"/>        <link rel="up" title="调试 Sponge" href="index.html"/>        <link rel="next" title="在 IDE 中调试 Sponge" href="ide.html"/>        <link rel="prev" title="调试 Sponge" href="index.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../../../index.html">
+            <img src="../../../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../../../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../server/index.html">创建服务器</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../versions/index.html">版本策略</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../preparing/index.html">为开发作准备</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../plugin/index.html">插件开发</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../ore/index.html">Ore 文档</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">向 Sponge 贡献代码</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../guidelines.html">贡献指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../howtogit.html">如何使用 Git/GitHub</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">参与到 Sponge 的开发工作来</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../codestyle.html">代码规范</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../git-implementation.html">Sponge API 及其实现的 Git 工作流程</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pr.html">提交拉取请求</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">调试 Sponge</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Git</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ide.html">在 IDE 中调试 Sponge</a></li>
+<li class="toctree-l4"><a class="reference internal" href="testing.html">测试插件或 Mod</a></li>
+<li class="toctree-l4"><a class="reference internal" href="issues.html">调试中的常见问题。</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mixin.html">调试 Mixin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tools.html">调试工具</a></li>
+<li class="toctree-l4"><a class="reference internal" href="more.html">更多信息</a></li>
+<li class="toctree-l4"><a class="reference internal" href="faq.html">常见问题及解答</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../mixins.html">Mixin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../datamanipulator.html">实现数据操纵器</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../spongedocs.html">开发文档</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../porting.html">将 Sponge 移植到其他平台</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../versioning.html">仓库分支布局策略</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/index.html">关于 Sponge</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index.html">Docs</a> &raquo;</li>
+          <li><a href="../../index.html">向 Sponge 贡献代码</a> &raquo;</li>
+          <li><a href="../index.html">参与到 Sponge 的开发工作来</a> &raquo;</li>
+          <li><a href="index.html">调试 Sponge</a> &raquo;</li>
+    <li>Git</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/contributing/implementation/debugging/git.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="git">
+<h1>Git<a class="headerlink" href="#git" title="永久链接至标题">¶</a></h1>
+<p>本文介绍了一些可能会帮到你的实用 Git 特性。</p>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">参阅“<a class="reference internal" href="../../howtogit.html"><span class="doc">如何使用 Git/GitHub</span></a>”一文获得更多关于 Git、分支及变基命令的信息。请务必遵守“压缩与变基”一文中的有关说明。</p>
+</div>
+<div class="section" id="rebase">
+<h2>变基<a class="headerlink" href="#rebase" title="永久链接至标题">¶</a></h2>
+<p>有时候，你预计完成项目的计划赶不上变化，然后你的分支相比于目标分支落后了几笔提交，你需要在合并之前测试你的新提交与这些上游的新提交是否能和平相处。只需要使用 <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">rebase</span></code> 命令即可让上游的新提交“合并”入你的特性分支中。</p>
+<p>执行该命令前，请确认你的本地仓库已经执行了 <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code> 命令（或者 <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">fetch</span></code> + <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">merge</span></code> 这对命令组合）。在确认已从上游拉取更新后：</p>
+<ol class="arabic simple">
+<li>确认你当前位于项目分支中</li>
+<li>执行 <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">rebase</span> <span class="pre">&lt;目标分支&gt;</span></code></li>
+</ol>
+<p>例如，假设你的项目分支名叫 <code class="docutils literal notranslate"><span class="pre">feature</span></code>，目标分支叫 <code class="docutils literal notranslate"><span class="pre">bleeding</span></code>。你在从上游拉取所有更新到你本地的的 <code class="docutils literal notranslate"><span class="pre">bleeding</span></code> 分支后，检出到 <code class="docutils literal notranslate"><span class="pre">feature</span></code> 分支，然后执行 <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">rebase</span> <span class="pre">bleeding</span></code>。你的 <code class="docutils literal notranslate"><span class="pre">feature</span></code> 分支将会包含所有上游变更，此时你便可以测试你的更新是否引入了新的问题了。</p>
+</div>
+<div class="section" id="finding-a-commit">
+<h2>查找某笔提交<a class="headerlink" href="#finding-a-commit" title="永久链接至标题">¶</a></h2>
+<p>定位某一笔提交也许有助于调试。有不止一种定位特定提交的方法，下面列出了其中一部分：</p>
+<ol class="arabic">
+<li><p class="first">Git 日志</p>
+<p>在命令行中执行 <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code> 可令 Git 打印仓库中的所有变更。</p>
+<p>在 IDE 中则推荐使用 IDE 自带的版本控制工具来查阅日志。请参阅你使用的 IDE 的文档来了解具体操作方式。</p>
+</li>
+<li><p class="first">MANIFEST.MF 文件</p>
+<p>如果你面对的是一个 Sponge 的 jar，你可以查阅它的 MANIFEST.MF 文件以获取它对应的最近一笔提交。这个文件位于 jar 中的 META-INF 目录下，包含大量键值对。你要找的是一个名叫 <code class="docutils literal notranslate"><span class="pre">Git-Commit</span></code> 的键，它的值是这个 jar 创建时包含的最近一笔推送到 GitHub 仓库上的提交的 hash。</p>
+</li>
+<li><p class="first">Sponge <a class="reference external" href="https://www.spongepowered.org/downloads/">Downloads</a> page.</p>
+<p>另一种确定某个文件所包含的最近提交的方法是通过 Sponge 的<a class="reference external" href="https://www.spongepowered.org/downloads/">下载页</a>上的信息确定。在某一构建的标题下可以找到提交的信息，点击第一条提交信息即可跳转到 GitHub 仓库中对应的提交页面，在那里你可以找到相关信息。</p>
+</li>
+</ol>
+<div class="admonition tip">
+<p class="first admonition-title">小技巧</p>
+<p class="last">可用 <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span> <span class="pre">--oneline</span> <span class="pre">-x</span></code> 来只显示变更的概要以快速定位某笔提交，其中 <code class="docutils literal notranslate"><span class="pre">x</span></code> 代表要显示的提交的数量。</p>
+</div>
+</div>
+<div class="section" id="checking-out-a-branch">
+<h2>检出特定分支<a class="headerlink" href="#checking-out-a-branch" title="永久链接至标题">¶</a></h2>
+<p>在准备调试时使用一个新分支并使用与之有关的 issue ticket 命名是个好习惯。在你的提交合并入上游后你可以删除这个分支，但它的命名会帮你想起来这个分支是干什么的。</p>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">要注意的是，你的新分支应当基于合适的目标分支创建。参阅“<a class="reference internal" href="../../versioning.html"><span class="doc">仓库分支布局策略</span></a>”一文了解更多信息。</p>
+</div>
+<p>在取好新分支名，并检出合适的目标分支后，你可以使用 <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">--recurse-submodules</span> <span class="pre">-B</span> <span class="pre">&lt;新分支名&gt;</span></code> 来新建分支。Git 会自动创建分支并检出到新分支上去。现在你可以在 IDE 设置中进行任意必要的修改了。</p>
+<div class="admonition tip">
+<p class="first admonition-title">小技巧</p>
+<p class="last"><code class="docutils literal notranslate"><span class="pre">--recurse-submodules</span></code> 参数将确保 SpongeCommon 和 SpongeAPI 两个子模块也被检出到合适的分支上去。</p>
+</div>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="ide.html" class="btn btn-neutral float-right" title="在 IDE 中调试 Sponge" accesskey="n" rel="next">下一页 <span class="fa fa-angle-right"></span></a>
+        <a href="index.html" class="btn btn-neutral" title="调试 Sponge" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> 上一页</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../../../_static/flags/zh_CN.svg"
+         alt="zh-CN" title="简体中文">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../../../_static/jquery.js"></script>      <script type="text/javascript" src="../../../_static/underscore.js"></script>      <script type="text/javascript" src="../../../_static/doctools.js"></script>      <script type="text/javascript" src="../../../_static/language_data.js"></script>      <script type="text/javascript" src="../../../_static/translations.js"></script>      <script type="text/javascript" src="../../../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

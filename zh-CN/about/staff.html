@@ -1,0 +1,689 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>项目组成成员 &mdash; Sponge 7.2.0 文档</title>
+
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="索引"
+              href="../genindex.html"/>        <link rel="search" title="搜索" href="../search.html"/>    <link rel="top" title="Sponge 7.2.0 文档" href="../index.html"/>        <link rel="up" title="关于 Sponge" href="index.html"/>        <link rel="next" title="Sponge 术语表" href="glossary.html"/>        <link rel="prev" title="隐私政策" href="privacy.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../index.html">
+            <img src="../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../server/index.html">创建服务器</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../versions/index.html">版本策略</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../preparing/index.html">为开发作准备</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../plugin/index.html">插件开发</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ore/index.html">Ore 文档</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contributing/index.html">向 Sponge 贡献代码</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">关于 Sponge</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="introduction.html">简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html">常见问题及解答</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structure.html">Sponge 项目的架构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="future.html">未来计划</a></li>
+<li class="toctree-l2"><a class="reference internal" href="license.html">许可</a></li>
+<li class="toctree-l2"><a class="reference internal" href="posting.html">论坛发帖准则</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rules.html">论坛、Discord 及 IRC 守则</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tos.html">服务条款</a></li>
+<li class="toctree-l2"><a class="reference internal" href="privacy.html">隐私政策</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">项目组成成员</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html">Sponge 术语表</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assets.html">美术资源</a></li>
+<li class="toctree-l2"><a class="reference internal" href="history.html">Sponge 的历史</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+          <li><a href="index.html">关于 Sponge</a> &raquo;</li>
+    <li>项目组成成员</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/about/staff.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="staff">
+<h1>项目组成成员<a class="headerlink" href="#staff" title="永久链接至标题">¶</a></h1>
+<p>以下是 Sponge 项目的组成成员名单。各个部分按字母顺序排序。</p>
+<div class="section" id="sponge-leaders">
+<h2>Sponge 项目领导层<a class="headerlink" href="#sponge-leaders" title="永久链接至标题">¶</a></h2>
+<p><strong>Sponge 项目领导层</strong> 是整个 Sponge 项目的管理者，由他们做出重要决定以确保项目有效地运作。</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="49%" />
+<col width="51%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">名称</th>
+<th class="head">身份</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>blood</td>
+<td>主要负责 Forge 上的实现</td>
+</tr>
+<tr class="row-odd"><td>gabizou</td>
+<td>主要负责 API 部分的设计以及项目领导</td>
+</tr>
+<tr class="row-even"><td>Zidane</td>
+<td>主要负责 Minecraft 原版上的实现</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="project-managers">
+<h2>Sponge 项目管理层<a class="headerlink" href="#project-managers" title="永久链接至标题">¶</a></h2>
+<p><strong>Sponge 项目管理层</strong> 负责管理和协调 Sponge 项目的各个部分。</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="49%" />
+<col width="51%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">名称</th>
+<th class="head">身份</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Dockter</td>
+<td><p class="first">首席财务官（CFO）</p>
+<p class="last">首席技术官（CTO）</p>
+</td>
+</tr>
+<tr class="row-odd"><td>Dualspiral</td>
+<td>长期支持（LTS）管理员</td>
+</tr>
+<tr class="row-even"><td>Grinch</td>
+<td>Ore 社区管理</td>
+</tr>
+<tr class="row-odd"><td>Inscrutable</td>
+<td>SpongeDocs 主编</td>
+</tr>
+<tr class="row-even"><td>kashike</td>
+<td>Discord 管理层</td>
+</tr>
+<tr class="row-odd"><td>katrix</td>
+<td>Ore 开发管理</td>
+</tr>
+<tr class="row-even"><td>lukegb</td>
+<td>系统团队管理</td>
+</tr>
+<tr class="row-odd"><td>Me4502</td>
+<td>Subreddit 管理员</td>
+</tr>
+<tr class="row-even"><td>Owexz</td>
+<td><p class="first">论坛及社区管理员</p>
+<p class="last">网站管理者</p>
+</td>
+</tr>
+<tr class="row-odd"><td>phroa</td>
+<td>IRC 管理员</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="api-and-implementation-developers">
+<h2>API 及实现层开发者<a class="headerlink" href="#api-and-implementation-developers" title="永久链接至标题">¶</a></h2>
+<p><strong>API 及实现层开发者</strong> 负责开发 Sponge API，以及 SpongeForge 和 SpongeVanilla 两个官方实现。</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="49%" />
+<col width="51%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">名称</th>
+<th class="head">身份</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Aaron1011</td>
+<td>开发者</td>
+</tr>
+<tr class="row-odd"><td>Cybermaxke</td>
+<td>开发者</td>
+</tr>
+<tr class="row-even"><td>dualspiral</td>
+<td>开发者</td>
+</tr>
+<tr class="row-odd"><td>Faithcaio</td>
+<td>开发者</td>
+</tr>
+<tr class="row-even"><td>JBYoshi</td>
+<td>开发者</td>
+</tr>
+<tr class="row-odd"><td>kashike</td>
+<td>开发者</td>
+</tr>
+<tr class="row-even"><td>Luck</td>
+<td>开发者</td>
+</tr>
+<tr class="row-odd"><td>Me4502</td>
+<td>开发者</td>
+</tr>
+<tr class="row-even"><td>Minecrell</td>
+<td>开发者</td>
+</tr>
+<tr class="row-odd"><td>Morpheus</td>
+<td>开发者</td>
+</tr>
+<tr class="row-even"><td>Mumfrey</td>
+<td><p class="first">字节码管理</p>
+<p class="last">开发者</p>
+</td>
+</tr>
+<tr class="row-odd"><td>simon816</td>
+<td>开发者</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="issue-managers">
+<h2>Issue 管理员<a class="headerlink" href="#issue-managers" title="永久链接至标题">¶</a></h2>
+<p><strong>Issue 管理员</strong>负责对反馈到 SpongeAPI、SpongeForge 和 SpongeVanilla 在 GitHub 上的仓库的 Issue 进行分类及测试。</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="49%" />
+<col width="51%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">名称</th>
+<th class="head">身份</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Clienthax</td>
+<td>Issue 管理员</td>
+</tr>
+<tr class="row-odd"><td>Morpheus</td>
+<td>Issue 管理员</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="system-administrators">
+<h2>系统管理员<a class="headerlink" href="#system-administrators" title="永久链接至标题">¶</a></h2>
+<p><strong>系统管理员</strong>负责我们诸多系统和服务器的维护，确保它们能正常运转。</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="49%" />
+<col width="51%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">名称</th>
+<th class="head">身份</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>kashike</td>
+<td>系统管理员</td>
+</tr>
+<tr class="row-odd"><td>progwml6</td>
+<td>系统管理员</td>
+</tr>
+<tr class="row-even"><td>Snowie</td>
+<td>系统管理员</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="ore-developers">
+<h2>Ore 开发者<a class="headerlink" href="#ore-developers" title="永久链接至标题">¶</a></h2>
+<p><strong>Ore 开发者</strong>负责开发、增强并维护 Ore 插件发布平台</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="49%" />
+<col width="51%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">名称</th>
+<th class="head">身份</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>ewoutvs_</td>
+<td>Ore 开发者</td>
+</tr>
+<tr class="row-odd"><td>felixoi</td>
+<td>Ore 开发者</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="web-developers">
+<h2>Web 开发者<a class="headerlink" href="#web-developers" title="永久链接至标题">¶</a></h2>
+<p>我们的 <strong>Web 开发人员</strong> 负责维护、更新和整合 Sponge 网站。</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="49%" />
+<col width="51%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">名称</th>
+<th class="head">身份</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>progwml6</td>
+<td>Web 开发者</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="spongedocs-editors">
+<h2>SpongeDocs 编辑<a class="headerlink" href="#spongedocs-editors" title="永久链接至标题">¶</a></h2>
+<p><strong>SpongeDocs 编辑</strong> 负责编写和维护 Sponge 的官方文档。</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="49%" />
+<col width="51%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">名称</th>
+<th class="head">身份</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Grauldon</td>
+<td>编辑者</td>
+</tr>
+<tr class="row-odd"><td>Nari</td>
+<td>编辑者</td>
+</tr>
+<tr class="row-even"><td>ST-DDT</td>
+<td>编辑者</td>
+</tr>
+<tr class="row-odd"><td>worm424</td>
+<td>编辑者</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="moderators-and-support">
+<h2>其他管理及支持<a class="headerlink" href="#moderators-and-support" title="永久链接至标题">¶</a></h2>
+<p><strong>其他管理及支持</strong> 负责巡视论坛及 IRC 频道，并提供帮助。</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="49%" />
+<col width="51%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">名称</th>
+<th class="head">身份</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>gravityfox</td>
+<td>管理</td>
+</tr>
+<tr class="row-odd"><td>Grinch</td>
+<td>管理</td>
+</tr>
+<tr class="row-even"><td>Lemonous</td>
+<td>管理</td>
+</tr>
+<tr class="row-odd"><td>mbaxter</td>
+<td>管理</td>
+</tr>
+<tr class="row-even"><td>Nari</td>
+<td>管理</td>
+</tr>
+<tr class="row-odd"><td>Ralex</td>
+<td>管理</td>
+</tr>
+<tr class="row-even"><td>ryantheleach</td>
+<td>管理</td>
+</tr>
+<tr class="row-odd"><td>Vectrix</td>
+<td>管理</td>
+</tr>
+<tr class="row-even"><td>worm424</td>
+<td>管理</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="ore-reviewers">
+<h2>Ore 复核员<a class="headerlink" href="#ore-reviewers" title="永久链接至标题">¶</a></h2>
+<p><strong>Ore 复核员</strong>负责对上传到 Ore 的插件进行检查，确保它们符合相关规定且安全。</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="49%" />
+<col width="51%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">名称</th>
+<th class="head">身份</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>doot</td>
+<td>Ore 复核员</td>
+</tr>
+<tr class="row-odd"><td>Eufranio</td>
+<td>Ore 复核员</td>
+</tr>
+<tr class="row-even"><td>ewoutvs_</td>
+<td>Ore 复核员</td>
+</tr>
+<tr class="row-odd"><td>kashike</td>
+<td>Ore 复核员</td>
+</tr>
+<tr class="row-even"><td>katrix</td>
+<td>Ore 复核员</td>
+</tr>
+<tr class="row-odd"><td>liach</td>
+<td>Ore 复核员</td>
+</tr>
+<tr class="row-even"><td>loki</td>
+<td>Ore 复核员</td>
+</tr>
+<tr class="row-odd"><td>mosemister</td>
+<td>Ore 复核员</td>
+</tr>
+<tr class="row-even"><td>phroa</td>
+<td>Ore 复核员</td>
+</tr>
+<tr class="row-odd"><td>RedNesto</td>
+<td>Ore 复核员</td>
+</tr>
+<tr class="row-even"><td>simon816</td>
+<td>Ore 复核员</td>
+</tr>
+<tr class="row-odd"><td>Snowie</td>
+<td>Ore 复核员</td>
+</tr>
+<tr class="row-even"><td>WillBAnders</td>
+<td>Ore 复核员</td>
+</tr>
+<tr class="row-odd"><td>Yeregorix</td>
+<td>Ore 复核员</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="retired-staff">
+<h2>退休人员<a class="headerlink" href="#retired-staff" title="永久链接至标题">¶</a></h2>
+<p>以下人员曾以各种方式协助过 Sponge 项目，但已不再活跃。列出这个名单旨在感谢他们，及他们做出的宝贵贡献。</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="49%" />
+<col width="51%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">名称</th>
+<th class="head">先前职务</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>AzureusNation</td>
+<td>开发者</td>
+</tr>
+<tr class="row-odd"><td>Boformer</td>
+<td>编辑者</td>
+</tr>
+<tr class="row-even"><td>Cedeel</td>
+<td>编辑者</td>
+</tr>
+<tr class="row-odd"><td>Dark_Arc</td>
+<td>开发者</td>
+</tr>
+<tr class="row-even"><td>DarkArcana</td>
+<td>社区和 IRC 管理</td>
+</tr>
+<tr class="row-odd"><td>DDoS</td>
+<td>开发者</td>
+</tr>
+<tr class="row-even"><td>Deamon</td>
+<td>开发者</td>
+</tr>
+<tr class="row-odd"><td>Disconsented</td>
+<td>管理</td>
+</tr>
+<tr class="row-even"><td>drtshock</td>
+<td>管理</td>
+</tr>
+<tr class="row-odd"><td>FerusGrim</td>
+<td>管理</td>
+</tr>
+<tr class="row-even"><td>GenPage</td>
+<td>系统管理</td>
+</tr>
+<tr class="row-odd"><td>gratimax</td>
+<td>Web 管理及开发者</td>
+</tr>
+<tr class="row-even"><td>Hassans6000</td>
+<td>管理</td>
+</tr>
+<tr class="row-odd"><td>hawtre</td>
+<td>编辑者</td>
+</tr>
+<tr class="row-even"><td>jamierocks</td>
+<td>Web 开发者</td>
+</tr>
+<tr class="row-odd"><td>jckf</td>
+<td>开发者</td>
+</tr>
+<tr class="row-even"><td>kitsub</td>
+<td>开发者</td>
+</tr>
+<tr class="row-odd"><td>kobata</td>
+<td>开发者</td>
+</tr>
+<tr class="row-even"><td>Kodfod</td>
+<td>文档主编</td>
+</tr>
+<tr class="row-odd"><td>Kornagan</td>
+<td>开发者</td>
+</tr>
+<tr class="row-even"><td>modwizcode</td>
+<td>开发者</td>
+</tr>
+<tr class="row-odd"><td>Pandette</td>
+<td>编辑者</td>
+</tr>
+<tr class="row-even"><td>parlough</td>
+<td>开发者</td>
+</tr>
+<tr class="row-odd"><td>phase</td>
+<td>Ore 开发管理</td>
+</tr>
+<tr class="row-even"><td>phit</td>
+<td>Issue 管理员</td>
+</tr>
+<tr class="row-odd"><td>Saladoc</td>
+<td>编辑者</td>
+</tr>
+<tr class="row-even"><td>sibomots</td>
+<td>开发者</td>
+</tr>
+<tr class="row-odd"><td>sk89q</td>
+<td>资源主管</td>
+</tr>
+<tr class="row-even"><td>theresajayne</td>
+<td>开发者</td>
+</tr>
+<tr class="row-odd"><td>TnT</td>
+<td>管理</td>
+</tr>
+<tr class="row-even"><td>Tzk</td>
+<td>网站管理及编辑</td>
+</tr>
+<tr class="row-odd"><td>Tyrannokapi</td>
+<td>编辑者</td>
+</tr>
+<tr class="row-even"><td>Voltasalt</td>
+<td>开发者</td>
+</tr>
+<tr class="row-odd"><td>windy</td>
+<td>Ore 管理员和开发人员</td>
+</tr>
+<tr class="row-even"><td>ZephireNZ</td>
+<td>编辑者</td>
+</tr>
+<tr class="row-odd"><td>Zirconium</td>
+<td>编辑及管理</td>
+</tr>
+<tr class="row-even"><td>zml</td>
+<td>开发者</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="glossary.html" class="btn btn-neutral float-right" title="Sponge 术语表" accesskey="n" rel="next">下一页 <span class="fa fa-angle-right"></span></a>
+        <a href="privacy.html" class="btn btn-neutral" title="隐私政策" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> 上一页</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../_static/flags/zh_CN.svg"
+         alt="zh-CN" title="简体中文">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../_static/jquery.js"></script>      <script type="text/javascript" src="../_static/underscore.js"></script>      <script type="text/javascript" src="../_static/doctools.js"></script>      <script type="text/javascript" src="../_static/language_data.js"></script>      <script type="text/javascript" src="../_static/translations.js"></script>      <script type="text/javascript" src="../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

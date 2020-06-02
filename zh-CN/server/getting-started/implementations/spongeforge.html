@@ -1,0 +1,279 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>安装 SpongeForge &mdash; Sponge 7.2.0 文档</title>
+
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../../../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="索引"
+              href="../../../genindex.html"/>        <link rel="search" title="搜索" href="../../../search.html"/>    <link rel="top" title="Sponge 7.2.0 文档" href="../../../index.html"/>        <link rel="up" title="选择一个实现" href="index.html"/>        <link rel="next" title="安装 SpongeVanilla" href="spongevanilla.html"/>        <link rel="prev" title="选择一个实现" href="index.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../../../index.html">
+            <img src="../../../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../../../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">创建服务器</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../quickstart.html">快速入门指南</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">入门指南</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../jre.html">安装 Java</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../migrating.html">迁移到 Sponge</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">选择一个实现</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">安装 SpongeForge</a></li>
+<li class="toctree-l4"><a class="reference internal" href="spongevanilla.html">安装 SpongeVanilla</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../launch-script.html">制作启动脚本</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../port-forward.html">端口转发</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bungeecord.html">在 Sponge 上使用服务器代理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../configuration/index.html">配置 Sponge</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../management/index.html">管理服务器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../spongineer/index.html">成为 Sponge 专家</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../versions/index.html">版本策略</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../preparing/index.html">为开发作准备</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../plugin/index.html">插件开发</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../ore/index.html">Ore 文档</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing/index.html">向 Sponge 贡献代码</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/index.html">关于 Sponge</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index.html">Docs</a> &raquo;</li>
+          <li><a href="../../index.html">创建服务器</a> &raquo;</li>
+          <li><a href="../index.html">入门指南</a> &raquo;</li>
+          <li><a href="index.html">选择一个实现</a> &raquo;</li>
+    <li>安装 SpongeForge</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/server/getting-started/implementations/spongeforge.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="installing-spongeforge">
+<h1>安装 SpongeForge<a class="headerlink" href="#installing-spongeforge" title="永久链接至标题">¶</a></h1>
+<p>SpongeForge 集成了 <a class="reference external" href="https://www.minecraftforge.net/forum/">Minecraft Forge</a>，所以你可以在 SpongeForge 运行 Minecraft Forge 模组。事实上，SpongeForge 本身更像一个加载 Sponge 插件的 Forge 模组，不过这些都是技术细节。</p>
+<p>不想用 Minecraft Forge 的用户可以考虑 <a class="reference internal" href="spongevanilla.html"><span class="doc">SpongeVanilla</span></a>。</p>
+<div class="section" id="download">
+<h2>相关下载<a class="headerlink" href="#download" title="永久链接至标题">¶</a></h2>
+<p>Review our <a class="reference internal" href="../../../versions/versioning.html"><span class="doc">版本规范</span></a> and grab your copy of <a class="reference external" href="https://www.spongepowered.org/downloads/">SpongeForge here</a>.</p>
+</div>
+<div class="section" id="id1">
+<h2>安装 SpongeForge<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">如果你使用（或计划使用）游戏服务器主机，那么主机提供商可能已经提供给你可以安装 Sponge 的控制面板了。</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">当使用 Mojang 的安装程序时，Mojang 使用的是它们自己的 Java 版本而不是你的服务器提供的 Java 版本。安装程序已经内置了 <code class="docutils literal notranslate"><span class="pre">1.8.0_74</span></code> 版本的 Java。请注意 Sponge 需要<strong>不低于</strong> <code class="docutils literal notranslate"><span class="pre">1.8.0_20</span></code> 的 Java 版本才可以使用；尽管如此，我们仍然推荐使用最新的 Java 8 构建。</p>
+</div>
+<div class="section" id="single-player-in-game-lan-servers">
+<h3>单人游戏 / 局域网游戏<a class="headerlink" href="#single-player-in-game-lan-servers" title="永久链接至标题">¶</a></h3>
+<ol class="arabic simple">
+<li>从 <a class="reference external" href="https://files.minecraftforge.net/">Minecraft Forge 网站</a>下载并安装 MinecraftForge。务必确认你下载的版本和你下载到的 SpongeForge 所适用的版本<strong>完全一致</strong>。</li>
+<li>运行Forge Installer。一个新的Forge配置会在启动器中生成。</li>
+<li>打开起动器，选择新的Forge配置。</li>
+<li>单击 “Options” 然后单击 “Open Game Dir”.</li>
+<li>从 Sponge 官方网站上下载 SpongeForge，并将其放入 <code class="docutils literal notranslate"><span class="pre">mods</span></code> 文件夹中。如果文件夹不存在那么就手动创建一个。</li>
+<li>Sponge 应该在单人模式和将世界在局域网公开的模式下都可以工作。</li>
+</ol>
+<p>接下来，你可以试着<a class="reference internal" href="../configuration/index.html"><span class="doc">配置 Sponge</span></a> 或者学习如何<a class="reference internal" href="../../management/index.html"><span class="doc">管理你的含有 Sponge 的 Minecraft 端</span></a>（包括安装插件等）。</p>
+</div>
+<div class="section" id="dedicated-servers">
+<h3>专用服务器<a class="headerlink" href="#dedicated-servers" title="永久链接至标题">¶</a></h3>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">如果你已有基于 Forge 的服务器端，那么只需要把 SpongeForge拖进 <code class="docutils literal notranslate"><span class="pre">mods</span></code> 文件夹中即可。务必确保你使用的 Forge 的版本和你使用的 SpongeForge 的版本相匹配。若还是搞不清楚，可以看看本页的最上面。</p>
+</div>
+<div class="section" id="installing-forge-via-commandline">
+<h4>通过命令行安装 Forge<a class="headerlink" href="#installing-forge-via-commandline" title="永久链接至标题">¶</a></h4>
+<ol class="arabic simple">
+<li>访问 <a class="reference external" href="https://files.minecraftforge.net/">Minecraft Forge 网站</a>中的“Show all downloads”按钮以查看所有可用的版本，使用 <a class="reference internal" href="#"><span class="doc">Sponge 下载链接中的文件列表</span></a> 中的版本号对应的 Forge 版本，并把鼠标悬停在“Installer”按钮附近的字母“i”上以获取直接下载链接。</li>
+<li>使用你最喜欢的方式下载这个 JAR 文件，如： <code class="docutils literal notranslate"><span class="pre">wget</span> <span class="pre">http://url.to/forge-version-installer.jar</span></code></li>
+<li>在你想要安装 Forge 的地方运行这一 JAR，并带上 <code class="docutils literal notranslate"><span class="pre">--installServer</span></code> 参数。如： <code class="docutils literal notranslate"><span class="pre">java</span> <span class="pre">-jar</span> <span class="pre">forge-version-installer.jar</span> <span class="pre">--installServer</span></code></li>
+<li>接着把 SpongeForge 添加到 Forge 就可以了。</li>
+</ol>
+</div>
+<div class="section" id="installing-forge-via-gui">
+<h4>通过 GUI 界面安装 Forge<a class="headerlink" href="#installing-forge-via-gui" title="永久链接至标题">¶</a></h4>
+<ol class="arabic simple">
+<li>从 <a class="reference external" href="https://files.minecraftforge.net/">Minecraft Forge 网站</a>上下载 Minecraft Forge 的安装工具，务必确保 Forge 版本与 SpongeForge 版本相兼容（参考上文中对 SpongeForge 的版本号结构的介绍）。</li>
+<li>运行下载下来的 Forge 安装程序，选择“Install Server”，并选择一个空白的目录用于存放服务端文件，然后点击 OK。</li>
+<li>接着把 SpongeForge 添加到 Forge 就可以了。</li>
+</ol>
+</div>
+<div class="section" id="adding-spongeforge-to-forge">
+<h4>把 SpongeForge 添加到 Forge 中<a class="headerlink" href="#adding-spongeforge-to-forge" title="永久链接至标题">¶</a></h4>
+<ol class="arabic simple">
+<li>从 Sponge 网站上下载 SpongeForge 并将它放进在你的服务器目录里的 <code class="docutils literal notranslate"><span class="pre">mods</span></code> 文件夹。如果此文件夹不存在请自行创建。</li>
+<li>现在，你就可以通过命令行或是启动脚本启动服务器了 <code class="docutils literal notranslate"><span class="pre">java</span> <span class="pre">-jar</span> <span class="pre">forge-version-XYZ.jar</span></code>。</li>
+<li>如果是家用服务器开服，请设置<a class="reference internal" href="../port-forward.html"><span class="doc">端口转发</span></a>。</li>
+</ol>
+<p>接下来，你可以试着添加一个 <a class="reference internal" href="../launch-script.html"><span class="doc">启动脚本</span></a> 并使用它， <a class="reference internal" href="../configuration/index.html"><span class="doc">配置 Sponge</span></a> ，或者学习如何 <a class="reference internal" href="../../management/index.html"><span class="doc">管理你的 Sponge 服务器</span></a> （包括安装插件等）。</p>
+</div>
+</div>
+</div>
+<div class="section" id="links">
+<h2>相关链接<a class="headerlink" href="#links" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="https://www.spongepowered.org/">主页</a></li>
+<li><a class="reference external" href="https://github.com/SpongePowered/SpongeForge">GitHub 上的 SpongeForge</a></li>
+</ul>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="spongevanilla.html" class="btn btn-neutral float-right" title="安装 SpongeVanilla" accesskey="n" rel="next">下一页 <span class="fa fa-angle-right"></span></a>
+        <a href="index.html" class="btn btn-neutral" title="选择一个实现" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> 上一页</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../../../_static/flags/zh_CN.svg"
+         alt="zh-CN" title="简体中文">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../../../_static/jquery.js"></script>      <script type="text/javascript" src="../../../_static/underscore.js"></script>      <script type="text/javascript" src="../../../_static/doctools.js"></script>      <script type="text/javascript" src="../../../_static/language_data.js"></script>      <script type="text/javascript" src="../../../_static/translations.js"></script>      <script type="text/javascript" src="../../../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

@@ -1,0 +1,314 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grundlegende Verwendung von Gegenständen &mdash; Sponge 7.2.0 Dokumentation</title>
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="Stichwortverzeichnis"
+              href="../../genindex.html"/>        <link rel="search" title="Suche" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 Dokumentation" href="../../index.html"/>        <link rel="up" title="Gegenstände" href="index.html"/>        <link rel="next" title="Ein ItemStack erstellen" href="creating.html"/>        <link rel="prev" title="Gegenstände" href="index.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../../index.html">
+            <img src="../../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../server/index.html">Einen Server erstellen</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../versions/index.html">Versionsrichtlinie</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../preparing/index.html">Die Arbeitsumgebung einrichten</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Plugins erstellen</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../api-versions.html">API-Versionen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../buildsystem.html">Build Systeme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../workspace/index.html">Den Arbeitsbereich einrichten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../project/index.html">Das Projekt einrichten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-identifier.html">Plugin Identifiers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-class.html">Hauptklasse des Plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lifecycle.html">Der Plugin-Lebenszyklus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../injection.html">Dependency Injection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../practices/index.html">Vorgehensweisen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../optional/index.html">Optionals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../logging.html">Loggen und Debugging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text/index.html">Text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/index.html">Plugin Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../event/index.html">Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/index.html">Plugins konfigurieren</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assets.html">Die Dateianhang API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data/index.html">The Data API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../blocks/index.html">Blöcke</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../entities/index.html">Entities</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Gegenstände</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Grundlegende Verwendung von Gegenständen</a></li>
+<li class="toctree-l3"><a class="reference internal" href="creating.html">Ein ItemStack erstellen</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../trade-offers.html">Trade-Offers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../effects.html">Effekte</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../scheduler.html">Scheduler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../services.html">Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database.html">Datenbanken</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../permissions.html">Permissions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bans.html">Banne</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metrics.html">Metrics Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bookview.html">Bücher</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../economy/index.html">Wirtschaft</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wgen/index.html">Weltgenerierung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manager.html">Plugin-Manager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../game-profile-manager.html">Game Profile Manager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../offline-userplayer-data.html">Offline Player Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tab-lists.html">Tab Lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-meta.html">Plugin Metadaten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ray-tracing.html">Ray Tracing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../debugging.html">Plugins Debuggen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials.html">Tutorials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internals/index.html">Implementation-dependent Plugins</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ore/index.html">Ore Dokumentation</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/index.html">Zu Sponge beitragen</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">Über das Sponge Projekt</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+          <li><a href="../index.html">Plugins erstellen</a> &raquo;</li>
+          <li><a href="index.html">Gegenstände</a> &raquo;</li>
+    <li>Grundlegende Verwendung von Gegenständen</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/plugin/items/usage.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="basic-item-usage">
+<h1>Grundlegende Verwendung von Gegenständen<a class="headerlink" href="#basic-item-usage" title="Link zu dieser Überschrift">¶</a></h1>
+<p>Gegenstände werden durch ein <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/item/inventory/ItemStack.html">ItemStack</a> repräsentiert. Ein <code class="docutils literal notranslate"><span class="pre">ItemStack</span></code> ist ein Gegenstand aus dem Inventar mit Informationen über die Anzahl der Gegenstände in dieser Ansammlung, den Art des Gegenstandes und weiteren Daten wie der Haltbarkeit. Ein <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/Item.html">Item</a> ist die grafische Repräsentation eines <code class="docutils literal notranslate"><span class="pre">ItemStack</span></code>s als Entität in der Welt. Bitte beachte, dass du immer nur eine Kopie und <strong>nicht</strong> den richtigen <code class="docutils literal notranslate"><span class="pre">ItemStack</span></code> bekommst und ihn deshalb zurück ins Inventar geben musst, wenn gewünscht.</p>
+<div class="section" id="checking-an-item-s-type">
+<h2>Überprüfung des Typs eines Gegenstandes<a class="headerlink" href="#checking-an-item-s-type" title="Link zu dieser Überschrift">¶</a></h2>
+<p>Checking the type of the item is very simple. You just need to call the <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/item/inventory/ItemStack.html#getType--">ItemStack#getType()</a> method.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.item.ItemType</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.item.ItemTypes</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.item.inventory.ItemStack</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isStick</span><span class="p">(</span><span class="n">ItemStack</span> <span class="n">stack</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">ItemType</span> <span class="n">type</span> <span class="o">=</span> <span class="n">stack</span><span class="p">.</span><span class="na">getType</span><span class="p">();</span>
+    <span class="k">return</span> <span class="n">type</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">ItemTypes</span><span class="p">.</span><span class="na">STICK</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Siehst du wie einfach das ist? Weil sich Stöcke stapeln lassen, können wir auch herausfinden, wie viele gerade da sind.</p>
+<p>Getting the number of items in an <code class="docutils literal notranslate"><span class="pre">ItemStack</span></code> is relatively easy. The <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/item/inventory/ItemStack.html#getQuantity--">ItemStack#getQuantity()</a> method will
+handle this for us.</p>
+</div>
+<div class="section" id="modifying-itemstack-data">
+<h2>Bearbeiten von Gegenstands-Daten<a class="headerlink" href="#modifying-itemstack-data" title="Link zu dieser Überschrift">¶</a></h2>
+<p>Das Verändern von Daten wie der Haltbarkeit oder dem Beschreibungstext eines Gegenstandes kann erreicht werden, indem <code class="docutils literal notranslate"><span class="pre">Key</span></code>s verwendet werden. Du musst nur angeben, welcher Schlüssel geändert werden muss:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.data.key.Keys</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">setUnbreakable</span><span class="p">(</span><span class="n">ItemStack</span> <span class="n">stack</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">stack</span><span class="p">.</span><span class="na">offer</span><span class="p">(</span><span class="n">Keys</span><span class="p">.</span><span class="na">UNBREAKABLE</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In diesem Beispiel haben wir angegeben, dass der <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/key/Keys.html#UNBREAKABLE">Keys#UNBREAKABLE</a> Schlüssel, der Schlüssel ist, den wir ändern möchten. Wir setzen dann den Wert auf <code class="docutils literal notranslate"><span class="pre">true</span></code>, was ausdrückt, dass der Gegenstand niemals zerbrechen wird. Diese Änderungen werden in der <code class="docutils literal notranslate"><span class="pre">offer()</span></code> Methode des <code class="docutils literal notranslate"><span class="pre">ItemStack</span></code> zurück in den <code class="docutils literal notranslate"><span class="pre">ItemStack</span></code> geschrieben.</p>
+<p>Verschiedene Schlüssel benötigen verschiedene Werte um ihre Arbeit zu erledigen. Zum Beispiel, um den Beschreibungstext eines Gegenstandes zu ändern, brauchst du eine <code class="docutils literal notranslate"><span class="pre">List</span></code>e von <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/Text.html">Text</a>en anstatt eines Boolean oder sonstigen Wertes. Es ist außerdem wichtig zu prüfen, dass der gegebene Schlüssel tatsächlich auf den Gegenstand angewendet werden kann. Zum Beispiel werden einige Gegenstände keine Haltbarkeit haben oder bereits einen Beschreibungstext haben.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.text.Text</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">setLore</span><span class="p">(</span><span class="n">ItemStack</span> <span class="n">stack</span><span class="p">,</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Text</span><span class="o">&gt;</span> <span class="n">itemLore</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">stack</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">Keys</span><span class="p">.</span><span class="na">ITEM_LORE</span><span class="p">).</span><span class="na">isPresent</span><span class="p">())</span> <span class="p">{</span>
+        <span class="n">stack</span><span class="p">.</span><span class="na">offer</span><span class="p">(</span><span class="n">Keys</span><span class="p">.</span><span class="na">ITEM_LORE</span><span class="p">,</span> <span class="n">itemLore</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Bemerkung</p>
+<p class="last">Almost all API methods that return an <code class="docutils literal notranslate"><span class="pre">ItemStack</span></code> only return a copy of it, so modifying it does not have any
+impact on the real stack (e.g. in an inventory). You have to explicitly set it for your changes to persist.</p>
+</div>
+</div>
+<div class="section" id="item-properties">
+<h2>Eigenschaften von Gegenständen<a class="headerlink" href="#item-properties" title="Link zu dieser Überschrift">¶</a></h2>
+<p>Verschiedene Gegenstände können spezielle Eigenschaften haben. Zum Beispiel können bestimmte Gegenstände dazu verwendet werden, bestimmte Blöcke abzubauen, wie es bei der Diamant-Spitzhacke und Obsidian der Fall ist. Diese Eigenschaften können dazu verwendet werden herauszufinden, wo ein Gegenstand für eine Aktion verwendet werden kann ohne tatsächlichen Typ des Gegenstandes zu überprüfen. Wir können prüfen, ob ein Werkzeug einen Block Obsidian abbauen kann, wenn wir die <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/property/item/HarvestingProperty.html">HarvestingProperty</a> des Gegenstandes überprüfen.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.block.BlockTypes</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.data.property.item.HarvestingProperty</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.Optional</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">canMineObsidian</span><span class="p">(</span><span class="n">ItemStack</span> <span class="n">stack</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">Optional</span><span class="o">&lt;</span><span class="n">HarvestingProperty</span><span class="o">&gt;</span> <span class="n">optional</span> <span class="o">=</span>
+        <span class="n">stack</span><span class="p">.</span><span class="na">getProperty</span><span class="p">(</span><span class="n">HarvestingProperty</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">optional</span><span class="p">.</span><span class="na">isPresent</span><span class="p">())</span> <span class="p">{</span>
+        <span class="n">HarvestingProperty</span> <span class="n">property</span> <span class="o">=</span> <span class="n">optional</span><span class="p">.</span><span class="na">get</span><span class="p">();</span>
+        <span class="k">return</span> <span class="n">property</span><span class="p">.</span><span class="na">getValue</span><span class="p">().</span><span class="na">contains</span><span class="p">(</span><span class="n">BlockTypes</span><span class="p">.</span><span class="na">OBSIDIAN</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Dieser Code überprüft, ob der Gegenstand eine <code class="docutils literal notranslate"><span class="pre">HarvestingProperty</span></code> hat, wie beispielsweise die Spitzhacke. Wenn diese vorhanden ist, kann man damit überprüft werden, ob dieser Gegenstand dazu verwendet werden kann, Obsidian zu ernten, ohne dafür den Typ des Gegenstandes zu überprüfen. Dies ist praktisch für den Fall, dass ein Mod oder ein Minecraft Update ein neues Werkzeug hinzufügt, welches die Fähigkeit besitzt Obsidian abzubauen.</p>
+</div>
+<div class="section" id="comparing-itemstacks">
+<h2>Vergleichen von Gegenständen<a class="headerlink" href="#comparing-itemstacks" title="Link zu dieser Überschrift">¶</a></h2>
+<p>Die <code class="docutils literal notranslate"><span class="pre">ItemStack</span></code> Klasse hat eine praktische Methode zum Vergleichen von zwei <code class="docutils literal notranslate"><span class="pre">ItemStack</span></code>s. Durch die Verwendung der <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/item/inventory/ItemStack.html#equalTo-org.spongepowered.api.item.inventory.ItemStack-">ItemStack#equalTo(ItemStack)</a> Methode auf einem bereits existierendem <code class="docutils literal notranslate"><span class="pre">ItemStack</span></code> können wir überprüfen, ob beide <code class="docutils literal notranslate"><span class="pre">ItemStack</span></code>s ‚gleich‘ sind. Dies ist dann der Fall, wenn die Anzahl, der <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/item/ItemType.html">ItemType</a> und die Daten identisch sind. Das folgende Beispiel zeigt dies:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isEqual</span><span class="p">(</span><span class="n">ItemStack</span> <span class="n">stack1</span><span class="p">,</span> <span class="n">ItemStack</span> <span class="n">stack2</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">stack1</span><span class="p">.</span><span class="na">equalTo</span><span class="p">(</span><span class="n">stack2</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="creating.html" class="btn btn-neutral float-right" title="Ein ItemStack erstellen" accesskey="n" rel="next">Nächste <span class="fa fa-angle-right"></span></a>
+        <a href="index.html" class="btn btn-neutral" title="Gegenstände" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> Vorherige</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../../_static/flags/de_DE.svg"
+         alt="de" title="Deutsch">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../../_static/jquery.js"></script>      <script type="text/javascript" src="../../_static/underscore.js"></script>      <script type="text/javascript" src="../../_static/doctools.js"></script>      <script type="text/javascript" src="../../_static/language_data.js"></script>      <script type="text/javascript" src="../../_static/translations.js"></script>      <script type="text/javascript" src="../../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

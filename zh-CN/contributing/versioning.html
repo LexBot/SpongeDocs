@@ -1,0 +1,237 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>仓库分支布局策略 &mdash; Sponge 7.2.0 文档</title>
+
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="索引"
+              href="../genindex.html"/>        <link rel="search" title="搜索" href="../search.html"/>    <link rel="top" title="Sponge 7.2.0 文档" href="../index.html"/>        <link rel="up" title="向 Sponge 贡献代码" href="index.html"/>        <link rel="next" title="关于 Sponge" href="../about/index.html"/>        <link rel="prev" title="将 Sponge 移植到其他平台" href="porting.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../index.html">
+            <img src="../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../server/index.html">创建服务器</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../versions/index.html">版本策略</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../preparing/index.html">为开发作准备</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../plugin/index.html">插件开发</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ore/index.html">Ore 文档</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">向 Sponge 贡献代码</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="guidelines.html">贡献指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="howtogit.html">如何使用 Git/GitHub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="implementation/index.html">参与到 Sponge 的开发工作来</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spongedocs.html">开发文档</a></li>
+<li class="toctree-l2"><a class="reference internal" href="porting.html">将 Sponge 移植到其他平台</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">仓库分支布局策略</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">关于 Sponge</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+          <li><a href="index.html">向 Sponge 贡献代码</a> &raquo;</li>
+    <li>仓库分支布局策略</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/contributing/versioning.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="repository-branch-layout">
+<h1>仓库分支布局策略<a class="headerlink" href="#repository-branch-layout" title="永久链接至标题">¶</a></h1>
+<p>我们在 SpongeAPI、SpongeCommon、SpongeForge 和 SpongeVanilla 的仓库中使用的分支布局策略是针对 <a class="reference internal" href="../versions/versioning.html#sem-ver"><span class="std std-ref">SemVer</span></a> 设计的。该策略将允许我们在不破坏向后兼容的情况下发布次要更新。SpongeDocs 的更新不适用该策略。</p>
+<div class="section" id="spongeapi-spongecommon-spongeforge-and-spongevanilla">
+<h2>SpongeAPI、SpongeCommon、SpongeForge和SpongeVanilla<a class="headerlink" href="#spongeapi-spongecommon-spongeforge-and-spongevanilla" title="永久链接至标题">¶</a></h2>
+<div class="section" id="the-bleeding-branch">
+<h3>不稳定分支<a class="headerlink" href="#the-bleeding-branch" title="永久链接至标题">¶</a></h3>
+<p>我们仓库的核心便是 <code class="docutils literal notranslate"><span class="pre">bleeding</span></code> 分支。几乎全部变更都会被合并入 <code class="docutils literal notranslate"><span class="pre">bleeding</span></code> 分支，不论这个更新是新特性、修订还是简单的漏洞修复。 <code class="docutils literal notranslate"><span class="pre">bleeding</span></code> 分支对应的版本总会是下一个主要版本，并带一个 <code class="docutils literal notranslate"><span class="pre">-SNAPSHOT</span></code> 后缀以注明此为快照版，并非最终发布版本，在发布之前仍然会有更新。（例如： <code class="docutils literal notranslate"><span class="pre">7.0.0-SNAPSHOT</span></code> ）</p>
+<p>设立 <code class="docutils literal notranslate"><span class="pre">bleeding</span></code> 分支主要是出于对测试变更的需求。即便是 Sponge 团队中有经验的成员，也有可能会意外导致构建失败，或是遗漏一个bug。而这 <code class="docutils literal notranslate"><span class="pre">bleeding</span></code> 分支的构建将会交由那些始终保持最新构建的社区成员进行测试，从而保证我们能尽快发现并解决各种问题。</p>
+</div>
+<div class="section" id="stable-branches">
+<h3>稳定分支<a class="headerlink" href="#stable-branches" title="永久链接至标题">¶</a></h3>
+<p>稳定分支象征着一个插件开发和服务器部署的可靠平台。稳定分支中只会有向后兼容的新功能。每当 API 迎来一次主要版本更新后，就会多出一个对应的稳定分支，涵盖了已经定型的最新 API 及实现，以及未来可能出现的次要更新或修订。</p>
+<p>每次主要更新时都会从 <code class="docutils literal notranslate"><span class="pre">bleeding</span></code> 分支中衍生出一个新的稳定分支，名字形如 <code class="docutils literal notranslate"><span class="pre">stable-x</span></code> ，其中 <code class="docutils literal notranslate"><span class="pre">x</span></code> 是主要更新的版本号，举个例子： <code class="docutils literal notranslate"><span class="pre">stable-7</span></code> 。 <code class="docutils literal notranslate"><span class="pre">bleeding</span></code> 将会按上文所叙述的那样得到妥善更新，并成为下一个主要版本。</p>
+<p>那些在 <code class="docutils literal notranslate"><span class="pre">bleeding</span></code> 分支中经过测验，没有产生问题，并且可进入之前的主要稳定版本中的变更可被直接拣选入相关的 <code class="docutils literal notranslate"><span class="pre">stable</span></code> 分支中。这些变更最终会组合成一个新的次要版本，但对于紧急修复来说，可能会导致一个新的修订版本的产生。每个版本的发布都会直接导致 API 仓库中产生一个指向发布时的提交新标签。</p>
+</div>
+<div class="section" id="feature-branches">
+<h3>特性分支<a class="headerlink" href="#feature-branches" title="永久链接至标题">¶</a></h3>
+<p>新特性或更改应在名字形如 <code class="docutils literal notranslate"><span class="pre">feature/foo</span></code> 或 <code class="docutils literal notranslate"><span class="pre">fix/bar</span></code> 这样的分支中出现。通常，新特性分支应当直接从 <code class="docutils literal notranslate"><span class="pre">bleeding</span></code> 分支上最近的一次提交衍生而来。但若是该分支的内容与 <code class="docutils literal notranslate"><span class="pre">bleeding</span></code> 分支不兼容，可考虑从 <code class="docutils literal notranslate"><span class="pre">stable-x</span></code> 分支上衍生出新分支；同时，在拉取请求中你应当清楚地阐明为什么你的分支不是基于 <code class="docutils literal notranslate"><span class="pre">bleeding</span></code> 的——例如，修复一个因Mojang更新而导致的某个被移除特性中的bug。</p>
+<p>若新的更新仍对旧版本保持向后兼容，Sponge团队会考虑在这些变更合并入 <code class="docutils literal notranslate"><span class="pre">bleeding</span></code> 后直接将这些变更移植 (cherry-pick) 入若干 <code class="docutils literal notranslate"><span class="pre">stable</span></code> 分支中；这同时也意味着Sponge团队假定这些变更没有引发新问题。</p>
+</div>
+</div>
+<div class="section" id="spongedocs">
+<h2>SpongeDocs<a class="headerlink" href="#spongedocs" title="永久链接至标题">¶</a></h2>
+<p>SpongeDocs 则没有版本号，因为我们相信它永远不会完成，只会在不断地更新中越来越完善。然而，SpongeDocs 通常都会<strong>针对</strong>某个特定版本的SpongeAPI发布；一般，这个特定版本是指最近的<strong>发布版</strong>。</p>
+<div class="section" id="core-branch">
+<h3>核心分支<a class="headerlink" href="#core-branch" title="永久链接至标题">¶</a></h3>
+<p>SpongeDoc 的核心分支是 <code class="docutils literal notranslate"><span class="pre">stable</span></code> 分支。在 <code class="docutils literal notranslate"><span class="pre">stable</span></code> 分支上的每一笔新提交都会触发一次 <a class="reference external" href="https://docs.spongepowered.org/">全站</a> 的重新构建。通常，在 <code class="docutils literal notranslate"><span class="pre">stable</span></code> 分支上的提交都是针对当前最新的 SpongeAPI 发布版的内容的更新，或是针对既有文档的错误的订正。</p>
+</div>
+<div class="section" id="id1">
+<h3>特性分支<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h3>
+<p>不论是新特性描述，还是旧文本更新或重写，抑或是整个文档的改组，都需要在名字形如 <code class="docutils literal notranslate"><span class="pre">feature/foo</span></code> 或 <code class="docutils literal notranslate"><span class="pre">fix/bar</span></code> 的新分支中完成。这些分支将会在经过复核，确认满足要求后，得到合并。</p>
+<p>当且仅当特性分支的新内容对于 <strong>当前 SpongeDocs 所指向的 SpongeAPI 发布版</strong> 来说是正确无误的时候，才有可能合并入主分支。任何针对非发布版中的特性的分支都只会在这些新特性发布后才有可能合并。然而，文档团队可能会将某个版本新内容收集到一个独立的分支上去。</p>
+<img alt="release branch example" src="../_images/versioning-release-branch.svg" /></div>
+<div class="section" id="release-branches">
+<h3>稳定版分支<a class="headerlink" href="#release-branches" title="永久链接至标题">¶</a></h3>
+<p>SpongeDocs uses <code class="docutils literal notranslate"><span class="pre">release/x.y.z</span></code> branches to publish Docs for older API versions like API <code class="docutils literal notranslate"><span class="pre">3.1.0</span></code>. Older API releases
+are available on their respective branches. Whenever a new API version is released, the Docs Staff will create a new
+<code class="docutils literal notranslate"><span class="pre">release/x.y.z</span></code> branch and bump master to the new API version afterwards. A commit to a <code class="docutils literal notranslate"><span class="pre">release</span></code> branch also
+triggers a rebuild of the older Docs release, just like on the core branch.</p>
+</div>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../about/index.html" class="btn btn-neutral float-right" title="关于 Sponge" accesskey="n" rel="next">下一页 <span class="fa fa-angle-right"></span></a>
+        <a href="porting.html" class="btn btn-neutral" title="将 Sponge 移植到其他平台" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> 上一页</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../_static/flags/zh_CN.svg"
+         alt="zh-CN" title="简体中文">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../_static/jquery.js"></script>      <script type="text/javascript" src="../_static/underscore.js"></script>      <script type="text/javascript" src="../_static/doctools.js"></script>      <script type="text/javascript" src="../_static/language_data.js"></script>      <script type="text/javascript" src="../_static/translations.js"></script>      <script type="text/javascript" src="../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

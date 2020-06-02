@@ -1,0 +1,317 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestionnaire de Plugin &mdash; Documentation Sponge 7.2.0</title>
+
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="Index"
+              href="../genindex.html"/>        <link rel="search" title="Recherche" href="../search.html"/>    <link rel="top" title="Documentation Sponge 7.2.0" href="../index.html"/>        <link rel="up" title="Création d’un Plugin" href="index.html"/>        <link rel="next" title="Gestionnaire de Profil de Jeu" href="game-profile-manager.html"/>        <link rel="prev" title="Modification de la génération du monde" href="wgen/customwgen.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../index.html">
+            <img src="../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../server/index.html">Créer un Serveur</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../versions/index.html">Stratégie de versioning</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../preparing/index.html">Préparation pour le développement</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Création d’un Plugin</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="api-versions.html">Versions de l’API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="buildsystem.html">Build Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workspace/index.html">Mise en Place de votre Espace de Travail</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project/index.html">Configurer Votre Projet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin-identifier.html">Identifiants de Plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin-class.html">Classe Principale du Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lifecycle.html">Cycle de vie des Plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="injection.html">Injection de Dépendances</a></li>
+<li class="toctree-l2"><a class="reference internal" href="practices/index.html">Bonnes Pratiques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optional/index.html">Optionnels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.html">Journalisation (Logging) et Débogage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="text/index.html">Text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands/index.html">Commandes de Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="event/index.html">Événements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration/index.html">Configuration des plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assets.html">L’API des Ressources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data/index.html">La Data API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/index.html">Blocs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entities/index.html">Entités</a></li>
+<li class="toctree-l2"><a class="reference internal" href="items/index.html">Items</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trade-offers.html">Trade-Offers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="effects.html">Effets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scheduler.html">Scheduler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="services.html">Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="database.html">Bases de données</a></li>
+<li class="toctree-l2"><a class="reference internal" href="permissions.html">Permissions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bans.html">Bans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metrics.html">Collection de Metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bookview.html">Views d’un Livre</a></li>
+<li class="toctree-l2"><a class="reference internal" href="economy/index.html">Économie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wgen/index.html">Génération du monde</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Gestionnaire de Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="game-profile-manager.html">Gestionnaire de Profil de Jeu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="offline-userplayer-data.html">Données du Joueur Hors-Ligne</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tab-lists.html">Tab Lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin-meta.html">Plugin Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ray-tracing.html">Ray Tracing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="debugging.html">Debugging d’un plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials.html">Tutoriels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internals/index.html">Plugins dépendants des implémentations</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ore/index.html">Documentation d’Ore</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contributing/index.html">Contribuer à Sponge</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">À propos du Projet Sponge</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+          <li><a href="index.html">Création d’un Plugin</a> &raquo;</li>
+    <li>Gestionnaire de Plugin</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/plugin/manager.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="plugin-manager">
+<h1>Gestionnaire de Plugin<a class="headerlink" href="#plugin-manager" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Le gestionnaire de Plugin (Plugin Manager) est ce vers quoi votre plugin est envoyé, après avoir été chargé par le serveur au démarrage. Le serveur charge votre plugin en trouvant sa classe principale, repérée par l’annotation <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/plugin/Plugin.html">Plugin</a>, et envoie une nouvelle instance de celle-ci au gestionnaire. Le gestionnaire maintient ensuite cette instance dans sa propre collection à laquelle vous pouvez accéder en utilisant les méthodes fournies par celui-ci, vous permettant ainsi d’interagir facilement avec un autre plugin chargé si vous le désirez.</p>
+<div class="section" id="the-pluginmanager-class">
+<h2>La Classe PluginManager<a class="headerlink" href="#the-pluginmanager-class" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Les méthodes publiques à l’intérieur du <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/plugin/PluginManager.html">PluginManager</a> sont utilisées pour récupérer des informations à propos de la collection actuelle des plugins chargés, par l’intermédiaire de leur instance. Les plugins sont stockés dans un <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/plugin/PluginContainer.html">PluginContainer</a> (détaillé dans la section suivante) pour permettre une centralisation facile des informations sur le plugin spécifique. Par exemple, vous pouvez utiliser le <code class="docutils literal notranslate"><span class="pre">PluginManager</span></code> pour communiquer avec un autre plugin, récupérer son instance et utiliser les méthodes qu’il propose pour fournir une compatibilité ou des fonctionnalités étendues au moyen de votre plugin.</p>
+</div>
+<div class="section" id="obtaining-the-plugin-manager">
+<h2>Obtenir le gestionnaire de plugin<a class="headerlink" href="#obtaining-the-plugin-manager" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Vous pouvez obtenir une instance du <code class="docutils literal notranslate"><span class="pre">PluginManager</span></code> du serveur de plusieurs manières différentes.</p>
+<div class="section" id="dependency-injection">
+<h3>1. Injection de dépendances<a class="headerlink" href="#dependency-injection" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="admonition tip">
+<p class="first admonition-title">Astuce</p>
+<p class="last">Voir le guide <a class="reference internal" href="injection.html"><span class="doc">Injection de Dépendances</span></a> pour toute aide sur l’utilisation des injections de dépendances.</p>
+</div>
+<p>Le <code class="docutils literal notranslate"><span class="pre">PluginManager</span></code> est l’une des rares instances de l’API qui est injectée dans la classe principale lorsqu’elle est chargée. Pour demander une référence, créez une nouvelle variable contenant l’instance du <code class="docutils literal notranslate"><span class="pre">PluginManager</span></code> et annotez-la simplement avec <code class="docutils literal notranslate"><span class="pre">&#64;Inject</span></code>.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">com.google.inject.Inject</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.plugin.PluginManager</span><span class="p">;</span>
+
+<span class="nd">@Inject</span>
+<span class="kd">private</span> <span class="n">PluginManager</span> <span class="n">pluginManager</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="the-service-manager">
+<h3>2. Le gestionnaire de Services<a class="headerlink" href="#the-service-manager" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="admonition tip">
+<p class="first admonition-title">Astuce</p>
+<p class="last">Voir <a class="reference internal" href="services.html"><span class="doc">Services</span></a> pour un guide complet sur le Gestionnaire de Services.</p>
+</div>
+<p>Le gestionnaire de services possède également une instance du <code class="docutils literal notranslate"><span class="pre">PluginManager</span></code> du serveur. Il suffit d’utiliser la méthode <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/ServiceManager.html#provide-java.lang.Class-">ServiceManager#provide(Class)</a>, en passant la classe (<code class="docutils literal notranslate"><span class="pre">PluginManager.class</span></code>) du <code class="docutils literal notranslate"><span class="pre">PluginManager</span></code> en paramètre.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">private</span> <span class="n">PluginManager</span> <span class="n">pluginManager</span> <span class="o">=</span> <span class="n">serviceManager</span><span class="p">.</span><span class="na">provideUnchecked</span><span class="p">(</span><span class="n">PluginManager</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="the-game-instance">
+<h3>3. L’instance de jeu<a class="headerlink" href="#the-game-instance" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="admonition tip">
+<p class="first admonition-title">Astuce</p>
+<p class="last">Voir les JavaDocs de <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/Game.html">Game</a> pour une information plus complète sur la classe, ainsi que ses méthodes et leur utilisation.</p>
+</div>
+<p>Une instance de jeu peut, elle aussi, fournir une référence du <code class="docutils literal notranslate"><span class="pre">PluginManager</span></code> du serveur pour plus de commodité.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">private</span> <span class="n">PluginManager</span> <span class="n">pluginManager</span> <span class="o">=</span> <span class="n">game</span><span class="p">.</span><span class="na">getPluginManager</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Maintenant que vous avez une instance du gestionnaire de plugin, utilisons-la.</p>
+</div>
+<div class="section" id="using-the-sponge-class">
+<h3>4. Utilisation de la Classe Sponge<a class="headerlink" href="#using-the-sponge-class" title="Lien permanent vers ce titre">¶</a></h3>
+<p>La classe <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/Sponge.html">Sponge</a> fonctionne à peu près comme <code class="docutils literal notranslate"><span class="pre">Game</span></code>, à l’exception du fait que <code class="docutils literal notranslate"><span class="pre">Sponge</span></code> contenant des méthodes statiques, on peut y accéder à n’importe quel endroit du plugin. Vous n’avez donc pas besoin d’instances la classe, comme vous le feriez pour <code class="docutils literal notranslate"><span class="pre">Game</span></code>.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.Sponge</span><span class="p">;</span>
+
+<span class="kd">private</span> <span class="n">PluginManager</span> <span class="n">pluginManager</span> <span class="o">=</span> <span class="n">Sponge</span><span class="p">.</span><span class="na">getPluginManager</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="using-the-plugin-manager">
+<h2>Utiliser le Gestionnaire de Plugins<a class="headerlink" href="#using-the-plugin-manager" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Le gestionnaire de plugin fournit plusieurs méthodes pour travailler avec des plugins.</p>
+<p>Un grand nombre de méthodes retournent des conteneurs de plugin, qui seront détaillés dans la section suivante. Les conteneurs de plugin sont comme ils le sous-entendent des «&nbsp;contenants&nbsp;» d’une instance actuelle de plugin.</p>
+<p>Avec le gestionnaire de plugin, il est possible d’obtenir tous les plugins actuellement chargés via le gestionnaire de plugin:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.plugin.PluginContainer</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.Collection</span><span class="p">;</span>
+
+<span class="kd">private</span> <span class="n">Collection</span><span class="o">&lt;</span><span class="n">PluginContainer</span><span class="o">&gt;</span> <span class="n">plugins</span> <span class="o">=</span> <span class="n">pluginManager</span><span class="p">.</span><span class="na">getPlugins</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Ou bien, il est possible d’obtenir directement une instance vers un conteneur de plugin, par l’exemple illustré ci-dessous:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">private</span> <span class="n">PluginContainer</span> <span class="n">myOtherPlugin</span> <span class="o">=</span> <span class="n">pluginManager</span><span class="p">.</span><span class="na">getPlugin</span><span class="p">(</span><span class="s">&quot;myOtherPluginId&quot;</span><span class="p">).</span><span class="na">orElse</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="the-plugincontainer-class">
+<h2>La Classe PluginContainer<a class="headerlink" href="#the-plugincontainer-class" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Lorsque vous récupérez un plugin depuis le <code class="docutils literal notranslate"><span class="pre">PluginManager</span></code>, vous remarquerez très vite qu’il ne vous est pas donné une instance immédiate du plugin demandé. Au lieu de cela, vous recevrez un <code class="docutils literal notranslate"><span class="pre">PluginContainer</span></code> contenant des informations sur le plugin obtenues par son annotation <code class="docutils literal notranslate"><span class="pre">&#64;Plugin</span></code> dans sa classe principale, ainsi que l’instance chargée.</p>
+<p>Le <code class="docutils literal notranslate"><span class="pre">PluginContainer</span></code> contiendra toutes les informations génériques sur le plugin définies par son développeur d’origine. Vous pouvez utiliser ses informations dans votre plugin secondaire, au lieu de coder en dur ce que vous savez à propos de lui. Un exemple de scénario serait que si le développeur d’origine change le nom du plugin, les références à ce dernier dans le plugin secondaire ne deviendraient pas fausses à la suite de ce changement, à condition que vous ayez utilisé la méthode <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/plugin/PluginContainer.html#getName--">PluginContainer#getName()</a> pour obtenir son nom.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">private</span> <span class="n">PluginContainer</span> <span class="n">myOtherPlugin</span> <span class="o">=</span> <span class="n">pluginManager</span><span class="p">.</span><span class="na">getPlugin</span><span class="p">(</span><span class="s">&quot;myOtherPluginId&quot;</span><span class="p">).</span><span class="na">orElse</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+<span class="kd">private</span> <span class="n">MyOtherPlugin</span> <span class="n">pluginInstance</span> <span class="o">=</span> <span class="p">(</span><span class="n">MyOtherPlugin</span><span class="p">)</span> <span class="n">myOtherPlugin</span><span class="p">.</span><span class="na">getInstance</span><span class="p">().</span><span class="na">orElse</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">La méthode <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/plugin/PluginContainer.html#getInstance--">PluginContainer#getInstance()</a> retourna un <code class="docutils literal notranslate"><span class="pre">Object</span></code>. Vous devez le caster (convertir son type) du même type que le plugin cible après l’avoir obtenu du conteneur.</p>
+</div>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="game-profile-manager.html" class="btn btn-neutral float-right" title="Gestionnaire de Profil de Jeu" accesskey="n" rel="next">Suivant <span class="fa fa-angle-right"></span></a>
+        <a href="wgen/customwgen.html" class="btn btn-neutral" title="Modification de la génération du monde" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> Précédent</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../_static/flags/fr_FR.svg"
+         alt="fr" title="Français">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../_static/jquery.js"></script>      <script type="text/javascript" src="../_static/underscore.js"></script>      <script type="text/javascript" src="../_static/doctools.js"></script>      <script type="text/javascript" src="../_static/language_data.js"></script>      <script type="text/javascript" src="../_static/translations.js"></script>      <script type="text/javascript" src="../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

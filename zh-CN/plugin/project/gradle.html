@@ -1,0 +1,335 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>设置 Gradle &mdash; Sponge 7.2.0 文档</title>
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="索引"
+              href="../../genindex.html"/>        <link rel="search" title="搜索" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 文档" href="../../index.html"/>        <link rel="up" title="设置你的项目" href="index.html"/>        <link rel="next" title="设置 Maven" href="maven.html"/>        <link rel="prev" title="设置你的项目" href="index.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../../index.html">
+            <img src="../../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../server/index.html">创建服务器</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../versions/index.html">版本策略</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../preparing/index.html">为开发作准备</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">插件开发</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../api-versions.html">API版本</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../buildsystem.html">构建系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../workspace/index.html">设置开发环境</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">设置你的项目</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">设置 Gradle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="maven.html">设置 Maven</a></li>
+<li class="toctree-l3"><a class="reference internal" href="version-numbers.html">版本号</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-identifier.html">插件标识符</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-class.html">插件的主类</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lifecycle.html">插件的生命周期</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../injection.html">依赖注入</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../practices/index.html">插件开发惯例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../optional/index.html">使用 Optional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../logging.html">日志记录和调试</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text/index.html">文本 API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/index.html">插件命令</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../event/index.html">事件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/index.html">插件配置</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assets.html">使用 Asset API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data/index.html">数据 API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../blocks/index.html">方块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../entities/index.html">实体</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../items/index.html">物品</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../trade-offers.html">村民交易</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../effects.html">效果</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../scheduler.html">调度器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../services.html">服务</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database.html">数据库</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../permissions.html">权限</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bans.html">黑名单</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metrics.html">Metrics 收集</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bookview.html">成书</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../economy/index.html">经济 API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wgen/index.html">世界生成</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manager.html">插件管理器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../game-profile-manager.html">玩家资料管理器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../offline-userplayer-data.html">离线玩家数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tab-lists.html">玩家列表</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-meta.html">插件的元数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ray-tracing.html">光线追踪</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../debugging.html">调试插件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials.html">教程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internals/index.html">依赖底层实现</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ore/index.html">Ore 文档</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/index.html">向 Sponge 贡献代码</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">关于 Sponge</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+          <li><a href="../index.html">插件开发</a> &raquo;</li>
+          <li><a href="index.html">设置你的项目</a> &raquo;</li>
+    <li>设置 Gradle</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/plugin/project/gradle.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="setting-up-gradle">
+<h1>设置 Gradle<a class="headerlink" href="#setting-up-gradle" title="永久链接至标题">¶</a></h1>
+<div class="section" id="using-spongegradle">
+<span id="id1"></span><h2>使用 SpongeGradle<a class="headerlink" href="#using-spongegradle" title="永久链接至标题">¶</a></h2>
+<p>使用 <a class="reference external" href="https://github.com/SpongePowered/SpongeGradle">SpongeGradle</a> 非常简单，它允许你尽可能减少用于 Sponge 插件上必要的 Gradle 配置。此外，它为 Gradle 提供了对 <a class="reference internal" href="../plugin-meta.html"><span class="doc">插件的元数据</span></a> 的集成，从而在构建插件时自动添加 Group ID、项目名、版本号等在构建脚本中定义的值，因此你只需要在一个文件里更新你的插件版本。</p>
+<div class="admonition tip">
+<p class="first admonition-title">小技巧</p>
+<p class="last">很多问题的原因都和使用过时的 Gradle 版本有关。我们十分建议开发者使用 <a class="reference external" href="https://github.com/SpongePowered/SpongeGradle">SpongeGradle</a> 时搭配最新的 Gradle 版本。你可以查看 <a class="reference internal" href="../buildsystem.html#gradle-setup"><span class="std std-ref">相关页面</span></a> 来了解如何在你的计算机上安装并使用 Gradle。</p>
+</div>
+<p>下面是一个可以用于大部分插件的一个简单模板。 <strong>请确保你已经把 Group ID 替换成了对应于你的插件的 Group ID</strong>。</p>
+<div class="highlight-groovy notranslate"><div class="highlight"><pre><span></span><span class="n">plugins</span> <span class="o">{</span>
+    <span class="n">id</span> <span class="s1">&#39;java&#39;</span>
+    <span class="n">id</span> <span class="s1">&#39;org.spongepowered.plugin&#39;</span> <span class="n">version</span> <span class="s1">&#39;0.9.0&#39;</span>
+<span class="o">}</span>
+
+<span class="c1">// This may not be required, but has solved issues in the past</span>
+<span class="n">compileJava</span><span class="o">.</span><span class="na">options</span><span class="o">.</span><span class="na">encoding</span> <span class="o">=</span> <span class="s1">&#39;UTF-8&#39;</span>
+
+<span class="c1">// TODO: Change the following to match your information</span>
+<span class="n">group</span> <span class="o">=</span> <span class="s1">&#39;com.example&#39;</span>
+<span class="n">version</span> <span class="o">=</span> <span class="s1">&#39;1.0.0-SNAPSHOT&#39;</span>
+<span class="n">description</span> <span class="o">=</span> <span class="s1">&#39;Here lies an example plugin definition&#39;</span>
+
+<span class="n">repositories</span> <span class="o">{</span>
+    <span class="n">jcenter</span><span class="o">()</span>
+<span class="o">}</span>
+
+<span class="n">dependencies</span> <span class="o">{</span>
+    <span class="n">compile</span> <span class="s1">&#39;org.spongepowered:spongeapi:7.2.0&#39;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>这几行用于处理你通常会手动完成的大部分设置：</p>
+<ul class="simple">
+<li>基本的 Gradle Java 设置</li>
+<li>请设置你的项目使用 Java 8 编译</li>
+<li>添加 Sponge 的 Maven 库（和中央库，Maven Central）</li>
+<li>设置你的项目的插件名称为 <strong>plugin ID</strong> ，并全部使用小写字母</li>
+<li>在 <a class="reference internal" href="../plugin-meta.html"><span class="doc">插件的元数据</span></a> 中自动包含项目名称、说明和<a class="reference internal" href="version-numbers.html"><span class="doc">版本</span></a>。</li>
+</ul>
+<div class="section" id="manually-setting-the-plugin-id">
+<h3>手动设置插件 ID<a class="headerlink" href="#manually-setting-the-plugin-id" title="永久链接至标题">¶</a></h3>
+<p>转为情况下，Gradle 插件将使用你的项目名称的小写字母形式配置你的插件 ID（plugin ID）。如果你想要使用一个自定义的 <strong>plugin ID</strong> 而仍然使用 <a class="reference internal" href="../plugin-meta.html"><span class="doc">插件的元数据</span></a> 的集成，你可以这样手动修改它：</p>
+<div class="highlight-groovy notranslate"><div class="highlight"><pre><span></span><span class="n">sponge</span> <span class="o">{</span>
+    <span class="n">plugin</span> <span class="o">{</span>
+        <span class="n">id</span> <span class="o">=</span> <span class="s1">&#39;pluginidgoeshere&#39;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="overriding-defaults">
+<h3>覆盖默认值<a class="headerlink" href="#overriding-defaults" title="永久链接至标题">¶</a></h3>
+<p>默认情况下，Gradle 插件将使用 <a class="reference internal" href="../plugin-meta.html"><span class="doc">插件的元数据</span></a> 设置你在项目属性中定义的插件名称、插件版本、和说明（<strong>plugin name</strong>， <strong>plugin version</strong> 和 <strong>description</strong>）。你也可以手动覆盖它们：</p>
+<div class="highlight-groovy notranslate"><div class="highlight"><pre><span></span><span class="n">sponge</span> <span class="o">{</span>
+    <span class="n">plugin</span> <span class="o">{</span>
+        <span class="n">meta</span> <span class="o">{</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Example Plugin&#39;</span>
+            <span class="n">version</span> <span class="o">=</span> <span class="s1">&#39;1.0.0-SNAPSHOT&#39;</span>
+            <span class="n">description</span> <span class="o">=</span> <span class="s1">&#39;This is an example plugin&#39;</span>
+            <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://www.example.com/&#39;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>你也可以完全删除一个默认值：</p>
+<div class="highlight-groovy notranslate"><div class="highlight"><pre><span></span><span class="n">sponge</span> <span class="o">{</span>
+    <span class="n">plugin</span> <span class="o">{</span>
+        <span class="n">meta</span> <span class="o">{</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="kc">null</span>
+            <span class="n">description</span> <span class="o">=</span> <span class="kc">null</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="without-spongegradle">
+<h2>不使用 SpongeGradle<a class="headerlink" href="#without-spongegradle" title="永久链接至标题">¶</a></h2>
+<div class="admonition warning">
+<p class="first admonition-title">警告</p>
+<p class="last">我们建议使用名为 <a class="reference internal" href="#using-spongegradle"><span class="std std-ref">SpongeGradle</span></a> 的 Gradle 插件，以在使用 Gradle 的同时，享受 Sponge 插件的相关集成带来的便利。</p>
+</div>
+<p>一般说来，一切必要的编译一个 Sponge 插件的工作都可以通过在你的项目中使用 Gradle 并简单地把 SpongeAPI 添加到依赖（Dependency）中来完成：</p>
+<div class="highlight-groovy notranslate"><div class="highlight"><pre><span></span><span class="n">repositories</span> <span class="o">{</span>
+    <span class="n">jcenter</span><span class="o">()</span>
+    <span class="n">maven</span> <span class="o">{</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;sponge-repo&#39;</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://repo.spongepowered.org/maven&#39;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="n">dependencies</span> <span class="o">{</span>
+    <span class="n">compile</span> <span class="s1">&#39;org.spongepowered:spongeapi:7.2.0&#39;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="maven.html" class="btn btn-neutral float-right" title="设置 Maven" accesskey="n" rel="next">下一页 <span class="fa fa-angle-right"></span></a>
+        <a href="index.html" class="btn btn-neutral" title="设置你的项目" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> 上一页</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../../_static/flags/zh_CN.svg"
+         alt="zh-CN" title="简体中文">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../../_static/jquery.js"></script>      <script type="text/javascript" src="../../_static/underscore.js"></script>      <script type="text/javascript" src="../../_static/doctools.js"></script>      <script type="text/javascript" src="../../_static/language_data.js"></script>      <script type="text/javascript" src="../../_static/translations.js"></script>      <script type="text/javascript" src="../../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

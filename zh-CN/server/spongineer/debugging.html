@@ -1,0 +1,356 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>调试 &mdash; Sponge 7.2.0 文档</title>
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="索引"
+              href="../../genindex.html"/>        <link rel="search" title="搜索" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 文档" href="../../index.html"/>        <link rel="up" title="成为 Sponge 专家" href="index.html"/>        <link rel="next" title="Mod 兼容" href="incompatible.html"/>        <link rel="prev" title="日志文件" href="logs.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../../index.html">
+            <img src="../../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">创建服务器</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html">快速入门指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started/index.html">入门指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../management/index.html">管理服务器</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">成为 Sponge 专家</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="commands.html">命令与权限</a></li>
+<li class="toctree-l3"><a class="reference internal" href="troubleshooting.html">故障排查</a></li>
+<li class="toctree-l3"><a class="reference internal" href="logs.html">日志文件</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">调试</a></li>
+<li class="toctree-l3"><a class="reference internal" href="incompatible.html">Mod 兼容</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bugreport.html">报告问题</a></li>
+<li class="toctree-l3"><a class="reference internal" href="properties.html">属性</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../versions/index.html">版本策略</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../preparing/index.html">为开发作准备</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../plugin/index.html">插件开发</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ore/index.html">Ore 文档</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/index.html">向 Sponge 贡献代码</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">关于 Sponge</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+          <li><a href="../index.html">创建服务器</a> &raquo;</li>
+          <li><a href="index.html">成为 Sponge 专家</a> &raquo;</li>
+    <li>调试</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/server/spongineer/debugging.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="debugging">
+<h1>调试<a class="headerlink" href="#debugging" title="永久链接至标题">¶</a></h1>
+<p>日志（Log）是调试服务器中不可或缺的东西。本文将通过几个基本的日志示例来解释“当你遇到一样的问题时，可以做什么”。如果你是来找“哪些 Mod 和 SpongeForge 装一起会出问题”的，我们建议你先阅读这个：<a class="reference internal" href="incompatible.html"><span class="doc">Mod 兼容</span></a>。</p>
+<div class="section" id="checklist">
+<h2>待办事项列表<a class="headerlink" href="#checklist" title="永久链接至标题">¶</a></h2>
+<p>当你遇到崩溃或警告，首先确认你 SpongeForge 或 SpongeVanilla 配置正确。这里有一个能帮到你的排查清单。如果你不知道如何获取所需的信息，请查看 <a class="reference internal" href="logs.html"><span class="doc">日志文件</span></a> 页面。它解释了如何从你的日志文件获取所需的答案。</p>
+<div class="section" id="is-java-8-installed-and-is-sponge-using-it">
+<h3>Sponge 是否运行在 Java 8 上？<a class="headerlink" href="#is-java-8-installed-and-is-sponge-using-it" title="永久链接至标题">¶</a></h3>
+<p>Sponge 需要 Java 8 ，使用 Java 7 或更旧的版本会导致崩溃。</p>
+</div>
+<div class="section" id="is-the-recommended-forge-version-installed">
+<h3>使用了推荐的 Forge 版本？<a class="headerlink" href="#is-the-recommended-forge-version-installed" title="永久链接至标题">¶</a></h3>
+<p>通常 SpongeForge 可以在在更旧或更新的 Forge 上使用。然而我们仍强烈建议在推荐的Forge 版本上运行 Sponge。如果您遇到崩溃或者版本不匹配，先切换匹配的版本试一次。如果你不确定你需要哪个版本的 Forge，看一眼这里：<a class="reference internal" href="../../versions/filenames.html"><span class="doc">读懂文件名</span></a>。</p>
+</div>
+<div class="section" id="are-there-any-other-coremods-installed">
+<h3>安装了其他 Coremods 吗？<a class="headerlink" href="#are-there-any-other-coremods-installed" title="永久链接至标题">¶</a></h3>
+<p>部分 Coremod 通过更改 Forge 或 Minecraft 方式使 SpongeForge 无法正常运行。若您安装了 coremod 且 Sponge 意外退出，请尝试移除它们并重新测试。请在`GitHub &lt;<a class="reference external" href="https://github.com/SpongePowered/SpongeForge/issues">https://github.com/SpongePowered/SpongeForge/issues</a>&gt;`__ 上汇报任何不兼容的 Coremod。这将允许工作人员尽快解决问题。</p>
+</div>
+<div class="section" id="is-every-plugin-you-re-using-built-against-your-desired-sponge-build">
+<h3>你使用的每一个插件都是针对 Sponge 构建的吗？<a class="headerlink" href="#is-every-plugin-you-re-using-built-against-your-desired-sponge-build" title="永久链接至标题">¶</a></h3>
+<p>SpongeAPI 有时会改变。当你在新版 Sponge 上使用旧版本插件并遇到了崩溃时，请尝试降级 Sponge，或与插件作者联系获得更新的插件。如果你在旧的 Sponge 版本上使用新版本插件发生崩溃时，首先尝试更新 Sponge。如果这不能解决问题，请联系插件作者。</p>
+</div>
+<div class="section" id="separating-a-faulty-plugin">
+<h3>分离一个错误的插件<a class="headerlink" href="#separating-a-faulty-plugin" title="永久链接至标题">¶</a></h3>
+<p>如果问题仍然存在，删除所有插件并重新逐一添加，并且每次都重启服务端。</p>
+<p>如果你仍然不确定为什么崩溃，看一看你的 crashlog。下面列出了一些常见的崩溃和解决办法。</p>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">若您遇到错误，创建一个备份通常是个好想法，然后请尝试重新产生错误并使用移除模组的方式缩小范围。只有在这时您才应汇报错误。若错误在缺少 Sponge 插件时发生则请移除 SpongeForge。若错误仍存在且与 Sponge 无关，则首先请向对自己所写代码熟悉的模组作者汇报。您一直可以<a class="reference external" href="https://www.spongepowered.org/chat">联系我们</a>咨询问题。更多详情请参见<a class="reference internal" href="bugreport.html"><span class="doc">报告问题</span></a>。</p>
+</div>
+</div>
+</div>
+<div class="section" id="general-warnings">
+<h2>一般警告<a class="headerlink" href="#general-warnings" title="永久链接至标题">¶</a></h2>
+<p>常见的错误和 bug 来源是 SpongeForge 与 Sponge 之间或 SpongeForge 和插件之间的版本不匹配。首先我们来看看在Forge给出的一般警告︰</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>WARNING: coremods are present:
+   SpongeForge (sponge-1.8-1521-2.1DEV-750.jar)
+Contact their authors BEFORE contacting forge
+</pre></div>
+</div>
+<p>这不是一个 bug 或错误，它只是Forge告诉你，Coremod (在这里︰ SpongeForge) 安装。Forge建议您在联系他们之前先联系Sponge开发人员。Don’t Worry。</p>
+</div>
+<div class="section" id="common-exceptions">
+<h2>常见异常<a class="headerlink" href="#common-exceptions" title="永久链接至标题">¶</a></h2>
+<p>这里有一些常见的异常和异常发生的原因。</p>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">如果你遇到崩溃、 错误或任何这里没有提及的问题，请前往 <a class="reference external" href="https://forums.spongepowered.org/">Sponge 论坛</a>或者<a class="reference external" href="https://github.com/spongepowered/">我们的 GitHub</a> 反馈。这样还能帮助碰到同样问题的人。</p>
+</div>
+<div class="section" id="mismatched-spongeforge-and-forge">
+<h3>SpongeForge 与 Forge 不匹配<a class="headerlink" href="#mismatched-spongeforge-and-forge" title="永久链接至标题">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[12:59:21] [main/ERROR] [mixin/]: @Mixin target net.minecraftforge.event.world.BlockEvent$NeighborNotifyEvent was not found mixins.forge.core.json:event.block.MixinEventNotifyNeighborBlock
+</pre></div>
+</div>
+<p>这是一些常见的SpongeForge与Forge版本不匹配的崩溃，始终保持版本匹配！如果你不确定需要Forge的那个版本，或者你已经有了一个不可改变版本的 SpongeForge，看这里：<a class="reference internal" href="../../versions/filenames.html"><span class="doc">读懂文件名</span></a>。</p>
+</div>
+<div class="section" id="other-common-errors">
+<h3>其它常见错误<a class="headerlink" href="#other-common-errors" title="永久链接至标题">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Caused by: java.lang.ClassNotFoundException: org.spongepowered.api.event.state.ServerStartedEvent
+Caused by: java.lang.NullPointerException
+</pre></div>
+</div>
+<p>第一个错误是 <strong>Class</strong> is missing ，第二个错误是 NullPointer Exception 表明你安装的插件缺少依赖元素，这通常发生在插件版本和Sponge版本不匹配的情况下</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>java.lang.AbstractMethodError: net.minecraft.entity.player.EntityPlayerMP.getTabList()Lorg/spongepowered/api/entity/living/player/tab/TabList;
+at (...)
+</pre></div>
+</div>
+<p>当一个插件试图调用尚未实现的方法时发生了 AbstractMethodError  。请检查是否你运行当前最新的 Sponge ，若不是，请更新。如果问题仍然存在，要么报告、 论坛或 IRC 上官方的 Issuetracker 。您也可以请求执行缺少的功能.。</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[Server thread/INFO]: Starting minecraft server version 1.8
+[Server thread/ERROR]: Encountered an unexpected exception
+java.lang.NoClassDefFoundError: org/spongepowered/api/event/game/state/GameStartingServerEvent
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">读更多更全的崩溃报告？在这里 <a class="reference download internal" download="" href="../../_downloads/6833e5bcb0924d3913fa48f8b5b1ace5/crashlog-sponge575-plugin750.txt"><code class="xref download docutils literal notranslate"><span class="pre">SpongeForge</span> <span class="pre">575</span> <span class="pre">crashlog</span> <span class="pre">with</span> <span class="pre">a</span> <span class="pre">plugin</span> <span class="pre">built</span> <span class="pre">against</span> <span class="pre">build</span> <span class="pre">750</span></code></a></p>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">NoClassDefFoundError</span></code> 表示这个 Class 不存在于 classpath 中，一般发生在 API 调整或者重构后，你更新了 Sponge 但你用的插件没有更新，或者反过来。请务必让插件版本和 Sponge 版本保持匹配！你可以去问插件作者啥时候更新，也可以自己升级或降级 SpongeForge 或 SpongeVanilla 来解决。</p>
+</div>
+</div>
+<div class="section" id="exceptions-at-runtime">
+<h2>运行时异常<a class="headerlink" href="#exceptions-at-runtime" title="永久链接至标题">¶</a></h2>
+<p>在模组服务器上通常会发生两种错误：</p>
+<ul class="simple">
+<li>插件内部错误，如命令执行时的 NullPointerExceptions。这些错误使用标准 Java 处理器进行记录。</li>
+<li>世界或实体周期错误。Sponge 将打印出更多结构化错误以提供尽可能多的信息。</li>
+</ul>
+<p>在我们研究造成异常的原因前，请确保您阅读了完整错误汇报。有时错误已在错误汇报本身（上方或下方几行）中被诠释；有时它会在启动时显示。</p>
+<p>下列栈跟踪显示了此特殊处理的示例（除了行时间前缀及严重度）：</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>/******************************************************************************************************************************/
+/*                                           Exception occurred during a PhaseState                                           */
+/******************************************************************************************************************************/
+/* Sponge&#39;s tracking system makes a best effort to not throw exceptions randomly                                              */
+/* but sometimes it is inevitable. In most cases, something else triggered this                                               */
+/* exception and Sponge prevented a crash by catching it. The following stacktrace                                            */
+/* can be used to help pinpoint the cause.                                                                                    */
+/******************************************************************************************************************************/
+/* The PhaseState having an exception: EntityTickPhase                                                                        */
+/* The PhaseContext:                                                                                                          */
+/*     - Owner: EntityPlayerMP[&#39;SomePlayer&#39;/270, l=&#39;world&#39;, x=119,62, y=82,00, z=260,21]                                      */
+/*     - Source: EntityCreeper[&#39;Creeper&#39;/346, l=&#39;world&#39;, x=119,50, y=82,00, z=258,50]                                         */
+/*     - CapturedBlockPosition: CaptureBlockPos{pos=null, world=Optional.empty}                                               */
+/* org.spongepowered.asm.util.PrettyPrinter@56ec63ef                                                                          */
+/******************************************************************************************************************************/
+/* StackTrace:                                                                                                                */
+/* java.lang.NullPointerException: null                                                                                       */
+/*     net.minecraft.util.math.BlockPos.&lt;init&gt;(SourceFile:41)                                                                 */
+/*     net.minecraft.pathfinding.PathNavigateGround.func_75494_a(SourceFile:73)                                               */
+/*     net.minecraft.pathfinding.PathNavigate.func_75497_a(SourceFile:147)                                                    */
+/*     com.example.extendedaiplugin.BrokenAITask.start(BrokenAITask.java:58)                                                  */
+/*     org.spongepowered.common.entity.ai.SpongeEntityAICommonSuperclass.func_75249_e(SpongeEntityAICommonSuperclass.java:43) */
+/*     net.minecraft.entity.ai.EntityAITasks.func_75774_a(SourceFile:102)                                                     */
+/*     net.minecraft.entity.EntityLiving.func_70626_be(EntityLiving.java:763)                                                 */
+/*     net.minecraft.entity.EntityLivingBase.func_70636_d(EntityLivingBase.java:2350)                                         */
+/*     net.minecraft.entity.EntityLiving.func_70636_d(EntityLiving.java:577)                                                  */
+/*     net.minecraft.entity.monster.EntityMob.func_70636_d(EntityMob.java:45)                                                 */
+/*     net.minecraft.entity.EntityLivingBase.func_70071_h_(EntityLivingBase.java:2170)                                        */
+/*     net.minecraft.entity.EntityLiving.func_70071_h_(EntityLiving.java:295)                                                 */
+/*     net.minecraft.entity.monster.EntityMob.func_70071_h_(EntityMob.java:50)                                                */
+/*     net.minecraft.entity.monster.EntityCreeper.func_70071_h_(EntityCreeper.java:172)                                       */
+/*     org.spongepowered.common.event.tracking.TrackingUtil.tickEntity(TrackingUtil.java:160)                                 */
+/*     net.minecraft.world.WorldServer.redirect$onCallEntityUpdate$zlo000(WorldServer.java:2986)                              */
+/*     net.minecraft.world.World.func_72866_a(World.java:4154)                                                                */
+/*     net.minecraft.world.WorldServer.func_72866_a(WorldServer.java:832)                                                     */
+/*     net.minecraft.world.World.func_72870_g(World.java:1952)                                                                */
+/*     net.minecraft.world.World.func_72939_s(World.java:6596)                                                                */
+/*     net.minecraft.world.WorldServer.func_72939_s(WorldServer.java:2300)                                                    */
+/*     net.minecraft.server.MinecraftServer.func_71190_q(MinecraftServer.java:767)                                            */
+/*     net.minecraft.server.dedicated.DedicatedServer.func_71190_q(DedicatedServer.java:396)                                  */
+/*     net.minecraft.server.MinecraftServer.func_71217_p(MinecraftServer.java:668)                                            */
+/*     net.minecraft.server.MinecraftServer.run(MinecraftServer.java:526)                                                     */
+/*     java.lang.Thread.run(Unknown Source)                                                                                   */
+/*  Phases Remaining:                                                                                                         */
+/*                                                                                                                            */
+/* Minecraft : 1.12.2                                                                                                         */
+/* SpongeAPI : 7.1.0-SNAPSHOT-7105dfc                                                                                         */
+/* SpongeForge : 1.12.2-2705-7.1.0-BETA-3361                                                                                  */
+/* Minecraft Forge : 14.23.4.2705                                                                                             */
+/******************************************************************************************************************************/
+</pre></div>
+</div>
+<p>此栈跟踪包含最为重要的版本号和服务器所处阶段信息。此例中，服务器在 <code class="docutils literal notranslate"><span class="pre">EntityTickPhase</span></code> 阶段抛出了 <code class="docutils literal notranslate"><span class="pre">NullPointerException</span></code>。此时，查看哪些插件包含在了崩溃中是极为重要的。这需要您匹配包名与模组名；查看 <code class="docutils literal notranslate"><span class="pre">Caused</span> <span class="pre">by</span></code> 日志块也许对您有帮助。</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">java</span></code> 类在搜索错误时可被忽略。</li>
+<li><code class="docutils literal notranslate"><span class="pre">net.minecraft</span></code> 是原版 Minecraft 代码。若只存在此成分，则有可能是 Minecraft 错误或 Coremod 错误。</li>
+<li><code class="docutils literal notranslate"><span class="pre">org.spongepowered</span></code> 来自 Sponge 本身，仅包含此日志和 Minecraft 包时通常意味着 Sponge 错误（或存在其他 Coremod）。</li>
+<li>其他类需要被人工关联至模组。此例中存在入口点 <code class="docutils literal notranslate"><span class="pre">com.example.extendedaiplugin</span></code>；Java 项目通常以 <code class="docutils literal notranslate"><span class="pre">组编号.组编号.作品编号</span></code> 的形式命名。组名通常是反过来的域名；此例中则是 <code class="docutils literal notranslate"><span class="pre">example.com</span></code>，随后则是项目名即作品名。欲知 Java 包命名的更多详情您可参考`官方文档 &lt;<a class="reference external" href="https://docs.oracle.com/javase/specs/jls/se8/html/jls-6.html#jls-6.2">https://docs.oracle.com/javase/specs/jls/se8/html/jls-6.html#jls-6.2</a>&gt;`_。此插件可能名为 <code class="docutils literal notranslate"><span class="pre">extendedaiplugin</span></code>，若您有疑问，在网上进行搜索完整包名可能对您有帮助。</li>
+</ul>
+<div class="admonition warning">
+<p class="first admonition-title">警告</p>
+<p class="last">当 Coremod 存在时务必小心。这可意味着虽然服务器汇报 Minecraft 类存在问题，但不意味着其执行的代码是 Minecraft 源码的一部分且此段代码可为第三方添加。您可以查看已加载的 Coremod 日志并通过一一移除的方法找到原因。请注意有些问题仅可能在同时加载特定 Coremod 时出现。</p>
+</div>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="incompatible.html" class="btn btn-neutral float-right" title="Mod 兼容" accesskey="n" rel="next">下一页 <span class="fa fa-angle-right"></span></a>
+        <a href="logs.html" class="btn btn-neutral" title="日志文件" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> 上一页</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../../_static/flags/zh_CN.svg"
+         alt="zh-CN" title="简体中文">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../../_static/jquery.js"></script>      <script type="text/javascript" src="../../_static/underscore.js"></script>      <script type="text/javascript" src="../../_static/doctools.js"></script>      <script type="text/javascript" src="../../_static/language_data.js"></script>      <script type="text/javascript" src="../../_static/translations.js"></script>      <script type="text/javascript" src="../../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

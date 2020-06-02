@@ -1,0 +1,289 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ciclo de vida del Plugin &mdash; documentación de Sponge - 7.2.0</title>
+
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="Índice"
+              href="../genindex.html"/>        <link rel="search" title="Búsqueda" href="../search.html"/>    <link rel="top" title="documentación de Sponge - 7.2.0" href="../index.html"/>        <link rel="up" title="Creando un Plugin" href="index.html"/>        <link rel="next" title="Inyección de Dependencia" href="injection.html"/>        <link rel="prev" title="Clase de Plug-in Principal" href="plugin-class.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../index.html">
+            <img src="../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../server/index.html">Creando un Servidor</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../versions/index.html">Versioning Policy</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../preparing/index.html">Preparándose para el Desarrollo</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Creando un Plugin</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="api-versions.html">API-Versions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="buildsystem.html">Sistemas de Compilación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workspace/index.html">Configuración de su Espacio de Trabajo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project/index.html">Configurando Su Proyecto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin-identifier.html">Identificadores de Complementos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin-class.html">Clase de Plug-in Principal</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Ciclo de vida del Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="injection.html">Inyección de Dependencia</a></li>
+<li class="toctree-l2"><a class="reference internal" href="practices/index.html">Prácticas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optional/index.html">Opcionales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.html">Registro y Depuración</a></li>
+<li class="toctree-l2"><a class="reference internal" href="text/index.html">Texto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands/index.html">Plugin Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="event/index.html">Eventos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration/index.html">Configurando Extensiones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assets.html">La API de Activos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data/index.html">La API de Datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/index.html">Bloques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entities/index.html">Entidades</a></li>
+<li class="toctree-l2"><a class="reference internal" href="items/index.html">Articulos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trade-offers.html">Ofertas de Intercambio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="effects.html">Efectos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scheduler.html">Programador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="services.html">Servicios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="database.html">Bases de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="permissions.html">Permisos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bans.html">Baneos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metrics.html">Metrics Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bookview.html">Vistas del Libro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="economy/index.html">Economía</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wgen/index.html">Generación de Mundo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manager.html">Administrador de Complementos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="game-profile-manager.html">Administrador de Perfiles del Juego</a></li>
+<li class="toctree-l2"><a class="reference internal" href="offline-userplayer-data.html">Datos del Jugador Fuera de Línea</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tab-lists.html">Listas de Tabulaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin-meta.html">Metadatos del Complemento</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ray-tracing.html">Trazado de Rayos (Ray Tracing)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="debugging.html">Depuración de Complemento</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials.html">Tutoriales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internals/index.html">Implementation-dependent Plugins</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ore/index.html">Documentación Ore</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contributing/index.html">Contribuyendo a Sponge</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">Acerca del proyecto Sponge</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+          <li><a href="index.html">Creando un Plugin</a> &raquo;</li>
+    <li>Ciclo de vida del Plugin</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/plugin/lifecycle.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="plugin-lifecycle">
+<h1>Ciclo de vida del Plugin<a class="headerlink" href="#plugin-lifecycle" title="Enlazar permanentemente con este título">¶</a></h1>
+<p>Antes de los estados que hacen que el complemento sea visible, el cargador de complementos primero ordena los complementos disponibles, determina si están presentes todas las dependencias y clasifica los complementos por orden de dependencia. Los eventos del ciclo de vida se dan a los complementos en este orden. Por ejemplo, el complemento A que contenga «[required-]after:B» obtendrá cada evento después de que el complemento B haya completado el trabajo para el estado dado. Además, los estados del ciclo de vida son globales. Esto significa que todos los complementos visibles entre sí deben pasar por todos los estados a la vez.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Advertencia</p>
+<p class="last">El objeto Sponge <code class="docutils literal notranslate"><span class="pre">Server</span></code> no siempre está disponible. La disponibilidad se puede verificar utilizando el método <code class="docutils literal notranslate"><span class="pre">Sponge.isServerAvailable()</span></code> o <code class="docutils literal notranslate"><span class="pre">Game.isServerAvailable()</span></code>.</p>
+</div>
+<div class="section" id="state-events">
+<h2>Eventos de Estado<a class="headerlink" href="#state-events" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Hay tres categorías de eventos de estado:</p>
+<ol class="arabic simple">
+<li><strong>Inicialización:</strong> Cuando Sponge y los complementos se están cargando, antes de que el juego haya comenzado. Los estados de inicialización solo ocurren una vez.</li>
+<li><strong>Ejecutando:</strong> Cuando el juego y el mundo se están cargando. Los estados en ejecución pueden ocurrir varias veces.</li>
+<li><strong>Parando:</strong> Cuando el juego se está cerrando. Los estados de parada, como los estados de inicialización, solo ocurren una vez.</li>
+</ol>
+</div>
+<div class="section" id="initialization-states">
+<h2>Estados de Inicialización<a class="headerlink" href="#initialization-states" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Los estados de inicialización solo ocurren una vez durante una sola ejecución.</p>
+<p><strong>CONSTRUCCIÓN</strong></p>
+<p>El <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GameConstructionEvent.html">GameConstructionEvent</a> se activa. Durante este estado, se desencadena la instancia de clase <code class="docutils literal notranslate"><span class="pre">&#64;Plugin</span></code> para cada complemento.</p>
+<p><strong>PRE_INICIALIZACIÓN</strong></p>
+<p>El <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GamePreInitializationEvent.html">GamePreInitializationEvent</a> se activa. Durante este estado, el complemento se prepara para la inicialización. El acceso a una instancia del registrador predeterminado y el acceso a la información con respecto a las ubicaciones preferidas del archivo de configuración están disponibles.</p>
+<p><strong>INICIALIZACIÓN</strong></p>
+<p>El <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GameInitializationEvent.html">GameInitializationEvent</a> es desencadenado. Durante este estado, el complemento debe finalizar el trabajo necesario para poder ser funcional. Los controladores de eventos globales deben registrarse en esta etapa.</p>
+<p><strong>POST_INICIALIZACIÓN</strong></p>
+<p>El <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GamePostInitializationEvent.html">GamePostInitializationEvent</a> se desencadena. En este estado, la comunicación entre complementos debería estar lista para ocurrir. Los complementos que proporcionan una API deberían estar listos para aceptar solicitudes básicas.</p>
+<p><strong>CARGA_COMPLETA</strong></p>
+<p>El <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GameLoadCompleteEvent.html">GameLoadCompleteEvent</a> se desencadena. En este estado, toda la inicialización del complemento debería completarse.</p>
+</div>
+<div class="section" id="running-states">
+<h2>Estados de ejecución<a class="headerlink" href="#running-states" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Los estados en ejecución pueden ocurrir varias veces durante una sola ejecución. <code class="docutils literal notranslate"><span class="pre">SERVER_ABOUT_TO_START</span></code> puede seguir a <code class="docutils literal notranslate"><span class="pre">SERVER_STOPPED</span></code>, y <code class="docutils literal notranslate"><span class="pre">SERVER_STOPPED</span></code> puede ocurrir en cualquier momento durante el proceso si hay un error.</p>
+<p><strong>SERVER_ABOUT_TO_START</strong></p>
+<p>El evento <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GameAboutToStartServerEvent.html">GameAboutToStartServerEvent</a> es desencadenado. La instancia del servidor existe, pero los mundos aún no están cargados.</p>
+<p><strong>SERVER_STARTING</strong></p>
+<p>El <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GameStartingServerEvent.html">GameStartingServerEvent</a> es desencadenado. La instancia del servidor existe, y los mundos están cargados. El registro de comando se maneja durante este estado.</p>
+<p><strong>SERVER_STARTED</strong></p>
+<p>El evento <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GameStartedServerEvent.html">GameStartedServerEvent</a> es desencadenado. La instancia del servidor existe, y los mundos están cargados.</p>
+<p><strong>SERVER_STOPPING</strong></p>
+<p>El <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GameStoppingServerEvent.html">GameStoppingServerEvent</a> es desencadenado. Este estado ocurre inmediatamente antes del último tic, antes de que los mundos sean guardados.</p>
+<p><strong>SERVER_STOPPED</strong></p>
+<p>El <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GameStoppedServerEvent.html">GameStoppedServerEvent</a> es desencadenado. Durante este estado, no hay jugadores conectados y no se guardan los cambios en los mundos.</p>
+</div>
+<div class="section" id="stopping-states">
+<h2>Stopping States<a class="headerlink" href="#stopping-states" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Los estados de detención nunca ocurren más de una vez durante una sola ejecución. Ocurren cuando el juego se detiene normalmente. (En Servidores: se escribe el comando <code class="docutils literal notranslate"><span class="pre">/stop</span></code>. En Clientes: se hace clic en el botón «Close» o en el botón «Quit Game»)</p>
+<div class="admonition warning">
+<p class="first admonition-title">Advertencia</p>
+<p class="last">No se garantiza que los estados de detención se ejecuten durante el apagado. <strong>No</strong> pueden disparar si el juego se detiene por la fuerza mediante Ctrl-C, o por el Administrador de Tareas, o un bloqueo de la computadora o situaciones similares.</p>
+</div>
+<p><strong>GAME_STOPPING</strong></p>
+<p>The <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GameStoppingEvent.html">GameStoppingEvent</a> is triggered.
+This state occurs immediately before <code class="docutils literal notranslate"><span class="pre">GAME_STOPPED</span></code>. Plugins providing an API should still be capable of accepting
+basic requests.</p>
+<p><strong>GAME_STOPPED</strong></p>
+<p>The <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GameStoppedEvent.html">GameStoppedEvent</a> is triggered.
+Once this event has finished executing, Minecraft will shut down. No further interaction with the game or other plugins
+should be attempted at this point.</p>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="injection.html" class="btn btn-neutral float-right" title="Inyección de Dependencia" accesskey="n" rel="next">Siguiente <span class="fa fa-angle-right"></span></a>
+        <a href="plugin-class.html" class="btn btn-neutral" title="Clase de Plug-in Principal" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> Previo</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../_static/flags/es_ES.svg"
+         alt="es" title="Español">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../_static/jquery.js"></script>      <script type="text/javascript" src="../_static/underscore.js"></script>      <script type="text/javascript" src="../_static/doctools.js"></script>      <script type="text/javascript" src="../_static/language_data.js"></script>      <script type="text/javascript" src="../_static/translations.js"></script>      <script type="text/javascript" src="../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

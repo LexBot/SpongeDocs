@@ -1,0 +1,380 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accéder aux Blocs &mdash; Documentation Sponge 7.2.0</title>
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>        <link rel="search" title="Recherche" href="../../search.html"/>    <link rel="top" title="Documentation Sponge 7.2.0" href="../../index.html"/>        <link rel="up" title="Blocs" href="index.html"/>        <link rel="next" title="Modifier les Blocs" href="modifying.html"/>        <link rel="prev" title="Concepts" href="concepts.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../../index.html">
+            <img src="../../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../server/index.html">Créer un Serveur</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../versions/index.html">Stratégie de versioning</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../preparing/index.html">Préparation pour le développement</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Création d’un Plugin</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../api-versions.html">Versions de l’API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../buildsystem.html">Build Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../workspace/index.html">Mise en Place de votre Espace de Travail</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../project/index.html">Configurer Votre Projet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-identifier.html">Identifiants de Plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-class.html">Classe Principale du Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lifecycle.html">Cycle de vie des Plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../injection.html">Injection de Dépendances</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../practices/index.html">Bonnes Pratiques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../optional/index.html">Optionnels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../logging.html">Journalisation (Logging) et Débogage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text/index.html">Text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/index.html">Commandes de Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../event/index.html">Événements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/index.html">Configuration des plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assets.html">L’API des Ressources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data/index.html">La Data API</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Blocs</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="concepts.html">Concepts</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Accéder aux Blocs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modifying.html">Modifier les Blocs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tileentities.html">Tile Entities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="virtualblock.html">Changements de Blocs Virtuels</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../entities/index.html">Entités</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../items/index.html">Items</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../trade-offers.html">Trade-Offers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../effects.html">Effets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../scheduler.html">Scheduler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../services.html">Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database.html">Bases de données</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../permissions.html">Permissions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bans.html">Bans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metrics.html">Collection de Metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bookview.html">Views d’un Livre</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../economy/index.html">Économie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wgen/index.html">Génération du monde</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manager.html">Gestionnaire de Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../game-profile-manager.html">Gestionnaire de Profil de Jeu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../offline-userplayer-data.html">Données du Joueur Hors-Ligne</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tab-lists.html">Tab Lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-meta.html">Plugin Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ray-tracing.html">Ray Tracing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../debugging.html">Debugging d’un plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials.html">Tutoriels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internals/index.html">Plugins dépendants des implémentations</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ore/index.html">Documentation d’Ore</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/index.html">Contribuer à Sponge</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">À propos du Projet Sponge</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+          <li><a href="../index.html">Création d’un Plugin</a> &raquo;</li>
+          <li><a href="index.html">Blocs</a> &raquo;</li>
+    <li>Accéder aux Blocs</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/plugin/blocks/accessing.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="accessing-blocks">
+<h1>Accéder aux Blocs<a class="headerlink" href="#accessing-blocks" title="Lien permanent vers ce titre">¶</a></h1>
+<div class="section" id="basic-information">
+<h2>Informations basiques<a class="headerlink" href="#basic-information" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Les blocs sont dans la majeure partie du temps identifiables et accessibles par leur <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/Location.html">Location</a> (position). Cette position nous indique des coordonnées et un <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/extent/Extent.html">Extent</a> (zone). Dans la plupart des cas un <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/World.html">World</a> (monde) sera utilisé comme zone.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.Sponge</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.world.Location</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.world.World</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="n">Location</span><span class="o">&lt;</span><span class="n">World</span><span class="o">&gt;</span> <span class="nf">getBlockAt</span><span class="p">(</span><span class="n">String</span> <span class="n">worldName</span><span class="p">,</span> <span class="kt">int</span> <span class="n">posX</span><span class="p">,</span> <span class="kt">int</span> <span class="n">posY</span><span class="p">,</span> <span class="kt">int</span> <span class="n">posZ</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">World</span> <span class="n">world</span> <span class="o">=</span> <span class="n">Sponge</span><span class="p">.</span><span class="na">getServer</span><span class="p">().</span><span class="na">getWorld</span><span class="p">(</span><span class="n">worldName</span><span class="p">).</span><span class="na">get</span><span class="p">();</span>
+    <span class="n">Location</span><span class="o">&lt;</span><span class="n">World</span><span class="o">&gt;</span> <span class="n">blockLoc</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Location</span><span class="o">&lt;</span><span class="n">World</span><span class="o">&gt;</span><span class="p">(</span><span class="n">world</span><span class="p">,</span> <span class="n">posX</span><span class="p">,</span> <span class="n">posY</span><span class="p">,</span> <span class="n">posZ</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">blockLoc</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Avertissement</p>
+<p class="last">Notez que l’exemple ci-dessous ne vérifie pas si le monde existe. La méthode <code class="docutils literal notranslate"><span class="pre">getWorld(worldName).get()</span></code> va échouer si aucun monde portant ce nom n’est chargé.</p>
+</div>
+<p>Avec cet objet <code class="docutils literal notranslate"><span class="pre">Location</span></code> vous pouvez obtenir des informations plus complètes à propos du bloc. Le code suivant vérifie si un bloc référencé est une bannière en regardant le type de bloc.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.block.BlockType</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.block.BlockTypes</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isBanner</span><span class="p">(</span><span class="n">Location</span><span class="o">&lt;</span><span class="n">World</span><span class="o">&gt;</span> <span class="n">blockLoc</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">BlockType</span> <span class="n">type</span> <span class="o">=</span> <span class="n">blockLoc</span><span class="p">.</span><span class="na">getBlock</span><span class="p">().</span><span class="na">getType</span><span class="p">();</span>
+    <span class="k">return</span> <span class="n">type</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">BlockTypes</span><span class="p">.</span><span class="na">STANDING_BANNER</span><span class="p">)</span>
+            <span class="o">||</span> <span class="n">type</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">BlockTypes</span><span class="p">.</span><span class="na">WALL_BANNER</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">Astuce</p>
+<p class="last">La fonction <code class="docutils literal notranslate"><span class="pre">==</span></code> pourrait être utilisée à la place de <code class="docutils literal notranslate"><span class="pre">equals()</span></code> comme il n’y a qu’une seule instance de <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/block/BlockType.html">BlockType</a> pour chaque bloc, mais il est recommandé d’utiliser <code class="docutils literal notranslate"><span class="pre">equals()</span></code>.</p>
+</div>
+</div>
+<div class="section" id="block-data-manipulators">
+<h2>Manipulateurs de Données de Blocs<a class="headerlink" href="#block-data-manipulators" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Les données d’un bloc sont contenues dans le <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/manipulator/DataManipulator.html">DataManipulator</a>, comme pour les autres parties de l’API. Ceci contient des informations liées au bloc, comme son orientation, son type (pierre / granite), et ainsi de suite. Vérifier les valeurs de ces manipulateurs est facile, vous devez juste vérifier la direction du bloc <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/manipulator/mutable/block/DirectionalData.html">DirectionalData</a>.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.data.key.Keys</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.data.manipulator.mutable.block.DirectionalData</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isFacingNorth</span><span class="p">(</span><span class="n">Location</span><span class="o">&lt;</span><span class="n">World</span><span class="o">&gt;</span> <span class="n">blockLoc</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">Optional</span><span class="o">&lt;</span><span class="n">DirectionalData</span><span class="o">&gt;</span> <span class="n">optionalData</span> <span class="o">=</span> <span class="n">blockLoc</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">DirectionalData</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">optionalData</span><span class="p">.</span><span class="na">isPresent</span><span class="p">())</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">DirectionalData</span> <span class="n">data</span> <span class="o">=</span> <span class="n">optionalData</span><span class="p">.</span><span class="na">get</span><span class="p">();</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">data</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">Keys</span><span class="p">.</span><span class="na">DIRECTION</span><span class="p">).</span><span class="na">get</span><span class="p">().</span><span class="na">equals</span><span class="p">(</span><span class="n">Direction</span><span class="p">.</span><span class="na">NORTH</span><span class="p">))</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Tout d’abord, nous devons savoir de quelle sous-interface de <code class="docutils literal notranslate"><span class="pre">DataManipulator</span></code> nous avons besoin. Celles qui s’appliquent aux blocs se trouvent dans les packages <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/manipulator/mutable/package-summary.html">org.spongepowered.api.data.manipulator.mutable</a> et <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/manipulator/mutable/block/package-summary.html">org.spongepowered.api.data.manipulator.mutable.block</a>. Ensuite, nous pouvons juste passer cette classe à la méthode <code class="docutils literal notranslate"><span class="pre">get(DataManipulator)</span></code> de <code class="docutils literal notranslate"><span class="pre">Location</span></code> qui va retourner un <code class="docutils literal notranslate"><span class="pre">Optional</span></code>. Nous devons ensuite vérifier si notre <code class="docutils literal notranslate"><span class="pre">DataManipulator</span></code> existe actuellement pour notre bloc en vérifiant <code class="docutils literal notranslate"><span class="pre">ifPresent()</span></code>. Si il existe, nous pouvons alors l’utiliser.</p>
+<p>Plus d’infos sur les <code class="docutils literal notranslate"><span class="pre">DataManipulator</span></code>s peuvent être trouvées dans la <a class="reference internal" href="../data/datamanipulators.html"><span class="doc">documentation des données</span></a>.</p>
+<div class="admonition tip">
+<p class="first admonition-title">Astuce</p>
+<p class="last">Si un bloc ne s’arrêtera jamais de supporter un <code class="docutils literal notranslate"><span class="pre">DataManipulator</span></code> particulier, comme le <code class="docutils literal notranslate"><span class="pre">DirectionalData</span></code> avec les escaliers, il n’y a alors pas besoin de vérifier le <code class="docutils literal notranslate"><span class="pre">isPresent()</span></code>. Supprimez juste l’optional autour du <code class="docutils literal notranslate"><span class="pre">DataManipulator</span></code> et récupérer les données non-optionnelles en ajoutant <code class="docutils literal notranslate"><span class="pre">.get()</span></code> à la fin de l’instruction. Notez que cela entraînera une <code class="docutils literal notranslate"><span class="pre">NullPointerException</span></code> si un bloc s’arrête de supporter un <code class="docutils literal notranslate"><span class="pre">DataManipulator</span></code> particulier.</p>
+</div>
+</div>
+<div class="section" id="block-states">
+<h2>États des Blocs<a class="headerlink" href="#block-states" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Un <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/block/BlockState.html">BlockState</a> contient un <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/block/BlockType.html">BlockType</a>, n’importe quels <code class="docutils literal notranslate"><span class="pre">DataManipulator</span></code>s et des propriétés qui sont appliquées au bloc, et n’importe quels <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/block/trait/BlockTrait.html">BlockTrait</a>s pour un bloc. Il stocke toutes les valeurs immuables pour un bloc particulier. Une utilisation de ceci est de récupérer un <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/manipulator/ImmutableDataManipulator.html">ImmutableDataManipulator</a>, comme montré ci-dessous :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.block.BlockState</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.data.manipulator.immutable.ImmutableWetData</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isWet</span><span class="p">(</span><span class="n">Location</span> <span class="n">blockLoc</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">BlockState</span> <span class="n">sponge</span> <span class="o">=</span> <span class="n">blockLoc</span><span class="p">.</span><span class="na">getBlock</span><span class="p">();</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">sponge</span><span class="p">.</span><span class="na">getType</span><span class="p">().</span><span class="na">equals</span><span class="p">(</span><span class="n">BlockTypes</span><span class="p">.</span><span class="na">SPONGE</span><span class="p">))</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">Optional</span><span class="o">&lt;</span><span class="n">ImmutableWetData</span><span class="o">&gt;</span> <span class="n">wetness</span> <span class="o">=</span> <span class="n">sponge</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">ImmutableWetData</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">wetness</span><span class="p">.</span><span class="na">isPresent</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Plus d’informations sur les <code class="docutils literal notranslate"><span class="pre">DataManipulator</span></code>s mutables et immuables peuvent être trouvées dans la <a class="reference internal" href="../data/datamanipulators.html"><span class="doc">documentation des données</span></a>.</p>
+</div>
+<div class="section" id="block-properties">
+<h2>Propriétés de Blocs<a class="headerlink" href="#block-properties" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Les blocs peuvent contenir certaines propriétés. Une propriété est une valeur prédéterminée qui définit la logique de jeu de ce bloc particulier. Par exemple, les blocs peuvent contenir des valeurs de résistance aux explosions prédéterminées qui peuvent être utilisées pour déterminer avec quoi vous travailler, sans vérifier le type de bloc que ça pourrait être un par un. Par exemple, si nous voulions récupérer la résistance aux explosions d’un bloc et vérifier si elle est plus grande ou égale à un, ça serait fait comme ceci :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.data.Property</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.data.property.DoubleProperty</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.data.property.block.BlastResistanceProperty</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">blastResistanceGreaterThanOne</span><span class="p">(</span><span class="n">Location</span><span class="o">&lt;</span><span class="n">World</span><span class="o">&gt;</span> <span class="n">blockLoc</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">Optional</span><span class="o">&lt;</span><span class="n">BlastResistanceProperty</span><span class="o">&gt;</span> <span class="n">optional</span> <span class="o">=</span>
+        <span class="n">blockLoc</span><span class="p">.</span><span class="na">getProperty</span><span class="p">(</span><span class="n">BlastResistanceProperty</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="n">optional</span><span class="p">.</span><span class="na">isPresent</span><span class="p">())</span> <span class="p">{</span>
+        <span class="n">BlastResistanceProperty</span> <span class="n">resistance</span> <span class="o">=</span> <span class="n">optional</span><span class="p">.</span><span class="na">get</span><span class="p">();</span>
+        <span class="n">DoubleProperty</span> <span class="n">one</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DoubleProperty</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">Property</span><span class="p">.</span><span class="na">Operator</span><span class="p">.</span><span class="na">GEQUAL</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">one</span><span class="p">.</span><span class="na">matches</span><span class="p">(</span><span class="n">resistance</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Ceci récupére la résistance aux explosions de notre bloc et la compare à un nouveau <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/property/DoubleProperty.html">DoubleProperty</a>, puisque <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/property/block/BlastResistanceProperty.html">BlastResistanceProperty</a> hérite de <code class="docutils literal notranslate"><span class="pre">DoubleProperty</span></code>. La méthode va donc retourner si la résistance aux explosions de notre bloc est plus grande que un, la valeur du <code class="docutils literal notranslate"><span class="pre">matches()</span></code>. Si nous voulions voir s’il y en a moins que deux, nous remplacerions l’opérateur de propriétés dans le constructeur de <code class="docutils literal notranslate"><span class="pre">DoubleProperty</span></code> avec <code class="docutils literal notranslate"><span class="pre">Property.Operator.LESS</span></code>.</p>
+<p>Si nous étions en train de comparer deux propriétés déjà existantes, ça prendrait l”<code class="docutils literal notranslate"><span class="pre">Operator</span></code> de notre première valeur, celle pour laquelle nous créons une propriété double. Si l”<code class="docutils literal notranslate"><span class="pre">Operator</span></code> est <code class="docutils literal notranslate"><span class="pre">DELEGATE</span></code>, qui est l’opérateur «&nbsp;aucun&nbsp;», alors il prendra l”<code class="docutils literal notranslate"><span class="pre">Operator</span></code> de la seconde valeur, celle du <code class="docutils literal notranslate"><span class="pre">matches()</span></code>. La comparaison retournera false si les deux sont <code class="docutils literal notranslate"><span class="pre">DELEGATE</span></code>. Un exemple de comparaison de deux <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/property/block/PoweredProperty.html">PoweredProperty</a>s, et d’une <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/property/BooleanProperty.html">BooleanProperty</a> peut être trouvé ci-dessous :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.data.property.BooleanProperty</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.data.property.block.PoweredProperty</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">areBlocksPowered</span><span class="p">(</span><span class="n">Location</span><span class="o">&lt;</span><span class="n">World</span><span class="o">&gt;</span> <span class="n">blockLoc</span><span class="p">,</span> <span class="n">Location</span><span class="o">&lt;</span><span class="n">World</span><span class="o">&gt;</span> <span class="n">blockLoc2</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">Optional</span><span class="o">&lt;</span><span class="n">PoweredProperty</span><span class="o">&gt;</span> <span class="n">optional</span> <span class="o">=</span> <span class="n">blockLoc</span><span class="p">.</span><span class="na">getProperty</span><span class="p">(</span><span class="n">PoweredProperty</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+    <span class="n">Optional</span><span class="o">&lt;</span><span class="n">PoweredProperty</span><span class="o">&gt;</span> <span class="n">optional2</span> <span class="o">=</span> <span class="n">blockLoc2</span><span class="p">.</span><span class="na">getProperty</span><span class="p">(</span><span class="n">PoweredProperty</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="n">optional</span><span class="p">.</span><span class="na">isPresent</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="n">optional2</span><span class="p">.</span><span class="na">isPresent</span><span class="p">())</span> <span class="p">{</span>
+        <span class="n">PoweredProperty</span> <span class="n">property1</span> <span class="o">=</span> <span class="n">optional2</span><span class="p">.</span><span class="na">get</span><span class="p">();</span>
+        <span class="n">PoweredProperty</span> <span class="n">property2</span> <span class="o">=</span> <span class="n">optional2</span><span class="p">.</span><span class="na">get</span><span class="p">();</span>
+        <span class="n">BooleanProperty</span> <span class="n">booleanProperty</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BooleanProperty</span><span class="p">(</span><span class="kc">true</span><span class="p">,</span> <span class="n">Property</span><span class="p">.</span><span class="na">Operator</span><span class="p">.</span><span class="na">EQUAL</span><span class="p">);</span>
+
+        <span class="k">if</span><span class="p">(</span><span class="n">booleanProperty</span><span class="p">.</span><span class="na">matches</span><span class="p">(</span><span class="n">property1</span><span class="p">))</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="n">property1</span><span class="p">.</span><span class="na">matches</span><span class="p">(</span><span class="n">property2</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Le second <code class="docutils literal notranslate"><span class="pre">if</span></code> vérifie si une des propriétés est vraie. Si c’est vrai et que les deux sont égales, alors les deux valeurs doivent être vraies. Par conséquent, éliminant le besoin de vérifier la seconde valeur. Maintenant nous savons que les deux blocs sont alimentés.</p>
+<p>Une liste des propriétés de blocs possibles peut être trouvée dans le package <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/property/block/package-summary.html">org.spongepowered.api.data.property.block</a>.</p>
+</div>
+<div class="section" id="block-traits">
+<h2>Caractéristiques de Blocs<a class="headerlink" href="#block-traits" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Une caractéristique de bloc est une certaine valeur sur l’état actuel d’un bloc. Un bloc peut ou peut ne pas contenir des caractéristiques selon le type de bloc. Par exemple, un lit possède un <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/block/trait/BooleanTrait.html">BooleanTrait</a> appelé <code class="docutils literal notranslate"><span class="pre">BED_OCCUPIED</span></code>. Comme un booléen peut seulement avoir deux valeurs, vrai et faux, la caractéristique <code class="docutils literal notranslate"><span class="pre">BED_OCCUPIED</span></code> peut seulement être vraie ou fausse. Vérifier cette valeur est simple, appelez juste la méthode <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/block/BlockState.html#getTraitValue-org.spongepowered.api.block.trait.BlockTrait-">BlockState#getTraitValue(BlockTrait)</a>. Un exemple avec un lit est illustré ci-dessous :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.block.trait.BooleanTraits</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isBedOccupied</span><span class="p">(</span><span class="n">Location</span><span class="o">&lt;</span><span class="n">World</span><span class="o">&gt;</span> <span class="n">blockLoc</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">blockLoc</span><span class="p">.</span><span class="na">getBlock</span><span class="p">().</span><span class="na">getType</span><span class="p">().</span><span class="na">equals</span><span class="p">(</span><span class="n">BlockTypes</span><span class="p">.</span><span class="na">BED</span><span class="p">))</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">blockLoc</span><span class="p">.</span><span class="na">getBlock</span><span class="p">().</span><span class="na">getTraitValue</span><span class="p">(</span><span class="n">BooleanTraits</span><span class="p">.</span><span class="na">BED_OCCUPIED</span><span class="p">).</span><span class="na">get</span><span class="p">();</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Avertissement</p>
+<p class="last">Si possible, il est recommandé d’utiliser les <code class="docutils literal notranslate"><span class="pre">DataManipulator</span></code>s à la place des <code class="docutils literal notranslate"><span class="pre">BlockTrait</span></code>s lorsque c’est possible car ils sont seulement conçus comme un secours pour la compatibilité avec les mods.</p>
+</div>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="modifying.html" class="btn btn-neutral float-right" title="Modifier les Blocs" accesskey="n" rel="next">Suivant <span class="fa fa-angle-right"></span></a>
+        <a href="concepts.html" class="btn btn-neutral" title="Concepts" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> Précédent</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../../_static/flags/fr_FR.svg"
+         alt="fr" title="Français">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../../_static/jquery.js"></script>      <script type="text/javascript" src="../../_static/underscore.js"></script>      <script type="text/javascript" src="../../_static/doctools.js"></script>      <script type="text/javascript" src="../../_static/language_data.js"></script>      <script type="text/javascript" src="../../_static/translations.js"></script>      <script type="text/javascript" src="../../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

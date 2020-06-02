@@ -1,0 +1,285 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>插件的生命周期 &mdash; Sponge 7.2.0 文档</title>
+
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="索引"
+              href="../genindex.html"/>        <link rel="search" title="搜索" href="../search.html"/>    <link rel="top" title="Sponge 7.2.0 文档" href="../index.html"/>        <link rel="up" title="插件开发" href="index.html"/>        <link rel="next" title="依赖注入" href="injection.html"/>        <link rel="prev" title="插件的主类" href="plugin-class.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../index.html">
+            <img src="../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../server/index.html">创建服务器</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../versions/index.html">版本策略</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../preparing/index.html">为开发作准备</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">插件开发</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="api-versions.html">API版本</a></li>
+<li class="toctree-l2"><a class="reference internal" href="buildsystem.html">构建系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workspace/index.html">设置开发环境</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project/index.html">设置你的项目</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin-identifier.html">插件标识符</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin-class.html">插件的主类</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">插件的生命周期</a></li>
+<li class="toctree-l2"><a class="reference internal" href="injection.html">依赖注入</a></li>
+<li class="toctree-l2"><a class="reference internal" href="practices/index.html">插件开发惯例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optional/index.html">使用 Optional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.html">日志记录和调试</a></li>
+<li class="toctree-l2"><a class="reference internal" href="text/index.html">文本 API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands/index.html">插件命令</a></li>
+<li class="toctree-l2"><a class="reference internal" href="event/index.html">事件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration/index.html">插件配置</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assets.html">使用 Asset API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data/index.html">数据 API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/index.html">方块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entities/index.html">实体</a></li>
+<li class="toctree-l2"><a class="reference internal" href="items/index.html">物品</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trade-offers.html">村民交易</a></li>
+<li class="toctree-l2"><a class="reference internal" href="effects.html">效果</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scheduler.html">调度器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="services.html">服务</a></li>
+<li class="toctree-l2"><a class="reference internal" href="database.html">数据库</a></li>
+<li class="toctree-l2"><a class="reference internal" href="permissions.html">权限</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bans.html">黑名单</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metrics.html">Metrics 收集</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bookview.html">成书</a></li>
+<li class="toctree-l2"><a class="reference internal" href="economy/index.html">经济 API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wgen/index.html">世界生成</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manager.html">插件管理器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="game-profile-manager.html">玩家资料管理器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="offline-userplayer-data.html">离线玩家数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tab-lists.html">玩家列表</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin-meta.html">插件的元数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ray-tracing.html">光线追踪</a></li>
+<li class="toctree-l2"><a class="reference internal" href="debugging.html">调试插件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials.html">教程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internals/index.html">依赖底层实现</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ore/index.html">Ore 文档</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contributing/index.html">向 Sponge 贡献代码</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">关于 Sponge</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+          <li><a href="index.html">插件开发</a> &raquo;</li>
+    <li>插件的生命周期</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/plugin/lifecycle.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="plugin-lifecycle">
+<h1>插件的生命周期<a class="headerlink" href="#plugin-lifecycle" title="永久链接至标题">¶</a></h1>
+<p>在任何使插件可见的状态之前，插件加载程序首先确定所有可用的插件的依赖关系，并按依赖关系对插件进行拓扑排序。接着，每个生命周期事件按照刚刚得到的排序依次提供给插件。例如，包含 <code class="docutils literal notranslate"><span class="pre">[required-]after:B</span></code> 的插件 A 将在插件 B 完成给定状态的工作之后获取每个事件。此外，生命周期状态是全局的，也就是说，所有彼此可见的插件会同时从一个生命周期跳到另一个生命周期。</p>
+<div class="admonition warning">
+<p class="first admonition-title">警告</p>
+<p class="last">Sponge 服务器的 <code class="docutils literal notranslate"><span class="pre">Server</span></code> 实例不是什么时候都可以使用的。可以通过 <code class="docutils literal notranslate"><span class="pre">Sponge.isServerAvailable()</span></code> 或者 <code class="docutils literal notranslate"><span class="pre">Game.isServerAvailable()</span></code> 这两个方法来检查是否可用。</p>
+</div>
+<div class="section" id="state-events">
+<h2>状态事件<a class="headerlink" href="#state-events" title="永久链接至标题">¶</a></h2>
+<p>状态事件的三个类别︰</p>
+<ol class="arabic simple">
+<li><strong>初始化（Initilaization）：</strong> 在实际游戏开始之前 Sponge 和插件加载时的状态。初始化状态只发生一次。</li>
+<li><strong>运行（Running）：</strong> 当游戏和世界加载时的状态。运行状态可能出现多次。</li>
+<li><strong>停止（Stopping）：</strong> 当游戏停止时的状态。和初始化状态类似，停止状态只出现一次。</li>
+</ol>
+</div>
+<div class="section" id="initialization-states">
+<h2>初始化状态<a class="headerlink" href="#initialization-states" title="永久链接至标题">¶</a></h2>
+<p>初始化状态只会出现一次。</p>
+<p><strong>CONSTRUCTION</strong></p>
+<p>触发 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GameConstructionEvent.html">GameConstructionEvent</a> 时，游戏会构造带有 <code class="docutils literal notranslate"><span class="pre">&#64;Plugin</span></code> 注解的类实例。</p>
+<p><strong>PRE_INITIALIZATION</strong></p>
+<p>触发 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GamePreInitializationEvent.html">GamePreInitializationEvent</a> 时，插件准备进行初始化，这时默认的 Logger 已经准备好被调用，同时你也可以开始引用配置文件中的内容。</p>
+<p><strong>INITIALIZATION</strong></p>
+<p>触发 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GameInitializationEvent.html">GameInitializationEvent</a> 时，插件应该完成他所需功能的所有应该完成的准备工作，你应该在这个事件发生时注册监听事件。</p>
+<p><strong>POST_INITIALIZATION</strong></p>
+<p>触发 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GamePostInitializationEvent.html">GamePostInitializationEvent</a> 时，你应该准备好不同插件之间的交互信息，有的插件也提供了一些基础 API 来接受交互请求。</p>
+<p><strong>LOAD_COMPLETE</strong></p>
+<p>触发 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GameLoadCompleteEvent.html">GameLoadCompleteEvent</a> 时，所有插件都已准备就绪。</p>
+</div>
+<div class="section" id="running-states">
+<h2>运行状态<a class="headerlink" href="#running-states" title="永久链接至标题">¶</a></h2>
+<p>有些状态可能会出现多次，在 <code class="docutils literal notranslate"><span class="pre">SERVER_ABOUT_TO_START</span></code> 阶段后可能紧接着会出现 <code class="docutils literal notranslate"><span class="pre">SERVER_STOPPED</span></code> ，同时任何时刻服务器均可能进入 <code class="docutils literal notranslate"><span class="pre">SERVER_STOPPED</span></code> 阶段，因为需要停下来处理发生的错误。</p>
+<p><strong>SERVER_ABOUT_TO_START</strong></p>
+<p>触发 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GameAboutToStartServerEvent.html">GameAboutToStartServerEvent</a> 时，服务器实例已经可用，但世界仍未被载入。</p>
+<p><strong>SERVER_STARTING</strong></p>
+<p>触发 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GameStartingServerEvent.html">GameStartingServerEvent</a> 时，服务器初始化和世界载入都已经完成，你应该在这时注册插件命令。</p>
+<p><strong>SERVER_STARTED</strong></p>
+<p>触发 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GameStartedServerEvent.html">GameStartedServerEvent</a> 时，服务器实例已经可用，世界也已被载入。</p>
+<p><strong>SERVER_STOPPING</strong></p>
+<p>触发 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GameStoppingServerEvent.html">GameStoppingServerEvent</a> 时，服务器会进入最后一个 Tick，紧接着就会开始保存世界。</p>
+<p><strong>SERVER_STOPPED</strong></p>
+<p>触发 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GameStoppedServerEvent.html">GameStoppedServerEvent</a> 时，任何玩家都无法连接至服务器，对世界所做的任何更改也不会被保存。</p>
+</div>
+<div class="section" id="stopping-states">
+<h2>停止状态<a class="headerlink" href="#stopping-states" title="永久链接至标题">¶</a></h2>
+<p>服务器停止中只会有一次。当游戏正常退出的时候就会变成此状态，例如你点下命令提示符的关闭按钮，或者是输入 <code class="docutils literal notranslate"><span class="pre">/stop</span></code> 命令，或是按下退出游戏按钮。</p>
+<div class="admonition warning">
+<p class="first admonition-title">警告</p>
+<p class="last">Sponge 不能保证一定会在关闭前变成即将关闭的状态，因为 <strong>有时</strong> 服务器会被强制关闭：服务器崩溃、任务管理器、Ctrl-C、或其他类似情况等。</p>
+</div>
+<p><strong>GAME_STOPPING</strong></p>
+<p>此阶段会在 <code class="docutils literal notranslate"><span class="pre">GAME_STOPPED</span></code> 之前出现，此时会触发 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GameStoppingEvent.html">GameStoppingEvent</a>。提供 API 的插件仍然可以接受基本调用。</p>
+<p><strong>GAME_STOPPED</strong></p>
+<p>触发 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GameStoppedEvent.html">GameStoppedEvent</a> 时，Minecraft 将会立即关闭，此时插件不应跟游戏进行任何交互。</p>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="injection.html" class="btn btn-neutral float-right" title="依赖注入" accesskey="n" rel="next">下一页 <span class="fa fa-angle-right"></span></a>
+        <a href="plugin-class.html" class="btn btn-neutral" title="插件的主类" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> 上一页</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../_static/flags/zh_CN.svg"
+         alt="zh-CN" title="简体中文">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../_static/jquery.js"></script>      <script type="text/javascript" src="../_static/underscore.js"></script>      <script type="text/javascript" src="../_static/doctools.js"></script>      <script type="text/javascript" src="../_static/language_data.js"></script>      <script type="text/javascript" src="../_static/translations.js"></script>      <script type="text/javascript" src="../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

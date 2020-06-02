@@ -1,0 +1,334 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ore 插件发布指南 &mdash; Sponge 7.2.0 文档</title>
+
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="索引"
+              href="../genindex.html"/>        <link rel="search" title="搜索" href="../search.html"/>    <link rel="top" title="Sponge 7.2.0 文档" href="../index.html"/>        <link rel="up" title="Ore 文档" href="index.html"/>        <link rel="next" title="发布你的插件" href="publish.html"/>        <link rel="prev" title="Ore 文档" href="index.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../index.html">
+            <img src="../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../server/index.html">创建服务器</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../versions/index.html">版本策略</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../preparing/index.html">为开发作准备</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../plugin/index.html">插件开发</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Ore 文档</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Ore 插件发布指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#projects">项目</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#files">文件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="publish.html">发布你的插件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html">安全</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html">Ore Web API</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contributing/index.html">向 Sponge 贡献代码</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">关于 Sponge</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+          <li><a href="index.html">Ore 文档</a> &raquo;</li>
+    <li>Ore 插件发布指南</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/ore/guidelines.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="ore-plugin-submission-guidelines">
+<h1>Ore 插件发布指南<a class="headerlink" href="#ore-plugin-submission-guidelines" title="永久链接至标题">¶</a></h1>
+<p>欢迎来到 Ore 提交指南。本文档概述了我们对项目和文件的提交的期望。</p>
+<p>请记住，这些只是准则，而且这些准则中被称为“项目组成成员（Staff）”的 Ore 团队，对这份清单上没有明确列出的行为拥有最终解释权。</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="projects">
+<h1>项目<a class="headerlink" href="#projects" title="永久链接至标题">¶</a></h1>
+<p>提交的项目应符合以下期望：</p>
+<div class="section" id="name">
+<h2>名称<a class="headerlink" href="#name" title="永久链接至标题">¶</a></h2>
+<p>你提交的项目的名称不应包括版本、标语或其他说明。该名称应该是唯一的和原创的，且不得暗示着它是一个 Sponge 项目。</p>
+<p>下列名称都是<strong>不可接受</strong>的例子：</p>
+<ul class="simple">
+<li><em>SpongeWarp</em></li>
+<li><em>SpongeHome</em></li>
+<li><em>SpongeEssentials</em></li>
+<li><em>SpongeCloud</em></li>
+</ul>
+<p>下列名称都是<strong>可接受</strong>的例子：</p>
+<ul class="simple">
+<li><em>CoolWarps-Sponge</em></li>
+<li><em>MoneyMiner-Sponge</em></li>
+<li><em>Golfball-for-Sponge</em></li>
+<li><em>Calendar-for-Sponge</em></li>
+</ul>
+</div>
+<div class="section" id="main-documentation-page-home">
+<h2>文档主页（首页）<a class="headerlink" href="#main-documentation-page-home" title="永久链接至标题">¶</a></h2>
+<p>这是别人看到你的项目首页。在这个页面伤的信息必须简洁明了地描述你的项目的功能和目标。下列内容若和你的插件有关，则应包括进这个页面里：</p>
+<blockquote>
+<div><p><strong>外部连接</strong></p>
+<p>如果你的项目使用了 Web API、背景连接通信（Phoning Home）等技术来收集数据，抑或只是连接了外部服务器，你必须在你的项目首页明确告知用户此功能的存在，以及详细的启用和禁用方法。如果你的项目只有一个功能，且这个功能也依赖于外部服务器（例如一个能自动翻译聊天内容到别的语言的 Sponge 插件），那么你的项目就不必为此预留启用或禁用这个功能的选项。如果你的插件会上传数据到别的服务器（例如当前插件列表或玩家数据），那么你必须在你的项目主页中列出所有要收集的数据。</p>
+<p>需要此种文档记录的项目举例：</p>
+<blockquote>
+<div><ul class="simple">
+<li>统计数据收集，或使用信息收集 (‘metrics’)</li>
+<li>地理位置</li>
+<li>翻译服务</li>
+<li>在插件之上运行的 Web 服务器，可为用户提供信息</li>
+<li>在插件之上运行的，监听来自其他服务的请求的服务器</li>
+<li>IRC、Discord、Telegram、WhatsApp 等聊天工具的机器人或中继器</li>
+</ul>
+</div></blockquote>
+<p><strong>不需要</strong>此种文档记录的项目举例：</p>
+<blockquote>
+<div><ul class="simple">
+<li>本地数据库，或最终由用户指定的数据库连接</li>
+</ul>
+</div></blockquote>
+</div></blockquote>
+</div>
+<div class="section" id="category">
+<h2>分类<a class="headerlink" href="#category" title="永久链接至标题">¶</a></h2>
+<p>应确保你所选的插件分类准确无误，尽量选择最接近的分类，避开那些稍微沾边的分类。如果没有合适分类，请使用“其他”（Miscellaneous）。</p>
+</div>
+<div class="section" id="download-links">
+<h2>下载链接<a class="headerlink" href="#download-links" title="永久链接至标题">¶</a></h2>
+<p>Ore 为每个项目页面都提供了一个下载按钮，点击这个按钮就可以自动下载最近的发布版本。如果你想添加更多的下载链接，那么这些下载链接都必须指向 Ore 上托管的文件。在此基础上，你也可以添加未经 Ore 审核过的文件的下载链接，但你不能用任何方式来推荐使用未经审核的文件（包括但不限于明确将未经审核的链接标记为推荐，或者通过将未审核的构建放在显著位置来间接达成类似效果等）。此外，你不能用任何方式绕开 Ore 对插件的警告，包括告知用户插件未经审核的警告。</p>
+</div>
+<div class="section" id="monetization-advertising">
+<h2>盈利与广告<a class="headerlink" href="#monetization-advertising" title="永久链接至标题">¶</a></h2>
+<p>任何上传的文件都不能销售，也不能提供任何形式的付费功能。禁止广告与以盈利为目的的短链接（例如 adfly）。文档中可以包含以答谢为目的的捐助链接，但链接所指向的页面中亦不能包含任何额外功能，也不能用于销售插件或 Mod。</p>
+</div>
+<div class="section" id="cracked-offline-mode-online-mode-false-support">
+<h2>破解版／离线模式／online-mode=false 支持<a class="headerlink" href="#cracked-offline-mode-online-mode-false-support" title="永久链接至标题">¶</a></h2>
+<p>明确声明专用于离线模式的项目不允许存在。一些诸如验证系统的项目可能会在 Mojang 的认证系统之外提供额外的功能，但是这些项目不应该把这类额外的功能用于宣传，更不应该专门用于绕过 Mojang 的认证系统。一些专用于代理的项目可以要求特定服务器使用 online-mode=false，但是他们同时应该保证不会跳过对 Minecraft 账户所有权的检查。</p>
+</div>
+<div class="section" id="eula">
+<h2>EULA（最终用户许可协议）<a class="headerlink" href="#eula" title="永久链接至标题">¶</a></h2>
+<p>我们的目标是完全遵守 Mojang 的最终用户许可协议（EULA）。因此，任何插件、服务、贴子和／或链接都有可能应 Sponge 团队成员或 Mojang AB 的要求而被移除。</p>
+</div>
+<div class="section" id="forks">
+<h2>复刻（Fork）<a class="headerlink" href="#forks" title="永久链接至标题">¶</a></h2>
+<p>复刻在满足下列条件时允许存在。管理员对可接受的复刻的定义有最终决定权。务必遵守原项目的许可证。</p>
+<p>下列选项二选一：</p>
+<blockquote>
+<div><ul class="simple">
+<li>复刻的项目经过大规模重写，已达到可以视作新项目的级别。这条规定用于规避诸如”我改了一下插件甲的消息的字体颜色，好了我开发了个新插件！“这样情况的出现。或者，</li>
+<li>接替已停止更新插件的维护工作，并能证明原作者长时间没有回复，或原作者已声明放弃插件的维护工作。</li>
+</ul>
+</div></blockquote>
+<p>鸣谢原插件及其原作者。简而言之，不能因为是复刻而声称是你制作的全新插件。</p>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="files">
+<h1>文件<a class="headerlink" href="#files" title="永久链接至标题">¶</a></h1>
+<p>上传的文件应满足下列要求：</p>
+<div class="section" id="obfuscation">
+<h2>混淆<a class="headerlink" href="#obfuscation" title="永久链接至标题">¶</a></h2>
+<p>经过混淆处理的文件会被拒绝，除非：</p>
+<blockquote>
+<div><p><strong>NMS 混淆</strong></p>
+<p>仅当插件直接引用了 Minecraft 或基于 Forge 的 Mod 的内容时适用，例如使用了 Mixin 的插件，或者同时基于 SpongeAPI 和 Forge 的混合插件。插件应确保其混淆的内容是由 ForgeGradle 或 VanillaGradle 自动生成的，以确保其能通过审核阶段。</p>
+</div></blockquote>
+</div>
+<div class="section" id="core-mods-and-mixins-modification-of-the-minecraft-base-code">
+<h2>CoreMod 和 Mixin：修改 Minecraft 底层代码<a class="headerlink" href="#core-mods-and-mixins-modification-of-the-minecraft-base-code" title="永久链接至标题">¶</a></h2>
+<p>在运行时修改 Minecraft 底层（比如 Mixin 和基于 FML 的 CoreMod）的插件和 Mod 必须明确声明他们对底层的修改内容以及修改的理由。Sponge 插件应尽量使用 SpongeAPI，避免修改底层。Sponge 的实现中默认可能会使用技术手段限制对底层的修改。禁止上传任何试图绕开这些限制的文件；但仍然可以告知用户通过 Sponge 自带的配置文件来启用增强的功能。</p>
+</div>
+<div class="section" id="external-connections-web-api-phoning-home-etc">
+<h2>外部连接（Web API、背景连接通信（Phoning Home）等）<a class="headerlink" href="#external-connections-web-api-phoning-home-etc" title="永久链接至标题">¶</a></h2>
+<p>籍由外部系统的帮助，插件可以实现更多有用的功能，惟需注意这些功能需要在项目描述中有所体现，并且默认保持禁用状态。若插件的唯一功能需要用到外部系统的功能（例如一个能自动翻译聊天内容到别的语言的 Sponge 插件），则可默认启用。若插件会上传信息（例如插件列表、玩家数据或地图数据）到外部服务器，则所有收集的数据都必须在项目主页上列出（见上文）。</p>
+<blockquote>
+<div><p><strong>数据收集（Metrics）</strong></p>
+<p>不论从服务器上收集到的数据（通常称之为“统计数据”（”stats”）或 “metrics”，例如服务器和插件版本，及其使用信息）是否会发送到其他服务上去，收集数据的插件都必须先检查 SpongeAPI 的 MetricsConfigManager。关于 MetricsConfigManager 的文档可在<a class="reference internal" href="../plugin/metrics.html"><span class="doc">这里</span></a>找到。每次发送数据时都必须执行此检查。插件不得修改此 API 的返回值，但可以推荐用户启用对应插件的数据收集及发送。</p>
+</div></blockquote>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">MetricsConfigManager 这套 API 是在 7.1.0 引入的。基于旧版 API 的插件则必须检查对应的，独立的配置文件选项以确认是否允许数据收集，且该选项默认必须关闭。</p>
+</div>
+</div>
+<div class="section" id="execution-of-downloaded-code">
+<h2>执行下载的代码<a class="headerlink" href="#execution-of-downloaded-code" title="永久链接至标题">¶</a></h2>
+<p>我们不能保证所有你下载并运行的内容均安全且符合我们的规定。任何在运行时下载并执行代码的插件的项目页都会带有此警告，并且在用户下载插件时再次警告一次，确保用户已知悉风险。</p>
+<p>项目还需符合下列要求：</p>
+<blockquote>
+<div><ul class="simple">
+<li>下载的内容必须硬编码 SHA-256 或更强的散列检查</li>
+<li>下载的内容必须要在项目页提供说明：是什么，以及干什么用的。</li>
+<li>必须经过 HTTPS 连接下载。</li>
+<li>下载的内容不能存在会限制下载流量的位置（例如 DropBox、GoogleDrive 等网盘）</li>
+<li>若是下载插件，必须使用和更新检查一样的机制，且必须经过 Ore API</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="id1">
+<h2>盈利与广告<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p>用户应当能不受限地使用你的插件中所有功能；禁止类似使用许可解锁功能的行为。若插件中需要用到诸如翻译及地理位置服务器等需要购买的服务，则需要管理员讨论后决定是否允许。插件不能用于显示广告。</p>
+</div>
+<div class="section" id="update-checking">
+<h2>更新检查<a class="headerlink" href="#update-checking" title="永久链接至标题">¶</a></h2>
+<p>更新检查应由 Ore API 完成。你的插件只能将用户导向 Ore 来获取新版本。另外，更新检查也视作是外部连接的一种，必须在插件的文档中有所体现，并提供配置文件选项以供用户选择是否禁用。</p>
+</div>
+<div class="section" id="privilege-granting">
+<h2>授予特权<a class="headerlink" href="#privilege-granting" title="永久链接至标题">¶</a></h2>
+<p>插件不得授予或撤销由插件开发者指定的某个或某些用户的功能（例如：插件作者为他们自己预留游戏内名字的显示特效，或是预留特殊指令）。若条件允许，应使用权限节点，而不是插件开发者自己，来控制特性。禁止插件为指定群体授予 OP 或其他特殊权限。</p>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="publish.html" class="btn btn-neutral float-right" title="发布你的插件" accesskey="n" rel="next">下一页 <span class="fa fa-angle-right"></span></a>
+        <a href="index.html" class="btn btn-neutral" title="Ore 文档" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> 上一页</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../_static/flags/zh_CN.svg"
+         alt="zh-CN" title="简体中文">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../_static/jquery.js"></script>      <script type="text/javascript" src="../_static/underscore.js"></script>      <script type="text/javascript" src="../_static/doctools.js"></script>      <script type="text/javascript" src="../_static/language_data.js"></script>      <script type="text/javascript" src="../_static/translations.js"></script>      <script type="text/javascript" src="../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

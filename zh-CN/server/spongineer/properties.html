@@ -1,0 +1,280 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>属性 &mdash; Sponge 7.2.0 文档</title>
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="索引"
+              href="../../genindex.html"/>        <link rel="search" title="搜索" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 文档" href="../../index.html"/>        <link rel="up" title="成为 Sponge 专家" href="index.html"/>        <link rel="next" title="版本策略" href="../../versions/index.html"/>        <link rel="prev" title="报告问题" href="bugreport.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../../index.html">
+            <img src="../../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">创建服务器</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html">快速入门指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started/index.html">入门指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../management/index.html">管理服务器</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">成为 Sponge 专家</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="commands.html">命令与权限</a></li>
+<li class="toctree-l3"><a class="reference internal" href="troubleshooting.html">故障排查</a></li>
+<li class="toctree-l3"><a class="reference internal" href="logs.html">日志文件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="debugging.html">调试</a></li>
+<li class="toctree-l3"><a class="reference internal" href="incompatible.html">Mod 兼容</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bugreport.html">报告问题</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">属性</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../versions/index.html">版本策略</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../preparing/index.html">为开发作准备</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../plugin/index.html">插件开发</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ore/index.html">Ore 文档</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/index.html">向 Sponge 贡献代码</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">关于 Sponge</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+          <li><a href="../index.html">创建服务器</a> &raquo;</li>
+          <li><a href="index.html">成为 Sponge 专家</a> &raquo;</li>
+    <li>属性</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/server/spongineer/properties.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="properties">
+<h1>属性<a class="headerlink" href="#properties" title="永久链接至标题">¶</a></h1>
+<p>Sponge 使用若干系统属性以协助调试及其他任务。你可以通过命令行来指定这些属性的具体值，而这些属性能提供的日志会在你提交 issue ticket 的时候派上用场。</p>
+<div class="section" id="usage">
+<h2>使用方法<a class="headerlink" href="#usage" title="永久链接至标题">¶</a></h2>
+<p>你需要在启动服务器的命令中用 <code class="docutils literal notranslate"><span class="pre">-Dkey=value</span></code> 这样的语法来指定命令行参数，就像这样：<code class="docutils literal notranslate"><span class="pre">java</span> <span class="pre">-Dsponge.shouldFireAll=true</span> <span class="pre">-Dsponge.filter.debug=true</span> <span class="pre">-jar</span> <span class="pre">forge.jar</span></code>。</p>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">上述示例本身就是启动服务器的命令。你的服务器启动命令也许会有其他选项在里面。</p>
+</div>
+</div>
+<div class="section" id="properties-available">
+<h2>可用属性<a class="headerlink" href="#properties-available" title="永久链接至标题">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="31%" />
+<col width="69%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">属性名</th>
+<th class="head">说明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><p class="first"><strong>sponge.debugBlockTransactions</strong></p>
+<p class="last">（布尔值，默认为 false）</p>
+</td>
+<td>对于所有被捕获的方块，打印非常冗长的调试信息，包括哪一个 <code class="docutils literal notranslate"><span class="pre">BlockState</span></code> 被桥接（proxied）了，在处理当前 <code class="docutils literal notranslate"><span class="pre">Chunk</span></code> 时有哪些 <code class="docutils literal notranslate"><span class="pre">BlockState</span></code> 存在，以及在下一个 transcation 变化之前有哪些 <code class="docutils literal notranslate"><span class="pre">BlockState</span></code> 存在，对于所有被追踪的 <code class="docutils literal notranslate"><span class="pre">TileEntity</span></code> 同样适用。对于调试涉及到 <code class="docutils literal notranslate"><span class="pre">ChangeBlockEvent</span></code> 以及它的处理的 Sponge 实现以及插件有帮助。</td>
+</tr>
+<tr class="row-odd"><td><p class="first"><strong>sponge.debugcauseframes</strong></p>
+<p class="last">（布尔值，默认为 false）</p>
+</td>
+<td>在 Sponge 实现或者某个插件有可能破坏 <code class="docutils literal notranslate"><span class="pre">CauseStackManager</span></code> 的 <code class="docutils literal notranslate"><span class="pre">StackFrame</span></code> 时（不论是弹栈顺序错乱还是尝试弹出已经弹出的 frame），向此时每一个 <code class="docutils literal notranslate"><span class="pre">StackFrame</span></code> 加入栈帧。对调试 frame 的产生时间有帮助。</td>
+</tr>
+<tr class="row-even"><td><p class="first"><strong>sponge.debugProxyChanges</strong></p>
+<p class="last">（布尔值，默认为 false）</p>
+</td>
+<td>和 <code class="docutils literal notranslate"><span class="pre">StackFrame</span></code> 产生栈帧类似，该选项用于在每一个被捕获的方块更新、邻近方块更新和 <code class="docutils literal notranslate"><span class="pre">TileEntity</span></code> 更新产生的 <code class="docutils literal notranslate"><span class="pre">BlockTransaction</span></code> 中追加栈帧。在追寻方块更新的来源时能派上用场，若在处理该 transaction 时有新异常抛出则相当于提供更多信息。在反馈和 <code class="docutils literal notranslate"><span class="pre">BlockTransaction</span></code> 有关的 issue 时应当提供启用此选项后产生的日志。</td>
+</tr>
+<tr class="row-odd"><td><p class="first"><strong>sponge.debugShouldFire</strong></p>
+<p class="last">（布尔值，默认为 false）</p>
+</td>
+<td>在因事件监听器注册或取消注册而导致 <code class="docutils literal notranslate"><span class="pre">ShouldFire</span></code> 变化时，记录下这个变化（即从 false 变成 true 或从 true 变成 false）。</td>
+</tr>
+<tr class="row-even"><td><p class="first"><strong>sponge.filter.debug</strong></p>
+<p class="last">（布尔值，默认为 false）</p>
+</td>
+<td>将 filter generator 产生的所有类全部输出至 <code class="docutils literal notranslate"><span class="pre">.sponge.debug.out</span></code> 目录下，并以被修改的类的名字命名。</td>
+</tr>
+<tr class="row-odd"><td><p class="first"><strong>sponge.print_all_catalog_types</strong></p>
+<p class="last">（布尔值，默认为 false）</p>
+</td>
+<td>在 PreInit 启动阶段之前打印所有 Sponge 提供的 <code class="docutils literal notranslate"><span class="pre">CatalogType</span></code> 和它们名下的字符串 ID，在查询原版、Mod 和插件创建的 <code class="docutils literal notranslate"><span class="pre">CatalogType</span></code> 下的某个 ID 时会派上用场。</td>
+</tr>
+<tr class="row-even"><td><p class="first"><strong>sponge.shouldFireAll</strong></p>
+<p class="last">（布尔值，默认为 false）</p>
+</td>
+<td>设定为 true 时，Sponge 将会无视事件是否有对应的监听器，直接创建并发布事件（正常情况下，Sponge 不会发布那些没有人监听的事件，比如说如果没有人监听 <code class="docutils literal notranslate"><span class="pre">ChangeBlockEvent</span></code>，这个事件及其子事件就不会发布）。</td>
+</tr>
+<tr class="row-odd"><td><p class="first"><strong>sponge.world.migrate_old</strong></p>
+<p class="last">（布尔值，默认为 true）</p>
+</td>
+<td>设定为 false 时 Sponge 不会进行存档迁移。关于存档迁移的过程可参考：<a class="reference internal" href="../getting-started/migrating.html"><span class="doc">迁移到 Sponge</span></a>。</td>
+</tr>
+<tr class="row-even"><td><p class="first"><strong>timings.bypassMax</strong></p>
+<p class="last">（任意值）</p>
+</td>
+<td>允许超出 Aikar 的 Timing API 的 frame 数量上限。仅当 API 也被配置为允许超出此上限时该设定才会生效。</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="first admonition-title">警告</p>
+<p><strong>sponge.debugcauseframes</strong> 有可能会增加性能开销，因为整个游戏生命周期中的每一 frame 都会产生新的栈帧。</p>
+<p class="last"><strong>sponge.debugProxyChanges</strong> 也有可能大幅增加性能开销，因为启用此选项后会在所有 <code class="docutils literal notranslate"><span class="pre">Entity</span></code>、<code class="docutils literal notranslate"><span class="pre">TileEntity</span></code> 和 <code class="docutils literal notranslate"><span class="pre">Block</span></code> 的每一次刷新（tick）时创建一个新异常（以获取栈帧）。</p>
+</div>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../../versions/index.html" class="btn btn-neutral float-right" title="版本策略" accesskey="n" rel="next">下一页 <span class="fa fa-angle-right"></span></a>
+        <a href="bugreport.html" class="btn btn-neutral" title="报告问题" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> 上一页</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../../_static/flags/zh_CN.svg"
+         alt="zh-CN" title="简体中文">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../../_static/jquery.js"></script>      <script type="text/javascript" src="../../_static/underscore.js"></script>      <script type="text/javascript" src="../../_static/doctools.js"></script>      <script type="text/javascript" src="../../_static/language_data.js"></script>      <script type="text/javascript" src="../../_static/translations.js"></script>      <script type="text/javascript" src="../../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

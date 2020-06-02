@@ -1,0 +1,483 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>自定義 DataManipulators &mdash; Sponge 7.2.0 說明文件</title>
+
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../../../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="索引"
+              href="../../../genindex.html"/>        <link rel="search" title="搜尋" href="../../../search.html"/>    <link rel="top" title="Sponge 7.2.0 說明文件" href="../../../index.html"/>        <link rel="up" title="自定義資料" href="index.html"/>        <link rel="next" title="自定義 DataHolders" href="dataholders.html"/>        <link rel="prev" title="自定義資料" href="index.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../../../index.html">
+            <img src="../../../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../../../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../server/index.html">建立伺服器</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../versions/index.html">版本控制方針</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../preparing/index.html">準備開發</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">建立插件</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../api-versions.html">API版本</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../buildsystem.html">建置系統</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../workspace/index.html">建立你的工作空間</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../project/index.html">建立你的專案</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../plugin-identifier.html">插件識別碼</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../plugin-class.html">主要插件類別</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lifecycle.html">插件的生命週期</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../injection.html">相依注入</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../practices/index.html">實踐</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../optional/index.html">Optionals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../logging.html">記錄與除錯</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../text/index.html">文本</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../commands/index.html">插件指令</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../event/index.html">事件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../configuration/index.html">設定插件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../assets.html">Asset API</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Data API</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">自定義資料</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">自定義 DataManipulators</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dataholders.html">自定義 DataHolders</a></li>
+<li class="toctree-l4"><a class="reference internal" href="serialization.html">序列化自定義資料</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../catalog-types.html">索引类型</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../keys.html">使用鍵（Key）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../datamanipulators.html">操作数据</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../transactions.html">数据操作记录</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../serialization.html">序列化資料</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../blocks/index.html">方塊</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../entities/index.html">實體</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../items/index.html">物品</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../trade-offers.html">開設交易</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../effects.html">效果</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../scheduler.html">排程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../services.html">服務</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../database.html">資料庫</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../permissions.html">權限</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../bans.html">封鎖</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../metrics.html">Metrics 收集</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../bookview.html">書本閱覽</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../economy/index.html">經濟</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../wgen/index.html">世界生成</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../manager.html">插件管理器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../game-profile-manager.html">遊戲設定檔管理器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../offline-userplayer-data.html">離線玩家資料</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tab-lists.html">Tab 清單</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../plugin-meta.html">插件元數據</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ray-tracing.html">光線追蹤</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../debugging.html">插件除錯</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials.html">教學</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../internals/index.html">相依於實作的插件</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../ore/index.html">Ore 文件</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing/index.html">為 Sponge 貢獻</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/index.html">關於 Sponge 專案</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index.html">Docs</a> &raquo;</li>
+          <li><a href="../../index.html">建立插件</a> &raquo;</li>
+          <li><a href="../index.html">Data API</a> &raquo;</li>
+          <li><a href="index.html">自定義資料</a> &raquo;</li>
+    <li>自定義 DataManipulators</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/plugin/data/custom/datamanipulators.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="custom-datamanipulators">
+<h1>自定義 DataManipulators<a class="headerlink" href="#custom-datamanipulators" title="本標題的永久連結">¶</a></h1>
+<p>自定義資料的核心是 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/manipulator/DataManipulator.html">DataManipulator</a> 。在實作之前，你必須先決定是否需要為自定義資料建立一個分離的 API。一般而言最好將 API 與實作分離（如同 SpongeAPI），但是如果不會被其他開發者使用你也可以將兩者放在同一個類別。</p>
+<p>你可能会为你的数据的每一个单元定义一些 API 方法，比如说 <code class="docutils literal notranslate"><span class="pre">String</span></code> 、 <code class="docutils literal notranslate"><span class="pre">int</span></code> 、 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/item/inventory/ItemStack.html">ItemStack</a> 、或者一个自定义的类型如 <code class="docutils literal notranslate"><span class="pre">Home</span></code> 。这些小单元会被包装成 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/value/mutable/Value.html">Value</a> 的形式，从而可以通过数据键（ <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/key/Key.html">Key</a> ）的方式访问。一个 <code class="docutils literal notranslate"><span class="pre">Value</span></code> 可能会针对不同对象，而展现出不同的扩展形式，比如说 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/value/mutable/MapValue.html">MapValue</a> 提供基础的键值对操作， <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/value/mutable/MutableBoundedValue.html">MutableBoundedValue</a> 限定了一个数据的上下界（比如说整数的上下界）。对一个数据是否过界的判定基于 <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/util/Comparator.html">Comparator</a> 类完成。</p>
+<p>现在我们考虑你需要继承实现的 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/manipulator/mutable/common/AbstractData.html">AbstractData</a> 类型。虽然你可以从零开始，但这些类型已经为你减少了 <em>很多</em> 诸如实现需要的方法的工作。你可以在 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/manipulator/mutable/common/package-summary.html">org.spongepowered.api.data.manipulator.mutable.common</a> 里找到一个完整的列表。请参阅 <a class="reference internal" href="#single-data-types"><span class="std std-ref">單一型態</span></a> 或者 <a class="reference internal" href="#compound-data-types"><span class="std std-ref">複合型態</span></a> 以了解关于每一种类型的实现细节。</p>
+<p>你需要創建兩個不同的類別， 一個是可變的版本，實作 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/manipulator/DataManipulator.html">DataManipulator</a> 和你的抽象型態；以及不可變的版本，實作 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/manipulator/ImmutableDataManipulator.html">ImmutableDataManipulator</a> 和你的 <em>不可變</em> 抽象型態。</p>
+<div class="admonition note">
+<p class="first admonition-title">備註</p>
+<p class="last"><strong>全部</strong> 資料都必須有可變與不可變版本，你必須兩個都實作</p>
+</div>
+<p>對於所有型態，你都需要定義 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/manipulator/DataManipulator.html#asImmutable--">DataManipulator#asImmutable()</a> 和 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/manipulator/ImmutableDataManipulator.html#asMutable--">asMutable()</a> 方法，只需要簡單的複製目前物件到另一個版本的建構子即可。</p>
+<div class="section" id="values">
+<h2>数据值<a class="headerlink" href="#values" title="本標題的永久連結">¶</a></h2>
+<p>你的相应 Getter 需要返回一个数据值，不过如下所示，我们为你提供了 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/value/ValueFactory.html">ValueFactory</a> 帮你代劳一部分工作。因为 Sponge 已经实现了一些 <code class="docutils literal notranslate"><span class="pre">Value</span></code> 对象，所以说这可以大大减少不必要的数据值类型。产生不同类型的数据值取决于使用不同的方法，如 <code class="docutils literal notranslate"><span class="pre">createMapValue</span></code> 、 <code class="docutils literal notranslate"><span class="pre">createBoundedComparableValue</span></code> 等。</p>
+<p><strong>程式碼範例：實作 Value Getter</strong></p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.Sponge</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.data.value.ValueFactory</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.data.value.mutable.Value</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">org.spongepowered.cookbook.myhomes.data.home.Home</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.cookbook.myhomes.data.Keys</span><span class="p">;</span>
+
+<span class="nd">@Override</span>
+<span class="kd">protected</span> <span class="n">Value</span><span class="o">&lt;</span><span class="n">Home</span><span class="o">&gt;</span> <span class="nf">defaultHome</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">Sponge</span><span class="p">.</span><span class="na">getRegistry</span><span class="p">().</span><span class="na">getValueFactory</span><span class="p">()</span>
+            <span class="p">.</span><span class="na">createValue</span><span class="p">(</span><span class="n">Keys</span><span class="p">.</span><span class="na">DEFAULT_HOME</span><span class="p">,</span> <span class="n">getValue</span><span class="p">(),</span> <span class="kc">null</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>請注意 <code class="docutils literal notranslate"><span class="pre">ImmutableDataManipulator</span></code> 必須回傳一個 <code class="docutils literal notranslate"><span class="pre">ImmutableValue</span></code>，可以對回傳的 <code class="docutils literal notranslate"><span class="pre">Value</span></code> 呼叫 <code class="docutils literal notranslate"><span class="pre">asImmutable()</span></code>。我們建議你對不可變版本的值做快取（例如類別的資料成員）。</p>
+<p>每個 <code class="docutils literal notranslate"><span class="pre">Value</span></code> 都需要一個 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/key/Key.html">Key</a> 來識別它，像是在範例中的 <code class="docutils literal notranslate"><span class="pre">Keys.DEFAULT_HOME</span></code> 。與 value 相似，你可以使用 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/key/KeyFactory.html">KeyFactory</a> 的 <code class="docutils literal notranslate"><span class="pre">makeXKey()</span></code> 方法來為你的 value 創建一個 <code class="docutils literal notranslate"><span class="pre">Key</span></code></p>
+<p>你需要传入一个 <code class="docutils literal notranslate"><span class="pre">TypeToken</span></code> 用于代表你的数据值包装的 <em>原生</em> 类型，以及另一个 <code class="docutils literal notranslate"><span class="pre">TypeToken</span></code> 代表数据值类型本身。你同时需要提供一个 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/DataQuery.html">DataQuery</a> ——这通常用于序列化你的数据值。还要为你的数据类型提供一个唯一的标识 ID 及名称。把这些放到一起你就可以得到一个可用于你的 <code class="docutils literal notranslate"><span class="pre">Value</span></code> 的 <code class="docutils literal notranslate"><span class="pre">Key</span></code> 了。</p>
+<p><strong>程式碼範例：創建 Key</strong></p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.data.DataQuery</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.data.key.Key</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.data.key.KeyFactory</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.data.value.mutable.Value</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.data.value.mutable.Value</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">com.google.common.reflect.TypeToken</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">org.spongepowered.cookbook.myhomes.data.home.Home</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">Key</span><span class="o">&lt;</span><span class="n">Value</span><span class="o">&lt;</span><span class="n">Home</span><span class="o">&gt;&gt;</span> <span class="n">DEFAULT_HOME</span> <span class="o">=</span> <span class="n">KeyFactory</span><span class="p">.</span><span class="na">makeSingleKey</span><span class="p">(</span>
+        <span class="n">TypeToken</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">Home</span><span class="p">.</span><span class="na">class</span><span class="p">),</span>
+        <span class="k">new</span> <span class="n">TypeToken</span><span class="o">&lt;</span><span class="n">Value</span><span class="o">&lt;</span><span class="n">Home</span><span class="o">&gt;&gt;</span><span class="p">()</span> <span class="p">{},</span>
+        <span class="n">DataQuery</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;DefaultHome&quot;</span><span class="p">),</span> <span class="s">&quot;myhomes:default_home&quot;</span><span class="p">,</span> <span class="s">&quot;Default Home&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">備註</p>
+<p>作为一个保留泛型的类型引用的实现，Sponge 在 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/util/TypeTokens.html">TypeTokens</a> 类中内置了一大串能够用到的 <a class="reference external" href="https://google.github.io/guava/releases/17.0/api/docs/com/google/common/reflect/TypeToken.html">TypeToken</a> 。</p>
+<p>如果你需要自己創建一個，你可以透過兩種方式：</p>
+<ul class="last simple">
+<li>對於非泛型型態，使用 <code class="docutils literal notranslate"><span class="pre">TypeToken.of(MyType.class)</span></code></li>
+<li>對於泛型型態，可以建立匿名類別 <code class="docutils literal notranslate"><span class="pre">TypeToken&lt;MyGenericType&lt;String&gt;&gt;()</span> <span class="pre">{}</span></code></li>
+</ul>
+</div>
+</div>
+<div class="section" id="serialization">
+<h2>序列化<a class="headerlink" href="#serialization" title="本標題的永久連結">¶</a></h2>
+<p>如果你希望你的数据可 <a class="reference internal" href="../serialization.html"><span class="doc">serializable</span></a> 到 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/DataHolder.html">DataHolder</a> 或者配置文件中，你必须还要实现 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/DataSerializable.html#toContainer--">DataSerializable#toContainer()</a> 方法。我们十分建议你调用父类的 <code class="docutils literal notranslate"><span class="pre">super.toContainer()</span></code> ，这样子就会包含 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/DataSerializable.html#getContentVersion--">DataSerializable#getContentVersion()</a> 提供的版本号信息。每次数据信息的结构发生变化时你应该提升你的版本号信息，并使用 <a class="reference internal" href="serialization.html#content-updaters"><span class="std std-ref">DataContentUpdater</span></a> 以保证向前兼容。</p>
+<div class="admonition note">
+<p class="first admonition-title">備註</p>
+<p class="last">這對於簡易單一型態是不需要的，因為它已經定義了 <code class="docutils literal notranslate"><span class="pre">toContainer()</span></code></p>
+</div>
+<p><strong>程式碼範例： 實作 toContainer</strong></p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.data.DataContainer</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">org.spongepowered.cookbook.myhomes.data.Keys</span><span class="p">;</span>
+
+<span class="nd">@Override</span>
+<span class="kd">public</span> <span class="n">DataContainer</span> <span class="nf">toContainer</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">DataContainer</span> <span class="n">container</span> <span class="o">=</span> <span class="kd">super</span><span class="p">.</span><span class="na">toContainer</span><span class="p">();</span>
+    <span class="c1">// This is the simplest, but use whatever structure you want!</span>
+    <span class="n">container</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="n">Keys</span><span class="p">.</span><span class="na">DEFAULT_HOME</span><span class="p">.</span><span class="na">getQuery</span><span class="p">(),</span> <span class="k">this</span><span class="p">.</span><span class="na">defaultHome</span><span class="p">);</span>
+    <span class="n">container</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="n">Keys</span><span class="p">.</span><span class="na">HOMES</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="na">homes</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="n">container</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="registration">
+<h2>註冊<a class="headerlink" href="#registration" title="本標題的永久連結">¶</a></h2>
+<p>通过注册你自定义的 <code class="docutils literal notranslate"><span class="pre">DataManipulator</span></code> ，你可以让 Sponge 或其他插件以一种通用的方式使用它。游戏的服务端或相应的插件可以为你的数据创建副本、并序列化或反序列化你的数据，而不需要对你代码中的类加以直接引用。</p>
+<p>要註冊 <code class="docutils literal notranslate"><span class="pre">DataManipulator</span></code> Sponge 提供了 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/DataRegistration.html#builder--">DataRegistration#builder()</a>。它會生成 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/DataRegistration.html">DataRegistration</a> 並自動註冊它。</p>
+<div class="admonition note">
+<p class="first admonition-title">備註</p>
+<p class="last">由于 Sponge 的数据 API 的性质，你 <em>必须</em> 要在初始化阶段中的特定阶段注册你的 <code class="docutils literal notranslate"><span class="pre">DataManipulator</span></code> ——通过监听 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GameInitializationEvent.html">GameInitializationEvent</a> ，如下例所示。如果你想要在该阶段结束后注册，那么游戏将抛出一个异常。</p>
+</div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.event.game.state.GameInitializationEvent</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.data.DataRegistration</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">org.example.MyCustomData</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.example.ImmutableCustomData</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.example.CustomDataBuilder</span><span class="p">;</span>
+
+<span class="nd">@Listener</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onInit</span><span class="p">(</span><span class="n">GameInitializationEvent</span> <span class="n">event</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">DataRegistration</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
+      <span class="p">.</span><span class="na">dataClass</span><span class="p">(</span><span class="n">MyCustomData</span><span class="p">.</span><span class="na">class</span><span class="p">)</span>
+      <span class="p">.</span><span class="na">immutableClass</span><span class="p">(</span><span class="n">ImmutableCustomData</span><span class="p">.</span><span class="na">class</span><span class="p">)</span>
+      <span class="p">.</span><span class="na">builder</span><span class="p">(</span><span class="k">new</span> <span class="n">CustomDataBuilder</span><span class="p">())</span>
+      <span class="p">.</span><span class="na">manipulatorId</span><span class="p">(</span><span class="s">&quot;my-custom&quot;</span><span class="p">)</span>
+      <span class="p">.</span><span class="na">dataName</span><span class="p">(</span><span class="s">&quot;My Custom&quot;</span><span class="p">)</span>
+      <span class="p">.</span><span class="na">build</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">警告</p>
+<p class="last">在 <code class="docutils literal notranslate"><span class="pre">6.0.0</span></code> 版本之前序列化的数据，或者你已经更换了 ID 的数据，将<strong>不会</strong>被自动识别出来，除非你使用了 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/DataManager.html#registerLegacyManipulatorIds-java.lang.String-org.spongepowered.api.data.DataRegistration-">DataManager#registerLegacyManipulatorIds(String, DataRegistration)</a> 方法注册。如果你以 <code class="docutils literal notranslate"><span class="pre">6.0.0</span></code> 版本之前提供的方式注册了 <code class="docutils literal notranslate"><span class="pre">DataManipulator</span></code> ，那么相应的ID将会是 <cite>Class.getName()</cite> 的返回值，如 <code class="docutils literal notranslate"><span class="pre">com.example.MyCustomData</span></code> 。</p>
+</div>
+</div>
+<div class="section" id="single-types">
+<span id="single-data-types"></span><h2>單一型態<a class="headerlink" href="#single-types" title="本標題的永久連結">¶</a></h2>
+<p>單一型態需要實作的較少，因為大部分都已經在繼承的 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/manipulator/mutable/common/AbstractSingleData.html">AbstractSingleData</a> 中處理好了</p>
+<p>「簡易」抽象型態最容易實作，但它僅限於下列型態：</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">Boolean</span></code></li>
+<li><a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/lang/Comparable.html">Comparable</a></li>
+<li><code class="docutils literal notranslate"><span class="pre">Integer</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">List</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">Map</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">CatalogType</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">Enum</span></code></li>
+</ul>
+<p>对于所有其他类型，你都需要通过继承实现 <code class="docutils literal notranslate"><span class="pre">AbstractSingleData</span></code> 类来实现它们。这允许你定义你自己的单一数据类型，而不受数据类型的约束，不过你就需要做较多的工作了。</p>
+<div class="admonition tip">
+<p class="first admonition-title">小訣竅</p>
+<p class="last">默认的实现类已经在构造方法中把你的对象准备好了。你可以通过 <code class="docutils literal notranslate"><span class="pre">getValue()</span></code> 或者 <code class="docutils literal notranslate"><span class="pre">getValueGetter()</span></code> 方法获取到它。</p>
+</div>
+<div class="section" id="simple-single-types">
+<h3>簡易單一型態<a class="headerlink" href="#simple-single-types" title="本標題的永久連結">¶</a></h3>
+<p>幾乎所有工作都以經完成了。你需要做的只有：</p>
+<ul class="simple">
+<li>繼承對應的抽象型態</li>
+<li>對應 <cite>Key</cite> 到你的資料、物件本身、以及建構子的預設物件（如果物件為 null）</li>
+</ul>
+<p><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/manipulator/mutable/common/AbstractBoundedComparableData.html">AbstractBoundedComparableData</a> （及對應的不可變版本）還需要用於比較的最大及最小值，以及對應的 <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/util/Comparator.html">Comparator</a> 。</p>
+<div class="admonition note">
+<p class="first admonition-title">備註</p>
+<p class="last"><code class="docutils literal notranslate"><span class="pre">List</span></code> 和 <code class="docutils literal notranslate"><span class="pre">Mapped</span></code> 單一型態必須使用 <code class="docutils literal notranslate"><span class="pre">ListData</span></code> 和 <code class="docutils literal notranslate"><span class="pre">MappedData</span></code>（或對應的不可變版本）。這會為 <code class="docutils literal notranslate"><span class="pre">DataManipulator</span></code> 增加類似於操作 Map 或 List 的方法。</p>
+</div>
+<p>下面三个方法必须由可变数据操纵器实现：</p>
+<p><code class="docutils literal notranslate"><span class="pre">fill(DataHolder,</span> <span class="pre">MergeFunction)</span></code> 應該使用 <code class="docutils literal notranslate"><span class="pre">MergeFunction#merge()</span></code> 將提供的 <code class="docutils literal notranslate"><span class="pre">DataHolder</span></code> 取代你物件中的資料。</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.data.DataHolder</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.data.merge.MergeFunction</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">org.spongepowered.cookbook.myhomes.data.friends.FriendsData</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.Optional</span><span class="p">;</span>
+
+<span class="nd">@Override</span>
+<span class="kd">public</span> <span class="n">Optional</span><span class="o">&lt;</span><span class="n">FriendsData</span><span class="o">&gt;</span> <span class="nf">fill</span><span class="p">(</span><span class="n">DataHolder</span> <span class="n">dataHolder</span><span class="p">,</span> <span class="n">MergeFunction</span> <span class="n">overlap</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">FriendsData</span> <span class="n">merged</span> <span class="o">=</span> <span class="n">overlap</span><span class="p">.</span><span class="na">merge</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="n">dataHolder</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">FriendsData</span><span class="p">.</span><span class="na">class</span><span class="p">).</span><span class="na">orElse</span><span class="p">(</span><span class="kc">null</span><span class="p">));</span>
+    <span class="n">setValue</span><span class="p">(</span><span class="n">merged</span><span class="p">.</span><span class="na">friends</span><span class="p">().</span><span class="na">get</span><span class="p">());</span>
+
+    <span class="k">return</span> <span class="n">Optional</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">from(DataContainer)</span></code> 應該從 container 中取得並覆蓋 value ，如果不存在則回傳 <code class="docutils literal notranslate"><span class="pre">Optional.empty()</span></code></p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.data.DataContainer</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.data.DataQuery</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">org.spongepowered.cookbook.myhomes.data.Keys</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.cookbook.myhomes.data.friends.FriendsData</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.cookbook.myhomes.data.friends.ImmutableFriendsData</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">com.google.common.collect.Maps</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.Optional</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.UUID</span><span class="p">;</span>
+
+<span class="nd">@Override</span>
+<span class="kd">public</span> <span class="n">Optional</span><span class="o">&lt;</span><span class="n">FriendsData</span><span class="o">&gt;</span> <span class="nf">from</span><span class="p">(</span><span class="n">DataContainer</span> <span class="n">container</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">container</span><span class="p">.</span><span class="na">contains</span><span class="p">(</span><span class="n">Keys</span><span class="p">.</span><span class="na">FRIENDS</span><span class="p">))</span> <span class="p">{</span>
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">UUID</span><span class="o">&gt;</span> <span class="n">friends</span> <span class="o">=</span> <span class="n">container</span><span class="p">.</span><span class="na">getObjectList</span><span class="p">(</span><span class="n">Keys</span><span class="p">.</span><span class="na">FRIENDS</span><span class="p">.</span><span class="na">getQuery</span><span class="p">(),</span> <span class="n">UUID</span><span class="p">.</span><span class="na">class</span><span class="p">).</span><span class="na">get</span><span class="p">();</span>
+        <span class="k">return</span> <span class="n">Optional</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">setValue</span><span class="p">(</span><span class="n">friends</span><span class="p">));</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">Optional</span><span class="p">.</span><span class="na">empty</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">copy()</span></code> 顧名思義，應該回傳相同資料的副本。</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.cookbook.myhomes.data.friends.FriendsData</span><span class="p">;</span>
+
+<span class="nd">@Override</span>
+<span class="kd">public</span> <span class="n">FriendsData</span> <span class="nf">copy</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="n">FriendsDataImpl</span><span class="p">(</span><span class="n">getValue</span><span class="p">());</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="custom-single-types">
+<h3>自定義單一型別<a class="headerlink" href="#custom-single-types" title="本標題的永久連結">¶</a></h3>
+<p>在简单单一类型的方法的基础上，你还需要覆写下列方法：</p>
+<p><code class="docutils literal notranslate"><span class="pre">getValueGetter()</span></code> 應該會傳遞代表你資料的 <code class="docutils literal notranslate"><span class="pre">Value</span></code> （見上文）。</p>
+<p><code class="docutils literal notranslate"><span class="pre">toContainer()</span></code> 應該會回傳含有你資料的 <code class="docutils literal notranslate"><span class="pre">DataContainer</span></code> （見上文）。</p>
+</div>
+</div>
+<div class="section" id="compound-types">
+<span id="compound-data-types"></span><h2>複合型態<a class="headerlink" href="#compound-types" title="本標題的永久連結">¶</a></h2>
+<p>和只能提供一种数据值的单一数据类型相比，复合数据类型可以提供多个“复合”的数据值。如果多个数据值是强关联的，像 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/manipulator/mutable/tileentity/FurnaceData.html">FurnaceData</a> 一样，那么复合数据类型便可大显身手，不过，实现复合数据类型，也就会变得更复杂一些。</p>
+<p>首先请定义你的数据操纵器的所有数据值的 Getter。对于每一个数据值，请再创建相应的 <em>裸露在外的</em> 对象的 Getter 和 Setter。你马上就会用到它们。对于不可变数据操纵器来说，只有 Getter 是需要实现的。</p>
+<div class="section" id="registering-values">
+<h3>註冊 Values<a class="headerlink" href="#registering-values" title="本標題的永久連結">¶</a></h3>
+<p>然后你需要执行注册操作，这样基于 <a class="reference internal" href="../keys.html"><span class="doc">数据键</span></a> 的系统才能在其上工作。如欲注册，请分别针对可变和不可变数据操纵器实现 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/manipulator/mutable/common/AbstractData.html#registerGettersAndSetters--">AbstractData#registerGettersAndSetters()</a> 或 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/manipulator/immutable/common/AbstractImmutableData.html#registerGetters--">AbstractImmutableData#registerGetters()</a> 方法。</p>
+<p>對所有 value 你必須呼叫：</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">registerKeyValue(Key,</span> <span class="pre">Supplier)</span></code> 傳入對應 key 的 <code class="docutils literal notranslate"><span class="pre">Value</span></code> getter</li>
+<li><code class="docutils literal notranslate"><span class="pre">registerFieldGetter(Key,</span> <span class="pre">Supplier)</span></code> 傳入上面定義的原始物件 getter 方法</li>
+<li><code class="docutils literal notranslate"><span class="pre">registerFieldSetter(Key,</span> <span class="pre">Consumer)</span></code> 傳入 setter 方法，如果你正在實作可變版本</li>
+</ul>
+<p>我們建議使用 Java 8 的 <code class="docutils literal notranslate"><span class="pre">::</span></code> 語法來簡化 <code class="docutils literal notranslate"><span class="pre">Supplier</span></code> 和 <code class="docutils literal notranslate"><span class="pre">Consumer</span></code> 函數</p>
+<p><strong>程式碼範例：實作 Getters 與 Setters</strong></p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.cookbook.myhomes.data.Keys</span>
+
+<span class="c1">// registerGetters() for immutable implementation</span>
+<span class="nd">@Override</span>
+<span class="kd">protected</span> <span class="kt">void</span> <span class="nf">registerGettersAndSetters</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">registerKeyValue</span><span class="p">(</span><span class="n">Keys</span><span class="p">.</span><span class="na">DEFAULT_HOME</span><span class="p">,</span> <span class="k">this</span><span class="p">::</span><span class="n">defaultHome</span><span class="p">);</span>
+    <span class="n">registerKeyValue</span><span class="p">(</span><span class="n">Keys</span><span class="p">.</span><span class="na">HOMES</span><span class="p">,</span> <span class="k">this</span><span class="p">::</span><span class="n">homes</span><span class="p">);</span>
+
+    <span class="n">registerFieldGetter</span><span class="p">(</span><span class="n">Keys</span><span class="p">.</span><span class="na">DEFAULT_HOME</span><span class="p">,</span> <span class="k">this</span><span class="p">::</span><span class="n">getDefaultHome</span><span class="p">);</span>
+    <span class="n">registerFieldGetter</span><span class="p">(</span><span class="n">Keys</span><span class="p">.</span><span class="na">HOMES</span><span class="p">,</span> <span class="k">this</span><span class="p">::</span><span class="n">getHomes</span><span class="p">);</span>
+
+    <span class="c1">// Only on mutable implementation</span>
+    <span class="n">registerFieldSetter</span><span class="p">(</span><span class="n">Keys</span><span class="p">.</span><span class="na">DEFAULT_HOME</span><span class="p">,</span> <span class="k">this</span><span class="p">::</span><span class="n">setDefaultHome</span><span class="p">);</span>
+    <span class="n">registerFieldSetter</span><span class="p">(</span><span class="n">Keys</span><span class="p">.</span><span class="na">HOMES</span><span class="p">,</span> <span class="k">this</span><span class="p">::</span><span class="n">setHomes</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">fill(DataHolder,</span> <span class="pre">MergeFunction)</span></code> 與 <code class="docutils literal notranslate"><span class="pre">from(DataContainer)</span></code> 的實作和單一型態類似，但必須處理所有的 values</p>
+</div>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="dataholders.html" class="btn btn-neutral float-right" title="自定義 DataHolders" accesskey="n" rel="next">下一頁 <span class="fa fa-angle-right"></span></a>
+        <a href="index.html" class="btn btn-neutral" title="自定義資料" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> 上一頁</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../../../_static/flags/zh_TW.svg"
+         alt="zh-TW" title="繁體中文">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../../../_static/jquery.js"></script>      <script type="text/javascript" src="../../../_static/underscore.js"></script>      <script type="text/javascript" src="../../../_static/doctools.js"></script>      <script type="text/javascript" src="../../../_static/language_data.js"></script>      <script type="text/javascript" src="../../../_static/translations.js"></script>      <script type="text/javascript" src="../../../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

@@ -1,0 +1,360 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>事件原因 &mdash; Sponge 7.2.0 文档</title>
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="索引"
+              href="../../genindex.html"/>        <link rel="search" title="搜索" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 文档" href="../../index.html"/>        <link rel="up" title="事件" href="index.html"/>        <link rel="next" title="事件过滤" href="filters.html"/>        <link rel="prev" title="事件监听器" href="listeners.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../../index.html">
+            <img src="../../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../server/index.html">创建服务器</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../versions/index.html">版本策略</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../preparing/index.html">为开发作准备</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">插件开发</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../api-versions.html">API版本</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../buildsystem.html">构建系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../workspace/index.html">设置开发环境</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../project/index.html">设置你的项目</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-identifier.html">插件标识符</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-class.html">插件的主类</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lifecycle.html">插件的生命周期</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../injection.html">依赖注入</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../practices/index.html">插件开发惯例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../optional/index.html">使用 Optional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../logging.html">日志记录和调试</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text/index.html">文本 API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/index.html">插件命令</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">事件</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="listeners.html">事件监听器</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">事件原因</a></li>
+<li class="toctree-l3"><a class="reference internal" href="filters.html">事件过滤</a></li>
+<li class="toctree-l3"><a class="reference internal" href="custom.html">自定义事件</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/index.html">插件配置</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assets.html">使用 Asset API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data/index.html">数据 API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../blocks/index.html">方块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../entities/index.html">实体</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../items/index.html">物品</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../trade-offers.html">村民交易</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../effects.html">效果</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../scheduler.html">调度器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../services.html">服务</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database.html">数据库</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../permissions.html">权限</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bans.html">黑名单</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metrics.html">Metrics 收集</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bookview.html">成书</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../economy/index.html">经济 API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wgen/index.html">世界生成</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manager.html">插件管理器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../game-profile-manager.html">玩家资料管理器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../offline-userplayer-data.html">离线玩家数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tab-lists.html">玩家列表</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-meta.html">插件的元数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ray-tracing.html">光线追踪</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../debugging.html">调试插件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials.html">教程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internals/index.html">依赖底层实现</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ore/index.html">Ore 文档</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/index.html">向 Sponge 贡献代码</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">关于 Sponge</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+          <li><a href="../index.html">插件开发</a> &raquo;</li>
+          <li><a href="index.html">事件</a> &raquo;</li>
+    <li>事件原因</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/plugin/event/causes.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="event-causes">
+<h1>事件原因<a class="headerlink" href="#event-causes" title="永久链接至标题">¶</a></h1>
+<p>事件系统适合为游戏中的每个动作插入附加的逻辑，但它们天生缺少提供”触发这个事件的起因“的能力。通过使用 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/cause/Cause.html">Cause</a> 对象，我们可以获取到一些上下文信息，这些上下文信息有助于决定你的事件监听器改变的行为。</p>
+<p>例如，一个世界保护插件需要了解是什么玩家导致了 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/block/ChangeBlockEvent.html">ChangeBlockEvent</a> 从而可以决定这一事件到底是否需要取消，相应的信息将直接由 <code class="docutils literal notranslate"><span class="pre">Cause</span></code> 提供，而不是像传统的事件处理系统一样，通过创建大量的不同子事件以提供信息。</p>
+<p>每个事件都提供一个 <code class="docutils literal notranslate"><span class="pre">Cause</span></code> 对象用于描述触发该事件的相关信息。你可以直接通过调用 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/Event.html#getCause--">Event#getCause()</a> 方法获取到一个 <code class="docutils literal notranslate"><span class="pre">Cause</span></code> 对象。</p>
+<div class="section" id="cause-and-context">
+<h2>事件原因和上下文信息<a class="headerlink" href="#cause-and-context" title="永久链接至标题">¶</a></h2>
+<p>每一个 <code class="docutils literal notranslate"><span class="pre">Cause</span></code> 对象都包含两组不同的信息：事件因果链，和一个 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/cause/EventContext.html">EventContext</a> 对象，也就是事件上下文。</p>
+<ul class="simple">
+<li>事件因果链存储的是一组事件的直接起因，它们按重要程度依次排列。事件因果链中的对象没有具体名字。</li>
+<li>事件上下文中则包含有事件的更多信息。上下文中的对象均与特定的键一一对应，但没有具体顺序，因为它们都一样重要。</li>
+</ul>
+<p>举个例子。如果玩家的一只羊吃了草，那么（这个方块更新事件的）直接起因就是这只羊。而玩家则会以 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/cause/EventContextKeys.html#OWNER">EventContextKeys#OWNER</a> 的形式出现在 <code class="docutils literal notranslate"><span class="pre">EventContext</span></code> 里供事件消费者使用，因为它确实和事件有某种关系，但玩家并非这个事件的直接起因。</p>
+<p>另一个你可能会关注的例子：模拟玩家。你模拟的玩家不见得就是某个动作的直接起因，但它仍然会以 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/cause/EventContextKeys.html#PLAYER_SIMULATED">EventContextKeys#PLAYER_SIMULATED</a> 的形式出现在 <code class="docutils literal notranslate"><span class="pre">EventContext</span></code> 中。</p>
+</div>
+<div class="section" id="retrieving-objects-from-the-direct-cause">
+<h2>从直接起因中取得对象<a class="headerlink" href="#retrieving-objects-from-the-direct-cause" title="永久链接至标题">¶</a></h2>
+<p>从它结构上来说，一个 <code class="docutils literal notranslate"><span class="pre">Cause</span></code> 对象包含了一有序列表，其内有若干对象。这里将介绍几种从这个对象中获取具体信息的方法。参阅 <a class="reference external" href="https://jd.spongepowered.org">Javadocs</a> 以获得完整列表。</p>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">在事件原因中的对象会按照这样的顺序排序：第一个对象是最直接的原因，第二个对象是次直接的原因，依此类推。靠后的对象可能仅仅用于提供上下文信息。</p>
+</div>
+<p><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/cause/Cause.html#root--">Cause#root()</a> 返回事件的直接起因，即距离事件发生最近的或者最直接的原因。由于 <code class="docutils literal notranslate"><span class="pre">Cause</span></code> 不能为空，所以 Sponge 保证 <code class="docutils literal notranslate"><span class="pre">root</span></code> 是存在的。</p>
+<p><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/cause/Cause.html#first-java.lang.Class-">Cause#first(Class)</a> 返回第一个满足给定类型或者其子类的事件原因。比如我们假设有一个 <code class="docutils literal notranslate"><span class="pre">Cause</span></code> 包含了一个玩家，随后包含了一个实体，即 <code class="docutils literal notranslate"><span class="pre">[Player,</span> <span class="pre">Entity,</span> <span class="pre">...]</span></code> 。</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Listener</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onEvent</span><span class="p">(</span><span class="n">ExampleCauseEvent</span> <span class="n">event</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">Cause</span> <span class="n">cause</span> <span class="o">=</span> <span class="n">event</span><span class="p">.</span><span class="na">getCause</span><span class="p">();</span> <span class="c1">// [Player, Entity]</span>
+    <span class="n">Optional</span><span class="o">&lt;</span><span class="n">Player</span><span class="o">&gt;</span> <span class="n">firstPlayer</span> <span class="o">=</span> <span class="n">cause</span><span class="p">.</span><span class="na">first</span><span class="p">(</span><span class="n">Player</span><span class="p">.</span><span class="na">class</span><span class="p">);</span> <span class="c1">// 1</span>
+    <span class="n">Optional</span><span class="o">&lt;</span><span class="n">Entity</span><span class="o">&gt;</span> <span class="n">firstEntity</span> <span class="o">=</span> <span class="n">cause</span><span class="p">.</span><span class="na">first</span><span class="p">(</span><span class="n">Entity</span><span class="p">.</span><span class="na">class</span><span class="p">);</span> <span class="c1">// 2</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>这两个 <code class="docutils literal notranslate"><span class="pre">Optional</span></code> 都将返回玩家对象，因为不管是玩家还是实体都满足玩家对象作为其子类。</p>
+<p><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/cause/Cause.html#last-java.lang.Class-">Cause#last(Class)</a> 方法和 <code class="docutils literal notranslate"><span class="pre">Cause#first(Class)</span></code> 类似，只不过它返回最后一个满足对应类型的对象。</p>
+<p>我们继续上面的例子。如果我们转而去使用 <code class="docutils literal notranslate"><span class="pre">Cause#last(Class)</span></code> ，那么第一个 <code class="docutils literal notranslate"><span class="pre">Optional</span></code> 将仍然返回玩家对象，不过第二个返回的对象就不同了：它将返回上面我们提到的，处于第二个位置的那个实体。</p>
+<p><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/cause/Cause.html#containsType-java.lang.Class-">Cause#containsType(Class)</a> 返回一个布尔值表示其是否包含这样一个满足给定类型的对象。</p>
+<p><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/cause/Cause.html#all--">Cause#all()</a> 直接返回所有的对象以支持更高级的操作。</p>
+</div>
+<div class="section" id="event-context">
+<h2>事件上下文<a class="headerlink" href="#event-context" title="永久链接至标题">¶</a></h2>
+<p>有的时候对象的顺序并不足以让我们搞清楚对象在整个事件中的地位。因此我们这里需要事件上下文，也就是 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/cause/EventContext.html">EventContext</a> 这一概念。在事件上下文中，不同的对象会基于 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/cause/EventContextKeys.html">EventContextKeys</a> 使用不同的独特名称标记自身，从而方便开发者获取。一些示例可以在 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/block/ChangeBlockEvent.Grow.html">ChangeBlockEvent.Grow</a> 事件中的 <cite>Notifier</cite> ，以及 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/entity/DamageEntityEvent.html">DamageEntityEvent</a> 的 <code class="docutils literal notranslate"><span class="pre">Source</span></code> 等处找到。</p>
+<p>事件因果链不对其中的对象类型作出任何保证，但事件上下文不同，一个和特定 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/cause/EventContextKey.html">EventContextKey</a> 对应的对象保证了其拥有特定的类型。</p>
+<p><strong>从事件上下文中检索指定的对象</strong></p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Listener</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onGrow</span><span class="p">(</span><span class="n">ChangeBlockEvent</span><span class="p">.</span><span class="na">Grow</span> <span class="n">event</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">Optional</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">notifier</span> <span class="o">=</span> <span class="n">event</span><span class="p">.</span><span class="na">getCause</span><span class="p">().</span><span class="na">getContext</span><span class="p">().</span><span class="na">get</span><span class="p">(</span><span class="n">EventContextKeys</span><span class="p">.</span><span class="na">NOTIFIER</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>这一示例使用了 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/cause/EventContext.html#get-org.spongepowered.api.event.cause.EventContextKey-">EventContext#get(EventContextKey)</a> 以试图从事件上下文中检索与特定键对应的对象，如果对应的对象存在的话。此外，通过使用 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/cause/EventContext.html#asMap--">EventContext#asMap()</a> 方法，我们可以得到一个 <code class="docutils literal notranslate"><span class="pre">Map&lt;EventContextKey&lt;?&gt;,</span> <span class="pre">Object&gt;</span></code>，从而可以获取所有可用的 <code class="docutils literal notranslate"><span class="pre">EventContextKey</span></code> 以及与之对应的所有对象。</p>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">一些特定名称的 <code class="docutils literal notranslate"><span class="pre">EventContextKey</span></code> 会以 <code class="docutils literal notranslate"><span class="pre">EventContextKeys</span></code> 类的静态字段的方式提供。</p>
+</div>
+</div>
+<div class="section" id="creating-custom-causes">
+<h2>自定义事件原因<a class="headerlink" href="#creating-custom-causes" title="永久链接至标题">¶</a></h2>
+<p>创建一个事件原因很容易，但是这会根据你是在服务端主线程上还是以异步的方式创建事件原因而有所不同。</p>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">因为 <code class="docutils literal notranslate"><span class="pre">Cause</span></code> 对象是不可变的，所以一旦创建则不可修改。</p>
+</div>
+<div class="section" id="using-the-causestackmanager">
+<h3>使用事件因果链管理器<a class="headerlink" href="#using-the-causestackmanager" title="永久链接至标题">¶</a></h3>
+<div class="admonition warning">
+<p class="first admonition-title">警告</p>
+<p class="last">事件因果链管理器，即 <code class="docutils literal notranslate"><span class="pre">CauseStackManager</span></code> 只能在服务端主线程正常工作。因此如果你在其他线程调用它，它只会抛出一个 <code class="docutils literal notranslate"><span class="pre">IllegalStateException</span></code> 异常。在调用 <code class="docutils literal notranslate"><span class="pre">CauseStackManager</span></code> 上的方法时，请先保证你的代码目前正在主线程上执行。</p>
+</div>
+<p>如果你在主线程上创建你的事件，那么请通过 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/Sponge.html#getCauseStackManager--">Sponge#getCauseStackManager()</a> 方法获取并使用 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/CauseStackManager.html">CauseStackManager</a>。事件上下文管理器会在游戏运行时跟踪一些潜在的事件原因，从而可以方便地获取当前的 <code class="docutils literal notranslate"><span class="pre">Cause</span></code> 而不需要额外的工作。请通过 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/CauseStackManager.html#getCurrentCause--">CauseStackManager#getCurrentCause()</a> 方法获取当前跟踪的事件原因。你会注意到你的插件的 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/plugin/PluginContainer.html">PluginContainer</a> 总是在返回的事件原因中，因为事件因果链管理器本身也会跟踪你的插件本身。通过 <code class="docutils literal notranslate"><span class="pre">CauseStackManager</span></code> 创建事件原因可以免去很多不必要的代码，因此你得以集中你的注意力在你本身想要添加的事件原因上。</p>
+<p>在添加你自己的事件原因之前，你需要首先把事件因果链冻结。添加一个事件因果链关键帧将冻结当前的事件因果链状态，当你接下来处理并创建完你的事件原因后，把该事件因果链关键帧移除将使原先的事件因果链回到原有的冻结时的状态。</p>
+<div class="admonition tip">
+<p class="first admonition-title">小技巧</p>
+<p>添加一个事件因果链关键帧不会移除事件因果链管理器已有的东西，因此，所有在添加事件因果链关键帧之前已有的事件因果链以及事件上下文等，都会接着出现在事件因果链管理器中。你可以通过在添加关键帧前和添加关键帧后分别调用 <code class="docutils literal notranslate"><span class="pre">Sponge.getCauseStackManager().getCurrentCause()</span></code> 方法以验证这一点。</p>
+<p class="last">例如一个事件因果链如果包含有一个 <code class="docutils literal notranslate"><span class="pre">PluginContainer</span></code> 和一个 <code class="docutils literal notranslate"><span class="pre">CommandSource</span></code>，并在此之后添加了一个事件因果链关键帧，那么这两个对象将接着保持在因果链中，并在获取 <code class="docutils literal notranslate"><span class="pre">Cause</span></code> 成为整个事件原因的一部分。</p>
+</div>
+<p>比如说你想要在一个类似于 sudo 的命令中模拟一个玩家触发事件，那么你可能需要把你想要模拟的玩家加入到事件原因中，同时你还会把玩家对应的 <code class="docutils literal notranslate"><span class="pre">GameProfile</span></code> 添加到事件上下文中（被模拟玩家并不直接对被触发的事件负责）。</p>
+<p><strong>使用事件因果链管理器创建自定义事件原因</strong></p>
+<p>在这个例子中，在为变量赋值后，事件原因会包含作为根原因的 <code class="docutils literal notranslate"><span class="pre">playerToSimulate</span></code>、作为第二个原因的 <code class="docutils literal notranslate"><span class="pre">sourceRunningSudo</span></code>、以及除 <code class="docutils literal notranslate"><span class="pre">CauseStackManager</span></code> 之外，以 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/cause/EventContextKeys.html#PLAYER_SIMULATED">EventContextKeys#PLAYER_SIMULATED</a> 的键出现的 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/profile/GameProfile.html">GameProfile</a> 上下文。 你的事件相关的代码应出现在这些方法调用之后。</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">CommandSource</span> <span class="n">sourceRunningSudo</span> <span class="o">=</span> <span class="p">...;</span>
+<span class="n">Player</span> <span class="n">playerToSimulate</span> <span class="o">=</span> <span class="p">...;</span>
+<span class="k">try</span> <span class="p">(</span><span class="n">CauseStackManager</span><span class="p">.</span><span class="na">StackFrame</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">Sponge</span><span class="p">.</span><span class="na">getCauseStackManager</span><span class="p">().</span><span class="na">pushCauseFrame</span><span class="p">())</span> <span class="p">{</span>
+
+  <span class="n">frame</span><span class="p">.</span><span class="na">pushCause</span><span class="p">(</span><span class="n">sourceRunningSudo</span><span class="p">);</span>
+  <span class="n">frame</span><span class="p">.</span><span class="na">pushCause</span><span class="p">(</span><span class="n">playerToSimulate</span><span class="p">);</span>
+
+  <span class="n">frame</span><span class="p">.</span><span class="na">addContext</span><span class="p">(</span><span class="n">EventContextKeys</span><span class="p">.</span><span class="na">PLAYER_SIMULATED</span><span class="p">,</span> <span class="n">playerToSimulate</span><span class="p">.</span><span class="na">getProfile</span><span class="p">());</span>
+
+  <span class="n">Cause</span> <span class="n">cause</span> <span class="o">=</span> <span class="n">frame</span><span class="p">.</span><span class="na">getCurrentCause</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>注意，你传入的最后一个事件原因将成为根原因，因为栈是“后进先出”（LIFO）的容器。</p>
+<div class="admonition tip">
+<p class="first admonition-title">小技巧</p>
+<p class="last">关于栈数据结构的信息及元素顺序的问题可参阅 <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/util/Stack.html">Stack</a> 的 Javadocs 或是<a class="reference external" href="https://en.wikipedia.org/wiki/Stack_(abstract_data_type)">这篇维基百科上的文章</a>（<a class="reference external" href="https://zh.wikipedia.org/wiki/%E5%A0%86%E6%A0%88">中文版</a>）。</p>
+</div>
+</div>
+<div class="section" id="using-the-cause-builder">
+<h3>使用事件原因生成器<a class="headerlink" href="#using-the-cause-builder" title="永久链接至标题">¶</a></h3>
+<p>如果你在新建一个不在主线程上触发的事件，你不能使用 <code class="docutils literal notranslate"><span class="pre">CauseStackManager</span></code>，而是手动创建 <code class="docutils literal notranslate"><span class="pre">Cause</span></code> 对象。</p>
+<p>新建事件原因对象只需要用 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/cause/Cause.Builder.html">Cause.Builder</a> 即可。你可以通过 <code class="docutils literal notranslate"><span class="pre">Cause.builder()</span></code> 的调用来获得这个 Builder。使用 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/cause/Cause.Builder.html#append-java.lang.Object-">Cause.Builder#append(Object)</a> 方法来追加原因，但需要注意的是，使用这个 Builder 时，第一个对象将会是根原因，不像是 <code class="docutils literal notranslate"><span class="pre">CauseStackManager</span></code> 中的最后一个。</p>
+<p>如果你想添加上下文，你需要使用专门的 Buildr，即 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/cause/EventContext.Builder.html">EventContext.Builder</a>，可通过调用 <code class="docutils literal notranslate"><span class="pre">EventContext#builder()</span></code> 获取。构造完 <code class="docutils literal notranslate"><span class="pre">Cause</span></code> 对象后，你便可以通过 <code class="docutils literal notranslate"><span class="pre">Cause.Builder#build(EventContext)</span></code> 添加你的 <code class="docutils literal notranslate"><span class="pre">EventContext</span></code>。</p>
+<p>还是用刚才的例子来说明，下面是我们如果使用原因构建器来构建这样一个对象的方法：</p>
+<p><strong>使用事件原因生成器和事件上下文生成器创建自定义事件原因</strong></p>
+<p>注意在这个示例中，在为变量赋值后，第一个传入的事件原因将会成为根原因。</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">CommandSource</span> <span class="n">sourceRunningSudo</span> <span class="o">=</span> <span class="p">...;</span>
+<span class="n">Player</span> <span class="n">playerToSimulate</span> <span class="o">=</span> <span class="p">...;</span>
+<span class="n">PluginContainer</span> <span class="n">plugin</span> <span class="o">=</span> <span class="p">...;</span>
+
+<span class="n">EventContext</span> <span class="n">context</span> <span class="o">=</span> <span class="n">EventContext</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
+  <span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">EventContextKeys</span><span class="p">.</span><span class="na">PLAYER_SIMULATED</span><span class="p">,</span> <span class="n">playerToSimulate</span><span class="p">.</span><span class="na">getProfile</span><span class="p">())</span>
+  <span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">EventContextKeys</span><span class="p">.</span><span class="na">PLUGIN</span><span class="p">,</span> <span class="n">plugin</span><span class="p">)</span>
+  <span class="p">.</span><span class="na">build</span><span class="p">();</span>
+
+<span class="n">Cause</span> <span class="n">cause</span> <span class="o">=</span> <span class="n">Cause</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
+  <span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="n">playerToSimulate</span><span class="p">)</span>
+  <span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="n">sourceRunningSudo</span><span class="p">)</span>
+  <span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="n">plugin</span><span class="p">)</span>
+  <span class="p">.</span><span class="na">build</span><span class="p">(</span><span class="n">context</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>在决定把什么信息放进事件起因时要三思而后行。如果你的插件想要触发一个经常被以其他方式触发的事件的话，那么你可能需要在事件原因中囊括一下你的插件主类（<code class="docutils literal notranslate"><span class="pre">PluginContainer</span></code>），以保证其他的插件可以得知事件的来源是你的插件。此外，如果你想要代表一个玩家触发一个事件，那么往往你还需要把玩家置入插件原因中。</p>
+</div>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="filters.html" class="btn btn-neutral float-right" title="事件过滤" accesskey="n" rel="next">下一页 <span class="fa fa-angle-right"></span></a>
+        <a href="listeners.html" class="btn btn-neutral" title="事件监听器" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> 上一页</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../../_static/flags/zh_CN.svg"
+         alt="zh-CN" title="简体中文">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../../_static/jquery.js"></script>      <script type="text/javascript" src="../../_static/underscore.js"></script>      <script type="text/javascript" src="../../_static/doctools.js"></script>      <script type="text/javascript" src="../../_static/language_data.js"></script>      <script type="text/javascript" src="../../_static/translations.js"></script>      <script type="text/javascript" src="../../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

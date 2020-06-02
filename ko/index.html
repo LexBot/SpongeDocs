@@ -1,0 +1,385 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sponge 설명 문서 &mdash; Sponge 7.2.0 documentation</title>
+
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="색인"
+              href="genindex.html"/>        <link rel="search" title="검색" href="search.html"/>    <link rel="top" title="Sponge 7.2.0 documentation" href="#"/>        <link rel="next" title="서버 만들기" href="server/index.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="#">
+            <img src="_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="server/index.html">서버 만들기</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="versions/index.html">Versioning Policy</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="preparing/index.html">개발 준비</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="plugin/index.html">플러그인 개발하기</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ore/index.html">Ore 설명 문서</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="contributing/index.html">Sponge에 기여하기</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="about/index.html">Sponge 프로젝트에 대하여</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="#">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="#">Docs</a> &raquo;</li>
+    <li>Sponge 설명 문서</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="sponge-documentation">
+<h1>Sponge 설명 문서<a class="headerlink" href="#sponge-documentation" title="제목 주소">¶</a></h1>
+<div class="section" id="introduction">
+<h2>소개<a class="headerlink" href="#introduction" title="제목 주소">¶</a></h2>
+<p>SpongeDocs에 오신 것을 환영합니다. 오픈 소스 <a class="reference external" href="https://www.spongepowered.org">Sponge</a> 프로젝트의 공식 설명 문서입니다.</p>
+<p>SpongeAPI is your all new plugin API for Minecraft: Java Edition. You can run it on a plain vanilla server (as
+SpongeVanilla) or on your fully modded MinecraftForge server (as SpongeForge). Check out our <a class="reference internal" href="versions/index.html"><span class="doc">Versioning Policy</span></a> to
+understand selecting a file and grab your copy from our <a class="reference external" href="https://www.spongepowered.org/downloads/">downloads page</a>.</p>
+<p>무엇을 볼지 모르시겠나요? <a class="reference internal" href="about/index.html"><span class="doc">Sponge 프로젝트에 대하여</span></a> 절을 읽어보세요. 짧은 <a class="reference internal" href="about/introduction.html"><span class="doc">소개</span></a> 와 <a class="reference internal" href="about/faq.html"><span class="doc">자주 묻는 질문들</span></a>, <a class="reference internal" href="about/structure.html"><span class="doc">Sponge 프로젝트의 구조</span></a> 에 대한 글이 들어 있습니다.</p>
+<p>서버 주인들은 어떻게 Sponge 기반 서버를 설치하고 구동, 유지하는지에 대한 <a class="reference internal" href="server/index.html"><span class="doc">서버 만들기</span></a> 의 조언과 지침을 읽어야 합니다.</p>
+<p>Sponge 프로젝트에는 몇 가지의 주 요소가 존재합니다. 프로젝트 구조를 더 자세히 알고싶다면 <a class="reference internal" href="about/structure.html"><span class="doc">이곳</span></a> 이나 GitHub 저장소를 확인해주세요.</p>
+<p><a class="reference external" href="https://github.com/spongepowered/spongeforge">SpongeForge</a> |
+<a class="reference external" href="https://github.com/spongepowered/spongevanilla">SpongeVanilla</a> | <a class="reference external" href="https://github.com/spongepowered/spongeapi">SpongeAPI</a> |
+<a class="reference external" href="https://github.com/spongepowered/spongedocs">SpongeDocs</a> | <a class="reference external" href="https://github.com/SpongePowered/SpongeHome">SpongeHome</a> |
+<a class="reference external" href="https://github.com/SpongePowered/Mixin">Mixin</a> |  <a class="reference external" href="https://github.com/SpongePowered/Ore">Ore</a> |
+<a class="reference external" href="https://github.com/SpongePowered/SpongeAuth">SpongeAuth</a></p>
+<div class="admonition note">
+<p class="first admonition-title">주석</p>
+<p class="last">Sponge development is ongoing. Stable and Experimental builds of both SpongeForge and SpongeVanilla are currently
+available for <a class="reference external" href="https://www.spongepowered.org/downloads/">download</a>.</p>
+</div>
+</div>
+<div class="section" id="contents">
+<h2>내용<a class="headerlink" href="#contents" title="제목 주소">¶</a></h2>
+<div class="section" id="creating-a-server">
+<h3>서버 만들기<a class="headerlink" href="#creating-a-server" title="제목 주소">¶</a></h3>
+<p>이 절은 Sponge 서버가 있거나 새로 만드는 것에 관심이 있는 사용자들을 위한 것입니다.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="server/index.html">서버 만들기</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="server/quickstart.html">Quick Start Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="server/getting-started/index.html">시작하기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="server/management/index.html">서버 관리</a></li>
+<li class="toctree-l2"><a class="reference internal" href="server/spongineer/index.html">Sponge 전문가 되기</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="versioning-policy">
+<h3>Versioning Policy<a class="headerlink" href="#versioning-policy" title="제목 주소">¶</a></h3>
+<p>This section describes how Sponge manages versions.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="versions/index.html">Versioning Policy</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="versions/versioning.html">Versioning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="versions/filenames.html">내려받은 파일의 이름 식별하기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="versions/legacy-versions.html">Older Versions of SpongeForge</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="preparing-for-development">
+<h3>개발 준비<a class="headerlink" href="#preparing-for-development" title="제목 주소">¶</a></h3>
+<p>Sponge 자체나 당신의 플러그인을 개발하기 위해 준비하세요! <a class="reference internal" href="plugin/index.html"><span class="doc">플러그인 개발하기</span></a> 와 <a class="reference internal" href="contributing/index.html"><span class="doc">Sponge에 기여하기</span></a> 를 읽기 전에 이 절을 읽어주세요.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="preparing/index.html">개발 준비</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="preparing/jdk.html">JDK 설치</a></li>
+<li class="toctree-l2"><a class="reference internal" href="preparing/ide.html">IDE 설치하기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="preparing/text.html">텍스트 편집기 설치하기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="preparing/git.html">Git 설치하기</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="creating-plugins">
+<h3>플러그인 만들기<a class="headerlink" href="#creating-plugins" title="제목 주소">¶</a></h3>
+<p>SpongeAPI로 플러그인을 만드는 데 도움이나 정보가 필요한가요? 멀리 볼 필요 없습니다!</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="plugin/index.html">플러그인 개발하기</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="plugin/api-versions.html">API 버전</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin/buildsystem.html">빌드 시스템</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin/workspace/index.html">작업 공간 준비하기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin/project/index.html">프로젝트 준비하기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin/plugin-identifier.html">플러그인 식별자</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin/plugin-class.html">메인 플러그인 클래스</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin/lifecycle.html">플러그인 생명 주기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin/injection.html">의존성 주입</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin/practices/index.html">관행</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin/optional/index.html">Optional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin/logging.html">로그 및 디버그</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin/text/index.html">텍스트</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin/commands/index.html">플러그인 명령어</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin/event/index.html">이벤트</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin/configuration/index.html">플러그인 설정</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin/assets.html">자산 API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin/data/index.html">자료 API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin/blocks/index.html">블록</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin/entities/index.html">개체</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin/items/index.html">아이템</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin/trade-offers.html">거래 제안</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin/effects.html">효과</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin/scheduler.html">스케줄러</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin/services.html">서비스</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin/database.html">데이터베이스</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin/permissions.html">권한</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin/bans.html">차단</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin/metrics.html">Metrics Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin/bookview.html">책 View</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin/economy/index.html">경제</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin/wgen/index.html">세계 생성</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin/manager.html">플러그인 관리자</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin/game-profile-manager.html">게임 프로필 관리자</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin/offline-userplayer-data.html">오프라인 플레이어 데이터</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin/tab-lists.html">탭 목록</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin/plugin-meta.html">플러그인 메타데이터</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin/ray-tracing.html">광선 추적</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin/debugging.html">플러그인 디버그</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin/tutorials.html">튜토리얼</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin/internals/index.html">구현 의존 플러그인</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="id1">
+<h3>Ore<a class="headerlink" href="#id1" title="제목 주소">¶</a></h3>
+<p>Sponge만의 특별한 플러그인 호스팅 방법인 Ore에서 플러그인을 게시, 설치, 검색하고 웹 API를 사용하는 방법을 배우세요.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ore/index.html">Ore 설명 문서</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ore/guidelines.html">Ore 플러그인 제출 지침</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ore/guidelines.html#projects">프로젝트</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ore/guidelines.html#files">파일</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ore/publish.html">플러그인 게시하기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ore/security.html">보안</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ore/api.html">Ore 웹 API</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="contributing-to-sponge">
+<h3>Sponge에 기여하기<a class="headerlink" href="#contributing-to-sponge" title="제목 주소">¶</a></h3>
+<p>Sponge를 개선하는 데 도움을 주고 싶으시다면 여기를 보세요. Spongie의 자랑이 되어 주세요!</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="contributing/index.html">Sponge에 기여하기</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="contributing/guidelines.html">기여 지침</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributing/howtogit.html">Git(Hub) 사용 방법</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributing/implementation/index.html">Sponge 개발하기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributing/spongedocs.html">SpongeDocs 작성</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributing/porting.html">Sponge를 다른 플랫폼으로 포팅하기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributing/versioning.html">Repository Branch Layout</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="about-sponge">
+<h3>Sponge에 대해서<a class="headerlink" href="#about-sponge" title="제목 주소">¶</a></h3>
+<p>이 절은 이 프로젝트에 대한 기본적인 정보가 설명되어 있습니다. Sponge나 그 요소, 목적을 알고 싶다면 이 절을 읽으세요.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="about/index.html">Sponge 프로젝트에 대하여</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="about/introduction.html">소개</a></li>
+<li class="toctree-l2"><a class="reference internal" href="about/faq.html">자주 묻는 질문들</a></li>
+<li class="toctree-l2"><a class="reference internal" href="about/structure.html">Sponge 프로젝트의 구조</a></li>
+<li class="toctree-l2"><a class="reference internal" href="about/future.html">미래를 향한 계획</a></li>
+<li class="toctree-l2"><a class="reference internal" href="about/license.html">라이선스</a></li>
+<li class="toctree-l2"><a class="reference internal" href="about/posting.html">포럼 게시 지침</a></li>
+<li class="toctree-l2"><a class="reference internal" href="about/rules.html">Forum, Discord &amp; IRC Rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="about/tos.html">Terms of Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="about/privacy.html">Privacy Policy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="about/staff.html">스태프</a></li>
+<li class="toctree-l2"><a class="reference internal" href="about/glossary.html">Sponge 용어 사전</a></li>
+<li class="toctree-l2"><a class="reference internal" href="about/assets.html">아트 에셋</a></li>
+<li class="toctree-l2"><a class="reference internal" href="about/history.html">Sponge의 역사</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="acknowledgements">
+<h3>감사의 글<a class="headerlink" href="#acknowledgements" title="제목 주소">¶</a></h3>
+<img alt="_images/yklogo.png" src="_images/yklogo.png" />
+<p>SpongePowered 팀은 오픈소스 프로젝트들에게 전체 기능을 갖춘 Java 프로파일러를 무료로 제공해준 <a href="#id1"><span class="problematic" id="id2">*</span></a>YourKit*에게 감사합니다. YourKit, LLC는 Java와 .NET 애플리케이션 프로파일링을 위한 획기적이고 똑똑한 도구인 <a class="reference external" href="https://www.yourkit.com/java/profiler/index.jsp">YourKit Java Profiler</a> 과 <a class="reference external" href="https://www.yourkit.com/.net/profiler/index.jsp">YourKit .NET Profiler</a> 를 만들어낸 회사입니다.</p>
+</div>
+</div>
+<div class="section" id="links">
+<h2>링크<a class="headerlink" href="#links" title="제목 주소">¶</a></h2>
+<div class="toctree-wrapper compound">
+</div>
+<ul class="simple">
+<li><a class="reference external" href="https://www.spongepowered.org">Sponge 홈페이지</a></li>
+<li><a class="reference external" href="https://forums.spongepowered.org">Sponge 포럼</a></li>
+<li><a class="reference external" href="https://discord.gg/sponge">Sponge Discord</a></li>
+<li><a class="reference external" href="https://www.spongepowered.org/downloads/">Sponge Downloads</a></li>
+<li><a class="reference external" href="https://github.com/SpongePowered/SpongeAPI/issues?q=">SpongeAPI 이슈 트래커</a></li>
+<li><a class="reference external" href="https://jd.spongepowered.org">SpongeAPI Javadocs</a></li>
+<li><a class="reference external" href="https://twitter.com/SpongePowered">Sponge Twitter</a></li>
+<li><a class="reference external" href="https://www.reddit.com/r/spongeproject">Sponge Subreddit</a></li>
+<li><a class="reference external" href="https://github.com/SpongePowered">Sponge GitHub</a></li>
+<li><a class="reference external" href="https://www.patreon.com/Sponge">Sponge Patreon 후원</a></li>
+</ul>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="server/index.html" class="btn btn-neutral float-right" title="서버 만들기" accesskey="n" rel="next">다음 <span class="fa fa-angle-right"></span></a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="_static/flags/ko_KR.svg"
+         alt="ko" title="한국어">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="_static/jquery.js"></script>      <script type="text/javascript" src="_static/underscore.js"></script>      <script type="text/javascript" src="_static/doctools.js"></script>      <script type="text/javascript" src="_static/language_data.js"></script>      <script type="text/javascript" src="_static/translations.js"></script>      <script type="text/javascript" src="_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

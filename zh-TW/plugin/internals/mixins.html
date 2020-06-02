@@ -1,0 +1,364 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>在插件中使用 Mixin &mdash; Sponge 7.2.0 說明文件</title>
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="索引"
+              href="../../genindex.html"/>        <link rel="search" title="搜尋" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 說明文件" href="../../index.html"/>        <link rel="up" title="相依於實作的插件" href="index.html"/>        <link rel="next" title="內部的 Sponge Classes" href="implementation.html"/>        <link rel="prev" title="使用 Access Transformer" href="access-transformers.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../../index.html">
+            <img src="../../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../server/index.html">建立伺服器</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../versions/index.html">版本控制方針</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../preparing/index.html">準備開發</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">建立插件</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../api-versions.html">API版本</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../buildsystem.html">建置系統</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../workspace/index.html">建立你的工作空間</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../project/index.html">建立你的專案</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-identifier.html">插件識別碼</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-class.html">主要插件類別</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lifecycle.html">插件的生命週期</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../injection.html">相依注入</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../practices/index.html">實踐</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../optional/index.html">Optionals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../logging.html">記錄與除錯</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text/index.html">文本</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/index.html">插件指令</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../event/index.html">事件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/index.html">設定插件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assets.html">Asset API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data/index.html">Data API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../blocks/index.html">方塊</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../entities/index.html">實體</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../items/index.html">物品</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../trade-offers.html">開設交易</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../effects.html">效果</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../scheduler.html">排程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../services.html">服務</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database.html">資料庫</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../permissions.html">權限</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bans.html">封鎖</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metrics.html">Metrics 收集</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bookview.html">書本閱覽</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../economy/index.html">經濟</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wgen/index.html">世界生成</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manager.html">插件管理器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../game-profile-manager.html">遊戲設定檔管理器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../offline-userplayer-data.html">離線玩家資料</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tab-lists.html">Tab 清單</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-meta.html">插件元數據</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ray-tracing.html">光線追蹤</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../debugging.html">插件除錯</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials.html">教學</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">相依於實作的插件</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="mcp.html">MCP 简介</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mcp-setup.html">在插件中使用 MCP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="access-transformers.html">使用 Access Transformer</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">在插件中使用 Mixin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="implementation.html">內部的 Sponge Classes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ore/index.html">Ore 文件</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/index.html">為 Sponge 貢獻</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">關於 Sponge 專案</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+          <li><a href="../index.html">建立插件</a> &raquo;</li>
+          <li><a href="index.html">相依於實作的插件</a> &raquo;</li>
+    <li>在插件中使用 Mixin</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/plugin/internals/mixins.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="plugin-mixins">
+<h1>在插件中使用 Mixin<a class="headerlink" href="#plugin-mixins" title="本標題的永久連結">¶</a></h1>
+<p><a class="reference external" href="https://github.com/SpongePowered/Mixin">Mixins</a> 可用于在特定的类加载之前对它们进行修改。你可以在插件中使用 Mixin，以为你的服务器进行专门的定制——而不需要 Fork Sponge 的源代码。相关的修改将直接和你的插件绑定，并且在你的插件被加载时进行。</p>
+<div class="admonition seealso">
+<p class="first admonition-title">也參考</p>
+<dl class="last docutils">
+<dt><a class="reference external" href="https://github.com/SpongePowered/Mixin/wiki">Mixin 的开发文档</a></dt>
+<dd>Mixin 的开发文档中有着关于 Mixin 的介绍。</dd>
+<dt><a class="reference external" href="https://github.com/SpongePowered/Cookbook/tree/master/Plugin/PluginMixinTest">示例插件</a></dt>
+<dd>示例插件使用了 Mixin 以在服务端加载的时候输出一条消息。</dd>
+</dl>
+</div>
+<div class="section" id="setup">
+<h2>配置<a class="headerlink" href="#setup" title="本標題的永久連結">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">在你的插件中添加 Mixin 作为依赖库：</p>
+<blockquote>
+<div><div class="highlight-groovy notranslate"><div class="highlight"><pre><span></span><span class="n">dependencies</span> <span class="o">{</span>
+    <span class="n">compile</span> <span class="s1">&#39;org.spongepowered:mixin:0.7.11-SNAPSHOT&#39;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first">在你的插件的资源文件夹（Resource Folder）中添加有关于 Mixin 的配置，如 <code class="docutils literal notranslate"><span class="pre">mixins.myplugin.json</span></code> ：</p>
+<blockquote>
+<div><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="nt">&quot;minVersion&quot;</span><span class="p">:</span> <span class="s2">&quot;0.7.10&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;package&quot;</span><span class="p">:</span> <span class="s2">&quot;com.example.myplugin.mixin&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;refmap&quot;</span><span class="p">:</span> <span class="s2">&quot;mixins.myplugin.refmap.json&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;target&quot;</span><span class="p">:</span> <span class="s2">&quot;@env(DEFAULT)&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;compatibilityLevel&quot;</span><span class="p">:</span> <span class="s2">&quot;JAVA_8&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;mixins&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;MixinMinecraftServer&quot;</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first">在特定的包中添加你的 Mixin 类：</p>
+<blockquote>
+<div><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">com.example.myplugin.mixin</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">net.minecraft.server.MinecraftServer</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.asm.mixin.Mixin</span><span class="p">;</span>
+
+<span class="nd">@Mixin</span><span class="p">(</span><span class="n">MinecraftServer</span><span class="p">.</span><span class="na">class</span><span class="p">)</span>
+<span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">MixinMinecraftServer</span> <span class="p">{</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ol>
+<div class="section" id="debugging">
+<h3>调试<a class="headerlink" href="#debugging" title="本標題的永久連結">¶</a></h3>
+<p>通常情况下，Mixin 的配置文件由插件 JAR 的 Manifest 文件决定。不过由于在 IDE 中的插件并没有以 JAR 的形式打包，因此你需要在命令行参数中指定 Mixin 的配置：</p>
+<ol class="arabic">
+<li><p class="first">在程序的运行配置选项中为你的每一个 Mixin 配置文件都添加上 <code class="docutils literal notranslate"><span class="pre">--mixin</span> <span class="pre">&lt;mixin</span> <span class="pre">config</span> <span class="pre">file</span> <span class="pre">name&gt;</span></code> 这一命令行参数：</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>--mixin mixins.myplugin.json
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ol>
+</div>
+<div class="section" id="production">
+<h3>生产环境<a class="headerlink" href="#production" title="本標題的永久連結">¶</a></h3>
+<p>即使 Mixin 已经可以在你的开发环境中跑起来了，但如果想要应用到生产环境中去，你还需要做一些事情：</p>
+<ol class="arabic">
+<li><p class="first">在你的 Gradle 构建脚本中添加名为 <a class="reference external" href="https://github.com/SpongePowered/MixinGradle">MixinGradle</a> 的插件：</p>
+<blockquote>
+<div><div class="highlight-groovy notranslate"><div class="highlight"><pre><span></span><span class="n">buildscript</span> <span class="o">{</span>
+    <span class="n">repositories</span> <span class="o">{</span>
+        <span class="n">maven</span> <span class="o">{</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;sponge&#39;</span>
+            <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://repo.spongepowered.org/maven&#39;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+    <span class="n">dependencies</span> <span class="o">{</span>
+        <span class="n">classpath</span> <span class="s1">&#39;org.spongepowered:mixingradle:0.6-SNAPSHOT&#39;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="n">apply</span> <span class="nl">plugin:</span> <span class="s1">&#39;org.spongepowered.mixin&#39;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first">为你的 Mixin 配置设置映射表：</p>
+<blockquote>
+<div><div class="highlight-groovy notranslate"><div class="highlight"><pre><span></span><span class="n">sourceSets</span> <span class="o">{</span>
+    <span class="n">main</span> <span class="o">{</span>
+        <span class="n">ext</span><span class="o">.</span><span class="na">refMap</span> <span class="o">=</span> <span class="s2">&quot;mixins.myplugin.refmap.json&quot;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first">在 JAR Manifest 中指定你的 Mixin 配置。如果你想要在 SpongeForge 中加载 Mixin，你需要添加 <code class="docutils literal notranslate"><span class="pre">FMLCorePluginContainsFMLMod</span></code> 选项：</p>
+<blockquote>
+<div><div class="highlight-groovy notranslate"><div class="highlight"><pre><span></span><span class="n">jar</span> <span class="o">{</span>
+    <span class="n">manifest</span><span class="o">.</span><span class="na">attributes</span><span class="o">(</span>
+        <span class="s1">&#39;TweakClass&#39;</span><span class="o">:</span> <span class="s1">&#39;org.spongepowered.asm.launch.MixinTweaker&#39;</span><span class="o">,</span>
+        <span class="s1">&#39;MixinConfigs&#39;</span><span class="o">:</span> <span class="s1">&#39;mixins.myplugin.json&#39;</span><span class="o">,</span>
+        <span class="s1">&#39;FMLCorePluginContainsFMLMod&#39;</span><span class="o">:</span> <span class="s1">&#39;true&#39;</span><span class="o">,</span>
+    <span class="o">)</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first">然后请确保你已重新运行了 Gradle 以重新构建插件 JAR。构建完成后，你的插件 JAR 就应该可以在 SpongeVanilla 和 SpongeForge 中使用 Mixin 了。</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gradle clean build
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ol>
+</div>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="implementation.html" class="btn btn-neutral float-right" title="內部的 Sponge Classes" accesskey="n" rel="next">下一頁 <span class="fa fa-angle-right"></span></a>
+        <a href="access-transformers.html" class="btn btn-neutral" title="使用 Access Transformer" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> 上一頁</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../../_static/flags/zh_TW.svg"
+         alt="zh-TW" title="繁體中文">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../../_static/jquery.js"></script>      <script type="text/javascript" src="../../_static/underscore.js"></script>      <script type="text/javascript" src="../../_static/doctools.js"></script>      <script type="text/javascript" src="../../_static/language_data.js"></script>      <script type="text/javascript" src="../../_static/translations.js"></script>      <script type="text/javascript" src="../../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

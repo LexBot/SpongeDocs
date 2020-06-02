@@ -1,0 +1,389 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>如何 Git(hub) &mdash; Sponge 7.2.0 說明文件</title>
+
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="索引"
+              href="../genindex.html"/>        <link rel="search" title="搜尋" href="../search.html"/>    <link rel="top" title="Sponge 7.2.0 說明文件" href="../index.html"/>        <link rel="up" title="為 Sponge 貢獻" href="index.html"/>        <link rel="next" title="開發 Sponge" href="implementation/index.html"/>        <link rel="prev" title="貢獻指南" href="guidelines.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../index.html">
+            <img src="../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../server/index.html">建立伺服器</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../versions/index.html">版本控制方針</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../preparing/index.html">準備開發</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../plugin/index.html">建立插件</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ore/index.html">Ore 文件</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">為 Sponge 貢獻</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="guidelines.html">貢獻指南</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">如何 Git(hub)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="implementation/index.html">開發 Sponge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spongedocs.html">SpongeDocs 文件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="porting.html">將 Sponge 移植到其他平台</a></li>
+<li class="toctree-l2"><a class="reference internal" href="versioning.html">專案分支布局</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">關於 Sponge 專案</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+          <li><a href="index.html">為 Sponge 貢獻</a> &raquo;</li>
+    <li>如何 Git(hub)</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/contributing/howtogit.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="how-to-git-hub">
+<h1>如何 Git(hub)<a class="headerlink" href="#how-to-git-hub" title="本標題的永久連結">¶</a></h1>
+<p>如果你想協助建立 Sponge，你有一個很棒的 API 添加，或者你想改善我們的文件，那麼你需要熟悉 <code class="docutils literal notranslate"><span class="pre">git</span></code> 和 GitHub。如果您已經熟悉 Fork、分支（Branch）、問題（Issue）、拉取請求（Pull Request）和提交（commit），那麼就跳過這個話題。 如果你不知道我們在說些什麼，那麼你繼續讀吧。</p>
+<div class="admonition note">
+<p class="first admonition-title">備註</p>
+<p class="last">此指南假設您已經閱讀 <a class="reference internal" href="../preparing/git.html"><span class="doc">安裝 Git</span></a>，並且您已經使用您選擇的 Git 客戶端設定了您的電腦。</p>
+</div>
+<div class="section" id="the-basic-concept-of-git-and-github">
+<h2>Git 和 GitHub 的基本概念<a class="headerlink" href="#the-basic-concept-of-git-and-github" title="本標題的永久連結">¶</a></h2>
+<p>Git 允許許多不同的開發人員同時開發一個軟體。GitHub 是一個開發人員可以與其他人協作和共享工作的網站。GitHub 依靠 Git 來管理上述工作。</p>
+<div class="admonition tip">
+<p class="first admonition-title">小訣竅</p>
+<p class="last">如果您不熟悉 Git 與 GitHub 詞彙，請參考 <a class="reference external" href="https://help.github.com/articles/github-glossary/">GitHub 上的詞彙頁面</a>。</p>
+</div>
+<img alt="Repo Overview" src="../_images/repo-overview.svg" /><p>在這種情況下，儲存庫（Repo）被命名為``SpongePowered``，有兩個分支名為``master`` 和 <code class="docutils literal notranslate"><span class="pre">feature</span> <span class="pre">1</span></code>，並且在兩個分支都有一些提交。</p>
+<p>讓我們把這些術語放到上下文意中——從 <em>repository</em> 開始。儲存庫（repository，簡稱：<em>repo</em>）是專案儲存檔案的地方。SpongePowered 儲存庫位於 <a class="reference external" href="https://github.com/SpongePowered">GitHub</a>。然而，這個儲存庫有一些訪問限制，以防止非預期或惡意的修改。您不能直接自行修改，因為儲存庫對一般用戶是唯讀的。現在您可能想知道您該如何提交建議和修改。而這就是 <em>fork</em> 的作用。您可以抓取 SpongePowered 儲存庫的副本，並在那裡進行修改。完成後，在儲存庫中將其開啟為 Pull Tequest（<em>PR</em>）。工作人員會審查您提出的添加和更改，告訴你是否有問題或需要改進，並合併最後的 PR。</p>
+<p>在詳細討論之前，以下是上述程序的簡短摘要：</p>
+<ol class="arabic simple">
+<li>Fork 你所選擇的儲存庫</li>
+<li>克隆（Clone）到您的電腦上</li>
+<li>建立一個新的分支</li>
+<li>作出所需的更改</li>
+<li>測試一切能運作</li>
+<li>提交更改</li>
+<li>將它們同步到 GitHub</li>
+<li>將這些更改向 SpongePowered 儲存庫提出 PR</li>
+<li>必要時修改您的 PR</li>
+<li>你的 PR 被員工合併進 master</li>
+</ol>
+</div>
+<div class="section" id="details-please">
+<h2>請詳細說明！<a class="headerlink" href="#details-please" title="本標題的永久連結">¶</a></h2>
+<div class="section" id="forking-a-repo">
+<h3>1. Fork 儲存庫<a class="headerlink" href="#forking-a-repo" title="本標題的永久連結">¶</a></h3>
+<div class="admonition note">
+<p class="first admonition-title">備註</p>
+<p class="last">只有在您對更改的儲存庫沒有推送權限的情況下，才需要執行此步驟。 如果你正在自己的儲存庫工作，是沒有必要 fork 的。只需跳過這一步，並直接 <code class="docutils literal notranslate"><span class="pre">clone</span></code> 即可。如果您對 Sponge 進行了更改，並且您<strong>不是</strong>員工，則需要執行此步驟。</p>
+</div>
+<p>現在你知道了基本概念，我們將討論細節。首先，需要 fork 要更改的儲存庫。這可以在 GitHub.com 上完成，在儲存庫頁面的頂部找到 <code class="docutils literal notranslate"><span class="pre">Fork</span></code> 按鈕。按下後，GitHub 會做一些工作，並向您提供原始儲存庫的克隆。您會注意到該克隆現在位於 <code class="docutils literal notranslate"><span class="pre">你的</span> <span class="pre">GitHub</span> <span class="pre">帳號/克隆的儲存庫名稱</span></code>。好了，第一步完成。</p>
+<div class="admonition note">
+<p class="first admonition-title">備註</p>
+<p class="last">原始儲存庫中的所有分支也將 fork，您會收到與被 fork 的儲存庫一模一樣克隆。</p>
+</div>
+<img alt="Repo forking" src="../_images/repo-fork.svg" /></div>
+<div class="section" id="cloning-the-fork-to-your-local-machine">
+<h3>2. 把 fork 克隆到您的電腦<a class="headerlink" href="#cloning-the-fork-to-your-local-machine" title="本標題的永久連結">¶</a></h3>
+<p>現在你需要把這個 fork 拿到你的電腦上來進行更改。打開你選擇的 Git 客戶端（<a class="reference internal" href="../preparing/git.html"><span class="doc">安裝 Git</span></a>）並 <code class="docutils literal notranslate"><span class="pre">clone</span></code> 你的 fork 到你的電腦。 客戶端會要求您提供一個資料夾來儲存所有內容。第二步完成，做得好！</p>
+<div class="admonition note">
+<p class="first admonition-title">備註</p>
+<p class="last">大多數步驟可以通過您選擇的 GUI 完成。如果你使用指令界面的經驗，也可以使用它。每個步驟都會展示所需的命令，以達到期望的結果。</p>
+</div>
+<p>另外，你可以通過 CLI（command line interface，指令介面，Windows 下的 <code class="docutils literal notranslate"><span class="pre">CMD</span></code> 或 <code class="docutils literal notranslate"><span class="pre">powershell</span></code>）來完成這個任務。請注意，在輸入此指令之前，您需要建立將克隆所有東西的資料夾：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone git://github.com/YourGitHubAccount/ClonedRepoName.git
+</pre></div>
+</div>
+<img alt="Repo cloning" src="../_images/repo-clone.svg" /></div>
+<div class="section" id="creating-a-new-branch">
+<h3>3. 建立一個新的分支<a class="headerlink" href="#creating-a-new-branch" title="本標題的永久連結">¶</a></h3>
+<p>現在你有了一個你的 fork 的本地克隆，是時候建立一個分支來工作。分支被設計成能夠同時開發和測試不同的功能或添加，而不會因添加的干擾而引起問題和錯誤。強烈建議你<strong>不要</strong>在 <code class="docutils literal notranslate"><span class="pre">master</span></code> 分支上進行修改。取而代之，自己建立一個新的分支（用一個具有意義的名稱），並在那裡做更改。</p>
+<p>這意味著我們需要先創建一個 <code class="docutils literal notranslate"><span class="pre">分支</span> <span class="pre">``\</span> <span class="pre">，所以我們開始吧！你可以通過客戶端（在某處應該有一個</span> <span class="pre">``建立分支</span></code> 按鈕），也可以透過 CLI 用 git 來完成：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git checkout -b <span class="o">[</span>name_of_your_new_branch<span class="o">]</span>
+</pre></div>
+</div>
+<p>這將使用你選擇的名稱建立一個 <code class="docutils literal notranslate"><span class="pre">分支</span></code>，並切換到此。你即將做出的所有更改都將會在此分支上。如果您需要切換到另一個分支（例如 <code class="docutils literal notranslate"><span class="pre">master</span></code>），只需重新使用此指令。第三步完成！到目前為止都很好！要得到你的分支的概貌，只需看看你的 git 客戶端或使用：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git branch
+</pre></div>
+</div>
+<img alt="Branches" src="../_images/repo-branch.svg" /><p><strong>是時候進行更改了</strong>。請使用您選擇的編輯器或 IDE 來執行此操作。</p>
+</div>
+<div class="section" id="test-if-your-changes-work">
+<h3>4. 測試您的更改是否能運作<a class="headerlink" href="#test-if-your-changes-work" title="本標題的永久連結">¶</a></h3>
+<p>你必須對 SpongeAPI 及其實作執行 <code class="docutils literal notranslate"><span class="pre">gradle</span> <span class="pre">compileJava</span></code> 。如果能在沒有錯誤的情況下完成，請繼續下一步。如果發生錯誤，請作出適當的更正並重試。</p>
+<p>對於 SpongeDocs 而言，你只需要提交您的 PR，它會自動建置並顯示可能出現的錯誤。另一種選擇是於本機建置 Docs。查看 <a class="reference external" href="https://github.com/SpongePowered/SpongeDocs/blob/master/README.md">Docs上的 Readme.md</a> 以獲取更多說明。</p>
+</div>
+<div class="section" id="commit-the-changes">
+<h3>5. 提交更改<a class="headerlink" href="#commit-the-changes" title="本標題的永久連結">¶</a></h3>
+<p>完成後，需要將它們打包起來（也就是一個 <code class="docutils literal notranslate"><span class="pre">commit</span></code> ）中，並將它們放入分支中。你的 git 客戶端將再次將幫助你。請為您的提交添加一個有意義的名稱，如果需要，添加一個簡短描述。這也可以通過 CLI 完成：</p>
+<p>首先收集你想要提交的所有檔案和資料夾：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git add &lt;file&gt;
+git add &lt;folder&gt;
+</pre></div>
+</div>
+<p>現在，檔案被添加到您想要包含在提交中的更改列表中，這樣做即可</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git commit
+</pre></div>
+</div>
+<p>它會打開一個文本視窗，如果你想要，在那裡你可以添加一個消息。 看看下面的圖片。你會注意到你的提交仍然儲存在本地，而不是在 GitHub 的 fork 上。</p>
+<div class="admonition note">
+<p class="first admonition-title">備註</p>
+<p class="last">您可以在一個 PR 中進行多個提交。馬上進行吧，更改你所需的一切，並把更改提交。稍後您可以將多提交合併到單個提交之中。</p>
+</div>
+<p>所以現在，第六步就完成了。幾乎要完成了！</p>
+<img alt="Committing" src="../_images/repo-commit.svg" /></div>
+<div class="section" id="sync-to-github">
+<h3>6. 同步到 GitHub<a class="headerlink" href="#sync-to-github" title="本標題的永久連結">¶</a></h3>
+<p>現在我們需要將這些變更套用到 GitHub 上你的 fork。到目前為止，您所做的一切只被儲存於本機。與往常一樣，你可以使用你的 git 客戶端來做到這一點（你的GUI某處有一個按鈕），或者你可以通過 CLI 來完成：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git push &lt;remote&gt; &lt;branch&gt;
+</pre></div>
+</div>
+<p>在這種情況下，應該是這樣：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git push origin feature/YourFeature
+</pre></div>
+</div>
+<img alt="Pushing commits" src="../_images/repo-push.svg" /></div>
+<div class="section" id="propose-the-changes-in-a-pr-to-the-spongepowered-repo">
+<h3>7. 向 SpongePowered 儲存庫將更改提交 PR<a class="headerlink" href="#propose-the-changes-in-a-pr-to-the-spongepowered-repo" title="本標題的永久連結">¶</a></h3>
+<p>你可以去 GitHub.com 上的 Forks 頁面（應該在你的 Forks 頁面的頂部有一個通知來指導你），或者你可以使用你的 GitHub 客戶端來建立一個 Pull Request。Windows 的 GitHub 官方客戶端的將其放在視窗的右上角。</p>
+<img alt="PRs" src="../_images/repo-pr.svg" /></div>
+<div class="section" id="amend-your-pr-if-necessary">
+<h3>8. 如有必要，修改您的 PR<a class="headerlink" href="#amend-your-pr-if-necessary" title="本標題的永久連結">¶</a></h3>
+<p>如果我們想要對你的 PR 進行更改，那麼只需要對上面建立的分支進行更多的提交。新的提交將自動添加到您的 PR 中。</p>
+</div>
+<div class="section" id="your-pr-gets-pulled">
+<h3>9. 你的 PR 被 Pull 了<a class="headerlink" href="#your-pr-gets-pulled" title="本標題的永久連結">¶</a></h3>
+<p>就是如此。我們都準備好了！做得很好！</p>
+</div>
+</div>
+<div class="section" id="advanced-git">
+<h2>進階的 Git<a class="headerlink" href="#advanced-git" title="本標題的永久連結">¶</a></h2>
+<div class="section" id="squashing-with-rebase">
+<h3>折疊提交（Squash）與變基（Rebase）<a class="headerlink" href="#squashing-with-rebase" title="本標題的永久連結">¶</a></h3>
+<p>假設你已經完成了對儲存庫的補充，假設你完成了137次提交。 你的提交歷史肯定會顯得非常混亂。如果它們都被記錄在資料庫中，這將會非常難堪，不是嗎？太多零碎的提交也會混淆專案的提交歷史。很幸運地，Git 有一個很好的工具來迴避這麻煩，它叫做``rebase``。 Rebase 可以把你的137項小提交合併成一個大提交。很讚對吧？而不是重新發明輪子，我們會傳給你一個簡短、容易理解的折疊提交（squash）教學連結：</p>
+<p><a class="reference external" href="http://gitready.com/advanced/2009/02/10/squashing-commits-with-rebase.html">Gitready: Squashing with Rebase</a></p>
+<p>這就是它所做的，很好的視覺化展示：</p>
+<img alt="Squashing commits" src="../_images/repo-squash.svg" /></div>
+<div class="section" id="setting-up-a-remote">
+<h3>設定遠端<a class="headerlink" href="#setting-up-a-remote" title="本標題的永久連結">¶</a></h3>
+<p>自然的，原始儲存庫是您的 Fork 的直接 parent，您的 Fork 是本地克隆的直接 parent。然而，原始的儲存庫<strong>不是</strong>您的克隆的直接 parent。這不是首要問題，但它阻止您將克隆更新到原始儲存庫的最新更改。如果您將原始儲存庫設定為您的克隆的遠端（讀取：「parent」），您將能夠獲取對此儲存庫所做的所有更改，並將其應用到您的本地克隆。看下面看看如何抓取和更新工作。</p>
+<img alt="Setting up a remote" src="../_images/repo-remote.svg" /><p>好了。這一步是通過 CLI 完成的，因為大多數 GUI 都缺少這個（相當先進的）功能：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git remote add upstream https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git
+</pre></div>
+</div>
+<p>如果您不確定該功能是否按預期工作，或者您想檢查當前設置了哪些遠端，則可以通過以下方式進行檢查：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git remote -v
+</pre></div>
+</div>
+<p>輸出應該像這樣：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>origin    https://github.com/YOUR_USERNAME/YOUR_FORK.git <span class="o">(</span>fetch<span class="o">)</span>
+origin    https://github.com/YOUR_USERNAME/YOUR_FORK.git <span class="o">(</span>push<span class="o">)</span>
+upstream  https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git <span class="o">(</span>fetch<span class="o">)</span>
+upstream  https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git <span class="o">(</span>push<span class="o">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">備註</p>
+<p class="last">如果看到警告 <code class="docutils literal notranslate"><span class="pre">fatal:</span> <span class="pre">The</span> <span class="pre">current</span> <span class="pre">branch</span> <span class="pre">你的分支名稱</span> <span class="pre">has</span> <span class="pre">no</span> <span class="pre">upstream</span> <span class="pre">branch.</span></code>，那麼分支可能不在 upstream 遠端。如果這是您第一次推送新分支的提交，則可能會發生這種情況。要推送當前分支並將遠端設置為 upstream，請使用 <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span> <span class="pre">--set-upstream</span> <span class="pre">origin</span> <span class="pre">你的分支名稱</span></code>。</p>
+</div>
+</div>
+<div class="section" id="rebasing">
+<h3>變基（Rebasing）<a class="headerlink" href="#rebasing" title="本標題的永久連結">¶</a></h3>
+<p>假設你對你想要的分支做了一些更改，但同時有人更新了儲存庫。這意味著你的 fork 和你的克隆是過時的。這不是一個大問題，但為了避免以後合併您的添加時出現問題，強烈建議您將您的變更 <code class="docutils literal notranslate"><span class="pre">rebase</span></code> 到原始儲存庫的最新更改進行。如果您還沒有設定遠端儲存庫，請在嘗試變基（rebase）之前進行。</p>
+<p>一個成功的 rebase 需要幾個步驟：</p>
+<div class="section" id="fetch-the-changes-on-the-remote-repo">
+<h4>1. 獲取（Fetch）遠端儲存庫的更改<a class="headerlink" href="#fetch-the-changes-on-the-remote-repo" title="本標題的永久連結">¶</a></h4>
+<p>首先，您需要獲取遠程存儲庫上的更改。這是（再次）通過 CLI 完成的：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git fetch upstream
+</pre></div>
+</div>
+<p>這將添加來自遠端 <code class="docutils literal notranslate"><span class="pre">upstream</span></code> 的所有更改，並將其放入臨時的 <code class="docutils literal notranslate"><span class="pre">upstream/master</span></code> 分支。</p>
+</div>
+<div class="section" id="merge-remote-changes-locally">
+<h4>2. 本地合併遠端更改<a class="headerlink" href="#merge-remote-changes-locally" title="本標題的永久連結">¶</a></h4>
+<p>現在我們需要選擇我們的本地 <code class="docutils literal notranslate"><span class="pre">master</span></code> 分支：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git checkout master
+</pre></div>
+</div>
+<p>之後，我們將包含在 <code class="docutils literal notranslate"><span class="pre">upstream/master</span></code> 中的更改合併到本地的 <code class="docutils literal notranslate"><span class="pre">master</span></code> 分支中：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git merge upstream/master
+</pre></div>
+</div>
+<p>好了，這就是我們到此為止所做的：</p>
+<img alt="Rebasing 1" src="../_images/repo-rebase1.svg" /></div>
+<div class="section" id="rebase-local-branch-against-updated-master">
+<h4>3. 將本地分支變基到已更新的主線<a class="headerlink" href="#rebase-local-branch-against-updated-master" title="本標題的永久連結">¶</a></h4>
+<p>接下來是將您正在將工作中的本地分支 rebase 到 <code class="docutils literal notranslate"><span class="pre">master</span></code>。我們需要切換到你的工作分支（這裡：<code class="docutils literal notranslate"><span class="pre">feature/你的功能</span></code>），然後執行 rebase。這操作是通過：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git checkout feature/yourfeature
+git rebase master
+</pre></div>
+</div>
+<p>這將倒回你的分支，然後在 master 分支再次套用您自己的更改。結果如下所示：</p>
+<img alt="Rebasing 2" src="../_images/repo-rebase2.svg" /></div>
+<div class="section" id="push-everything-to-your-fork">
+<h4>4. 把一切推送到你的 fork<a class="headerlink" href="#push-everything-to-your-fork" title="本標題的永久連結">¶</a></h4>
+<p>我們需要做的最後一件事是把所有東西都推到 fork 上。如果您已經創建了一個 PR，它會自動被更新：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git checkout master
+git push -f
+git checkout feature/yourfeature
+git push -f
+</pre></div>
+</div>
+<img alt="Rebasing 3" src="../_images/repo-rebase3.svg" /><p>你做到了，真棒！做得好，感謝與 Rebase-Air 同飛！</p>
+</div>
+</div>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="implementation/index.html" class="btn btn-neutral float-right" title="開發 Sponge" accesskey="n" rel="next">下一頁 <span class="fa fa-angle-right"></span></a>
+        <a href="guidelines.html" class="btn btn-neutral" title="貢獻指南" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> 上一頁</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../_static/flags/zh_TW.svg"
+         alt="zh-TW" title="繁體中文">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../_static/jquery.js"></script>      <script type="text/javascript" src="../_static/underscore.js"></script>      <script type="text/javascript" src="../_static/doctools.js"></script>      <script type="text/javascript" src="../_static/language_data.js"></script>      <script type="text/javascript" src="../_static/translations.js"></script>      <script type="text/javascript" src="../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

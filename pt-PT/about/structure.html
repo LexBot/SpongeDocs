@@ -1,0 +1,273 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Estrutura do Projeto Sponge &mdash; Documentação Sponge 7.2.0</title>
+
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="Índice"
+              href="../genindex.html"/>        <link rel="search" title="Pesquisar" href="../search.html"/>    <link rel="top" title="Documentação Sponge 7.2.0" href="../index.html"/>        <link rel="up" title="Sobre o Projeto Sponge" href="index.html"/>        <link rel="next" title="Planos para o Futuro" href="future.html"/>        <link rel="prev" title="Perguntas Frequentes" href="faq.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../index.html">
+            <img src="../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../server/index.html">Criar um Servidor</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../versions/index.html">Políticas de Versionamento</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../preparing/index.html">Preparação para Desenvolvimento</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../plugin/index.html">Criar um Plugin</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ore/index.html">Documentação do Ore</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contributing/index.html">Contribuir para o Sponge</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Sobre o Projeto Sponge</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="introduction.html">Introdução</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html">Perguntas Frequentes</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Estrutura do Projeto Sponge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="future.html">Planos para o Futuro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="license.html">Licença</a></li>
+<li class="toctree-l2"><a class="reference internal" href="posting.html">Diretrizes para Publicação no Fórum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rules.html">Forum, Discord &amp; IRC Rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tos.html">Termos de serviço</a></li>
+<li class="toctree-l2"><a class="reference internal" href="privacy.html">Políticas de Privacidade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="staff.html">Pessoal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html">Glossário do Sponge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assets.html">Ativos Artísticos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="history.html">A História do Sponge</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+          <li><a href="index.html">Sobre o Projeto Sponge</a> &raquo;</li>
+    <li>Estrutura do Projeto Sponge</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/about/structure.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="the-structure-of-the-sponge-project">
+<h1>Estrutura do Projeto Sponge<a class="headerlink" href="#the-structure-of-the-sponge-project" title="Link permanente para este título">¶</a></h1>
+<p>O Projeto Sponge é composto por vários sub-projetos, hospedados em vários repositórios no GitHub. Segue-se um breve resumo antes de irmos a detalhes:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="27%" />
+<col width="39%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Projeto</th>
+<th class="head">Descrição</th>
+<th class="head">O que é que se faz no repositório?</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><a class="reference external" href="https://github.com/SpongePowered/SpongeAPI">SpongeAPI</a></td>
+<td>A própria API</td>
+<td>O dsenvolvimento da própria API</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://github.com/SpongePowered/SpongeForge">SpongeForge</a></td>
+<td>Uma implementação da SpongeAPI construída em cima do Forge</td>
+<td>Desenvolvimentos das partes do SpongeForge que dependem do Forge</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://github.com/SpongePowered/SpongeVanilla">SpongeVanilla</a></td>
+<td>Uma implementação da SpongeAPI construída diretamente em cima do Minecraft Vanilla</td>
+<td>Desenvolvimento do equivalente Vanilla do repositório SpongeForge</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://github.com/SpongePowered/SpongeCommon">SpongeCommon</a></td>
+<td>O código comum ao SpongeForge e ao SpongeVanilla</td>
+<td>Desenvolvimento de todo o código que é partilhado entre o SpongeForge e o SpongeVanilla</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://github.com/SpongePowered/Mixin">Mixin</a></td>
+<td>A ferramenta utilizada para injetar as implementações na estrutura de código subjacente</td>
+<td>Desenvolvimento da nossa solução para ligar o Sponge ao Minecraft Server</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a></td>
+<td>A Documentação Oficial do SpongeProject</td>
+<td>Expansão, correção e desenvolvimento dos SpongeDocs</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://github.com/SpongePowered/SpongeHome">SpongeHome</a></td>
+<td>O site do SpongeProject</td>
+<td>O desenvolvimento do nosso website</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://github.com/SpongePowered/Ore">Ore</a></td>
+<td>Solução de hospedagem plugins</td>
+<td>Desenvolvimento da nossa solução de hospedagem de plugins</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://github.com/SpongePowered/SpongeAuth">SpongeAuth</a></td>
+<td>O portal de autenticação e SSO para os nossos websites</td>
+<td>Desenvolvimento do nosso portal de autenticação e da solução SSO</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="spongecommon-spongeforge-and-spongevanilla">
+<h2>SpongeCommon, SpongeForge e SpongeVanilla<a class="headerlink" href="#spongecommon-spongeforge-and-spongevanilla" title="Link permanente para este título">¶</a></h2>
+<p>O repositório SpongeCommon é a base que contém todo o código que é partilhado entre as implementações do SpongeForge e do SpongeVanilla. Os repositórios SpongeForge e SpongeVanilla contêm todo o código que não pode ser partilhado entre eles, uma necessidade que deriva do facto de o Forge requerer algumas coisas específicas que não funcionam no Vanilla e vice-versa.</p>
+<p>Quando te referes à implementação SpongeForge, estás basicamente a referir-te a tudo que está nos repositórios SpongeCommon e SpongeForge. O mesmo se aplica ao caso do SpongeVanilla e SpongeCommon. Esta é a razão pela qual fazer uma build do SpongeForge ou do SpongeVanilla a partir dos seus repositórios <em>sem</em> incluir o SpongeCommon não funciona.</p>
+</div>
+<div class="section" id="id1">
+<h2>SpongeHome<a class="headerlink" href="#id1" title="Link permanente para este título">¶</a></h2>
+<p>SpongeHome é o website do Projeto Sponge. É escrito em Golang, e usa a biblioteca go-macaron. Socorre-se de SCSS como pré-processador de CSS.</p>
+</div>
+<div class="section" id="id2">
+<h2>Ore<a class="headerlink" href="#id2" title="Link permanente para este título">¶</a></h2>
+<p>O Ore é a nossa própria estrutura de alojamento de plugins. É escrito em Scala, baseado na <strong>Framework</strong> Play, e é <strong>open source</strong>, claro!</p>
+</div>
+<div class="section" id="how-everything-is-tied-together">
+<h2>Como tudo se encaixa<a class="headerlink" href="#how-everything-is-tied-together" title="Link permanente para este título">¶</a></h2>
+<p>A imagem mostra as várias partes constituintes das implementações do Sponge e como elas interagem entre si e com as suas dependências. No lado esquerdo, está um setup típico do SpongeForge com alguns plugins da SpongeAPI, um mod do Forge e um híbrido que usa o Forge (como um mod) e o Sponge (como um plugin) para interagir. No lado direito, está um setup típico de SpongeVanilla. Podes reparar que o SpongeVanilla não suporta mods do Forge nem o híbrido, uma fez que o SpongeVanilla não tem as funcionalidades do Forge:</p>
+<img alt="Repo Overview" src="../_images/SpongeProject-structure.svg" /></div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="future.html" class="btn btn-neutral float-right" title="Planos para o Futuro" accesskey="n" rel="next">Seguinte <span class="fa fa-angle-right"></span></a>
+        <a href="faq.html" class="btn btn-neutral" title="Perguntas Frequentes" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> Anterior</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../_static/flags/pt_PT.svg"
+         alt="pt" title="Português">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../_static/jquery.js"></script>      <script type="text/javascript" src="../_static/underscore.js"></script>      <script type="text/javascript" src="../_static/doctools.js"></script>      <script type="text/javascript" src="../_static/language_data.js"></script>      <script type="text/javascript" src="../_static/translations.js"></script>      <script type="text/javascript" src="../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

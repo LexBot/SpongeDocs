@@ -1,0 +1,377 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Debugging &mdash; Documentation Sponge 7.2.0</title>
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>        <link rel="search" title="Recherche" href="../../search.html"/>    <link rel="top" title="Documentation Sponge 7.2.0" href="../../index.html"/>        <link rel="up" title="Devenir un Expert Spongineer" href="index.html"/>        <link rel="next" title="Mod Compatibility" href="incompatible.html"/>        <link rel="prev" title="Fichiers Log" href="logs.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../../index.html">
+            <img src="../../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Créer un Serveur</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html">Guide de démarrage rapide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started/index.html">Premiers pas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../management/index.html">Gestion de Serveur</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Devenir un Expert Spongineer</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="commands.html">Commandes et permissions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="troubleshooting.html">Dépannage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="logs.html">Fichiers Log</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Debugging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="incompatible.html">Mod Compatibility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bugreport.html">Rapporter des bugs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="properties.html">Propriétés</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../versions/index.html">Stratégie de versioning</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../preparing/index.html">Préparation pour le développement</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../plugin/index.html">Création d’un Plugin</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ore/index.html">Documentation d’Ore</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/index.html">Contribuer à Sponge</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">À propos du Projet Sponge</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+          <li><a href="../index.html">Créer un Serveur</a> &raquo;</li>
+          <li><a href="index.html">Devenir un Expert Spongineer</a> &raquo;</li>
+    <li>Debugging</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/server/spongineer/debugging.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="debugging">
+<h1>Debugging<a class="headerlink" href="#debugging" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Logs are an essential part when it comes to debugging your server and figuring what went wrong. This page will show
+some basic logging examples and will try to explain what you can do to fix your issues, when encountering them.
+If you’re looking for details about specific mods that can cause problems with SpongeForge, then we recommend
+checking the <a class="reference internal" href="incompatible.html"><span class="doc">Mod Compatibility</span></a> page first.</p>
+<div class="section" id="checklist">
+<h2>Checklist<a class="headerlink" href="#checklist" title="Lien permanent vers ce titre">¶</a></h2>
+<p>À chaque fois que vous faites face à un crash ou à un warning, vérifiez votre que installation SpongeForge ou SpongeVanilla est correcte. Ici se trouve une courte checklist pour vous aider à vous en sortir. Si vous n’êtes pas sûr de savoir comment obtenir les informations requises, jetez un coup d’œil à la page <a class="reference internal" href="logs.html"><span class="doc">Fichiers Log</span></a> qui explique comment avoir les réponses depuis vos logs.</p>
+<div class="section" id="is-java-8-installed-and-is-sponge-using-it">
+<h3>Est-ce que Java 8 est installé et Sponge l’utilise ?<a class="headerlink" href="#is-java-8-installed-and-is-sponge-using-it" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Sponge a besoin de Java 8 et va crasher en utilisant Java 7 ou des versions antérieures.</p>
+</div>
+<div class="section" id="is-the-recommended-forge-version-installed">
+<h3>La version recommandée de Forge est elle installée ?<a class="headerlink" href="#is-the-recommended-forge-version-installed" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Usually SpongeForge will run on older or newer Forge builds than the recommended build.
+However, it is strongly advised to run the recommended build only.
+If you encounter a crash and your versions are mismatching, match them first and try again.
+If you’re unsure which Forge build you need, take a look at the <strong>SpongeForge</strong> section of <a class="reference internal" href="../../versions/filenames.html"><span class="doc">Lire le nom du fichier en téléchargement</span></a>.</p>
+</div>
+<div class="section" id="are-there-any-other-coremods-installed">
+<h3>Il y a-t-il d’autres coremods d’installés ?<a class="headerlink" href="#are-there-any-other-coremods-installed" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Certains coremods qui modifient Forge ou Minecraft peuvent empêcher SpongeForge de fonctionner normalement. Si des coremods sont installés et que Sponge crash, essayez de les supprimer et testez à nouveau. Vous êtes invités à prévenir toute incompatibilité avec un coremod sur <a class="reference external" href="https://github.com/SpongePowered/SpongeForge/issues">GitHub</a>. Ce qui permettra au staff de résoudre le problème dans les meilleurs délais.</p>
+</div>
+<div class="section" id="is-every-plugin-you-re-using-built-against-your-desired-sponge-build">
+<h3>Tous les plugins que vous utilisez sont-ils compatibles avec votre version de Sponge ?<a class="headerlink" href="#is-every-plugin-you-re-using-built-against-your-desired-sponge-build" title="Lien permanent vers ce titre">¶</a></h3>
+<p>SpongeAPI est sujette à changements. Lorsque vous d’utilisez un vieux plugin sur des versions de Sponge récentes et qu’un crash survient, essayez de rétrograder Sponge ou de contacter l’auteur du plugin en question pour qu’il corrige le problème. Si vous êtes sur une ancienne version de Sponge et qu’un plugin récent crash, mettez d’abord Sponge à jour. Si ça ne résout pas le problème, contactez le développeur du plugin pour lui demander de corriger le problème.</p>
+</div>
+<div class="section" id="separating-a-faulty-plugin">
+<h3>Séparer un plugin défectueux<a class="headerlink" href="#separating-a-faulty-plugin" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Si le problème persiste, essayez de supprimer tous les plugins puis les ajouter un-à-un en redémarrant le serveur à chaque fois.</p>
+<p>Si vous ne savez pas vraiment quoi net pourquoi votre serveur crash exactement, regardez dans le crashlog. Plusieurs crashes sont communs et leurs solutions sont listées ci-dessous.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Si vous rencontrer un bug nous vous conseillons de faire un backup, puis d’essayer de le reproduire, et de trouver la source du bug en supprimant vos mods petit à petit. Seulement après vous devriez rapporter l’erreur. Si l’erreur se produit sans plugins, retirez SpongeForge. Si l’erreur persiste ce n’est donc pas lié à Sponge. C’est une bonne idée de d’abord prévenir les développeurs de mods comme ils connaissent bien le code avec lequel ils travaillent. Vous pouvez toujours <a class="reference external" href="https://www.spongepowered.org/chat">nous contacter</a> si vous avez des questions. Pour plus d’informations consultez <a class="reference internal" href="bugreport.html"><span class="doc">Rapporter des bugs</span></a>.</p>
+</div>
+</div>
+</div>
+<div class="section" id="general-warnings">
+<h2>Avertissements Généraux<a class="headerlink" href="#general-warnings" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Une source commune d’erreurs et de bugs est l’incompatibilité soit entre SpongeForge et Forge, soit entre SpongeForge et les plugins. Nous allons tout d’abord regarder l’erreur que Forge donne pour chaque crash:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>WARNING: coremods are present:
+   SpongeForge (sponge-1.8-1521-2.1DEV-750.jar)
+Contact their authors BEFORE contacting forge
+</pre></div>
+</div>
+<p>Ce n’est ni un bug ni une erreur, c’est juste Forge qui vous dit qu’un coremod (en l’occurrence SpongeForge) est installé. Forge vous conseille donc de contacter les développeurs de Sponge avant de demander de l’aide à Forge. Vous n’avez rien à craindre.</p>
+</div>
+<div class="section" id="common-exceptions">
+<h2>Exceptions Communes<a class="headerlink" href="#common-exceptions" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Ici sont quelques exceptions communes et quelques raisons que vous devriez rencontrer.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Si vous rencontrez un crash, une erreur ou tout autre malfonctionnement qui n’est pas listé ici, veuillez le faire savoir sur les <a class="reference external" href="https://forums.spongepowered.org/">Forums Sponge</a> ou sur <a class="reference external" href="https://github.com/spongepowered/">GitHub</a>. Vous aiderez tous ceux qui ont rencontré la même erreur.</p>
+</div>
+<div class="section" id="mismatched-spongeforge-and-forge">
+<h3>Forge et SpongeForge ne correspondent pas<a class="headerlink" href="#mismatched-spongeforge-and-forge" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[12:59:21] [main/ERROR] [mixin/]: @Mixin target net.minecraftforge.event.world.BlockEvent$NeighborNotifyEvent was not found mixins.forge.core.json:event.block.MixinEventNotifyNeighborBlock
+</pre></div>
+</div>
+<p>This is a common crash when you try to run SpongeForge on the wrong Forge build. Note that the target/Mixin can vary.
+Always match Forge against SpongeForge! If you’re unsure which version of Forge is required and you already got your
+SpongeForge build, take a look at the <strong>SpongeForge</strong> section of <a class="reference internal" href="../../versions/filenames.html"><span class="doc">Lire le nom du fichier en téléchargement</span></a>.</p>
+</div>
+<div class="section" id="other-common-errors">
+<h3>Autres erreurs communes<a class="headerlink" href="#other-common-errors" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Caused by: java.lang.ClassNotFoundException: org.spongepowered.api.event.state.ServerStartedEvent
+Caused by: java.lang.NullPointerException
+</pre></div>
+</div>
+<p>Cette première erreur indique qu’une <code class="docutils literal notranslate"><span class="pre">Class</span></code> est manquante, la seconde est une NullPointer Exception qui signifie que le plugin que vous tentez d’utiliser dépends de paramètres manquants. C’est ce qui peut se passer en essayant de faire fonctionner un ancien plugin sur un SpongeForge ou SpongeVanilla récent et vice versa.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>java.lang.AbstractMethodError: net.minecraft.entity.player.EntityPlayerMP.getTabList()Lorg/spongepowered/api/entity/living/player/tab/TabList;
+at (...)
+</pre></div>
+</div>
+<p>Une <code class="docutils literal notranslate"><span class="pre">AbstractMethodError</span></code> apparaît quand un plugin tente de faire appel à une méthode qui n’est pas encore implémentée. Veuillez vérifier si vous utilisez la toute dernière version de Sponge disponible, si ce n’est pas le cas, mettez Sponge à jour. Si le problème persiste, reportez le problème sur l’Issuetracker officiel, sur les forums ou sur l’IRC. Vous pouvez également demander à ce que l’implémentation manquant soit rajoutée.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[Server thread/INFO]: Starting minecraft server version 1.8
+[Server thread/ERROR]: Encountered an unexpected exception
+java.lang.NoClassDefFoundError: org/spongepowered/api/event/game/state/GameStartingServerEvent
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Vous pouvez lire le crashlog complet ici: <a class="reference download internal" download="" href="../../_downloads/6833e5bcb0924d3913fa48f8b5b1ace5/crashlog-sponge575-plugin750.txt"><code class="xref download docutils literal notranslate"><span class="pre">SpongeForge</span> <span class="pre">575</span> <span class="pre">crashlog</span> <span class="pre">with</span> <span class="pre">a</span> <span class="pre">plugin</span> <span class="pre">built</span> <span class="pre">against</span> <span class="pre">build</span> <span class="pre">750</span></code></a></p>
+</div>
+<p>Une <code class="docutils literal notranslate"><span class="pre">NoClassDefFoundError</span></code> se produit lorsqu’un plugin essaye d’accéder à une class qui n’est pas dans le classpath. Ce qui peut se passer quand l’API a été ajustée ou refactorisée et que vous essayez de faire tourner une ancien plugin sur une version récente de Sponge et vice versa. Essayez toujours d’utiliser la version correcte ! Demandez au développeur du plugin quelle version de Sponge il a utilisé pour développer son plugin ou essayez de mettre à jour/rétrograder SpongeForge ou SpongeVanilla pour résoudre cette erreur.</p>
+</div>
+</div>
+<div class="section" id="exceptions-at-runtime">
+<h2>Exceptions durant l’exécution<a class="headerlink" href="#exceptions-at-runtime" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Il y a deux types d’erreurs qui peuvent arriver sur un serveur moddé:</p>
+<ul class="simple">
+<li>Les erreurs internes aux plugins, comme les NullPointerExceptions lors de l’exécution d’une commande. Ces erreurs sont enregistrées en utilisant le mécanisme standard de gestion des erreurs de Java.</li>
+<li>Les erreurs durant le tick des mondes ou des entités. Sponge affiche une erreur plus structurée pour fournir le plus d’informations possible.</li>
+</ul>
+<p>Avant de s’intéresser aux détails de la cause de l’exception, assurez vous d’avoir lu tout le rapport. Parfois l’erreur est expliquée dans le rapport lui-même (ou quelques lignes au dessus), ça peut être indiqué par un avertissement durant le chargement.</p>
+<p>Le stacktrace suivant est un exemple de cette gestion spéciale (en excluant le début de la ligne avec l’heure et la sévérité):</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>/******************************************************************************************************************************/
+/*                                           Exception occurred during a PhaseState                                           */
+/******************************************************************************************************************************/
+/* Sponge&#39;s tracking system makes a best effort to not throw exceptions randomly                                              */
+/* but sometimes it is inevitable. In most cases, something else triggered this                                               */
+/* exception and Sponge prevented a crash by catching it. The following stacktrace                                            */
+/* can be used to help pinpoint the cause.                                                                                    */
+/******************************************************************************************************************************/
+/* The PhaseState having an exception: EntityTickPhase                                                                        */
+/* The PhaseContext:                                                                                                          */
+/*     - Owner: EntityPlayerMP[&#39;SomePlayer&#39;/270, l=&#39;world&#39;, x=119,62, y=82,00, z=260,21]                                      */
+/*     - Source: EntityCreeper[&#39;Creeper&#39;/346, l=&#39;world&#39;, x=119,50, y=82,00, z=258,50]                                         */
+/*     - CapturedBlockPosition: CaptureBlockPos{pos=null, world=Optional.empty}                                               */
+/* org.spongepowered.asm.util.PrettyPrinter@56ec63ef                                                                          */
+/******************************************************************************************************************************/
+/* StackTrace:                                                                                                                */
+/* java.lang.NullPointerException: null                                                                                       */
+/*     net.minecraft.util.math.BlockPos.&lt;init&gt;(SourceFile:41)                                                                 */
+/*     net.minecraft.pathfinding.PathNavigateGround.func_75494_a(SourceFile:73)                                               */
+/*     net.minecraft.pathfinding.PathNavigate.func_75497_a(SourceFile:147)                                                    */
+/*     com.example.extendedaiplugin.BrokenAITask.start(BrokenAITask.java:58)                                                  */
+/*     org.spongepowered.common.entity.ai.SpongeEntityAICommonSuperclass.func_75249_e(SpongeEntityAICommonSuperclass.java:43) */
+/*     net.minecraft.entity.ai.EntityAITasks.func_75774_a(SourceFile:102)                                                     */
+/*     net.minecraft.entity.EntityLiving.func_70626_be(EntityLiving.java:763)                                                 */
+/*     net.minecraft.entity.EntityLivingBase.func_70636_d(EntityLivingBase.java:2350)                                         */
+/*     net.minecraft.entity.EntityLiving.func_70636_d(EntityLiving.java:577)                                                  */
+/*     net.minecraft.entity.monster.EntityMob.func_70636_d(EntityMob.java:45)                                                 */
+/*     net.minecraft.entity.EntityLivingBase.func_70071_h_(EntityLivingBase.java:2170)                                        */
+/*     net.minecraft.entity.EntityLiving.func_70071_h_(EntityLiving.java:295)                                                 */
+/*     net.minecraft.entity.monster.EntityMob.func_70071_h_(EntityMob.java:50)                                                */
+/*     net.minecraft.entity.monster.EntityCreeper.func_70071_h_(EntityCreeper.java:172)                                       */
+/*     org.spongepowered.common.event.tracking.TrackingUtil.tickEntity(TrackingUtil.java:160)                                 */
+/*     net.minecraft.world.WorldServer.redirect$onCallEntityUpdate$zlo000(WorldServer.java:2986)                              */
+/*     net.minecraft.world.World.func_72866_a(World.java:4154)                                                                */
+/*     net.minecraft.world.WorldServer.func_72866_a(WorldServer.java:832)                                                     */
+/*     net.minecraft.world.World.func_72870_g(World.java:1952)                                                                */
+/*     net.minecraft.world.World.func_72939_s(World.java:6596)                                                                */
+/*     net.minecraft.world.WorldServer.func_72939_s(WorldServer.java:2300)                                                    */
+/*     net.minecraft.server.MinecraftServer.func_71190_q(MinecraftServer.java:767)                                            */
+/*     net.minecraft.server.dedicated.DedicatedServer.func_71190_q(DedicatedServer.java:396)                                  */
+/*     net.minecraft.server.MinecraftServer.func_71217_p(MinecraftServer.java:668)                                            */
+/*     net.minecraft.server.MinecraftServer.run(MinecraftServer.java:526)                                                     */
+/*     java.lang.Thread.run(Unknown Source)                                                                                   */
+/*  Phases Remaining:                                                                                                         */
+/*                                                                                                                            */
+/* Minecraft : 1.12.2                                                                                                         */
+/* SpongeAPI : 7.1.0-SNAPSHOT-7105dfc                                                                                         */
+/* SpongeForge : 1.12.2-2705-7.1.0-BETA-3361                                                                                  */
+/* Minecraft Forge : 14.23.4.2705                                                                                             */
+/******************************************************************************************************************************/
+</pre></div>
+</div>
+<p>This stacktrace contains the most important version numbers, as well some information about the phase the server was in.
+In this case a <code class="docutils literal notranslate"><span class="pre">NullPointerException</span></code> has been thrown during <code class="docutils literal notranslate"><span class="pre">EntityTickPhase</span></code>. At this point it’s important to
+check which plugins are involved with the crash. This requires some research as you have to match the package names with
+mod names; checking the <code class="docutils literal notranslate"><span class="pre">Caused</span> <span class="pre">by</span></code> blocks may also help.</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">java</span></code> classes can be ignored during the error search.</li>
+<li><code class="docutils literal notranslate"><span class="pre">net.minecraft</span></code> is the vanilla Minecraft code. If only these elements are present, it’s either a Minecraft bug or a
+coremod.</li>
+<li><code class="docutils literal notranslate"><span class="pre">org.spongepowered</span></code> is from Sponge itself, having only these and Minecraft packages present usually indicates a
+Sponge bug (or another coremod being present).</li>
+<li>Other classes have to be mapped to their mods by hand. In this case there is this entry
+<code class="docutils literal notranslate"><span class="pre">com.example.extendedaiplugin</span></code>; Java projects are usually named following this format <code class="docutils literal notranslate"><span class="pre">groupId.groupId.artifactId</span></code>.
+The group is usually a domain backwards; in this case <code class="docutils literal notranslate"><span class="pre">example.com</span></code>, followed by the name of the project also known
+as artifact, for more information on package naming in Java you can refer to its
+<a class="reference external" href="https://docs.oracle.com/javase/specs/jls/se8/html/jls-6.html#jls-6.2">official docs</a>. This plugin is probably
+called <code class="docutils literal notranslate"><span class="pre">extendedaiplugin</span></code>, when in doubt, searching the web for the full package name can help.</li>
+</ul>
+<div class="admonition warning">
+<p class="first admonition-title">Avertissement</p>
+<p class="last">Be careful when coremods are present. It can mean that, although a Minecraft class was reported as the cause, it does
+not mean the code executed is necessarily part of the Minecraft source, and could have been added by a third party.
+You can check your logs for loaded coremods and potentially find the culprit by removing them one by one. Be
+warned the issue may only occur when certain coremods are loaded at the same time.</p>
+</div>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="incompatible.html" class="btn btn-neutral float-right" title="Mod Compatibility" accesskey="n" rel="next">Suivant <span class="fa fa-angle-right"></span></a>
+        <a href="logs.html" class="btn btn-neutral" title="Fichiers Log" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> Précédent</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../../_static/flags/fr_FR.svg"
+         alt="fr" title="Français">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../../_static/jquery.js"></script>      <script type="text/javascript" src="../../_static/underscore.js"></script>      <script type="text/javascript" src="../../_static/doctools.js"></script>      <script type="text/javascript" src="../../_static/language_data.js"></script>      <script type="text/javascript" src="../../_static/translations.js"></script>      <script type="text/javascript" src="../../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

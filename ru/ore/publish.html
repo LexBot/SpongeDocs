@@ -1,0 +1,357 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Публикация плагина &mdash; Документация Sponge 7.2.0</title>
+
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="Алфавитный указатель"
+              href="../genindex.html"/>        <link rel="search" title="Поиск" href="../search.html"/>    <link rel="top" title="Документация Sponge 7.2.0" href="../index.html"/>        <link rel="up" title="Документация Ore" href="index.html"/>        <link rel="next" title="Безопасность" href="security.html"/>        <link rel="prev" title="Гайд по публикации плагина на Ore" href="guidelines.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../index.html">
+            <img src="../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../server/index.html">Создание сервера</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../versions/index.html">Versioning Policy</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../preparing/index.html">Подготовка к разработке</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../plugin/index.html">Создание плагина</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Документация Ore</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="guidelines.html">Гайд по публикации плагина на Ore</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guidelines.html#projects">Проекты</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guidelines.html#files">Файлы</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Публикация плагина</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html">Безопасность</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html">Ore Web API</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contributing/index.html">Участие в разработке Sponge</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">О проекте Sponge</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+          <li><a href="index.html">Документация Ore</a> &raquo;</li>
+    <li>Публикация плагина</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/ore/publish.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="publishing-your-plugin">
+<h1>Публикация плагина<a class="headerlink" href="#publishing-your-plugin" title="Ссылка на этот заголовок">¶</a></h1>
+<p>Официальное хранилище Sponge для модов и плагинов, <a class="reference external" href="https://ore.spongepowered.org">Ore</a>, — это проект с открытым исходным кодом, в котором каждый может опубликовать свои Sponge-плагины и Forge-моды.</p>
+<div class="section" id="packaging-your-plugin">
+<h2>Упаковка плагина<a class="headerlink" href="#packaging-your-plugin" title="Ссылка на этот заголовок">¶</a></h2>
+<p>Ore requires any projects to be packaged with a <code class="docutils literal notranslate"><span class="pre">mcmod.info</span></code> descriptor file in the top-level of your JAR file. This
+file is used to automatically infer some important details about your project to make the upload process easier. Ore
+will reject your plugin if this file is missing from the JAR. Luckily, SpongeAPI has a built-in annotation processor
+that creates this file for you automatically, on compile, using the <code class="docutils literal notranslate"><span class="pre">&#64;Plugin</span></code> annotation that you have likely
+already created in your plugin’s main class.</p>
+<div class="admonition note">
+<p class="first admonition-title">Примечание</p>
+<p class="last">Если Вы хотите информацию о создании и компиляции первого плагина, см. <a class="reference internal" href="../plugin/plugin-class.html"><span class="doc">Основной класс плагина</span></a></p>
+</div>
+<p>Пример файла <code class="docutils literal notranslate"><span class="pre">mcmod.info</span></code>:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+    <span class="p">{</span>
+        <span class="nt">&quot;modid&quot;</span><span class="p">:</span> <span class="s2">&quot;my-plugin&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;MyPlugin&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;1.0.0&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;My first plugin!&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://spongepowered.org&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;authorList&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;windy&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Zidane&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;gabizou&quot;</span>
+        <span class="p">],</span>
+        <span class="nt">&quot;requiredMods&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;bookotd@1.0.0&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;ore-test@1.0.0&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;worldedit@1.0.0&quot;</span>
+        <span class="p">],</span>
+        <span class="nt">&quot;dependencies&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;bookotd@1.0.0&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;ore-test@1.0.0&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;worldedit@1.0.0&quot;</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>По крайней мере, каждый проект Ore <em>должен</em> содержать заполненные поля <code class="docutils literal notranslate"><span class="pre">modid</span></code>, <code class="docutils literal notranslate"><span class="pre">name</span></code> и <code class="docutils literal notranslate"><span class="pre">version</span></code>.</p>
+</div>
+<div class="section" id="signing-your-plugin">
+<h2>Подписывание плагина<a class="headerlink" href="#signing-your-plugin" title="Ссылка на этот заголовок">¶</a></h2>
+<p>Из соображений безопасности Ore требует, чтобы каждый файл плагина (ZIP или JAR) загружался с отдельной <a class="reference external" href="https://ru.wikipedia.org/wiki/PGP">Pretty Good Privacy (PGP)</a> подписью для открытого ключа, который связан с электронной почтой, с которой вы подписались на Sponge. Эта цифровая подпись гарантирует, что любой файл, загруженный пользователем, должен быть загружен фактическим владельцем учётной записи.</p>
+<div class="admonition note">
+<p class="first admonition-title">Примечание</p>
+<p class="last">Цифровая подпись удостоверяет и маркирует документ. Если документ впоследствии будет изменен каким-либо образом, проверка подписи не удастся. Цифровая подпись используется с той же целью, что и подпись, написанная от руки, с дополнительным преимуществом — защищенность от несанкционированного доступа. Например, исходный дистрибутив GnuPG подписывается, чтобы пользователи могли проверить, что исходный код не был изменён, поскольку он был упакован.</p>
+</div>
+<p>Чтобы подписать ваш плагин, вы должны сначала загрузить программное обеспечение, совместимое с PGP, например <a class="reference external" href="https://www.gnupg.org/">GnuPG (GPG)</a>. GPG доступен для всех основных платформ, и бинарные файлы можно загрузить <a class="reference external" href="https://www.gnupg.org/download/index.html#sec-1-2">здесь</a>.</p>
+<p>После того, как Вы установили GPG и создали свой первый открытый ключ, Вам необходимо добавить его в свою учетную запись. Для этого Вы можете перейти к своему профилю и щелкнуть символ ключа рядом с вашим аватаром.</p>
+<img alt="PGP public key 1" class="align-center" src="../_images/help_1.png" />
+<p>You will then be prompted to enter your key into a text box. You must be sure to enter the key in its entirety or
+signature validation will fail.</p>
+<img alt="PGP public key 2" class="align-center" src="../_images/help_2.png" />
+<p>Наконец, вы должны подписать свой собранный плагин с помощью ключа <em>private</em> открытого ключа, который вы загрузили. Вам нужно только подписать файл, который вы загружаете: например, если вы загружаете ZIP-архив с включенным JAR-плагином, только ZIP-архив (и никакой другой файл) должен быть подписан. Самый простой способ подписать файл, который вы собираетесь загрузить, можно при помощи данной команды GPG.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gpg --output myplugin-1.0.0.jar.sig --detach-sig myplugin-1.0.0.jar
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Примечание</p>
+<p class="last">If you’re using a build manager such as Gradle or Maven, there are plugins you can apply to your build script that
+can sign built artifacts and automate this laborious process for you. For more information, please refer to
+<a class="reference external" href="https://docs.gradle.org/current/userguide/signing_plugin.html">Gradle’s documentation</a> or
+<a class="reference external" href="https://maven.apache.org/plugins/maven-gpg-plugin/">Maven’s documentation</a>.</p>
+</div>
+</div>
+<div class="section" id="uploading-your-plugin">
+<h2>Загрузка плагина<a class="headerlink" href="#uploading-your-plugin" title="Ссылка на этот заголовок">¶</a></h2>
+<p>После того, как JAR-файл вашего плагина упакован с файлом дескриптора <code class="docutils literal notranslate"><span class="pre">mcmod.info</span></code> на верхнем уровне и подписан с закрытым ключом PGP, ваш плагин готов к загрузке! Для создания проекта Ore у вас должна быть активная учетная запись Sponge. Нажав кнопку «Sign Up» в правом верхнем углу, вы попадете на соответствующую страницу регистрации. Если у вас уже есть учетная запись, просто нажмите кнопку «Log In» в правом верхнем углу.</p>
+<p>После входа в систему перейдите к вашему аватару и выберите «New» в раскрывающемся меню или нажмите клавишу «C».</p>
+<p>Во время загрузки мастер создания сначала запросит файл загрузки, а затем вашу подпись.</p>
+</div>
+<div class="section" id="setting-up-your-project-on-ore">
+<h2>Настройка вашего проекта на Ore<a class="headerlink" href="#setting-up-your-project-on-ore" title="Ссылка на этот заголовок">¶</a></h2>
+<p>После загрузки вашего плагина вам будут предложены некоторые параметры для настройки вашего проекта по своему усмотрению. Не беспокойтесь, все они могут быть изменены позже на панели настроек. После настройки вашего проекта вы сможете пригласить пользователей Sponge стать частью вашего проекта. Любой пользователь, зарегистрированный на форумах, может быть приглашен в проект, даже если он никогда не регистрировался в Ore. После создания вашего проекта пользователи, которых вы пригласили, получат уведомление и смогут либо принять, либо отклонить ваше приглашение. Участники проекта будут невидимы для общественности до тех пор, пока приглашение не будет принято.</p>
+<p>На данный момент существует три группы, которые можно назначить участникам проекта: <cite>Разработчик</cite>, <cite>Редактор</cite> и <cite>Поддержка</cite>. Пользователь, создавший проект, назначается <cite>Владельцем</cite>, имеющим неограниченный доступ к проекту. Далее идёт быстрое описание о том, что может делать каждая группа в проекте.</p>
+<div class="section" id="owner">
+<h3>Владелец<a class="headerlink" href="#owner" title="Ссылка на этот заголовок">¶</a></h3>
+<p>Единственная группа, которая может назначать роли другим участникам. Права владельца могут быть только на одном участнике, а также их нельзя передавать другим (пока что).</p>
+</div>
+<div class="section" id="developers">
+<h3>Разработчики<a class="headerlink" href="#developers" title="Ссылка на этот заголовок">¶</a></h3>
+<p>Разработчики могут создавать/редактировать каналы выпуска, страницы и создавать/редактировать версии.</p>
+</div>
+<div class="section" id="editor">
+<h3>Редактор<a class="headerlink" href="#editor" title="Ссылка на этот заголовок">¶</a></h3>
+<p>Редакторы могут изменять страницы.</p>
+</div>
+<div class="section" id="support">
+<h3>Поддержка<a class="headerlink" href="#support" title="Ссылка на этот заголовок">¶</a></h3>
+<p>Поддержка ничего не может. Это способ показать, что участник является частью проекта.</p>
+</div>
+</div>
+<div class="section" id="documenting-your-project-with-pages">
+<h2>Documenting Your Project With Pages<a class="headerlink" href="#documenting-your-project-with-pages" title="Ссылка на этот заголовок">¶</a></h2>
+<p>To document your plugin Ore offers the creation of pages. By default, you get a „Home“ page when you create your new
+Project. To add new pages, you can click on the „+“ icon in the Pages bar on the right of the screen; doing so will open
+a pop-up where you  can choose a name and the parent page (adding a page on the Home page is not possible). If you
+choose the „&lt;None&gt;“ option the page will become a root page where you can later add child pages on. If you choose to add
+it to another page the page will only show when the parent page is expanded. To document your pages, you can use
+CommonMark.</p>
+<div class="section" id="linking-pages">
+<h3>Linking Pages<a class="headerlink" href="#linking-pages" title="Ссылка на этот заголовок">¶</a></h3>
+<p>If you have the following tree structure in your pages:</p>
+<ul class="simple">
+<li>Home</li>
+<li><dl class="first docutils">
+<dt>Команды</dt>
+<dd><ul class="first last">
+<li>Пользователь</li>
+<li>Admin</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Установка</dt>
+<dd><ul class="first last">
+<li>Config</li>
+<li>Разрешения</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p>And you want to add a link from the home page to the Config page in Setup you can use <cite>WikiLinks</cite>.
+To add a WikiLink use the format <cite>[[Link]]</cite> so on the home page you can add <cite>[[Setup/Config]]</cite> and this will get be
+converted to a link that is guaranteed to work.</p>
+<div class="admonition note">
+<p class="first admonition-title">Примечание</p>
+<p class="last">You can also specify a title for the link and separate it with a Pipe symbol so <cite>[[Title|Link]]</cite> will become a link
+with the title</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Примечание</p>
+<p class="last">WikiLinks are only supported in Ore so if you use them on the Home-page they will not be displayed correctly on the
+forums. However, we still recommend using WikiLinks instead of normal links to guarantee the future working of your
+wiki.</p>
+</div>
+</div>
+</div>
+<div class="section" id="project-states">
+<h2>Project States<a class="headerlink" href="#project-states" title="Ссылка на этот заголовок">¶</a></h2>
+<p>When creating a new project, a banner will appear telling you your project is in a „new“ state.
+The new state is intended to indicated to users and admins you are still working on the setup of your project. If you
+have finished documenting your plugin to make it comply with the guidelines, click the „publish“ button to complete the
+process. However, if you don’t publish it yourself then the project will be published automatically 24 hours after its
+creation.</p>
+<div class="section" id="needs-changes">
+<h3>Needs Changes<a class="headerlink" href="#needs-changes" title="Ссылка на этот заголовок">¶</a></h3>
+<p>Ore staff can hide your project and request changes; the changes in question will be listed in the banner. This state
+will hide your project from the public; if you are done you can send your project for approval.</p>
+</div>
+<div class="section" id="needs-approval">
+<h3>Needs Approval<a class="headerlink" href="#needs-approval" title="Ссылка на этот заголовок">¶</a></h3>
+<p>In this state your project is still hidden from the public while waiting for a staff member to review and validate the
+changes that were requested.  Please be patient, the staff members might be busy with other tasks. If the project gets
+approved it will automatically become visible again. Please make sure to actually fix the points that require changes.</p>
+</div>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="security.html" class="btn btn-neutral float-right" title="Безопасность" accesskey="n" rel="next">Далее <span class="fa fa-angle-right"></span></a>
+        <a href="guidelines.html" class="btn btn-neutral" title="Гайд по публикации плагина на Ore" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> Назад</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../_static/flags/ru_RU.svg"
+         alt="ru" title="Русский">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../_static/jquery.js"></script>      <script type="text/javascript" src="../_static/underscore.js"></script>      <script type="text/javascript" src="../_static/doctools.js"></script>      <script type="text/javascript" src="../_static/language_data.js"></script>      <script type="text/javascript" src="../_static/translations.js"></script>      <script type="text/javascript" src="../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

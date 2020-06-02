@@ -1,0 +1,238 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>管理白名單 &mdash; Sponge 7.2.0 說明文件</title>
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="索引"
+              href="../../genindex.html"/>        <link rel="search" title="搜尋" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 說明文件" href="../../index.html"/>        <link rel="up" title="伺服器管理" href="index.html"/>        <link rel="next" title="管理封鎖" href="bans.html"/>        <link rel="prev" title="伺服器管理" href="index.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../../index.html">
+            <img src="../../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">建立伺服器</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html">快速入門指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started/index.html">開始使用</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">伺服器管理</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">管理白名單</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bans.html">管理封鎖</a></li>
+<li class="toctree-l3"><a class="reference internal" href="permissions.html">管理權限</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plugins.html">安裝插件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="exploit-patches.html">漏洞利用修補（Exploit Patches）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="performance-tweaks.html">性能調整</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../spongineer/index.html">成為專業的 Spongineer</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../versions/index.html">版本控制方針</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../preparing/index.html">準備開發</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../plugin/index.html">建立插件</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ore/index.html">Ore 文件</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/index.html">為 Sponge 貢獻</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">關於 Sponge 專案</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+          <li><a href="../index.html">建立伺服器</a> &raquo;</li>
+          <li><a href="index.html">伺服器管理</a> &raquo;</li>
+    <li>管理白名單</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/server/management/whitelist.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="managing-the-whitelist">
+<h1>管理白名單<a class="headerlink" href="#managing-the-whitelist" title="本標題的永久連結">¶</a></h1>
+<p>白名單機制能讓你控制誰可以加入你的伺服器。但請注意，OP <em>總是</em>能夠連線到伺服器，不論他們是否被列入白名單。</p>
+<p>启用白名单后，只有白名单上列出的玩家可进入服务器。可以通过<a class="reference internal" href="../spongineer/commands.html"><span class="doc">命令与权限</span></a>或编辑 <code class="docutils literal notranslate"><span class="pre">whitelist.json</span></code> 文件来向白名单中添加玩家。</p>
+<ul class="simple">
+<li>如要啟用白名單，請使用 <code class="docutils literal notranslate"><span class="pre">/whitelist</span> <span class="pre">on</span></code></li>
+<li>如要停用白名單，請使用 <code class="docutils literal notranslate"><span class="pre">/whitelist</span> <span class="pre">off</span></code></li>
+<li>如要新增玩家至白名單，請使用 <code class="docutils literal notranslate"><span class="pre">/whitelist</span> <span class="pre">add</span> <span class="pre">playername</span></code></li>
+<li>如要從白名單移除玩家，請使用 <code class="docutils literal notranslate"><span class="pre">/whitelist</span> <span class="pre">remove</span> <span class="pre">playername</span></code></li>
+<li>如要顯示白名單中的所有玩家，請使用 <code class="docutils literal notranslate"><span class="pre">/whitelist</span> <span class="pre">list</span></code></li>
+<li>如要在手動修改檔案後重新載入白名單，請使用 <code class="docutils literal notranslate"><span class="pre">/whitelist</span> <span class="pre">reload</span></code></li>
+</ul>
+<p>白名單也能透過編輯 <a class="reference external" href="https://minecraft.gamepedia.com/Server.properties">server.properties</a> 檔案來啟用或停用，但是伺服器必須重新載入或重新啟動後才會生效。</p>
+<div class="section" id="permissions">
+<h2>權限<a class="headerlink" href="#permissions" title="本標題的永久連結">¶</a></h2>
+<p>你也可以使用這些 <a class="reference internal" href="../../plugin/permissions.html"><span class="doc">權限</span></a> 來管理對你的伺服器的存取。</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="34%" />
+<col width="66%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">權限</th>
+<th class="head">說明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>minecraft.login.bypass-whitelist</td>
+<td>將使用者視為已在白名單中。預設僅適用於 <code class="docutils literal notranslate"><span class="pre">OP</span></code>。</td>
+</tr>
+<tr class="row-odd"><td>minecraft.login.bypass-player-limit</td>
+<td>允許使用者繞過伺服器的玩家限制。預設由 <code class="docutils literal notranslate"><span class="pre">ops.json</span></code> 中的 <code class="docutils literal notranslate"><span class="pre">bypassesPlayerLimit</span></code> 選項控制。</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="bans.html" class="btn btn-neutral float-right" title="管理封鎖" accesskey="n" rel="next">下一頁 <span class="fa fa-angle-right"></span></a>
+        <a href="index.html" class="btn btn-neutral" title="伺服器管理" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> 上一頁</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../../_static/flags/zh_TW.svg"
+         alt="zh-TW" title="繁體中文">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../../_static/jquery.js"></script>      <script type="text/javascript" src="../../_static/underscore.js"></script>      <script type="text/javascript" src="../../_static/doctools.js"></script>      <script type="text/javascript" src="../../_static/language_data.js"></script>      <script type="text/javascript" src="../../_static/translations.js"></script>      <script type="text/javascript" src="../../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

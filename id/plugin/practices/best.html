@@ -1,0 +1,305 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Praktek Terbaik &mdash; dokumentasi Sponge 7.2.0</title>
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="Indeks"
+              href="../../genindex.html"/>        <link rel="search" title="Pencarian" href="../../search.html"/>    <link rel="top" title="dokumentasi Sponge 7.2.0" href="../../index.html"/>        <link rel="up" title="Kebiasaan" href="index.html"/>        <link rel="next" title="Praktek buruk" href="bad.html"/>        <link rel="prev" title="Kebiasaan" href="index.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../../index.html">
+            <img src="../../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../server/index.html">Membuat sebuah server</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../versions/index.html">Versioning Policy</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../preparing/index.html">Mempersiapkan untuk Pengembangan</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Membuat Plugin</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../api-versions.html">API-Versions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../buildsystem.html">Membangun Sistem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../workspace/index.html">Anda mengatur ruang kerja</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../project/index.html">Menyiapkan proyek anda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-identifier.html">Pengenal Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-class.html">Class Plugin utama</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lifecycle.html">Plugin Siklus Hidup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../injection.html">Ketergantungan Injeksi</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Kebiasaan</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Praktek Terbaik</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bad.html">Praktek buruk</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../optional/index.html">Pilihan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../logging.html">Penebangan dan Debugging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text/index.html">Teks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/index.html">Plugin Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../event/index.html">Acara</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/index.html">Mengkonfigurasi plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assets.html">Aset API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data/index.html">Data API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../blocks/index.html">Blok</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../entities/index.html">Badan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../items/index.html">Item</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../trade-offers.html">Trade-Offers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../effects.html">Hasil</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../scheduler.html">Penjadwalan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../services.html">Layanan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database.html">Basis data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../permissions.html">Hak akses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bans.html">Larang</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metrics.html">Metrics Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bookview.html">Tampilan buku</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../economy/index.html">Ekonomi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wgen/index.html">Generasi dunia</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manager.html">Pengelola Pengaya</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../game-profile-manager.html">Manajer profil game</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../offline-userplayer-data.html">Tidak hidup Data Pemain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tab-lists.html">Daftar tab</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-meta.html">Plugin Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ray-tracing.html">V8 Tracing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../debugging.html">Plugin Debugging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials.html">Tutorial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internals/index.html">Plugin yang tergantung pada pelaksanaan</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ore/index.html">Dokumentasi bijih</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/index.html">Berkontribusi pada Sponge</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">Tentang Sponge Project</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+          <li><a href="../index.html">Membuat Plugin</a> &raquo;</li>
+          <li><a href="index.html">Kebiasaan</a> &raquo;</li>
+    <li>Praktek Terbaik</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/plugin/practices/best.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="best-practices">
+<h1>Praktek Terbaik<a class="headerlink" href="#best-practices" title="Link permanen untuk headline ini">¶</a></h1>
+<p>There are many ways to create a plugin, and many pitfalls for an unwary developer. Here we describe the plugin
+development practices that will make the most of SpongeAPI, setting sensible boundaries for the benefit of
+compatibility. This information may change and expand as the Sponge project matures.</p>
+<div class="section" id="plugin-development-guidelines">
+<h2>Pedoman Pembangunan Plugin<a class="headerlink" href="#plugin-development-guidelines" title="Link permanen untuk headline ini">¶</a></h2>
+<p>Berikut pedoman yang telah siap untuk bantuan pengebanga Sponge plugin. Itu tidak pasti atau daftar yang meliputi banyak hal, hanya upaya untuk detail beberapa masalah yang cenderung muncul selama pengembangan plugin dan mengusulkan solusi yang terbaik.</p>
+<div class="admonition note">
+<p class="first admonition-title">Catatan</p>
+<p class="last">Kami memesan penggunaan <em>Sponge</em> untuk pekerja resmi SpongePowered. Mohon jangan menggunakan <em>Sponge</em> sebagai bagian dari nama plugin anda, kecuali (1) plugin anda terutama keprihatinan yang memblokir blok Minecraft &quot;Sponge&quot;, atau (2) plugin anda juga mempunyai versi lain untuk APIs (dalam hal ini anda mungkin menambahkan &quot;Sponge untuk&quot; judulnya).</p>
+</div>
+<div class="section" id="economy-api">
+<h3>Ekonomi API<a class="headerlink" href="#economy-api" title="Link permanen untuk headline ini">¶</a></h3>
+<p>API Ekonomi digunakan untuk menautkan plugin ekonomi dengan plugin lain yang menggunakan ekonomi (yaitu toko). Anda dapat membaca mengenai API Ekonomi <a class="reference internal" href="../economy/index.html"><span class="doc">here</span></a>, yang merinci semua yang perlu anda ketahui mengenai API.</p>
+</div>
+<div class="section" id="packets">
+<h3>Paket<a class="headerlink" href="#packets" title="Link permanen untuk headline ini">¶</a></h3>
+<p>Anything to do with intercepting packets, or introducing custom items/blocks/entities/etc., is <em>not</em> planned to be part
+of SpongeAPI. Note that using packets may be looking at the problem the wrong way, as there may be a solution
+achievable with the existing SpongeAPI. In some cases, it may be possible to add whatever is needed to SpongeAPI;
+otherwise, the alternative is to use the Forge API and create a Mod instead.</p>
+</div>
+<div class="section" id="using-forge-or-nms-classes">
+<h3>Mengginakan Tempat atau Kelas NMS<a class="headerlink" href="#using-forge-or-nms-classes" title="Link permanen untuk headline ini">¶</a></h3>
+<p>We do not recommend working with Forge or Minecraft base classes at all, unless it is to provide compatibility with a
+mod for SpongeAPI. Most uses of NMS (<code class="docutils literal notranslate"><span class="pre">net.minecraft.server</span></code>) code in plugins do not fail gracefully, making
+troubleshooting very difficult. Maintaining NMS modifications is also more difficult than using SpongeAPI. Mods that
+add to SpongeAPI using code internals will have to specifically write an API, which does not rely on underlying
+Minecraft code, to be usable by Sponge plugins. However, plugins can be created that load separate “compatibility”
+modules to interact with the underlying implementation (SpongeForge or SpongeVanilla).</p>
+<p>Plugins menggunakan implementation-specific kode sangat mungkin untuk memecahkan antara versions, dan harus jelas dicap sebagai seperti di mana mereka yang diselenggarakan. Ini mungkin lebih tepat dicap sebagai “Mods”.</p>
+</div>
+<div class="section" id="mixins">
+<h3>Mixin<a class="headerlink" href="#mixins" title="Link permanen untuk headline ini">¶</a></h3>
+<p>Mixin khususnya untuk merubah kelas-kelas sebelum mod/plugin lain memulai. ForgeModLoader memanggil mod yang ini &quot;Coremod&quot;. SpongeForge adalah sebuah Coremod, dan menyebarkan mixin pada saat memulainya. Mixin bisa jadi digunakan oleh plugin, tetapi waspadalah dari kerumitan tambahan yang terlibat.</p>
+<p>** Modus Hybrid **</p>
+<p>Sponge plugins yang mana mempengaruhi mixin mungkin juga dapat dianggap menjadi sebuah mod inti, yang berdasarkan pada konten.</p>
+<ul class="simple">
+<li>Untuk menggunakan mixin dalam FML, itu pasti akan menjadi sebuah coremod. Botol itu mungkin juga berisi mengandung sebuah Sponge plugin, jadi yang paling pantas wadahnya adalah sebuah &quot;mod hybrid&quot;.</li>
+<li>Untuk mempergunakan mixin pada SpongeVanilla, tujuannya harus diumumkan dalam wujud yang nyata. SpongeVanilla lalu menyemprotkan mixin.</li>
+<li>Mempunyai tipe keduanya pada sebuah botol tunggal sepenuhnya mungkin terjadi. (Memang, sebuah botol tunggal dapat dengan mudah mengandung sebuah tweaker, FML mod, coremod, bukkit plugin, sponge plugin, dan/atau litemod.)</li>
+</ul>
+<p>Beberapa definisi mungkin bisa membantu di sini.</p>
+<dl class="docutils">
+<dt>Tweak Mod (aka Tweaker)</dt>
+<dd>a subsystem-level mod which hooks directly into the game using LaunchWrapper, usually used for
+ModSystems (e.g. LiteLoader, FML) and stand-alone mods (eg. Optifine). Can interact with any aspect
+of the game environment directly. Generally breaks every version.</dd>
+<dt>Core Mod</dt>
+<dd>mempunyai tenaga hampir sama nilainya dari sebuah Tweak Mod tetapi perlu di bootstrap oleh sebuah ModSistem. Mampu berinteraksi dengan segala aspek apapun dari lingkungan permainan secara langsung. Pada umumnya beristirahat pada semua versi Permainan terbaru.</dd>
+<dt>Mod</dt>
+<dd>berkomunikasi dengan permainan hanya lewat sebuah ModSistem, mod itu terbuka secara langsung pada objek permainan tetapi pada umumnya hanya keterkaitan ke dalam permainan yang disediakan oleh ModSystem. Pada umumnya istirahat setiap versi utama dari Permainan (tergantung pada fitur yang digunakan). Istilah mod juga digunakan sebagai sebuah istilah payung untuk apapun yang mengubah permainan, meski demi sebuah kejelasan kita akan menggunakan definisi ini.</dd>
+<dt>Plugin</dt>
+<dd>berinteraksi dengan permainan hanya melalui API, tidak berinteraksi dengan objek permainan secara langsung dengan cara apa pun, hanya memanfaatkan objek yang terpapar API. Umumnya hanya akan rusak saat API direvisi (dan terkadang tidak juga saat itu).</dd>
+</dl>
+<p>Penting juga membedakan wadah dari isinya. Masalah dengan terminologi cenderung muncul karena toples berisi mod cenderung disebut sebagai &quot;mod&quot;. Setiap plugin yang tidak sepenuhnya dipisahkan melalui API menempatkan dirinya ke dalam kategori Mod. Jenis &quot;plugin&quot; ini mungkin lazim bila ada kekurangan dalam API.</p>
+<p>** Keuntungan dari Modus Hybrid **</p>
+<p>Sebuah mod hybrid memanfaatkan komponen plugin yang berinteraksi melalui API, dan mod (atau bahkan mod inti) dalam paket yang sama. Ini memiliki kelemahan mod (istirahat setiap versi) tapi juga kekuatan mod (bisa berinteraksi dengan permainan secara langsung) ditambah dengan beberapa manfaat Plugin (akses abstrak tingkat tinggi ke permainan, dan juga bisa berinteraksi dengan plugin lain sebagai teman).</p>
+<p>Manfaat utama dari sistem ini adalah bahwa beban pemeliharaan berkurang saat memperbarui mod, karena setiap fitur yang diakses melalui API cenderung jauh lebih stabil.</p>
+<p>This type of mod can be used to implement plugins whose needs overflow the capability of the API (in
+the case of a plugin which needs to leverage mixins for a particular feature); but can also be used
+for mods which want to leverage services afforded by the API (e.g. a mod which wants to provide direct
+support for permissions or chat channels).</p>
+<p>Tidak seperti &quot;plugin&quot; NMS, mod hibrida membuat sifatnya jelas.</p>
+</div>
+</div>
+<div class="section" id="plugin-interoperability">
+<h2>Interoperabilitas Plugin<a class="headerlink" href="#plugin-interoperability" title="Link permanen untuk headline ini">¶</a></h2>
+<p>Penjelasan bagaimana cara berkomunikasi dengan plugin lain, <a href="#id1"><span class="problematic" id="id2">*</span></a>TBA <a href="#id3"><span class="problematic" id="id4">*</span></a>.</p>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="bad.html" class="btn btn-neutral float-right" title="Praktek buruk" accesskey="n" rel="next">Selanjutnya <span class="fa fa-angle-right"></span></a>
+        <a href="index.html" class="btn btn-neutral" title="Kebiasaan" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> Sebelumnya</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../../_static/flags/id_ID.svg"
+         alt="id" title="Indonesia">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../../_static/jquery.js"></script>      <script type="text/javascript" src="../../_static/underscore.js"></script>      <script type="text/javascript" src="../../_static/doctools.js"></script>      <script type="text/javascript" src="../../_static/language_data.js"></script>      <script type="text/javascript" src="../../_static/translations.js"></script>      <script type="text/javascript" src="../../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

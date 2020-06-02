@@ -1,0 +1,494 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>排程 &mdash; Sponge 7.2.0 說明文件</title>
+
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="索引"
+              href="../genindex.html"/>        <link rel="search" title="搜尋" href="../search.html"/>    <link rel="top" title="Sponge 7.2.0 說明文件" href="../index.html"/>        <link rel="up" title="建立插件" href="index.html"/>        <link rel="next" title="服務" href="services.html"/>        <link rel="prev" title="效果" href="effects.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../index.html">
+            <img src="../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../server/index.html">建立伺服器</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../versions/index.html">版本控制方針</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../preparing/index.html">準備開發</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">建立插件</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="api-versions.html">API版本</a></li>
+<li class="toctree-l2"><a class="reference internal" href="buildsystem.html">建置系統</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workspace/index.html">建立你的工作空間</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project/index.html">建立你的專案</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin-identifier.html">插件識別碼</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin-class.html">主要插件類別</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lifecycle.html">插件的生命週期</a></li>
+<li class="toctree-l2"><a class="reference internal" href="injection.html">相依注入</a></li>
+<li class="toctree-l2"><a class="reference internal" href="practices/index.html">實踐</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optional/index.html">Optionals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.html">記錄與除錯</a></li>
+<li class="toctree-l2"><a class="reference internal" href="text/index.html">文本</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands/index.html">插件指令</a></li>
+<li class="toctree-l2"><a class="reference internal" href="event/index.html">事件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration/index.html">設定插件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assets.html">Asset API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data/index.html">Data API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/index.html">方塊</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entities/index.html">實體</a></li>
+<li class="toctree-l2"><a class="reference internal" href="items/index.html">物品</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trade-offers.html">開設交易</a></li>
+<li class="toctree-l2"><a class="reference internal" href="effects.html">效果</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">排程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="services.html">服務</a></li>
+<li class="toctree-l2"><a class="reference internal" href="database.html">資料庫</a></li>
+<li class="toctree-l2"><a class="reference internal" href="permissions.html">權限</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bans.html">封鎖</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metrics.html">Metrics 收集</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bookview.html">書本閱覽</a></li>
+<li class="toctree-l2"><a class="reference internal" href="economy/index.html">經濟</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wgen/index.html">世界生成</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manager.html">插件管理器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="game-profile-manager.html">遊戲設定檔管理器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="offline-userplayer-data.html">離線玩家資料</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tab-lists.html">Tab 清單</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin-meta.html">插件元數據</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ray-tracing.html">光線追蹤</a></li>
+<li class="toctree-l2"><a class="reference internal" href="debugging.html">插件除錯</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials.html">教學</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internals/index.html">相依於實作的插件</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ore/index.html">Ore 文件</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contributing/index.html">為 Sponge 貢獻</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">關於 Sponge 專案</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+          <li><a href="index.html">建立插件</a> &raquo;</li>
+    <li>排程</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/plugin/scheduler.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="scheduler">
+<h1>排程<a class="headerlink" href="#scheduler" title="本標題的永久連結">¶</a></h1>
+<p>Sponge 提供了 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/scheduler/Scheduler.html">Scheduler</a> 机制用于允许插件开发者指定希望在未来完成的任务。 <code class="docutils literal notranslate"><span class="pre">Scheduler</span></code> 提供了一个 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/scheduler/Task.Builder.html">Task.Builder</a> 可以用于指定项目的属性如延迟时间、名称、同步或异步、以及一个 <code class="docutils literal notranslate"><span class="pre">Runnable</span></code> （参见 <a class="reference internal" href="#task-properties"><span class="std std-ref">属性</span></a> ）。</p>
+<div class="section" id="task-builder">
+<h2>工程建造器<a class="headerlink" href="#task-builder" title="本標題的永久連結">¶</a></h2>
+<p>首先我们先获取到一个 <code class="docutils literal notranslate"><span class="pre">Task.Builder</span></code> 的实例：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.scheduler.Task</span><span class="p">;</span>
+
+<span class="n">Task</span><span class="p">.</span><span class="na">Builder</span> <span class="n">taskBuilder</span> <span class="o">=</span> <span class="n">Task</span><span class="p">.</span><span class="na">builder</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>唯一必需的属性是 <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/lang/Runnable.html">Runnable</a> ，该属性通过 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/scheduler/Task.Builder.html#execute-java.lang.Runnable-">Task.Builder#execute(Runnable)</a> 方法指定。</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">taskBuilder</span><span class="p">.</span><span class="na">execute</span><span class="p">(</span><span class="k">new</span> <span class="n">Runnable</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">logger</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;Yay! Schedulers!&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>或者使用 <code class="docutils literal notranslate"><span class="pre">Task.Builder#execute(Runnable</span> <span class="pre">runnable)</span></code> 方法的 Java 8 形式</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">taskBuilder</span><span class="p">.</span><span class="na">execute</span><span class="p">(</span>
+    <span class="p">()</span> <span class="o">-&gt;</span> <span class="p">{</span>
+        <span class="n">logger</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;Yay! Schedulers!&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+<p>或者使用 <code class="docutils literal notranslate"><span class="pre">Task.Builder#execute(Consumer&lt;Task&gt;</span> <span class="pre">task)</span></code> 方法的 Java 8 形式</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">taskBuilder</span><span class="p">.</span><span class="na">execute</span><span class="p">(</span>
+    <span class="n">task</span> <span class="o">-&gt;</span> <span class="p">{</span>
+        <span class="n">logger</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;Yay! Schedulers! :&quot;</span> <span class="o">+</span> <span class="n">task</span><span class="p">.</span><span class="na">getName</span><span class="p">());</span>
+    <span class="p">}</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+<div class="section" id="task-properties">
+<span id="id1"></span><h3>属性<a class="headerlink" href="#task-properties" title="本標題的永久連結">¶</a></h3>
+<p>通过使用 <code class="docutils literal notranslate"><span class="pre">Task.Builder</span></code> ，你可以指定其他可选的属性，如下所述。</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="15%" />
+<col width="22%" />
+<col width="64%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">屬性（Property）</th>
+<th class="head">使用方法</th>
+<th class="head">說明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>延遲</td>
+<td><p class="first">延遲的Ticks(長延遲)</p>
+<dl class="last docutils">
+<dt>delay(long delay,</dt>
+<dd>TimeUnit unit)</dd>
+</dl>
+</td>
+<td><p class="first">在运行前经过的可选的延迟时间。</p>
+<p>时间被指定为具有 <code class="docutils literal notranslate"><span class="pre">delayTicks()</span></code> 方法设置的 Tick 数，或者通过使用 <code class="docutils literal notranslate"><span class="pre">delay()</span></code> 方法指定 <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/TimeUnit.html">TimeUnit</a> 作为一个更方便的时间单位。</p>
+<p class="last"><em>任一方法均可，但不能同时指定。</em></p>
+</td>
+</tr>
+<tr class="row-odd"><td>時間間隔</td>
+<td><dl class="first last docutils">
+<dt>intervalTicks(</dt>
+<dd>long interval)</dd>
+<dt>interval(long interval,</dt>
+<dd>TimeUnit unit)</dd>
+</dl>
+</td>
+<td><p class="first">两次任务重复之间的延时。若未指定，则任务不会重复。</p>
+<p>时间被指定为具有 <code class="docutils literal notranslate"><span class="pre">intervalTicks()</span></code> 方法设置的 Tick 数，或者通过使用 <code class="docutils literal notranslate"><span class="pre">interval()</span></code> 方法指定 <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/TimeUnit.html">TimeUnit</a> 以使用更方便的时间单位。</p>
+<p class="last"><em>任一方法均可，但不能同时指定。</em></p>
+</td>
+</tr>
+<tr class="row-even"><td>同步</td>
+<td>async()</td>
+<td>同步（Synchronous）任务在游戏的主循环也就是每 Tick 的循环中运行。如果使用 <code class="docutils literal notranslate"><span class="pre">Task.Builder#async</span></code> ，任务将以异步的方式运行。因此，它将在自己的线程中运行，独立于tick循环，并且可能没有办法安全地使用游戏中的状态（参见 <a class="reference internal" href="#asynchronous-tasks">Asynchronous Tasks</a> ）。</td>
+</tr>
+<tr class="row-odd"><td>名稱</td>
+<td>名稱（字串名稱）</td>
+<td>用于描述的名称。默认情况下的名称是 PLUGIN_ID 「-」 ( 「A-」 | 「S-」 ) SERIAL_ID 。比如一个默认名称可能会是这样子：“fooplugin-A-12”。Sponge 不会让两个名称的 SERIAL_ID 和 同步/异步类型都完全相同。如果你指定了特殊的名称，那么这一名称应该有比较好的描述性，并应在调试插件时起到很大的帮助。</td>
+</tr>
+</tbody>
+</table>
+<p>最后，通过使用 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/scheduler/Task.Builder.html#submit-java.lang.Object-">Task.Builder#submit(Object)</a> 方法，把属性设置提交给调度器。</p>
+<p>就是这样！综上所述，通过下面的代码，我们就可以生成并提交一个功能齐全的调度器。该调度器会以异步的方式每五分钟运行一次，第一次运行将会在设置后的 100 毫秒后发生：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">java.util.concurrent.TimeUnit</span><span class="p">;</span>
+
+<span class="n">PluginContainer</span> <span class="n">plugin</span> <span class="o">=</span> <span class="p">...;</span>
+
+<span class="n">Task</span> <span class="n">task</span> <span class="o">=</span> <span class="n">Task</span><span class="p">.</span><span class="na">builder</span><span class="p">().</span><span class="na">execute</span><span class="p">(()</span> <span class="o">-&gt;</span> <span class="n">logger</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;Yay! Schedulers!&quot;</span><span class="p">))</span>
+    <span class="p">.</span><span class="na">async</span><span class="p">().</span><span class="na">delay</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="n">TimeUnit</span><span class="p">.</span><span class="na">MILLISECONDS</span><span class="p">).</span><span class="na">interval</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">TimeUnit</span><span class="p">.</span><span class="na">MINUTES</span><span class="p">)</span>
+    <span class="p">.</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;ExamplePlugin - Fetch Stats from Database&quot;</span><span class="p">).</span><span class="na">submit</span><span class="p">(</span><span class="n">plugin</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>若要取消，只需要简单地调用 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/scheduler/Task.html#cancel--">Task#cancel()</a> 方法就可以了：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">task</span><span class="p">.</span><span class="na">cancel</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>如果你想通过调度器本身来取消的话，你可以转而去使用 <code class="docutils literal notranslate"><span class="pre">Consumer&lt;Task&gt;</span></code> 以获取实例本身。下面的示例将在调度器中进行从 60 开始的倒计时，并在倒计时达到零时取消自身。</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Listener</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onGameInit</span><span class="p">(</span><span class="n">GameInitializationEvent</span> <span class="n">event</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">Task</span> <span class="n">task</span> <span class="o">=</span> <span class="n">Task</span><span class="p">.</span><span class="na">builder</span><span class="p">().</span><span class="na">execute</span><span class="p">(</span><span class="k">new</span> <span class="n">CancellingTimerTask</span><span class="p">())</span>
+        <span class="p">.</span><span class="na">interval</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">TimeUnit</span><span class="p">.</span><span class="na">SECONDS</span><span class="p">)</span>
+        <span class="p">.</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;Self-Cancelling Timer Task&quot;</span><span class="p">).</span><span class="na">submit</span><span class="p">(</span><span class="n">plugin</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">private</span> <span class="kd">class</span> <span class="nc">CancellingTimerTask</span> <span class="kd">implements</span> <span class="n">Consumer</span><span class="o">&lt;</span><span class="n">Task</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">seconds</span> <span class="o">=</span> <span class="mi">60</span><span class="p">;</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">accept</span><span class="p">(</span><span class="n">Task</span> <span class="n">task</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">seconds</span><span class="o">--</span><span class="p">;</span>
+        <span class="n">Sponge</span><span class="p">.</span><span class="na">getServer</span><span class="p">()</span>
+            <span class="p">.</span><span class="na">getBroadcastChannel</span><span class="p">()</span>
+            <span class="p">.</span><span class="na">send</span><span class="p">(</span><span class="n">Text</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;Remaining Time: &quot;</span><span class="o">+</span><span class="n">seconds</span><span class="o">+</span><span class="s">&quot;s&quot;</span><span class="p">));</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">seconds</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">task</span><span class="p">.</span><span class="na">cancel</span><span class="p">();</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">警告</p>
+<p class="last"><strong>任何</strong>进入调度器的任务都应监视当前 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/Game.html">Game</a> 的 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/GameState.html">state</a> 或在不需要的时候取消注册（比如在 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GameStoppingServerEvent.html">GameStoppingServerEvent</a> 发布的时候）。这一点对客户端相当关键，因为它可以反复开关服务器。</p>
+</div>
+</div>
+<div class="section" id="asynchronous-tasks">
+<h3>异步调度器<a class="headerlink" href="#asynchronous-tasks" title="本標題的永久連結">¶</a></h3>
+<p>异步任务应主要用于可能需要相当长时间执行的代码，比如对另一个服务器或数据库的请求。如果在主线程上完成，对另一个服务器的请求可能会大大影响游戏的性能，因为在请求完成之前，游戏不能进行到下一个 Tick。</p>
+<p>由于 Minecraft 主要是单线程的，你几乎不能在异步线程中做什么事情。如果你一定要异步运行线程的话，你应该执行所有不使用 SpongeAPI ，并且不影响 Minecraft 的代码，然后注册另一个同步任务来处理需要它们的代码。不过，在 Minecraft 中有一小部分是可以异步工作的，这包括：</p>
+<ul class="simple">
+<li>聊天</li>
+<li>Sponge 的内置权限管理系统</li>
+<li>Sponge 的调度器本身</li>
+</ul>
+<p>此外，还有一些异步安全的操作：</p>
+<ul class="simple">
+<li>独立的网络请求</li>
+<li>（不包含 Sponge 使用的文件的）文件系统的 IO</li>
+</ul>
+<div class="admonition warning">
+<p class="first admonition-title">警告</p>
+<p class="last">在非主线程上访问游戏对象会导致崩溃、行为不一致等诸多问题，应尽可能避免。错误的实现会引发 <code class="docutils literal notranslate"><span class="pre">ConcurrentModificationException</span></code>，有可能会伴随服务器崩溃，甚至是玩家／世界／服务器数据损坏。</p>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">警告</p>
+<p class="last"><strong>任何</strong>进入调度器的任务都应监视当前 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/Game.html">Game</a> 的 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/GameState.html">state</a> 或在不需要的时候取消注册（比如在 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/state/GameStoppingServerEvent.html">GameStoppingServerEvent</a> 发布的时候）。这一点对客户端相当关键，因为它可以反复开关服务器。</p>
+</div>
+</div>
+</div>
+<div class="section" id="compatibility-with-other-libraries">
+<h2>和第三方库的兼容性<a class="headerlink" href="#compatibility-with-other-libraries" title="本標題的永久連結">¶</a></h2>
+<p>随着插件在大小和范围上的增长，你可能希望开始使用使用 Java 或兼容 JVM 的许多第三方并发库之一。这些库确实倾向于支持 Java 的 <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ExecutorService.html">ExecutorService</a> 作为任务在哪个线程上执行的指示。</p>
+<p>为了允许这些库和 Sponge 的 <code class="docutils literal notranslate"><span class="pre">Scheduler</span></code> 一起使用，可以使用以下方法：</p>
+<ul class="simple">
+<li><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/scheduler/Scheduler.html#createSyncExecutor-java.lang.Object-">Scheduler#createSyncExecutor(Object)</a> 方法创建一个 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/scheduler/SpongeExecutorService.html">SpongeExecutorService</a> 用于通过 Sponge 的同步调度器执行任务。</li>
+<li><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/scheduler/Scheduler.html#createAsyncExecutor-java.lang.Object-">Scheduler#createAsyncExecutor(Object)</a> 方法创建一个 <code class="docutils literal notranslate"><span class="pre">SpongeExecutorService</span></code> 用于通过 Sponge 的异步调度器执行任务。任务的限制在 <a class="reference internal" href="#asynchronous-tasks">Asynchronous Tasks</a> 部分里也有所提及。</li>
+</ul>
+<p>需要时刻牢记的一件事是，任何与 Sponge 交互的任务，如果它们与 Sponge 的交互方式，在 <a class="reference internal" href="#asynchronous-tasks">Asynchronous Tasks</a> 中列出的交互方式之外，那么需要在使用  <code class="docutils literal notranslate"><span class="pre">Scheduler#createSyncExecutor(Object)</span></code> 创建的 ExecutorService 上执行才能保证线程安全。</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.scheduler.SpongeExecutorService</span><span class="p">;</span>
+
+<span class="n">PluginContainer</span> <span class="n">plugin</span> <span class="o">=</span> <span class="p">...;</span>
+
+<span class="n">SpongeExecutorService</span> <span class="n">minecraftExecutor</span> <span class="o">=</span> <span class="n">Sponge</span><span class="p">.</span><span class="na">getScheduler</span><span class="p">().</span><span class="na">createSyncExecutor</span><span class="p">(</span><span class="n">plugin</span><span class="p">);</span>
+
+<span class="n">minecraftExecutor</span><span class="p">.</span><span class="na">submit</span><span class="p">(()</span> <span class="o">-&gt;</span> <span class="p">{</span> <span class="p">...</span> <span class="p">});</span>
+
+<span class="n">minecraftExecutor</span><span class="p">.</span><span class="na">schedule</span><span class="p">(()</span> <span class="o">-&gt;</span> <span class="p">{</span> <span class="p">...</span> <span class="p">},</span> <span class="mi">10</span><span class="p">,</span> <span class="n">TimeUnit</span><span class="p">.</span><span class="na">SECONDS</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>几乎所有的库都有一些适应 <code class="docutils literal notranslate"><span class="pre">ExecutorService</span></code> 的方法来本地调度任务。作为示例，下面的内容将解释 <code class="docutils literal notranslate"><span class="pre">ExecutorService</span></code> 如何在许多库中使用。</p>
+<div class="section" id="completablefuture-java-8">
+<h3>CompletableFuture（Java 8）<a class="headerlink" href="#completablefuture-java-8" title="本標題的永久連結">¶</a></h3>
+<p>在 Java 8 中，对象 <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletableFuture.html">CompletableFuture</a> 被添加到标准库中。与 <code class="docutils literal notranslate"><span class="pre">Future</span></code> 对象相比，它允许开发人员提供一个回调，当 Future 完成时调用，而不是阻塞线程，直到 Future 最终完成。</p>
+<p><a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletableFuture.html">CompletableFuture</a> 是一个流畅的（Fluent）接口，它的每个功能通常有以下三个变体：</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">CompletableFuture#&lt;function&gt;Async(...,</span> <span class="pre">Executor</span> <span class="pre">ex)</span></code> 通过 <code class="docutils literal notranslate"><span class="pre">ex</span></code> 执行</li>
+<li><code class="docutils literal notranslate"><span class="pre">CompletableFuture#&lt;function&gt;Async(...)</span></code> 通过 <code class="docutils literal notranslate"><span class="pre">ForkJoinPool.commonPool()</span></code> 执行</li>
+<li><code class="docutils literal notranslate"><span class="pre">CompletableFuture#&lt;function&gt;Async(...)</span></code> 通过之前的 <code class="docutils literal notranslate"><span class="pre">CompletableFuture</span></code> 完成的任何线程上执行。</li>
+</ul>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">java.util.concurrent.CompletableFuture</span><span class="p">;</span>
+
+<span class="n">PluginContainer</span> <span class="n">plugin</span> <span class="o">=</span> <span class="p">...;</span>
+
+<span class="n">SpongeExecutorService</span> <span class="n">minecraftExecutor</span> <span class="o">=</span> <span class="n">Sponge</span><span class="p">.</span><span class="na">getScheduler</span><span class="p">().</span><span class="na">createSyncExecutor</span><span class="p">(</span><span class="n">plugin</span><span class="p">);</span>
+
+<span class="n">CompletableFuture</span><span class="p">.</span><span class="na">supplyAsync</span><span class="p">(()</span> <span class="o">-&gt;</span> <span class="p">{</span>
+    <span class="c1">// ASYNC: ForkJoinPool.commonPool()</span>
+    <span class="k">return</span> <span class="mi">42</span><span class="p">;</span>
+<span class="p">}).</span><span class="na">thenAcceptAsync</span><span class="p">((</span><span class="n">awesomeValue</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">{</span>
+    <span class="c1">// SYNC: minecraftExecutor</span>
+<span class="p">},</span> <span class="n">minecraftExecutor</span><span class="p">).</span><span class="na">thenRun</span><span class="p">(()</span> <span class="o">-&gt;</span> <span class="p">{</span>
+    <span class="c1">// SYNC: minecraftExecutor</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rxjava">
+<h3>RxJava<a class="headerlink" href="#rxjava" title="本標題的永久連結">¶</a></h3>
+<p><a class="reference external" href="https://github.com/ReactiveX/RxJava">RxJava</a> 是 <a class="reference external" href="http://reactivex.io/">Reactive Extensions</a> 理念在 JVM 上的一个实现。</p>
+<p>Rx 中的多线程是通过各种 <a class="reference external" href="http://reactivex.io/documentation/scheduler.html">调度器</a> 管理的。使用 <code class="docutils literal notranslate"><span class="pre">Schedulers#from(Executor</span> <span class="pre">executor)</span></code> 方法，Sponge 提供的 <code class="docutils literal notranslate"><span class="pre">Executor</span></code> 可以变成 <code class="docutils literal notranslate"><span class="pre">Scheduler</span></code> 。</p>
+<p>就像 <code class="docutils literal notranslate"><span class="pre">CompletableFuture</span></code> 的默认行为是在整条执行链的前一部分的相同线程上执行的一样，使用 <code class="docutils literal notranslate"><span class="pre">Observable#observeOn(Scheduler</span> <span class="pre">scheduler)</span></code> 在线程之间移动。</p>
+<p>需要记住重要的一点是，根 <code class="docutils literal notranslate"><span class="pre">Observable</span></code> 在 <code class="docutils literal notranslate"><span class="pre">Observable#subscribe()</span></code> 被调用的任何线程上被调用。也就是说，如果根 Observable 与 Sponge 交互，它应该被强制使用 <code class="docutils literal notranslate"><span class="pre">Observable#subscribeOn(Scheduler</span> <span class="pre">scheduler)</span></code> 来同步运行。</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">rx.Observable</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">rx.Scheduler</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">rx.schedulers.Schedulers</span><span class="p">;</span>
+
+<span class="n">PluginContainer</span> <span class="n">plugin</span> <span class="o">=</span> <span class="p">...;</span>
+
+<span class="n">SpongeExecutorService</span> <span class="n">executor</span> <span class="o">=</span> <span class="n">Sponge</span><span class="p">.</span><span class="na">getScheduler</span><span class="p">().</span><span class="na">createSyncExecutor</span><span class="p">(</span><span class="n">plugin</span><span class="p">);</span>
+<span class="n">Scheduler</span> <span class="n">minecraftScheduler</span> <span class="o">=</span> <span class="n">Schedulers</span><span class="p">.</span><span class="na">from</span><span class="p">(</span><span class="n">executor</span><span class="p">);</span>
+
+<span class="n">Observable</span><span class="p">.</span><span class="na">defer</span><span class="p">(()</span> <span class="o">-&gt;</span> <span class="n">Observable</span><span class="p">.</span><span class="na">from</span><span class="p">(</span><span class="n">Sponge</span><span class="p">.</span><span class="na">getServer</span><span class="p">().</span><span class="na">getOnlinePlayers</span><span class="p">()))</span>
+          <span class="p">.</span><span class="na">subscribeOn</span><span class="p">(</span><span class="n">minecraftScheduler</span><span class="p">)</span> <span class="c1">// defer -&gt; SYNC: minecraftScheduler</span>
+          <span class="p">.</span><span class="na">observeOn</span><span class="p">(</span><span class="n">Schedulers</span><span class="p">.</span><span class="na">io</span><span class="p">())</span> <span class="c1">// -&gt; ASYNC: Schedulers.io()</span>
+          <span class="p">.</span><span class="na">filter</span><span class="p">(</span><span class="n">player</span> <span class="o">-&gt;</span> <span class="p">{</span>
+              <span class="c1">// ASYNC: Schedulers.io()</span>
+              <span class="k">return</span> <span class="s">&quot;Flards&quot;</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">player</span><span class="p">.</span><span class="na">getName</span><span class="p">());</span>
+          <span class="p">})</span>
+          <span class="p">.</span><span class="na">observeOn</span><span class="p">(</span><span class="n">minecraftScheduler</span><span class="p">)</span> <span class="c1">// -&gt; SYNC: minecraftScheduler</span>
+          <span class="p">.</span><span class="na">subscribe</span><span class="p">(</span><span class="n">player</span> <span class="o">-&gt;</span> <span class="p">{</span>
+              <span class="c1">// SYNC: minecraftScheduler</span>
+              <span class="n">player</span><span class="p">.</span><span class="na">kick</span><span class="p">(</span><span class="n">Text</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;Computer says no&quot;</span><span class="p">));</span>
+          <span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="scala">
+<h3>Scala<a class="headerlink" href="#scala" title="本標題的永久連結">¶</a></h3>
+<p>Scala comes with a built-in <a class="reference external" href="https://www.scala-lang.org/api/current/#scala.concurrent.Future">Future</a> object which
+a lot of scala framework mirror in design.
+Most methods of the Future accept an
+<a class="reference external" href="https://www.scala-lang.org/api/current/scala/concurrent/ExecutionContext.html">ExecutionContext</a> which
+determined where that part of the operation is executed.
+This is different from the CompletableFuture or RxJava since they default to executing on the same thread on which
+the previous operation ended.</p>
+<p>事实上，所有这些试图隐式找到一个 <code class="docutils literal notranslate"><span class="pre">ExecutionContext</span></code> 的操作意味着你可以很容易地使用默认的 <code class="docutils literal notranslate"><span class="pre">ExecutionContext.global</span></code> 并具体运行在需要与 Sponge 服务端线程安全的部分。</p>
+<p>为了避免通过 Sponge 的 <code class="docutils literal notranslate"><span class="pre">ExecutorContext</span></code> 的意外调度工作，另一个上下文应该被隐式定义并因此作为默认选择。为了保证线程安全，只有与 Sponge 实际交互的功能需要指定 Sponge 的 Executor。</p>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="k">import</span> <span class="nn">scala.concurrent.ExecutionContext</span>
+
+<span class="k">val</span> <span class="n">executor</span> <span class="k">=</span> <span class="nc">Sponge</span><span class="o">.</span><span class="n">getScheduler</span><span class="o">().</span><span class="n">createSyncExecutor</span><span class="o">(</span><span class="n">plugin</span><span class="o">)</span>
+
+<span class="k">import</span> <span class="nn">ExecutionContext.Implicits.global</span>
+<span class="k">val</span> <span class="n">ec</span> <span class="k">=</span> <span class="nc">ExecutionContext</span><span class="o">.</span><span class="n">fromExecutorService</span><span class="o">(</span><span class="n">executor</span><span class="o">)</span>
+
+<span class="k">val</span> <span class="n">future</span> <span class="k">=</span> <span class="nc">Future</span> <span class="o">{</span>
+    <span class="c1">// ASYNC: ExecutionContext.Implicits.global</span>
+<span class="o">}</span>
+
+<span class="n">future</span> <span class="n">foreach</span> <span class="o">{</span>
+    <span class="k">case</span> <span class="n">value</span> <span class="k">=&gt;</span> <span class="c1">// SYNC: ec</span>
+<span class="o">}(</span><span class="n">ec</span><span class="o">)</span>
+
+<span class="n">future</span> <span class="n">map</span> <span class="o">{</span>
+    <span class="k">case</span> <span class="n">value</span> <span class="k">=&gt;</span> <span class="mi">42</span> <span class="c1">// SYNC: ec</span>
+<span class="o">}(</span><span class="n">ec</span><span class="o">).</span><span class="n">foreach</span> <span class="o">{</span>
+    <span class="k">case</span> <span class="n">value</span> <span class="k">=&gt;</span> <span class="n">println</span><span class="o">(</span><span class="n">value</span><span class="o">)</span> <span class="c1">// ASYNC: ExecutionContext.Implicits.global</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="services.html" class="btn btn-neutral float-right" title="服務" accesskey="n" rel="next">下一頁 <span class="fa fa-angle-right"></span></a>
+        <a href="effects.html" class="btn btn-neutral" title="效果" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> 上一頁</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../_static/flags/zh_TW.svg"
+         alt="zh-TW" title="繁體中文">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../_static/jquery.js"></script>      <script type="text/javascript" src="../_static/underscore.js"></script>      <script type="text/javascript" src="../_static/doctools.js"></script>      <script type="text/javascript" src="../_static/language_data.js"></script>      <script type="text/javascript" src="../_static/translations.js"></script>      <script type="text/javascript" src="../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

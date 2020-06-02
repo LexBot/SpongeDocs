@@ -1,0 +1,349 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>对于 Optional 的解释 &mdash; Sponge 7.2.0 文档</title>
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="索引"
+              href="../../genindex.html"/>        <link rel="search" title="搜索" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 文档" href="../../index.html"/>        <link rel="up" title="使用 Optional" href="index.html"/>        <link rel="next" title="用法示例" href="usage.html"/>        <link rel="prev" title="使用 Optional" href="index.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../../index.html">
+            <img src="../../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../server/index.html">创建服务器</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../versions/index.html">版本策略</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../preparing/index.html">为开发作准备</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">插件开发</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../api-versions.html">API版本</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../buildsystem.html">构建系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../workspace/index.html">设置开发环境</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../project/index.html">设置你的项目</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-identifier.html">插件标识符</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-class.html">插件的主类</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lifecycle.html">插件的生命周期</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../injection.html">依赖注入</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../practices/index.html">插件开发惯例</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">使用 Optional</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">对于 Optional 的解释</a></li>
+<li class="toctree-l3"><a class="reference internal" href="usage.html">用法示例</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../logging.html">日志记录和调试</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text/index.html">文本 API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/index.html">插件命令</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../event/index.html">事件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/index.html">插件配置</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assets.html">使用 Asset API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data/index.html">数据 API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../blocks/index.html">方块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../entities/index.html">实体</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../items/index.html">物品</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../trade-offers.html">村民交易</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../effects.html">效果</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../scheduler.html">调度器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../services.html">服务</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database.html">数据库</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../permissions.html">权限</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bans.html">黑名单</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metrics.html">Metrics 收集</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bookview.html">成书</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../economy/index.html">经济 API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wgen/index.html">世界生成</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manager.html">插件管理器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../game-profile-manager.html">玩家资料管理器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../offline-userplayer-data.html">离线玩家数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tab-lists.html">玩家列表</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-meta.html">插件的元数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ray-tracing.html">光线追踪</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../debugging.html">调试插件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials.html">教程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internals/index.html">依赖底层实现</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ore/index.html">Ore 文档</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/index.html">向 Sponge 贡献代码</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">关于 Sponge</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+          <li><a href="../index.html">插件开发</a> &raquo;</li>
+          <li><a href="index.html">使用 Optional</a> &raquo;</li>
+    <li>对于 Optional 的解释</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/plugin/optional/basic.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="optionals-explained">
+<h1>对于 Optional 的解释<a class="headerlink" href="#optionals-explained" title="永久链接至标题">¶</a></h1>
+<p>SpongeAPI 的很多部分都使用了 Java 提供了 <cite>Optional</cite> 系统作为对象的获取方式，然而如果你之前从未使用过 <code class="docutils literal notranslate"><span class="pre">Optional</span></code> 的话，你会觉得这种用法有一点点奇怪。你也许会问：“<em>为什么我需要使用这么一套额外的步骤去获取 API 里的一些对象</em>？”</p>
+<p>这一节简要概括了 <code class="docutils literal notranslate"><span class="pre">Optional</span></code> 的重要性，同时说明了如何——以及或许更重要的是为什么——整个 SpongeAPI 都在使用它。</p>
+<p>我们从一点点的历史开始，并且看一看一个访问器——特别是 Getter ——在通常情况下没有 <code class="docutils literal notranslate"><span class="pre">Optional</span></code> 时是如何工作的。</p>
+<div class="section" id="implicit-nullable-contracts-and-why-they-suck">
+<h2>一、隐式的 Null 可能性以及它为什么那么糟糕<a class="headerlink" href="#implicit-nullable-contracts-and-why-they-suck" title="永久链接至标题">¶</a></h2>
+<p>我们假设有一个简单的 API 对象 <code class="docutils literal notranslate"><span class="pre">Entity</span></code> 并有着一个返回一个 <code class="docutils literal notranslate"><span class="pre">Foo</span></code> 的 <code class="docutils literal notranslate"><span class="pre">getFoo()</span></code> 方法。</p>
+<img alt="../../_images/optionals1.png" src="../../_images/optionals1.png" />
+<p>在比较早的年代，我们的插件可能是这样通过 Getter 获取和使用这个 <code class="docutils literal notranslate"><span class="pre">Entity</span></code> 的 <code class="docutils literal notranslate"><span class="pre">Foo</span></code> 的：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">someEventHandler</span><span class="p">(</span><span class="n">Entity</span> <span class="n">someEntity</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">Foo</span> <span class="n">entityFoo</span> <span class="o">=</span> <span class="n">someEntity</span><span class="p">.</span><span class="na">getFoo</span><span class="p">();</span>
+    <span class="n">entityFoo</span><span class="p">.</span><span class="na">bar</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>问题随之出现——因为当设计 API 的时候——当考虑到 <code class="docutils literal notranslate"><span class="pre">getFoo</span></code> 到底会不会返回一个 <code class="docutils literal notranslate"><span class="pre">null</span></code> ，我们就不得不去依赖一个 <strong>隐式</strong> 约定，这样的 <strong>隐式约定</strong> 可以有这样两种方式：</p>
+<ul class="simple">
+<li><strong>在 JavaDoc 中</strong>——这很糟糕，因为它依赖于插件作者怎么去阅读它，因此插件作者并不能够很清楚这个约定到底是什么样子</li>
+<li><strong>使用 Nullable 注解</strong>——这也不是很理想，因为在一般情况下这些注解需要一些工具才能真正起到作用，比如依赖于 IDE 或者编译器。</li>
+</ul>
+<img alt="../../_images/optionals2.png" src="../../_images/optionals2.png" />
+<p>我们现在假设这么一个 <code class="docutils literal notranslate"><span class="pre">getFoo()</span></code> 方法可能——作为一个约定——返回一个 null。这意味着我们上面的代码是不安全的因为它会导致在返回一个 null 的时候直接抛出一个空指针异常（<code class="docutils literal notranslate"><span class="pre">NullPointerException</span></code>）。</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">someEventHandler</span><span class="p">(</span><span class="n">Entity</span> <span class="n">someEntity</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">Foo</span> <span class="n">entityFoo</span> <span class="o">=</span> <span class="n">someEntity</span><span class="p">.</span><span class="na">getFoo</span><span class="p">();</span>
+    <span class="n">entityFoo</span><span class="p">.</span><span class="na">bar</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>我们现在假设我们的插件作者很了解这个 <code class="docutils literal notranslate"><span class="pre">getFoo</span></code> 方法返回 null 会发生什么，所以他决定通过检查 null 的方式修复这么一个问题。假设这里定义了一个本地常量 <code class="docutils literal notranslate"><span class="pre">Foo</span></code> 那么最后的代码看起来就会是这个样子：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">someEventHandler</span><span class="p">(</span><span class="n">Entity</span> <span class="n">someEntity</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">Foo</span> <span class="n">entityFoo</span> <span class="o">=</span> <span class="n">someEntity</span><span class="p">.</span><span class="na">getFoo</span><span class="p">();</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">entityFoo</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">entityFoo</span> <span class="o">=</span> <span class="n">MyPlugin</span><span class="p">.</span><span class="na">DEFAULT_FOO</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">entityFoo</span><span class="p">.</span><span class="na">bar</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>在这个示例中，插件作者意识到了这个方法可能返回 null ，然后定义了一个常量用于 <code class="docutils literal notranslate"><span class="pre">Foo</span></code> 的默认实现以替代它。当然这么一个插件可以完全不需要这么一个方法调用，也可以通过别的地方获取这么一个 <code class="docutils literal notranslate"><span class="pre">Foo</span></code>。不过这里的重点是处理 null 会很容易导致代码变得一团糟，即使只是简单的情况，而且还取决于插件的作者是否直接去了解了这一方法的约定以确定到底要不要首先检查一下返回值是不是 null。</p>
+<p>然而，这并不是唯一的缺点。现在让我们从长远考虑这一 API，然后假设作者在写插件的时候，它们浏览了方法的 JavaDoc，然后看到了这一方法被保证永远不会返回 null （因为每个 <cite>Entity</cite> 总会有一个 <code class="docutils literal notranslate"><span class="pre">Foo</span></code> 可用）。太好了！根本不需要任何的 null 检查！</p>
+<p>然而，现在我们假设，在以后版本的游戏中，游戏开发者把 <code class="docutils literal notranslate"><span class="pre">Foo</span></code> 删除或弃用（Deprecate）了。然后这一 API 的作者就相应地更新了它的 API，并声称目前 <code class="docutils literal notranslate"><span class="pre">getFoo()</span></code> 方法 <strong>会</strong> 返回一个 <code class="docutils literal notranslate"><span class="pre">null</span></code>，然后写进了 JavaDoc。那么问题来了：即便是勤奋的插件作者在之前查阅了相关的 JavaDoc，然后在他们首次撰写代码的时候没有检查 null，那么目前它就不知不觉得产生了问题：没有在适当的位置检查 null 的使用了 <code class="docutils literal notranslate"><span class="pre">Foo</span></code> 的代码都会产生一个空指针异常。</p>
+<p>因为我们看到，如果我们允许可能的 null，那么我们就要在一系列相当糟糕的解决方案中选择：</p>
+<ul class="simple">
+<li>插件作者可以假设<strong>所有的</strong>方法都可能返回一个 null 并在相应的地方写代码防守，然后我们已经看到了这会导致的一团糟的代码。</li>
+<li>API 作者可以在每一个 API 方法上定义一个隐式的 null 约定，以试图处理 null 的方式解决插件作者的问题，但这只会加剧前面的问题。</li>
+<li>API 作者可以声称他们的任何隐式的 null 约定都不会在将来被改变。这意味着如果需要移除一个特性，他们必须要么：</li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li>抛出一个异常——几乎不够优雅，不过倒是比到处都是的空指针异常更好追踪一些</li>
+<li>返回一个“假”的对象或者一个无效值——这意味着 API 的使用者（插件）将继续工作，但是这为 API 的开发者产生了不断上升的负担，因为每一个弃用的特性都需要创建一个无效的对象。这很快导致一个体积巨大的 API 里充斥着无用的对象，然而这些对象的功能只是为了支持 API 中那些已经弃用的特性。</li>
+</ul>
+</div></blockquote>
+<p>所以我们已经十分清楚，对于 null 的 <strong>隐式</strong> 约定会导致一些相当头痛的问题，并会在 API 作为一个极不稳定的底层的中间层时加剧。不过幸运的是，我们有一种更好的方式：</p>
+</div>
+<div class="section" id="optional-and-the-explicit-nullable-contract">
+<h2>二、Optional 和显式的 null 可能性<a class="headerlink" href="#optional-and-the-explicit-nullable-contract" title="永久链接至标题">¶</a></h2>
+<p>如上文所述，用于 Minecraft 的 API 处境十分艰难。最终他们需要提供一个带有 <em>合理数量的隐含稳定</em> 平台凌驾于一个 <em>根本没有隐含稳定</em> 的游戏之上。因此 Minecraft 的任何 API 都需要在设计的时候清楚地意识到，游戏的任何方面都应该对在任何时间以任何理由以任何可以想象的方式被修改负责，适应和包括被完全移除的部分！</p>
+<p>这种不稳定性就是导致上面提到的 null 可能性的罪魁祸首。</p>
+<p><cite>Optional</cite> 通过把 <em>隐式</em> 的 null 可能性转变为 <em>显式</em> 的来解决这一问题。API 从来都不宣称，“ <em>这是你的对象，好的，谢谢，再见</em> ”，取而代之的是一个访问器，“ <em>这是个盒子，里面可能有一个你想要的对象，你看着办</em> ”。</p>
+<img alt="../../_images/optionals3.png" src="../../_images/optionals3.png" />
+<p>通过一个可能返回 null 的明确约定，我们把 <em>null 检查</em> 的概念替换成有一点点细微差别的概念 <em>可能存在</em> 。我们也从 <em>一开始</em> 就遵照这一约定。</p>
+<p>所以这到底是什么意思？</p>
+<p>一言以蔽之，插件作者不再需要担心返回一个 <code class="docutils literal notranslate"><span class="pre">null</span></code> 的可能性。取而代之的是把一个特定的对象是否存在的可能性包装了起来。这在 null 检查的时候有着与生俱来的特性，同时还带来着更优雅、和可读性更好的代码。</p>
+<p>为了看出来为什么会这样，我们来把上面的例子中的 <code class="docutils literal notranslate"><span class="pre">getFoo</span></code> 方法的返回值设置成一个 <code class="docutils literal notranslate"><span class="pre">Optional&lt;Foo&gt;</span></code> ：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">someEventHandler</span><span class="p">(</span><span class="n">Entity</span> <span class="n">someEntity</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">Optional</span><span class="o">&lt;</span><span class="n">Foo</span><span class="o">&gt;</span> <span class="n">entityFoo</span> <span class="o">=</span> <span class="n">someEntity</span><span class="p">.</span><span class="na">getFoo</span><span class="p">();</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">entityFoo</span><span class="p">.</span><span class="na">isPresent</span><span class="p">())</span> <span class="p">{</span>
+        <span class="n">entityFoo</span><span class="p">.</span><span class="na">get</span><span class="p">().</span><span class="na">bar</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>你可能注意到这一示例看起来和一个标准的 null 检查没有什么区别，然而在同样的代码量下，使用 <code class="docutils literal notranslate"><span class="pre">Optional</span></code> 的的确确地增加了一些额外的信息。例如，对于想要了解这一方法会不会可能返回 null 的人来说，很明显这一方法可能不会返回我们想要的对象，同时处理这一返回的对象的方式是如此明确和清晰。</p>
+<p>那又如何？你呐喊道。我们显式的对 null 可能性的声明和执行对 null 的检查的代码量完全相同——尽管被 Getter 固定住了。“ <em>那又如何</em> ”？</p>
+<p>好， <cite>Optional</cite> 这一包装允许我们以比一些传统上的检查方式更优雅的方式，考虑下面的代码：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">someEventHandler</span><span class="p">(</span><span class="n">Entity</span> <span class="n">someEntity</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">Foo</span> <span class="n">entityFoo</span> <span class="o">=</span> <span class="n">someEntity</span><span class="p">.</span><span class="na">getFoo</span><span class="p">().</span><span class="na">orElse</span><span class="p">(</span><span class="n">MyPlugin</span><span class="p">.</span><span class="na">DEFAULT_FOO</span><span class="p">);</span>
+    <span class="n">entityFoo</span><span class="p">.</span><span class="na">bar</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>停一下！我们就这样把 null 检查和设置默认值这一串繁琐的代码替换成了这么一行？是的，就是这样。实际上，在这个简单的示例里我们甚至可以直接这么做：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">someEventHandler</span><span class="p">(</span><span class="n">Entity</span> <span class="n">someEntity</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">someEntity</span><span class="p">.</span><span class="na">getFoo</span><span class="p">().</span><span class="na">orElse</span><span class="p">(</span><span class="n">MyPlugin</span><span class="p">.</span><span class="na">DEFAULT_FOO</span><span class="p">).</span><span class="na">bar</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>这是完全安全的，只要 <code class="docutils literal notranslate"><span class="pre">MyPlugin.DEFAULT_FOO</span></code> 永远是可用的。</p>
+<p>考虑下面的使用两个 <code class="docutils literal notranslate"><span class="pre">Entity</span></code> 的示例，使用一个隐式的 null 检查我们首先想要得到第一个 <code class="docutils literal notranslate"><span class="pre">Entity</span></code> 的 <code class="docutils literal notranslate"><span class="pre">Foo</span></code>，如果第一个 <code class="docutils literal notranslate"><span class="pre">Entity</span></code> 不存在这个 <code class="docutils literal notranslate"><span class="pre">Foo</span></code> 我们就从第二个获取，如果都不存在我们就使用默认值：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">someEventHandler</span><span class="p">(</span><span class="n">Entity</span> <span class="n">someEntity</span><span class="p">,</span> <span class="n">Entity</span> <span class="n">entity2</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">Foo</span> <span class="n">entityFoo</span> <span class="o">=</span> <span class="n">someEntity</span><span class="p">.</span><span class="na">getFoo</span><span class="p">();</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">entityFoo</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">entityFoo</span> <span class="o">=</span> <span class="n">entity2</span><span class="p">.</span><span class="na">getFoo</span><span class="p">();</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">entityFoo</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">entityFoo</span> <span class="o">=</span> <span class="n">MyPlugin</span><span class="p">.</span><span class="na">DEFAULT_FOO</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">entityFoo</span><span class="p">.</span><span class="na">bar</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>使用 <code class="docutils literal notranslate"><span class="pre">Optional</span></code> 我们可以让代码变得非常清晰，就像这样：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">someEventHandler</span><span class="p">(</span><span class="n">Entity</span> <span class="n">someEntity</span><span class="p">,</span> <span class="n">Entity</span> <span class="n">entity2</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">someEntity</span><span class="p">.</span><span class="na">getFoo</span><span class="p">().</span><span class="na">orElse</span><span class="p">(</span><span class="n">entity2</span><span class="p">.</span><span class="na">getFoo</span><span class="p">().</span><span class="na">orElse</span><span class="p">(</span><span class="n">MyPlugin</span><span class="p">.</span><span class="na">DEFAULT_FOO</span><span class="p">)).</span><span class="na">bar</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>这仅仅是 <code class="docutils literal notranslate"><span class="pre">Optional</span></code> 特性的冰山一角。在 Java 8 中，<code class="docutils literal notranslate"><span class="pre">Optional</span></code> 还支持 <code class="docutils literal notranslate"><span class="pre">Consumer</span></code> 和 <code class="docutils literal notranslate"><span class="pre">Supplier</span></code> 两个接口，允许 Lambda 表达式在 <em>不存在（Absent）</em> 时使用。一些用法示例可以参阅 <a class="reference internal" href="usage.html"><span class="doc">用法示例</span></a> 。</p>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">另一种对于避免 null 的理论依据可以参阅 <a class="reference external" href="https://github.com/google/guava/wiki/UsingAndAvoidingNullExplained/">Guava: Using And Avoiding Null Explained</a> 。请注意，Guava 中的 <code class="docutils literal notranslate"><span class="pre">Optional</span></code> 类和 Java 的 <code class="docutils literal notranslate"><span class="pre">java.util.Optional</span></code> 并不一样，因此相关的方法名等也并不一样。</p>
+</div>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="usage.html" class="btn btn-neutral float-right" title="用法示例" accesskey="n" rel="next">下一页 <span class="fa fa-angle-right"></span></a>
+        <a href="index.html" class="btn btn-neutral" title="使用 Optional" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> 上一页</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../../_static/flags/zh_CN.svg"
+         alt="zh-CN" title="简体中文">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../../_static/jquery.js"></script>      <script type="text/javascript" src="../../_static/underscore.js"></script>      <script type="text/javascript" src="../../_static/doctools.js"></script>      <script type="text/javascript" src="../../_static/language_data.js"></script>      <script type="text/javascript" src="../../_static/translations.js"></script>      <script type="text/javascript" src="../../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

@@ -1,0 +1,237 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>在 Sponge 上使用服务器代理 &mdash; Sponge 7.2.0 文档</title>
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="索引"
+              href="../../genindex.html"/>        <link rel="search" title="搜索" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 文档" href="../../index.html"/>        <link rel="up" title="入门指南" href="index.html"/>        <link rel="next" title="配置 Sponge" href="configuration/index.html"/>        <link rel="prev" title="端口转发" href="port-forward.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../../index.html">
+            <img src="../../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">创建服务器</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html">快速入门指南</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">入门指南</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="jre.html">安装 Java</a></li>
+<li class="toctree-l3"><a class="reference internal" href="migrating.html">迁移到 Sponge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="implementations/index.html">选择一个实现</a></li>
+<li class="toctree-l3"><a class="reference internal" href="launch-script.html">制作启动脚本</a></li>
+<li class="toctree-l3"><a class="reference internal" href="port-forward.html">端口转发</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">在 Sponge 上使用服务器代理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configuration/index.html">配置 Sponge</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../management/index.html">管理服务器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spongineer/index.html">成为 Sponge 专家</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../versions/index.html">版本策略</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../preparing/index.html">为开发作准备</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../plugin/index.html">插件开发</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ore/index.html">Ore 文档</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/index.html">向 Sponge 贡献代码</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">关于 Sponge</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+          <li><a href="../index.html">创建服务器</a> &raquo;</li>
+          <li><a href="index.html">入门指南</a> &raquo;</li>
+    <li>在 Sponge 上使用服务器代理</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/server/getting-started/bungeecord.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="using-sponge-with-server-proxies">
+<h1>在 Sponge 上使用服务器代理<a class="headerlink" href="#using-sponge-with-server-proxies" title="永久链接至标题">¶</a></h1>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">虽然 SpongeForge 和 SpongeVanilla 都提供“IP 转发”功能以供服务器代理使用，Sponge 本身并不支持，也不推荐使用某种服务器代理工具。所有和代理有关的问题应由各自的社区处理。</p>
+</div>
+<p>服务器代理允许服主将多个 Minecraft 服务器连在一起，这样玩家就可以在不退出重连的前提下无缝切换服务器。SpigotMC 的 md_5 所编写的 BungeeCord 是最出名的服务器代理之一，同时还有诸如 Waterfall 和 Hexacord 这样的 fork 试图改善和 Forge 或 Sponge 的兼容性。其他可选的服务器代理有 Veclocity 等。服务器代理通常用于在同一服务器网络下提供多种游戏模式。Sponge 可以搭配大多数服务器代理软件工作，它提供了玩家信息转发（或 IP 转发）时追加 Forge 标记的功能。</p>
+<div class="section" id="choosing-your-proxy-server-software">
+<h2>选择服务器代理软件<a class="headerlink" href="#choosing-your-proxy-server-software" title="永久链接至标题">¶</a></h2>
+<p>SpongeVanilla 能和大多数服务器代理软件搭配工作。然而，在多 Mod 环境下的SpongeForge <strong>不能</strong>和标准版的 BungeeCord 搭配使用。如果你有 Mod 的需求，你可以考虑使用 BungeeCord 的 fork（例如 <a class="reference external" href="https://github.com/WaterfallMC/Waterfall/blob/master/README.md#waterfall-">Waterfall</a>），或者考虑使用其他兼容 Forge 的同类工具（例如 <a class="reference external" href="https://velocitypowered.com">Velocity</a>）。</p>
+</div>
+<div class="section" id="setting-up-your-proxy-server-network">
+<h2>配置服务器代理<a class="headerlink" href="#setting-up-your-proxy-server-network" title="永久链接至标题">¶</a></h2>
+<div class="admonition warning">
+<p class="first admonition-title">警告</p>
+<p>你的服务器首先必须开启离线模式（即关闭正版验证），才能让服务器连上服务器代理。在离线模式下，如果你不小心，任何人都可以以任何名字进入服务器，包括管理员的名字。你需要确保你的服务器有配置防火墙。如果你使用 Linux，你可以查阅 <a class="reference external" href="https://www.spigotmc.org/wiki/firewall-guide/">SpigotMC Firewall Guide</a> 提供的 IPTables 配置指南。此外，某些 Linux 发行版还配备了`UncomplicatedFirewall “ufw” &lt;<a class="reference external" href="https://wiki.ubuntu.com/UncomplicatedFirewall">https://wiki.ubuntu.com/UncomplicatedFirewall</a>&gt;`_。</p>
+<p>如果你使用 SSH ，请确保开放 22 端口，否则你很可能会把你自己锁在服务器外面！</p>
+<p class="last">如果你不太习惯使用 Linux，或者你不太确定如何防止其他人未经授权访问你的服务器，你可以寻求有着更多服务器管理经验的其他人的帮助，以保证你的服务器的安全。</p>
+</div>
+<p>你的服务器若需要接受代理连接，你首先需要禁用你 Sponge 服务器的正版验证（<code class="docutils literal notranslate"><span class="pre">server.properties</span></code> 中 <code class="docutils literal notranslate"><span class="pre">online-mode</span></code> 一项设置为 <code class="docutils literal notranslate"><span class="pre">false</span></code>），因为代理服务器会完成验证。然后你需要参考你使用的服务器代理的文档，将你的服务器添加到代理后。</p>
+<p>尽管你只需要配置这么多就可以让代理连接到你的服务器上了，我们仍然<strong>强烈建议</strong>你启用“玩家信息转发”或“IP 转发”，这样 Sponge 就会像一般的开启正版验证的服务器一样工作。</p>
+</div>
+<div class="section" id="player-information-forwarding-also-known-as-ip-forwarding">
+<h2>玩家信息转发（又名 IP 转发）<a class="headerlink" href="#player-information-forwarding-also-known-as-ip-forwarding" title="永久链接至标题">¶</a></h2>
+<p>服务器代理软件一般都会有一个叫“玩家信息转发”或者“IP 转发”的功能，这个功能是用来将代理收到的玩家的 UUID 和 IP 信息重新发送到真正的服务器上的，这样服务器就能像普通正版服一样工作。我们强烈建议你启用这些选项，而且是同时在代理软件和 Sponge 里同时启用。</p>
+<p>关于代理软件的转发选项，你需要查询你使用的代理的文档。对于 BungeeCord 和它的 fork，这个功能可能是叫“IP forwarding”。如果你使用 SpongeForge，你还需要在代理软件中启用对 Forge 的支持。如果你使用 Velocity，请确保你使用的是 <code class="docutils literal notranslate"><span class="pre">LEGACY</span></code> 模式的玩家信息转发选项。</p>
+<p>要在 Sponge 中启用玩家信息转发，你必须将 Sponge 配置文件（位于 <code class="docutils literal notranslate"><span class="pre">config/sponge/global.conf</span></code>）中的以下两项设置为 <code class="docutils literal notranslate"><span class="pre">true</span></code>：</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">modules.bungeecord</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">bungeecord.ip-forwarding</span></code></li>
+</ul>
+<p>尽管这两个选项名字里有 BungeeCord，但这两个选项对任何相同协议的代理都有效。</p>
+<p>你<strong>必须</strong>在修改这两个选项后重启服务器。你还必须保证你的服务器集群中<strong>所有的</strong>Sponge 服务器也都启用了这两个选项。如果你的集群里还有其他服务器，你也必须启用功能一致的选项。</p>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="configuration/index.html" class="btn btn-neutral float-right" title="配置 Sponge" accesskey="n" rel="next">下一页 <span class="fa fa-angle-right"></span></a>
+        <a href="port-forward.html" class="btn btn-neutral" title="端口转发" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> 上一页</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../../_static/flags/zh_CN.svg"
+         alt="zh-CN" title="简体中文">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../../_static/jquery.js"></script>      <script type="text/javascript" src="../../_static/underscore.js"></script>      <script type="text/javascript" src="../../_static/doctools.js"></script>      <script type="text/javascript" src="../../_static/language_data.js"></script>      <script type="text/javascript" src="../../_static/translations.js"></script>      <script type="text/javascript" src="../../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

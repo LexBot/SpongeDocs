@@ -1,0 +1,281 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pemecahan masalah &mdash; dokumentasi Sponge 7.2.0</title>
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="Indeks"
+              href="../../genindex.html"/>        <link rel="search" title="Pencarian" href="../../search.html"/>    <link rel="top" title="dokumentasi Sponge 7.2.0" href="../../index.html"/>        <link rel="up" title="Menjadi seorang ahli Spongineer" href="index.html"/>        <link rel="next" title="Berkas Catatan" href="logs.html"/>        <link rel="prev" title="Commands and Permissions" href="commands.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../../index.html">
+            <img src="../../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Membuat sebuah server</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html">Quick Start Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started/index.html">Memulai</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../management/index.html">Manajemen server</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Menjadi seorang ahli Spongineer</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="commands.html">Commands and Permissions</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Pemecahan masalah</a></li>
+<li class="toctree-l3"><a class="reference internal" href="logs.html">Berkas Catatan</a></li>
+<li class="toctree-l3"><a class="reference internal" href="debugging.html">Menelusuri</a></li>
+<li class="toctree-l3"><a class="reference internal" href="incompatible.html">Mod Compatibility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bugreport.html">Bug Pelapor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="properties.html">Kekayaan</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../versions/index.html">Versioning Policy</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../preparing/index.html">Mempersiapkan untuk Pengembangan</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../plugin/index.html">Membuat Plugin</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ore/index.html">Dokumentasi bijih</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/index.html">Berkontribusi pada Sponge</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">Tentang Sponge Project</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+          <li><a href="../index.html">Membuat sebuah server</a> &raquo;</li>
+          <li><a href="index.html">Menjadi seorang ahli Spongineer</a> &raquo;</li>
+    <li>Pemecahan masalah</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/server/spongineer/troubleshooting.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="troubleshooting">
+<h1>Pemecahan masalah<a class="headerlink" href="#troubleshooting" title="Link permanen untuk headline ini">¶</a></h1>
+<p>Anda mungkin di sini karena ada sesuatu yang salah dengan anda Sponge server. Mari kita lihat jika kita dapat mencari tahu apa itu, dan apa yang harus dilakukan tentang hal itu.</p>
+<div class="contents local topic" id="potential-sources-of-trouble">
+<p class="topic-title"><strong>Potential Sources of Trouble</strong></p>
+<ul class="simple">
+<li><a class="reference internal" href="#java-is-not-installed-on-your-computer" id="id1">Jawa Tidak Diinstal Pada Komputer Anda</a></li>
+<li><a class="reference internal" href="#network-connection-failure-or-ddos-attack" id="id2">Koneksi jaringan Gagal (or DDoS Attack)</a></li>
+<li><a class="reference internal" href="#not-enough-free-memory" id="id3">Tidak Cukup Memori Bebas</a></li>
+<li><a class="reference internal" href="#malformed-config-file-e-g-bad-editing" id="id4">Malformed Config File (e.g. Bad Editing)</a></li>
+<li><a class="reference internal" href="#a-plugin-or-mod-has-malfunctioned" id="id5">Sebuah Aplikasi tambahan (atau Mod) mengalami kegagalan fungsi</a></li>
+<li><a class="reference internal" href="#operating-system-unstable-e-g-virus-infection" id="id6">Operating System Unstable (e.g. Virus Infection)</a></li>
+<li><a class="reference internal" href="#corrupted-data" id="id7">Data Yang Rusak</a></li>
+<li><a class="reference internal" href="#problem-between-keyboard-and-chair" id="id8">Masalah Antara Keyboard dan Kursi</a></li>
+<li><a class="reference internal" href="#there-is-a-bug-in-sponge" id="id9">Ada Bug di Spons</a></li>
+<li><a class="reference internal" href="#there-is-something-wrong-with-the-universe" id="id10">Ada Sesuatu yang Salah Dengan alam Semesta</a></li>
+</ul>
+</div>
+<div class="section" id="java-is-not-installed-on-your-computer">
+<h2><a class="toc-backref" href="#id1">Jawa Tidak Diinstal Pada Komputer Anda</a><a class="headerlink" href="#java-is-not-installed-on-your-computer" title="Link permanen untuk headline ini">¶</a></h2>
+<p><strong>Solution</strong>: Get Java. Visit the <a class="reference internal" href="../getting-started/jre.html"><span class="doc">Menginstalasi Java</span></a> for more information.</p>
+</div>
+<div class="section" id="network-connection-failure-or-ddos-attack">
+<h2><a class="toc-backref" href="#id2">Koneksi jaringan Gagal (or DDoS Attack)</a><a class="headerlink" href="#network-connection-failure-or-ddos-attack" title="Link permanen untuk headline ini">¶</a></h2>
+<p><strong>Gejala</strong>: koneksi jaringan sangat lamban, timbul tenggelam, atau tidak ada sama sekali.</p>
+<p><strong>Solusi</strong>: Periksa koneksi anda ke modem atau router. Lihat jika browser anda memiliki masalah serupa. Anda dapat menggunakan layanan gratis seperti speedtest.net untuk memeriksa kecepatan koneksi anda. Layanan lain yang berjalan pada komputer anda atau jaringan lokal dapat menyebabkan. Pastikan bahwa anda telah mengaktifkan Port Forwarding di router anda. Serangan DDoS, sementara tidak mungkin, mungkin akan benar-benar membunuh konektivitas anda, dan anda harus menghubungi ISP anda jika anda percaya hal ini akan terjadi.</p>
+</div>
+<div class="section" id="not-enough-free-memory">
+<h2><a class="toc-backref" href="#id3">Tidak Cukup Memori Bebas</a><a class="headerlink" href="#not-enough-free-memory" title="Link permanen untuk headline ini">¶</a></h2>
+<p><strong>Gejala</strong>: Peladen rusak, biasanya juga disertai dengan pesan ''Memory tidak Cukup''.</p>
+<p><strong>Solutions</strong>: Expand the maximum Perm memory size with the startup argument <code class="docutils literal notranslate"><span class="pre">-XX:MaxPermSize=128</span></code>. Expand your
+server heap memory (if possible) with startup arguments e.g. <code class="docutils literal notranslate"><span class="pre">-Xms1024M</span></code> (1GB starting memory) and <code class="docutils literal notranslate"><span class="pre">-Xmx2048M</span></code>
+(2GB maximum). Monitor your free memory on the computer and see if there is some locked up in other processes.
+You may need to kill frozen java processes, or restart your machine. Memory leaks sometimes occur with bugs in
+plugins, which can take time to isolate.</p>
+<p><strong>Masih masalah?</strong>: Jika anda masih mengalami masalah meskipun di atas dan tidak bisa meningkatkan Ukuran Tumpukan, cek di Task Manager anda untuk melihat jika anda menggunakan semua Memori yang tersedia. Jika anda, satu-satunya solusi adalah untuk menambahkan lebih banyak RAM untuk sistem anda. Jika masih ada banyak memori yang tersedia, anda menjalankan 32-bit Jawa. Jika anda menggunakan 32-bit Jawa, kami sarankan upgrade ke 64-bit Jawa, disediakan bahwa Sistem Operasi anda juga 64-bit.</p>
+</div>
+<div class="section" id="malformed-config-file-e-g-bad-editing">
+<h2><a class="toc-backref" href="#id4">Malformed Config File (e.g. Bad Editing)</a><a class="headerlink" href="#malformed-config-file-e-g-bad-editing" title="Link permanen untuk headline ini">¶</a></h2>
+<p><strong>Gejala</strong>: Satu aplikasi tambahan (atau lebih) menolak untuk dimuat, atau berperilaku tidak biasanya. Berkas kunci peladen akan berisi pesan-pesan tentang berkas-berkas yang tidak bisa dibaca ketika memulai. Peladen mungkin macet, dan data mungkin rusak.</p>
+<p><a href="#id1"><span class="problematic" id="id2">**</span></a>Solusi*: Matikan peladen, dan periksa berkas anda yang telah tersunting. Jalankan berkas cadangan dari data yang rusak. Anda mungkin perlu menghapus semua konfigurasi berkas dan izinkan berkas tersebut diperbaiki saat peladen dijalankan.</p>
+</div>
+<div class="section" id="a-plugin-or-mod-has-malfunctioned">
+<h2><a class="toc-backref" href="#id5">Sebuah Aplikasi tambahan (atau Mod) mengalami kegagalan fungsi</a><a class="headerlink" href="#a-plugin-or-mod-has-malfunctioned" title="Link permanen untuk headline ini">¶</a></h2>
+<p><strong>Gejala</strong>: Ini bisa jadi apa saja - apapun yang dilakukan aplikasi tambahan anda, ditambah faktor X. Biasanya peladen jadi macet dengan pesan-pesan kesalahan yang banyak didalam berkas kunci peladen.</p>
+<p><strong>Solution</strong>: Stop the server, and check to see nothing has been corrupted. Be sure to check that it isn't from an
+incorrectly edited config file (above). Remove suspect plugins and add them again one by one, restarting the server
+each time. The problem may originate from one plugin that is out of date - check for updates. Plugin conflict may also
+be the cause, having two incompatible plugins. You can also check our <a class="reference internal" href="incompatible.html"><span class="doc">Mod Compatibility</span></a> page to see if the problem
+is already known, and if there's a way to fix it.</p>
+</div>
+<div class="section" id="operating-system-unstable-e-g-virus-infection">
+<h2><a class="toc-backref" href="#id6">Operating System Unstable (e.g. Virus Infection)</a><a class="headerlink" href="#operating-system-unstable-e-g-virus-infection" title="Link permanen untuk headline ini">¶</a></h2>
+<p><strong>Gejala</strong>: Peladen secara terus menerus macet atau berhenti, dan bagian lain dari sistem operasi anda juga mengalami masalah.</p>
+<p><strong>Solution</strong>: Stop everything. Thoroughly check your system and storage devices for malware and viruses. Good tools
+for this include AdwCleaner, Junkware Removal Tool, MalwareBytes, and most antivirus ware. Check your server files
+for corruption after a clean restart of your system. Examine the hardware for damage too if the problems persist - e.g.
+a faulty power supply.</p>
+</div>
+<div class="section" id="corrupted-data">
+<h2><a class="toc-backref" href="#id7">Data Yang Rusak</a><a class="headerlink" href="#corrupted-data" title="Link permanen untuk headline ini">¶</a></h2>
+<p><strong>Gejala</strong>: Tempat berkas gagal memuat atau menyebabkan peladen macet saat pengguna memasukkan potongan tertentu. Database rusak.</p>
+<p><strong>Solusi</strong>: Jalankan berkas cadangan dari data yang rusak. Perangkat lunak untuk memperbaiki kerusakan dunia tersedia, dan bagian yang hilang akan di kembalikan. Cari tahu penyebab kerusakan - apakah karena colokan tidak berfungsi, kandar basis data, kegagalan daya atau sesuatu yang lain? Pastikan anda selalu membuat cadangan secara berkala data-data yang penting kedalam perangkat yang aman.</p>
+</div>
+<div class="section" id="problem-between-keyboard-and-chair">
+<h2><a class="toc-backref" href="#id8">Masalah Antara Keyboard dan Kursi</a><a class="headerlink" href="#problem-between-keyboard-and-chair" title="Link permanen untuk headline ini">¶</a></h2>
+<p><strong>Gejala</strong>: Semuanya lancar kemaren. Hari ini jadi aneh setelah saya melakukan XYZ...</p>
+<p><strong>Solusi</strong>: SpongeDocs tidak cukup besar untuk menjaring sesuatu yang mungkin dilakukan seseorang yang akan mengakibatkan kegagalan perangkat lunak yang tidak diharapkan. Selalu lebih baik berfikir panjang dan keras tentang apa yang mungkin telah anda lakukan baru-baru ini yang mungkin telah mempengaruhi kinerja peladen anda yang lancar. Sebuah kartu memori bisa kelonggaran setelah berdebu, sebuah potongan berkas bisa jadi rusak...</p>
+</div>
+<div class="section" id="there-is-a-bug-in-sponge">
+<h2><a class="toc-backref" href="#id9">Ada Bug di Spons</a><a class="headerlink" href="#there-is-a-bug-in-sponge" title="Link permanen untuk headline ini">¶</a></h2>
+<p><strong>Gejala</strong>: Tidak ada satu pun dari yang diatas bekerja, dan sampai sekarang masih belum bekerja sebagaimana mestinya.</p>
+<p><strong>Solusi</strong>: Saatnya menngeluarkan senjata yang besar. Buatkan laporan ke <a class="reference external" href="https://github.com/spongepowered/SpongeForge/issues">SpongeForge</a> atau <a class="reference external" href="https://github.com/spongepowered/SpongeVanilla/issues">SpongeVanilla</a> pelacak masalah, ingat untuk menyertakan rincian versi Forge dan Sponge yang anda gunakan, dan tautan ke berkas kunci peladen yang sesuai.</p>
+</div>
+<div class="section" id="there-is-something-wrong-with-the-universe">
+<h2><a class="toc-backref" href="#id10">Ada Sesuatu yang Salah Dengan alam Semesta</a><a class="headerlink" href="#there-is-something-wrong-with-the-universe" title="Link permanen untuk headline ini">¶</a></h2>
+<p>Kami tidak dapat membantu anda dengan yang satu ini. Anda berada pada anda sendiri.</p>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="logs.html" class="btn btn-neutral float-right" title="Berkas Catatan" accesskey="n" rel="next">Selanjutnya <span class="fa fa-angle-right"></span></a>
+        <a href="commands.html" class="btn btn-neutral" title="Commands and Permissions" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> Sebelumnya</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../../_static/flags/id_ID.svg"
+         alt="id" title="Indonesia">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../../_static/jquery.js"></script>      <script type="text/javascript" src="../../_static/underscore.js"></script>      <script type="text/javascript" src="../../_static/doctools.js"></script>      <script type="text/javascript" src="../../_static/language_data.js"></script>      <script type="text/javascript" src="../../_static/translations.js"></script>      <script type="text/javascript" src="../../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

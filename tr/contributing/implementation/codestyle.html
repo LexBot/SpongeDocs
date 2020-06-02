@@ -1,0 +1,381 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kod Stili &mdash; Sponge 7.2.0 belgelendirme çalışması</title>
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="Dizin"
+              href="../../genindex.html"/>        <link rel="search" title="Ara" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 belgelendirme çalışması" href="../../index.html"/>        <link rel="up" title="Sponge Geliştirme" href="index.html"/>        <link rel="next" title="API ve Uygulamalar için Git İş Akışı" href="git-implementation.html"/>        <link rel="prev" title="Sponge Geliştirme" href="index.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../../index.html">
+            <img src="../../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../server/index.html">Bir sunucu oluşturma</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../versions/index.html">Versioning Policy</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../preparing/index.html">Geliştirme için hazırlanıyor</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../plugin/index.html">Bir eklenti oluşturma</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ore/index.html">Ore Dökümanları</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Sponge’a Katkı Sağlama</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../guidelines.html">Katkı Kuralları</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../howtogit.html">GitHub nasıl kullanılır</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Sponge Geliştirme</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Kod Stili</a></li>
+<li class="toctree-l3"><a class="reference internal" href="git-implementation.html">API ve Uygulamalar için Git İş Akışı</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pr.html">Çekme isteği gönderme</a></li>
+<li class="toctree-l3"><a class="reference internal" href="debugging/index.html">Debugging Sponge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mixins.html">Mixins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="datamanipulator.html">DataManipulators Uygulanması</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../spongedocs.html">SpongeDocs’un Yazıları</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../porting.html">Sponge’un diğer platformlara taşınması</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../versioning.html">Repository Branch Layout</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">Sponge Projesi Hakkında</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+          <li><a href="../index.html">Sponge’a Katkı Sağlama</a> &raquo;</li>
+          <li><a href="index.html">Sponge Geliştirme</a> &raquo;</li>
+    <li>Kod Stili</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/contributing/implementation/codestyle.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="code-style">
+<h1>Kod Stili<a class="headerlink" href="#code-style" title="Bu başlığın kalıcı bağlantısı">¶</a></h1>
+<p>Burada açıklanan bazı ekleme ve değişiklikler için Google’ın Java yönergelerini (<a class="reference external" href="https://google.github.io/styleguide/javaguide.html">https://google.github.io/styleguide/javaguide.html</a>&gt; _ _) takip ediyoruz.</p>
+<div class="admonition tip">
+<p class="first admonition-title">Tüyo</p>
+<p class="last">You can use our code styles for Eclipse or IntelliJ IDEA to let your IDE format the code correctly for you. See
+<a class="reference internal" href="../../preparing/index.html"><span class="doc">Geliştirme için hazırlanıyor</span></a> for more information.</p>
+</div>
+<ul class="simple">
+<li>Satır sonları<ul>
+<li>Unix satır sonlarında (\n) kullanın<ul>
+<li>Windows kullanıcıları Git’i otomatik olarak dönüştürmelerini sağlamak için `` git config –global core.autocrlf true`` yapabilir</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Sütun genişliği<ul>
+<li>Javadocs için 80</li>
+<li>kod için 150</li>
+<li>Okunabilirlik olması için tamamlamaya çekinmeyin</li>
+</ul>
+</li>
+<li>Girdi<ul>
+<li>Girdiler için 4 boşluk kullanın, 2 boşluk kullanmayın</li>
+</ul>
+</li>
+<li>Dikey boşluk<ul>
+<li>Bir sınıfın, arayüzün, numaralandırıcının vb. İlk üyeden önce boş bir satır bırakın ( yani <code class="docutils literal notranslate"><span class="pre">sınıf</span> <span class="pre">örneği</span> <span class="pre">{</span></code>) ve ardından son üyeden sonra boş bir satır yerleştirin</li>
+</ul>
+</li>
+<li>Dosya başlıkları<ul>
+<li>File headers must contain the license headers for the project. Use the <code class="docutils literal notranslate"><span class="pre">updateLicenses</span></code> Gradle task to add them
+automatically</li>
+</ul>
+</li>
+<li>İçe aktarılan<ul>
+<li>İçe aktarmalar aşağıdaki sıraya göre gruplandırılmalıdır; burada her grup boş bir satırla ayrılmıştır<ul>
+<li>Statik içe aktarmalar</li>
+<li>Tüm içe aktarmalar</li>
+<li><code class="docutils literal notranslate"><span class="pre">java</span></code> içe aktarmalar</li>
+<li><code class="docutils literal notranslate"><span class="pre">javax</span></code> içe aktarmalar</li>
+</ul>
+</li>
+<li>Bu, içe aktarmaların üst düzey pakete göre gruplandırılmaması, hepsinin birer grup halinde gruplandırılması bakımından Google’ın tarzından farklıdır.</li>
+</ul>
+</li>
+<li>İstisnalar<ul>
+<li>Yoksayılması gereken istisnalar için, <a href="#id1"><span class="problematic" id="id2">``</span></a>ignored``değişkene isim verin</li>
+</ul>
+</li>
+<li>Erişimler<ul>
+<li>** all ** alan erişimlerini <code class="docutils literal notranslate"><span class="pre">this</span></code> ile nitelendirin</li>
+</ul>
+</li>
+<li>Javadocs<ul>
+<li>‘’ &#64;author’’ kullanmayın</li>
+<li>Paragraflarda <code class="docutils literal notranslate"><span class="pre">&lt;p&gt;</span></code> ve <code class="docutils literal notranslate"><span class="pre">&lt;/p&gt;</span></code> kullanın</li>
+<li>Her “cümle içi” açıklamalarında ilk harfi büyük harf yapar, yani `` &#64;param adı Varsayılan kelime``, periyot yok</li>
+</ul>
+</li>
+<li>End of file<ul>
+<li>Each file should end with an empty line</li>
+</ul>
+</li>
+</ul>
+<div class="section" id="code-conventions">
+<h2>Kod Kuralları<a class="headerlink" href="#code-conventions" title="Bu başlığın kalıcı bağlantısı">¶</a></h2>
+<ul class="simple">
+<li>API da `` null`` yerine <a class="reference internal" href="../../plugin/optional/index.html"><span class="doc">İsteğe bağlı</span></a> kullanın</li>
+<li><code class="docutils literal notranslate"><span class="pre">null</span></code> parametrelerinde `` &#64; Nullable`` (javax. * için), tüm yöntemler ve parametreler varsayılan olarak `` &#64; Nonnull`` olarak açıklanmalıdır.</li>
+<li>Boşluk ve bağımsız değişken denetimi için <cite>Önceden Hazırlanmış Google Koşulları’nı &lt;https://github.com/google/guava/wiki/PreconditionsExplained&gt;</cite> _ kullanın.</li>
+</ul>
+</div>
+<div class="section" id="the-gist">
+<h2>Özü<a class="headerlink" href="#the-gist" title="Bu başlığın kalıcı bağlantısı">¶</a></h2>
+<p>Google’ın Java sözleşmelerini biraz uzun belgeler olsalar da özellikle okumanızı tavsiye edilir. Hemen başlamak için doğru biçimde biçimlendirilmiş bir kod örneği aşağıda verilmektedir:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/*</span>
+<span class="cm">* This file is part of Sponge, licensed under the MIT License (MIT).</span>
+<span class="cm">*</span>
+<span class="cm">* Copyright (c) SpongePowered &lt;https://www.spongepowered.org&gt;</span>
+<span class="cm">* Copyright (c) contributors</span>
+<span class="cm">*</span>
+<span class="cm">* Permission is hereby granted, free of charge, to any person obtaining a copy</span>
+<span class="cm">* of this software and associated documentation files (the &quot;Software&quot;), to deal</span>
+<span class="cm">* in the Software without restriction, including without limitation the rights</span>
+<span class="cm">* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell</span>
+<span class="cm">* copies of the Software, and to permit persons to whom the Software is</span>
+<span class="cm">* furnished to do so, subject to the following conditions:</span>
+<span class="cm">*</span>
+<span class="cm">* The above copyright notice and this permission notice shall be included in</span>
+<span class="cm">* all copies or substantial portions of the Software.</span>
+<span class="cm">*</span>
+<span class="cm">* THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR</span>
+<span class="cm">* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,</span>
+<span class="cm">* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE</span>
+<span class="cm">* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER</span>
+<span class="cm">* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,</span>
+<span class="cm">* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN</span>
+<span class="cm">* THE SOFTWARE.</span>
+<span class="cm">*/</span>
+<span class="kn">package</span> <span class="nn">org.spongepowered.example</span><span class="p">;</span>
+
+<span class="kn">import static</span> <span class="nn">com.google.common.base.Preconditions.checkNotNull</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">com.google.inject.Inject</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.slf4j.Logger</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.Optional</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Random</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.concurrent.ThreadLocalRandom</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.annotation.Nullable</span><span class="p">;</span>
+
+<span class="cm">/**</span>
+<span class="cm">* An example class which generates a new ID based on a specified base string</span>
+<span class="cm">* and a randomly generated integer.</span>
+<span class="cm">*</span>
+<span class="cm">* &lt;p&gt;There is a chance the integer purposely fails to generate, in which case</span>
+<span class="cm">* you can choose to provide a backup integer.&lt;/p&gt;</span>
+<span class="cm">*/</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Example</span> <span class="p">{</span>
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">long</span> <span class="n">SEED</span> <span class="o">=</span> <span class="mi">4815162342L</span><span class="p">;</span>
+
+    <span class="nd">@Inject</span>
+    <span class="kd">private</span> <span class="n">Logger</span> <span class="n">logger</span><span class="p">;</span>
+
+    <span class="kd">private</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">base</span><span class="p">;</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="n">Random</span> <span class="n">random</span><span class="p">;</span>
+
+    <span class="kd">public</span> <span class="nf">Example</span><span class="p">(</span><span class="n">String</span> <span class="n">base</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">checkNotNull</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="s">&quot;The specified base string cannot be null!&quot;</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">base</span> <span class="o">=</span> <span class="n">base</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">random</span> <span class="o">=</span> <span class="n">ThreadLocalRandom</span><span class="p">.</span><span class="na">current</span><span class="p">();</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">random</span><span class="p">.</span><span class="na">setSeed</span><span class="p">(</span><span class="n">SEED</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="cm">/**</span>
+<span class="cm">    * Generates and returns an ID using the base string specified on creation</span>
+<span class="cm">    * or the alternative string if specified as well as a randomly generated</span>
+<span class="cm">    * integer, which purposely fails to generate around 50% of the time.</span>
+<span class="cm">    *</span>
+<span class="cm">    * &lt;p&gt;A {@link ThreadLocalRandom} is used to check if the integer should</span>
+<span class="cm">    * be generated and generates the integer itself if so.&lt;/p&gt;</span>
+<span class="cm">    *</span>
+<span class="cm">    * @param alternate An alternate base string which will be used if not null</span>
+<span class="cm">    * @return The generated ID, if available</span>
+<span class="cm">    */</span>
+    <span class="kd">public</span> <span class="n">Optional</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="nf">generateId</span><span class="p">(</span><span class="nd">@Nullable</span> <span class="n">String</span> <span class="n">alternate</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">random</span><span class="p">.</span><span class="na">nextBoolean</span><span class="p">())</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="n">Optional</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">alternate</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">?</span> <span class="k">this</span><span class="p">.</span><span class="na">base</span> <span class="p">:</span> <span class="n">alternate</span> <span class="o">+</span> <span class="s">&quot; - &quot;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="na">random</span><span class="p">.</span><span class="na">nextInt</span><span class="p">());</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="n">Optional</span><span class="p">.</span><span class="na">empty</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="cm">/**</span>
+<span class="cm">    * Generates and returns an ID using the base string specified on creation,</span>
+<span class="cm">    * using a randomly generated integer if it was generated successfully, or</span>
+<span class="cm">    * using the backup integer you specify.</span>
+<span class="cm">    *</span>
+<span class="cm">    * &lt;p&gt;A {@link ThreadLocalRandom} is used to check if the integer should</span>
+<span class="cm">    * be generated and generates the integer itself if so. If it was not</span>
+<span class="cm">    * generated, that is when your backup integer will be used.&lt;/p&gt;</span>
+<span class="cm">    *</span>
+<span class="cm">    * @param backup A backup integer to use to create the ID with</span>
+<span class="cm">    * @return The generated ID using the generated integer or the ID created</span>
+<span class="cm">    *     using the backup integer specified</span>
+<span class="cm">    */</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">generateId</span><span class="p">(</span><span class="kt">int</span> <span class="n">backup</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">generateId</span><span class="p">(</span><span class="kc">null</span><span class="p">).</span><span class="na">orElse</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">base</span> <span class="o">+</span> <span class="s">&quot; - &quot;</span> <span class="o">+</span> <span class="n">backup</span><span class="p">);</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="git-implementation.html" class="btn btn-neutral float-right" title="API ve Uygulamalar için Git İş Akışı" accesskey="n" rel="next">İleri <span class="fa fa-angle-right"></span></a>
+        <a href="index.html" class="btn btn-neutral" title="Sponge Geliştirme" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> Önceki</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../../_static/flags/tr_TR.svg"
+         alt="tr" title="Türkçe">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../../_static/jquery.js"></script>      <script type="text/javascript" src="../../_static/underscore.js"></script>      <script type="text/javascript" src="../../_static/doctools.js"></script>      <script type="text/javascript" src="../../_static/language_data.js"></script>      <script type="text/javascript" src="../../_static/translations.js"></script>      <script type="text/javascript" src="../../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

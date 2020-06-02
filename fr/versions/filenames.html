@@ -1,0 +1,293 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lire le nom du fichier en téléchargement &mdash; Documentation Sponge 7.2.0</title>
+
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="Index"
+              href="../genindex.html"/>        <link rel="search" title="Recherche" href="../search.html"/>    <link rel="top" title="Documentation Sponge 7.2.0" href="../index.html"/>        <link rel="up" title="Stratégie de versioning" href="index.html"/>        <link rel="next" title="Anciennes Versions de SpongeForge" href="legacy-versions.html"/>        <link rel="prev" title="Système de version" href="versioning.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../index.html">
+            <img src="../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../server/index.html">Créer un Serveur</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Stratégie de versioning</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="versioning.html">Système de version</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Lire le nom du fichier en téléchargement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="legacy-versions.html">Anciennes Versions de SpongeForge</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../preparing/index.html">Préparation pour le développement</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../plugin/index.html">Création d’un Plugin</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ore/index.html">Documentation d’Ore</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contributing/index.html">Contribuer à Sponge</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">À propos du Projet Sponge</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+          <li><a href="index.html">Stratégie de versioning</a> &raquo;</li>
+    <li>Lire le nom du fichier en téléchargement</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/versions/filenames.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="reading-the-download-filename">
+<h1>Lire le nom du fichier en téléchargement<a class="headerlink" href="#reading-the-download-filename" title="Lien permanent vers ce titre">¶</a></h1>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Notre politique de versionnage a été mise à jour en Octobre 2018. Les informations suivantes s’appliquent <strong>à partir</strong> de SpongeAPI 7.1. Pour les versions antérieures, consultez <a class="reference internal" href="legacy-versions.html"><span class="doc">Anciennes Versions de SpongeForge</span></a>.</p>
+</div>
+<p>Le nom des fichiers téléchargés fournissent indiquent des informations importantes. Les sections qui suivent décrivent ces informations.</p>
+<div class="section" id="spongeforge">
+<span id="sponge-forge-file-name"></span><h2>SpongeForge<a class="headerlink" href="#spongeforge" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Le format des noms de fichiers SpongeForge est:</p>
+<p><code class="docutils literal notranslate"><span class="pre">spongeforge-&lt;MCVersion&gt;-&lt;ForgeBuild&gt;-&lt;APIMajor&gt;.&lt;LatestAPIMinorRelease&gt;.&lt;RecommendedVersion(-RC&lt;BuildNumber&gt;)&gt;.jar</span></code></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="19%" />
+<col width="81%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">MCVersion</span></code></td>
+<td>La version Minecraft. Seuls les clients compatibles avec cette version pourront se connecter.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">ForgeBuild</span></code></td>
+<td>La version de Forge contre laquelle SpongeForge est compilé et avec laquelle la compatibilité est garantie</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">APIMajor</span></code></td>
+<td>La version majeure de SpongeAPI qu’implémente ce fichier (Le <code class="docutils literal notranslate"><span class="pre">X</span></code> du <a class="reference internal" href="versioning.html#sem-ver"><span class="std std-ref">versionnage sémantique</span></a>).</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">LatestAPI</span></code>
+<code class="docutils literal notranslate"><span class="pre">MinorRelease</span></code></td>
+<td>La version mineure de SpongeAPI qu’implémente ce fichier (le <code class="docutils literal notranslate"><span class="pre">Y</span></code> du <a class="reference internal" href="versioning.html#sem-ver"><span class="std std-ref">versionnage sémantique</span></a>).</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">Recommended</span></code>
+<code class="docutils literal notranslate"><span class="pre">Version</span></code></td>
+<td>La version publiée de l’implémentation lorsqu’elle n’est <strong>pas</strong> suivie par <code class="docutils literal notranslate"><span class="pre">-RC&lt;BuildNumber&gt;</span></code> (le <code class="docutils literal notranslate"><span class="pre">Z</span></code> du <a class="reference internal" href="versioning.html#sem-ver"><span class="std std-ref">versionnage sémantique</span></a>).</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">-RC</span></code>
+<code class="docutils literal notranslate"><span class="pre">&lt;BuildNumber&gt;</span></code></td>
+<td>Le nombre du build pour la prochaine version recommandée en développement. Quand ce nombre est présent, <code class="docutils literal notranslate"><span class="pre">RecommendedVersion</span></code> n’a <strong>pas</strong> encore été publiée.</td>
+</tr>
+</tbody>
+</table>
+<p>Le Forge Build dans le nom de fichier indique la version de Forge utilisée pendant le développement et les tests. Les deux versions sont donc garanties d’être compatibles. Nous <strong>avons tendance</strong> à utiliser la dernière version recommandée de Forge pour cela.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Les mods Forge normaux peuvent en principe fonctionner sur n’importe quelle version de Forge pour une version Minecraft donnée (ex. 1.12.2) sans problème. Cependant, SpongeForge a besoin d’accéder, entre autres, à des parties internes de Forge, qu’aucun mod ne devrait toucher, et encore moins modifier comme Sponge le fait. Puisque Forge est libre de modifier son code interne autant qu’il le veut, il est normal qu’il n’y ait aucune garantie de rétro-compatibilité pour SpongeForge. Vous êtes libre d’utiliser des version de Forge plus récentes que celle utilisée pour SpongeForge, mais nous ne pouvons pas toujours garantir la compatibilité.</p>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Avertissement</p>
+<p class="last">Lorsque vous rencontrez des crashs, n””hésitez pas à essayer des version de Forge ultérieures à celle indiquée sur le jar de SpongeForge. Cependant, il est toujours recommandé de vérifier avec la version indiquée pour s’assurer que le problème ne vient pas de là. Même s’il n’y aucune garantie de compatibilité, merci de signaler tout problème sur l’issue tracker pour que SpongeForge puisse être mis à jour.</p>
+</div>
+<div class="section" id="examples">
+<h3>Exemples<a class="headerlink" href="#examples" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Tous les fichiers de SpongeForge suivent ce schéma pour vous permettre de facilement identifier la compatibilité.</p>
+<p>Par exemple, le fichier <code class="docutils literal notranslate"><span class="pre">spongeforge-1.12.2-2768-7.1.4.jar</span></code> est compatible avec Minecraft <code class="docutils literal notranslate"><span class="pre">1.12.2</span></code>, construit sur Forge <code class="docutils literal notranslate"><span class="pre">14.23.5.2768</span></code> (Build <code class="docutils literal notranslate"><span class="pre">2768</span></code>), fourni avec SpongeAPI <code class="docutils literal notranslate"><span class="pre">7.1.0</span></code>, est une version recommandée et est la <a href="#id1"><span class="problematic" id="id2">``</span></a>4``ième version de SpongeForge pour cette version de l’API.</p>
+<p>Par exemple, le fichier <code class="docutils literal notranslate"><span class="pre">spongeforge-1.12.2-2768-7.1.5-RC3505.jar</span></code> est compatible avec Minecraft <code class="docutils literal notranslate"><span class="pre">1.12.2</span></code>, construit sur Forge <code class="docutils literal notranslate"><span class="pre">14.23.5.2768</span></code> (Build <code class="docutils literal notranslate"><span class="pre">2768</span></code>), fourni avec SpongeAPI <code class="docutils literal notranslate"><span class="pre">7.1.0</span></code>, n’est pas une version recommandée et est le build <code class="docutils literal notranslate"><span class="pre">3505</span></code> de SpongeForge qui deviendra la version <code class="docutils literal notranslate"><span class="pre">5</span></code> pour cette version de l’API.</p>
+</div>
+</div>
+<div class="section" id="spongevanilla">
+<h2>SpongeVanilla<a class="headerlink" href="#spongevanilla" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Les informations de SpongeVanilla sont identiques à celles de SpongeForge, à l’exception de la version de Forge. Les exemples ci-dessus ressembleront donc à cela pour SpongeVanilla:</p>
+<p><code class="docutils literal notranslate"><span class="pre">spongevanilla-1.12.2-7.1.4.jar</span></code> et <code class="docutils literal notranslate"><span class="pre">spongevanilla-1.12.2-7.1.5-RC148.jar</span></code></p>
+</div>
+<div class="section" id="spongeapi">
+<h2>SpongeAPI<a class="headerlink" href="#spongeapi" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Le format du nom de fichier est:</p>
+<p><code class="docutils literal notranslate"><span class="pre">spongeapi-&lt;APIMajor&gt;.&lt;LatestAPIMinorRelease&gt;.0-shaded.jar</span></code></p>
+<p><strong>OU</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">spongeapi-&lt;APIMajor&gt;.&lt;LatestAPIMinorRelease&gt;.0-&lt;Date&gt;.&lt;Time&gt;-&lt;BuildNumber&gt;-shaded.jar</span></code></p>
+<p><strong>OU</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">spongeapi-&lt;APIMajor&gt;.&lt;LatestAPIMinorRelease&gt;.0-SNAPSHOT.jar</span></code></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="19%" />
+<col width="81%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">APIMajor</span></code></td>
+<td>La version majeure de SpongeAPI qu’implémente ce fichier (Le <code class="docutils literal notranslate"><span class="pre">X</span></code> du <a class="reference internal" href="versioning.html#sem-ver"><span class="std std-ref">versionnage sémantique</span></a>).</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">LatestAPI</span></code>
+<code class="docutils literal notranslate"><span class="pre">MinorRelease</span></code></td>
+<td>La version mineure de SpongeAPI qu’implémente ce fichier (le <code class="docutils literal notranslate"><span class="pre">Y</span></code> du <a class="reference internal" href="versioning.html#sem-ver"><span class="std std-ref">versionnage sémantique</span></a>).</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">Date</span></code></td>
+<td>La date à laquelle il a été compilé.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">Time</span></code></td>
+<td>L’heure à laquelle il a été compilé.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">&lt;BuildNumber&gt;</span></code></td>
+<td>Le numéro de build de Sponge. C’est ce que vous devrez indiquer en signalant des bugs ou en demandant de l’aide.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>Le premier format, qui ne possède pas d’informations sur la version, est le format des <em>Release</em> et des <em>Recommended Build</em> (ex. <code class="docutils literal notranslate"><span class="pre">spongeapi-7.1.0-shaded.jar</span></code>).</p>
+<p>Le deuxième format, avec les informations sur sa version, est le format <em>Latest</em> téléchargé depuis un navigateur internet. C’est une version toujours en développement (ex. <code class="docutils literal notranslate"><span class="pre">spongeapi-7.2.0-20190224.183500-15-shaded.jar</span></code>).</p>
+<p>Le troisième format, sans les informations sur sa version, est le format <em>Latest</em> téléchargé avec Gradle ou Maven, ou est créé par le processus de compilation. C’est une version toujours en développement (ex. <code class="docutils literal notranslate"><span class="pre">spongeapi-7.2.0-SNAPSHOT.jar</span></code>).</p>
+<p class="last">Voir la page <a class="reference external" href="https://docs.spongepowered.org/stable/en/plugin/buildsystem.html#creating-a-plugin-without-a-build-system">build system</a> pour une explication du label <code class="docutils literal notranslate"><span class="pre">-shaded</span></code>.</p>
+</div>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="legacy-versions.html" class="btn btn-neutral float-right" title="Anciennes Versions de SpongeForge" accesskey="n" rel="next">Suivant <span class="fa fa-angle-right"></span></a>
+        <a href="versioning.html" class="btn btn-neutral" title="Système de version" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> Précédent</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../_static/flags/fr_FR.svg"
+         alt="fr" title="Français">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../_static/jquery.js"></script>      <script type="text/javascript" src="../_static/underscore.js"></script>      <script type="text/javascript" src="../_static/doctools.js"></script>      <script type="text/javascript" src="../_static/language_data.js"></script>      <script type="text/javascript" src="../_static/translations.js"></script>      <script type="text/javascript" src="../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

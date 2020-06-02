@@ -1,0 +1,259 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>版本规范 &mdash; Sponge 7.2.0 說明文件</title>
+
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="索引"
+              href="../genindex.html"/>        <link rel="search" title="搜尋" href="../search.html"/>    <link rel="top" title="Sponge 7.2.0 說明文件" href="../index.html"/>        <link rel="up" title="版本控制方針" href="index.html"/>        <link rel="next" title="檔案名稱說明" href="filenames.html"/>        <link rel="prev" title="版本控制方針" href="index.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../index.html">
+            <img src="../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../server/index.html">建立伺服器</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">版本控制方針</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">版本规范</a></li>
+<li class="toctree-l2"><a class="reference internal" href="filenames.html">檔案名稱說明</a></li>
+<li class="toctree-l2"><a class="reference internal" href="legacy-versions.html">旧版 SpongeForge 版本策略</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../preparing/index.html">準備開發</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../plugin/index.html">建立插件</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ore/index.html">Ore 文件</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contributing/index.html">為 Sponge 貢獻</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">關於 Sponge 專案</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+          <li><a href="index.html">版本控制方針</a> &raquo;</li>
+    <li>版本规范</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/versions/versioning.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="versioning">
+<h1>版本规范<a class="headerlink" href="#versioning" title="本標題的永久連結">¶</a></h1>
+<div class="admonition tip" id="sem-ver">
+<p class="first admonition-title">小訣竅</p>
+<p class="last">Sponge 的版本号使用一种符合语义化版本（SemVer）规范的格式。关于 SemVer 的一般用法可参考 <a class="reference external" href="https://semver.org/">https://semver.org/</a>。</p>
+</div>
+<p>SpongeAPI 及其实现（SpongeForge 和 SpongeVanilla）使用两套不同的规则。只需要按 SemVer 的规范解读即可了解我们使用的版本号的含义。SpongeAPI 使用了 SemVer 中的“主版本号”（<strong>MAJOR</strong>）和“次版本号”（<strong>MINOR</strong>）两部分，而 SpongeForge 和 SpongeVanilla 相比于 SpongeAPI 还多使用了“修订号”（<strong>PATCH</strong>）。</p>
+<div class="section" id="api">
+<h2>API<a class="headerlink" href="#api" title="本標題的永久連結">¶</a></h2>
+<p>插件开发者在开发插件时会选择基于某个特定的 SpongeAPI 版本，比如 <code class="docutils literal notranslate"><span class="pre">7.0</span></code>、<code class="docutils literal notranslate"><span class="pre">7.3</span></code> 或 <code class="docutils literal notranslate"><span class="pre">7.9</span></code>，如此一来这个插件能在那个版本上工作。SpongeAPI 版本的变化反映了特性的增删与修改，版本变化的方式也反映了插件受影响的程度。</p>
+<div class="section" id="major">
+<h3>主版本号（MAJOR）<a class="headerlink" href="#major" title="本標題的永久連結">¶</a></h3>
+<p>主版本（<strong>X</strong>.Y.Z）的变化代表了 API 的破坏性更新。插件<strong>有可能</strong>会因此无法在新版 API 上工作。比如说，某个基于 SpongeAPI 6.9 开发的插件有可能无法在 SpongeAPI 7.0 上正常工作。</p>
+</div>
+<div class="section" id="minor">
+<h3>次版本号（MINOR）<a class="headerlink" href="#minor" title="本標題的永久連結">¶</a></h3>
+<p>次版本（X.**Y**.Z）的变化代表了新的 API 特性的出现，同时基于有相同主版本号的旧版 SpongeAPI 开发的插件仍然能工作，举个例子，某个基于 SpongeAPI <code class="docutils literal notranslate"><span class="pre">7.3</span></code> 开发的插件仍然可以在 SpongeAPI <code class="docutils literal notranslate"><span class="pre">7.4</span></code> 或者 <code class="docutils literal notranslate"><span class="pre">7.5</span></code> 上工作，但反过来不一定成立（即基于 <code class="docutils literal notranslate"><span class="pre">7.4</span></code> 开发的插件不一定能在 <code class="docutils literal notranslate"><span class="pre">7.3</span></code> 上工作）。</p>
+<div class="admonition note">
+<p class="first admonition-title">備註</p>
+<p class="last">主版本号变化时，次版本号一定会重置为零（<code class="docutils literal notranslate"><span class="pre">0</span></code>）。</p>
+</div>
+<p>SpongeAPI 版本号的例子：<code class="docutils literal notranslate"><span class="pre">spongeapi-7.1.0</span></code>、<code class="docutils literal notranslate"><span class="pre">spongeapi-7.2.0</span></code>。</p>
+</div>
+</div>
+<div class="section" id="implementations">
+<h2>实现版本<a class="headerlink" href="#implementations" title="本標題的永久連結">¶</a></h2>
+<p>Sponge 具体实现的版本包含了目标 Minecraft 的版本及 SpongeAPI 的版本。SpongeForge 在此基础上还包括了保证兼容性的 Forge 的<strong>推荐版本</strong>。</p>
+<div class="section" id="patch">
+<h3>修订号（PATCH）<a class="headerlink" href="#patch" title="本標題的永久連結">¶</a></h3>
+<p>修订号（X.Y.**Z**）的变化只出现在具体实现的构建中，代表了某个具体实现的漏洞修复、性能调优、配置变更及其他和 API 无关的变化。若修订号只是一个数字，则该版本是一个<strong>推荐版本</strong>。所有基于该版本所包含的 SpongeAPI 版本（即 <code class="docutils literal notranslate"><span class="pre">X.Y</span></code> 部分）开发的插件及兼容的插件都能在该版本实现上运行。</p>
+<div class="admonition note">
+<p class="first admonition-title">備註</p>
+<p class="last">次版本号变化时，修订号一定会重置为零（<code class="docutils literal notranslate"><span class="pre">0</span></code>）。</p>
+</div>
+<p>SpongeAPI 实现的版本号的例子：<code class="docutils literal notranslate"><span class="pre">spongevanilla-1.12.2-7.1.5</span></code>、<code class="docutils literal notranslate"><span class="pre">spongeforge-1.12.2-2768-7.1.5</span></code>。</p>
+<div class="admonition warning">
+<p class="first admonition-title">警告</p>
+<p class="last">插件开发者可以选择基于某个特定的 SpongeAPI 实现开发插件。若如此做，该插件的 Ore 页面上应有对应的标签反映这个决定，且 Sponge 此时无法对该插件兼容性做任何保证。</p>
+</div>
+</div>
+</div>
+<div class="section" id="recommended-version">
+<h2>推荐版本<a class="headerlink" href="#recommended-version" title="本標題的永久連結">¶</a></h2>
+<p>推荐版本又名“推荐构建”或“发布版本”，是指那些质量好到可以利用 SpongeAPI 所有功能，且兼容此版 API 的插件能保证完美运行的实现版本。</p>
+<div class="admonition warning">
+<p class="first admonition-title">警告</p>
+<p class="last">下列信息是给 Sponge 它本身的开发者看的，插件开发者和服务器管理应当只使用<strong>推荐版本</strong>进行插件开发及服务器运营。非推荐版本自身不稳定，使用它基本上等于“保证会出问题”。我们在此强烈建议插件开发者和服务器管理不要使用非推荐版本构建。</p>
+</div>
+</div>
+<div class="section" id="snapshot">
+<h2>快照（SNAPSHOT）<a class="headerlink" href="#snapshot" title="本標題的永久連結">¶</a></h2>
+<p>带 <code class="docutils literal notranslate"><span class="pre">-SNAPSHOT``（“快照”）标签的构建代表了正在开发中的下一个</span> <span class="pre">API</span> <span class="pre">发布版本。比方说</span> <span class="pre">``7.2.0-SNAPSHOT</span></code> 代表了正在开发中的 <code class="docutils literal notranslate"><span class="pre">7.2.0</span></code> 版本。再比如 <code class="docutils literal notranslate"><span class="pre">8.0.0-SNAPSHOT</span></code> 代表了正在开发中的下一个主要更新 <code class="docutils literal notranslate"><span class="pre">8.0.0</span></code>。快照版本中的新特性随时都有可能停止工作。</p>
+<div class="admonition note">
+<p class="first admonition-title">備註</p>
+<p>若次版本号是零（比如 <code class="docutils literal notranslate"><span class="pre">8.0-SNAPSHOT</span></code>），那么这个版本中的<strong>所有特性</strong>在正式发布之前随时都有可能停止工作，插件此时不应指望有任何稳定性可言。若次版本号不是零（比如 <code class="docutils literal notranslate"><span class="pre">7.2-SNAPSHOT</span></code>），那么直到上一个次版本号（对于刚才的例子来说是 <code class="docutils literal notranslate"><span class="pre">7.1</span></code>）的所有版本中的特性都仍然保证正常工作，但接下来的更新中则<strong>有可能</strong>导致部分特性停止工作，不稳定性也会随之上升。</p>
+<p>当次版本号和修订号皆为零，且有 <code class="docutils literal notranslate"><span class="pre">-SNAPSHOT</span></code> 标签存在时，这个版本是用于测试下一个 SpongeAPI 主要版本的 <code class="docutils literal notranslate"><span class="pre">bleeding</span></code> 构建，随时有可能出问题。</p>
+<p class="last">SpongeCommon 上的 <code class="docutils literal notranslate"><span class="pre">-SNAPSHOT</span></code> 标签代表该实现已接近完成，但作为下一个发布来说仍然不够稳定。更重要的是，Gradle 会根据这个标签是否存在来决定是否追加 <code class="docutils literal notranslate"><span class="pre">-RC{构建号}</span></code> 的标签。</p>
+</div>
+</div>
+<div class="section" id="release-candidate">
+<h2>候选发布版本（Release Candidate，RC）<a class="headerlink" href="#release-candidate" title="本標題的永久連結">¶</a></h2>
+<p>所有推送到 GitHub 上的更新，若不构成<strong>推荐版本</strong>，则代表一个“候选发布版本”（Release Candidate）。在经过进一步测试后它有可能会成为下一个推荐版本。推荐版本也有可能工作不正常。</p>
+<div class="admonition tip">
+<p class="first admonition-title">小訣竅</p>
+<p class="last">SpongeAPI 和 SpongeCommon 会有 <code class="docutils literal notranslate"><span class="pre">SNAPSHOT</span></code> 标案，而两个具体实现则是会有 <code class="docutils literal notranslate"><span class="pre">RC</span></code> 标签。</p>
+</div>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="filenames.html" class="btn btn-neutral float-right" title="檔案名稱說明" accesskey="n" rel="next">下一頁 <span class="fa fa-angle-right"></span></a>
+        <a href="index.html" class="btn btn-neutral" title="版本控制方針" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> 上一頁</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../_static/flags/zh_TW.svg"
+         alt="zh-TW" title="繁體中文">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../_static/jquery.js"></script>      <script type="text/javascript" src="../_static/underscore.js"></script>      <script type="text/javascript" src="../_static/doctools.js"></script>      <script type="text/javascript" src="../_static/language_data.js"></script>      <script type="text/javascript" src="../_static/translations.js"></script>      <script type="text/javascript" src="../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

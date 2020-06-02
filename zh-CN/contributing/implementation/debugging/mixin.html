@@ -1,0 +1,348 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>调试 Mixin &mdash; Sponge 7.2.0 文档</title>
+
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../../../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="索引"
+              href="../../../genindex.html"/>        <link rel="search" title="搜索" href="../../../search.html"/>    <link rel="top" title="Sponge 7.2.0 文档" href="../../../index.html"/>        <link rel="up" title="调试 Sponge" href="index.html"/>        <link rel="next" title="调试工具" href="tools.html"/>        <link rel="prev" title="调试中的常见问题。" href="issues.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../../../index.html">
+            <img src="../../../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../../../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../server/index.html">创建服务器</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../versions/index.html">版本策略</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../preparing/index.html">为开发作准备</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../plugin/index.html">插件开发</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../ore/index.html">Ore 文档</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">向 Sponge 贡献代码</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../guidelines.html">贡献指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../howtogit.html">如何使用 Git/GitHub</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">参与到 Sponge 的开发工作来</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../codestyle.html">代码规范</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../git-implementation.html">Sponge API 及其实现的 Git 工作流程</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pr.html">提交拉取请求</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">调试 Sponge</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="git.html">Git</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ide.html">在 IDE 中调试 Sponge</a></li>
+<li class="toctree-l4"><a class="reference internal" href="testing.html">测试插件或 Mod</a></li>
+<li class="toctree-l4"><a class="reference internal" href="issues.html">调试中的常见问题。</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">调试 Mixin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tools.html">调试工具</a></li>
+<li class="toctree-l4"><a class="reference internal" href="more.html">更多信息</a></li>
+<li class="toctree-l4"><a class="reference internal" href="faq.html">常见问题及解答</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../mixins.html">Mixin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../datamanipulator.html">实现数据操纵器</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../spongedocs.html">开发文档</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../porting.html">将 Sponge 移植到其他平台</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../versioning.html">仓库分支布局策略</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/index.html">关于 Sponge</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index.html">Docs</a> &raquo;</li>
+          <li><a href="../../index.html">向 Sponge 贡献代码</a> &raquo;</li>
+          <li><a href="../index.html">参与到 Sponge 的开发工作来</a> &raquo;</li>
+          <li><a href="index.html">调试 Sponge</a> &raquo;</li>
+    <li>调试 Mixin</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/contributing/implementation/debugging/mixin.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="debugging-mixin">
+<h1>调试 Mixin<a class="headerlink" href="#debugging-mixin" title="永久链接至标题">¶</a></h1>
+<div class="admonition tip">
+<p class="first admonition-title">小技巧</p>
+<p class="last">“<a class="reference internal" href="../../../plugin/practices/best.html"><span class="doc">推荐的做法</span></a>”一文的 <strong>Mixin</strong> 一节讨论了 Mixin、Coremod 及其他底层概念的定义。</p>
+</div>
+<p><a class="reference external" href="https://github.com/SpongePowered/Mixin">Spongepowered Mixin</a> 是一套允许 SpongeAPI 和其他程序员与 Minecraft 交互的系统。本文不是对 Mixin 系统的详解。如需文档及帮助，请参阅 <a class="reference external" href="https://github.com/SpongePowered/Mixin/wiki">Mixin 的 wiki</a>。</p>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">Mixin 有它自己的仓库，你可以直接克隆它到本地，导入你的 IDE 中以追踪错误信息或进一步研究。除此之外，你还可以将你克隆到本地的仓库通过项目设定（Project Settings）指定为你本地的 Sponge 实现的一个模块（Module），并以此对 Mixin 进行调试。</p>
+</div>
+<div class="section" id="output">
+<h2>输出<a class="headerlink" href="#output" title="永久链接至标题">¶</a></h2>
+<p>默认，Mixin 会在 <code class="docutils literal notranslate"><span class="pre">run</span></code> 目录下新建 <code class="docutils literal notranslate"><span class="pre">.mixin.out</span></code> 目录。这个目录包含一名为 <code class="docutils literal notranslate"><span class="pre">audit</span></code> 的子目录，其下包含空的文本形式的报告及 csv 格式的文件。这些文件会在 <code class="docutils literal notranslate"><span class="pre">mixin.checks.interfaces</span></code> 选项启用时使用。</p>
+<p>然而，Mixin 还支持通过 <em>Java System Properties</em> 启用大量调试及审查功能。有时候你需要或想要看到 Mixin 处理后的输出。你可以通过使用下列 JVM 选项中的<strong>一个</strong>来查阅 Mixin 的输出：</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="35%" />
+<col width="65%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">-Dmixin.debug=true</span></code></td>
+<td>启用全部调试特性</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">-Dmixin.debug.export=true</span></code></td>
+<td>仅启用会向磁盘写入输出的（调试）特性</td>
+</tr>
+</tbody>
+</table>
+<p>在 IntelliJ IDEA 中，通过 <code class="docutils literal notranslate"><span class="pre">Run</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">Edit</span> <span class="pre">Configurations...</span></code> 打开 <code class="docutils literal notranslate"><span class="pre">Run/Debug</span> <span class="pre">Configuration</span></code> 窗口，在这个窗口中可以修改 VM 选项。请确认你修改的 Application Configuration 是你想要修改的那一个（<code class="docutils literal notranslate"><span class="pre">Minecraft</span> <span class="pre">Client</span></code>、<code class="docutils literal notranslate"><span class="pre">Minecraft</span> <span class="pre">Server</span></code> 或者两个都是）。</p>
+<p>这些选项中若有任意一个启用了，都会令 Mixin 在 <code class="docutils literal notranslate"><span class="pre">.mixin.out</span></code> 目录下产生一个名为 <code class="docutils literal notranslate"><span class="pre">classes</span></code> 的新目录。这个目录按照标准的 Java 包与类的结构保存了所有经 Mixin 处理后生成的 Class 的内容。</p>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">这些选项与你使用 Mixin 的方式（克隆 Mixin 仓库、以新模块的方式挂载、使用 DemonWav 写的 Minecraft Development for IntelliJ 插件）无关。换言之，这些选项是 Mixin 它本身的一部分。</p>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">小技巧</p>
+<p class="last">关于更多 Mixin 的 VM 选项及对应的解释，可参考：<a class="reference external" href="https://github.com/SpongePowered/Mixin/wiki/Mixin-Java-System-Properties">Mixin Java System Properties</a>。</p>
+</div>
+</div>
+<div class="section" id="decompiling">
+<h2>反编译<a class="headerlink" href="#decompiling" title="永久链接至标题">¶</a></h2>
+<p>有若干查看 Mixin 输出的 class 文件的方法：</p>
+<ul>
+<li><p class="first">IDE</p>
+<p>在 IDE 中直接打开目标文件，IDE 会自动反编译并显示“源码”。</p>
+</li>
+<li><p class="first">Fernflower</p>
+<p>将 Fernflower 的 jar 加入运行时的 classpath，Mixin 会自动输出反编译的结果。</p>
+</li>
+<li><p class="first"><a class="reference external" href="https://java-decompiler.github.io/">JD-Gui</a> 是一款独立的，带图形界面的 Java 反编译工具。</p>
+</li>
+</ul>
+</div>
+<div class="section" id="phases-and-environments">
+<h2>阶段与环境<a class="headerlink" href="#phases-and-environments" title="永久链接至标题">¶</a></h2>
+<p>要理解 Mixin，首先应当明白 Minecraft 游戏代码的执行分成了两个阶段：<code class="docutils literal notranslate"><span class="pre">pre-init</span></code> 和 <code class="docutils literal notranslate"><span class="pre">default</span></code>。其中，<code class="docutils literal notranslate"><span class="pre">pre-init</span></code> 阶段即打开游戏（命令行、双击快捷方式、点击“启动”按钮、……）到游戏开始启动（所有修改已经完成，游戏即将进入主循环）之间的阶段，而 <code class="docutils literal notranslate"><span class="pre">default</span></code> 则是整个“游戏已准备就绪，现在可以开始加载”之后的阶段。</p>
+<p>对基础设施的修改（加载器、Transformer 等）发生在 <code class="docutils literal notranslate"><span class="pre">pre-init</span></code> 阶段。Mixin 同时也会在 <code class="docutils literal notranslate"><span class="pre">pre-init</span></code> 阶段收集有关其他 Mixin 的信息，这些信息会在 <code class="docutils literal notranslate"><span class="pre">default</span></code> 阶段使用。</p>
+<p>Mixin 将阶段划分到了不同的“环境”中。其中，<code class="docutils literal notranslate"><span class="pre">pre-init</span></code> <strong>阶段</strong>隶属于 <code class="docutils literal notranslate"><span class="pre">PREINIT</span></code> 这个<strong>环境</strong>，而 <code class="docutils literal notranslate"><span class="pre">default</span></code> 阶段则隶属于 <code class="docutils literal notranslate"><span class="pre">DEFAULT</span></code> <strong>环境</strong>。</p>
+<div class="admonition tip">
+<p class="first admonition-title">小技巧</p>
+<p class="last">环境可通过 Mixin 配置文件指定，比如：<code class="docutils literal notranslate"><span class="pre">&quot;target&quot;:</span> <span class="pre">&quot;&#64;env(PREINIT)&quot;</span></code>、<code class="docutils literal notranslate"><span class="pre">&quot;target&quot;:</span> <span class="pre">&quot;&#64;env(DEFAULT)&quot;</span></code>。</p>
+</div>
+</div>
+<div class="section" id="configurations">
+<h2>配置<a class="headerlink" href="#configurations" title="永久链接至标题">¶</a></h2>
+<p>Mixin 主要依赖配置文件。每一个 Mixin 配置都定义了一组该配置需要应用的 Mixin 类，任何配置文件没有指定的 Mixin 都不会生效。可以使用多个 Mixin 配置文件，但每一个配置文件都<strong>必须只针对一个环境</strong>。分开的配置文件还起到方便整理的作用。</p>
+<p>每一组 Mixin 都分成三部分：Common、Client 和 Server。隶属 Common 的 Mixin 首先生效，其次是根据实际情况决定的 Client 或 Server 中的<strong>其中一个</strong>，不可能同时生效。</p>
+</div>
+<div class="section" id="who-started-it">
+<h2>谁启动的 Mixin？<a class="headerlink" href="#who-started-it" title="永久链接至标题">¶</a></h2>
+<p>Mixin 子系统通过一套统一的接口与其他使用 Mixin 的程序打交道，这与程序是什么、谁写的、来自什么组织都毫无关系。然而，只可能有一个程序首先<strong>启动</strong> Mixin，这同时也会决定 Mixin 的版本。因使用旧版 Mixin 而导致冲突已经不是个案了。也因此，各个文件载入并执行的顺序不容忽视。理想状态下，Sponge 应当在 Forge 之后首先被加载，其次才是其他的 Tweaker 和 Coremod。</p>
+</div>
+<div class="section" id="a-broken-mixin">
+<h2>损坏的 Mixin<a class="headerlink" href="#a-broken-mixin" title="永久链接至标题">¶</a></h2>
+<p>若有类（因为某个 Mixin）无法正确加载，游戏则会崩溃退出。这个情况被称作“损坏的 Mixin”（Broken Mixin）。这通常意味着注解和/或签名出问题了，比如下面这个例子：</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>MixinSpongeSmeltingRecipe.java:41: error: No obfuscation mapping for @Overwrite method
+    default String getId() {
+                   ^
+</pre></div>
+</div>
+<p>这个错误可通过将 <code class="docutils literal notranslate"><span class="pre">&#64;Overwrite</span></code> 改为 <code class="docutils literal notranslate"><span class="pre">&#64;Overwrite(remap</span> <span class="pre">=</span> <span class="pre">false)</span></code> 解决。将 remap 设定为 false 后，注解处理器会在为这个 Mixin 构建混淆表时忽略这个注解。</p>
+<p>对源码的分析也许会让人以为 <code class="docutils literal notranslate"><span class="pre">default</span></code> 关键字的使用才是问题所在，但将其改为 <code class="docutils literal notranslate"><span class="pre">static</span></code> 后，日志输出会变成这样：</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>MixinSpongeSmeltingRecipe.java:41: error: getId() in MixinSpongeSmeltingRecipe clashes with getId() in
+    static String getId() {
+                  ^
+  overriding method is static
+
+MixinSpongeSmeltingRecipe.java:40: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+
+MixinSpongeSmeltingRecipe.java:42: error: non-static variable this cannot be referenced from a static context
+        return CustomSmeltingRecipeIds.getDefaultId((SmeltingRecipe) this);
+                                                                     ^
+</pre></div>
+</div>
+<p>如你所见，这次不止有一个错误了，而是三个！正确的修复方式已在前文中阐述过了：将 remap 设定为 false。谨记，这个例子不是说明“这类问题如何解决”的，而是说明“损坏的 Mixin 可能长什么样，且通常都和错误的注解及签名有关”的。</p>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p>可参考 Mixin Wiki 的“<a class="reference external" href="https://github.com/SpongePowered/Mixin/wiki/Introduction-to-Mixins---Understanding-Mixin-Architecture#2-through-the-looking-glass">方法签名</a>”一文了解更多。</p>
+<p class="last">这一小节未来会包含常见的 Mixin 损坏问题及解决方案列表。如果你觉得你可以帮上忙，我们欢迎你直接<a class="reference external" href="https://github.com/spongepowered/spongedocs">向我们的 GitHub 仓库发起 PR</a>。</p>
+</div>
+</div>
+<div class="section" id="minecraft-development-for-intellij">
+<h2>Minecraft Development for IntelliJ<a class="headerlink" href="#minecraft-development-for-intellij" title="永久链接至标题">¶</a></h2>
+<p>针对 IntelliJ IDEA 开发的 <a class="reference external" href="https://github.com/minecraft-dev/MinecraftDev">Minecraft Development</a> 插件是在使用 Mixin 进行开发时的利器。有了它之后，你可以直接单步步进到 Mixin 代码中，而无需折腾 Mixin 的类加载器产生的输出类。</p>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">该插件的<a class="reference external" href="https://minecraftdev.org/">网站</a>提供了安装及相关支持信息。你还可以在他们的网站上找到他们的 GitHub 仓库地址，你可以从中学习，亦可向他们贡献代码。</p>
+</div>
+<div class="section" id="installing">
+<h3>安装<a class="headerlink" href="#installing" title="永久链接至标题">¶</a></h3>
+<p>在不克隆其仓库的情况下使用该插件：</p>
+<ol class="arabic simple">
+<li>依次打开 <code class="docutils literal notranslate"><span class="pre">File</span> <span class="pre">-&gt;</span> <span class="pre">Settings</span> <span class="pre">-&gt;</span> <span class="pre">Plugins</span></code>，选择 <code class="docutils literal notranslate"><span class="pre">Marketplace</span></code>。</li>
+<li>以 <em>minecraft</em> 为关键字进行搜索，找到 <code class="docutils literal notranslate"><span class="pre">Minecraft</span> <span class="pre">Development</span> <span class="pre">by</span> <span class="pre">DemonWav</span></code>。</li>
+<li>点击 <code class="docutils literal notranslate"><span class="pre">Install</span></code> 按钮（请<strong>暂时不要</strong>重启 IntelliJ IDEA）。</li>
+<li>前往 <a class="reference external" href="https://github.com/minecraft-dev/MinecraftDev">https://github.com/minecraft-dev/MinecraftDev</a> 然后将当前整个仓库以 ZIP 格式打包下载。</li>
+<li>下列选项中，<strong>二选一</strong>执行：<ul>
+<li>打开 ZIP，找到 <code class="docutils literal notranslate"><span class="pre">idea-configs</span></code> 目录，将<strong>其中内容</strong>解压到你的 Sponge 工作环境下的 <code class="docutils literal notranslate"><span class="pre">.idea</span></code> 目录中。</li>
+<li>解压 ZIP，在解压产物中找到 <code class="docutils literal notranslate"><span class="pre">idea-configs</span></code> 目录，将<strong>其中内容</strong>复制到你的 Sponge 工作环境下的 <code class="docutils literal notranslate"><span class="pre">.idea</span></code> 目录中。</li>
+</ul>
+</li>
+<li>重启 IntelliJ IDEA。</li>
+</ol>
+<p>此时插件已准备就绪，你的项目可以使用插件提供的使用配置选项及版权设定了。</p>
+</div>
+<div class="section" id="using">
+<h3>使用<a class="headerlink" href="#using" title="永久链接至标题">¶</a></h3>
+<p><em>未完待续</em></p>
+</div>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="tools.html" class="btn btn-neutral float-right" title="调试工具" accesskey="n" rel="next">下一页 <span class="fa fa-angle-right"></span></a>
+        <a href="issues.html" class="btn btn-neutral" title="调试中的常见问题。" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> 上一页</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../../../_static/flags/zh_CN.svg"
+         alt="zh-CN" title="简体中文">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../../../_static/jquery.js"></script>      <script type="text/javascript" src="../../../_static/underscore.js"></script>      <script type="text/javascript" src="../../../_static/doctools.js"></script>      <script type="text/javascript" src="../../../_static/language_data.js"></script>      <script type="text/javascript" src="../../../_static/translations.js"></script>      <script type="text/javascript" src="../../../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

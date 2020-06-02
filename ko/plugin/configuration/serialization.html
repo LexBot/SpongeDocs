@@ -1,0 +1,457 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>객체 직렬화하기 &mdash; Sponge 7.2.0 documentation</title>
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="색인"
+              href="../../genindex.html"/>        <link rel="search" title="검색" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 documentation" href="../../index.html"/>        <link rel="up" title="플러그인 설정" href="index.html"/>        <link rel="next" title="자산 API" href="../assets.html"/>        <link rel="prev" title="설정 노드" href="nodes.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../../index.html">
+            <img src="../../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../server/index.html">서버 만들기</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../versions/index.html">Versioning Policy</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../preparing/index.html">개발 준비</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">플러그인 개발하기</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../api-versions.html">API 버전</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../buildsystem.html">빌드 시스템</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../workspace/index.html">작업 공간 준비하기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../project/index.html">프로젝트 준비하기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-identifier.html">플러그인 식별자</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-class.html">메인 플러그인 클래스</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lifecycle.html">플러그인 생명 주기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../injection.html">의존성 주입</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../practices/index.html">관행</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../optional/index.html">Optional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../logging.html">로그 및 디버그</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text/index.html">텍스트</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/index.html">플러그인 명령어</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../event/index.html">이벤트</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">플러그인 설정</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="loaders.html">설정 로더</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nodes.html">설정 노드</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">객체 직렬화하기</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../assets.html">자산 API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data/index.html">자료 API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../blocks/index.html">블록</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../entities/index.html">개체</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../items/index.html">아이템</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../trade-offers.html">거래 제안</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../effects.html">효과</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../scheduler.html">스케줄러</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../services.html">서비스</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database.html">데이터베이스</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../permissions.html">권한</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bans.html">차단</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metrics.html">Metrics Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bookview.html">책 View</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../economy/index.html">경제</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wgen/index.html">세계 생성</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manager.html">플러그인 관리자</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../game-profile-manager.html">게임 프로필 관리자</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../offline-userplayer-data.html">오프라인 플레이어 데이터</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tab-lists.html">탭 목록</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-meta.html">플러그인 메타데이터</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ray-tracing.html">광선 추적</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../debugging.html">플러그인 디버그</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials.html">튜토리얼</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internals/index.html">구현 의존 플러그인</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ore/index.html">Ore 설명 문서</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/index.html">Sponge에 기여하기</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">Sponge 프로젝트에 대하여</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+          <li><a href="../index.html">플러그인 개발하기</a> &raquo;</li>
+          <li><a href="index.html">플러그인 설정</a> &raquo;</li>
+    <li>객체 직렬화하기</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/plugin/configuration/serialization.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="serializing-objects">
+<h1>객체 직렬화하기<a class="headerlink" href="#serializing-objects" title="제목 주소">¶</a></h1>
+<p>The Configurate library also provides the means to tweak automatic serialization and deserialization of objects.
+Per default, a set of data types can be (de)serialized:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">String</span></code>s, the most commonly used primitive types and their wrappers</li>
+<li><a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html">List</a>s and <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/util/Set.html">Set</a>s of serializable values (not including specific implementations)</li>
+<li><a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/util/Map.html">Map</a>s where both keys and values are serializable (not including specific implementations)</li>
+<li>The types <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/util/UUID.html">UUID</a>, <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/net/URL.html">URL</a>, <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/net/URI.html">URI</a> and <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html">(regex) Pattern</a></li>
+<li>Any enum or <a class="reference internal" href="../data/catalog-types.html"><span class="doc">CatalogType</span></a></li>
+<li>The types <a class="reference internal" href="../text/index.html"><span class="doc">Text</span></a>, <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/text/format/TextFormat.html">TextFormat</a> and
+<a class="reference internal" href="../text/templates.html"><span class="doc">TextTemplate</span></a> (See also <a class="reference internal" href="../text/representations/index.html"><span class="doc">here</span></a>)</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">주석</p>
+<p class="last">If you need special constraints or rules for your serialization (such as sorting the elements in a <code class="docutils literal notranslate"><span class="pre">Set</span></code>),
+then you should consider using your own <code class="docutils literal notranslate"><span class="pre">TypeSerializer</span></code> implementations.</p>
+</div>
+<p>But if you want to write your custom data structures to a config file, this will not be enough.</p>
+<p>Imagine a data structure tracking how many diamonds a player has mined. It might look a little like this:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">DiamondCounter</span> <span class="p">{</span>
+    <span class="kd">private</span> <span class="n">UUID</span> <span class="n">playerUUID</span><span class="p">;</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">diamonds</span><span class="p">;</span>
+
+    <span class="o">[</span><span class="p">...</span><span class="o">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Also assume some methods to access those fields, a nice constructor setting both of those etc.</p>
+<div class="section" id="creating-a-custom-typeserializer">
+<h2>Creating a Custom TypeSerializer<a class="headerlink" href="#creating-a-custom-typeserializer" title="제목 주소">¶</a></h2>
+<p>A very straightforward way of writing and loading such a data structure is providing a custom <a class="reference external" href="https://configurate.aoeu.xyz/apidocs/ninja/leaping/configurate/objectmapping/serialize/TypeSerializer.html">TypeSerializer</a>.
+The <code class="docutils literal notranslate"><span class="pre">TypeSerializer</span></code> interface provides two methods, one to write the data from an object to a configuration node and
+one to create an object from a given configuration node.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">com.google.common.reflect.TypeToken</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">ninja.leaping.configurate.objectmapping.ObjectMappingException</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">ninja.leaping.configurate.objectmapping.serialize.TypeSerializer</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">DiamondCounterSerializer</span> <span class="kd">implements</span> <span class="n">TypeSerializer</span><span class="o">&lt;</span><span class="n">DiamondCounter</span><span class="o">&gt;</span> <span class="p">{</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">DiamondCounter</span> <span class="nf">deserialize</span><span class="p">(</span><span class="n">TypeToken</span><span class="o">&lt;?&gt;</span> <span class="n">type</span><span class="p">,</span> <span class="n">ConfigurationNode</span> <span class="n">value</span><span class="p">)</span>
+      <span class="kd">throws</span> <span class="n">ObjectMappingException</span> <span class="p">{</span>
+        <span class="n">UUID</span> <span class="n">player</span> <span class="o">=</span> <span class="n">value</span><span class="p">.</span><span class="na">getNode</span><span class="p">(</span><span class="s">&quot;player&quot;</span><span class="p">).</span><span class="na">getValue</span><span class="p">(</span><span class="n">TypeToken</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">UUID</span><span class="p">.</span><span class="na">class</span><span class="p">));</span>
+        <span class="kt">int</span> <span class="n">diamonds</span> <span class="o">=</span> <span class="n">value</span><span class="p">.</span><span class="na">getNode</span><span class="p">(</span><span class="s">&quot;diamonds&quot;</span><span class="p">).</span><span class="na">getInt</span><span class="p">();</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="n">DiamondCounter</span><span class="p">(</span><span class="n">player</span><span class="p">,</span> <span class="n">diamonds</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">serialize</span><span class="p">(</span><span class="n">TypeToken</span><span class="o">&lt;?&gt;</span> <span class="n">type</span><span class="p">,</span> <span class="n">DiamondCounter</span> <span class="n">obj</span><span class="p">,</span> <span class="n">ConfigurationNode</span> <span class="n">value</span><span class="p">)</span>
+      <span class="kd">throws</span> <span class="n">ObjectMappingException</span> <span class="p">{</span>
+        <span class="n">value</span><span class="p">.</span><span class="na">getNode</span><span class="p">(</span><span class="s">&quot;player&quot;</span><span class="p">).</span><span class="na">setValue</span><span class="p">(</span><span class="n">obj</span><span class="p">.</span><span class="na">getPlayerUUID</span><span class="p">());</span>
+        <span class="n">value</span><span class="p">.</span><span class="na">getNode</span><span class="p">(</span><span class="s">&quot;diamonds&quot;</span><span class="p">).</span><span class="na">setValue</span><span class="p">(</span><span class="n">obj</span><span class="p">.</span><span class="na">getDiamonds</span><span class="p">());</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This <code class="docutils literal notranslate"><span class="pre">TypeSerializer</span></code> must then be registered with Configurate. This can be done either globally, by registering to
+the default <a class="reference external" href="https://configurate.aoeu.xyz/apidocs/ninja/leaping/configurate/objectmapping/serialize/TypeSerializerCollection.html">TypeSerializerCollection</a> or locally, by specifying it in the <a class="reference external" href="https://configurate.aoeu.xyz/apidocs/ninja/leaping/configurate/ConfigurationOptions.html">ConfigurationOptions</a>
+when loading your config.</p>
+<div class="admonition note">
+<p class="first admonition-title">주석</p>
+<p class="last"><code class="docutils literal notranslate"><span class="pre">ConfigurationOptions</span></code> are immutable. Every time you try to modify the original instance a new instance is
+created; so you either have to use the (chained) result directly or update your variable accordingly.</p>
+</div>
+<p><strong>Code Example: Registering a TypeSerializer globally</strong></p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ninja.leaping.configurate.objectmapping.serialize.TypeSerializers</span><span class="p">;</span>
+
+<span class="n">TypeSerializers</span><span class="p">.</span><span class="na">getDefaultSerializers</span><span class="p">().</span><span class="na">registerType</span><span class="p">(</span><span class="n">TypeToken</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">DiamondCounter</span><span class="p">.</span><span class="na">class</span><span class="p">),</span> <span class="k">new</span> <span class="n">DiamondCounterSerializer</span><span class="p">());</span>
+</pre></div>
+</div>
+<p><strong>Code Example: Registering a TypeSerializer locally</strong></p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ninja.leaping.configurate.ConfigurationNode</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">ninja.leaping.configurate.ConfigurationOptions</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">ninja.leaping.configurate.objectmapping.serialize.TypeSerializerCollection</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">ninja.leaping.configurate.objectmapping.serialize.TypeSerializers</span><span class="p">;</span>
+
+<span class="n">TypeSerializerCollection</span> <span class="n">serializers</span> <span class="o">=</span> <span class="n">TypeSerializers</span><span class="p">.</span><span class="na">getDefaultSerializers</span><span class="p">().</span><span class="na">newChild</span><span class="p">();</span>
+<span class="n">serializers</span><span class="p">.</span><span class="na">registerType</span><span class="p">(</span><span class="n">TypeToken</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">DiamondCounter</span><span class="p">.</span><span class="na">class</span><span class="p">),</span> <span class="k">new</span> <span class="n">DiamondCounterSerializer</span><span class="p">());</span>
+<span class="n">ConfigurationOptions</span> <span class="n">options</span> <span class="o">=</span> <span class="n">ConfigurationOptions</span><span class="p">.</span><span class="na">defaults</span><span class="p">().</span><span class="na">setSerializers</span><span class="p">(</span><span class="n">serializers</span><span class="p">);</span>
+<span class="n">ConfigurationNode</span> <span class="n">rootNode</span> <span class="o">=</span> <span class="n">someConfigurationLoader</span><span class="p">.</span><span class="na">load</span><span class="p">(</span><span class="n">options</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">경고</p>
+<p class="last">If you provide a custom <code class="docutils literal notranslate"><span class="pre">TypeSerializer</span></code> for types that are not introduced by your own plugin, you should only
+ever register them locally in order to avoid conflicts with other plugins or Sponge, caused by a <code class="docutils literal notranslate"><span class="pre">TypeSerializer</span></code>
+being overwritten.</p>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">참고</p>
+<p class="last">If you need the <code class="docutils literal notranslate"><span class="pre">TypeToken.of(DiamondCounter.class)</span></code> in multiple places, then you should consider creating a
+constant for it. You can do it in a similar fashion as Sponge does in the <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/util/TypeTokens.html">TypeTokens</a> class, or just
+define the constant inside of your data or serializer class.</p>
+</div>
+</div>
+<div class="section" id="using-objectmappers">
+<h2>ObjectMapper 사용하기<a class="headerlink" href="#using-objectmappers" title="제목 주소">¶</a></h2>
+<p>많은 경우에 (비)직렬화는 매핑될 필드를 설정 노드에 압축시킴으로써 구현합니다. TypeSerializer를 작성하는 것은 상당히 귀찮은 작업이고, Configurate가 이를 자동으로 처리할 수 있습니다. 이제 <a class="reference external" href="https://configurate.aoeu.xyz/apidocs/ninja/leaping/configurate/objectmapping/serialize/ConfigSerializable.html">ConfigSerializable</a> 어노테이션을 클래스에 붙이고, <a class="reference external" href="https://configurate.aoeu.xyz/apidocs/ninja/leaping/configurate/objectmapping/Setting.html">Setting</a> 어노테이션을 사용해 봅시다.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ninja.leaping.configurate.objectmapping.Setting</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">ninja.leaping.configurate.objectmapping.serialize.ConfigSerializable</span><span class="p">;</span>
+
+<span class="nd">@ConfigSerializable</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">DiamondCounter</span> <span class="p">{</span>
+
+    <span class="nd">@Setting</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s">&quot;player&quot;</span><span class="p">,</span> <span class="n">comment</span><span class="o">=</span><span class="s">&quot;Player UUID&quot;</span><span class="p">)</span>
+    <span class="kd">private</span> <span class="n">UUID</span> <span class="n">playerUUID</span><span class="p">;</span>
+    <span class="nd">@Setting</span><span class="p">(</span><span class="n">comment</span><span class="o">=</span><span class="s">&quot;Number of diamonds mined&quot;</span><span class="p">)</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">diamonds</span><span class="p">;</span>
+
+    <span class="o">[</span><span class="p">...</span><span class="o">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>위 예제의 코드는 특별한 등록 없이도 직렬화와 비직렬화가 됩니다. <code class="docutils literal notranslate"><span class="pre">&#64;Setting</span></code> 어노테이션은 어노테이션이 붙은 필드에 설정 노드를 매핑합니다. 이 어노테이션은 선택적 매개값으로 <code class="docutils literal notranslate"><span class="pre">value``와</span> <span class="pre">``comment``를</span> <span class="pre">받아들입니다.</span> <span class="pre">``value``는</span> <span class="pre">해당</span> <span class="pre">필드가</span> <span class="pre">저장될</span> <span class="pre">노드의</span> <span class="pre">이름이</span> <span class="pre">됩니다.</span> <span class="pre">이</span> <span class="pre">값을</span> <span class="pre">지정하지</span> <span class="pre">않으면,</span> <span class="pre">필드</span> <span class="pre">변수의</span> <span class="pre">이름이</span> <span class="pre">대신</span> <span class="pre">사용됩니다.</span> <span class="pre">따라서</span> <span class="pre">우리의</span> <span class="pre">위</span> <span class="pre">예제에서,</span> <span class="pre">Setting</span> <span class="pre">어노테이션은</span> <span class="pre">필드의</span> <span class="pre">내용</span> <span class="pre">``playerUUID``가</span> <span class="pre">&quot;player&quot;</span> <span class="pre">노드에</span> <span class="pre">저장되며,</span> <span class="pre">노드의</span> <span class="pre">주석으로</span> <span class="pre">&quot;Player</span> <span class="pre">UUID&quot;가</span> <span class="pre">붙도록</span> <span class="pre">만듭니다.</span> <span class="pre">하지만,</span> <span class="pre">``diamonds</span></code> 필드는 comment 값만 정의되어 있으므로 동일한 이름의 노드에 저장될 것입니다. 만약 서버 구현 프로그램이 설정 파일에 주석 사용을 지원하지 않는다면, 주석의 내용은 저장되지 않습니다.</p>
+<div class="admonition tip">
+<p class="first admonition-title">참고</p>
+<p class="last"><a href="#id1"><span class="problematic" id="id2">``</span></a>&#64;Setting(value=》someNode》)``을 <a href="#id3"><span class="problematic" id="id4">``</span></a>&#64;Setting(《someNode》)``으로 요약할 수 있습니다.</p>
+</div>
+<p><a href="#id1"><span class="problematic" id="id2">`</span></a>&#64;ConfigSerializable``은 Configurate가 해당 클래스에 대한 :javadoc:<a href="#id3"><span class="problematic" id="id4">`</span></a>ObjectMapper`를 생성하도록 지시하기 때문에 이 클래스를 임의로 등록할 필요가 없습니다. 다만 제약 조건이 있습니다. 어노테이션이 붙은 필드가 등록되려면 Configurate가 새로운 객체를 인스턴스화할 빈 생성자가 필요합니다.</p>
+<div class="admonition note">
+<p class="first admonition-title">주석</p>
+<p class="last">You can also have fields that are not are not annotated with <code class="docutils literal notranslate"><span class="pre">&#64;Setting</span></code> in your <code class="docutils literal notranslate"><span class="pre">&#64;ConfigSerializable</span></code> classes.
+These fields won’t be persisted to config files and can be used to store temporary references for your plugin.</p>
+</div>
+<div class="section" id="using-default-values-in-configserializable-types">
+<h3>Using Default Values in ConfigSerializable Types<a class="headerlink" href="#using-default-values-in-configserializable-types" title="제목 주소">¶</a></h3>
+<p>It is also possible to use default values inside of <code class="docutils literal notranslate"><span class="pre">&#64;ConfigSerializable</span></code> types. You just have to use Java’s field
+initializers (or getters) to set some default values. As long as the entry is not present in the config file the value
+won’t be overwritten.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@ConfigSerializable</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">DiamondCounter</span> <span class="p">{</span>
+
+    <span class="nd">@Setting</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s">&quot;player&quot;</span><span class="p">,</span> <span class="n">comment</span><span class="o">=</span><span class="s">&quot;Player UUID&quot;</span><span class="p">)</span>
+    <span class="kd">private</span> <span class="n">UUID</span> <span class="n">playerUUID</span><span class="p">;</span>
+
+    <span class="nd">@Setting</span><span class="p">(</span><span class="n">comment</span><span class="o">=</span><span class="s">&quot;Number of diamonds mined&quot;</span><span class="p">)</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">diamonds</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="nd">@Setting</span><span class="p">(</span><span class="n">comment</span><span class="o">=</span><span class="s">&quot;The time the player found a diamond last.&quot;</span><span class="p">)</span>
+    <span class="kd">private</span> <span class="n">LocalDateTime</span> <span class="n">diamonds</span> <span class="o">=</span> <span class="n">LocalDateTime</span><span class="p">.</span><span class="na">now</span><span class="p">();</span>
+
+    <span class="o">[</span><span class="p">...</span><span class="o">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="example-loading-a-configserializable-config-with-default-values">
+<h3>Example: Loading a ConfigSerializable Config with Default Values<a class="headerlink" href="#example-loading-a-configserializable-config-with-default-values" title="제목 주소">¶</a></h3>
+<p>Instead of loading a default config from the plugin jar itself, it is also possible to just ask Configurate to create
+it if it is missing.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="k">try</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">config</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="na">configManager</span><span class="p">.</span><span class="na">load</span><span class="p">().</span><span class="o">&lt;</span><span class="n">Configuration</span><span class="o">&gt;</span><span class="n">getValue</span><span class="p">(</span><span class="n">Configuration</span><span class="p">.</span><span class="na">TYPE</span><span class="p">,</span> <span class="n">Configuration</span><span class="p">::</span><span class="n">generateDefault</span><span class="p">);</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">ObjectMappingException</span> <span class="o">|</span> <span class="n">IOException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">logger</span><span class="p">.</span><span class="na">error</span><span class="p">(</span><span class="s">&quot;Failed to load the config - Using a default&quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">config</span> <span class="o">=</span> <span class="n">Configuration</span><span class="p">.</span><span class="na">generateErrorDefault</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In this case you load the entire configuration into a <code class="docutils literal notranslate"><span class="pre">Configuration</span></code> object that contains all of your plugins
+configuration. Using such a class has the following benefits:</p>
+<ul class="simple">
+<li>Type safety is guaranteed</li>
+<li>No need to update the configuration file shipped in your plugin</li>
+<li>You don’t need to store lots of references for each of your configuration options</li>
+<li>You can pass this config (or its parts) into methods or reference it from other classes</li>
+<li>It is easy to write comments for each attribute in a place that also helps you during development</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">주석</p>
+<p class="last">In this case <code class="docutils literal notranslate"><span class="pre">Configuration.generateDefault()</span></code> is called when the config file is missing or empty.
+If you still want to load the shipped default config asset you can load it inside of that method.
+<code class="docutils literal notranslate"><span class="pre">Configuration.generateErrorDefault()</span></code> is called when there is an error reading or parsing the config.
+It is not necessary to use separate methods for those cases; you can also use the no-arg constructor,
+or use an entirely custom solution.</p>
+</div>
+</div>
+<div class="section" id="example-saving-a-configserializable-config">
+<h3>Example: Saving a ConfigSerializable Config<a class="headerlink" href="#example-saving-a-configserializable-config" title="제목 주소">¶</a></h3>
+<p>Saving a <code class="docutils literal notranslate"><span class="pre">&#64;ConfigSerializable</span></code> config is also very simple, as shown by the following example:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="k">try</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">configManager</span><span class="p">.</span><span class="na">save</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">configManager</span><span class="p">.</span><span class="na">createEmptyNode</span><span class="p">().</span><span class="na">setValue</span><span class="p">(</span><span class="n">Configuration</span><span class="p">.</span><span class="na">TYPE</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="na">config</span><span class="p">));</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">IOException</span> <span class="o">|</span> <span class="n">ObjectMappingException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">logger</span><span class="p">.</span><span class="na">error</span><span class="p">(</span><span class="s">&quot;Failed to save the config&quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="providing-a-custom-objectmapperfactory">
+<h2>Providing a custom ObjectMapperFactory<a class="headerlink" href="#providing-a-custom-objectmapperfactory" title="제목 주소">¶</a></h2>
+<p>하지만 :javadoc:<a href="#id1"><span class="problematic" id="id2">`</span></a>ObjectMapperFactory`를 사용하면 이 제약을 없앨 수 있으며, 대표적인 예로 :javadoc:<a href="#id3"><span class="problematic" id="id4">`</span></a>GuiceObjectMapperFactory`가 있습니다. 이것은 빈 생성자를 요구하지 않으며, guice가 종속물 주입을 통해 만들 수 있는 모든 클래스에서 동작할 것이며,``&#64;Inject``와 <a href="#id5"><span class="problematic" id="id6">``</span></a>&#64;Setting``이 붙은 필드 또한 허용합니다.</p>
+<p>당신의 플러그인은 종속물 주입 (<a class="reference internal" href="../injection.html"><span class="doc">의존성 주입</span></a> 참조) 을 통해
+<a href="#id1"><span class="problematic" id="id2">``</span></a>GuiceObjectMapperFactory``을 받아서 <a href="#id3"><span class="problematic" id="id4">``</span></a>ConfigurationOptions``에 전달할 수 있습니다.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.event.Listener</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.event.game.state.GamePreInitializationEvent</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.plugin.Plugin</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">com.google.inject.Inject</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">ninja.leaping.configurate.commented.CommentedConfigurationNode</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">ninja.leaping.configurate.loader.ConfigurationLoader</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">ninja.leaping.configurate.objectmapping.GuiceObjectMapperFactory</span><span class="p">;</span>
+
+<span class="nd">@Plugin</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;IStoleThisFromZml&quot;</span><span class="p">,</span> <span class="n">id</span><span class="o">=</span><span class="s">&quot;shamelesslystolen&quot;</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="s">&quot;0.8.15&quot;</span><span class="p">,</span> <span class="n">description</span> <span class="o">=</span> <span class="s">&quot;Stolen&quot;</span><span class="p">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">StolenCodeExample</span> <span class="p">{</span>
+
+    <span class="nd">@Inject</span> <span class="kd">private</span> <span class="n">GuiceObjectMapperFactory</span> <span class="n">factory</span><span class="p">;</span>
+    <span class="nd">@Inject</span> <span class="kd">private</span> <span class="n">ConfigurationLoader</span><span class="o">&lt;</span><span class="n">CommentedConfigurationNode</span><span class="o">&gt;</span> <span class="n">loader</span><span class="p">;</span>
+
+    <span class="nd">@Listener</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">enable</span><span class="p">(</span><span class="n">GamePreInitializationEvent</span> <span class="n">event</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">IOException</span><span class="p">,</span> <span class="n">ObjectMappingException</span> <span class="p">{</span>
+        <span class="n">CommentedConfigurationNode</span> <span class="n">node</span> <span class="o">=</span>
+          <span class="n">loader</span><span class="p">.</span><span class="na">load</span><span class="p">(</span><span class="n">ConfigurationOptions</span><span class="p">.</span><span class="na">defaults</span><span class="p">().</span><span class="na">setObjectMapperFactory</span><span class="p">(</span><span class="n">factory</span><span class="p">));</span>
+        <span class="n">DiamondCounter</span> <span class="n">myDiamonds</span> <span class="o">=</span> <span class="n">node</span><span class="p">.</span><span class="na">getValue</span><span class="p">(</span><span class="n">TypeToken</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">DiamondCounter</span><span class="p">.</span><span class="na">class</span><span class="p">));</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">주석</p>
+<p class="last">위 예제 코드는 간결성을 위해 적절한 예외 처리를 생략했습니다.</p>
+</div>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../assets.html" class="btn btn-neutral float-right" title="자산 API" accesskey="n" rel="next">다음 <span class="fa fa-angle-right"></span></a>
+        <a href="nodes.html" class="btn btn-neutral" title="설정 노드" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> 이전</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../../_static/flags/ko_KR.svg"
+         alt="ko" title="한국어">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../../_static/jquery.js"></script>      <script type="text/javascript" src="../../_static/underscore.js"></script>      <script type="text/javascript" src="../../_static/doctools.js"></script>      <script type="text/javascript" src="../../_static/language_data.js"></script>      <script type="text/javascript" src="../../_static/translations.js"></script>      <script type="text/javascript" src="../../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

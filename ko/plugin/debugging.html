@@ -1,0 +1,412 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>플러그인 디버그 &mdash; Sponge 7.2.0 documentation</title>
+
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="색인"
+              href="../genindex.html"/>        <link rel="search" title="검색" href="../search.html"/>    <link rel="top" title="Sponge 7.2.0 documentation" href="../index.html"/>        <link rel="up" title="플러그인 개발하기" href="index.html"/>        <link rel="next" title="튜토리얼" href="tutorials.html"/>        <link rel="prev" title="광선 추적" href="ray-tracing.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../index.html">
+            <img src="../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../server/index.html">서버 만들기</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../versions/index.html">Versioning Policy</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../preparing/index.html">개발 준비</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">플러그인 개발하기</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="api-versions.html">API 버전</a></li>
+<li class="toctree-l2"><a class="reference internal" href="buildsystem.html">빌드 시스템</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workspace/index.html">작업 공간 준비하기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project/index.html">프로젝트 준비하기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin-identifier.html">플러그인 식별자</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin-class.html">메인 플러그인 클래스</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lifecycle.html">플러그인 생명 주기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="injection.html">의존성 주입</a></li>
+<li class="toctree-l2"><a class="reference internal" href="practices/index.html">관행</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optional/index.html">Optional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.html">로그 및 디버그</a></li>
+<li class="toctree-l2"><a class="reference internal" href="text/index.html">텍스트</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands/index.html">플러그인 명령어</a></li>
+<li class="toctree-l2"><a class="reference internal" href="event/index.html">이벤트</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration/index.html">플러그인 설정</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assets.html">자산 API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data/index.html">자료 API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/index.html">블록</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entities/index.html">개체</a></li>
+<li class="toctree-l2"><a class="reference internal" href="items/index.html">아이템</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trade-offers.html">거래 제안</a></li>
+<li class="toctree-l2"><a class="reference internal" href="effects.html">효과</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scheduler.html">스케줄러</a></li>
+<li class="toctree-l2"><a class="reference internal" href="services.html">서비스</a></li>
+<li class="toctree-l2"><a class="reference internal" href="database.html">데이터베이스</a></li>
+<li class="toctree-l2"><a class="reference internal" href="permissions.html">권한</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bans.html">차단</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metrics.html">Metrics Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bookview.html">책 View</a></li>
+<li class="toctree-l2"><a class="reference internal" href="economy/index.html">경제</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wgen/index.html">세계 생성</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manager.html">플러그인 관리자</a></li>
+<li class="toctree-l2"><a class="reference internal" href="game-profile-manager.html">게임 프로필 관리자</a></li>
+<li class="toctree-l2"><a class="reference internal" href="offline-userplayer-data.html">오프라인 플레이어 데이터</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tab-lists.html">탭 목록</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin-meta.html">플러그인 메타데이터</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ray-tracing.html">광선 추적</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">플러그인 디버그</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials.html">튜토리얼</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internals/index.html">구현 의존 플러그인</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ore/index.html">Ore 설명 문서</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contributing/index.html">Sponge에 기여하기</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">Sponge 프로젝트에 대하여</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+          <li><a href="index.html">플러그인 개발하기</a> &raquo;</li>
+    <li>플러그인 디버그</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/plugin/debugging.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="plugin-debugging">
+<h1>플러그인 디버그<a class="headerlink" href="#plugin-debugging" title="제목 주소">¶</a></h1>
+<p>플러그인의 버그 중에는 추적하기 어려운 것이 있습니다. 이 때 코드를 조금씩 바꾸고 매번 다시 컴파일하는 작업은 번거로울 것이며, 코드는 로그 출력문으로 어지럽혀질 것이므로, 디버그 작업은 매우 싫증날 수 있습니다. 따라서, 이 문단은 당신의 플러그인을 설정하여 자바에서 제공하는 디버그 기능을 활용하도록 도와줄 것입니다.</p>
+<div class="section" id="preparing-your-workspace">
+<h2>작업공간 준비하기<a class="headerlink" href="#preparing-your-workspace" title="제목 주소">¶</a></h2>
+<p>당신의 IDE에 Sponge와 당신의 플러그인을 동시에 돌릴 것이기 때문에, 당신은 <a class="reference external" href="https://github.com/SpongePowered/SpongeForge">SpongeForge</a> 또는 <a class="reference external" href="https://github.com/SpongePowered/SpongeVanilla">SpongeVanilla</a> 중 당신이 선호하는 것 하나를 당신의 작업공간에 프로젝트로 불러와야 합니다. 위 링크(Github 프로젝트 페이지) 에서 방법을 확인하고 잘 따라주세요. 작업공간 준비가 끝났다면 아래로 계속 진행해주세요.</p>
+<p>당신이 불러온 <strong>SpongeForge 또는 SpongeVanilla</strong> 프로젝트에서 당신의 플러그인 프로젝트가 보여지도록 만들어야 합니다. 당신이 사용하는 IDE에 따라 방법은 달라집니다.</p>
+<div class="section" id="intellij-idea">
+<h3>IntelliJ IDEA<a class="headerlink" href="#intellij-idea" title="제목 주소">¶</a></h3>
+<p>IntelliJ에서, 모든 프로젝트는 각자의 작업공간을 갖고 있습니다. 당신의 프로젝트가 <strong>Sponge(Vanilla)</strong> 프로젝트에 보여지도록 하려면, 프로젝트가 <em>Module</em>이 되어야 합니다. 당신의 프로젝트가 <a class="reference internal" href="workspace/idea.html"><span class="doc">IntelliJ IDEA 설정하기</span></a>에서 설명한 방법에 따라 생성되었다고 가정하겠습니다. 프로젝트를 아래 방법으로 불러오세요.</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">SpongeVanilla</span></code>/<code class="docutils literal notranslate"><span class="pre">SpongeForge</span></code> 프로젝트를 연다.</li>
+<li><code class="docutils literal notranslate"><span class="pre">File</span></code> → <code class="docutils literal notranslate"><span class="pre">New</span></code> → <code class="docutils literal notranslate"><span class="pre">Module</span> <span class="pre">from</span> <span class="pre">Existing</span> <span class="pre">Sources...</span></code> 클릭</li>
+<li>플러그인 프로젝트가 있는 폴더로 이동한다.<ul>
+<li>Gradle을 사용하는 경우, <code class="docutils literal notranslate"><span class="pre">build.gradle</span></code> 파일을 선택하고, 다음 화면에서 <code class="docutils literal notranslate"><span class="pre">Use</span> <span class="pre">auto-import</span></code>를 선택한 후 확인한다.</li>
+<li>Gradle을 사용하지 않으면, 최상위 폴더를 선택하고 <code class="docutils literal notranslate"><span class="pre">Finish</span></code>를 누른다.</li>
+</ul>
+</li>
+<li><code class="docutils literal notranslate"><span class="pre">Finish</span></code>를 누른다.</li>
+</ul>
+<div class="admonition tip">
+<p class="first admonition-title">참고</p>
+<p class="last">아직 당신의 플러그인을 만들지 않았다면, <code class="docutils literal notranslate"><span class="pre">Module</span> <span class="pre">from</span> <span class="pre">Existing</span> <span class="pre">Sources...</span></code> 대신에 <code class="docutils literal notranslate"><span class="pre">Module...</span></code>을 클릭하고, 플러그인을 위한 프로젝트를 생성하세요.</p>
+</div>
+</div>
+<div class="section" id="eclipse">
+<h3>Eclipse<a class="headerlink" href="#eclipse" title="제목 주소">¶</a></h3>
+<p>Just create your project as described here: <a class="reference internal" href="workspace/eclipse.html"><span class="doc">Eclipse 설정하기</span></a>. As long as it is in the same workspace
+as your <code class="docutils literal notranslate"><span class="pre">SpongeVanilla</span></code>/<code class="docutils literal notranslate"><span class="pre">SpongeForge</span></code> project, it will be visible.</p>
+</div>
+</div>
+<div class="section" id="adding-plugin-to-sponge-classpath">
+<h2>Sponge classpath에 플러그인 추가하기<a class="headerlink" href="#adding-plugin-to-sponge-classpath" title="제목 주소">¶</a></h2>
+<p>이제 당신의 IDE에서 Sponge를 실행시킬 것입니다. 하지만, Sponge classpath에 당신의 플러그인을 추가할 것이 평소와 다른 점입니다. Sponge는 classpath에 존재하는 모든 플러그인들을 기본적으로 불러옵니다. 따라서 당신의 플러그인 프로젝트를 Sponge classpath에 추가한다면, 코드를 수정할 때마다 매번 빌드하여 플러그인 파일을 추출하고 서버 폴더에 추가하는 작업을 할 필요가 없어집니다.</p>
+<p>우선 당신의 IDE에 Run/Debug Configuration이 적절히 설정되었는지 Sponge <a class="reference external" href="https://github.com/SpongePowered/SpongeForge/blob/stable-7/README.md#running">README.md</a>를 참조하여 확인해주세요.</p>
+<p>그 다음 Run/Debug Configuration을 수정하여 당신의 프로젝트가 classpath에 추가되도록 하세요. 방법은 당신의 IDE에 따라 달라집니다:</p>
+<div class="section" id="id1">
+<h3>IntelliJ IDEA<a class="headerlink" href="#id1" title="제목 주소">¶</a></h3>
+<ul class="simple">
+<li>Project Structure를 연다.<ul>
+<li><code class="docutils literal notranslate"><span class="pre">File</span></code> → <code class="docutils literal notranslate"><span class="pre">Project</span> <span class="pre">Structure...</span></code> 클릭</li>
+<li>또는, IDE 화면의 오른쪽 모서리에서 <code class="docutils literal notranslate"><span class="pre">Search</span></code> 옆의 <code class="docutils literal notranslate"><span class="pre">Project</span> <span class="pre">Structure</span></code>를 클릭한다.</li>
+</ul>
+</li>
+<li><code class="docutils literal notranslate"><span class="pre">Modules</span></code> 클릭. (당신이 선택한 것에 따라) <code class="docutils literal notranslate"><span class="pre">SpongeForge</span></code> 또는 <code class="docutils literal notranslate"><span class="pre">SpongeVanilla</span></code> 그룹을 확장한다.</li>
+<li><code class="docutils literal notranslate"><span class="pre">SpongeForge_main</span></code> 또는 <code class="docutils literal notranslate"><span class="pre">SpongeVanilla_main</span></code>을 선택한다.</li>
+<li>오른쪽 열에서 <code class="docutils literal notranslate"><span class="pre">Dependencies</span></code> 탭을 선택한다.</li>
+<li>맨 아랫줄에``+`` (<code class="docutils literal notranslate"><span class="pre">추가</span></code>) 를 클릭하고 <code class="docutils literal notranslate"><span class="pre">Module</span> <span class="pre">Dependency</span></code>를 선택한다.</li>
+<li><code class="docutils literal notranslate"><span class="pre">yourplugin_main</span></code> (자신의 플러그인 모듈) 을 선택한다.</li>
+<li>추가한 모듈에 <code class="docutils literal notranslate"><span class="pre">Export</span></code> 옵션을 선택하지 마십시오.</li>
+</ul>
+<div class="admonition warning">
+<p class="first admonition-title">경고</p>
+<p>Due to a bug in IntelliJ (<a class="reference external" href="https://youtrack.jetbrains.com/issue/IDEA-194641">IDEA-194641</a>), any dependencies that your plugin has (e.g.
+the Kotlin standard library, or Gson) will <strong>not</strong> be added to the classpath using the above
+method. This results in a <code class="docutils literal notranslate"><span class="pre">ClassNotFoundException</span></code> when your plugin tries to access one
+of these classes, even though it successfully compiled against that class.</p>
+<p>This issue only affects running your plugin from IntelliJ as a module. Your final
+built plugin jar will run normally in both IntelliJ and a production server.</p>
+<p>If your plugin has external dependencies, you’ll need to follow these steps
+in order to run it directly from IntelliJ:</p>
+<ul class="simple">
+<li>Create a new Java module with <code class="docutils literal notranslate"><span class="pre">File</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">New</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">Module...</span></code>. Name it <code class="docutils literal notranslate"><span class="pre">SpongeForgeContainer</span></code>.</li>
+<li>Open the module settings for <code class="docutils literal notranslate"><span class="pre">SpongeForgeContainer</span></code> as described above</li>
+<li>In the dependency settings for <code class="docutils literal notranslate"><span class="pre">SpongeForgeContainer</span></code>, add a module dependency on <code class="docutils literal notranslate"><span class="pre">SpongeForge_main</span></code></li>
+<li>Edit your server run configuration. Change <code class="docutils literal notranslate"><span class="pre">Use</span> <span class="pre">classpath</span> <span class="pre">of</span> <span class="pre">module:</span></code> from <code class="docutils literal notranslate"><span class="pre">SpongeForge_main</span></code> to <code class="docutils literal notranslate"><span class="pre">SpongeForgeContainer</span></code></li>
+</ul>
+<p class="last">You can leave all of your settings unchanged, including <code class="docutils literal notranslate"><span class="pre">SpongeForge_main</span></code>’s dependency on your plugin module.
+Now, all of your plugin’s dependencies should be added to the classpath when you run the server.</p>
+</div>
+</div>
+<div class="section" id="id2">
+<h3>Eclipse<a class="headerlink" href="#id2" title="제목 주소">¶</a></h3>
+<ul class="simple">
+<li>Find your Run/Debug Configuration<ul>
+<li>Click <code class="docutils literal notranslate"><span class="pre">Run</span></code>, followed by <code class="docutils literal notranslate"><span class="pre">Run</span> <span class="pre">Configurations...</span></code></li>
+<li>OR, click the drop-down arrow beside the Run/Debug icons and then <code class="docutils literal notranslate"><span class="pre">Run</span> <span class="pre">Configurations...</span></code> or
+<code class="docutils literal notranslate"><span class="pre">Debug</span> <span class="pre">Configurations...</span></code>, respectively.</li>
+</ul>
+</li>
+<li>Select your Run/Debug Configuration for Sponge (Server) on the left side.</li>
+<li>Switch to the <code class="docutils literal notranslate"><span class="pre">Classpath</span></code> tab.</li>
+<li>Select <code class="docutils literal notranslate"><span class="pre">User</span> <span class="pre">Entries</span></code>, followed by the <code class="docutils literal notranslate"><span class="pre">Add</span> <span class="pre">Projects...</span></code> button.</li>
+<li>Select the appropriate Project for your Plugin.</li>
+<li>Click the <code class="docutils literal notranslate"><span class="pre">OK</span></code> button.</li>
+<li>Click the <code class="docutils literal notranslate"><span class="pre">Apply</span></code> button on the bottom right corner.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="running-the-configuration">
+<span id="runconfig"></span><h2>Running the Configuration<a class="headerlink" href="#running-the-configuration" title="제목 주소">¶</a></h2>
+<p>After you’ve followed the previous steps, you should be ready to start debugging.
+If you start your server from your IDE, its working directory will be the <code class="docutils literal notranslate"><span class="pre">run</span></code> directory in your
+SpongeForge/SpongeVanilla project. All the files usually created by a server (worlds, configs etc.) will be stored in
+that <code class="docutils literal notranslate"><span class="pre">run</span></code> directory and persist over multiple runs of your local test server, just as if you manually copied a
+server .jar to the <code class="docutils literal notranslate"><span class="pre">run</span></code> directory and started it from there.</p>
+<div class="section" id="id3">
+<h3>IntelliJ IDEA<a class="headerlink" href="#id3" title="제목 주소">¶</a></h3>
+<p>Run/Debug Configuration을 실행하는 초록색 오른쪽 화살표를 누르는 대신, 그 오른쪽에 있는 <code class="docutils literal notranslate"><span class="pre">Debug</span></code> 아이콘을 클릭하세요.</p>
+</div>
+<div class="section" id="id4">
+<h3>Eclipse<a class="headerlink" href="#id4" title="제목 주소">¶</a></h3>
+<p>Rather than pressing the green right-pointing arrow to run your Run/Debug configuration, click the drop-down arrow of
+the Debug icon (the one displaying a bug) and click your <code class="docutils literal notranslate"><span class="pre">Test</span> <span class="pre">(Server)</span></code> configuration. If it doesn’t appear in the
+drop-down menu, click <code class="docutils literal notranslate"><span class="pre">Debug</span> <span class="pre">Configurations</span></code>. Select <code class="docutils literal notranslate"><span class="pre">Test</span> <span class="pre">(Server)</span></code> configuration and hit the <code class="docutils literal notranslate"><span class="pre">Debug</span></code> button
+on the bottom left.</p>
+</div>
+</div>
+<div class="section" id="using-the-debugger">
+<span id="usingdebugger"></span><h2>디버거 사용하기<a class="headerlink" href="#using-the-debugger" title="제목 주소">¶</a></h2>
+<p>Now that your server (and your Plugin) are running in the Debugger, you can make use of the features it holds.
+The most prominently used are explained below in short, though they are not features of Sponge, but the Java
+Debugger your IDE makes use of.</p>
+<div class="section" id="breakpoints">
+<h3>Breakpoints<a class="headerlink" href="#breakpoints" title="제목 주소">¶</a></h3>
+<p>Breakpoints are a useful tool to take a closer look at the code. A breakpoint can be set at the beginning of a
+line of code or a function. When reaching a breakpoint, the debugger will halt the code execution and your IDE
+will open up a view allowing you to inspect the content of all variables in the current scope. Code execution
+will not resume unless you press the according button in your IDE’s debugging view.</p>
+<p>Breakpoints may also be added, removed or temporarily disabled while the debugging is in process.</p>
+<div class="admonition tip">
+<p class="first admonition-title">참고</p>
+<p class="last">Once a single server tick takes more than a given amount of time, the watchdog will consider the server crashed
+and forcefully shut it down. When working with breakpoints this might occur, so it is recommended that you
+edit your test environments <code class="docutils literal notranslate"><span class="pre">server.properties</span></code> file and set the value of <code class="docutils literal notranslate"><span class="pre">max-tick-time</span></code> to either a
+very large number (the amount of milliseconds a tick may take) or <code class="docutils literal notranslate"><span class="pre">-1</span></code> (to disable the Watchdog completely).</p>
+</div>
+<div class="section" id="id5">
+<h4>IntelliJ IDEA<a class="headerlink" href="#id5" title="제목 주소">¶</a></h4>
+<p>To add or remove a breakpoint, just left click in the blank space just to the left of your editor.</p>
+<p>Alternatively, have your cursor be in the line where you want the breakpoint added or removed and then click
+<code class="docutils literal notranslate"><span class="pre">Run</span></code> followed by <code class="docutils literal notranslate"><span class="pre">Toggle</span> <span class="pre">Line</span> <span class="pre">Breakpoint</span></code>.</p>
+</div>
+<div class="section" id="id6">
+<h4>Eclipse<a class="headerlink" href="#id6" title="제목 주소">¶</a></h4>
+<p>To add or remove a breakpoint, just right click in the blank space just to the left of your editor and click
+<code class="docutils literal notranslate"><span class="pre">Toggle</span> <span class="pre">Breakpoint</span></code>.</p>
+<p>Alternatively, have your cursor be in the line where you want the breakpoint added or removed and then click <code class="docutils literal notranslate"><span class="pre">Run</span></code>
+followed by <code class="docutils literal notranslate"><span class="pre">Toggle</span> <span class="pre">Breakpoint</span></code>.</p>
+</div>
+</div>
+<div class="section" id="code-hotswapping">
+<h3>Code Hotswapping<a class="headerlink" href="#code-hotswapping" title="제목 주소">¶</a></h3>
+<p>The other major feat of the debugger is that you will not have to restart your server for every small change you
+make, thanks to code hotswapping. This means that you can just recompile portions of your code while it is
+running in the debugger. However, there are a couple of limitations, the most important of which are:</p>
+<ul>
+<li><p class="first">You cannot create or remove methods.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Changes to methods are limited to code <em>within</em> the method. You cannot modify its signature (that means its name,
+return type and parameter types)</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">You cannot remove classes.</p>
+<blockquote>
+<div><ul class="simple">
+<li>You cannot modify a class〉 name, superclass or the list of interfaces it implements.</li>
+<li>You can add classes. However, once it’s been built and hotswapped, the class follows the above rules.</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p>You can test this functionality: Introduce a simple command to your plugin that just writes a word, like <code class="docutils literal notranslate"><span class="pre">Sponge</span></code>
+Then save it and start the server as described above. Run the command. It will output <code class="docutils literal notranslate"><span class="pre">Sponge</span></code>. Now change the
+command to write a different word to console, save the file. After a change, do as follows to hotswap the changes to
+the running program:</p>
+<div class="section" id="id7">
+<h4>IntelliJ IDEA<a class="headerlink" href="#id7" title="제목 주소">¶</a></h4>
+<ul class="simple">
+<li>Open the <code class="docutils literal notranslate"><span class="pre">Run</span></code> menu, from the top of the IDE.</li>
+<li>Below the first category break, click <code class="docutils literal notranslate"><span class="pre">Reload</span> <span class="pre">Changed</span> <span class="pre">Classes</span></code>.</li>
+</ul>
+</div>
+<div class="section" id="id8">
+<h4>Eclipse<a class="headerlink" href="#id8" title="제목 주소">¶</a></h4>
+<p>No action needed. As soon as you save the file, it will be rebuilt and automatically hotswapped with the
+currently running debug. Unless you changed this particular default behavior, you will not have to trigger a manual
+hotswap.</p>
+</div>
+</div>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="tutorials.html" class="btn btn-neutral float-right" title="튜토리얼" accesskey="n" rel="next">다음 <span class="fa fa-angle-right"></span></a>
+        <a href="ray-tracing.html" class="btn btn-neutral" title="광선 추적" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> 이전</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../_static/flags/ko_KR.svg"
+         alt="ko" title="한국어">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../_static/jquery.js"></script>      <script type="text/javascript" src="../_static/underscore.js"></script>      <script type="text/javascript" src="../_static/doctools.js"></script>      <script type="text/javascript" src="../_static/language_data.js"></script>      <script type="text/javascript" src="../_static/translations.js"></script>      <script type="text/javascript" src="../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

@@ -1,0 +1,270 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>故障排查 &mdash; Sponge 7.2.0 文档</title>
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="索引"
+              href="../../genindex.html"/>        <link rel="search" title="搜索" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 文档" href="../../index.html"/>        <link rel="up" title="成为 Sponge 专家" href="index.html"/>        <link rel="next" title="日志文件" href="logs.html"/>        <link rel="prev" title="命令与权限" href="commands.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../../index.html">
+            <img src="../../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">创建服务器</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html">快速入门指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started/index.html">入门指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../management/index.html">管理服务器</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">成为 Sponge 专家</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="commands.html">命令与权限</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">故障排查</a></li>
+<li class="toctree-l3"><a class="reference internal" href="logs.html">日志文件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="debugging.html">调试</a></li>
+<li class="toctree-l3"><a class="reference internal" href="incompatible.html">Mod 兼容</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bugreport.html">报告问题</a></li>
+<li class="toctree-l3"><a class="reference internal" href="properties.html">属性</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../versions/index.html">版本策略</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../preparing/index.html">为开发作准备</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../plugin/index.html">插件开发</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ore/index.html">Ore 文档</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/index.html">向 Sponge 贡献代码</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">关于 Sponge</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+          <li><a href="../index.html">创建服务器</a> &raquo;</li>
+          <li><a href="index.html">成为 Sponge 专家</a> &raquo;</li>
+    <li>故障排查</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/server/spongineer/troubleshooting.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="troubleshooting">
+<h1>故障排查<a class="headerlink" href="#troubleshooting" title="永久链接至标题">¶</a></h1>
+<p>你来到这里的理由应该是因为你的 Sponge 服务器出了问题。也许我们应该有解决办法，所以就让我们来看看吧。</p>
+<div class="contents local topic" id="potential-sources-of-trouble">
+<p class="topic-title"><strong>可能导致故障的原因</strong></p>
+<ul class="simple">
+<li><a class="reference internal" href="#java-is-not-installed-on-your-computer" id="id1">你的计算机上没有安装 Java</a></li>
+<li><a class="reference internal" href="#network-connection-failure-or-ddos-attack" id="id2">网络连接失败（或 DDoS 攻击）</a></li>
+<li><a class="reference internal" href="#not-enough-free-memory" id="id3">可用内存不足</a></li>
+<li><a class="reference internal" href="#malformed-config-file-e-g-bad-editing" id="id4">格式不正确的配置文件（如笔误导致的格式不对）</a></li>
+<li><a class="reference internal" href="#a-plugin-or-mod-has-malfunctioned" id="id5">一个插件（或 Mod）出现故障</a></li>
+<li><a class="reference internal" href="#operating-system-unstable-e-g-virus-infection" id="id6">操作系统不稳定（如病毒感染）</a></li>
+<li><a class="reference internal" href="#corrupted-data" id="id7">数据损坏</a></li>
+<li><a class="reference internal" href="#problem-between-keyboard-and-chair" id="id8">键盘和椅子之间的问题</a></li>
+<li><a class="reference internal" href="#there-is-a-bug-in-sponge" id="id9">Sponge 有 Bug</a></li>
+<li><a class="reference internal" href="#there-is-something-wrong-with-the-universe" id="id10">这个宇宙一定有什么问题</a></li>
+</ul>
+</div>
+<div class="section" id="java-is-not-installed-on-your-computer">
+<h2><a class="toc-backref" href="#id1">你的计算机上没有安装 Java</a><a class="headerlink" href="#java-is-not-installed-on-your-computer" title="永久链接至标题">¶</a></h2>
+<p><strong>解决方案</strong> ：安装 Java。请查看 <a class="reference internal" href="../getting-started/jre.html"><span class="doc">安装 Java</span></a> 获取更多信息。</p>
+</div>
+<div class="section" id="network-connection-failure-or-ddos-attack">
+<h2><a class="toc-backref" href="#id2">网络连接失败（或 DDoS 攻击）</a><a class="headerlink" href="#network-connection-failure-or-ddos-attack" title="永久链接至标题">¶</a></h2>
+<p><strong>特征</strong> ：网络连接时出现高延迟，反复掉线，或无法连接。</p>
+<p><strong>解决方案</strong> ：检查你的调制解调器或路由器。看看你的浏览器是不是有类似的问题。你可以使用一些免费的网站服务如 speedtest.net 以检查你的连接速度。运行在你的计算机或者本地网络上的其他服务也可能是导致问题的原因。请确保你的路由器开启了端口转发。DDoS 攻击——尽管不太可能——也会完全终止你的所有连接，如果你确信是 DDoS 导致的问题，你应该联系你的电信运营商（ISP）。</p>
+</div>
+<div class="section" id="not-enough-free-memory">
+<h2><a class="toc-backref" href="#id3">可用内存不足</a><a class="headerlink" href="#not-enough-free-memory" title="永久链接至标题">¶</a></h2>
+<p><strong>特征</strong> ：服务器崩溃，并带有类似“内存不足”的消息。</p>
+<p><strong>解决方案</strong> ：通过启动命令参数 <code class="docutils literal notranslate"><span class="pre">-XX:MaxPermSize=128</span></code> 扩展服务端的最大 PermSize。你也可以通过启动命令参数设置最大和最小堆内存，如： <code class="docutils literal notranslate"><span class="pre">-Xms1024M</span></code> （起始内存 1GB） 和 <code class="docutils literal notranslate"><span class="pre">-Xmx2048M</span></code> （最大内存 2GB）。监视你的计算机的可用内存，看看是不是有一些进程上了锁。你可能需要终止上了锁的 Java 进程或者重启你的机器。内存泄露有的时候由插件的 BUG 引起，所以需要一段时间才能将其隔离出来。</p>
+<p><strong>还是有问题？</strong> ：尽管你照着上面的做了，但你如果还是有问题，或者不能扩展堆内存，你可以看看你的任务管理器以确认你是不是用光了所有可用的内存。如果是的，那唯一的解决方案就只剩下为你的计算机添加内存（RAM）了。如果你的计算机还有很多内存没有使用，你可以看看是不是在运行着 32 位的 Java。如果是的话，我们强烈建议你使用 64 位的 Java，如果你的操作系统也是 64 位的话。</p>
+</div>
+<div class="section" id="malformed-config-file-e-g-bad-editing">
+<h2><a class="toc-backref" href="#id4">格式不正确的配置文件（如笔误导致的格式不对）</a><a class="headerlink" href="#malformed-config-file-e-g-bad-editing" title="永久链接至标题">¶</a></h2>
+<p><strong>特征</strong> ：一个或多个插件拒绝加载，或者表现得超出预期。服务端的日志文件会记录下启动时不可读的文件。服务端会崩溃，同时数据可能会损坏。</p>
+<p><strong>解决方案</strong> ：停止服务器，并检查你修改过的文件。把所有损坏的数据使用备份文件替代。你可能需要把配置文件完全删除以允许服务端重新启动时再次生成它们。</p>
+</div>
+<div class="section" id="a-plugin-or-mod-has-malfunctioned">
+<h2><a class="toc-backref" href="#id5">一个插件（或 Mod）出现故障</a><a class="headerlink" href="#a-plugin-or-mod-has-malfunctioned" title="永久链接至标题">¶</a></h2>
+<p><strong>特征</strong> ：什么事情都有可能发生——不管你的插件做什么，先考虑 X 因素再说。一般情况下服务端会崩溃，并在日志文件内留下一长串错误信息。</p>
+<p><strong>解决方案</strong> ：停止服务器，并检查是不是有什么东西损坏了。请确信这不是由于不正确的配置文件格式引起的（见上）。尝试着移除可能有问题的插件并一次又一次地重新打开服务端再试试。有可能导致问题的原因是一个插件不是最新版本——更新它。插件冲突也是一个可能发生的原因，这时候就有两个插件是相互不兼容的。你也可以查阅“<a class="reference internal" href="incompatible.html"><span class="doc">Mod 兼容</span></a>”一文来确定你的问题是不是已知问题，以及是否有解决方案。</p>
+</div>
+<div class="section" id="operating-system-unstable-e-g-virus-infection">
+<h2><a class="toc-backref" href="#id6">操作系统不稳定（如病毒感染）</a><a class="headerlink" href="#operating-system-unstable-e-g-virus-infection" title="永久链接至标题">¶</a></h2>
+<p><strong>特征</strong> ：服务端总是崩溃或者超时，然后你的操作系统的其他部分也有着问题。</p>
+<p><strong>解决方案</strong> ：停止一切。彻底检查你的系统和存储设备是否藏有恶意软件和病毒。有一些好的工具可以帮助你，诸如 AdwCleaner、Junkware Removal Tool、MalwareBytes 等绝大多数的防病毒软件。在清理并重新启动你的系统后，请检查你的服务器文件以确保它们没什么问题。如果问题仍然持续，你应该试着检查检查硬件是不是出了事——比如出故障的电源供应。</p>
+</div>
+<div class="section" id="corrupted-data">
+<h2><a class="toc-backref" href="#id7">数据损坏</a><a class="headerlink" href="#corrupted-data" title="永久链接至标题">¶</a></h2>
+<p><strong>特征</strong> ：世界文件加载失败，或当玩家进入某些区块时服务器崩溃。数据库损坏。</p>
+<p><strong>解决方案</strong> ：启用备份覆盖损坏的数据。一些软件可以修复损坏的世界数据，并重新生成不存在的区域。调查损坏的原因——可能是一个格式不正确的插件、数据库驱动程序、电源故障或者是什么别的原因？请总是确保你经常把重要的数据备份到安全的设备上。</p>
+</div>
+<div class="section" id="problem-between-keyboard-and-chair">
+<h2><a class="toc-backref" href="#id8">键盘和椅子之间的问题</a><a class="headerlink" href="#problem-between-keyboard-and-chair" title="永久链接至标题">¶</a></h2>
+<p><strong>特征</strong> ：昨天还什么都好好的，今天我做了 XYZ 一切就都奇怪起来了……</p>
+<p><strong>解决方案</strong> ：SpongeDocs 还没有大到足以涵盖可能导致软件不按预期工作的所有行为。但为了服务器，还是花时间想想你到底都做过些什么吧。内存条生锈并松动，快捷键失灵……一切皆有可能。</p>
+</div>
+<div class="section" id="there-is-a-bug-in-sponge">
+<h2><a class="toc-backref" href="#id9">Sponge 有 Bug</a><a class="headerlink" href="#there-is-a-bug-in-sponge" title="永久链接至标题">¶</a></h2>
+<p><strong>特征</strong> ：上面的所有可能都考虑过了，但是情况依然没有改观。</p>
+<p><strong>解决方案</strong> ：是时候上大家伙了。请前往 <a class="reference external" href="https://github.com/spongepowered/SpongeForge/issues">SpongeForge</a> 或 <a class="reference external" href="https://github.com/spongepowered/SpongeVanilla/issues">SpongeVanilla</a> 的问题追踪器填写反馈，同时一定要说明你使用的 Forge 或 Sponge 版本，以及附上相关的服务端日志的链接。</p>
+</div>
+<div class="section" id="there-is-something-wrong-with-the-universe">
+<h2><a class="toc-backref" href="#id10">这个宇宙一定有什么问题</a><a class="headerlink" href="#there-is-something-wrong-with-the-universe" title="永久链接至标题">¶</a></h2>
+<p>这我们可救不了你。你只能靠你自己。</p>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="logs.html" class="btn btn-neutral float-right" title="日志文件" accesskey="n" rel="next">下一页 <span class="fa fa-angle-right"></span></a>
+        <a href="commands.html" class="btn btn-neutral" title="命令与权限" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> 上一页</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../../_static/flags/zh_CN.svg"
+         alt="zh-CN" title="简体中文">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../../_static/jquery.js"></script>      <script type="text/javascript" src="../../_static/underscore.js"></script>      <script type="text/javascript" src="../../_static/doctools.js"></script>      <script type="text/javascript" src="../../_static/language_data.js"></script>      <script type="text/javascript" src="../../_static/translations.js"></script>      <script type="text/javascript" src="../../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

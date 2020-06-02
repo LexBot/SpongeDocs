@@ -1,0 +1,332 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Publicar o teu Plugin &mdash; Documentação Sponge 7.2.0</title>
+
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="Índice"
+              href="../genindex.html"/>        <link rel="search" title="Pesquisar" href="../search.html"/>    <link rel="top" title="Documentação Sponge 7.2.0" href="../index.html"/>        <link rel="up" title="Documentação do Ore" href="index.html"/>        <link rel="next" title="Segurança" href="security.html"/>        <link rel="prev" title="Diretrizes de Submissão de Plugins no Ore" href="guidelines.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../index.html">
+            <img src="../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../server/index.html">Criar um Servidor</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../versions/index.html">Políticas de Versionamento</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../preparing/index.html">Preparação para Desenvolvimento</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../plugin/index.html">Criar um Plugin</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Documentação do Ore</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="guidelines.html">Diretrizes de Submissão de Plugins no Ore</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guidelines.html#projects">Projetos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guidelines.html#files">Ficheiros</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Publicar o teu Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html">Segurança</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html">Ore Web API</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contributing/index.html">Contribuir para o Sponge</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">Sobre o Projeto Sponge</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+          <li><a href="index.html">Documentação do Ore</a> &raquo;</li>
+    <li>Publicar o teu Plugin</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/ore/publish.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="publishing-your-plugin">
+<h1>Publicar o teu Plugin<a class="headerlink" href="#publishing-your-plugin" title="Link permanente para este título">¶</a></h1>
+<p>O repositório oficial de mods/plugins do Sponge, <a class="reference external" href="https://ore.spongepowered.org">Ore</a>, é um projeto gratuito e de código aberto onde qualquer um pode publicar o seu plugin ou mod Sponge.</p>
+<div class="section" id="packaging-your-plugin">
+<h2>Empacotar o teu Plugin<a class="headerlink" href="#packaging-your-plugin" title="Link permanente para este título">¶</a></h2>
+<p>O Ore requer que todos os projetos sejam empacotados com um ficheiro de descrição <code class="docutils literal notranslate"><span class="pre">mcmod.info</span></code> na raíz do ficheiro JAR. Este ficheiro é utilizado para retirar, automaticamente, alguns detalhes do teu projeto para facilitar o processo de upload. O Ore rejeitará o teu plugin se não tiver este ficheiro no JAR. Felizmente, a SpongeAPI tem uma funcionalidade que cria este ficheiro automaticamente, durante a compilação, utilizando a anotação <code class="docutils literal notranslate"><span class="pre">&#64;Plugin</span></code> que provavelmente já existe na classe <cite>main</cite> do teu plugin.</p>
+<div class="admonition note">
+<p class="first admonition-title">Nota</p>
+<p class="last">Para mais informação sobre como criar e compilar um plugin, vê <a class="reference internal" href="../plugin/plugin-class.html"><span class="doc">Classe Main de um Plugin</span></a></p>
+</div>
+<p>Para referência, eis um exemplo do ficheiro <code class="docutils literal notranslate"><span class="pre">mcmod.info</span></code>:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+    <span class="p">{</span>
+        <span class="nt">&quot;modid&quot;</span><span class="p">:</span> <span class="s2">&quot;my-plugin&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;MyPlugin&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;1.0.0&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;My first plugin!&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://spongepowered.org&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;authorList&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;windy&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Zidane&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;gabizou&quot;</span>
+        <span class="p">],</span>
+        <span class="nt">&quot;requiredMods&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;bookotd@1.0.0&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;ore-test@1.0.0&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;worldedit@1.0.0&quot;</span>
+        <span class="p">],</span>
+        <span class="nt">&quot;dependencies&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;bookotd@1.0.0&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;ore-test@1.0.0&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;worldedit@1.0.0&quot;</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>No mínimo, cada projeto no Ore <em>deve</em> ter os campos <code class="docutils literal notranslate"><span class="pre">modid</span></code>, <code class="docutils literal notranslate"><span class="pre">name</span></code> e, <code class="docutils literal notranslate"><span class="pre">version</span></code> completos.</p>
+</div>
+<div class="section" id="signing-your-plugin">
+<h2>Assinar o teu Plugin<a class="headerlink" href="#signing-your-plugin" title="Link permanente para este título">¶</a></h2>
+<p>Por motivos de segurança, o Ore requer que cada plugin (ZIP ou JAR), seja enviado com uma assinatura <a class="reference external" href="https://en.wikipedia.org/wiki/Pretty_Good_Privacy">Pretty Good Privacy (PGP)</a> separada para uma chave pública que está associada ao email com que te registaste no Sponge. Esta assinatura digital garante que qualquer ficheiro enviado por um utilizador foi enviado intencionalmente pelo verdadeiro titular da conta.</p>
+<div class="admonition note">
+<p class="first admonition-title">Nota</p>
+<p class="last">Uma assinatura digital certifica e carimba temporalmente um documento. Se, depois, o documento for alterado de qualquer maneira, a verificação da assinatura falhará. Uma assinatura digital pode ter o mesmo papel que uma assinatura manuscrita, e tem ainda o benefício de ser resistente a alterações ao documento. A distribuição <cite>GnuPG source</cite>, por exemplo, é assinada, de tal maneira que os utilizadores podem verificar que o código fonte não foi alterado desde que foi empacotado.</p>
+</div>
+<p>Para assinares o teu plugin, deves descarregar primeiro um programa como o <a class="reference external" href="https://www.gnupg.org/">GnuPG (GPG)</a>. O GPG está disponível para todas as grandes plataformas e os binários podem ser descarregados <a class="reference external" href="https://www.gnupg.org/download/index.html#sec-1-2">aqui</a>.</p>
+<p>Assim que tiveres instalado o GPG e tiveres gerado a tua primeira chave pública, deverás adicionar essa chave à tua conta. Para fazer isto, podes navegar para o ter peril e clicar no símbolo que tem uma chave, perto do teu ícone.</p>
+<img alt="PGP public key 1" class="align-center" src="../_images/help_1.png" />
+<p>De seguida, será pedido que insiras a tua chave numa caixa de texto. Garante que inseres todos os carateres da chave! Caso contrário, a verificação da assinatura falhará.</p>
+<img alt="PGP public key 2" class="align-center" src="../_images/help_2.png" />
+<p>Finalmente, deves assinar o teu plugin com a chave <em>privada</em> da chave pública que enviaste antes. Só precisas de assinar o ficheiro que estás a enviar: se estiveres a enviar um ZIP com um JAR incluído, só precisas de (e só deves) assinar o ZIP. A maneira mais simples de assinar o ficheiro que queres enviar é utilizando o comando GPG seguinte.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gpg --output myplugin-1.0.0.jar.sig --detach-sig myplugin-1.0.0.jar
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Nota</p>
+<p class="last">Se estás a usar um <em>build manager</em>, como o Gradle ou o Maven, há alguns plugins que podes aplicar ao teu <em>build script</em> que assinam os artefactos gerados de forma automática, automatizando assim este aborrecido processo. Para mais informações, visita a <a class="reference external" href="https://docs.gradle.org/current/userguide/signing_plugin.html">documentação do Gradle</a> ou a <a class="reference external" href="https://maven.apache.org/plugins/maven-gpg-plugin/">documentação do Maven</a>.</p>
+</div>
+</div>
+<div class="section" id="uploading-your-plugin">
+<h2>Enviar o teu Plugin<a class="headerlink" href="#uploading-your-plugin" title="Link permanente para este título">¶</a></h2>
+<p>Assim que o ficheiro JAR do teu plugin estiver empacotado com o ficheiro descritivo <code class="docutils literal notranslate"><span class="pre">mcmod.info</span></code> na sua raiz e estiver assinado com a tua chave privada PGP, o teu plugin estará pronto para ser enviado para o Ore! Para criares um projeto no Ore, deves ter uma conta Sponge ativa. Podes criar uma conta carregando no botão «Sign Up» no canto superior direito de qualquer página Sponge. Se já tens uma conta, usa o botão «Log In».</p>
+<p>Assim que tiveres sessão iniciada, navega para o teu avatar e seleciona a opção «New» no menu que aparece, ou carrega simplesmente na tecla «C».</p>
+<p>Durante o processo de envio, o Ore pede primeiro o ficheiro principal de envio, e logo depois a tua assinatura separada.</p>
+</div>
+<div class="section" id="setting-up-your-project-on-ore">
+<h2>Configurar o teu projeto no Ore<a class="headerlink" href="#setting-up-your-project-on-ore" title="Link permanente para este título">¶</a></h2>
+<p>Depois de enviares o teu plugin, ser-te-hão apresentadas algumas opções para configurares o teu projeto ao teu gosto. Não te preocupes, todas essas definições podem, mais tarde, ser alterada no painel de definições. Depois de configurares o teu projeto, poderás convidar outros utilizadores do Sponge para serem uma parte dele. Qualquer utilizador que esteja registado nos fóruns pode ser convidado para i, projeto, mesmo que nunca tenham iniciado sessão no Ore. Assim que o projeto é criado, esses utilizadores convidados receberão uma notificação e poderão aceitar ou rejeitar o teu convite. Os membros de um projeto não serão visíveis para o público até que aceitem o respetivo convite.</p>
+<p>Neste momento, há três grupos que podes atribuir aos membros do teu projeto: «Desenvolvedor», «Editor» e «Suporte». O utilizador que criou o projeto terá o grupo «Dono», e tem acesso ilimitado ao projeto. Eis uma breve explicação do que cada grupo pode fazer no projeto.</p>
+<div class="section" id="owner">
+<h3>Proprietário<a class="headerlink" href="#owner" title="Link permanente para este título">¶</a></h3>
+<p>Cada projeto tem um e só um proprietário. Este papel não é transferível (para já), e é o único grupo que pode dar cargos a outros membros.</p>
+</div>
+<div class="section" id="developers">
+<h3>Desenvolvedores<a class="headerlink" href="#developers" title="Link permanente para este título">¶</a></h3>
+<p>Os desenvolvedores podem criar/editar <cite>release channels</cite>, páginas e criar/editar versões.</p>
+</div>
+<div class="section" id="editor">
+<h3>Editor<a class="headerlink" href="#editor" title="Link permanente para este título">¶</a></h3>
+<p>Os editores podem editar páginas.</p>
+</div>
+<div class="section" id="support">
+<h3>Suporte<a class="headerlink" href="#support" title="Link permanente para este título">¶</a></h3>
+<p>Os membros do suporte não podem fazer nada. Esta é meramente uma forma de mostrar que estes membros fazem parte do projeto.</p>
+</div>
+</div>
+<div class="section" id="documenting-your-project-with-pages">
+<h2>Escrever Documentação para o teu Projeto com as Pages<a class="headerlink" href="#documenting-your-project-with-pages" title="Link permanente para este título">¶</a></h2>
+<p>O Ore oferece a criação de páginas para documentares o teu plugin. Por predefinição, o Ore cria-te uma página “Home” quando crias um novo Projeto. Para adicionares novas páginas, podes carregar no “+” na barra das páginas, na parte direita do screen; fazê-lo abrirá um pop-up onde podes escolher um nome e a página-pai (adicionar uma página na página Home não é possível). Se escolheres a opção “&lt;None&gt;”, a página será uma página de raiz, à qual poderás adicionar páginas-filhas. Se escolheres adiconá-la a outra página, esta só será mostrada quando a página-pai por expandida. Podes escrever as tuas páginas em CommonMark.</p>
+<div class="section" id="linking-pages">
+<h3>Linkar Páginas<a class="headerlink" href="#linking-pages" title="Link permanente para este título">¶</a></h3>
+<p>Se tiveres a seguinte árvore de estrutura nas tuas páginas:</p>
+<ul class="simple">
+<li>Página inicial</li>
+<li><dl class="first docutils">
+<dt>Commands</dt>
+<dd><ul class="first last">
+<li>User</li>
+<li>Admin</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Setup</dt>
+<dd><ul class="first last">
+<li>Config</li>
+<li>Permissions</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p>E tu queres adicionar um link à Home Page que aponte para a página Config, que pertence a Setup. Para isso, podes usar <cite>WikiLinks</cite>. Para adicionares um WikiLink, usa o formato <cite>[[Link]]</cite>. Ou seja, na Home Page podes escrever <cite>[[Setup/Config]]</cite> e isto será convertido num link que é garantido funcionar.</p>
+<div class="admonition note">
+<p class="first admonition-title">Nota</p>
+<p class="last">Também podes especificar um título para o link e separá-lo com o símbolo Pipe, de modo que <cite>[[Title|Link]]</cite> será um link com o título <cite>Title</cite>.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Nota</p>
+<p class="last">Os WikiLinks só são suportados no Ore, por isso, se os usares na Home-page, eles não serão corretamente mostrados nos fóruns. Ainda assim, recomendamos que uses WikiLinks em vez de links normais por forma a garantires que a tua wiki continua a funcionar no futuro.</p>
+</div>
+</div>
+</div>
+<div class="section" id="project-states">
+<h2>Estados de Projetos<a class="headerlink" href="#project-states" title="Link permanente para este título">¶</a></h2>
+<p>Quando crias um novo projeto, aparecerá um banner a indicar-te que o projeto está no estado “new”. Este estado serve para indicar aos utilizadores e administradores que ainda estás a trabalhar na configuração do teu projeto. Se já acabaste de documentar o teu plugin para que fique de acordo com as diretrizes, clica no botão “publish” para completares o processo. No entanto, se não publicares manualmente o teu projeto, ele será automaticamente publicado 24 horas após a sua criação.</p>
+<div class="section" id="needs-changes">
+<h3>Precisa de alterações<a class="headerlink" href="#needs-changes" title="Link permanente para este título">¶</a></h3>
+<p>A staff do Ore pode esconder o teu projeto e pedir modificações; as alterações em questão estarão listadas no banner. Este estado esconderá o teu projeto do público; se já terminaste, podes enviar o teu projeto para aprovação.</p>
+</div>
+<div class="section" id="needs-approval">
+<h3>Precisa de aprovação<a class="headerlink" href="#needs-approval" title="Link permanente para este título">¶</a></h3>
+<p>Neste estado, o teu projeto ainda está escondido do público enquanto se espera que um membro do staff reveja e valide as alterações que foram solicitadas. Por favor, sê paciente, os membros da staff podem estar ocupados com outras tarefas. Se o projeto for aprovado, tonar-se-á imediatamente visível novamente. Por favor, certifica-te de que realmente corriges os pontos que exigem mudanças.</p>
+</div>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="security.html" class="btn btn-neutral float-right" title="Segurança" accesskey="n" rel="next">Seguinte <span class="fa fa-angle-right"></span></a>
+        <a href="guidelines.html" class="btn btn-neutral" title="Diretrizes de Submissão de Plugins no Ore" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> Anterior</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../_static/flags/pt_PT.svg"
+         alt="pt" title="Português">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../_static/jquery.js"></script>      <script type="text/javascript" src="../_static/underscore.js"></script>      <script type="text/javascript" src="../_static/doctools.js"></script>      <script type="text/javascript" src="../_static/language_data.js"></script>      <script type="text/javascript" src="../_static/translations.js"></script>      <script type="text/javascript" src="../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

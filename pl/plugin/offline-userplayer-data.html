@@ -1,0 +1,264 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dane gracza offline &mdash; Sponge 7.2.0 - dokumentacja</title>
+
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="Indeks"
+              href="../genindex.html"/>        <link rel="search" title="Szukaj" href="../search.html"/>    <link rel="top" title="Sponge 7.2.0 - dokumentacja" href="../index.html"/>        <link rel="up" title="Tworzenie pluginu" href="index.html"/>        <link rel="next" title="Listy kart" href="tab-lists.html"/>        <link rel="prev" title="Menadżer Profilu Gry" href="game-profile-manager.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../index.html">
+            <img src="../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../server/index.html">Tworzenie serwera</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../versions/index.html">Versioning Policy</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../preparing/index.html">Przygotowanie do tworzenia</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Tworzenie pluginu</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="api-versions.html">API-Versions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="buildsystem.html">Systemy budowania</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workspace/index.html">Przygotowywanie obszaru roboczego</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project/index.html">Konfigurowanie twojego projektu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin-identifier.html">Identyfikatory Pluginów</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin-class.html">Główna Klasa Pluginu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lifecycle.html">Cykl działania wtyczki</a></li>
+<li class="toctree-l2"><a class="reference internal" href="injection.html">Wstrzykiwanie zależności</a></li>
+<li class="toctree-l2"><a class="reference internal" href="practices/index.html">Praktyki</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optional/index.html">Optionals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.html">Logowanie i Debugowanie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="text/index.html">Tekst</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands/index.html">Plugin Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="event/index.html">Wydarzenia</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration/index.html">Konfiguracja Pluginów</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assets.html">Dostępne API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data/index.html">API Danych</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/index.html">Bloki</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entities/index.html">Obiekty</a></li>
+<li class="toctree-l2"><a class="reference internal" href="items/index.html">Przedmioty</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trade-offers.html">Oferty Sprzedaży</a></li>
+<li class="toctree-l2"><a class="reference internal" href="effects.html">Efekty</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scheduler.html">Harmonogram</a></li>
+<li class="toctree-l2"><a class="reference internal" href="services.html">Usługi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="database.html">Baza danych</a></li>
+<li class="toctree-l2"><a class="reference internal" href="permissions.html">Zezwolenia</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bans.html">Zablokowanie konta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metrics.html">Metrics Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bookview.html">Wyświetlenia książki</a></li>
+<li class="toctree-l2"><a class="reference internal" href="economy/index.html">Gospodarka</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wgen/index.html">Generowanie Świata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manager.html">Menadżer wtyczek</a></li>
+<li class="toctree-l2"><a class="reference internal" href="game-profile-manager.html">Menadżer Profilu Gry</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Dane gracza offline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tab-lists.html">Listy kart</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin-meta.html">Metadane Wtyczek</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ray-tracing.html">Śledzenie Promieniowe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="debugging.html">Debugowanie wtyczek</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials.html">Samouczki</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internals/index.html">Pluginy zależne do implementacji</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ore/index.html">Dokumentacja Ore</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contributing/index.html">Twój wkład w Sponge</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">Czym jest projekt Sponge?</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+          <li><a href="index.html">Tworzenie pluginu</a> &raquo;</li>
+    <li>Dane gracza offline</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/plugin/offline-userplayer-data.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="offline-player-data">
+<h1>Dane gracza offline<a class="headerlink" href="#offline-player-data" title="Stały odnośnik do tego nagłówka">¶</a></h1>
+<p>Czasami pluginy potrzebują uzyskać dane gracza, nawet wtedy kiedy jest on offline (kiedy nie ma go obecnie w grze). Może Ci się wydawać że funkcja <code class="docutils literal notranslate"><span class="pre">Sponge.getServer().getPlayer()</span></code> zwracająca obiekt gracza, może zostać do tego wykorzystana. Lecz, z racji iż obiekt :javadoc: <code class="docutils literal notranslate"><span class="pre">Player</span></code> istnieje tylko w przypadku graczy online, trzeba użyć tu innego rozwiązania.</p>
+<p>Niektóre pluginy, same przechowują potrzebne im dane i dopasowują do nich użytkownika poprzez <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/profile/GameProfileManager.html">GameProfileManager</a>. Pisanie osobnego kodu dla użytkownika offline i użytkownika online nie jest wymagane. <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/ServiceManager.html">ServiceManager</a> natywnie dostarcza serwis znany jako <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/user/UserStorageService.html">UserStorageService</a>, który potrafi zwracać instancje użytkowników <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/living/player/User.html">User</a> przypisanych do graczy <code class="docutils literal notranslate"><span class="pre">Player</span></code>, którzy są obecnie offline. Z powodu iż interfejs <code class="docutils literal notranslate"><span class="pre">Player``poszerza</span> <span class="pre">interfejs</span> <span class="pre">``User</span></code>, to większość metod których możesz użyć na <code class="docutils literal notranslate"><span class="pre">Player</span></code> jest również dostępna w interfejsie <code class="docutils literal notranslate"><span class="pre">User</span></code>.</p>
+<p>Na przykład:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">#hasPermission(String</span> <span class="pre">permission)</span></code> jest dostępne z obu instancji.</li>
+</ul>
+<div class="section" id="code-example">
+<h2>Przykład Kodu<a class="headerlink" href="#code-example" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<p>Oto przykład własnej funkcji, która może być użyta do otrzymania obiektu <code class="docutils literal notranslate"><span class="pre">User</span></code>:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">java.util.Optional</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.UUID</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.Sponge</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.entity.living.player.User</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.service.user.UserStorageService</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="n">Optional</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="nf">getUser</span><span class="p">(</span><span class="n">UUID</span> <span class="n">uuid</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">Optional</span><span class="o">&lt;</span><span class="n">UserStorageService</span><span class="o">&gt;</span> <span class="n">userStorage</span> <span class="o">=</span> <span class="n">Sponge</span><span class="p">.</span><span class="na">getServiceManager</span><span class="p">().</span><span class="na">provide</span><span class="p">(</span><span class="n">UserStorageService</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">userStorage</span><span class="p">.</span><span class="na">get</span><span class="p">().</span><span class="na">get</span><span class="p">(</span><span class="n">uuid</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Ten kod pokazuje jak otrzymać <code class="docutils literal notranslate"><span class="pre">UserStorageService</span></code> z <code class="docutils literal notranslate"><span class="pre">ServiceManager</span></code> i wydobyć obiekt użytkownika <code class="docutils literal notranslate"><span class="pre">User</span></code>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Informacja</p>
+<p class="last"><code class="docutils literal notranslate"><span class="pre">UserStorageService</span></code> może zwracać obiekty <code class="docutils literal notranslate"><span class="pre">User</span></code> tylko tych użytkowników, którzy byli wcześniej podłączeni.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Informacja</p>
+<p class="last">This solution will not return <code class="docutils literal notranslate"><span class="pre">Player</span></code> instances. This makes it safe to store the returned <code class="docutils literal notranslate"><span class="pre">User</span></code> objects,
+but you will need to use the <code class="docutils literal notranslate"><span class="pre">User.getPlayer()</span></code> method to retrieve the online entity.</p>
+</div>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="tab-lists.html" class="btn btn-neutral float-right" title="Listy kart" accesskey="n" rel="next">Dalej <span class="fa fa-angle-right"></span></a>
+        <a href="game-profile-manager.html" class="btn btn-neutral" title="Menadżer Profilu Gry" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> Poprzedni</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../_static/flags/pl_PL.svg"
+         alt="pl" title="Polski">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../_static/jquery.js"></script>      <script type="text/javascript" src="../_static/underscore.js"></script>      <script type="text/javascript" src="../_static/doctools.js"></script>      <script type="text/javascript" src="../_static/language_data.js"></script>      <script type="text/javascript" src="../_static/translations.js"></script>      <script type="text/javascript" src="../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

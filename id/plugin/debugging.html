@@ -1,0 +1,391 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plugin Debugging &mdash; dokumentasi Sponge 7.2.0</title>
+
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="Indeks"
+              href="../genindex.html"/>        <link rel="search" title="Pencarian" href="../search.html"/>    <link rel="top" title="dokumentasi Sponge 7.2.0" href="../index.html"/>        <link rel="up" title="Membuat Plugin" href="index.html"/>        <link rel="next" title="Tutorial" href="tutorials.html"/>        <link rel="prev" title="V8 Tracing" href="ray-tracing.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../index.html">
+            <img src="../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../server/index.html">Membuat sebuah server</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../versions/index.html">Versioning Policy</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../preparing/index.html">Mempersiapkan untuk Pengembangan</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Membuat Plugin</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="api-versions.html">API-Versions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="buildsystem.html">Membangun Sistem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workspace/index.html">Anda mengatur ruang kerja</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project/index.html">Menyiapkan proyek anda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin-identifier.html">Pengenal Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin-class.html">Class Plugin utama</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lifecycle.html">Plugin Siklus Hidup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="injection.html">Ketergantungan Injeksi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="practices/index.html">Kebiasaan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optional/index.html">Pilihan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.html">Penebangan dan Debugging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="text/index.html">Teks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands/index.html">Plugin Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="event/index.html">Acara</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration/index.html">Mengkonfigurasi plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assets.html">Aset API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data/index.html">Data API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/index.html">Blok</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entities/index.html">Badan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="items/index.html">Item</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trade-offers.html">Trade-Offers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="effects.html">Hasil</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scheduler.html">Penjadwalan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="services.html">Layanan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="database.html">Basis data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="permissions.html">Hak akses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bans.html">Larang</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metrics.html">Metrics Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bookview.html">Tampilan buku</a></li>
+<li class="toctree-l2"><a class="reference internal" href="economy/index.html">Ekonomi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wgen/index.html">Generasi dunia</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manager.html">Pengelola Pengaya</a></li>
+<li class="toctree-l2"><a class="reference internal" href="game-profile-manager.html">Manajer profil game</a></li>
+<li class="toctree-l2"><a class="reference internal" href="offline-userplayer-data.html">Tidak hidup Data Pemain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tab-lists.html">Daftar tab</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin-meta.html">Plugin Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ray-tracing.html">V8 Tracing</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Plugin Debugging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials.html">Tutorial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internals/index.html">Plugin yang tergantung pada pelaksanaan</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ore/index.html">Dokumentasi bijih</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contributing/index.html">Berkontribusi pada Sponge</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">Tentang Sponge Project</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+          <li><a href="index.html">Membuat Plugin</a> &raquo;</li>
+    <li>Plugin Debugging</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/plugin/debugging.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="plugin-debugging">
+<h1>Plugin Debugging<a class="headerlink" href="#plugin-debugging" title="Link permanen untuk headline ini">¶</a></h1>
+<p>Ketika bug di plugin ini kode yang sulit untuk menentukan, kamu bosan mengkompilasi ulang setelah setiap perubahan yang keluaran logger mengacaukan kode dari kamu, debugging ini bisa sangat membosankan. Oleh karna itu, bagian ini akan menjelaskan bagaimana cara untuk mengatur plugin anda untuk memanfaatkan Java's kemampuan debugging.</p>
+<div class="section" id="preparing-your-workspace">
+<h2>Mempersiapkan ruang kerja Anda<a class="headerlink" href="#preparing-your-workspace" title="Link permanen untuk headline ini">¶</a></h2>
+<p>Karena kita akan berjalan baik Spons dan plugin kamu dari dalam IDE, kamu akan perlu untuk mengimpor baik <a class="reference external" href="https://github.com/SpongePowered/SpongeForge">SpongeForge</a> atau <a class="reference external" href="https://github.com/SpongePowered/SpongeVanilla">SpongeVanilla</a>, tergantung mana yang ingin kamu gunakan, sebagai sebuah proyek ke dalam bagian kerja kamu. Petunjuk untuk melakukannya ditemukan di halaman GitHub proyek masing-masing. Ikuti petunjuk dengan hati-hati sebelum melanjutkan di sini.</p>
+<p>Sekarang kamu perlu memastikan proyek plugin kamu terlihat oleh <strong>SpongeForge/SpongeVanilla</strong> proyek yang baru saja kamu lakukan. Langkah-langkah yang diperlukan tergantung pada IDE kamu.</p>
+<div class="section" id="intellij-idea">
+<h3>Intellij IDEA<a class="headerlink" href="#intellij-idea" title="Link permanen untuk headline ini">¶</a></h3>
+<p>Di IntelliJ, setiap proyek punya suatu workspace(s). Untuk membuat proyek kamu terlihat oleh <strong>Sponge(Vanilla)</strong> proyek, itu perlu <em>Module</em>. Dengan asumsi kamu sudah membuat proyek kamu seperti yang dijelaskan di dalam <a class="reference internal" href="workspace/idea.html"><span class="doc">Menyiapkan IntelliJ IDEA</span></a>, impor itu menggunakan langkah-langkah berikut.</p>
+<ul class="simple">
+<li>Buka <code class="docutils literal notranslate"><span class="pre">SpongeVanilla</span></code>/<code class="docutils literal notranslate"><span class="pre">SpongeForge</span></code> proyek.</li>
+<li>Klik <code class="docutils literal notranslate"><span class="pre">Menyimpan</span></code>, diikuti oleh <code class="docutils literal notranslate"><span class="pre">Baru</span></code>, kemudian <code class="docutils literal notranslate"><span class="pre">Modul</span> <span class="pre">dari</span> <span class="pre">sumber-Sumber</span> <span class="pre">yang</span> <span class="pre">Ada...</span></code>.</li>
+<li>Arahkan ke direktori proyek plugin Anda.<ul>
+<li>Jika kamu menggunakan Gradle, pilih <code class="docutils literal notranslate"><span class="pre">build.gradle</span></code> file, dalam dialog berikutnya cek <code class="docutils literal notranslate"><span class="pre">Gunakan</span> <span class="pre">auto-impor</span></code> dan confirmasi.</li>
+<li>Dalam keadaan lain, hanya pilih keseluruhan direktori dan klik <code class="docutils literal notranslate"><span class="pre">Selesai</span></code>.</li>
+</ul>
+</li>
+<li>Klik <code class="docutils literal notranslate"><span class="pre">Selesai</span></code>.</li>
+</ul>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">Jika kamu belum membuat plugin kamu, klik <code class="docutils literal notranslate"><span class="pre">Modul...</span></code> sebagai pengganti <code class="docutils literal notranslate"><span class="pre">Modul</span> <span class="pre">dari</span> <span class="pre">sumber-Sumber</span> <span class="pre">yang</span> <span class="pre">Ada...</span></code>, kemudian buat proyek kamu dalam dialog berikut.</p>
+</div>
+</div>
+<div class="section" id="eclipse">
+<h3>Gerhana<a class="headerlink" href="#eclipse" title="Link permanen untuk headline ini">¶</a></h3>
+<p>Cuma membuat proyek kamu seperti yang dijelaskan di sini: <a class="reference internal" href="workspace/eclipse.html"><span class="doc">Menyediakan eclipse</span></a>. Selama ini di ruang kerja kamu <cite>SpongeVanilla</cite>/<cite>SpongeForge</cite> proyek, itu akan terlihat.</p>
+</div>
+</div>
+<div class="section" id="adding-plugin-to-sponge-classpath">
+<h2>Menambahkan Plugin ke Sponge classpath<a class="headerlink" href="#adding-plugin-to-sponge-classpath" title="Link permanen untuk headline ini">¶</a></h2>
+<p>Gagasan di balik ini adalah bahwa kita akan meluncurkan Sponge dari dalam IDE Anda, seperti biasa. Namun, bedanya adalah kita akan menambahkan plugin anda ke classpath. Karena Sponge akan sesuai dengan semua plugin bawaan yang ditemukan di classpath, menambahkan proyek plugin ke classpath Sponge akan menyingkirkan kebutuhan Anda untuk membangun kembali dan menyalin file artefak ke dalam direktori server Anda setelah setiap perubahan.</p>
+<p>Terutama kamu sudah memastikan bahwasanya kamu sudah menyesuaikan konfigurasi(s) Run/debug dengan tepat, contoh yang di tunjukkan dalam Sponge <a class="reference external" href="https://github.com/SpongePowered/SpongeForge/blob/stable-7/README.md#running">README.md</a></p>
+<p>Kemudian Anda perlu mengedit Konfigurasi Run / Debug sehingga akan menyertakan proyek Anda di jalur kelas. Cara melakukan ini, tergantung IDE Anda lagi:</p>
+<div class="section" id="id1">
+<h3>Intellij IDEA<a class="headerlink" href="#id1" title="Link permanen untuk headline ini">¶</a></h3>
+<ul class="simple">
+<li>Buka Struktur Proyek Anda.<ul>
+<li>Klik <code class="docutils literal notranslate"><span class="pre">File</span></code>, diikuti oleh <code class="docutils literal notranslate"><span class="pre">Proyek</span> <span class="pre">struktur...</span></code>.</li>
+<li>ATAU, klik, lambang,``struktur proyek``, di sudut kanan atas sebelah kanan dari IDE, kemudian `` Cari`` lambang.</li>
+</ul>
+</li>
+<li>Klik <code class="docutils literal notranslate"><span class="pre">Modul</span></code>. Memperluas <code class="docutils literal notranslate"><span class="pre">SpongeForge</span></code> atau <code class="docutils literal notranslate"><span class="pre">SpongeVanilla</span></code> kelompok (tergantung apa yang anda pilih).</li>
+<li>Pastikan <code class="docutils literal notranslate"><span class="pre">SpongeForge_main</span></code> atau <code class="docutils literal notranslate"><span class="pre">SpongeVanilla_main</span></code> di pilih.</li>
+<li>Di kolom sebelah kanan, pilih <code class="docutils literal notranslate"><span class="pre">Dependensi</span></code> tab.</li>
+<li>Klik <code class="docutils literal notranslate"><span class="pre">+</span></code> lambang (<code class="docutils literal notranslate"><span class="pre">Add</span></code>) di bagian bawah kolom, dan pilih <code class="docutils literal notranslate"><span class="pre">Modul</span> <span class="pre">Ketergantungan</span></code>.</li>
+<li>Pilih <code class="docutils literal notranslate"><span class="pre">yourplugin_main</span></code>.</li>
+<li>JANGAN memeriksa pilihan <code class="docutils literal notranslate"><span class="pre">Export</span></code> pada modul, apabila itu ditambahkan ke daftar.</li>
+</ul>
+<div class="admonition warning">
+<p class="first admonition-title">Peringatan</p>
+<p>Due to a bug in IntelliJ (<a class="reference external" href="https://youtrack.jetbrains.com/issue/IDEA-194641">IDEA-194641</a>), any dependencies that your plugin has (e.g.
+the Kotlin standard library, or Gson) will <strong>not</strong> be added to the classpath using the above
+method. This results in a <code class="docutils literal notranslate"><span class="pre">ClassNotFoundException</span></code> when your plugin tries to access one
+of these classes, even though it successfully compiled against that class.</p>
+<p>This issue only affects running your plugin from IntelliJ as a module. Your final
+built plugin jar will run normally in both IntelliJ and a production server.</p>
+<p>If your plugin has external dependencies, you'll need to follow these steps
+in order to run it directly from IntelliJ:</p>
+<ul class="simple">
+<li>Create a new Java module with <code class="docutils literal notranslate"><span class="pre">File</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">New</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">Module...</span></code>. Name it <code class="docutils literal notranslate"><span class="pre">SpongeForgeContainer</span></code>.</li>
+<li>Open the module settings for <code class="docutils literal notranslate"><span class="pre">SpongeForgeContainer</span></code> as described above</li>
+<li>In the dependency settings for <code class="docutils literal notranslate"><span class="pre">SpongeForgeContainer</span></code>, add a module dependency on <code class="docutils literal notranslate"><span class="pre">SpongeForge_main</span></code></li>
+<li>Edit your server run configuration. Change <code class="docutils literal notranslate"><span class="pre">Use</span> <span class="pre">classpath</span> <span class="pre">of</span> <span class="pre">module:</span></code> from <code class="docutils literal notranslate"><span class="pre">SpongeForge_main</span></code> to <code class="docutils literal notranslate"><span class="pre">SpongeForgeContainer</span></code></li>
+</ul>
+<p class="last">You can leave all of your settings unchanged, including <code class="docutils literal notranslate"><span class="pre">SpongeForge_main</span></code>'s dependency on your plugin module.
+Now, all of your plugin's dependencies should be added to the classpath when you run the server.</p>
+</div>
+</div>
+<div class="section" id="id2">
+<h3>Gerhana<a class="headerlink" href="#id2" title="Link permanen untuk headline ini">¶</a></h3>
+<ul class="simple">
+<li>Temukan Konfigurasi Run / Debug Anda<ul>
+<li>Klik <code class="docutils literal notranslate"><span class="pre">Menjalankan</span></code>, diteruskan dengan <code class="docutils literal notranslate"><span class="pre">Menjalankan</span> <span class="pre">Konfigurasi...</span></code></li>
+<li>ATAU, klik tanda panah drop-down di sebelah tanda Run/Debug dan kemudian <code class="docutils literal notranslate"><span class="pre">Menjalankan</span> <span class="pre">Konfigurasi...</span></code> atau <code class="docutils literal notranslate"><span class="pre">Debug</span> <span class="pre">Konfigurasi...</span></code>, masing-masing.</li>
+</ul>
+</li>
+<li>Pilih Run / Debug Configuration untuk Sponge (Server) di sisi kiri.</li>
+<li>Beralih ke <code class="docutils literal notranslate"><span class="pre">Classpath</span></code> tab.</li>
+<li>Pilih <code class="docutils literal notranslate"><span class="pre">Pengguna</span></code>, diteruskan dengan <code class="docutils literal notranslate"><span class="pre">Menambahkan</span> <span class="pre">Proyek...</span></code> tombol.</li>
+<li>Pilih Proyek yang cocok untuk Plugin kamu.</li>
+<li>Klik tombol <code class="docutils literal notranslate"><span class="pre">OK</span></code>.</li>
+<li>Klik tombol <code class="docutils literal notranslate"><span class="pre">Pasangkan</span></code> pada sudut bawah sebelah kanan.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="running-the-configuration">
+<span id="runconfig"></span><h2>Menjalankan Konfigurasi<a class="headerlink" href="#running-the-configuration" title="Link permanen untuk headline ini">¶</a></h2>
+<p>After you've followed the previous steps, you should be ready to start debugging.
+If you start your server from your IDE, its working directory will be the <code class="docutils literal notranslate"><span class="pre">run</span></code> directory in your
+SpongeForge/SpongeVanilla project. All the files usually created by a server (worlds, configs etc.) will be stored in
+that <code class="docutils literal notranslate"><span class="pre">run</span></code> directory and persist over multiple runs of your local test server, just as if you manually copied a
+server .jar to the <code class="docutils literal notranslate"><span class="pre">run</span></code> directory and started it from there.</p>
+<div class="section" id="id3">
+<h3>Intellij IDEA<a class="headerlink" href="#id3" title="Link permanen untuk headline ini">¶</a></h3>
+<p>Daripada menekan panah kanan kanan untuk menjalankan konfigurasi Run / Debug Anda, klik ikon Hijau di sebelah kanannya, `` Debug``.</p>
+</div>
+<div class="section" id="id4">
+<h3>Gerhana<a class="headerlink" href="#id4" title="Link permanen untuk headline ini">¶</a></h3>
+<p>Rather than pressing the green right-pointing arrow to run your Run/Debug configuration, click the drop-down arrow of
+the Debug icon (the one displaying a bug) and click your <code class="docutils literal notranslate"><span class="pre">Test</span> <span class="pre">(Server)</span></code> configuration. If it doesn't appear in the
+drop-down menu, click <code class="docutils literal notranslate"><span class="pre">Debug</span> <span class="pre">Configurations</span></code>. Select <code class="docutils literal notranslate"><span class="pre">Test</span> <span class="pre">(Server)</span></code> configuration and hit the <code class="docutils literal notranslate"><span class="pre">Debug</span></code> button
+on the bottom left.</p>
+</div>
+</div>
+<div class="section" id="using-the-debugger">
+<span id="usingdebugger"></span><h2>Menggunakan Debugger<a class="headerlink" href="#using-the-debugger" title="Link permanen untuk headline ini">¶</a></h2>
+<p>Setelah server Anda (dan Plugin Anda) berjalan di Debugger, Anda dapat menggunakan fitur yang dipegangnya. Yang paling menonjol digunakan dijelaskan di bawah ini singkatnya, meski bukan fitur Sponge, tapi Java Debugger yang digunakan IDE Anda.</p>
+<div class="section" id="breakpoints">
+<h3>Breakpoints<a class="headerlink" href="#breakpoints" title="Link permanen untuk headline ini">¶</a></h3>
+<p>Breakpoints adalah alat yang berguna untuk melihat lebih dekat kode. Sebuah breakpoint dapat diatur pada awal baris kode atau fungsi. Saat mencapai breakpoint, debugger akan menghentikan eksekusi kode dan IDE Anda akan membuka pandangan yang memungkinkan Anda untuk memeriksa isi semua variabel dalam lingkup saat ini. Eksekusi kode tidak akan dilanjutkan kecuali Anda menekan tombol yang sesuai pada tampilan debugging IDE Anda.</p>
+<p>Breakpoints juga dapat ditambahkan, dihapus atau dinonaktifkan sementara saat proses debug sedang dalam proses.</p>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">Setelah suatu server centang mengambil lebih dari jumlah waktu yang diberikan, pengawas akan mempertimbangkan server jatuh dan tegas menutupnya. Ketika bekerja dengan breakpoints ini mungkin terjadi, jadi dianjurkan bahwa anda mengubah test lingkungan``server.properties`` file dan mengubah nilai <code class="docutils literal notranslate"><span class="pre">max-tick-time</span></code> untuk jumlah yang sangat besar (jumlah milidetik kutu dapat mengambil) atau <code class="docutils literal notranslate"><span class="pre">-1</span></code> (untuk menonaktifkan Pengawas yang benar).</p>
+</div>
+<div class="section" id="id5">
+<h4>Intellij IDEA<a class="headerlink" href="#id5" title="Link permanen untuk headline ini">¶</a></h4>
+<p>Untuk menambahkan atau menghapus breakpoint, cukup klik kiri di ruang kosong hanya di sebelah kiri editor Anda.</p>
+<p>Selain itu, mepunyai kursor di mana anda ingin menambahkan breakpoint bisa juga dihapus terus klik <code class="docutils literal notranslate"><span class="pre">Run</span></code> diteruskan dengan <code class="docutils literal notranslate"><span class="pre">Toggle</span> <span class="pre">Line</span> <span class="pre">Breakpoint</span></code>.</p>
+</div>
+<div class="section" id="id6">
+<h4>Gerhana<a class="headerlink" href="#id6" title="Link permanen untuk headline ini">¶</a></h4>
+<p>Cara menambahkan atau menghapus breakpoint, cukup klik sebelah kanan di ruang kosong hanya ke sebelah kiri dari editor anda dan klik <code class="docutils literal notranslate"><span class="pre">Toggle</span> <span class="pre">Breakpoint</span></code>.</p>
+<p>Selain itu, mempunyai kursor di mana kamu ingin menambahkan breakpoint atau menghapusnya lalu klik <code class="docutils literal notranslate"><span class="pre">Run</span></code> diteruskan dengan <code class="docutils literal notranslate"><span class="pre">Toggle</span> <span class="pre">Breakpoint</span></code>.</p>
+</div>
+</div>
+<div class="section" id="code-hotswapping">
+<h3>Kode Hotswapping<a class="headerlink" href="#code-hotswapping" title="Link permanen untuk headline ini">¶</a></h3>
+<p>Kegunaan lainnya feat debugger adalah bahwa kamu tidak perlu harus me-restart server kamu untuk setiap perubahan kecil yang kamu buat, terima kasih untuk kode hotswapping. Ini berarti bahwa kamu hanya dapat mengkompilasi ulang bagian-bagian dari kode kamu ketika sedang berjalan di debugger. Namun, ada beberapa keterbatasan, yang paling utama adalah:</p>
+<ul>
+<li><p class="first">Kamu tidak dapat membuat atau menghapus metode.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Perubahan metode tertentu untuk kode <em>dalam</em> metode. Anda tidak dapat modify tanda tangan (yang berarti namanya, kembali jenis dan parameter jenis)</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">Kamu tidak bisa menghapus ruang-ruang.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Anda tidak dapat memodifikasi nama kelas, superclass atau daftar antarmuka yang diimplementasikannya.</li>
+<li>Anda dapat menambahkan ruang. Namun, setelah itu telah terbentuk dan hotswapped, ruang mengikuti aturan di atas.</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p>Kamu bisa test fungsi ini: Memperkenalkan perintah sederhana untuk anda plugin yang hanya menulis kata-kata, seperti <code class="docutils literal notranslate"><span class="pre">Sponge</span></code> Kemudian simpan dan memulai server seperti yang diuraikan di atas. Jalankan perintah. Itu akan output <code class="docutils literal notranslate"><span class="pre">Sponge</span></code>. Sekarang merubah perintah untuk menulis kata yang berbeda untuk konsol, simpan file. Setelah perubahan, lakukan hal berikut untuk hotswap perubahan untuk menjalankan program:</p>
+<div class="section" id="id7">
+<h4>Intellij IDEA<a class="headerlink" href="#id7" title="Link permanen untuk headline ini">¶</a></h4>
+<ul class="simple">
+<li>Buka <code class="docutils literal notranslate"><span class="pre">Run</span></code> menu, dari sisi atas IDE.</li>
+<li>Di sisi bawah kategori awal istirahat, klik <code class="docutils literal notranslate"><span class="pre">Reload</span> <span class="pre">Berubah</span> <span class="pre">Classes</span></code>.</li>
+</ul>
+</div>
+<div class="section" id="id8">
+<h4>Gerhana<a class="headerlink" href="#id8" title="Link permanen untuk headline ini">¶</a></h4>
+<p>Tidak ada tindakan yang diperlukan. Segera anda menyimpan file, itu akan dibentuk kembali dan secara otomatis hotswapped akan menjalankan debug. Kecuali jika anda mengubah nya khususnya default tertentu, anda tidak akan memiliki untuk memicu secara manual hotswap.</p>
+</div>
+</div>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="tutorials.html" class="btn btn-neutral float-right" title="Tutorial" accesskey="n" rel="next">Selanjutnya <span class="fa fa-angle-right"></span></a>
+        <a href="ray-tracing.html" class="btn btn-neutral" title="V8 Tracing" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> Sebelumnya</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../_static/flags/id_ID.svg"
+         alt="id" title="Indonesia">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../_static/jquery.js"></script>      <script type="text/javascript" src="../_static/underscore.js"></script>      <script type="text/javascript" src="../_static/doctools.js"></script>      <script type="text/javascript" src="../_static/language_data.js"></script>      <script type="text/javascript" src="../_static/translations.js"></script>      <script type="text/javascript" src="../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

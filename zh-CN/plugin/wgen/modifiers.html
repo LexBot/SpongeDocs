@@ -1,0 +1,286 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>世界生成修改器 &mdash; Sponge 7.2.0 文档</title>
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="索引"
+              href="../../genindex.html"/>        <link rel="search" title="搜索" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 文档" href="../../index.html"/>        <link rel="up" title="世界生成" href="index.html"/>        <link rel="next" title="改变世界生成" href="customwgen.html"/>        <link rel="prev" title="世界生成" href="index.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../../index.html">
+            <img src="../../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../server/index.html">创建服务器</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../versions/index.html">版本策略</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../preparing/index.html">为开发作准备</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">插件开发</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../api-versions.html">API版本</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../buildsystem.html">构建系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../workspace/index.html">设置开发环境</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../project/index.html">设置你的项目</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-identifier.html">插件标识符</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-class.html">插件的主类</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lifecycle.html">插件的生命周期</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../injection.html">依赖注入</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../practices/index.html">插件开发惯例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../optional/index.html">使用 Optional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../logging.html">日志记录和调试</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text/index.html">文本 API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/index.html">插件命令</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../event/index.html">事件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/index.html">插件配置</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assets.html">使用 Asset API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data/index.html">数据 API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../blocks/index.html">方块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../entities/index.html">实体</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../items/index.html">物品</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../trade-offers.html">村民交易</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../effects.html">效果</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../scheduler.html">调度器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../services.html">服务</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database.html">数据库</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../permissions.html">权限</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bans.html">黑名单</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metrics.html">Metrics 收集</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bookview.html">成书</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../economy/index.html">经济 API</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">世界生成</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">世界生成修改器</a></li>
+<li class="toctree-l3"><a class="reference internal" href="customwgen.html">改变世界生成</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../manager.html">插件管理器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../game-profile-manager.html">玩家资料管理器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../offline-userplayer-data.html">离线玩家数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tab-lists.html">玩家列表</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-meta.html">插件的元数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ray-tracing.html">光线追踪</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../debugging.html">调试插件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials.html">教程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internals/index.html">依赖底层实现</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ore/index.html">Ore 文档</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/index.html">向 Sponge 贡献代码</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">关于 Sponge</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+          <li><a href="../index.html">插件开发</a> &raquo;</li>
+          <li><a href="index.html">世界生成</a> &raquo;</li>
+    <li>世界生成修改器</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/plugin/wgen/modifiers.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="worldgeneratormodifiers">
+<h1>世界生成修改器<a class="headerlink" href="#worldgeneratormodifiers" title="永久链接至标题">¶</a></h1>
+<p><a class="reference internal" href="index.html"><span class="doc">世界生成</span></a> 这一部分提供了关于 Sponge 中的世界生成的一个简要概述。现在我们来看看如何修改或扩充它们。</p>
+<p>所有希望更改世界生成的插件必须注册一个 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/gen/WorldGeneratorModifier.html">WorldGeneratorModifier</a> 。所有的 <code class="docutils literal notranslate"><span class="pre">WorldGeneratorModifier</span></code> ，也就是世界生成修改器都必须提供一个唯一的 ID，同时服务器管理员必须在关于世界的配置添加该 ID，若该 ID 已经添加进配置，世界生成时将会自动调用对应的 <code class="docutils literal notranslate"><span class="pre">WorldGeneratorModifier</span></code> ，以允许其修改世界生成。</p>
+<div class="section" id="creating-a-worldgeneratormodifier">
+<h2>创建世界生成修改器<a class="headerlink" href="#creating-a-worldgeneratormodifier" title="永久链接至标题">¶</a></h2>
+<p>我们先从 <code class="docutils literal notranslate"><span class="pre">WorldGeneratorModifier</span></code> 的格式开始。首先，我们需要实现了 <code class="docutils literal notranslate"><span class="pre">WorldGeneratorModifier</span></code> 接口的一个类：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.world.storage.WorldProperties</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyModifier</span> <span class="kd">implements</span> <span class="n">WorldGeneratorModifier</span> <span class="p">{</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getId</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="s">&quot;pluginid:mymodifier&quot;</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getName</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="s">&quot;My Modifier&quot;</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">modifyWorldGenerator</span><span class="p">(</span><span class="n">WorldProperties</span> <span class="n">world</span><span class="p">,</span> <span class="n">DataContainer</span> <span class="n">settings</span><span class="p">,</span> <span class="n">WorldGenerator</span> <span class="n">worldGenerator</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>正如你所看到的一样，我们需要覆写 <code class="docutils literal notranslate"><span class="pre">WorldGeneratorModifier</span></code> 的三种方法。首先我们必须覆写 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/CatalogType.html#getId--">CatalogType#getId()</a> 以使其返回一个用于 <code class="docutils literal notranslate"><span class="pre">WorldGeneratorModifier</span></code> 的唯一常量标识符，该常量标识符将用于关于世界的配置，并用于指定你的世界生成修改器应该应用于哪个世界。同时，我们也必须覆写 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/CatalogType.html#getName--">CatalogType#getName()</a> 方法以提供用一个简单并可读性强的常量名称。</p>
+<p>第三个需要覆写方法是你对世界生成器进行更改的位置。这个方法由游戏调用，游戏会在一个世界已经指定应用你的 <code class="docutils literal notranslate"><span class="pre">WorldGeneratorModifier</span></code> 时调用这个方法。</p>
+<p><a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/world/storage/WorldProperties.html">WorldProperties</a> 和 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/DataContainer.html">DataContainer</a> 作为方法参数传入，旨在方便开发者更方便地获取到世界的数据。比如你可以使用 <code class="docutils literal notranslate"><span class="pre">WorldProperties</span></code> 以保证你的世界生成修改器只会应用于下界。</p>
+</div>
+<div class="section" id="registering-a-worldgeneratormodifier">
+<h2>注册世界生成修改器<a class="headerlink" href="#registering-a-worldgeneratormodifier" title="永久链接至标题">¶</a></h2>
+<p>现在你已创建世界生成修改器的对象，接下来你只需要通过 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/GameRegistry.html">GameRegistry</a> 注册它就可以了。注册的方式是<a class="reference internal" href="../event/listeners.html"><span class="doc">监听</span></a> <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/event/game/GameRegistryEvent.Register.html">GameRegistryEvent.Register&lt;WorldGeneratorModifier&gt;</a> 事件，然后在那里注册，就像下面这样：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Listener</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onWorldGeneratorModifierRegistration</span><span class="p">(</span><span class="n">GameRegistryEvent</span><span class="p">.</span><span class="na">Register</span><span class="o">&lt;</span><span class="n">WorldGeneratorModifier</span><span class="o">&gt;</span> <span class="n">event</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">event</span><span class="p">.</span><span class="na">register</span><span class="p">(</span><span class="k">new</span> <span class="n">MyModifier</span><span class="p">());</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>若要将你的世界生成修改器应用于一个世界，你必须在世界的配置文件（位于 <code class="docutils literal notranslate"><span class="pre">config/sponge/worlds/[dimension]/[worldName]/world.conf</span></code> ）中的 <code class="docutils literal notranslate"><span class="pre">world-generation-modifiers</span></code> 数组下添加相应的 ID。比如我们想要把名为 <code class="docutils literal notranslate"><span class="pre">skyland</span></code> 的 <code class="docutils literal notranslate"><span class="pre">WorldGeneratorModifier</span></code> 添加到世界生成中，我们需要这么做：</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="err"># WorldGenerationModifiers to apply to the world</span>
+<span class="err">world-generation-modifiers=[</span>
+<span class="err">    &quot;sponge:skylands&quot;</span>
+<span class="err">]</span>
+</pre></div>
+</div>
+<p>注意到 <code class="docutils literal notranslate"><span class="pre">world-generation-modifiers</span></code> 可能不存在，也就是默认情况下没有自定义的世界生成，因此在创建配置文件时就没有生成该值。</p>
+<p>在后面的章节中我们将深入了解我们可以利用 <code class="docutils literal notranslate"><span class="pre">WorldGeneratorModifier</span></code> 做什么。</p>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="customwgen.html" class="btn btn-neutral float-right" title="改变世界生成" accesskey="n" rel="next">下一页 <span class="fa fa-angle-right"></span></a>
+        <a href="index.html" class="btn btn-neutral" title="世界生成" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> 上一页</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../../_static/flags/zh_CN.svg"
+         alt="zh-CN" title="简体中文">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../../_static/jquery.js"></script>      <script type="text/javascript" src="../../_static/underscore.js"></script>      <script type="text/javascript" src="../../_static/doctools.js"></script>      <script type="text/javascript" src="../../_static/language_data.js"></script>      <script type="text/javascript" src="../../_static/translations.js"></script>      <script type="text/javascript" src="../../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

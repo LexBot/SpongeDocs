@@ -1,0 +1,310 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>設定插件 &mdash; Sponge 7.2.0 說明文件</title>
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="索引"
+              href="../../genindex.html"/>        <link rel="search" title="搜尋" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 說明文件" href="../../index.html"/>        <link rel="up" title="建立插件" href="../index.html"/>        <link rel="next" title="配置加载器" href="loaders.html"/>        <link rel="prev" title="自定义事件" href="../event/custom.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../../index.html">
+            <img src="../../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../server/index.html">建立伺服器</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../versions/index.html">版本控制方針</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../preparing/index.html">準備開發</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">建立插件</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../api-versions.html">API版本</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../buildsystem.html">建置系統</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../workspace/index.html">建立你的工作空間</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../project/index.html">建立你的專案</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-identifier.html">插件識別碼</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-class.html">主要插件類別</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lifecycle.html">插件的生命週期</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../injection.html">相依注入</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../practices/index.html">實踐</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../optional/index.html">Optionals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../logging.html">記錄與除錯</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text/index.html">文本</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/index.html">插件指令</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../event/index.html">事件</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">設定插件</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="loaders.html">配置加载器</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nodes.html">配置节点</a></li>
+<li class="toctree-l3"><a class="reference internal" href="serialization.html">序列化对象</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../assets.html">Asset API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data/index.html">Data API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../blocks/index.html">方塊</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../entities/index.html">實體</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../items/index.html">物品</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../trade-offers.html">開設交易</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../effects.html">效果</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../scheduler.html">排程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../services.html">服務</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database.html">資料庫</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../permissions.html">權限</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bans.html">封鎖</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metrics.html">Metrics 收集</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bookview.html">書本閱覽</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../economy/index.html">經濟</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wgen/index.html">世界生成</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manager.html">插件管理器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../game-profile-manager.html">遊戲設定檔管理器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../offline-userplayer-data.html">離線玩家資料</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tab-lists.html">Tab 清單</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-meta.html">插件元數據</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ray-tracing.html">光線追蹤</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../debugging.html">插件除錯</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials.html">教學</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internals/index.html">相依於實作的插件</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ore/index.html">Ore 文件</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/index.html">為 Sponge 貢獻</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">關於 Sponge 專案</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+          <li><a href="../index.html">建立插件</a> &raquo;</li>
+    <li>設定插件</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/plugin/configuration/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="configuring-plugins">
+<h1>設定插件<a class="headerlink" href="#configuring-plugins" title="本標題的永久連結">¶</a></h1>
+<p>在你允許的情況下，設定檔使插件能夠儲存資料，也使伺服器管理員能夠輕易控制插件的特定部分。Sponge 使用 Configurate 來讓你能夠輕易操作設定檔。這些頁面將解釋如何利用 Configurate 來充分利用設定檔。</p>
+<div class="admonition tip">
+<p class="first admonition-title">小訣竅</p>
+<p class="last">See the official <a class="reference external" href="https://github.com/SpongePowered/configurate/wiki">Configurate wiki</a> to gain more in-depth information
+about working with its components.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">備註</p>
+<p class="last">Sponge 利用一種名為 HOCON 的設定格式，一個 JSON 的超集，作為儲存設定檔的預設格式。本指南的剩餘部分將假設你也使用 HOCON 。參閱 <a class="reference internal" href="../../server/getting-started/configuration/hocon.html"><span class="doc">HOCON 介紹</span></a> 以獲取更多關於 HOCON 格式的資訊。透過設定系統使用不同格式的設定檔是相似的。因此若你使用另一種格式來代替，應該不會構成太多問題。</p>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="loaders.html">配置加载器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nodes.html">配置节点</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serialization.html">序列化对象</a></li>
+</ul>
+</div>
+<div class="section" id="quick-start">
+<h2>快速入門<a class="headerlink" href="#quick-start" title="本標題的永久連結">¶</a></h2>
+<div class="section" id="creating-a-default-plugin-configuration">
+<h3>建立一個預設的插件設定<a class="headerlink" href="#creating-a-default-plugin-configuration" title="本標題的永久連結">¶</a></h3>
+<p>使用 SpongeAPI 的插件可以選擇使用一個或多個設定檔。設定檔讓插件能夠儲存資料，也讓伺服器管理員能夠自定義插件選項（如果適用）。</p>
+</div>
+<div class="section" id="getting-your-default-plugin-configuration">
+<span id="getting-default-config"></span><h3>取得你的預設插件設定<a class="headerlink" href="#getting-your-default-plugin-configuration" title="本標題的永久連結">¶</a></h3>
+<p>SpongeAPI 提供的 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/config/DefaultConfig.html">DefaultConfig</a> Annotation 可用於一個欄位（Field）或 Setter 方法，搭配 <code class="docutils literal notranslate"><span class="pre">Path</span></code> 類別來取得你插件的預設設定檔。</p>
+<p>你可以通过在某个 <code class="docutils literal notranslate"><span class="pre">ConfigurationLoader&lt;CommentedConfigurationNode&gt;</span></code> 的字段上加 <code class="docutils literal notranslate"><span class="pre">&#64;DefaultConfig</span></code> 注解的方式来存取默认配置文件。要注意的是，<code class="docutils literal notranslate"><span class="pre">ConfigurationLoader</span></code> 不会加载你的 jar 自带的默认配置，除非你明确要求加载。</p>
+<p><code class="docutils literal notranslate"><span class="pre">&#64;DefaultConfig</span></code> 這個 Annotation 需要一個布林值 <code class="docutils literal notranslate"><span class="pre">sharedRoot</span></code>。若你將 <code class="docutils literal notranslate"><span class="pre">sharedRoot</span></code> 設為 <code class="docutils literal notranslate"><span class="pre">true</span></code>，那麼它回傳的路徑將位於一個共享的設定資料夾，在這情況下，你的插件的設定檔名稱將為 <code class="docutils literal notranslate"><span class="pre">your_plugin_id.conf</span></code>（其中「your_plugin_id」將被取代為你的插件所指定的 ID）。</p>
+<div class="admonition tip">
+<p class="first admonition-title">小訣竅</p>
+<p class="last">參閱 <a class="reference internal" href="../plugin-class.html"><span class="doc">主要插件類別</span></a> 以獲取設定你的插件 ID 的更多資訊。</p>
+</div>
+<p>若你將 <code class="docutils literal notranslate"><span class="pre">sharedRoot</span></code> 設為 <code class="docutils literal notranslate"><span class="pre">false</span></code>，那麼回傳的路徑將會是在你插件的資料夾中名為 <code class="docutils literal notranslate"><span class="pre">{pluginname}.conf</span></code> 的檔案。</p>
+<p>如果你不確定該將 <code class="docutils literal notranslate"><span class="pre">sharedRoot</span></code> 設為什麼，請考慮以下幾項：</p>
+<ul class="simple">
+<li>如果你打算擁有多個設定檔（複雜的插件），將其值設定為 <code class="docutils literal notranslate"><span class="pre">false</span></code>。</li>
+<li>如果你打算只擁有一個設定檔（不太複雜的插件），將其值設定為 <code class="docutils literal notranslate"><span class="pre">true</span></code>。</li>
+</ul>
+<p>你也可以取得一個指向設定資料夾而非特定檔案的 <code class="docutils literal notranslate"><span class="pre">Path</span></code> 實例，只要使用 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/config/ConfigDir.html">ConfigDir</a> Annotation 注入即可。將 <code class="docutils literal notranslate"><span class="pre">sharedRoot</span></code> 設為 <code class="docutils literal notranslate"><span class="pre">false</span></code> 時，會是插件資料夾；設為 <code class="docutils literal notranslate"><span class="pre">true</span></code> 時，會是共享的設定資料夾。</p>
+<div class="admonition note">
+<p class="first admonition-title">備註</p>
+<p class="last">儘管可能取得一個 <code class="docutils literal notranslate"><span class="pre">File</span></code> 而非 <code class="docutils literal notranslate"><span class="pre">Path</span></code>，Configurate（與 Sponge）建議使用 <code class="docutils literal notranslate"><span class="pre">Path</span></code>。</p>
+</div>
+<p><strong>範例——在欄位（Field）使用</strong> <code class="docutils literal notranslate"><span class="pre">&#64;DefaultConfig</span></code></p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">java.nio.file.Path</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">com.google.inject.Inject</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.config.ConfigDir</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.config.DefaultConfig</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">ninja.leaping.configurate.commented.CommentedConfigurationNode</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">ninja.leaping.configurate.loader.ConfigurationLoader</span><span class="p">;</span>
+
+<span class="nd">@Inject</span>
+<span class="nd">@DefaultConfig</span><span class="p">(</span><span class="n">sharedRoot</span> <span class="o">=</span> <span class="kc">true</span><span class="p">)</span>
+<span class="kd">private</span> <span class="n">Path</span> <span class="n">defaultConfig</span><span class="p">;</span>
+
+<span class="nd">@Inject</span>
+<span class="nd">@DefaultConfig</span><span class="p">(</span><span class="n">sharedRoot</span> <span class="o">=</span> <span class="kc">true</span><span class="p">)</span>
+<span class="kd">private</span> <span class="n">ConfigurationLoader</span><span class="o">&lt;</span><span class="n">CommentedConfigurationNode</span><span class="o">&gt;</span> <span class="n">configManager</span><span class="p">;</span>
+
+<span class="nd">@Inject</span>
+<span class="nd">@ConfigDir</span><span class="p">(</span><span class="n">sharedRoot</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span>
+<span class="kd">private</span> <span class="n">Path</span> <span class="n">privateConfigDir</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">警告</p>
+<p class="last">當你的插件在第一次運行時，回傳的設定檔與資料夾的路徑可能還未存在。若你將所有讀檔／寫檔委託給 Configurate，那你不必擔心不存在的路徑，函式庫會適當的處理這些情況。</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">備註</p>
+<p class="last">YAML 格式（<a class="reference external" href="http://yaml.org/spec/1.1/">http://yaml.org/spec/1.1/</a>）與 JSON 格式（<a class="reference external" href="https://www.json.org/">https://www.json.org/</a>）也被支援，但 Sponge 插件設定檔格式的首選是 HOCON。可以透過使用 <a class="reference external" href="https://configurate.aoeu.xyz/apidocs/ninja/leaping/configurate/yaml/YAMLConfigurationLoader.html">YAMLConfigurationLoader</a>（或 <a class="reference external" href="https://configurate.aoeu.xyz/apidocs/ninja/leaping/configurate/gson/GsonConfigurationLoader.html">GsonConfigurationLoader</a>） 讀取舊設定檔，並使用 <a class="reference external" href="https://configurate.aoeu.xyz/apidocs/ninja/leaping/configurate/hocon/HoconConfigurationLoader.html">HoconConfigurationLoader</a> 將它們儲存，來將 YAML（或 JSON）自動轉換為 HOCON。</p>
+</div>
+</div>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="loaders.html" class="btn btn-neutral float-right" title="配置加载器" accesskey="n" rel="next">下一頁 <span class="fa fa-angle-right"></span></a>
+        <a href="../event/custom.html" class="btn btn-neutral" title="自定义事件" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> 上一頁</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../../_static/flags/zh_TW.svg"
+         alt="zh-TW" title="繁體中文">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../../_static/jquery.js"></script>      <script type="text/javascript" src="../../_static/underscore.js"></script>      <script type="text/javascript" src="../../_static/doctools.js"></script>      <script type="text/javascript" src="../../_static/language_data.js"></script>      <script type="text/javascript" src="../../_static/translations.js"></script>      <script type="text/javascript" src="../../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

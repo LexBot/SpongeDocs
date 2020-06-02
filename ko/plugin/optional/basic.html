@@ -1,0 +1,365 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Optional 설명 &mdash; Sponge 7.2.0 documentation</title>
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="색인"
+              href="../../genindex.html"/>        <link rel="search" title="검색" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 documentation" href="../../index.html"/>        <link rel="up" title="Optional" href="index.html"/>        <link rel="next" title="사용 예제" href="usage.html"/>        <link rel="prev" title="Optional" href="index.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../../index.html">
+            <img src="../../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../server/index.html">서버 만들기</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../versions/index.html">Versioning Policy</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../preparing/index.html">개발 준비</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">플러그인 개발하기</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../api-versions.html">API 버전</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../buildsystem.html">빌드 시스템</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../workspace/index.html">작업 공간 준비하기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../project/index.html">프로젝트 준비하기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-identifier.html">플러그인 식별자</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-class.html">메인 플러그인 클래스</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lifecycle.html">플러그인 생명 주기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../injection.html">의존성 주입</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../practices/index.html">관행</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Optional</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Optional 설명</a></li>
+<li class="toctree-l3"><a class="reference internal" href="usage.html">사용 예제</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../logging.html">로그 및 디버그</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text/index.html">텍스트</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/index.html">플러그인 명령어</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../event/index.html">이벤트</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/index.html">플러그인 설정</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assets.html">자산 API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data/index.html">자료 API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../blocks/index.html">블록</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../entities/index.html">개체</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../items/index.html">아이템</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../trade-offers.html">거래 제안</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../effects.html">효과</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../scheduler.html">스케줄러</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../services.html">서비스</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database.html">데이터베이스</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../permissions.html">권한</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bans.html">차단</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metrics.html">Metrics Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bookview.html">책 View</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../economy/index.html">경제</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wgen/index.html">세계 생성</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manager.html">플러그인 관리자</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../game-profile-manager.html">게임 프로필 관리자</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../offline-userplayer-data.html">오프라인 플레이어 데이터</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tab-lists.html">탭 목록</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-meta.html">플러그인 메타데이터</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ray-tracing.html">광선 추적</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../debugging.html">플러그인 디버그</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials.html">튜토리얼</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internals/index.html">구현 의존 플러그인</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ore/index.html">Ore 설명 문서</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/index.html">Sponge에 기여하기</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">Sponge 프로젝트에 대하여</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+          <li><a href="../index.html">플러그인 개발하기</a> &raquo;</li>
+          <li><a href="index.html">Optional</a> &raquo;</li>
+    <li>Optional 설명</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/plugin/optional/basic.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="optionals-explained">
+<h1>Optional 설명<a class="headerlink" href="#optionals-explained" title="제목 주소">¶</a></h1>
+<p>Much of SpongeAPI makes use of Java’s <cite>Optional</cite> system on object accessors, but if you’ve never used <code class="docutils literal notranslate"><span class="pre">Optional</span></code>
+before this might seem like a bit of a peculiar way of doing things. You might be tempted to ask:
+<em>《why do I need to perform an extra step when fetching something from an API object?》</em></p>
+<p>This section gives a brief summary of <code class="docutils literal notranslate"><span class="pre">Optional</span></code> and explains how - and perhaps more importantly why -
+it’s used throughout SpongeAPI.</p>
+<p>짧은 이야기를 통해 시작해보죠. 접근자 (특히 《getter》) 가 <a href="#id1"><span class="problematic" id="id2">``</span></a>Optional``을 거치지 않고 일하는 방법을 봅시다.</p>
+<div class="section" id="implicit-nullable-contracts-and-why-they-suck">
+<h2>1. 암묵적 Nullable 계약의 문제점<a class="headerlink" href="#implicit-nullable-contracts-and-why-they-suck" title="제목 주소">¶</a></h2>
+<p>API 객체로 <code class="docutils literal notranslate"><span class="pre">Entity``가</span> <span class="pre">있다고</span> <span class="pre">생각합시다.</span> <span class="pre">이</span> <span class="pre">객체의</span> <span class="pre">``getFoo()</span></code> 메소드는 <a href="#id1"><span class="problematic" id="id2">``</span></a>Foo``를 반환합니다.</p>
+<img alt="../../_images/optionals1.png" src="../../_images/optionals1.png" />
+<p>옛날 옛적에, 우리가 만든 플러그인은 아래 코드처럼 <a href="#id1"><span class="problematic" id="id2">``</span></a>getter``를 사용해 Entity의 <a href="#id3"><span class="problematic" id="id4">``</span></a>Foo``를 가져오곤 했답니다.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">someEventHandler</span><span class="p">(</span><span class="n">Entity</span> <span class="n">someEntity</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">Foo</span> <span class="n">entityFoo</span> <span class="o">=</span> <span class="n">someEntity</span><span class="p">.</span><span class="na">getFoo</span><span class="p">();</span>
+    <span class="n">entityFoo</span><span class="p">.</span><span class="na">bar</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>그런데 여기엔 문제가 있습니다. API를 설계할 때 - 우리는 <code class="docutils literal notranslate"><span class="pre">getFoo</span></code> 메소드가 <code class="docutils literal notranslate"><span class="pre">null</span></code> 값을 반환할 수 있는지에 대한 <em>암묵적</em> 계약에 의존해야 합니다. <a href="#id1"><span class="problematic" id="id2">*</span></a>암묵적 계약*은 두 방법 중 하나로 정의할 수 있습니다:</p>
+<ul class="simple">
+<li><strong>Javadoc에 명시하기</strong> - 이것은 플러그인 개발자가 메소드에 대한 javadoc을 반드시 읽어야 하며, 반환 값에 대한 계약 명시가 개발자 입장에서 불분명할 수 있습니다.</li>
+<li><strong>Nullable 어노테이션 사용</strong> - 일반적으로 어노테이션의 사용은 특별한 도구가 필요하므로 완벽한 방법이 아닙니다. 어노테이션을 관리할 IDE나 컴파일러 의존이 그 예입니다.</li>
+</ul>
+<img alt="../../_images/optionals2.png" src="../../_images/optionals2.png" />
+<p><code class="docutils literal notranslate"><span class="pre">getFoo()</span></code> 메소드가 (계약 내용의 일부인) null 값을 반환할 수 있다고 가정합니다. 그렇게 되면 우리가 위에서 작성한 코드는 <a href="#id1"><span class="problematic" id="id2">``</span></a>entityFoo``가 null일 경우 <a href="#id3"><span class="problematic" id="id4">``</span></a>NullPointerException``을 초래하므로 불안정한 코드가 됩니다.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">someEventHandler</span><span class="p">(</span><span class="n">Entity</span> <span class="n">someEntity</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">Foo</span> <span class="n">entityFoo</span> <span class="o">=</span> <span class="n">someEntity</span><span class="p">.</span><span class="na">getFoo</span><span class="p">();</span>
+    <span class="n">entityFoo</span><span class="p">.</span><span class="na">bar</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Let’s assume our plugin author is savvy to the nullable nature of our <code class="docutils literal notranslate"><span class="pre">getFoo</span></code> method and decides to fix the problem
+with null checking. Assuming they have defined a local constant <code class="docutils literal notranslate"><span class="pre">Foo</span></code>, the resultant code looks like this:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">someEventHandler</span><span class="p">(</span><span class="n">Entity</span> <span class="n">someEntity</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">Foo</span> <span class="n">entityFoo</span> <span class="o">=</span> <span class="n">someEntity</span><span class="p">.</span><span class="na">getFoo</span><span class="p">();</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">entityFoo</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">entityFoo</span> <span class="o">=</span> <span class="n">MyPlugin</span><span class="p">.</span><span class="na">DEFAULT_FOO</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">entityFoo</span><span class="p">.</span><span class="na">bar</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In this example, the plugin author is aware that the method can return null and has a constant available with a
+default instance of <code class="docutils literal notranslate"><span class="pre">Foo</span></code> which can be used instead. Of course, the plugin could just short-circuit the call entirely,
+or it could attempt to fetch <cite>Foo</cite> from somewhere else. The key message is that handling nulls even in simple cases
+can lead to spaghetti code quite quickly, and moreover relies on the plugin author to explicitly visit the method’s
+contract to check whether a null check is necessary in the first place.</p>
+<p>하지만 이것만이 문제의 전부는 아닙니다. API가 오랜 기간동안 성장한다고 가정합시다. 그리고 한 개발자가 그의 플러그인을 만들던 때로 돌아가 봅시다. 그는 메소드 Javadoc을 통해 이 메소드가 (애초에 모든 <a href="#id1"><span class="problematic" id="id2">`</span></a>Entity`는 <a href="#id3"><span class="problematic" id="id4">``</span></a>Foo``를 갖고 있으므로) null 값을 반환하지 않음을 확인했습니다. 좋아! 복잡하고 난해한 반환값 확인을 할 필요가 없군!</p>
+<p>하지만, 시간이 지나고 게임 개발자가 차기 버전을 출시했습니다. 이제 게임에서 <code class="docutils literal notranslate"><span class="pre">Foo</span></code> 개념은 사용되지 않고 곧 사라집니다. API 개발자는 이에 따라 API를 수정하고 이제부터 <a href="#id1"><span class="problematic" id="id2">``</span></a>getFoo()``는 <a href="#id3"><span class="problematic" id="id4">``</span></a>null``값을 <a href="#id5"><span class="problematic" id="id6">**</span></a>반환할 수 있다**고 밝혔으며, 이를 해당 메소드의 Javadoc에 반영했습니다. 이제 문제가 생깁니다: 메소드 계약에 따라 코드를 짠 성실한 플러그인 개발자조차 그 메소드를 자신도 모르게 잘못 조작하는 것입니다. 그의 코드에서 <a href="#id7"><span class="problematic" id="id8">``</span></a>getFoo()``를 호출해 <a href="#id9"><span class="problematic" id="id10">``</span></a>Foo``를 받아 사용하는 모든 부분에서 NPE 오류가 발생할 것입니다.</p>
+<p>Thus, we can see that allowing implicit nullable contracts leaves us with a selection of pretty awful solutions to
+choose from:</p>
+<ul class="simple">
+<li>플러그인 개발자가 <strong>모든</strong> 메소드의 반환 값이 null일 수 있음을 가정하여 이에 따른 방어적인 코드를 짜는 방법이 있습니다. 하지만 이는 스파게티 코드를 만들어 내기 쉽습니다.</li>
+<li>API 작성자가 모든 API 메소드에 Nullable의 암묵적 계약을 정의하여, null 반환 값 관리의 책임을 플러그인 개발자에게 떠넘기는 방법은 이전의 접근 방법을 악화시킬 뿐입니다.</li>
+<li>API 작성자가 모든 Nullable의 암묵적 계약을 깨지 않는 것을 확고히 하는 방법이 있습니다. 이 경우 그들은 게임에서 어떠한 기능을 제거할 날이 오면 다음과 같은 대안을 사용해야 합니다:</li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li>예외 처리하기 - 격은 떨어지지만 코드의 어디에선가 발생되어 추적하기 어려운 NPE 문제를 해결하는 것보다 쉬운 방법임은 분명합니다.</li>
+<li>《가짜》 객체나 잘못된 값을 반환하기 - 이 방법을 사용하면 사용자 코드(플러그인) 은 API가 바뀌어도 계속 작동할 것입니다. 하지만 사용이 중단되는 모든 기능들이 늘어날 수록 더 많은 가짜 객체를 만들어 낼 필요가 있어 API 개발자에게 업데이트에 대한 부담이 날로 증가할 것입니다.</li>
+</ul>
+</div></blockquote>
+<p>메소드의 Nullable 반환값에 대한 <em>암묵적</em> 계약이 여러가지로 뒷목 잡는 상황을 만드는 것은 확실하게 입증되었습니다. 문제의 API가 극단적으로 불안정한 제품의 코드 위에 지어졌다면 상황은 더 심각해집니다. 다행스럽게도, 이것의 해결책이 존재합니다:</p>
+</div>
+<div class="section" id="optional-and-the-explicit-nullable-contract">
+<h2>2. Optional vs. 암묵적 Nullable 계약<a class="headerlink" href="#optional-and-the-explicit-nullable-contract" title="제목 주소">¶</a></h2>
+<p>As mentioned above, APIs for Minecraft are in a difficult situation. Ultimately, they need to provide a platform with
+a <em>reasonable amount of implied stability</em> atop a platform (the game) with <em>absolutely no amount of implied stability</em>.
+Thus, any API for Minecraft needs to be designed with full awareness that any aspect of the game is liable to change at
+any time for any reason in any way imaginable; up to and including being removed altogether!</p>
+<p>게임의 변덕스러운 점은 위에서 설명한 Nullable 메소드 계약의 문제를 유발합니다.</p>
+<p><cite>Optional</cite> solves the above problems by replacing <em>implicit contracts</em> with <em>explicit</em> ones. The API never advertises,
+<em>《here is your object, kthxbai》</em>, instead it presents accessors with a
+<em>《here is a box which may or may not contain the object you asked for, ymmv》</em>.</p>
+<img alt="../../_images/optionals3.png" src="../../_images/optionals3.png" />
+<p><code class="docutils literal notranslate"><span class="pre">null</span></code> 값 반환의 가능성을 계약 내용에 분명히 밝히는 방법으로, 우리는 <em>null값을 감시하여 대응*하는 개념을 *값이 없는 때도 있다*라는 미묘한 차이로 바꾸었습니다. 우리는 또한 이 계약을 *첫 번째 날에</em> 규정합니다.</p>
+<p>So, what does this mean?</p>
+<p>간결하게 말하자면, 플러그인 개발자는 더 이상 <code class="docutils literal notranslate"><span class="pre">null</span></code> 값이 반환될 가능성에 대해 걱정할 필요가 없어졌습니다. 대신 특정 객체가 사용 불가능할 가능성이 그들의 플러그인 코드의 가장 밑바닥에 부호화됩니다. 이것은 지속적으로 null 값을 판독하는 안전성 내장 기능과 같은 단계에 있지만, 필요에 따라 격식 있고 해독이 쉬운 코드가 되는 이점을 갖습니다.</p>
+<p>왜 그런지 보려면, 위 예제와 아래를 비교하여 <code class="docutils literal notranslate"><span class="pre">getFoo()</span></code> 메소드가 <a href="#id1"><span class="problematic" id="id2">``</span></a>Optional&lt;Foo&gt;``를 반환하는 것을 확인하세요.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">someEventHandler</span><span class="p">(</span><span class="n">Entity</span> <span class="n">someEntity</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">Optional</span><span class="o">&lt;</span><span class="n">Foo</span><span class="o">&gt;</span> <span class="n">entityFoo</span> <span class="o">=</span> <span class="n">someEntity</span><span class="p">.</span><span class="na">getFoo</span><span class="p">();</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">entityFoo</span><span class="p">.</span><span class="na">isPresent</span><span class="p">())</span> <span class="p">{</span>
+        <span class="n">entityFoo</span><span class="p">.</span><span class="na">get</span><span class="p">().</span><span class="na">bar</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>당신은 이 예제가 일반적인 null값 감지와 유사하다고 느낄 지도 모릅니다만, <a href="#id1"><span class="problematic" id="id2">``</span></a>Optional``를 사용하면 정말로 같은 양의 코드에 좀 더 많은 양의 정보를 실을 수 있습니다. 그 예로, 누군가가 이 메소드 계약을 확인하기 위해 위 코드를 읽는 것은 필요하지 않습니다. 이 코드에서 메소드는 반환 값이 없을 수 있다는 사실과 반환 값의 부재 처리 부분은 명백하고 깔끔하게 나타나 있습니다.</p>
+<p>그래서 어쩌라는거죠? 여기서 우리들의 확실한 계약(explicit contract) 은 null값을 검사하는 코드와 결과적으로 같습니다 - 비록 getter에 의해 계약적으로 <em>강요된</em> 부분이 있지만요. <em>《그래서 Optional을 왜 쓰라는거죠?》</em></p>
+<p><a href="#id1"><span class="problematic" id="id2">`</span></a>Optional`로 객체를 포장하면 전통적인 null값 감지 코드의 불편한 측면을 좀 더 격식적으로 바꿀 수 있습니다. 다음 코드를 확인해보세요:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">someEventHandler</span><span class="p">(</span><span class="n">Entity</span> <span class="n">someEntity</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">Foo</span> <span class="n">entityFoo</span> <span class="o">=</span> <span class="n">someEntity</span><span class="p">.</span><span class="na">getFoo</span><span class="p">().</span><span class="na">orElse</span><span class="p">(</span><span class="n">MyPlugin</span><span class="p">.</span><span class="na">DEFAULT_FOO</span><span class="p">);</span>
+    <span class="n">entityFoo</span><span class="p">.</span><span class="na">bar</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>잠깐만요! 아까 코드에서 null 체크 &amp; 기본값을 대입하는 부분을 코드 한 줄로 요약한건가요? 네! 정답입니다. 사실 여기에서 할당 연산자도 생략하면 정말로 한 줄만에 이벤트 연산의 모든 것을 끝낼 수 있답니다:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">someEventHandler</span><span class="p">(</span><span class="n">Entity</span> <span class="n">someEntity</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">someEntity</span><span class="p">.</span><span class="na">getFoo</span><span class="p">().</span><span class="na">orElse</span><span class="p">(</span><span class="n">MyPlugin</span><span class="p">.</span><span class="na">DEFAULT_FOO</span><span class="p">).</span><span class="na">bar</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><a href="#id1"><span class="problematic" id="id2">``</span></a>getFoo()``를 받아올 때 기본값으로 항상 사용가능한 <a href="#id3"><span class="problematic" id="id4">``</span></a>MyPlugin.DEFAULT_FOO``를 지정했으므로 메소드의 반환값이 없어진다 해도 전혀 문제가 없는 코드입니다.</p>
+<p>이번 예제에선 두 개의 개체(Entity) 를 사용하겠습니다. 아래 코드는 암묵적 Nullable 계약을 사용하는 방법으로, 첫 번째 개체로부터 <a href="#id1"><span class="problematic" id="id2">``</span></a>Foo``를 가져오거나, 받아올 수 없다면 두번째 <a href="#id3"><span class="problematic" id="id4">``</span></a>개체``로부터 <a href="#id5"><span class="problematic" id="id6">``</span></a>Foo``를 가져오고, 실패를 대비하여 기본값도 준비해 두었습니다:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">someEventHandler</span><span class="p">(</span><span class="n">Entity</span> <span class="n">someEntity</span><span class="p">,</span> <span class="n">Entity</span> <span class="n">entity2</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">Foo</span> <span class="n">entityFoo</span> <span class="o">=</span> <span class="n">someEntity</span><span class="p">.</span><span class="na">getFoo</span><span class="p">();</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">entityFoo</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">entityFoo</span> <span class="o">=</span> <span class="n">entity2</span><span class="p">.</span><span class="na">getFoo</span><span class="p">();</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">entityFoo</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">entityFoo</span> <span class="o">=</span> <span class="n">MyPlugin</span><span class="p">.</span><span class="na">DEFAULT_FOO</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">entityFoo</span><span class="p">.</span><span class="na">bar</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>그렇다면 위 코드와 동일한 기능을 갖지만 <a href="#id1"><span class="problematic" id="id2">``</span></a>Optional``을 사용하여 코드를 간결하게 짜보겠습니다:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">someEventHandler</span><span class="p">(</span><span class="n">Entity</span> <span class="n">someEntity</span><span class="p">,</span> <span class="n">Entity</span> <span class="n">entity2</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">someEntity</span><span class="p">.</span><span class="na">getFoo</span><span class="p">().</span><span class="na">orElse</span><span class="p">(</span><span class="n">entity2</span><span class="p">.</span><span class="na">getFoo</span><span class="p">().</span><span class="na">orElse</span><span class="p">(</span><span class="n">MyPlugin</span><span class="p">.</span><span class="na">DEFAULT_FOO</span><span class="p">)).</span><span class="na">bar</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This is merely the tip of the <code class="docutils literal notranslate"><span class="pre">Optional</span></code> iceberg. In java 8 <code class="docutils literal notranslate"><span class="pre">Optional</span></code> also supports the <code class="docutils literal notranslate"><span class="pre">Consumer</span></code> and
+<code class="docutils literal notranslate"><span class="pre">Supplier</span></code> interfaces, allowing lambdas to be used for <em>absent</em> failover. Usage examples for those can be found on the
+<a class="reference internal" href="usage.html"><span class="doc">사용 예제</span></a> page.</p>
+<div class="admonition note">
+<p class="first admonition-title">주석</p>
+<p class="last">null값 참조를 피해야 할 근거에 대한 또다른 설명은 <cite>Guava: Using And Avoiding Null Explained &lt;https://github.com/google/guava/wiki/UsingAndAvoidingNullExplained/&gt;`_에서 찾을 수 있습니다. 링크로 연결되는 문서에서 언급될 guava가 제공하는 ``Optional`</cite> 클래스는 java의 <a href="#id1"><span class="problematic" id="id2">``</span></a>java.util.Optional``과 달라서 메소드 이름들이 여기서 설명한 것과 다름에 주의하세요.</p>
+</div>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="usage.html" class="btn btn-neutral float-right" title="사용 예제" accesskey="n" rel="next">다음 <span class="fa fa-angle-right"></span></a>
+        <a href="index.html" class="btn btn-neutral" title="Optional" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> 이전</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../../_static/flags/ko_KR.svg"
+         alt="ko" title="한국어">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../../_static/jquery.js"></script>      <script type="text/javascript" src="../../_static/underscore.js"></script>      <script type="text/javascript" src="../../_static/doctools.js"></script>      <script type="text/javascript" src="../../_static/language_data.js"></script>      <script type="text/javascript" src="../../_static/translations.js"></script>      <script type="text/javascript" src="../../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

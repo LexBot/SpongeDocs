@@ -1,0 +1,401 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Auf Sponge umsteigen &mdash; Sponge 7.2.0 Dokumentation</title>
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="Stichwortverzeichnis"
+              href="../../genindex.html"/>        <link rel="search" title="Suche" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 Dokumentation" href="../../index.html"/>        <link rel="up" title="Erste Schritte" href="index.html"/>        <link rel="next" title="Auswählen einer Implementierung" href="implementations/index.html"/>        <link rel="prev" title="Java installieren" href="jre.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../../index.html">
+            <img src="../../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Einen Server erstellen</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html">Schnellstartanleitung</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Erste Schritte</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="jre.html">Java installieren</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Auf Sponge umsteigen</a></li>
+<li class="toctree-l3"><a class="reference internal" href="implementations/index.html">Auswählen einer Implementierung</a></li>
+<li class="toctree-l3"><a class="reference internal" href="launch-script.html">Ein Start-Skript erstellen</a></li>
+<li class="toctree-l3"><a class="reference internal" href="port-forward.html">Portweiterleitung</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bungeecord.html">Using Sponge with Server Proxies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configuration/index.html">Sponge konfigurieren</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../management/index.html">Servermanagement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spongineer/index.html">Ein Sponge Experte werden</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../versions/index.html">Versionsrichtlinie</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../preparing/index.html">Die Arbeitsumgebung einrichten</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../plugin/index.html">Plugins erstellen</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ore/index.html">Ore Dokumentation</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/index.html">Zu Sponge beitragen</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">Über das Sponge Projekt</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+          <li><a href="../index.html">Einen Server erstellen</a> &raquo;</li>
+          <li><a href="index.html">Erste Schritte</a> &raquo;</li>
+    <li>Auf Sponge umsteigen</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/server/getting-started/migrating.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="migrating-to-sponge">
+<h1>Auf Sponge umsteigen<a class="headerlink" href="#migrating-to-sponge" title="Link zu dieser Überschrift">¶</a></h1>
+<p>Die Artikel in diesem Abschnitt sollen aktuellen Serverbesitzern bei der Migration von anderen Plattformen zu Sponge helfen.</p>
+<div class="contents local topic" id="inhalt">
+<ul class="simple">
+<li><a class="reference internal" href="#id1" id="id5">Auf Sponge umsteigen</a><ul>
+<li><a class="reference internal" href="#migrating-from-craftbukkit-or-spigot" id="id6">Von CraftBukkit oder Spigot umsteigen</a></li>
+<li><a class="reference internal" href="#migrating-from-canary" id="id7">Migration von Canary</a></li>
+<li><a class="reference internal" href="#migrating-from-forge" id="id8">Von Forge umsteigen</a></li>
+<li><a class="reference internal" href="#migrating-from-vanilla" id="id9">Von Vanilla Minecraft umsteigen</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#installing-sponge" id="id10">Sponge installieren</a></li>
+</ul>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warnung</p>
+<p class="last">Bitte sicher alle Dateien <strong>bevor</strong> du migrierst. Wenn etwas schief geht, kannst du immernoch eine Backups nutzen!</p>
+</div>
+<div class="section" id="id1">
+<h2><a class="toc-backref" href="#id5">Auf Sponge umsteigen</a><a class="headerlink" href="#id1" title="Link zu dieser Überschrift">¶</a></h2>
+<p>Lies die Abschnitt auf dieser Seite, um auf SpongeForge oder SpongeVanilla umzuziehen. Die meisten Schritte sind für identisch, Unterschiede werden, falls vorhanden, aufgezeigt.</p>
+<div class="section" id="migrating-from-craftbukkit-or-spigot">
+<h3><a class="toc-backref" href="#id6">Von CraftBukkit oder Spigot umsteigen</a><a class="headerlink" href="#migrating-from-craftbukkit-or-spigot" title="Link zu dieser Überschrift">¶</a></h3>
+<div class="admonition note">
+<p class="first admonition-title">Bemerkung</p>
+<p class="last">Spigot ist ein modifizierter Abkömmling von CraftBukkit.</p>
+</div>
+<div class="section" id="worlds">
+<h4>Welten<a class="headerlink" href="#worlds" title="Link zu dieser Überschrift">¶</a></h4>
+<p>Forge, und somit auch SpongeForge (und auch SpongeVanilla), benutzen die selbe Struktur wie Vanilla-Minecraft. Vanilla-Minecraft platzert das Nether (normalerweise <code class="docutils literal notranslate"><span class="pre">world_nether</span></code>) und das Ende (normalerweise <code class="docutils literal notranslate"><span class="pre">world_the_end</span></code>) innerhalb des <code class="docutils literal notranslate"><span class="pre">world</span></code>-Ordners. Bukkit und Spigot dagegen benutzen dieses System <em>nicht</em> um Welten zu speichern, deshalb ist eine Migration erforderlich.</p>
+<p>SpongeForge und SpongeVanilla bieten ein vollautomatisierten Skript, das dir die Migration erleichtert. Und so funktioniert:</p>
+<ol class="arabic simple">
+<li>Stoppe deinen Bukkit oder Spigot Server und erstelle ein Backup.</li>
+<li>Installiere SpongeForge oder SpongeVanilla in den Ordnern, in dem dein alter Server installiert ist und entferne die Bukkit oder Spigot jars. Falls du nicht weisst wie man SpongeForge oder SpongeVanilla installiert, kannst du dies <a class="reference internal" href="implementations/index.html"><span class="doc">hier</span></a> nachlesen.</li>
+<li>Starte den Sponge Server, der Migrator wird automatisch ausgeführt.</li>
+<li>Der Migrator wird in der <code class="docutils literal notranslate"><span class="pre">bukkit.yml</span></code> nach der <code class="docutils literal notranslate"><span class="pre">world-container</span></code> Variable suchen und anschließend diesen Ordner nach Welten durchsuchen, die migriert werden sollen. Falls diese Datei nicht gefunden wird (oder ein Lesefehler auftritt), wird der Migrator dennoch das Hauptverzeichnis des Servers durchsuchen (das ist der CraftBukkit Standard).</li>
+<li>Nun wird die Migration ausgeführt. Zu diesem Zeitpunkt werden die Welten, von dem, was wir <code class="docutils literal notranslate"><span class="pre">Welt-Container</span></code> nennen, in den Ordner in den <a class="reference external" href="https://minecraft.gamepedia.com/Server.properties">server.properties</a>-Datei mit der <code class="docutils literal notranslate"><span class="pre">level-name</span></code>-Einstellung. Beache, dass die orginallen Dateien im <code class="docutils literal notranslate"><span class="pre">Welt-Container</span></code> ohne Änderungen verbleiben, eine <em>Kopie</em> wird während der Migration erstellt.</li>
+<li>Bukkit macht manchmal seltsame Dinge und nutzt seltsame Namen an seltsamen Orten, deshalb müssen wir an dieser Stelle zwei wichtige Fehlerbehebungen anwenden. Denke daran das dies aufgrund der Struktur Bukkits, auf Basis von <em>Annahmen</em> geschieht.<ul>
+<li>Der erste Fix ist das Umbenennen von allen Ordnern die mit dem Namen der <code class="docutils literal notranslate"><span class="pre">level-name</span></code> Variable starten und auf einen Vanilla Dimensionsnamen enden (<code class="docutils literal notranslate"><span class="pre">_nether</span></code> zu <code class="docutils literal notranslate"><span class="pre">DIM-1</span></code> und <code class="docutils literal notranslate"><span class="pre">_the_end</span></code> zu <code class="docutils literal notranslate"><span class="pre">DIM1</span></code>).</li>
+<li>Der zweite Schritt ist das Migrieren der <code class="docutils literal notranslate"><span class="pre">region</span></code> Daten innerhalb des Bukkit Vanilla Nether/Ende. Bukkit speichert diese Daten in folgende Ordner``DIM-1region`` und <code class="docutils literal notranslate"><span class="pre">DIM1\region</span></code> während Vanilla und Forge <code class="docutils literal notranslate"><span class="pre">region</span></code> im Hauptordner des Weltenordners erwarten.</li>
+</ul>
+</li>
+</ol>
+<p>Der Migrator kann nicht alle benötigten Konfigurationsvariablen bereitstellen. Das ist der Grund, weshalb du einige Parameter von Hand eingeben bzw. anpassen musst, damit die Welt korrekt von SpongeForge oder SpongeVanilla geladen wird. Es ist dringend empfohlen eine passendes Plugin dafür zu verwenden und anschließend die Welt zu laden.</p>
+<div class="admonition note">
+<p class="first admonition-title">Bemerkung</p>
+<p class="last">Wie bereits erwähnt muss mit verschiedenen Annahmen gearbeitet werden, um die Welt zu migrieren. <strong>Deshalb lädt Sponge die Welt nicht direkt</strong>. Du brauchst ein passendes Plugin um die Welt anschließend korrekt zu laden.</p>
+</div>
+<p>Die Ausgabe des Migrators sollte so aussehen, falls alles fehlerfrei geklappt hat:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[17:32:29] [Server thread/INFO] [Sponge]: Checking for worlds that need to be migrated...
+[17:32:29] [Server thread/INFO] [Sponge]: Migrating [world_lol] from [.].
+[17:32:29] [Server thread/INFO] [Sponge]: Migrated world [world_lol] from [.] to [.\world\world_lol]
+[17:32:29] [Server thread/INFO] [Sponge]: Migrating [world_nether] from [.].
+[17:32:29] [Server thread/INFO] [Sponge]: Migrated world [world_nether] from [.] to [.\world\DIM-1]
+[17:32:29] [Server thread/INFO] [Sponge]: Migrating [world_the_end] from [.].
+[17:32:29] [Server thread/INFO] [Sponge]: Migrated world [world_the_end] from [.] to [.\world\DIM1]
+[17:32:29] [Server thread/INFO] [Sponge]: [3] worlds have been migrated back to Vanilla&#39;s format.
+</pre></div>
+</div>
+<p>Wenn dieser Schritt abgeschlossen ist, sollten deine Welten in einer Struktur vorliegen, die Sponge laden kann. Die originalen Dateien liegen immer noch am ursprünglichen Ort, falls etwas schieflaufen sollte.</p>
+</div>
+<div class="section" id="server-and-world-configuration-files">
+<h4>Server- und Welt-Konfigurationsdateien<a class="headerlink" href="#server-and-world-configuration-files" title="Link zu dieser Überschrift">¶</a></h4>
+<p>CraftBukkit und Sponge nutzen beide Dateien, die von Vanilla Minecraft bereitgestellt werden. Diese Dateien können also mit Sponge weiterverwendet werden, falls diese bereits in deiner CraftBukkit-Installation vorhanden sind:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">server.properties</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">banned-ips.json</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">banned-players.json</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">ops.json</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">usercache.json</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">whitelist.json</span></code></li>
+</ul>
+<p>Die folgenden Dateien werden nur von CraftBukkit genutzt und können somit unter Sponge entfernt werden:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">bukkit.yml</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">commands.yml</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">help.yml</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">permissions.yml</span></code></li>
+</ul>
+<p>Nutzer, die von Spigot zu Sponge wechseln, möchten möglicherweise <code class="docutils literal notranslate"><span class="pre">spigot.yml</span></code> und <code class="docutils literal notranslate"><span class="pre">global.conf</span></code> in Sponge miteinander vergleichen. Einige Werte in <code class="docutils literal notranslate"><span class="pre">spigot.yml</span></code> haben entsprechende Gegenstücke in <code class="docutils literal notranslate"><span class="pre">global.conf</span></code>. Ein manuelles Kopieren der Werte, die in beiden Dateien vorhanden sind, kann gewünscht sein.</p>
+</div>
+<div class="section" id="plugins">
+<h4>Plugins<a class="headerlink" href="#plugins" title="Link zu dieser Überschrift">¶</a></h4>
+<p>Sponge bietet von Hause aus keine Möglichkeit Bukkit-Plugins zu nutzen. Allerdings haben einige Mitglieder der Sponge- und Bukkit-Community angekündigt die Bukkit-API durch ein Plugin in Sponge nutzbar zu machen. Dies kann das Nutzen von Bukkit-Plugins auf Sponge ermöglichen. Dieses Plugin steht noch nicht zum Download bereit.</p>
+<p>Ore ist die offizielle Sponge-Plugin-Datenbank für Sponge-Plugins. Es wird empfohlen Sponge-Plugins ausschließlich von Ore herunterzuladen. Wenn du einen Ersatz für deine Bukkit-Plugins suchst, gibt es ein paar Punkte, die du im Hinterkopf behalten solltest:</p>
+<ul class="simple">
+<li>Nicht alle Bukkit-Entwickler haben sich für das Portieren auf Sponge entschieden. In Zukunft ist es allerdings möglich, dass ein guter Ersatz programmiert wird.</li>
+<li>Nicht alle Sponge-Plugins, die von Bukkit auf Sponge portiert werden, konvertieren automatisch alle Konfigurationsdateien. Jeder Pluginentwickler entscheidet für sich, ob er die alten Dateien konvertiert oder nicht.</li>
+<li>Einige Sponge-Plugins, die von Bukkit auf Sponge portiert werden, können ihren Funktionsumfang ändern oder nutzen möglicherweise nicht die gleiche Konfigurationsstruktur.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="migrating-from-canary">
+<h3><a class="toc-backref" href="#id7">Migration von Canary</a><a class="headerlink" href="#migrating-from-canary" title="Link zu dieser Überschrift">¶</a></h3>
+<div class="section" id="id2">
+<h4>Welten<a class="headerlink" href="#id2" title="Link zu dieser Überschrift">¶</a></h4>
+<p>Forge und somit auch SpongeForge (SpongeVanilla ebenfalls) nutzen die gleiche Struktur zum Speichern von Welten wie Minecraft. Minecraft speichert den Nether (normalerweise <code class="docutils literal notranslate"><span class="pre">world_nether</span></code>) und das Ende (<code class="docutils literal notranslate"><span class="pre">world_the_end</span></code>) innerhalb des <code class="docutils literal notranslate"><span class="pre">world</span></code> Ordners.</p>
+<p>Canary speichert den Nether und das Ende außerhalb des <code class="docutils literal notranslate"><span class="pre">world</span></code> Ordners. Das muss behoben werden, wenn der Nether und das Ende übernommen werden sollen. Allerdings stellt Canary eine einfache Methode bereit um Canary Welten in Sponge nutzbar zu machen. Hierzu wird unter Canary einfach der <code class="docutils literal notranslate"><span class="pre">/makevanilla</span></code> Befehl ausgeführt. Wenn die Umwandlung erfolgreich ist, wird das Ergebnis im <code class="docutils literal notranslate"><span class="pre">vanilla</span></code> Ordner gespeichert.</p>
+</div>
+<div class="section" id="id3">
+<h4>Server- und Welt-Konfigurationsdateien<a class="headerlink" href="#id3" title="Link zu dieser Überschrift">¶</a></h4>
+<p>Sponge nutzt viele Dateien die durch Vanilla Minecraft bereitgestellt werden, wie z.B. <code class="docutils literal notranslate"><span class="pre">server.properties</span></code>. Canary tut dies allerdings nicht, die einzige Datei, die es gemeinsam mit Vanilla Minecraft nutzt ist <code class="docutils literal notranslate"><span class="pre">usercache.json</span></code>. Somit ist <code class="docutils literal notranslate"><span class="pre">usercache.json</span></code> die einzige Datei, die von Canary in Sponge wiederverwendet werden kann.</p>
+<p>Nichtsdestotrotz ist es möglich die folgenden Konfigurationsdateien manuell von Canary in ihr Sponge Gegenstück umzuwandeln.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="47%" />
+<col width="53%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Canary Dateien</th>
+<th class="head">Sponge Gegenstücke</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>server.cfg &lt;welt&gt;_&lt;dimension&gt;.cfg</td>
+<td>server.properties</td>
+</tr>
+<tr class="row-odd"><td>&lt;welt&gt;_&lt;dimension&gt;.cfg</td>
+<td>global.conf
+&lt;dimension&gt;/dimension.conf</td>
+</tr>
+<tr class="row-even"><td>ops.cfg</td>
+<td>ops.json</td>
+</tr>
+<tr class="row-odd"><td>db.cfg</td>
+<td>Kein Gegenstück</td>
+</tr>
+<tr class="row-even"><td>motd.txt</td>
+<td>Kein Gegenstück</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id4">
+<h4>Plugins<a class="headerlink" href="#id4" title="Link zu dieser Überschrift">¶</a></h4>
+<p>SpongeForge und SpongeVanilla bietet keine native Unterstützung für Canary Plugins. Es kann allerdings möglich sein die Canary-API in einem Sponge Plugin zu implementieren.</p>
+<p>Ore ist die offizielle Sponge Plugin-Datenbank für Sponge Plugins. Es wird empfohlen Sponge Plugins ausschließlich von Ore herunterzuladen. Wenn du einen Ersatz für deine Canary Plugins suchst, gibt es ein paar Punkte, die du im Hinterkopf behalten solltest:</p>
+<ul class="simple">
+<li>Nicht alle Canary Entwickler haben sich für das Portieren auf Sponge entschieden. In Zukunft ist es allerdings möglich, dass ein guter Ersatz programmiert wird.</li>
+<li>Nicht alle Sponge Plugins, die von Canary auf Sponge portiert werden, konvertieren automatisch alle Konfigurationsdateien. Jeder Plugin-Entwickler entscheidet für sich, ob er die alten Dateien konvertiert oder nicht.</li>
+<li>Einige Sponge Plugins, die von Canary auf Sponge portiert werden können ihren Funktionsumfang ändern oder nutzen möglicherweise nicht die gleiche Konfigurationsstruktur.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="migrating-from-forge">
+<h3><a class="toc-backref" href="#id8">Von Forge umsteigen</a><a class="headerlink" href="#migrating-from-forge" title="Link zu dieser Überschrift">¶</a></h3>
+<p>Der Umstieg von einem Forge auf einen SpongeForge oder SpongeVanilla Server ist ein sehr einfacher Schritt, der kaum Vorarbeiten erfordert.</p>
+<div class="section" id="migrating-to-spongeforge">
+<h4>Auf SpongeForge umsteigen<a class="headerlink" href="#migrating-to-spongeforge" title="Link zu dieser Überschrift">¶</a></h4>
+<p>Als erstes musst du sicherstellen, dass du eine Forge Version nutzt, die kompatibel mit der gewünschten SpongeForge Version ist. Forge Versionen findest du unter <a class="reference external" href="https://files.minecraftforge.net">Forge Downloads</a>. Wenn du andere Forge Mods nutzt, müssen diese auch zur benötigten Forge Version kompatibel sein.</p>
+<p>Wenn du bereit für die SpongeForge Installation bist, kannst du die folgenden Schritte durchführen:</p>
+<ol class="arabic simple">
+<li>Stoppe deinen Forge Server, falls er noch läuft.</li>
+<li>Lade SpongeForge von der Sponge Website und Forge von MinecraftForge herunter.</li>
+<li>Kopiere SpongeForge in deinen Forge <code class="docutils literal notranslate"><span class="pre">mods</span></code> Ordner.</li>
+<li>Server starten und freuen!</li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">Bemerkung</p>
+<p class="last">Wenn SpongeForge die einzige Mod auf deinem Server ist, können Spieler mit einem Vanilla Client deinem Server beitreten. Andere Modifikationen erfordern es, dass Spieler Forge auch auf ihrem Rechner installieren.</p>
+</div>
+</div>
+<div class="section" id="migration-to-spongevanilla">
+<h4>Auf SpongeVanilla umsteigen<a class="headerlink" href="#migration-to-spongevanilla" title="Link zu dieser Überschrift">¶</a></h4>
+<div class="admonition warning">
+<p class="first admonition-title">Warnung</p>
+<p class="last">Wenn du auf <strong>SpongeVanilla</strong> migrierst: Du wirst alle Forge Mod Daten verlieren, da SpongeVanilla keine Mod Blocks und Entities unterstützt. Denke bei deiner Entscheidung zwischen SpongeForge und SpongeVanilla daran.</p>
+</div>
+<p>Die nötigen Schritte entsprechen größtenteils den oben genannten Schritten:</p>
+<ol class="arabic simple">
+<li>Stoppe deinen Forge Server, falls er noch läuft.</li>
+<li>Lade SpongeVanilla herunter.</li>
+<li>Kopiere deine Welten und Konfigurationsdateien in den Serverordner.</li>
+<li>Starte den Server durch Aufruf der <code class="docutils literal notranslate"><span class="pre">SpongeVanilla.jar</span></code>.</li>
+</ol>
+</div>
+</div>
+<div class="section" id="migrating-from-vanilla">
+<h3><a class="toc-backref" href="#id9">Von Vanilla Minecraft umsteigen</a><a class="headerlink" href="#migrating-from-vanilla" title="Link zu dieser Überschrift">¶</a></h3>
+<p>Administratoren von Vanilla-Servern können sehr leicht zu Sponge wechseln, da Forge und damit auch SpongeForge sowie SpongeVanilla die gleiche Datenstruktur wie Vanilla Minecraft nutzt. Sponge nutzt außerdem die gleichen Dateien wie zum Beispiel <code class="docutils literal notranslate"><span class="pre">server.properties</span></code>.</p>
+<p>Als erstes solltest du dich für SpongeForge oder SpongeVanilla entscheiden.</p>
+<div class="admonition note">
+<p class="first admonition-title">Bemerkung</p>
+<p class="last">Beide Varianten von Sponge können mit Vanilla-Clients umgehen. Beachte, dass dies nur für SpongeForge zutrifft, solang du keine Forge-Mods installierst, welche Client-Modifkationen erfordern.</p>
+</div>
+<ol class="arabic simple">
+<li>Stoppe deinen Vanilla Server, falls er noch läuft</li>
+<li>Lade SpongeVanilla oder SpongeForge herunter.</li>
+<li>Kopiere deine Welten und Konfigurationsdateien in den Serverordner.</li>
+<li>Starte deinen neuen Server.</li>
+</ol>
+</div>
+</div>
+<div class="section" id="installing-sponge">
+<h2><a class="toc-backref" href="#id10">Sponge installieren</a><a class="headerlink" href="#installing-sponge" title="Link zu dieser Überschrift">¶</a></h2>
+<p>Die Anleitungen unter <a class="reference internal" href="implementations/spongeforge.html"><span class="doc">SpongeForge installieren</span></a> und <a class="reference internal" href="implementations/spongevanilla.html"><span class="doc">SpongeVanilla installieren</span></a> zeigen dir wie du Sponge während du migrierst richtig installierst.</p>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="implementations/index.html" class="btn btn-neutral float-right" title="Auswählen einer Implementierung" accesskey="n" rel="next">Nächste <span class="fa fa-angle-right"></span></a>
+        <a href="jre.html" class="btn btn-neutral" title="Java installieren" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> Vorherige</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../../_static/flags/de_DE.svg"
+         alt="de" title="Deutsch">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../../_static/jquery.js"></script>      <script type="text/javascript" src="../../_static/underscore.js"></script>      <script type="text/javascript" src="../../_static/doctools.js"></script>      <script type="text/javascript" src="../../_static/language_data.js"></script>      <script type="text/javascript" src="../../_static/translations.js"></script>      <script type="text/javascript" src="../../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

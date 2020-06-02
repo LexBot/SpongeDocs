@@ -1,0 +1,312 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>開設交易 &mdash; Sponge 7.2.0 說明文件</title>
+
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="索引"
+              href="../genindex.html"/>        <link rel="search" title="搜尋" href="../search.html"/>    <link rel="top" title="Sponge 7.2.0 說明文件" href="../index.html"/>        <link rel="up" title="建立插件" href="index.html"/>        <link rel="next" title="效果" href="effects.html"/>        <link rel="prev" title="物品的创建" href="items/creating.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../index.html">
+            <img src="../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../server/index.html">建立伺服器</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../versions/index.html">版本控制方針</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../preparing/index.html">準備開發</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">建立插件</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="api-versions.html">API版本</a></li>
+<li class="toctree-l2"><a class="reference internal" href="buildsystem.html">建置系統</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workspace/index.html">建立你的工作空間</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project/index.html">建立你的專案</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin-identifier.html">插件識別碼</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin-class.html">主要插件類別</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lifecycle.html">插件的生命週期</a></li>
+<li class="toctree-l2"><a class="reference internal" href="injection.html">相依注入</a></li>
+<li class="toctree-l2"><a class="reference internal" href="practices/index.html">實踐</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optional/index.html">Optionals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.html">記錄與除錯</a></li>
+<li class="toctree-l2"><a class="reference internal" href="text/index.html">文本</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands/index.html">插件指令</a></li>
+<li class="toctree-l2"><a class="reference internal" href="event/index.html">事件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration/index.html">設定插件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assets.html">Asset API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data/index.html">Data API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/index.html">方塊</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entities/index.html">實體</a></li>
+<li class="toctree-l2"><a class="reference internal" href="items/index.html">物品</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">開設交易</a></li>
+<li class="toctree-l2"><a class="reference internal" href="effects.html">效果</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scheduler.html">排程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="services.html">服務</a></li>
+<li class="toctree-l2"><a class="reference internal" href="database.html">資料庫</a></li>
+<li class="toctree-l2"><a class="reference internal" href="permissions.html">權限</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bans.html">封鎖</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metrics.html">Metrics 收集</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bookview.html">書本閱覽</a></li>
+<li class="toctree-l2"><a class="reference internal" href="economy/index.html">經濟</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wgen/index.html">世界生成</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manager.html">插件管理器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="game-profile-manager.html">遊戲設定檔管理器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="offline-userplayer-data.html">離線玩家資料</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tab-lists.html">Tab 清單</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin-meta.html">插件元數據</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ray-tracing.html">光線追蹤</a></li>
+<li class="toctree-l2"><a class="reference internal" href="debugging.html">插件除錯</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials.html">教學</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internals/index.html">相依於實作的插件</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ore/index.html">Ore 文件</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contributing/index.html">為 Sponge 貢獻</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">關於 Sponge 專案</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+          <li><a href="index.html">建立插件</a> &raquo;</li>
+    <li>開設交易</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/plugin/trade-offers.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="trade-offers">
+<h1>開設交易<a class="headerlink" href="#trade-offers" title="本標題的永久連結">¶</a></h1>
+<p>这里介绍了游戏中的 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/living/Villager.html">Villager</a> 或 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/item/merchant/Merchant.html">Merchant</a> （村民或商人）提供的 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/item/merchant/TradeOffer.html">TradeOffer</a> （交易）。</p>
+<div class="section" id="merchant">
+<h2>商人<a class="headerlink" href="#merchant" title="本標題的永久連結">¶</a></h2>
+<p>一个 <code class="docutils literal notranslate"><span class="pre">Merchant</span></code> 存储着若干 <code class="docutils literal notranslate"><span class="pre">TradeOffer</span></code> 。商人的最常见形式是 <code class="docutils literal notranslate"><span class="pre">Villager</span></code> ，而更一般的 <code class="docutils literal notranslate"><span class="pre">Merchant</span></code> 接口代表其可以打开一个交易界面。</p>
+<p>可以通过 <code class="docutils literal notranslate"><span class="pre">Merchant</span></code> 的 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/data/manipulator/mutable/entity/TradeOfferData.html">TradeOfferData</a> 来存储和移除 <code class="docutils literal notranslate"><span class="pre">TradeOffer</span></code> 。</p>
+</div>
+<div class="section" id="tradeoffer">
+<h2>交易<a class="headerlink" href="#tradeoffer" title="本標題的永久連結">¶</a></h2>
+<p>一个交易包括</p>
+<ul class="simple">
+<li>商人希望购买的第一个（主） <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/item/inventory/ItemStackSnapshot.html">ItemStackSnapshot</a></li>
+<li>商人希望购买的第二个（可选） <code class="docutils literal notranslate"><span class="pre">ItemStackSnapshot</span></code></li>
+<li>一个用于商人出售的 <code class="docutils literal notranslate"><span class="pre">ItemStackSnapshot</span></code></li>
+<li>已经产生的交易次数</li>
+<li>可用于交易的最大次数</li>
+<li>一个用于判定什么时候生成经验球的标志</li>
+</ul>
+<p>可以通过一个 <code class="docutils literal notranslate"><span class="pre">Builder</span></code> （交易生成器）或者 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/item/merchant/TradeOfferGenerator.html">TradeOfferGenerator</a> 创建 <code class="docutils literal notranslate"><span class="pre">TradeOffer</span></code> 。</p>
+<div class="section" id="tradeofferbuilder">
+<h3>交易生成器<a class="headerlink" href="#tradeofferbuilder" title="本標題的永久連結">¶</a></h3>
+<p>交易生成器（ <code class="docutils literal notranslate"><span class="pre">TradeOfferBuilder</span></code> ）主要用于开发者随手创建的临时的交易。</p>
+<p>下面的代码生成一个交易。玩家（ <code class="docutils literal notranslate"><span class="pre">Player</span></code> ）可以通过交换五个 <code class="docutils literal notranslate"><span class="pre">DIRT</span></code> 方块得到三个 <code class="docutils literal notranslate"><span class="pre">GRASS</span></code> 方块。这个交易一开始已经“进行”了四次，此后需要等待 <code class="docutils literal notranslate"><span class="pre">Merchant</span></code> 一段时间以允许其再次提供该交易。</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">TradeOffer</span> <span class="n">offer</span> <span class="o">=</span> <span class="n">TradeOffer</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
+    <span class="p">.</span><span class="na">firstBuyingItem</span><span class="p">(</span><span class="n">ItemStack</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">ItemTypes</span><span class="p">.</span><span class="na">DIRT</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+    <span class="p">.</span><span class="na">sellingItem</span><span class="p">(</span><span class="n">ItemStack</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">ItemTypes</span><span class="p">.</span><span class="na">GRASS</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+    <span class="p">.</span><span class="na">uses</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="p">.</span><span class="na">maxUses</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+    <span class="p">.</span><span class="na">canGrantExperience</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span>
+    <span class="p">.</span><span class="na">build</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="tradeofferlistmutator">
+<h3>交易列表修改器<a class="headerlink" href="#tradeofferlistmutator" title="本標題的永久連結">¶</a></h3>
+<p>交易列表修改器（ <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/item/merchant/TradeOfferListMutator.html">TradeOfferListMutator</a> ）是一个会在 <code class="docutils literal notranslate"><span class="pre">Villager</span></code> 升级时调用的接口。它可以用于替换现有（或更高等级）的 <code class="docutils literal notranslate"><span class="pre">TradeOffer</span></code> 或添加新的 <code class="docutils literal notranslate"><span class="pre">TradeOffer</span></code> 。它的最简单的也是目前 API 唯一提供的变种是 <code class="docutils literal notranslate"><span class="pre">TradeOfferGenerator</span></code> 。不同的等级和不同的 <code class="docutils literal notranslate"><span class="pre">Career</span></code> 的 <code class="docutils literal notranslate"><span class="pre">TradeOfferListMutator</span></code> 可以在 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/item/merchant/VillagerRegistry.html">VillagerRegistry</a> 中配置。</p>
+<div class="admonition note">
+<p class="first admonition-title">備註</p>
+<p class="last"><code class="docutils literal notranslate"><span class="pre">Villager</span></code> 的 <code class="docutils literal notranslate"><span class="pre">TradeOffer</span></code> 列表可能只会在村民交易界面打开时惰性生成。</p>
+</div>
+</div>
+<div class="section" id="tradeoffergenerator">
+<h3>交易生成工厂<a class="headerlink" href="#tradeoffergenerator" title="本標題的永久連結">¶</a></h3>
+<p>交易生成工厂（ <code class="docutils literal notranslate"><span class="pre">TradeOfferGenerator</span></code> ）是一种用于生成 <code class="docutils literal notranslate"><span class="pre">TradeOffer</span></code> 的生成模板。所有的交易生成工厂都属于交易列表修改器，并且用于为村民生成新的 <code class="docutils literal notranslate"><span class="pre">TradeOffer</span></code> 。交易生成工厂并不移除已有的 <code class="docutils literal notranslate"><span class="pre">TradeOffer</span></code> 。</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">TradeOfferGenerator</span> <span class="n">tradeOfferGenerator</span> <span class="o">=</span> <span class="n">TradeOfferGenerator</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
+        <span class="p">.</span><span class="na">setPrimaryItemGenerator</span><span class="p">(</span><span class="n">random</span> <span class="o">-&gt;</span> <span class="n">ItemStack</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">ItemTypes</span><span class="p">.</span><span class="na">DIRT</span><span class="p">,</span> <span class="n">random</span><span class="p">.</span><span class="na">nextInt</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="mi">5</span><span class="p">))</span>
+        <span class="p">.</span><span class="na">setSellingGenerator</span><span class="p">(</span><span class="n">random</span> <span class="o">-&gt;</span> <span class="n">ItemStack</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">ItemTypes</span><span class="p">.</span><span class="na">GRASS</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+        <span class="p">.</span><span class="na">startingUses</span><span class="p">(</span><span class="n">VariableAmount</span><span class="p">.</span><span class="na">baseWithVariance</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+        <span class="p">.</span><span class="na">maxUses</span><span class="p">(</span><span class="n">VariableAmount</span><span class="p">.</span><span class="na">fixed</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+        <span class="p">.</span><span class="na">experienceChance</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+        <span class="p">.</span><span class="na">build</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>这个交易生成工厂将如开发者所愿，随机地生成 <code class="docutils literal notranslate"><span class="pre">TradeOffer</span></code></p>
+<ul class="simple">
+<li>购买五到八个 <code class="docutils literal notranslate"><span class="pre">DIRT</span></code></li>
+<li>售出五个 <code class="docutils literal notranslate"><span class="pre">GRASS</span></code></li>
+<li>可能已经发生过两到四次的交易</li>
+<li>最多交易五次</li>
+</ul>
+<p>新生成的 <code class="docutils literal notranslate"><span class="pre">TradeOffer</span></code> 有 50% 的概率产生经验。</p>
+<div class="admonition note">
+<p class="first admonition-title">備註</p>
+<p class="last">你还可以使用 <code class="docutils literal notranslate"><span class="pre">ItemStackGenerator</span></code> 以实时地把附魔等自定义数据添加到物品中，并将其用于交易。</p>
+</div>
+</div>
+</div>
+<div class="section" id="villagerregistry">
+<h2>对村民的修改<a class="headerlink" href="#villagerregistry" title="本標題的永久連結">¶</a></h2>
+<p>可以通过 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/GameRegistry.html">GameRegistry</a> 类获取到 <code class="docutils literal notranslate"><span class="pre">VillagerRegistry</span></code> 用于修改村民的相关交易。通过配置 <code class="docutils literal notranslate"><span class="pre">TradeOfferListMutator</span></code> 我们可以自定义 <code class="docutils literal notranslate"><span class="pre">Villager</span></code> 升级时会发生的行为。</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">VillagerRegistry</span> <span class="n">villagerRegistry</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="na">game</span><span class="p">.</span><span class="na">getRegistry</span><span class="p">().</span><span class="na">getVillagerRegistry</span><span class="p">();</span>
+<span class="n">List</span><span class="o">&lt;</span><span class="n">TradeOfferListMutator</span><span class="o">&gt;</span> <span class="n">generators</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="n">villagerRegistry</span><span class="p">.</span><span class="na">getMutatorsForCareer</span><span class="p">(</span><span class="n">Careers</span><span class="p">.</span><span class="na">FARMER</span><span class="p">,</span> <span class="mi">1</span><span class="p">));</span>
+<span class="n">generators</span><span class="p">.</span><span class="na">addAll</span><span class="p">(</span><span class="n">additionalFarmerLevel1TradeOffers</span><span class="p">());</span>
+<span class="n">villagerRegistry</span><span class="p">.</span><span class="na">setMutators</span><span class="p">(</span><span class="n">Careers</span><span class="p">.</span><span class="na">FARMER</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">generators</span><span class="p">);</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Villager</span></code> 的最低等级为一，等价于一个新出生的村民。</p>
+<div class="admonition note">
+<p class="first admonition-title">備註</p>
+<p class="last"><code class="docutils literal notranslate"><span class="pre">VillagerRegistry</span></code> 中数据的修改将不会保存到下一次服务器重启，同时已经升级的村民的 <code class="docutils literal notranslate"><span class="pre">TradeOffer</span></code> 不会再受到任何影响。</p>
+</div>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="effects.html" class="btn btn-neutral float-right" title="效果" accesskey="n" rel="next">下一頁 <span class="fa fa-angle-right"></span></a>
+        <a href="items/creating.html" class="btn btn-neutral" title="物品的创建" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> 上一頁</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../_static/flags/zh_TW.svg"
+         alt="zh-TW" title="繁體中文">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../_static/jquery.js"></script>      <script type="text/javascript" src="../_static/underscore.js"></script>      <script type="text/javascript" src="../_static/doctools.js"></script>      <script type="text/javascript" src="../_static/language_data.js"></script>      <script type="text/javascript" src="../_static/translations.js"></script>      <script type="text/javascript" src="../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

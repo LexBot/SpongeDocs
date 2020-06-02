@@ -1,0 +1,237 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Linee Guida di Contribuzione &mdash; Sponge 7.2.0 documentazione</title>
+
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="Indice"
+              href="../genindex.html"/>        <link rel="search" title="Cerca" href="../search.html"/>    <link rel="top" title="Sponge 7.2.0 documentazione" href="../index.html"/>        <link rel="up" title="Contributing to Sponge" href="index.html"/>        <link rel="next" title="Come usare Git(Hub)" href="howtogit.html"/>        <link rel="prev" title="Contributing to Sponge" href="index.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../index.html">
+            <img src="../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../server/index.html">Creare un Server</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../versions/index.html">Versioning Policy</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../preparing/index.html">Preparazione allo Sviluppo</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../plugin/index.html">Creazione di un plugin</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ore/index.html">Ore Documentation</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Contributing to Sponge</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Linee Guida di Contribuzione</a></li>
+<li class="toctree-l2"><a class="reference internal" href="howtogit.html">Come usare Git(Hub)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="implementation/index.html">Sviluppare Sponge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spongedocs.html">SpongeDocs Writing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="porting.html">Porting Sponge to Other Platforms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="versioning.html">Repository Branch Layout</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">A proposito del progetto Sponge</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+          <li><a href="index.html">Contributing to Sponge</a> &raquo;</li>
+    <li>Linee Guida di Contribuzione</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/contributing/guidelines.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="contribution-guidelines">
+<h1>Linee Guida di Contribuzione<a class="headerlink" href="#contribution-guidelines" title="Link a questa intestazione">¶</a></h1>
+<p>Ci sarà sempre la necessita di sviluppatori che ci aiutano a migliorare la SpongeAPI. Non c’è niente come un progetto perfetto e le cose posso sempre essere migliorate. Se sei uno sviluppatore e sei interessato ad aiutarci, non esitare. Assicurati solo di seguire le nostre linee guida.</p>
+<div class="admonition note">
+<p class="first admonition-title">Nota</p>
+<p class="last">Gli sviluppatori che mostrano determinazione e costanza nei loro contributi al progetto potrebbero essere invitato a far parte dello staff di Sponge dai Leader del Team, a loro discrezione. Non c’è nessun processo formale di domanda. Si prega di non chiedere allo staff, te lo chiederemo noi.</p>
+</div>
+<div class="section" id="general-steps">
+<h2>Procedura Generale<a class="headerlink" href="#general-steps" title="Link a questa intestazione">¶</a></h2>
+<ol class="arabic simple">
+<li>Configura l’area di lavoro come descritto in <a class="reference internal" href="../preparing/index.html"><span class="doc">Preparazione allo Sviluppo</span></a>.</li>
+<li>Assicurati di essere familiare con Git e Github. Se la tua conoscenza ha bisogno di una rinfrescata, dai un’occhiata qui: <a class="reference internal" href="howtogit.html"><span class="doc">Come usare Git(Hub)</span></a></li>
+<li>Verifica i problemi esistenti nella repository di <a class="reference external" href="https://github.com/SpongePowered/SpongeAPI/issues">SpongeAPI</a>,nella repository di <a class="reference external" href="https://github.com/SpongePowered/SpongeCommon">SpongeCommon</a>,nella repository di <a class="reference external" href="https://github.com/SpongePowered/SpongeForge">SpongeForge</a>,nella repository di <a class="reference external" href="https://github.com/SpongePowered/SpongeVanilla">SpongeVanilla</a>, e nella repository di <a class="reference external" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>. E” possibile che ci sia qualcunaltro che stia già lavorando sulla stessa cosa. Puoi anche controllare <a class="reference external" href="https://github.com/SpongePowered/SpongeAPI/labels/help%20wanted">problemi contrassegnati con «help wanted»</a> per problemi esistenti con cui abbiamo bisogno aiuto.</li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">Nota</p>
+<p>Please don’t submit pull requests for small, non-functional changes such as fixing typos or renaming variable names.
+Instead, you can:</p>
+<ul class="last simple">
+<li><a class="reference external" href="https://webchat.esper.net/?channels=spongedev">join #spongedev on IRC (irc.esper.net)</a>
+and we’ll change it together with the other smaller changes.</li>
+<li>Join our <a class="reference external" href="https://discord.gg/sponge">Discord Server</a> and post on the <code class="docutils literal notranslate"><span class="pre">#dev</span></code> channel.
+Discord and IRC are linked, so don’t worry. We won’t miss your message!</li>
+<li>You can also add it to our list of
+<a class="reference external" href="https://github.com/search?q=org%3ASpongePowered+Ongoing+Minor+Issue+List&amp;type=Issues">Minor Issues on GitHub</a>.</li>
+</ul>
+</div>
+<ol class="arabic simple" start="4">
+<li>If the issue requires a bigger change you may want to submit the issues without the necessary changes first, so we
+can confirm the issue and know that you’re working on fixing it. You should also create a draft pull
+request or comment with <code class="docutils literal notranslate"><span class="pre">~wip</span></code> so we can already start reviewing them.</li>
+<li>Forka il progetto, clonalo e apporta le tue modifiche in un ramo extra.</li>
+<li>Testa le tue modifiche (assicurati che si compilano!), effettua un commit, e pushali nel tuo fork.</li>
+<li>Invia la richiesta di pool con un breve riassunto su cosa hai cambiato e il perché dovrebbe essere cambiato in quel modo.</li>
+<li>Se effettui delle modifiche addizionali, pusha nuovi commit al tuo branch. <strong>Non sovrascrivere tutto</strong>, poichè fa diventare estremamente difficile vedere cosa hai cambiato rispetto alla versione precedente della tua richiesta di pull.</li>
+<li>Assicurati che il tuo PR (Pool Request) sia aggiornato alle ultime modifiche del branch con cui intendi fonderlo. Se hai bisogno di aiuto a riguardo, basta chiedere!</li>
+</ol>
+<div class="admonition tip">
+<p class="first admonition-title">Suggerimento</p>
+<p class="last">Se sei insicuro su quale branch dovresti basare il tuo lavoro, leggi <a class="reference internal" href="versioning.html"><span class="doc">Repository Branch Layout</span></a> prima di inviare il tuo PR.</p>
+</div>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="howtogit.html" class="btn btn-neutral float-right" title="Come usare Git(Hub)" accesskey="n" rel="next">Successivo <span class="fa fa-angle-right"></span></a>
+        <a href="index.html" class="btn btn-neutral" title="Contributing to Sponge" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> Previous</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../_static/flags/it_IT.svg"
+         alt="it" title="Italiano">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../_static/jquery.js"></script>      <script type="text/javascript" src="../_static/underscore.js"></script>      <script type="text/javascript" src="../_static/doctools.js"></script>      <script type="text/javascript" src="../_static/language_data.js"></script>      <script type="text/javascript" src="../_static/translations.js"></script>      <script type="text/javascript" src="../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

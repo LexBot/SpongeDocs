@@ -1,0 +1,303 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>玩家列表 &mdash; Sponge 7.2.0 文档</title>
+
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="索引"
+              href="../genindex.html"/>        <link rel="search" title="搜索" href="../search.html"/>    <link rel="top" title="Sponge 7.2.0 文档" href="../index.html"/>        <link rel="up" title="插件开发" href="index.html"/>        <link rel="next" title="插件的元数据" href="plugin-meta.html"/>        <link rel="prev" title="离线玩家数据" href="offline-userplayer-data.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../index.html">
+            <img src="../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../server/index.html">创建服务器</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../versions/index.html">版本策略</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../preparing/index.html">为开发作准备</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">插件开发</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="api-versions.html">API版本</a></li>
+<li class="toctree-l2"><a class="reference internal" href="buildsystem.html">构建系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workspace/index.html">设置开发环境</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project/index.html">设置你的项目</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin-identifier.html">插件标识符</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin-class.html">插件的主类</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lifecycle.html">插件的生命周期</a></li>
+<li class="toctree-l2"><a class="reference internal" href="injection.html">依赖注入</a></li>
+<li class="toctree-l2"><a class="reference internal" href="practices/index.html">插件开发惯例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optional/index.html">使用 Optional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.html">日志记录和调试</a></li>
+<li class="toctree-l2"><a class="reference internal" href="text/index.html">文本 API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands/index.html">插件命令</a></li>
+<li class="toctree-l2"><a class="reference internal" href="event/index.html">事件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration/index.html">插件配置</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assets.html">使用 Asset API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data/index.html">数据 API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/index.html">方块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entities/index.html">实体</a></li>
+<li class="toctree-l2"><a class="reference internal" href="items/index.html">物品</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trade-offers.html">村民交易</a></li>
+<li class="toctree-l2"><a class="reference internal" href="effects.html">效果</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scheduler.html">调度器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="services.html">服务</a></li>
+<li class="toctree-l2"><a class="reference internal" href="database.html">数据库</a></li>
+<li class="toctree-l2"><a class="reference internal" href="permissions.html">权限</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bans.html">黑名单</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metrics.html">Metrics 收集</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bookview.html">成书</a></li>
+<li class="toctree-l2"><a class="reference internal" href="economy/index.html">经济 API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wgen/index.html">世界生成</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manager.html">插件管理器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="game-profile-manager.html">玩家资料管理器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="offline-userplayer-data.html">离线玩家数据</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">玩家列表</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin-meta.html">插件的元数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ray-tracing.html">光线追踪</a></li>
+<li class="toctree-l2"><a class="reference internal" href="debugging.html">调试插件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials.html">教程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internals/index.html">依赖底层实现</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ore/index.html">Ore 文档</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contributing/index.html">向 Sponge 贡献代码</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">关于 Sponge</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+          <li><a href="index.html">插件开发</a> &raquo;</li>
+    <li>玩家列表</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/plugin/tab-lists.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="tab-lists">
+<h1>玩家列表<a class="headerlink" href="#tab-lists" title="永久链接至标题">¶</a></h1>
+<p>玩家列表是 Minecraft 中按下 Tab 显示的当前服务器上所有在线玩家的小窗口。SpongeAPI 允许分别对每个玩家进行玩家列表的操作。</p>
+<p>若要得到一个玩家的 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/living/player/tab/TabList.html">TabList</a> ，你只需要调用 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/living/player/Player.html#getTabList--">Player#getTabList()</a> 方法：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.entity.living.player.Player</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.entity.living.player.tab.TabList</span><span class="p">;</span>
+
+<span class="n">TabList</span> <span class="n">tablist</span> <span class="o">=</span> <span class="n">player</span><span class="p">.</span><span class="na">getTabList</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>现在我们已经获取到了一个 <code class="docutils literal notranslate"><span class="pre">TabList</span></code> ，我们可以修改它的几个组成部分。例如，如果我们想要设置其页眉或页脚，我们只需要调用相应的方法：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.text.Text</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.text.format.TextColors</span><span class="p">;</span>
+
+<span class="n">tablist</span><span class="p">.</span><span class="na">setHeader</span><span class="p">(</span><span class="n">Text</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">TextColors</span><span class="p">.</span><span class="na">GOLD</span><span class="p">,</span> <span class="s">&quot;The tab list header&quot;</span><span class="p">));</span>
+<span class="n">tablist</span><span class="p">.</span><span class="na">setFooter</span><span class="p">(</span><span class="n">Text</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">TextColors</span><span class="p">.</span><span class="na">RED</span><span class="p">,</span> <span class="s">&quot;The tab list footer&quot;</span><span class="p">));</span>
+</pre></div>
+</div>
+<p>如果我们想要同时改变它们俩，我们可以调用 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/living/player/tab/TabList.html#setHeaderAndFooter-org.spongepowered.api.text.Text-org.spongepowered.api.text.Text-">TabList#setHeaderAndFooter(Text, Text)</a> 方法：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">tablist</span><span class="p">.</span><span class="na">setHeaderAndFooter</span><span class="p">(</span><span class="n">Text</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;header&quot;</span><span class="p">),</span> <span class="n">Text</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;footer&quot;</span><span class="p">));</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">如果你想要自定义页眉和页脚，我们十分建议你直接调用 <code class="docutils literal notranslate"><span class="pre">setHeaderAndFooter()</span></code> 方法而不是分开调用 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/living/player/tab/TabList.html#setHeader-org.spongepowered.api.text.Text-">TabList#setHeader(Text)</a> 和 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/living/player/tab/TabList.html#setFooter-org.spongepowered.api.text.Text-">TabList#setFooter(Text)</a> 方法。因为后者需要发送两个数据包，而前者只需要发送一个。</p>
+</div>
+<div class="section" id="tab-list-entries">
+<h2>玩家列表条目<a class="headerlink" href="#tab-list-entries" title="永久链接至标题">¶</a></h2>
+<p>现在我们已经设置了玩家列表的页眉和页脚，我们还可以为 <code class="docutils literal notranslate"><span class="pre">TabList</span></code> 添加我们自己的条目。下面是一个示例：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.entity.living.player.gamemode.GameModes</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.entity.living.player.tab.TabListEntry</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.profile.GameProfile</span><span class="p">;</span>
+
+<span class="n">TabListEntry</span> <span class="n">entry</span> <span class="o">=</span> <span class="n">TabListEntry</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
+    <span class="p">.</span><span class="na">list</span><span class="p">(</span><span class="n">tablist</span><span class="p">)</span>
+    <span class="p">.</span><span class="na">gameMode</span><span class="p">(</span><span class="n">GameModes</span><span class="p">.</span><span class="na">SURVIVAL</span><span class="p">)</span>
+    <span class="p">.</span><span class="na">profile</span><span class="p">(</span><span class="n">gameProfile</span><span class="p">)</span>
+    <span class="p">.</span><span class="na">build</span><span class="p">();</span>
+<span class="n">tablist</span><span class="p">.</span><span class="na">addEntry</span><span class="p">(</span><span class="n">entry</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>现在让我们分析一下。我们通过调用 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/living/player/tab/TabListEntry.Builder.html#list-org.spongepowered.api.entity.living.player.tab.TabList-">TabListEntry.Builder#list(TabList)</a> 方法把我们的 <code class="docutils literal notranslate"><span class="pre">TabList</span></code> 和 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/living/player/tab/TabListEntry.html">TabListEntry</a> 关联了起来。然后我们设置其游戏模式为 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/living/player/gamemode/GameModes.html#SURVIVAL">GameModes#SURVIVAL</a> 。这一设置将决定各种事物。在客户端，它用于确定玩家是创造模式还是可能是旁观者模式。如果其为旁观者模式，那么对应的名字将显示为灰色和斜体。然后我们需要设置相关联的 <code class="docutils literal notranslate"><span class="pre">GameProfile</span></code> 。 <code class="docutils literal notranslate"><span class="pre">GameProfile</span></code> 可以通过 <code class="docutils literal notranslate"><span class="pre">GameProfile#of()</span></code> 方法生成，当然你也可以获取一个真实的 <code class="docutils literal notranslate"><span class="pre">GameProfile</span></code> ，比如玩家。更多的信息可以参见 <a class="reference internal" href="game-profile-manager.html"><span class="doc">玩家资料管理器</span></a> 。然后如果我们想要把该玩家列表条目应用于玩家列表，我们只需要调用 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/living/player/tab/TabList.html#addEntry-org.spongepowered.api.entity.living.player.tab.TabListEntry-">TabList#addEntry(TabListEntry)</a> 方法。</p>
+<p>我们可以通过指定诸如显示名称或玩家列表条目的延迟（Latency）之类的东西来填充我们的基本示例：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">TabListEntry</span> <span class="n">entry</span> <span class="o">=</span> <span class="n">TabListEntry</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
+    <span class="p">.</span><span class="na">list</span><span class="p">(</span><span class="n">tablist</span><span class="p">)</span>
+    <span class="p">.</span><span class="na">displayName</span><span class="p">(</span><span class="n">Text</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;Spongie&quot;</span><span class="p">))</span>
+    <span class="p">.</span><span class="na">latency</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="p">.</span><span class="na">profile</span><span class="p">(</span><span class="n">gameProfile</span><span class="p">)</span>
+    <span class="p">.</span><span class="na">build</span><span class="p">();</span>
+<span class="n">tablist</span><span class="p">.</span><span class="na">addEntry</span><span class="p">(</span><span class="n">entry</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>在这里，我们使用 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/living/player/tab/TabListEntry.Builder.html#displayName-org.spongepowered.api.text.Text-">TabListEntry.Builder#displayName(Text)</a> 方法设置我们的玩家列表条目的显示名称为 <cite>Spongie</cite> 。然后我们将我们的 <code class="docutils literal notranslate"><span class="pre">TabListEntry</span></code> 的延迟设置为五个条（Bar）。参阅 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/living/player/tab/TabListEntry.html#setLatency-int-">TabListEntry#setLatency(int)</a> 方法以获取指定其他类型的条的更多信息。</p>
+</div>
+<div class="section" id="modifying-current-entries">
+<h2>修改当前玩家列表条目<a class="headerlink" href="#modifying-current-entries" title="永久链接至标题">¶</a></h2>
+<p>通过使用 <code class="docutils literal notranslate"><span class="pre">TabList</span></code> ，我们可以获取并修改 <code class="docutils literal notranslate"><span class="pre">TabList</span></code> 中已经存在的玩家列表条目。若要获取特定条目，可以使用 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/living/player/tab/TabList.html#getEntry-java.util.UUID-">TabList#getEntry(UUID)</a> 方法。如果找不到指定的 UUID 的话，该方法将返回 <code class="docutils literal notranslate"><span class="pre">Optional.empty()</span></code> 。下面是一个示例：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">java.util.Optional</span><span class="p">;</span>
+
+<span class="n">Optional</span><span class="o">&lt;</span><span class="n">TabListEntry</span><span class="o">&gt;</span> <span class="n">optional</span> <span class="o">=</span> <span class="n">tablist</span><span class="p">.</span><span class="na">getEntry</span><span class="p">(</span><span class="n">uuid</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">optional</span><span class="p">.</span><span class="na">isPresent</span><span class="p">())</span> <span class="p">{</span>
+    <span class="n">TabListEntry</span> <span class="n">entry</span> <span class="o">=</span> <span class="n">optional</span><span class="p">.</span><span class="na">get</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>有了这个，我们可以使用 <code class="docutils literal notranslate"><span class="pre">TabListEntry</span></code> 的若干方法来修改游戏模式，延迟和显示名称：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">entry</span><span class="p">.</span><span class="na">setDisplayName</span><span class="p">(</span><span class="n">Text</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;Pretender Spongie&quot;</span><span class="p">));</span>
+<span class="n">entry</span><span class="p">.</span><span class="na">setLatency</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
+<span class="n">entry</span><span class="p">.</span><span class="na">setGameMode</span><span class="p">(</span><span class="n">GameModes</span><span class="p">.</span><span class="na">SPECTATOR</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>和获取条目相对应，我们还可以删除指定的条目。方法 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/living/player/tab/TabList.html#removeEntry-java.util.UUID-">TabList#removeEntry(UUID)</a> 就是用于根据指定的 <code class="docutils literal notranslate"><span class="pre">UUID</span></code> 删除的。与 <code class="docutils literal notranslate"><span class="pre">getEntry(UUID)</span></code> 方法类似，如果找不到指定的 UUID 的话，将返回 <code class="docutils literal notranslate"><span class="pre">Optional.empty()</span></code> 。</p>
+<p>如果我们没有一个特定的玩家列表条目，我们可以遍历 <code class="docutils literal notranslate"><span class="pre">TabList</span></code> 中所有的 <code class="docutils literal notranslate"><span class="pre">TabListEntry</span></code> 。我们只需要调用 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/entity/living/player/tab/TabList.html#getEntries--">TabList#getEntries()</a> 方法以获取一个 <code class="docutils literal notranslate"><span class="pre">Collection&lt;TabListEntry&gt;</span></code> 就可以遍历了。</p>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="plugin-meta.html" class="btn btn-neutral float-right" title="插件的元数据" accesskey="n" rel="next">下一页 <span class="fa fa-angle-right"></span></a>
+        <a href="offline-userplayer-data.html" class="btn btn-neutral" title="离线玩家数据" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> 上一页</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../_static/flags/zh_CN.svg"
+         alt="zh-CN" title="简体中文">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../_static/jquery.js"></script>      <script type="text/javascript" src="../_static/underscore.js"></script>      <script type="text/javascript" src="../_static/doctools.js"></script>      <script type="text/javascript" src="../_static/language_data.js"></script>      <script type="text/javascript" src="../_static/translations.js"></script>      <script type="text/javascript" src="../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

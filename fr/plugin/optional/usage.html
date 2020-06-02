@@ -1,0 +1,419 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exemples d’utilisation &mdash; Documentation Sponge 7.2.0</title>
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>        <link rel="search" title="Recherche" href="../../search.html"/>    <link rel="top" title="Documentation Sponge 7.2.0" href="../../index.html"/>        <link rel="up" title="Optionnels" href="index.html"/>        <link rel="next" title="Journalisation (Logging) et Débogage" href="../logging.html"/>        <link rel="prev" title="Explication des Optionals" href="basic.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../../index.html">
+            <img src="../../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../server/index.html">Créer un Serveur</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../versions/index.html">Stratégie de versioning</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../preparing/index.html">Préparation pour le développement</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Création d’un Plugin</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../api-versions.html">Versions de l’API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../buildsystem.html">Build Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../workspace/index.html">Mise en Place de votre Espace de Travail</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../project/index.html">Configurer Votre Projet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-identifier.html">Identifiants de Plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-class.html">Classe Principale du Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lifecycle.html">Cycle de vie des Plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../injection.html">Injection de Dépendances</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../practices/index.html">Bonnes Pratiques</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Optionnels</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="basic.html">Explication des Optionals</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Exemples d’utilisation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../logging.html">Journalisation (Logging) et Débogage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text/index.html">Text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/index.html">Commandes de Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../event/index.html">Événements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/index.html">Configuration des plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assets.html">L’API des Ressources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data/index.html">La Data API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../blocks/index.html">Blocs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../entities/index.html">Entités</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../items/index.html">Items</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../trade-offers.html">Trade-Offers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../effects.html">Effets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../scheduler.html">Scheduler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../services.html">Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database.html">Bases de données</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../permissions.html">Permissions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bans.html">Bans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metrics.html">Collection de Metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bookview.html">Views d’un Livre</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../economy/index.html">Économie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wgen/index.html">Génération du monde</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manager.html">Gestionnaire de Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../game-profile-manager.html">Gestionnaire de Profil de Jeu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../offline-userplayer-data.html">Données du Joueur Hors-Ligne</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tab-lists.html">Tab Lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-meta.html">Plugin Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ray-tracing.html">Ray Tracing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../debugging.html">Debugging d’un plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials.html">Tutoriels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internals/index.html">Plugins dépendants des implémentations</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ore/index.html">Documentation d’Ore</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/index.html">Contribuer à Sponge</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">À propos du Projet Sponge</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+          <li><a href="../index.html">Création d’un Plugin</a> &raquo;</li>
+          <li><a href="index.html">Optionnels</a> &raquo;</li>
+    <li>Exemples d’utilisation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/plugin/optional/usage.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="usage-examples">
+<h1>Exemples d’utilisation<a class="headerlink" href="#usage-examples" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Maintenant que nous avons appris pourquoi les <code class="docutils literal notranslate"><span class="pre">Optional</span></code>s sont utilisés, regardons ce que nous pouvons réellement faire avec eux en Java. Ces exemples de code (et Sponge) utilisent la classe <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html">java.util.Optional</a> disponible dans Java 8.</p>
+<div class="section" id="obtaining-the-wrapped-value">
+<h2>Obtenir une Valeur encapsulée<a class="headerlink" href="#obtaining-the-wrapped-value" title="Lien permanent vers ce titre">¶</a></h2>
+<p>La méthode <code class="docutils literal notranslate"><span class="pre">get()</span></code> va déballer un <code class="docutils literal notranslate"><span class="pre">Optional</span></code> et retourner la valeur encapsulée. Si aucune valeur n’est présente, appeler <code class="docutils literal notranslate"><span class="pre">get()</span></code> lèvera une <code class="docutils literal notranslate"><span class="pre">NoSuchElementException</span></code>, donc une vérification de présence doit être performée en premier.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Optional</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">opt</span> <span class="o">=</span> <span class="n">getOptionalString</span><span class="p">();</span>
+<span class="n">String</span> <span class="n">wrappedString</span> <span class="o">=</span> <span class="n">opt</span><span class="p">.</span><span class="na">get</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="handling-absent-values">
+<h2>Gérer l’absence de Valeurs<a class="headerlink" href="#handling-absent-values" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Le but du type <code class="docutils literal notranslate"><span class="pre">Optional</span></code> est de représenter une valeur qui pourrait ou ne pourrait pas être là. Par conséquent, plusieurs cas d’utilisation tournent auteur de la gestion de valeurs absentes.</p>
+<div class="section" id="presence-check">
+<h3>Vérification de la Présence<a class="headerlink" href="#presence-check" title="Lien permanent vers ce titre">¶</a></h3>
+<p>La méthode <code class="docutils literal notranslate"><span class="pre">isPresent()</span></code> retourne true si une valeur est présente dans l”<code class="docutils literal notranslate"><span class="pre">Optional</span></code>. Il peut fournir la vérification la plus basique et est un équivalent à un <code class="docutils literal notranslate"><span class="pre">null</span></code> check classique.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Optional</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">opt</span> <span class="o">=</span> <span class="n">getOptionalString</span><span class="p">();</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">opt</span><span class="p">.</span><span class="na">isPresent</span><span class="p">())</span> <span class="p">{</span>
+    <span class="n">String</span> <span class="n">wrappedString</span> <span class="o">=</span> <span class="n">opt</span><span class="p">.</span><span class="na">get</span><span class="p">();</span>
+    <span class="c1">// more code</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-default-values">
+<h3>Utilisation des valeurs par défaut<a class="headerlink" href="#using-default-values" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Un modèle commun est de retomber à une valeur par défaut si aucune n’est présente. La méthode <code class="docutils literal notranslate"><span class="pre">orElse()</span></code> permet une déclaration d’une seule ligne qui va renvoyer soit la valeur actuelle dans l”<code class="docutils literal notranslate"><span class="pre">Optional</span></code>, soit la valeur par défaut fournie.</p>
+<p>Au lieu de</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Optional</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">optionalString</span> <span class="o">=</span> <span class="n">getOptionalString</span><span class="p">();</span>
+<span class="n">String</span> <span class="n">someString</span><span class="p">;</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">optionalString</span><span class="p">.</span><span class="na">isPresent</span><span class="p">())</span> <span class="p">{</span>
+    <span class="n">someString</span> <span class="o">=</span> <span class="n">optionalString</span><span class="p">.</span><span class="na">get</span><span class="p">();</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="n">someString</span> <span class="o">=</span> <span class="n">DEFAULT_STRING</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>utilisez simplement</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">someString</span> <span class="o">=</span> <span class="n">getOptionalString</span><span class="p">().</span><span class="na">orElse</span><span class="p">(</span><span class="n">DEFAULT_STRING</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Dans certains cas, une valeur par défaut doit être calculée d’une manière qui a des effets secondaires ou particulièrement coûteuse. Dans ce cas, il convient de calculer la valeur par défaut uniquement si c’est nécessaire (<em>lazy evaluation</em>). La méthode <code class="docutils literal notranslate"><span class="pre">orElseGet()</span></code> accepte un <code class="docutils literal notranslate"><span class="pre">Supplier</span></code> plutôt qu’une valeur pré-calculée. Si aucune valeur n’est présente dans le <code class="docutils literal notranslate"><span class="pre">Optional</span></code> lui-même, le <code class="docutils literal notranslate"><span class="pre">Supplier</span></code> sera appelé. Puisque <code class="docutils literal notranslate"><span class="pre">Supplier</span></code> est une interface fonctionnelle, une expression lambda ou une référence de méthode peut être passée à la place.</p>
+<p>Au lieu de</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Optional</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">optionalString</span> <span class="o">=</span> <span class="n">getOptionalString</span><span class="p">();</span>
+<span class="n">String</span> <span class="n">someString</span><span class="p">;</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">optionalString</span><span class="p">.</span><span class="na">isPresent</span><span class="p">())</span> <span class="p">{</span>
+    <span class="n">someString</span> <span class="o">=</span> <span class="n">optionalString</span><span class="p">.</span><span class="na">get</span><span class="p">();</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="n">someString</span> <span class="o">=</span> <span class="n">myPlugin</span><span class="p">.</span><span class="na">defaultString</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>utilisez simplement</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">someString</span> <span class="o">=</span> <span class="n">getOptionalString</span><span class="p">().</span><span class="na">orElseGet</span><span class="p">(</span><span class="n">myPlugin</span><span class="p">::</span><span class="n">defaultString</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="fail-on-absent-values">
+<h3>Échouer lors de Valeurs absentes<a class="headerlink" href="#fail-on-absent-values" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Si une valeur absente doit conduire à une exception, il est quasiment toujours meilleur de lever une exception personnalisée au lieu de dépendre du <code class="docutils literal notranslate"><span class="pre">NoSuchElementException</span></code> par défaut. Si vous appelez la méthode <code class="docutils literal notranslate"><span class="pre">orElseThrow()</span></code> avec un <code class="docutils literal notranslate"><span class="pre">Supplier</span></code>, il va retourner la valeur enveloppée si elle est présente, ou lever un <code class="docutils literal notranslate"><span class="pre">Throwable</span></code> obtenu depuis le <code class="docutils literal notranslate"><span class="pre">Supplier</span></code> si l”<code class="docutils literal notranslate"><span class="pre">Optional</span></code> est vide. Encore une fois, puisque <code class="docutils literal notranslate"><span class="pre">Supplier</span></code> est une interface fonctionnelle, les expressions lambda ou les méthodes références peuvent être utilisées à la place.</p>
+<p>Au lieu de</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Optional</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">optionalString</span> <span class="o">=</span> <span class="n">getOptionalString</span><span class="p">();</span>
+<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">optionalString</span><span class="p">.</span><span class="na">isPresent</span><span class="p">())</span> <span class="p">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="n">MyException</span><span class="p">();</span>
+<span class="p">}</span>
+<span class="n">String</span> <span class="n">someString</span> <span class="o">=</span> <span class="n">optionalString</span><span class="p">.</span><span class="na">get</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>utilisez simplement</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">someString</span> <span class="o">=</span> <span class="n">getOptionalString</span><span class="p">().</span><span class="na">orElseThrow</span><span class="p">(</span><span class="n">MyException</span><span class="p">::</span><span class="k">new</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Si le <code class="docutils literal notranslate"><span class="pre">Throwable</span></code> fournit par le supplier est une exception vérifiée, il devrait également être inclus dans la signature de la fonction environnante (par exemple <code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">void</span> <span class="pre">doStuff()</span> <span class="pre">throws</span> <span class="pre">MyException</span></code>)</p>
+</div>
+</div>
+</div>
+<div class="section" id="conditional-code-execution">
+<h2>Exécution de Code Conditionnel<a class="headerlink" href="#conditional-code-execution" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Si aucune valeur par défaut ne peut être utilisée, le code qui repose sur une valeur étant présente ne peut être exécuté. Tandis que ceci pourrait être traité dans une simple condition, il y a d’autres méthodes pratiques.</p>
+<div class="section" id="consuming-values">
+<h3>Valeurs Consommantes<a class="headerlink" href="#consuming-values" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Si votre logique permettant de gérer la valeur actuelle est déjà encapsulée dans un <code class="docutils literal notranslate"><span class="pre">Consumer</span></code> ou une fonction d’un paramètre, la méthode <code class="docutils literal notranslate"><span class="pre">ifPresent()</span></code> va accepter le consumer (ou une référence de méthode). Si la valeur est présente dans l”<code class="docutils literal notranslate"><span class="pre">Optional</span></code>, elle sera passée au consumer. Si le <code class="docutils literal notranslate"><span class="pre">Optional</span></code> est vide, rien ne se passera.</p>
+<p>Au lieu de</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Optional</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">optionalString</span> <span class="o">=</span> <span class="n">getOptionalString</span><span class="p">();</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">optionalString</span><span class="p">.</span><span class="na">isPresent</span><span class="p">())</span> <span class="p">{</span>
+    <span class="n">myPlugin</span><span class="p">.</span><span class="na">doSomethingWithString</span><span class="p">(</span><span class="n">optionalString</span><span class="p">.</span><span class="na">get</span><span class="p">());</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>utilisez simplement</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Optional</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">optionalString</span> <span class="o">=</span> <span class="n">getOptionalString</span><span class="p">();</span>
+<span class="n">optionalString</span><span class="p">.</span><span class="na">ifPresent</span><span class="p">(</span><span class="n">s</span> <span class="o">-&gt;</span> <span class="n">myPlugin</span><span class="p">.</span><span class="na">doSomethingWithString</span><span class="p">(</span><span class="n">s</span><span class="p">));</span>
+</pre></div>
+</div>
+<p>ou</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">getOptionalString</span><span class="p">().</span><span class="na">ifPresent</span><span class="p">(</span><span class="n">myPlugin</span><span class="p">::</span><span class="n">doSomethingWithString</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="filtering">
+<h3>Filtrage<a class="headerlink" href="#filtering" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Il est également possible de passer un <code class="docutils literal notranslate"><span class="pre">Predicate</span></code>. Seules les valeurs avec lesquelles ce <code class="docutils literal notranslate"><span class="pre">Predicate</span></code> retourne vrai seront conservées. Si aucune valeur n’est présente ou si le <code class="docutils literal notranslate"><span class="pre">Predicate</span></code> retourne <code class="docutils literal notranslate"><span class="pre">false</span></code>, un <code class="docutils literal notranslate"><span class="pre">Optional</span></code> vide sera retourné. Puisque cette méthode retourne un optional, elle permet de faire une chaîne avec les autres méthodes.</p>
+<p>Au lieu de</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Optional</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">optionalString</span> <span class="o">=</span> <span class="n">getOptionalString</span><span class="p">();</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">optionalString</span><span class="p">.</span><span class="na">isPresent</span><span class="p">())</span> <span class="p">{</span>
+    <span class="n">String</span> <span class="n">someString</span> <span class="o">=</span> <span class="n">optionalString</span><span class="p">.</span><span class="na">get</span><span class="p">();</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">stringTester</span><span class="p">.</span><span class="na">isPalindromic</span><span class="p">(</span><span class="n">someString</span><span class="p">))</span> <span class="p">{</span>
+        <span class="n">myPlugin</span><span class="p">.</span><span class="na">doSomethingWithString</span><span class="p">(</span><span class="n">someString</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>utilisez simplement</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">getOptionalString</span><span class="p">()</span>
+      <span class="p">.</span><span class="na">filter</span><span class="p">(</span><span class="n">stringTester</span><span class="p">::</span><span class="n">isPalindromic</span><span class="p">)</span>
+      <span class="p">.</span><span class="na">ifPresent</span><span class="p">(</span><span class="n">myPlugin</span><span class="p">::</span><span class="n">doSomethingWithString</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Ni cette fonction de filtrage, ni les fonctions de mapping décrites ci-dessous ne modifient l’instance sur laquelle ils sont appelés. Les <code class="docutils literal notranslate"><span class="pre">Optional</span></code>s sont toujours immuables.</p>
+</div>
+</div>
+<div class="section" id="mapping">
+<h3>Mapping<a class="headerlink" href="#mapping" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Une autre opération de chaînage consiste à mapper la valeur potentielle en une valeur différente. Si aucune valeur n’est présente, rien ne va changer. Mais si elle est présente, la méthode <code class="docutils literal notranslate"><span class="pre">map()</span></code> va retourner un <code class="docutils literal notranslate"><span class="pre">Optional</span></code> de la valeur retournée par la <code class="docutils literal notranslate"><span class="pre">Function</span></code> fournie (ou un <code class="docutils literal notranslate"><span class="pre">Optional</span></code> vide si cette valeur de retour est <code class="docutils literal notranslate"><span class="pre">null</span></code>).</p>
+<p>Au lieu de</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Optional</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">optionalString</span> <span class="o">=</span> <span class="n">getOptionalString</span><span class="p">();</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">optionalString</span><span class="p">.</span><span class="na">isPresent</span><span class="p">())</span> <span class="p">{</span>
+    <span class="n">String</span> <span class="n">someString</span> <span class="o">=</span> <span class="n">optionalString</span><span class="p">.</span><span class="na">get</span><span class="p">().</span><span class="na">toLowerCase</span><span class="p">();</span>
+    <span class="n">myPlugin</span><span class="p">.</span><span class="na">doSomethingWithString</span><span class="p">(</span><span class="n">someString</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>utilisez simplement</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">getOptionalString</span><span class="p">()</span>
+      <span class="p">.</span><span class="na">map</span><span class="p">(</span><span class="n">s</span> <span class="o">-&gt;</span> <span class="n">s</span><span class="p">.</span><span class="na">toLowerCase</span><span class="p">())</span>
+      <span class="p">.</span><span class="na">ifPresent</span><span class="p">(</span><span class="n">myPlugin</span><span class="p">::</span><span class="n">doSomethingWithString</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">Astuce</p>
+<p class="last">Si votre fonction de mapping retourne déjà un <code class="docutils literal notranslate"><span class="pre">Optional</span></code>, utilisez la méthode <code class="docutils literal notranslate"><span class="pre">flatMap()</span></code> à la place. Elle se comportera comme <code class="docutils literal notranslate"><span class="pre">map()</span></code>, sauf qu’elle attend que la fonction de mapping retourne déjà un <code class="docutils literal notranslate"><span class="pre">Optional</span></code> et ne va donc pas emballer le résultat.</p>
+</div>
+</div>
+<div class="section" id="combined-example">
+<h3>Exemples Combinés<a class="headerlink" href="#combined-example" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Imaginez un plugin qui permet à chaque joueur d’avoir un animal de compagnie qui le suit. Supposons l’existence des méthodes suivantes :</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">petRegistry.getPetForPlayer()</span></code> acceptant un <code class="docutils literal notranslate"><span class="pre">Player``et</span> <span class="pre">retournant</span> <span class="pre">un</span> <span class="pre">``Optional&lt;Pet&gt;</span></code>. Cette méthode regarde l’animal associé au joueur donné</li>
+<li><code class="docutils literal notranslate"><span class="pre">petHelper.canSpawn()</span></code> acceptant un <code class="docutils literal notranslate"><span class="pre">Pet</span></code> et retournant un <code class="docutils literal notranslate"><span class="pre">boolean</span></code>. Cette méthode effectue toutes les vérifications nécessaires pour s’assurer que l’animal donné peut être invoqué.</li>
+<li><code class="docutils literal notranslate"><span class="pre">petHelper.spawnPet()</span></code> acceptant un <code class="docutils literal notranslate"><span class="pre">Pet</span></code> et ne retournant rien. Cette méthode va faire apparaître un animal pas encore apparu.</li>
+</ul>
+<p>Maintenant depuis quelque part (probablement l’exécution d’une commande) nous avons notre variable <code class="docutils literal notranslate"><span class="pre">optionalPlayer</span></code> contenant un <code class="docutils literal notranslate"><span class="pre">Optional&lt;Player&gt;</span></code>. Nous voulons maintenant obtenir l’animal de compagnie de ce joueur, vérifier si l’animal est déjà apparu et si il ne l’est pas, le faire apparaître tout en effectuant les vérifications nécessaires pour savoir si tous les <code class="docutils literal notranslate"><span class="pre">Optional</span></code> contiennent une valeur. Le code utilisant seulement les méthodes basiques <code class="docutils literal notranslate"><span class="pre">isPresent()</span></code> et <code class="docutils literal notranslate"><span class="pre">get()</span></code> devient mauvais vraiment rapidement.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">optionalPlayer</span><span class="p">.</span><span class="na">isPresent</span><span class="p">())</span> <span class="p">{</span>
+    <span class="n">Player</span> <span class="n">player</span> <span class="o">=</span> <span class="n">optionalPlayer</span><span class="p">.</span><span class="na">get</span><span class="p">();</span>
+    <span class="n">Optional</span><span class="o">&lt;</span><span class="n">Pet</span><span class="o">&gt;</span> <span class="n">optionalPet</span> <span class="o">=</span> <span class="n">petRegistry</span><span class="p">.</span><span class="na">getPetForPlayer</span><span class="p">(</span><span class="n">player</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">optionalPet</span><span class="p">.</span><span class="na">isPresent</span><span class="p">())</span> <span class="p">{</span>
+        <span class="n">Pet</span> <span class="n">pet</span> <span class="o">=</span> <span class="n">optionalPet</span><span class="p">.</span><span class="na">get</span><span class="p">();</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">petHelper</span><span class="p">.</span><span class="na">canSpawn</span><span class="p">(</span><span class="n">pet</span><span class="p">))</span> <span class="p">{</span>
+            <span class="n">petHelper</span><span class="p">.</span><span class="na">spawnPet</span><span class="p">(</span><span class="n">pet</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Toutefois, à travers l’utilisation des méthodes <code class="docutils literal notranslate"><span class="pre">Optional</span></code> pour l’exécution de code conditionnelle, toutes ces vérifications de présence sont cachées, réduisant le code de référence et les niveaux d’indentation et rendant ainsi le code beaucoup plus lisible :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">optionalPlayer</span>
+      <span class="p">.</span><span class="na">flatMap</span><span class="p">(</span><span class="n">petRegistry</span><span class="p">::</span><span class="n">getPetForPlayer</span><span class="p">)</span>
+      <span class="p">.</span><span class="na">filter</span><span class="p">(</span><span class="n">petHelper</span><span class="p">::</span><span class="n">canSpawn</span><span class="p">)</span>
+      <span class="p">.</span><span class="na">ifPresent</span><span class="p">(</span><span class="n">petHelper</span><span class="p">::</span><span class="n">spawnPet</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="creating-optionals">
+<h2>Créer des Optionals<a class="headerlink" href="#creating-optionals" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Si vous choisissez de fournir une API suivant le même contrat d’utiliser les <code class="docutils literal notranslate"><span class="pre">Optional</span></code> au lieu de retourner des valeurs <code class="docutils literal notranslate"><span class="pre">null</span></code>, vous derez créer des <code class="docutils literal notranslate"><span class="pre">Optional</span></code>s pour pouvoir les retourner. Cela se fait en appelant l’une des trois méthodes de constructeur statiques.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Optional.empty()</span></code> retournera toujours un <code class="docutils literal notranslate"><span class="pre">Optional</span></code> vide.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Optional.of()</span></code> retournera un optional emballant la valeur donnée et déclenchera un <code class="docutils literal notranslate"><span class="pre">NullPointerException</span></code> si la valeur était <code class="docutils literal notranslate"><span class="pre">null</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Optional.ofNullable()</span></code> va retourner un <code class="docutils literal notranslate"><span class="pre">Optional</span></code> vide si la valeur fournie est <code class="docutils literal notranslate"><span class="pre">null</span></code>, sinon elle retournera un <code class="docutils literal notranslate"><span class="pre">Optional</span></code> enveloppant la valeur.</p>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../logging.html" class="btn btn-neutral float-right" title="Journalisation (Logging) et Débogage" accesskey="n" rel="next">Suivant <span class="fa fa-angle-right"></span></a>
+        <a href="basic.html" class="btn btn-neutral" title="Explication des Optionals" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> Précédent</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../../_static/flags/fr_FR.svg"
+         alt="fr" title="Français">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../../_static/jquery.js"></script>      <script type="text/javascript" src="../../_static/underscore.js"></script>      <script type="text/javascript" src="../../_static/doctools.js"></script>      <script type="text/javascript" src="../../_static/language_data.js"></script>      <script type="text/javascript" src="../../_static/translations.js"></script>      <script type="text/javascript" src="../../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

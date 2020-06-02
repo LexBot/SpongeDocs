@@ -1,0 +1,293 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>注意事项 &mdash; Sponge 7.2.0 文档</title>
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="索引"
+              href="../../genindex.html"/>        <link rel="search" title="搜索" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 文档" href="../../index.html"/>        <link rel="up" title="经济 API" href="index.html"/>        <link rel="next" title="实现一个经济 API" href="implementing.html"/>        <link rel="prev" title="使用经济 API" href="using.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../../index.html">
+            <img src="../../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../server/index.html">创建服务器</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../versions/index.html">版本策略</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../preparing/index.html">为开发作准备</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">插件开发</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../api-versions.html">API版本</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../buildsystem.html">构建系统</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../workspace/index.html">设置开发环境</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../project/index.html">设置你的项目</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-identifier.html">插件标识符</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-class.html">插件的主类</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lifecycle.html">插件的生命周期</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../injection.html">依赖注入</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../practices/index.html">插件开发惯例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../optional/index.html">使用 Optional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../logging.html">日志记录和调试</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text/index.html">文本 API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/index.html">插件命令</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../event/index.html">事件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/index.html">插件配置</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assets.html">使用 Asset API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data/index.html">数据 API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../blocks/index.html">方块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../entities/index.html">实体</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../items/index.html">物品</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../trade-offers.html">村民交易</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../effects.html">效果</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../scheduler.html">调度器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../services.html">服务</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database.html">数据库</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../permissions.html">权限</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bans.html">黑名单</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metrics.html">Metrics 收集</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bookview.html">成书</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">经济 API</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="basics.html">基本概念</a></li>
+<li class="toctree-l3"><a class="reference internal" href="using.html">使用经济 API</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">注意事项</a></li>
+<li class="toctree-l3"><a class="reference internal" href="implementing.html">实现一个经济 API</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../wgen/index.html">世界生成</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manager.html">插件管理器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../game-profile-manager.html">玩家资料管理器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../offline-userplayer-data.html">离线玩家数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tab-lists.html">玩家列表</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-meta.html">插件的元数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ray-tracing.html">光线追踪</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../debugging.html">调试插件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials.html">教程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internals/index.html">依赖底层实现</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ore/index.html">Ore 文档</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/index.html">向 Sponge 贡献代码</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">关于 Sponge</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+          <li><a href="../index.html">插件开发</a> &raquo;</li>
+          <li><a href="index.html">经济 API</a> &raquo;</li>
+    <li>注意事项</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/plugin/economy/practices.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="economy-api-best-practices">
+<h1>注意事项<a class="headerlink" href="#economy-api-best-practices" title="永久链接至标题">¶</a></h1>
+<p>经济 API 试图是足够抽象的接口，以给予经济插件操作的灵活性。为了使经济插件能够尽可能大地控制经济系统，使用经济 API 的插件在使用时应遵循一些准则：</p>
+<div class="section" id="withdrawing-money">
+<h2>支出<a class="headerlink" href="#withdrawing-money" title="永久链接至标题">¶</a></h2>
+<p>在支出前插件 <em>不应</em> 检查帐户中是否有足够的余额。虽然这听起来很反直觉，但是这有利于经济插件提供对负数余额的全面支持。</p>
+<p>通过检查自己帐户是否有足够的钱，你成功地防止经济插件（可能）允许负数余额。然而，一个经济插件可能想要允许管理员或具有一定权限的玩家使用负数余额。通过自己执行检查，你把这个权利从经济插件手中剥夺了。</p>
+<p>这段代码演示了 <strong>反面教材</strong> ：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">java.math.BigDecimal</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.event.cause.Cause</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.event.cause.EventContext</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.event.cause.EventContextKeys</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.service.economy.EconomyService</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.service.economy.account.Account</span><span class="p">;</span>
+
+<span class="n">PluginContainer</span> <span class="n">plugin</span> <span class="o">=</span> <span class="p">...;</span>
+<span class="n">EconomyService</span> <span class="n">service</span> <span class="o">=</span> <span class="p">...;</span>
+<span class="n">Account</span> <span class="n">account</span> <span class="o">=</span> <span class="p">...;</span>
+<span class="n">BigDecimal</span> <span class="n">requiredAmount</span> <span class="o">=</span> <span class="n">BigDecimal</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="mi">20</span><span class="p">);</span>
+<span class="n">EventContext</span> <span class="n">eventContext</span> <span class="o">=</span> <span class="n">EventContext</span><span class="p">.</span><span class="na">builder</span><span class="p">().</span><span class="na">add</span><span class="p">(</span><span class="n">EventContextKeys</span><span class="p">.</span><span class="na">PLUGIN</span><span class="p">,</span> <span class="n">plugin</span><span class="p">).</span><span class="na">build</span><span class="p">();</span>
+
+<span class="c1">// BAD: Don&#39;t perform this check</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">account</span><span class="p">.</span><span class="na">getBalance</span><span class="p">(</span><span class="n">service</span><span class="p">.</span><span class="na">getDefaultCurrency</span><span class="p">()).</span><span class="na">compareTo</span><span class="p">(</span><span class="n">requiredAmount</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// You don&#39;t have enough money!</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="c1">// The account has enough, let&#39;s withdraw some cash!</span>
+    <span class="n">account</span><span class="p">.</span><span class="na">withdraw</span><span class="p">(</span><span class="n">service</span><span class="p">.</span><span class="na">getDefaultCurrency</span><span class="p">(),</span> <span class="n">requiredAmount</span><span class="p">,</span> <span class="n">Cause</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">eventContext</span><span class="p">,</span> <span class="n">plugin</span><span class="p">));</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>相反，你需要做的事件只是简单地支出你想要支出的，然后通过检查返回的 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/economy/transaction/TransactionResult.html">TransactionResult</a> 的 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/economy/transaction/ResultType.html">ResultType</a> 解决问题。一个不支持负数余额的经济插件会简简单单地返回一个 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/economy/transaction/ResultType.html#ACCOUNT_NO_FUNDS">ResultType#ACCOUNT_NO_FUNDS</a> 或者 <a class="reference external" href="https://jd.spongepowered.org/7.2.0/org/spongepowered/api/service/economy/transaction/ResultType.html#FAILED">ResultType#FAILED</a> 。</p>
+<p>这个才是 <strong>正确示例</strong> ：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.spongepowered.api.event.cause.Cause</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.event.cause.EventContext</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.event.cause.EventContextKeys</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.service.economy.transaction.ResultType</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.service.economy.transaction.TransactionResult</span><span class="p">;</span>
+
+<span class="n">PluginContainer</span> <span class="n">plugin</span> <span class="o">=</span> <span class="p">...;</span>
+<span class="n">EconomyService</span> <span class="n">service</span> <span class="o">=</span> <span class="p">...;</span>
+<span class="n">Account</span> <span class="n">account</span> <span class="o">=</span> <span class="p">...;</span>
+<span class="n">BigDecimal</span> <span class="n">requiredAmount</span> <span class="o">=</span> <span class="n">BigDecimal</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="mi">20</span><span class="p">);</span>
+<span class="n">EventContext</span> <span class="n">eventContext</span> <span class="o">=</span> <span class="n">EventContext</span><span class="p">.</span><span class="na">builder</span><span class="p">().</span><span class="na">add</span><span class="p">(</span><span class="n">EventContextKeys</span><span class="p">.</span><span class="na">PLUGIN</span><span class="p">,</span> <span class="n">plugin</span><span class="p">).</span><span class="na">build</span><span class="p">();</span>
+
+<span class="n">TransactionResult</span> <span class="n">result</span> <span class="o">=</span> <span class="n">account</span><span class="p">.</span><span class="na">withdraw</span><span class="p">(</span><span class="n">service</span><span class="p">.</span><span class="na">getDefaultCurrency</span><span class="p">(),</span> <span class="n">requiredAmount</span><span class="p">,</span>
+                <span class="n">Cause</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">eventContext</span><span class="p">,</span> <span class="n">plugin</span><span class="p">));</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="na">getResult</span><span class="p">()</span> <span class="o">==</span> <span class="n">ResultType</span><span class="p">.</span><span class="na">SUCCESS</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Success!</span>
+<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="na">getResult</span><span class="p">()</span> <span class="o">==</span> <span class="n">ResultType</span><span class="p">.</span><span class="na">FAILED</span> <span class="o">||</span> <span class="n">result</span><span class="p">.</span><span class="na">getResult</span><span class="p">()</span> <span class="o">==</span> <span class="n">ResultType</span><span class="p">.</span><span class="na">ACCOUNT_NO_FUNDS</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Something went wrong!</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="c1">// Handle other conditions</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="implementing.html" class="btn btn-neutral float-right" title="实现一个经济 API" accesskey="n" rel="next">下一页 <span class="fa fa-angle-right"></span></a>
+        <a href="using.html" class="btn btn-neutral" title="使用经济 API" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> 上一页</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../../_static/flags/zh_CN.svg"
+         alt="zh-CN" title="简体中文">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../../_static/jquery.js"></script>      <script type="text/javascript" src="../../_static/underscore.js"></script>      <script type="text/javascript" src="../../_static/doctools.js"></script>      <script type="text/javascript" src="../../_static/language_data.js"></script>      <script type="text/javascript" src="../../_static/translations.js"></script>      <script type="text/javascript" src="../../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

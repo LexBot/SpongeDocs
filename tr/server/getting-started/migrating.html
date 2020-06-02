@@ -1,0 +1,407 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sponge’ye geçiş &mdash; Sponge 7.2.0 belgelendirme çalışması</title>
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="Dizin"
+              href="../../genindex.html"/>        <link rel="search" title="Ara" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 belgelendirme çalışması" href="../../index.html"/>        <link rel="up" title="Başlarken" href="index.html"/>        <link rel="next" title="Bir implemasyon seçme" href="implementations/index.html"/>        <link rel="prev" title="Java kurulumu" href="jre.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../../index.html">
+            <img src="../../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Bir sunucu oluşturma</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html">Quick Start Guide</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Başlarken</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="jre.html">Java kurulumu</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Sponge’ye geçiş</a></li>
+<li class="toctree-l3"><a class="reference internal" href="implementations/index.html">Bir implemasyon seçme</a></li>
+<li class="toctree-l3"><a class="reference internal" href="launch-script.html">Başlatma Komut Dosyası oluşturma</a></li>
+<li class="toctree-l3"><a class="reference internal" href="port-forward.html">Port Yönlendirme</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bungeecord.html">Using Sponge with Server Proxies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configuration/index.html">Sünger yapılanması</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../management/index.html">Sunucu yönetimi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spongineer/index.html">Uzman Bir Spongineer Olma</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../versions/index.html">Versioning Policy</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../preparing/index.html">Geliştirme için hazırlanıyor</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../plugin/index.html">Bir eklenti oluşturma</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ore/index.html">Ore Dökümanları</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/index.html">Sponge’a Katkı Sağlama</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">Sponge Projesi Hakkında</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+          <li><a href="../index.html">Bir sunucu oluşturma</a> &raquo;</li>
+          <li><a href="index.html">Başlarken</a> &raquo;</li>
+    <li>Sponge’ye geçiş</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/server/getting-started/migrating.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="migrating-to-sponge">
+<h1>Sponge’ye geçiş<a class="headerlink" href="#migrating-to-sponge" title="Bu başlığın kalıcı bağlantısı">¶</a></h1>
+<p>Bu bölümdeki makalelerin amacı, mevcut sunucu sahiplerinin diğer sunucu platformlarından Sponge’ye geçmesine yardımcı olmaktır.</p>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><a class="reference internal" href="#id1" id="id5">Sponge’ye geçiş</a><ul>
+<li><a class="reference internal" href="#migrating-from-craftbukkit-or-spigot" id="id6">CraftBukkit veya Spigot’dan Geçiş Yapma</a></li>
+<li><a class="reference internal" href="#migrating-from-canary" id="id7">Canary’den göç</a></li>
+<li><a class="reference internal" href="#migrating-from-forge" id="id8">Forge’dan geçiş</a></li>
+<li><a class="reference internal" href="#migrating-from-vanilla" id="id9">Vanilla’dan geçiş</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#installing-sponge" id="id10">Sünger yükleme</a></li>
+</ul>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Uyarı</p>
+<p class="last">Taşıma işleminden <strong>önce</strong> sunucu dosyalarınızı yedekleyin. Bir şeyler ters giderse, yedekleriniz hala var!</p>
+</div>
+<div class="section" id="id1">
+<h2><a class="toc-backref" href="#id5">Sponge’ye geçiş</a><a class="headerlink" href="#id1" title="Bu başlığın kalıcı bağlantısı">¶</a></h2>
+<p>SpongeForge veya SpongeVanilla’ya geçmek için, aşağıdaki bölümlere bak. Çoğu talimat her ikisi için de aynıdır, farklılıklar aşağıda belirtilmiştir.</p>
+<div class="section" id="migrating-from-craftbukkit-or-spigot">
+<h3><a class="toc-backref" href="#id6">CraftBukkit veya Spigot’dan Geçiş Yapma</a><a class="headerlink" href="#migrating-from-craftbukkit-or-spigot" title="Bu başlığın kalıcı bağlantısı">¶</a></h3>
+<div class="admonition note">
+<p class="first admonition-title">Not</p>
+<p class="last">Spigot, CraftBukkit’in modifiye edilmiş bir kısmıdır.</p>
+</div>
+<div class="section" id="worlds">
+<h4>Dünyalar<a class="headerlink" href="#worlds" title="Bu başlığın kalıcı bağlantısı">¶</a></h4>
+<p>Forge, and thus SpongeForge (and also SpongeVanilla), use the same world structure as vanilla Minecraft. Vanilla Minecraft
+places the nether (typically <code class="docutils literal notranslate"><span class="pre">world_nether</span></code>) and the end (typically <code class="docutils literal notranslate"><span class="pre">world_the_end</span></code>) dimensions within the
+<code class="docutils literal notranslate"><span class="pre">world</span></code> folder. However, Bukkit and Spigot <em>don’t</em> use this system to save the worlds, thus migration is needed.</p>
+<p>SpongeForge ve SpongeVanilla, dünyalarınızı sizin için dönüştüren tamamen otomatikleştirilmiş bir dönüşüm komut dosyası sağlar:</p>
+<ol class="arabic simple">
+<li>Bukkit veya Spigot sunucunuzu kapatın ve tüm klasörü yedekleyin.</li>
+<li>Eski sunucunuzu çalıştırdığınız klasöre SpongeForge ve SpongeVanilla yükleyin, Bukkit ve Spigot Jar’larını kaldırın. SpongeForge ya da SpongeVanilla’yı doğru bir şekilde nasıl yükleyeceğinizden emin değilseniz, <a class="reference internal" href="implementations/index.html"><span class="doc">bu dokümanı</span></a> okuyun.</li>
+<li>Sponge sunucusunu çalıştırın, migratör otomatik olarak yüklenecektir.</li>
+<li>Taşıyıcı, <code class="docutils literal notranslate"><span class="pre">world-container</span></code> adındaki bir ayar anahtarı için <code class="docutils literal notranslate"><span class="pre">bukkit.yml</span></code> dosyasının içine bakar ve taşınacak dünyalar için o klasörü arar. Eğer o dosya oralarda değilse (ya da bir şeyler o dosyanın okunmasını engelliyorsa), Taşıyıcı, sunucunun <code class="docutils literal notranslate"><span class="pre">root</span></code> klasörünü (CraftBukkit standardı olan) kullanacaktır.</li>
+<li>Now the migration is performed. At this point, worlds are copied over from what we call the <code class="docutils literal notranslate"><span class="pre">world</span> <span class="pre">container</span></code> into
+the folder defined in the <a class="reference external" href="https://minecraft.gamepedia.com/Server.properties">server.properties</a> file via the
+<code class="docutils literal notranslate"><span class="pre">level-name</span></code> key. Note that the original files in the <code class="docutils literal notranslate"><span class="pre">world</span> <span class="pre">container</span></code> remain unchanged, a <em>copy</em> is made during migration.</li>
+<li>Bukkit, garip yerlere (garip adlarla) şeyler koymaktadır, bu yüzden iki önemli düzeltme uygulanmalı. Bu düzeltmelerin (Bukkit’in yapısından ötürü) * varsayımlarına * dayandığını unutmayınız.<ul>
+<li>İlk düzeltme, adı <code class="docutils literal notranslate"><span class="pre">level-name</span></code> ile başlayan ve bir Vanilla boyut adıyla (<code class="docutils literal notranslate"><span class="pre">_nether</span></code>/<code class="docutils literal notranslate"><span class="pre">_the_end</span></code>) biten herhangi bir klasörü, <code class="docutils literal notranslate"><span class="pre">DIM-1</span></code> ve``DIM1`` olarak yeniden adlandırmaktır.</li>
+<li>İkinci düzeltme, Bukkit Vanilla alt/son (nether/the_end) boyutlarındaki <code class="docutils literal notranslate"><span class="pre">bölge</span> <span class="pre">(region)</span></code> verisini taşımaktır. Bukkit bu veriyi <code class="docutils literal notranslate"><span class="pre">DIM-1\region</span></code> ve <code class="docutils literal notranslate"><span class="pre">DIM1\region</span></code> içine koyarken, Vanilla/Forge bu <code class="docutils literal notranslate"><span class="pre">bölge</span> <span class="pre">(region)</span></code> verisinin, dünyaların klasör yapısının <strong>kökünde</strong> olmasını bekler.</li>
+</ul>
+</li>
+</ol>
+<p>Taşıyıcı gerekli tüm yapılandırma değerlerini sağlayamaz. SpongeForge veya SpongeVanilla’ya yüklenirken dünya üzerinde düzgün şekilde çalışması için birkaç parametreyi elle değiştirmenizin nedeni bundan dolayıdır. Doğru parametreleri ayarlamak ve gerçekten dünyayı yüklemek için bir * Dünya Yönetim Eklentisi * kullanmanız şiddetle tavsiye edilir.</p>
+<div class="admonition note">
+<p class="first admonition-title">Not</p>
+<p class="last">Belirtildiği üzere, dünyanızı taşırken birçok varsayımla başa çıkmak zorundayız. <strong>Bu yüzden de Sponge, dünyanı doğrudan yüklemez</strong>, bu işlemi yapmak için bir eklenti yüklemelisiniz.</p>
+</div>
+<p>Taşıma aracıyla oluşturulan çıktı, her şey yolunda giderse şöyle olmalıdır:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[17:32:29] [Server thread/INFO] [Sponge]: Checking for worlds that need to be migrated...
+[17:32:29] [Server thread/INFO] [Sponge]: Migrating [world_lol] from [.].
+[17:32:29] [Server thread/INFO] [Sponge]: Migrated world [world_lol] from [.] to [.\world\world_lol]
+[17:32:29] [Server thread/INFO] [Sponge]: Migrating [world_nether] from [.].
+[17:32:29] [Server thread/INFO] [Sponge]: Migrated world [world_nether] from [.] to [.\world\DIM-1]
+[17:32:29] [Server thread/INFO] [Sponge]: Migrating [world_the_end] from [.].
+[17:32:29] [Server thread/INFO] [Sponge]: Migrated world [world_the_end] from [.] to [.\world\DIM1]
+[17:32:29] [Server thread/INFO] [Sponge]: [3] worlds have been migrated back to Vanilla&#39;s format.
+</pre></div>
+</div>
+<p>Bu tamamlandığında, Sponge yükleyebileceği bir yapıda dünyanın bir kopyasını edinmelisiniz. Orijinal dünya dosyaları, bir şeyler ters gittiğinde orijinal yerinde dokunulmaz kalır.</p>
+</div>
+<div class="section" id="server-and-world-configuration-files">
+<h4>Sunucu ve Dünya Yapılandırma Dosyaları<a class="headerlink" href="#server-and-world-configuration-files" title="Bu başlığın kalıcı bağlantısı">¶</a></h4>
+<p>CraftBukkit ve Sponge, Minecraft tarafından hazırlanan dosyaları paylaşıyor. Bu dosyalar CraftBukkit kurulumunuzda mevcutsa, Sponge’da yeniden kullanılabilir:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">sunucu.özellikleri</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">banlandı-ips.json</span></code></li>
+<li><a href="#id1"><span class="problematic" id="id2">``</span></a>banlanan-oyuncular.json`</li>
+<li><code class="docutils literal notranslate"><span class="pre">ops.json</span></code></li>
+<li><a href="#id1"><span class="problematic" id="id2">``</span></a>usercache.json`</li>
+<li><code class="docutils literal notranslate"><span class="pre">beyazliste.json</span></code></li>
+</ul>
+<p>Aşağıdaki dosyalar yalnızca CraftBukkit tarafından kullanılır ve Sponge bunları kullanmadığından kaldırılabilir:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">bukkit.yml</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">commands.yml</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">yardım.yml</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">izinler.yml</span></code></li>
+</ul>
+<p>Spigot’tan göç eden kullanıcılar “Spigot.yml” ile “Global.conf” karşılaştırılmasını isteyebilirler. `` Spigot.yml`` içindeki bazı tuşların `` global.conf``’ın içinde eşdeğerleri vardır ve her iki dosyada da bulunan anahtarların değerlerinin üzerine kopyalanması istenebilir.</p>
+</div>
+<div class="section" id="plugins">
+<h4>Eklentiler<a class="headerlink" href="#plugins" title="Bu başlığın kalıcı bağlantısı">¶</a></h4>
+<p>Süngerin Bukkit eklentileri için hiçbir yerli desteği bulunmamaktadır. Bununla birlikte, topluluğun kısmşi üyeleri, Bukkit API’sini, bir Sünger sunucusunda çalışması için Bukkit eklentilerine izin verebilecek özel bir Sünger eklentisi içinde yeniden kuruyor. Anca bu eklenti henüz piyasaya sürülemedi.</p>
+<p>Ore, eklentileri bulmak için Sponge’in resmi deposudur ve tüm Sponge eklentilerini Ore’dan indirmeniz önerilir. Bukkit eklentileriniz için değiştirmeler bulurken aklınızda bulundurmanız gereken birkaç nokta vardır:</p>
+<ul class="simple">
+<li>Tüm Bukkit geliştiricileri, eklentilerini Sponge’a taşımayı seçmemişlerdir. Zamanla bir başkası uygun bir yedek oluşturabilir.</li>
+<li>Bukkit’ten taşınan tüm Sponge eklentileri yapılandırma dosyalarını otomatik olarak dönüştürmez. Bireysel eklenti geliştiricileri, yapılandırma dosyalarını otomatik olarak dönüştürüp dönüştürmemeye karar verir.</li>
+<li>Bukkit’ten taşınan bazı Sponge eklentilerinin işlevselliği değişebilir veya aynı yapılandırma yapısını bile kullanmayabilir.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="migrating-from-canary">
+<h3><a class="toc-backref" href="#id7">Canary’den göç</a><a class="headerlink" href="#migrating-from-canary" title="Bu başlığın kalıcı bağlantısı">¶</a></h3>
+<div class="section" id="id2">
+<h4>Dünyalar<a class="headerlink" href="#id2" title="Bu başlığın kalıcı bağlantısı">¶</a></h4>
+<p>Forge ve doğal olarak SpongeForge (SpongeVanilla da), Vanilla Minecraft’la aynı dünya yapısını kullanırlar. Vanilla Minecraft, alt (İng: nether, genellikle <code class="docutils literal notranslate"><span class="pre">world_nether</span></code>) ve son (the end, genellikle <cite>world_the_end`</cite>) boyutlarını <code class="docutils literal notranslate"><span class="pre">dünya</span> <span class="pre">(world)</span></code> klasörüne yerleştirir.</p>
+<p>Canary, <code class="docutils literal notranslate"><span class="pre">world</span></code> klasörünün dışında ve son boyutlarında yeniden yerleştirir; bu, Sponge çalışırken kenarı ve uç boyutlarını korumak istendiğinde giderilmelidir. Bununla birlikte, Canary, Canary dünyalarını <code class="docutils literal notranslate"><span class="pre">/makevanilla`</span> <span class="pre">komutuyla</span> <span class="pre">Spongetarafından</span> <span class="pre">kullanılabilen</span> <span class="pre">bir</span> <span class="pre">yapıya</span> <span class="pre">dönüştürmek</span> <span class="pre">için</span> <span class="pre">kolay</span> <span class="pre">bir</span> <span class="pre">yöntem</span> <span class="pre">sunmaktadır.</span> <span class="pre">Dünya</span> <span class="pre">değişimi</span> <span class="pre">başarılı</span> <span class="pre">olursa,</span> <span class="pre">çıktılar</span> <span class="pre">``vanilla</span></code> klasörüne yerleştirilir.</p>
+</div>
+<div class="section" id="id3">
+<h4>Sunucu ve Dünya Yapılandırma Dosyaları<a class="headerlink" href="#id3" title="Bu başlığın kalıcı bağlantısı">¶</a></h4>
+<p>Sponge, vanilla minecraft tarafından hazırlanan, örneğin “server.properties” gibi birçok dosya kullanır. Ancak, Canary, kullanmaz; Canary’nin vanilla Minecraftla ortak tek dosyası <code class="docutils literal notranslate"><span class="pre">usercache.json</span></code>’dır. Nitekim, Canary’den <code class="docutils literal notranslate"><span class="pre">usercache.json</span></code> Sponge üzerinde kullanılabilen tek dosyadır.</p>
+<p>Yine, bazı yapılandırma dosyalarını aşağıdaki sağlanan Sünger benzerlerine manuel olarak taşınması olanaklıdır.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="47%" />
+<col width="53%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Kanarya dosya(lar)</th>
+<th class="head">Sponge kopyası (ya da kopyaları)</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>server.cfg
+&lt;world&gt;_&lt;dimension&gt;.cfg</td>
+<td>sunucu özellikleri</td>
+</tr>
+<tr class="row-odd"><td>&lt;world&gt;_&lt;dimension&gt;.cfg</td>
+<td>global.conf
+&lt;dimension&gt;/dimension.conf</td>
+</tr>
+<tr class="row-even"><td>ops.cfg</td>
+<td>ops.json</td>
+</tr>
+<tr class="row-odd"><td>db.cfg</td>
+<td>Kopyası yok</td>
+</tr>
+<tr class="row-even"><td>motd.txt</td>
+<td>Kopyası yok</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id4">
+<h4>Eklentiler<a class="headerlink" href="#id4" title="Bu başlığın kalıcı bağlantısı">¶</a></h4>
+<p>SpongeVanilla’nın ve SpongeForge’un, Canary eklentileri için yerel destekleri bulunmamaktadır. Canary API’sını özel bir Sponge eklentisiyle yeniden uygulamak mümkün olabilir.</p>
+<p>Ore, eklentileri bulmak için Sponge’ın resmi deposudur ve tüm Sponge eklentilerini Ore’dan indirmeniz önerilir. Canary eklentileriniz için değiştirmeler bulurken aklınızda bulundurmanız gereken birkaç nokta vardır:</p>
+<ul class="simple">
+<li>Tüm Canary geliştiricileri, eklentilerini Sponge’a taşımayı seçmemişlerdir. Zamanla bir başkası uygun bir yedek oluşturabilir.</li>
+<li>Canary’den taşınan tüm Sponge eklentileri yapılandırma dosyalarını otomatik olarak dönüştürmez. Bireysel eklenti geliştiricileri, yapılandırma dosyalarını otomatik olarak dönüştürüp dönüştürmemeye karar verir.</li>
+<li>Canary’den taşınan bazı Sponge eklentilerinin işlevselliği değişebilir veya aynı yapılandırma yapısını bile kullanmayabilir.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="migrating-from-forge">
+<h3><a class="toc-backref" href="#id8">Forge’dan geçiş</a><a class="headerlink" href="#migrating-from-forge" title="Bu başlığın kalıcı bağlantısı">¶</a></h3>
+<p>Normal bir Forge sunucusundan bir SpongeForge ya da SpongeVanilla sunucusuna taşınmak, neredeyse hiçbir hazırlık gerektirmeyen, oldukça basit bir işlemdir.</p>
+<div class="section" id="migrating-to-spongeforge">
+<h4>SpongeForge’a geçiş<a class="headerlink" href="#migrating-to-spongeforge" title="Bu başlığın kalıcı bağlantısı">¶</a></h4>
+<p>İlk önce, kullanacağınız SpongeForge sürümüyle uyumlu bir Forge sürümünü çalıştırdığınızdan emin olmanız gerekir. Forge’un önerilen yapılarını <a href="#id1"><span class="problematic" id="id2">`</span></a>Forge Downloads &lt;<a class="reference external" href="https://files.minecraftforge.net">https://files.minecraftforge.net</a>&gt;adresinde bulabilirsiniz. Başka modları kullanıyorsanız, onlarda güncelleştirilmelidir.</p>
+<p>SpongeForge’ı yüklemeye hazır olduğunuzda, aşağıdaki adımlarla devam edebilirsiniz:</p>
+<ol class="arabic simple">
+<li>Eğer Forge sunucunuz çalışıyorsa lütfen durdurunuz.</li>
+<li>SpongeForge’u Sponge websitesinden indir ve MinecraftForgedan Forge’la.</li>
+<li><code class="docutils literal notranslate"><span class="pre">SpongeForge.jar</span></code>’u <code class="docutils literal notranslate"><span class="pre">mods</span></code> dosyana yerleştir.</li>
+<li>Sunucuyu başlat ve parti!</li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">Not</p>
+<p class="last">SpongeForge sunucunuzdaki tek mod ise, oyuncular vanilla işlemcisi ile giriş yapabilecektir. Diğer modlar oyuncuların Forge’i kendi bilgisayarlarına yüklemelerini gerektirebilir.</p>
+</div>
+</div>
+<div class="section" id="migration-to-spongevanilla">
+<h4>SpongeVanilla’ya geçiş<a class="headerlink" href="#migration-to-spongevanilla" title="Bu başlığın kalıcı bağlantısı">¶</a></h4>
+<div class="admonition warning">
+<p class="first admonition-title">Uyarı</p>
+<p class="last">Eğer <strong>SpongeVanilla</strong>’dan geçiş yapıyorsanız, SpongeVanilla Forge modlerını çalıştıramadığı için tüm Forge verilerini, bloklarını ve girdilerini kaybedeceksiniz. SpongeForge ya da SpongeVanilla’ya geçişe karar verdiğinizde lütfen bunu unutmayınız.</p>
+</div>
+<p>Göç prosesi neredeyse yukarıdaki ile aynıdır:</p>
+<ol class="arabic simple">
+<li>Eğer Forge sunucunuz hala çalışıyorsa durdurunuz.</li>
+<li>Mojang’dan SpongeVanilla ve vanilla sunucusunu indiriniz.</li>
+<li>Dünyanızı ve yapılandırma dosyalarınızı sunucu dosyasında tutun.</li>
+<li><code class="docutils literal notranslate"><span class="pre">spongevanilla.jar</span></code>’ı başlatarak sunucuyu çalıştır.</li>
+</ol>
+</div>
+</div>
+<div class="section" id="migrating-from-vanilla">
+<h3><a class="toc-backref" href="#id9">Vanilla’dan geçiş</a><a class="headerlink" href="#migrating-from-vanilla" title="Bu başlığın kalıcı bağlantısı">¶</a></h3>
+<p>Vanilla Minecraft sunucularının yöneticileri Sponge’a kolayca taşınabilirler; çünkü Forge ve SpongeForge (SpongeVanilla da), Vanilla Minecraft ile aynı dünya yapısını kullanırlar. Sponge, ayrıca Vanilla Minecraft tarafından kullanılan dosyaların da aynılarını kullanır, <code class="docutils literal notranslate"><span class="pre">server.properties</span></code> gibi.</p>
+<p>İlk olarak SpongeForge veya SpongeVanilla’yı çalıştırmak istediğinize karar vermelisiniz.</p>
+<div class="admonition note">
+<p class="first admonition-title">Not</p>
+<p class="last">Both flavors of Sponge are able to serve vanilla clients. Keep in mind that this only applies to SpongeForge as
+long as you don’t install Forge mods which require client modifications.</p>
+</div>
+<ol class="arabic simple">
+<li>Eğer hala çalışıyorsa, Vanilla sunucusunu durdurun</li>
+<li>SpongeVanilla veya SpongeForge indir.</li>
+<li>Dünyanızı ve yapılandırma dosyalarınızı sunucu dosyasında tutun.</li>
+<li>Yeni sunucunuzu çalıştırmak.</li>
+</ol>
+</div>
+</div>
+<div class="section" id="installing-sponge">
+<h2><a class="toc-backref" href="#id10">Sünger yükleme</a><a class="headerlink" href="#installing-sponge" title="Bu başlığın kalıcı bağlantısı">¶</a></h2>
+<p><a class="reference internal" href="implementations/spongeforge.html"><span class="doc">SpongeForge’u kurmak</span></a> ve <a class="reference internal" href="implementations/spongevanilla.html"><span class="doc">SpongeVanilla Yükleme</span></a> üzerindeki kılavuzlar, taşınma esnasında Sponge yüklemeniz için gerekli bilgileri sunarlar.</p>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="implementations/index.html" class="btn btn-neutral float-right" title="Bir implemasyon seçme" accesskey="n" rel="next">İleri <span class="fa fa-angle-right"></span></a>
+        <a href="jre.html" class="btn btn-neutral" title="Java kurulumu" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> Önceki</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../../_static/flags/tr_TR.svg"
+         alt="tr" title="Türkçe">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../../_static/jquery.js"></script>      <script type="text/javascript" src="../../_static/underscore.js"></script>      <script type="text/javascript" src="../../_static/doctools.js"></script>      <script type="text/javascript" src="../../_static/language_data.js"></script>      <script type="text/javascript" src="../../_static/translations.js"></script>      <script type="text/javascript" src="../../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

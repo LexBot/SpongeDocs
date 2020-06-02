@@ -1,0 +1,290 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Настройка Sponge &mdash; Документация Sponge 7.2.0</title>
+
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../../../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="Алфавитный указатель"
+              href="../../../genindex.html"/>        <link rel="search" title="Поиск" href="../../../search.html"/>    <link rel="top" title="Документация Sponge 7.2.0" href="../../../index.html"/>        <link rel="up" title="Начало работы" href="../index.html"/>        <link rel="next" title="global.conf" href="sponge-conf.html"/>        <link rel="prev" title="Using Sponge with Server Proxies" href="../bungeecord.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../../../index.html">
+            <img src="../../../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../../../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Создание сервера</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../quickstart.html">Краткое руководство</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Начало работы</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../jre.html">Установка Java</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../migrating.html">Переход на Sponge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../implementations/index.html">Выбор реализации</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../launch-script.html">Создание сценария (скрипта) запуска</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../port-forward.html">Перенаправление портов</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bungeecord.html">Using Sponge with Server Proxies</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Настройка Sponge</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="sponge-conf.html">global.conf</a></li>
+<li class="toctree-l4"><a class="reference internal" href="hocon.html">Основы HOCON</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../management/index.html">Управление сервером</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../spongineer/index.html">Станьте специалистом по работе с серверами Sponge</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../versions/index.html">Versioning Policy</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../preparing/index.html">Подготовка к разработке</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../plugin/index.html">Создание плагина</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../ore/index.html">Документация Ore</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing/index.html">Участие в разработке Sponge</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/index.html">О проекте Sponge</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index.html">Docs</a> &raquo;</li>
+          <li><a href="../../index.html">Создание сервера</a> &raquo;</li>
+          <li><a href="../index.html">Начало работы</a> &raquo;</li>
+    <li>Настройка Sponge</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/server/getting-started/configuration/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="configuring-sponge">
+<h1>Настройка Sponge<a class="headerlink" href="#configuring-sponge" title="Ссылка на этот заголовок">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="sponge-conf.html">global.conf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hocon.html">Основы HOCON</a></li>
+</ul>
+</div>
+<p id="configuration-sponge">Данная статья рассказывает о настройке Sponge. Плагины и моды, обычно, создают свои конфигурационные файлы в папке «config». Чтобы настроить Sponge Vanilla редактируйте файл «server.properties», подробнее о настройке этого файла рассказывает <a class="reference external" href="https://minecraft.gamepedia.com/Server.properties">Minecraft Wiki</a>.</p>
+<div class="section" id="sponge-configuration-files">
+<h2>Конфигурационные файлы Sponge<a class="headerlink" href="#sponge-configuration-files" title="Ссылка на этот заголовок">¶</a></h2>
+<p>В Sponge имеется несколько конфигурационных файлов, которые можно найти в папке <code class="docutils literal notranslate"><span class="pre">config/sponge/</span></code>:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">tracker.conf</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">custom_data.conf</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">global.conf</span></code> и другие конфигурации в папке <code class="docutils literal notranslate"><span class="pre">worlds</span></code></li>
+</ul>
+<p>Файл <code class="docutils literal notranslate"><span class="pre">global.conf</span></code> содержит глобальные настройки Sponge. Его свойства также могут быть переопределены для каждого мира и их типов, используя конфигурационные файлы в папке <code class="docutils literal notranslate"><span class="pre">config/worlds</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">tracker.conf</span></code> может использоваться для настройки отслеживания фаз, а <code class="docutils literal notranslate"><span class="pre">custom_data.conf</span></code> используется для управления пользовательскими данными, добавляемыми плагинами.</p>
+</div>
+<div class="section" id="modifying-the-configuration-using-a-text-editor">
+<h2>Настройка конфигураций в текстовом редакторе<a class="headerlink" href="#modifying-the-configuration-using-a-text-editor" title="Ссылка на этот заголовок">¶</a></h2>
+<p>Откройте нужный файл с помощью вашего редактора. Конфигурационные файлы Sponge используют формат HOCON, о котором вы можете подробнее узнать в :doc:»Введение в HOCON» &lt;hocon&gt;`.</p>
+<p>После внесения желаемых изменений, сохраните файл. Если ваш сервер был запущен во время внесения изменений, вы должны перезагрузить файл конфигурации, используя <a class="reference internal" href="#configuration-sponge-reload"><span class="std std-ref">команды перезагрузки</span></a>. Например, после внесения изменений в <code class="docutils literal notranslate"><span class="pre">global.conf</span></code>, запустите <code class="docutils literal notranslate"><span class="pre">/sponge</span> <span class="pre">reload</span> <span class="pre">-g</span></code> для перезагрузки глобальных конфигураций из измененного файла.</p>
+<div class="section" id="overriding-the-global-configuration">
+<h3>Конфигурации перезаписывающие глобальные настройки<a class="headerlink" href="#overriding-the-global-configuration" title="Ссылка на этот заголовок">¶</a></h3>
+<p>Если вы хотите переопределить глобальные настройки всего в одном мире или типе измерений, Например, только в аду поднять верхушку спавна монстров, подконфигураторы позволяют сделать именно это. Вы можете найти конфигурацию для каждого мира и измерения на вашем сервере в папке <code class="docutils literal notranslate"><span class="pre">worlds</span></code> внутри основной папки конфигурации Sponge. Они сначала сортируются по модам, а затем по типу размера. Просто измените эти настройки под ваши потребности, и изменения будут применены ко всем связанным мирам, переопределяя более широкие настройки. Это следует за простым порядком: Мир &gt; Измерение &gt; Глобальный</p>
+</div>
+</div>
+<div class="section" id="modifying-the-configuration-using-commands">
+<h2>Изменение конфигурационных файлов с помощью команд<a class="headerlink" href="#modifying-the-configuration-using-commands" title="Ссылка на этот заголовок">¶</a></h2>
+<p>Можно изменять конфигурационные файлы при помощи внутриигровой команды <code class="docutils literal notranslate"><span class="pre">/sponge</span> <span class="pre">config</span></code>. Синтаксис команды выглядит так:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/sponge config &lt;flag&gt; &lt;key&gt; &lt;value&gt;
+</pre></div>
+</div>
+<p>Ниже перечислены <strong>флаги</strong> которые вы можете изменить.</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">-g</span></code> — глобальный флаг (<code class="docutils literal notranslate"><span class="pre">global.conf</span></code>)</li>
+<li><code class="docutils literal notranslate"><span class="pre">-d</span> <span class="pre">&lt;dim&gt;</span></code> флаг измерений (<code class="docutils literal notranslate"><span class="pre">dimension.conf</span></code>)</li>
+<li><code class="docutils literal notranslate"><span class="pre">-w</span> <span class="pre">&lt;world&gt;</span></code> флаг мира (<code class="docutils literal notranslate"><span class="pre">world.conf</span></code>)</li>
+<li><code class="docutils literal notranslate"><span class="pre">-t</span></code> - флаг трекера (<code class="docutils literal notranslate"><span class="pre">tracker.conf</span></code>)</li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">&lt;name&gt;</span></code> вам нужно заменить на имя цели, например <code class="docutils literal notranslate"><span class="pre">-d</span> <span class="pre">minecraft:nether</span></code>.</p>
+<p><strong>key</strong> — это параметр, который вы хотите изменить. <strong>value</strong> — это параметр, на который вы хотите изменить значение. Например, если вы хотите изменить <code class="docutils literal notranslate"><span class="pre">chunk-load</span></code> на <code class="docutils literal notranslate"><span class="pre">true</span></code> в файле <code class="docutils literal notranslate"><span class="pre">config/sponge/minecraft/nether/dimension.conf</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sponge {
+    logging {
+        # Log when chunks are loaded
+        chunk-load=false
+    }
+}
+</pre></div>
+</div>
+<p>Вы должны использовать такую команду:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/sponge config -d minecraft:nether logging.chunk-load true
+</pre></div>
+</div>
+<p>Если вам нужно проверить значение параметра, то вам не нужно вводить <em>value</em>. Проверка значения такого параметра как <code class="docutils literal notranslate"><span class="pre">logging.chunk-load</span></code> для измерения ад, будет выглядеть так:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/sponge config -d minecraft:nether logging.chunk-load
+</pre></div>
+</div>
+<div class="section" id="saving-config">
+<h3>Сохранение конфигурационного файла<a class="headerlink" href="#saving-config" title="Ссылка на этот заголовок">¶</a></h3>
+<p>Сохранение конфигурации мира может понадобиться после внесения правок в файл. Это может быть полезно в случае неожиданного падения сервера. Сохранение можно выполнить при помощи команды сервера <code class="docutils literal notranslate"><span class="pre">/sponge</span> <span class="pre">save</span></code>. Синтаксис команды подобен остальным командам конфигурации:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/sponge save &lt;flag&gt;
+</pre></div>
+</div>
+<p>Вот пример сохранения общей конфигурации:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/sponge save -g
+</pre></div>
+</div>
+</div>
+<div class="section" id="reloading-a-config">
+<span id="configuration-sponge-reload"></span><h3>Обновление конфигурационного файла<a class="headerlink" href="#reloading-a-config" title="Ссылка на этот заголовок">¶</a></h3>
+<p>Иногда во время работы сервера может потребоваться перезагрузка конфигурации мира. Это необходимо если вы внесли правки в него правки и хотите применить внесённые изменения. Это можно сделать при помощи команды <code class="docutils literal notranslate"><span class="pre">/sponge</span> <span class="pre">reload</span></code>. Синтаксис команды выглядит так:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/sponge reload &lt;flag&gt;
+</pre></div>
+</div>
+<p>Вот пример перезагрузки файла конфигурации для мира Энд:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/sponge reload -d minecraft:the_end
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="sponge-conf.html" class="btn btn-neutral float-right" title="global.conf" accesskey="n" rel="next">Далее <span class="fa fa-angle-right"></span></a>
+        <a href="../bungeecord.html" class="btn btn-neutral" title="Using Sponge with Server Proxies" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> Назад</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../../../_static/flags/ru_RU.svg"
+         alt="ru" title="Русский">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../../../_static/jquery.js"></script>      <script type="text/javascript" src="../../../_static/underscore.js"></script>      <script type="text/javascript" src="../../../_static/doctools.js"></script>      <script type="text/javascript" src="../../../_static/language_data.js"></script>      <script type="text/javascript" src="../../../_static/translations.js"></script>      <script type="text/javascript" src="../../../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

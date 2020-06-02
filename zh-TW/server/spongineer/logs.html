@@ -1,0 +1,433 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>日誌檔案 &mdash; Sponge 7.2.0 說明文件</title>
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="索引"
+              href="../../genindex.html"/>        <link rel="search" title="搜尋" href="../../search.html"/>    <link rel="top" title="Sponge 7.2.0 說明文件" href="../../index.html"/>        <link rel="up" title="成為專業的 Spongineer" href="index.html"/>        <link rel="next" title="调试" href="debugging.html"/>        <link rel="prev" title="故障排除" href="troubleshooting.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../../index.html">
+            <img src="../../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">建立伺服器</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html">快速入門指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started/index.html">開始使用</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../management/index.html">伺服器管理</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">成為專業的 Spongineer</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="commands.html">命令与权限</a></li>
+<li class="toctree-l3"><a class="reference internal" href="troubleshooting.html">故障排除</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">日誌檔案</a></li>
+<li class="toctree-l3"><a class="reference internal" href="debugging.html">调试</a></li>
+<li class="toctree-l3"><a class="reference internal" href="incompatible.html">Mod 兼容</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bugreport.html">回報問題</a></li>
+<li class="toctree-l3"><a class="reference internal" href="properties.html">特性</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../versions/index.html">版本控制方針</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../preparing/index.html">準備開發</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../plugin/index.html">建立插件</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ore/index.html">Ore 文件</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/index.html">為 Sponge 貢獻</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">關於 Sponge 專案</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+          <li><a href="../index.html">建立伺服器</a> &raquo;</li>
+          <li><a href="index.html">成為專業的 Spongineer</a> &raquo;</li>
+    <li>日誌檔案</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/server/spongineer/logs.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="log-files">
+<h1>日誌檔案<a class="headerlink" href="#log-files" title="本標題的永久連結">¶</a></h1>
+<p>当你在调试服务器、寻找什么出错时日志文件是必不可少的部分。本页面将简要介绍 SpongeForge 及 SpongeVanilla 服务器产生的日志文件。</p>
+<div class="contents local topic" id="provided-logfiles">
+<p class="topic-title"><strong>目录</strong></p>
+<ul class="simple">
+<li><a class="reference internal" href="#configure-logging" id="id2">配置日志记录</a></li>
+<li><a class="reference internal" href="#spongeforge-logfiles" id="id3">SpongeForge 日志文件</a><ul>
+<li><a class="reference internal" href="#debug-log" id="id4">debug.log</a></li>
+<li><a class="reference internal" href="#latest-log" id="id5">latest.log</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#spongevanilla-logfiles" id="id6">SpongeVanilla 日志文件</a><ul>
+<li><a class="reference internal" href="#id1" id="id7">latest.log</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#reading-logfiles" id="id8">解读日志文件</a></li>
+<li><a class="reference internal" href="#common-errors" id="id9">常见错误</a></li>
+</ul>
+</div>
+<div class="section" id="configure-logging">
+<h2><a class="toc-backref" href="#id2">配置日志记录</a><a class="headerlink" href="#configure-logging" title="本標題的永久連結">¶</a></h2>
+<p>有些时候插件会产生服主不需要的日志，甚至会让需要的信息淹没在其他日志中。有些时候，插件或服务区需要输出平时根本不会产生的调试日志。这一部分将解释如何配置日志记录。将日志分割到多个文件中也是可能的。你可以为服务器 OP 配置出用于监视用户活动和行为的日志，然后为服务器管理配置出监视插件工作状态的日志。</p>
+<div class="admonition note">
+<p class="first admonition-title">備註</p>
+<p class="last">如果你觉得某个插件的日志太多了，或者日志级别有问题，请反馈给对应的插件作者。</p>
+</div>
+<p>最简单的配置日志记录的方式是修改 Minecraft 和/或 Forge 使用的 <code class="docutils literal notranslate"><span class="pre">log4j2.xml</span></code> 配置文件。你可以通过解压 <code class="docutils literal notranslate"><span class="pre">forge-...-universal.jar</span></code> 和 <code class="docutils literal notranslate"><span class="pre">minecraft_server.jar</span></code> 并在解压出的文件夹的根目录下找到这个文件。<strong>不要</strong>直接编辑 jar 里的文件。</p>
+<p>你可以通过在启动脚本中添加一个参数来告知 log4j2 使用你的新配置文件。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>java -Dlog4j.configurationFile<span class="o">=</span>log4j2_server.xml -jar server.jar
+</pre></div>
+</div>
+<p>默认的配置文件大致是这个样子的：</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="nt">&lt;Configuration</span> <span class="na">status=</span><span class="s">&quot;warn&quot;</span> <span class="na">packages=</span><span class="s">&quot;com.mojang.util,net.minecraftforge.server.console.log4j&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;Appenders&gt;</span>
+        <span class="nt">&lt;TerminalConsole</span> <span class="na">name=</span><span class="s">&quot;Console&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;PatternLayout</span> <span class="na">pattern=</span><span class="s">&quot;[%d{HH:mm:ss}] [%t/%level] [%logger]: %msg%n&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;/TerminalConsole&gt;</span>
+
+        <span class="nt">&lt;RollingRandomAccessFile</span> <span class="na">name=</span><span class="s">&quot;DebugFile&quot;</span> <span class="na">fileName=</span><span class="s">&quot;logs/debug.log&quot;</span> <span class="na">filePattern=</span><span class="s">&quot;logs/debug-%i.log.gz&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;PatternLayout</span> <span class="na">pattern=</span><span class="s">&quot;[%d{HH:mm:ss}] [%t/%level] [%logger]: %msg%n&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;Policies&gt;</span>
+                <span class="nt">&lt;OnStartupTriggeringPolicy/&gt;</span>
+                <span class="nt">&lt;SizeBasedTriggeringPolicy</span> <span class="na">size=</span><span class="s">&quot;200MB&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;/Policies&gt;</span>
+            <span class="nt">&lt;DefaultRolloverStrategy</span> <span class="na">max=</span><span class="s">&quot;5&quot;</span> <span class="na">fileIndex=</span><span class="s">&quot;min&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;/RollingRandomAccessFile&gt;</span>
+    <span class="nt">&lt;/Appenders&gt;</span>
+    <span class="nt">&lt;Loggers&gt;</span>
+        <span class="nt">&lt;Logger</span> <span class="na">level=</span><span class="s">&quot;info&quot;</span> <span class="na">name=</span><span class="s">&quot;org.spongepowered&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;Logger</span> <span class="na">level=</span><span class="s">&quot;info&quot;</span> <span class="na">name=</span><span class="s">&quot;com.example.mod&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;Root</span> <span class="na">level=</span><span class="s">&quot;all&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;AppenderRef</span> <span class="na">ref=</span><span class="s">&quot;Console&quot;</span> <span class="na">level=</span><span class="s">&quot;info&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;AppenderRef</span> <span class="na">ref=</span><span class="s">&quot;DebugFile&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;/Root&gt;</span>
+    <span class="nt">&lt;/Loggers&gt;</span>
+<span class="nt">&lt;/Configuration&gt;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">備註</p>
+<p class="last">这个例子中没有原始配置文件的注释，所以请务必阅读并理解这些配置选项的含义。</p>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Appenders</span></code> 部分定义了日志消息的输出频道，这可以是某个文件，或是终端，甚至是某个中心化的日志集合或分析服务器。更多关于 Appenders 的信息可在<a class="reference external" href="https://logging.apache.org/log4j/2.x/manual/configuration.html#Appenders">这里</a>找到。</p>
+<p><code class="docutils literal notranslate"><span class="pre">Loggers</span></code> 部分定义了 logger 的过滤器，及日志消息的转发目标。通常，如果你需要屏蔽某些消息，需要编辑这一部分。让我们来进一步分析一下：</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;Logger</span> <span class="na">level=</span><span class="s">&quot;info&quot;</span> <span class="na">name=</span><span class="s">&quot;com.example.mod&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<p>这将限制 <code class="docutils literal notranslate"><span class="pre">com.example.mod</span></code> 的日志输出为仅限 <code class="docutils literal notranslate"><span class="pre">info</span></code> 或更高级别的消息。要注意，这个设定将影响所有的日志输出频道及所有隶属于其子包下的 logger。关于过滤器的更多信息可在<a class="reference external" href="https://logging.apache.org/log4j/2.x/manual/configuration.html#Filters">这里</a>找到。</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;Root</span> <span class="na">level=</span><span class="s">&quot;all&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;AppenderRef</span> <span class="na">ref=</span><span class="s">&quot;Console&quot;</span> <span class="na">level=</span><span class="s">&quot;info&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;AppenderRef</span> <span class="na">ref=</span><span class="s">&quot;DebugFile&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/Root&gt;</span>
+</pre></div>
+</div>
+<p>这一部分配置了两个日志输出频道：一个名为 <code class="docutils literal notranslate"><span class="pre">Console</span></code> 的 Appender 仅输出 <code class="docutils literal notranslate"><span class="pre">info</span></code> 或更高级的日志，以及一个名为 <code class="docutils literal notranslate"><span class="pre">DebugFile</span></code> 的 Appender。建议保留至少一个持久化保存日志的 logger 以供以后查错时使用。</p>
+<div class="admonition note">
+<p class="first admonition-title">備註</p>
+<p class="last">如果你在寻找你的插件的日志消息不显示的原因：终端的日志只输出等级至少为 info 的日志，debug 日志默认是隐藏的。</p>
+</div>
+<p>如果你不想重新配置整个日志记录，但想隐藏某些插件的日志，你可以使用组合日志配置。你可以通过引用原始的日志记录配置并加上你需要的选项来达成这一效果。就像这样：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>java -Dlog4j.configurationFile<span class="o">=</span>log4j2_server.xml,log4j2_custom.xml -jar server.jar
+</pre></div>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="nt">&lt;Configuration</span> <span class="na">status=</span><span class="s">&quot;WARN&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;Loggers&gt;</span>
+        <span class="nt">&lt;Logger</span> <span class="na">name=</span><span class="s">&quot;com.example.logspammer&quot;</span> <span class="na">level=</span><span class="s">&quot;off&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/Loggers&gt;</span>
+<span class="nt">&lt;/Configuration&gt;</span>
+</pre></div>
+</div>
+<p>在这个例子中，所有 <code class="docutils literal notranslate"><span class="pre">com.example.logspammer</span></code> 包下的 logger 产生的日志都不会显示或保存。为方便调试，你可以选择让你的插件的日志显示在终端中，这样就不用反复查阅日志的尾部了（译注：原文为 <code class="docutils literal notranslate"><span class="pre">tail</span></code>——一个 Unix 下的实用程序，用于显示文件结尾的内容）。就像下面这样：</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="nt">&lt;Configuration</span> <span class="na">status=</span><span class="s">&quot;WARN&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;Loggers&gt;</span>
+        <span class="nt">&lt;Logger</span> <span class="na">name=</span><span class="s">&quot;com.example.newplugin&quot;</span> <span class="na">level=</span><span class="s">&quot;all&quot;</span> <span class="na">additivity=</span><span class="s">&quot;false&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;AppenderRef</span> <span class="na">ref=</span><span class="s">&quot;Console&quot;</span><span class="nt">/&gt;</span>
+            [...]
+        <span class="nt">&lt;/Logger&gt;</span>
+    <span class="nt">&lt;/Loggers&gt;</span>
+<span class="nt">&lt;/Configuration&gt;</span>
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">小訣竅</p>
+<p class="last">日志记录会影响性能。记录大量日志可能会对 TPS 产生小幅影响。但与此同时，没有或缺少日志的时候，重现某个错误会更困难。</p>
+</div>
+</div>
+<div class="section" id="spongeforge-logfiles">
+<h2><a class="toc-backref" href="#id3">SpongeForge 日志文件</a><a class="headerlink" href="#spongeforge-logfiles" title="本標題的永久連結">¶</a></h2>
+<p>SpongeForge 会在服务器根目录的 <code class="docutils literal notranslate"><span class="pre">/logs</span></code> 文件夹下输出若干日志文件。在 Forge 1.12.2 - 14.23.4.2705 环境下，有这些：</p>
+<ol class="arabic simple">
+<li><code class="docutils literal notranslate"><span class="pre">debug.log</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">latest.log</span></code></li>
+</ol>
+<div class="section" id="debug-log">
+<h3><a class="toc-backref" href="#id4">debug.log</a><a class="headerlink" href="#debug-log" title="本標題的永久連結">¶</a></h3>
+<div class="admonition note">
+<p class="first admonition-title">備註</p>
+<p class="last">此处有几个示例行。若要阅读完整的示例日志，请单击 <a class="reference download internal" download="" href="../../_downloads/2f70d433879372c847c4eb29fbfe247b/SpongeForge_1.12.2-2705-7.1.0-BETA-3136_debug.log.txt"><code class="xref download docutils literal notranslate"><span class="pre">SpongeForge</span> <span class="pre">1.12.2</span> <span class="pre">-</span> <span class="pre">7.1.0-BETA-3126</span> <span class="pre">debug.log</span> <span class="pre">文件</span></code></a></p>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[main/INFO] [FML]: Forge Mod Loader version 14.23.4.2705 for Minecraft 1.12.2 loading
+[main/INFO] [FML]: Java is Java HotSpot(TM) 64-Bit Server VM, version 1.8.0_162, running on Windows 10:amd64:10.0, installed at C:\Program Files\Java\jre1.8.0_162
+[main/DEBUG] [FML]: Java classpath at launch is:
+[main/DEBUG] [FML]:     forge-1.12.2-14.23.4.2705-universal.jar
+[main/DEBUG] [FML]: Java library path at launch is:
+[main/DEBUG] [FML]:     C:\ProgramData\Oracle\Java\javapath
+</pre></div>
+</div>
+<p>日志表明了运行环境：</p>
+<ul class="simple">
+<li>Forge 14.23.4.2705（构建 #2705）</li>
+<li>Java 8u162（64 位）</li>
+<li>Windows 10 x64</li>
+<li>Java 的安装目录</li>
+</ul>
+<div class="admonition warning">
+<p class="first admonition-title">警告</p>
+<p class="last">要运行 Sponge，你<strong>必须</strong>使用 Java 8u20 或更高版本。Sponge 不支持旧版本 Java 及诸如 Java 9 或 Java 10 的新版 Java。</p>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[main/DEBUG] [FML]: Examining for coremod candidacy spongeforge-1.12.2-2705-7.1.0-BETA-3136.jar
+[main/INFO] [FML]: Loading tweaker org.spongepowered.asm.launch.MixinTweaker from spongeforge-1.12.2-2705-7.1.0-BETA-3136.jar
+</pre></div>
+</div>
+<p>这表明 SpongeForge 3136 已经被 Forge 发现和加载。为进一步帮助有关 SpongeForge 的命名方案，看看这里：<a class="reference internal" href="../../versions/filenames.html"><span class="doc">檔案名稱說明</span></a>。</p>
+</div>
+<div class="section" id="latest-log">
+<h3><a class="toc-backref" href="#id5">latest.log</a><a class="headerlink" href="#latest-log" title="本標題的永久連結">¶</a></h3>
+<div class="admonition note">
+<p class="first admonition-title">備註</p>
+<p class="last">此处有几个示例行。若要阅读完整的示例日志，请单击 <a class="reference download internal" download="" href="../../_downloads/81145af4a369774ed4c722c1eeda95b1/SpongeForge_1.12.2-2705-7.1.0-BETA-3136_latest.log.txt"><code class="xref download docutils literal notranslate"><span class="pre">SpongeForge</span> <span class="pre">1521</span> <span class="pre">latest.log</span></code></a></p>
+</div>
+<p>这是你会在 Minecraft 服务器界面看到的输出。</p>
+</div>
+</div>
+<div class="section" id="spongevanilla-logfiles">
+<h2><a class="toc-backref" href="#id6">SpongeVanilla 日志文件</a><a class="headerlink" href="#spongevanilla-logfiles" title="本標題的永久連結">¶</a></h2>
+<div class="section" id="id1">
+<h3><a class="toc-backref" href="#id7">latest.log</a><a class="headerlink" href="#id1" title="本標題的永久連結">¶</a></h3>
+<div class="admonition note">
+<p class="first admonition-title">備註</p>
+<p class="last">此处有几个示例行。若要阅读完整的示例日志，请单击 <a class="reference download internal" download="" href="../../_downloads/d34da91c861b205ec7e81447634926d9/SpongeVanilla_1.12.2-7.1.0-BETA-54_latest.log.txt"><code class="xref download docutils literal notranslate"><span class="pre">SpongeVanilla</span> <span class="pre">1.12.2-7.1.0-BETA-54</span> <span class="pre">latest.log</span></code></a></p>
+</div>
+<p>这是你会在 Minecraft 服务器界面看到的输出。</p>
+</div>
+</div>
+<div class="section" id="reading-logfiles">
+<h2><a class="toc-backref" href="#id8">解读日志文件</a><a class="headerlink" href="#reading-logfiles" title="本標題的永久連結">¶</a></h2>
+<p>如果你不知道如何阅读常见的崩溃报告，你会在这里得到帮助，但首先我们需要崩溃报告。在这段简单介绍中，我们直接用<a class="reference internal" href="debugging.html"><span class="doc">调试</span></a>这一章节中提到的范例来讲解：<a class="reference download internal" download="" href="../../_downloads/6833e5bcb0924d3913fa48f8b5b1ace5/crashlog-sponge575-plugin750.txt"><code class="xref download docutils literal notranslate"><span class="pre">因</span> <span class="pre">SpongeForge</span> <span class="pre">构建版本过旧而引发的崩溃中产生的崩溃报告</span></code></a>。</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>WARNING: coremods are present:
+SpongeCoremod (sponge-1.8-1499-2.1DEV-575.jar)
+Contact their authors BEFORE contacting forge
+</pre></div>
+</div>
+<p>您会注意到的第一件事情是 Coremods 存在的 <cite>Warning</cite> 。不过这没什么可担心的，这不是错误，只是警告联系 Sponge 技术支持，而不是 Forge 。</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>java.lang.NoClassDefFoundError: org/spongepowered/api/event/game/state/GameStartingServerEvent
+</pre></div>
+</div>
+<p>后面的几行才是真正描述错误的位置。这里它是 <code class="docutils literal notranslate"><span class="pre">NoClassDefFoundError</span></code> 。如果你不太清楚这个是什么意思，你可以先看看我们的 <a class="reference internal" href="debugging.html"><span class="doc">调试</span></a> 页面。如果这个错误很常见，那么它会被列在那里。如果它没有被列在那里，你可以寻求论坛的帮助！当然先确保你提供了完整的崩溃报告。</p>
+<p>幸运的是您系统的详细信息都包含在崩溃报告的底部︰</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Minecraft Version: 1.8
+Operating System: Windows 8.1 (amd64) version 6.3
+Java Version: 1.8.0_51, Oracle Corporation
+Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode), Oracle Corporation
+Memory: 515666256 bytes (491 MB) / 782761984 bytes (746 MB) up to 1847590912 bytes (1762 MB)
+JVM Flags: 0 total;
+IntCache: cache: 0, tcache: 0, allocated: 0, tallocated: 0
+FML: MCP v9.10 FML v8.0.99.99 Minecraft Forge 11.14.3.1521 5 mods loaded, 5 mods active
+States: &#39;U&#39; = Unloaded &#39;L&#39; = Loaded &#39;C&#39; = Constructed &#39;H&#39; = Pre-initialized &#39;I&#39; = Initialized &#39;J&#39; = Post-initialized &#39;A&#39; = Available &#39;D&#39; = Disabled &#39;E&#39; = Errored
+UC     mcp{9.05} [Minecraft Coder Pack] (minecraft.jar)
+UC     FML{8.0.99.99} [Forge Mod Loader] (forge.jar)
+UC     Forge{11.14.3.1521} [Minecraft Forge] (forge.jar)
+UC     Sponge{1.8-1499-2.1DEV-575} [SpongeForge] (minecraft.jar)
+U      Core{unknown} [Core Plugin] (Core.jar)
+Loaded coremods (and transformers):
+SpongeCoremod (sponge-1.8-1499-2.1DEV-575.jar)
+</pre></div>
+</div>
+<p>这代表了：</p>
+<ul>
+<li><p class="first">游戏本体为 Minecraft 1.8，安装有 Forge 1521</p>
+</li>
+<li><p class="first">Java 运行时为 Java 8 Update 51，64 位版本</p>
+</li>
+<li><p class="first">安装有 2 个其他 Mod</p>
+<blockquote>
+<div><ul class="simple">
+<li>安装有 SpongeForge 1.8-1499-2.1DEV-575（即构建 #575）</li>
+<li>名为 Core 的 Mod</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">備註</p>
+<p class="last">注意，剩下的三个 Mod（mcp、FML、Forge）是所有基于 Forge 的服务器都一定会有的 Mod。</p>
+</div>
+<p>现在可以作出以下假设:</p>
+<ul class="simple">
+<li>可能是插件导致服务器崩溃</li>
+<li>SpongeForge 需要的版本与当前Forge版本不同︰ 需要版本 1499，安装了 1521</li>
+</ul>
+<p>如果你想知道如何解决问题，请参考：<a class="reference internal" href="debugging.html"><span class="doc">调试</span></a>。</p>
+</div>
+<div class="section" id="common-errors">
+<h2><a class="toc-backref" href="#id9">常见错误</a><a class="headerlink" href="#common-errors" title="本標題的永久連結">¶</a></h2>
+<p>参阅 <a class="reference internal" href="debugging.html"><span class="doc">调试</span></a> 可以找到常见错误。</p>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="debugging.html" class="btn btn-neutral float-right" title="调试" accesskey="n" rel="next">下一頁 <span class="fa fa-angle-right"></span></a>
+        <a href="troubleshooting.html" class="btn btn-neutral" title="故障排除" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> 上一頁</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../../_static/flags/zh_TW.svg"
+         alt="zh-TW" title="繁體中文">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../../_static/jquery.js"></script>      <script type="text/javascript" src="../../_static/underscore.js"></script>      <script type="text/javascript" src="../../_static/doctools.js"></script>      <script type="text/javascript" src="../../_static/language_data.js"></script>      <script type="text/javascript" src="../../_static/translations.js"></script>      <script type="text/javascript" src="../../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>

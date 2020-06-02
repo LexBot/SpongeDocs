@@ -1,0 +1,317 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mixin &mdash; dokumentasi Sponge 7.2.0</title>
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+
+
+
+
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+    <link rel="stylesheet" href="../../_static/spongedocs.css" type="text/css" />
+
+        <link rel="index" title="Indeks"
+              href="../../genindex.html"/>        <link rel="search" title="Pencarian" href="../../search.html"/>    <link rel="top" title="dokumentasi Sponge 7.2.0" href="../../index.html"/>        <link rel="up" title="Mengembangkan Spenge" href="index.html"/>        <link rel="next" title="Menerapkan datamanipulator" href="datamanipulator.html"/>        <link rel="prev" title="Pertanyaan Yang Sering Diajukan" href="debugging/faq.html"/>
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="../../index.html">
+            <img src="../../_static/spongie-mark-dark.svg">
+            <span>Sponge</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://www.spongepowered.org"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://forums.spongepowered.org"><i class="fa-fw fa fa-comments"></i>Forums</a></li>
+                <li><a href="https://github.com/SpongePowered"><i class="fa-fw fa fa-code"></i>Code</a></li>
+                <li class="active"><a href="https://docs.spongepowered.org"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+                <li><a href="https://jd.spongepowered.org"><i class="fa-fw fa fa-graduation-cap"></i>Javadocs</a></li>
+                <li><a href="https://forums.spongepowered.org/c/plugins/plugin-releases"><i class="fa-fw fa fa-plug"></i>Plugins</a></li>
+                <li><a href="https://ore.spongepowered.org"><img src="../../_static/ore.svg" alt="" class="fa-fw fa ore-logo">Ore <sup>Beta</sup></a></li>
+                <li><a href="https://www.spongepowered.org/downloads"><i class="fa-fw fa fa-download"></i>Downloads</a></li>
+                <li><a href="https://www.spongepowered.org/chat"><i class="fa-fw fa fa-comment"></i>Chat</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../server/index.html">Membuat sebuah server</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../versions/index.html">Versioning Policy</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../preparing/index.html">Mempersiapkan untuk Pengembangan</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../plugin/index.html">Membuat Plugin</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ore/index.html">Dokumentasi bijih</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Berkontribusi pada Sponge</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../guidelines.html">Pedoman kontribusi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../howtogit.html">Cara Git (Hub)</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Mengembangkan Spenge</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="codestyle.html">Kode gaya</a></li>
+<li class="toctree-l3"><a class="reference internal" href="git-implementation.html">Git Alur kerja dan Pelaksanaan untuk API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pr.html">Mengirim permintaan tarik</a></li>
+<li class="toctree-l3"><a class="reference internal" href="debugging/index.html">Debugging Sponge</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Mixin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="datamanipulator.html">Menerapkan datamanipulator</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../spongedocs.html">Menulis SpongeDocs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../porting.html">Porting Sponge untuk Platform Lainnya</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../versioning.html">Repository Branch Layout</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">Tentang Sponge Project</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Sponge</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+ 
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+          <li><a href="../index.html">Berkontribusi pada Sponge</a> &raquo;</li>
+          <li><a href="index.html">Mengembangkan Spenge</a> &raquo;</li>
+    <li>Mixin</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/contributing/implementation/mixins.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+  <div class="section" id="mixins">
+<h1>Mixin<a class="headerlink" href="#mixins" title="Link permanen untuk headline ini">¶</a></h1>
+<div class="admonition note">
+<p class="first admonition-title">Catatan</p>
+<p class="last">Halaman ini berlaku untuk SpongeCommon, SpongeForge, dan SpongeVanilla sebagai tiga repositori menggunakan Mixin untuk menghubungkan ke yang mendasari implementasi (Vanilla Minecraft server dan Menempa).</p>
+</div>
+<p>Mixin cara memodifikasi kode java pada saat runtime dengan menambahkan tambahan perilaku kelas. Mereka memungkinkan tanam dimaksudkan perilaku yang sudah ada Minecraft benda-benda. Mixin yang diperlukan untuk semua resmi Spons untuk implementasi fungsi.</p>
+<p>Pengenalan dasar beberapa konsep inti yang mendasari fungsi mixin yang kami gunakan untuk menjalankan Sponge tersedia di`Mixin Wiki
+&lt;<a class="reference external" href="https://github.com/SpongePowered/Mixin/wiki/">https://github.com/SpongePowered/Mixin/wiki/</a>&gt;`_</p>
+<p><em>dimulai dengan dasar-dasar yang mutlak. Jika anda seorang pengembang java yang berpengalaman, silahkan menuju kebagian 4, dimana mixin itu sendiri dibahas.</em></p>
+<p>If you're looking to get started writing mixins, we also strongly recommend carefully examining all of the examples in
+the <a class="reference external" href="https://github.com/SpongePowered/SpongeCommon/tree/v7.1.6/src/example">SpongeCommon repository</a> which
+are extensively documented and cover many of the more complex scenarios. You should also consult the Javadoc of the Mixin
+repository itself, since almost everything is already documented.</p>
+<div class="admonition note">
+<p class="first admonition-title">Catatan</p>
+<p class="last">The Mixin project will be servicing a number of other projects in addition to Sponge itself. Therefore, Mixin has its
+own documentation together with the repository.</p>
+</div>
+<div class="section" id="mixins-and-inner-classes">
+<h2>Mixins dan Inner Classes<a class="headerlink" href="#mixins-and-inner-classes" title="Link permanen untuk headline ini">¶</a></h2>
+<p>Meskipun Anda dapat menggunakan lambdas, kelas anonim dan batin di dalam mixin, Anda tidak dapat menggunakan kelas anonim / dalam kelas anonim / dalam lainnya yang juga berada di dalam mixin, kecuali satu kelas dalam adalah `` statis``.</p>
+<p>Ini berarti ungkapan seperti berikut ini akan menyebabkan mixin gagal dan membawa ke kematian dan kehancuran atas semua yang mencoba menggunakan sponge.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="k">return</span> <span class="k">new</span> <span class="n">Collection</span><span class="o">&lt;</span><span class="n">ItemStack</span><span class="o">&gt;</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">Iterator</span><span class="o">&lt;</span><span class="n">ItemStack</span><span class="o">&gt;</span> <span class="nf">iterator</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="n">Iterator</span><span class="o">&lt;</span><span class="n">ItemStack</span><span class="o">&gt;</span><span class="p">()</span> <span class="p">{</span>
+            <span class="c1">// THIS WILL NOT WORK!</span>
+
+            <span class="nd">@Override</span>
+            <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">hasNext</span><span class="p">()</span> <span class="p">{</span>
+                <span class="c1">// Code skipped</span>
+            <span class="p">}</span>
+
+            <span class="nd">@Override</span>
+            <span class="kd">public</span> <span class="n">ItemStack</span> <span class="nf">next</span><span class="p">()</span> <span class="p">{</span>
+                <span class="c1">// Code skipped</span>
+            <span class="p">}</span>
+        <span class="p">};</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Other methods skipped</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>Ini berlaku untuk semua kelas yang diberi catatan dengan `` &#64; Mixin``. Kelas yang tidak tersentuh oleh prosesor mixin bisa memanfaatkan fitur tersebut. Ada dua cara untuk mengatasi hal ini.</p>
+<p>Salah satu pilihannya adalah menggunakan kelas utilitas terpisah, karena tidak seperti kelas mixer Anda, kelas utilitas akan tetap ada saat runtime, sementara kelas mixin Anda akan digabungkan ke dalam kelas target yang ditentukan. Kode berikut akan bekerja.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">SampleCollection</span> <span class="kd">implements</span> <span class="n">Collection</span><span class="o">&lt;</span><span class="n">ItemStack</span><span class="o">&gt;</span> <span class="p">{</span>
+
+    <span class="kd">private</span> <span class="kd">final</span> <span class="n">TargetClass</span> <span class="n">target</span><span class="p">;</span>
+
+    <span class="kd">public</span> <span class="nf">SampleCollection</span><span class="p">(</span><span class="n">TargetClass</span> <span class="n">target</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">target</span> <span class="o">=</span> <span class="n">target</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">Iterator</span><span class="o">&lt;</span><span class="n">ItemStack</span><span class="o">&gt;</span> <span class="nf">iterator</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="n">Iterator</span><span class="o">&lt;</span><span class="n">ItemStack</span><span class="o">&gt;</span><span class="p">()</span> <span class="p">{</span>
+
+            <span class="nd">@Override</span>
+            <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">hasNext</span><span class="p">()</span> <span class="p">{</span>
+                <span class="c1">// Code skipped</span>
+            <span class="p">}</span>
+
+            <span class="nd">@Override</span>
+            <span class="kd">public</span> <span class="n">ItemStack</span> <span class="nf">next</span><span class="p">()</span> <span class="p">{</span>
+                <span class="c1">// Code skipped</span>
+            <span class="p">}</span>
+        <span class="p">};</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Other methods skipped</span>
+<span class="p">}</span>
+
+<span class="nd">@Mixin</span><span class="p">(</span><span class="n">TargetClass</span><span class="p">.</span><span class="na">class</span><span class="p">)</span>
+<span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">SomeMixin</span> <span class="p">{</span>
+    <span class="kd">public</span> <span class="n">Collection</span><span class="o">&lt;</span><span class="n">ItemStack</span><span class="o">&gt;</span> <span class="nf">someFunction</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="n">SampleCollection</span><span class="p">((</span><span class="n">TargetClass</span><span class="p">)</span> <span class="p">(</span><span class="n">Object</span><span class="p">)</span> <span class="k">this</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Pilihan lainnya adalah menempatkan semua kelas batin bersarang secara langsung ke dalam mixin atau salah satu metodenya, yang bertentangan dengan yang ada di dalam yang lain. Sebagai contoh:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Mixin</span><span class="p">(</span><span class="n">TargetClass</span><span class="p">.</span><span class="na">class</span><span class="p">)</span>
+<span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">SomeMixin</span> <span class="p">{</span>
+
+    <span class="kd">private</span> <span class="kd">final</span> <span class="kd">class</span> <span class="nc">SampleIterator</span> <span class="kd">implements</span> <span class="n">Iterator</span><span class="o">&lt;</span><span class="n">ItemStack</span><span class="o">&gt;</span> <span class="p">{</span>
+
+        <span class="nd">@Override</span>
+        <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">hasNext</span><span class="p">()</span> <span class="p">{</span>
+            <span class="c1">// Code skipped</span>
+        <span class="p">}</span>
+
+        <span class="nd">@Override</span>
+        <span class="kd">public</span> <span class="n">ItemStack</span> <span class="nf">next</span><span class="p">()</span> <span class="p">{</span>
+            <span class="c1">// Code skipped</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="n">Collection</span><span class="o">&lt;</span><span class="n">ItemStack</span><span class="o">&gt;</span> <span class="nf">someFunction</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="n">Collection</span><span class="o">&lt;</span><span class="n">ItemStack</span><span class="o">&gt;</span><span class="p">()</span> <span class="p">{</span>
+            <span class="nd">@Override</span>
+            <span class="kd">public</span> <span class="n">Iterator</span><span class="o">&lt;</span><span class="n">ItemStack</span><span class="o">&gt;</span> <span class="nf">iterator</span><span class="p">()</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="k">new</span> <span class="n">SampleIterator</span><span class="p">();</span>
+            <span class="p">}</span>
+
+            <span class="c1">// Other methods skipped</span>
+        <span class="p">};</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+           </div>
+          </div>
+<footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="datamanipulator.html" class="btn btn-neutral float-right" title="Menerapkan datamanipulator" accesskey="n" rel="next">Selanjutnya <span class="fa fa-angle-right"></span></a>
+        <a href="debugging/faq.html" class="btn btn-neutral" title="Pertanyaan Yang Sering Diajukan" accesskey="p" rel="prev"><span class="fa fa-angle-left"></span> Sebelumnya</a>
+    </div>
+
+    <hr/>
+
+    <section id="license-footer">
+        <p>Except where otherwise noted,
+            <a xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" property="dct:title" rel="cc:attributionURL" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a>
+            is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <a id="license-icons" rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA" aria-hidden="true">cba</a>
+    </section>
+</footer>        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <i class="fa fa-book"> <span>SpongeDocs</span></i>
+        v: 7.2.0
+    <img src="../../_static/flags/id_ID.svg"
+         alt="id" title="Indonesia">
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div id="versions" class="rst-other-versions">
+
+
+
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'7.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>      <script type="text/javascript" src="../../_static/jquery.js"></script>      <script type="text/javascript" src="../../_static/underscore.js"></script>      <script type="text/javascript" src="../../_static/doctools.js"></script>      <script type="text/javascript" src="../../_static/language_data.js"></script>      <script type="text/javascript" src="../../_static/translations.js"></script>      <script type="text/javascript" src="../../_static/spongedocs.js"></script>
+
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+ 
+</body>
+</html>
